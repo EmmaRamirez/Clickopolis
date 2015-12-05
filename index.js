@@ -975,7 +975,7 @@ var game = {
         name: "Satyr's Charm",
         level: "Pantheon",
         costMult: 1,
-        effect: "+1% Happiness per <img src='img/horse.png' /> (max 25%)."
+        effect: "+1% <img src='img/happy.png' /> per <img src='img/horse.png' /> (max 25%)."
       },
       {
         name: "Golden Calf",
@@ -1005,7 +1005,14 @@ var game = {
         name: "Lord of the Flies",
         level: "Pantheon",
         costMult: 1,
+
         effect: "+1 <img src='img/happy.png' /> per 4 <img src='img/pollution.png' />"
+      },
+      {
+        name: ""
+      },
+      {
+
       },
       {
         name: "Doggy Cult",
