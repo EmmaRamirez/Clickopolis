@@ -1005,14 +1005,19 @@ var game = {
         name: "Lord of the Flies",
         level: "Pantheon",
         costMult: 1,
-
         effect: "+1 <img src='img/happy.png' /> per 4 <img src='img/pollution.png' />"
       },
       {
-        name: ""
+        name: "The Furies",
+        level: "Pantheon",
+        costMult: 1,
+        effect: "+10 <img src='img/faith.png'/> when you declare war.",
       },
       {
-
+        name: "The Fates",
+        level: "Pantheon",
+        costMult: 1,
+        effect: "Increases chance of good events."
       },
       {
         name: "Doggy Cult",
@@ -1074,6 +1079,12 @@ var game = {
         level: "Dogma",
         costMult: 125,
         effect: "Retain Max <img src='img/food.png' /> after Reset."
+      },
+      {
+        name: "Avatar",
+        level: "Dogma",
+        costMult: 125,
+        effect: "+100 <img src='img/strength.png' /> per Reset."
       },
       {
         name: "Just War",
