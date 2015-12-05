@@ -2139,7 +2139,7 @@ var game = {
 
     var updateMoney = function(amt) {
       if (amt == null || amt == '') {
-        amt = (((((game.empire.pop - game.empire.popUnemployed) * 1) - (game.empire.popUnemployed * 5) + (game.citizens.merchants.num * game.citizens.merchants.pm)) * game.empire.cashMult) - (calcBuildingCost() + calcUnitCost()))  / 60;
+        amt = (((((game.empire.pop - 1 - game.empire.popUnemployed) * 1) - (game.empire.popUnemployed * 5) + (game.citizens.merchants.num * game.citizens.merchants.pm)) * game.empire.cashMult) - (calcBuildingCost() + calcUnitCost()))  / 60;
       } else {
         amt = amt;
       }
