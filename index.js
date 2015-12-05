@@ -957,7 +957,7 @@ var game = {
         name: "Spirit of the Spices",
         level: "Pantheon",
         costMult: 1,
-        effect: "Converts half of your <img src='img/spices.png' /> into <img src='img/faith.png' />PM."
+        effect: "+1% <img src='img/faith.png' /> per <img src='img/spices.png' /> (max 25%)."
       },
       {
         name: "Benevelont Muses",
