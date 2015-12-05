@@ -595,22 +595,20 @@ img {
   vertical-align: bottom;
 }
 
-[data-button="happiness"], [data-button="anger"] {
+[data-button="happiness"], [data-button="anger"], [data-button="health"], [data-button="pollution"] {
   border: 1px solid #eee;
 }
 
-[data-button="health"] {
-  background: #ffcccc;
-  border: 1px solid red;
+[data-button="golden-age"] {
+  width: 260px !important;
+}
+
+[data-button="golden-age"] img {
+  height: .75rem;
 }
 
 [data-button="health-percent"] {
   width: 8rem;
-}
-
-[data-button="pollution"] {
-  background: #80ff80;
-  border: 1px solid green;
 }
 
 [data-button="culture-purchase"] {

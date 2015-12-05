@@ -42,8 +42,10 @@ var game = {
     happiness: 15,
     anger: 1,
     goldenAge: false,
+    goldenAgeTotal: 0, // total Num of Golden Ages
     goldenAgePoints: 0,
-    goldenAgeTotal: 0
+    goldenAgeGoal: 2500,
+    goldenAgeLength: 5, //in minutes
   },
   military: {
     strength: 10,
@@ -2068,7 +2070,7 @@ var game = {
 
       if (game.tech.research > game.tech.cost && !game.flags.can_purchase_tech) {
         note("You have enough Research Points to purchase a new <a href='#technologies'>Technology</a>!", 10000, "tech-note");
-        can_purchase_tech = true;
+        game.flags.can_purchase_tech = true;
       }
 
 
@@ -2558,6 +2560,7 @@ var game = {
               game.tech.techs[n].unlocked = true;
               game.tech.research -= game.tech.cost;
               game.tech.cost = (game.tech.cost * game.tech.costMult).toFixed(1);
+              game.flags.can_purchase_tech = false;
             } else {
               note("Not enough research points!", 5000, "tech");
             }
