@@ -2748,7 +2748,7 @@ var game = {
                 }
                 game.buildings[i].num += 1;
                 game.resources.prod.total -= game.buildings[i].prod;
-                game.buildings[i].prod = (game.buildings[i].prod + Math.log(game.buildings[i].prod)).toFixed(0);
+                game.buildings[i].prod = Math.floor(game.buildings[i].prod + Math.log(game.buildings[i].prod));
 
                 buildingContainer.html("");
                 setBuildings();
