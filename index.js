@@ -2066,7 +2066,7 @@ var game = {
         checkUnemployed();
       }
 
-      if (r > 50) {
+      if (r == 5) {
         meetNewNation();
       }
 
