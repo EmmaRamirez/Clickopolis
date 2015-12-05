@@ -297,7 +297,7 @@ section.locked-section {
 .note.vanish {
   opacity: 0;
   transition: 500ms all;
-  z-index: -1;
+  z-index: -1 !important;
 }
 
 .note.tech {
@@ -305,7 +305,7 @@ section.locked-section {
   color: #222;
 }
 
-.note.default .note-type {
+.note .note-type {
   background: rgba(0, 0, 0, 0.2);
 }
 
