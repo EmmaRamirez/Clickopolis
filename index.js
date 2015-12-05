@@ -1795,6 +1795,7 @@ var game = {
       $('.cash-PM').text("$" + game.empire.cashPM.toFixed(2));
       $('.cash-PM-formatted').text((game.empire.cashPM > 0 ? "+" : "") + abbrNum(game.empire.cashPM.toFixed(0), 2));
       (game.empire.cashPM < 0) ? $('.cash-PM-formatted').addClass('red-text') : $('.cash-PM-formatted').removeClass('red-text');
+      (game.empire.cash < 0) ? $('.total-cash').addClass('red-text') : $('.total-cash').removeClass('red-text');
 
       $('.health').text(abbrNum(game.empire.health));
       $('.pollution').text(abbrNum(game.empire.pollution));
@@ -2123,6 +2124,9 @@ var game = {
           break;
         case "Enlightenment":
           population = game.empire.pop * 1550 + rand;
+          break;
+        case "Industrial":
+          population = game.empire.pop * 2100 + rand;
           break;
         default:
           population = game.empire.pop * 10000;
@@ -2740,7 +2744,7 @@ var game = {
                 }
                 game.buildings[i].num += 1;
                 game.resources.prod.total -= game.buildings[i].prod;
-                game.buildings[i].prod = (game.buildings[i].prod * 1.25).toFixed(0);
+                game.buildings[i].prod = (game.buildings[i].prod + Math.log(game.buildings[i].prod)).toFixed(0);
 
                 buildingContainer.html("");
                 setBuildings();
