@@ -30,7 +30,7 @@ body.golden-age {
 
 .overlay.Ancient {
   $b: rgba(black, 0.8);
-  background: linear-gradient($b, $b), url('img/ancient.jpg');
+  background: linear-gradient($b, $b), url('img/ancient-alt.jpg');
   background-size: cover;
   h1, p {
     color: #eee;
@@ -305,6 +305,10 @@ section {
     opacity: 0;
     transition: 500ms all;
     z-index: -1;
+  }
+  &.tech {
+    background: #BCE3E6;
+    color: #222;
   }
   img {
     height: .75rem;

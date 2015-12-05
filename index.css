@@ -19,7 +19,7 @@ body {
 }
 
 .overlay.Ancient, .overlay.Classical, .overlay.Medieval {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/ancient.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/ancient-alt.jpg");
   background-size: cover;
 }
 
@@ -298,6 +298,11 @@ section.locked-section {
   opacity: 0;
   transition: 500ms all;
   z-index: -1;
+}
+
+.note.tech {
+  background: #BCE3E6;
+  color: #222;
 }
 
 .note img {
