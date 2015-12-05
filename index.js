@@ -1837,7 +1837,7 @@ var game = {
       var percent = (game.empire.happiness / (game.empire.happiness + game.empire.anger)) * 100;
       var mood = "Content";
       var title = $(".leader-title");
-      console.log(percent);
+      //console.log(percent);
       if (percent < 100) { mood = "Joyous"; title.text("Immaculate"); }
       if (percent < 95) { mood = "Happy"; title.text("Great"); }
       if (percent < 80) { mood = "Content"; title.text("Good"); }
@@ -1852,6 +1852,14 @@ var game = {
       game.empire.mood = mood;
       return mood;
     };
+
+    var goldenAgePaint = function() {
+      var percent = (game.empire.goldenAgePoints / game.empire.goldenAgeTotal) * 100;
+      console.log(game.empire.goldenAgePoints);
+      var percentString = percent + '%';
+      var ga = $('[data-button="golden-age"]');
+      ga.css("background", "linear-gradient(to right, #DBC776 " + percentString + ", #1F0F08 " + percentString + ", #1F0F08)").attr('title', percentString);
+    }
 
     var time = function(d) {
       var h = Math.floor(d / 3600);
@@ -2071,6 +2079,7 @@ var game = {
       updateResearch();
       //updateStrength();
       updateResources();
+      goldenAgePaint();
       setBuildings();
 
 
