@@ -28,9 +28,9 @@ body.golden-age {
 
 }
 
-.overlay.Classical {
+.overlay.Ancient {
   $b: rgba(black, 0.8);
-  background: linear-gradient($b, $b), url('img/classical.jpg');
+  background: linear-gradient($b, $b), url('img/ancient.jpg');
   background-size: cover;
   h1, p {
     color: #eee;
@@ -41,11 +41,17 @@ body.golden-age {
     font-style: italic;
   }
 }
+.overlay.Classical {
+  @extend .overlay.Ancient;
+  $b: rgba(black, 0.8);
+  background: linear-gradient($b, $b), url('img/classical.jpg');
+}
 .overlay.Medieval {
-  @extend .overlay.Classical;
+  @extend .overlay.Ancient;
   $b: rgba(black, 0.8);
   background: linear-gradient($b, $b), url('img/Medieval.jpg');
 }
+
 
 header {
   margin: .5rem;

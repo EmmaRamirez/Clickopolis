@@ -18,19 +18,23 @@ body {
   font-family: 'Source Sans Pro', 'Helvetica', 'Arial';
 }
 
-.overlay.Classical, .overlay.Medieval {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/classical.jpg");
+.overlay.Ancient, .overlay.Classical, .overlay.Medieval {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/ancient.jpg");
   background-size: cover;
 }
 
-.overlay.Classical h1, .overlay.Medieval h1, .overlay.Classical p, .overlay.Medieval p {
+.overlay.Ancient h1, .overlay.Classical h1, .overlay.Medieval h1, .overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p {
   color: #eee;
   text-align: center;
 }
 
-.overlay.Classical p, .overlay.Medieval p {
+.overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p {
   font-size: 1.5rem;
   font-style: italic;
+}
+
+.overlay.Classical {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/classical.jpg");
 }
 
 .overlay.Medieval {
