@@ -3097,14 +3097,6 @@ var game = {
       });
     };
 
-    $("#economy").change(function(){
-      var choice = $("#economy option:selected").text();
-      if (choice == "Communism") {
-          $("body").css("backgroundColor", "#F03A3A");
-          $("section").css("backgroundColor", "white");
-          $(".economy-description").text("Allows you to earn the highest Marx.")
-      }
-    });
 
     // $(document).ready(function() {
     //   //Tipped.create('[data-resource="fish"]', 'Fish add .5 <img src="img/health.png" /> per Fish and are sought after by many desert nations.');
