@@ -13,7 +13,7 @@ var game = {
   purchaseMode: false,
   totalTime: 0,
   settings: {
-
+    noteCounter: 0,
   },
   flags: {
     can_purchase_tech: false,
@@ -1702,30 +1702,49 @@ var game = {
 
 
     var index = 0;
-    var note = function(msg, ms) {
-      ms = typeof ms !== 'undefined' ?  ms : 1000;
+    var note = function(msg, ms, type) {
+      ms = typeof ms !== 'undefined' ?  ms : 5000;
+      type = typeof type !== 'undefined' ? type : 'default';
 
       var msgHTML = "<p>" + game.year + " AC: " + msg + "</p>";
-      $(".note-text").html(msgHTML);
+      (game.settings.noteCounter < 10) ? game.settings.noteCounter += 1 : game.settings.noteCounter = 0;
 
-      //$(".note-text").html("<p>" + game.year + " AC: " + msg + "</p>");
       $(".log-text").prepend(msgHTML);
 
-      $(".note").removeClass('vanish', 'hidden');
+      $("body").append("<div class='note note-" + game.settings.noteCounter + " " + type + "'><div class='note-type'>" + type + "</div><div class='note-text'>" + msgHTML + "</div><div class='close-note' data-close-n='" + game.settings.noteCounter + "'><img title='close' src='img/x.png' /></div></div>")
 
+
+
+      //$("#note-" + game.settings.noteCounter).css("height", (10 + (game.settings.noteCounter * 2)) + "rem");
+      //$("#note-" + game.settings.noteCounter).css("z-index", (1001 + game.settings.noteCounter));
       setTimeout(function(){
-        $(".note").addClass('vanish', 'hidden');
+        //$(".note").addClass('vanish', 'hidden');
       }, ms);
-
 
       // $(".note").click(function(){
       //   $(this).css("height", "90%");
       // });
       $(".close-note").click(function(){
-        $(".note").addClass('vanish', 'hidden');
+        var n = $(this).attr('data-close-n');
+        var el = $(".note-" + n);
+        el.addClass('vanish', 'hidden');
+        game.settings.noteCounter = 0;
       });
+
+      // for (i = 0; i < 10; i++) {
+      //   $(".note-" + i + " .close-note").click(function(){
+      //     $(".note-" + i).addClass('vanish', 'hidden');
+      //   })
+      // }
+      // $(".close-note").click(function(){
+      //   $(".note").addClass('vanish', 'hidden');
+      // });
     };
     note("Started a new game.");
+
+    // setInterval(function(){
+    //   note("What's up?", 1000);
+    // }, 2000);
 
 
     var healthPercentCalc = function() {
@@ -1957,7 +1976,6 @@ var game = {
 
 
 
-
       setMax();
       checkPop();
       updateCulture();
@@ -1974,9 +1992,8 @@ var game = {
     // per 30 seconds
     setInterval(function() {
 
-      if (game.tech.research > game.tech.cost) {
-        note("You have enough Research Points to purchase a new Technology!", 10000);
-      }
+
+
 
 
       newEvent(game.era);
@@ -1984,6 +2001,13 @@ var game = {
 
 
     }, 30000);
+
+    // per 38 seconds
+    setInterval(function() {
+      if (game.tech.research > game.tech.cost) {
+        note("You have enough Research Points to purchase a new <a href='#technologies'>Technology</a>!", 10000, "tech");
+      }
+    }, 38000);
 
     // per minute
     setInterval(function(){
@@ -2041,7 +2065,7 @@ var game = {
       }
 
       else {
-        note("No event roll.");
+        //note("No event roll.");
       }
 
     };
@@ -2430,23 +2454,23 @@ var game = {
     };
 
     var setTechnologies = function() {
-      var techContainer = document.getElementById("techContainer");
-      techContainer.innerHTML = "";
+      var techContainer = $(".tech-container");
+      techContainer.html('');
 
       for (var i = 0; i < game.tech.techs.length; i++) {
         //game.tech.techs[i].effects = ["Unlocks Farmers.", "Can build Strip Club", "Unlocks Merchant Culture"];
         if (game.tech.techs[i].visible == true) {
           if (game.tech.techs[i].unlocked == true) {
-            techContainer.innerHTML += "<div class='tech unlocked hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "</div>";
+            techContainer.append("<div class='tech unlocked hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "</div>");
           } else {
-            techContainer.innerHTML += "<div class='tech hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>";
+            techContainer.append("<div class='tech hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>");
             for (var j = 0; j < game.tech.techs[i].effects.length; j++) {
               $("[data-n='" + i + "'] ul").append("<li>" + game.tech.techs[i].effects[j] + "</li>");
             }
           }
 
         } else {
-          techContainer.innerHTML += "<div class='tech locked hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>";
+          techContainer.append("<div class='tech locked hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>");
           for (var j = 0; j < game.tech.techs[i].effects.length; j++) {
             $("[data-n='" + i + "'] ul").append("<li>" + game.tech.techs[i].effects[j] + "</li>");
           }

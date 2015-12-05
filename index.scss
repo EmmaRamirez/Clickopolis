@@ -310,6 +310,25 @@ section {
     background: #BCE3E6;
     color: #222;
   }
+  &.default .note-type {
+    background: rgba(0,0,0,0.2);
+  }
+  .note-type {
+    margin: -1rem;
+    padding: .5rem;
+    text-align: left;
+  }
+  @for $i from 1 to 10 {
+    &.note-#{$i} {
+      bottom: $i * 5%;
+      z-index: 100 + $i;
+      .close-note {
+        $x: 3 + ($i * 2.5);
+        bottom: ($x * 1rem) + 5.25rem;
+      }
+    }
+  }
+
   img {
     height: .75rem;
   }
@@ -323,9 +342,9 @@ section {
 .close-note {
   background: #333;
   cursor: pointer;
-  left: calc(75% - 2.25rem);
+  left: calc(77% - 2rem);
   position: fixed;
-  bottom: calc(8.5rem + 5.25rem);
+  bottom: calc(4.5rem + 5.25rem);
   padding: .5rem;
   img {
     height: 1.5rem !important;
@@ -797,6 +816,18 @@ div[data-num] {
     height: 1.5rem;
     vertical-align: top;
   }
+}
+.tech-header {
+  background: rgba(255, 255, 255, 0.8);
+  left: 0;
+  padding: .5rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.tech-container {
+  margin-top: 9rem;
 }
 .tech {
   $b: #BCE3E6;

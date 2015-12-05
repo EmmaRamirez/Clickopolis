@@ -305,6 +305,97 @@ section.locked-section {
   color: #222;
 }
 
+.note.default .note-type {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.note .note-type {
+  margin: -1rem;
+  padding: .5rem;
+  text-align: left;
+}
+
+.note.note-1 {
+  bottom: 5%;
+  z-index: 101;
+}
+
+.note.note-1 .close-note {
+  bottom: 10.75rem;
+}
+
+.note.note-2 {
+  bottom: 10%;
+  z-index: 102;
+}
+
+.note.note-2 .close-note {
+  bottom: 13.25rem;
+}
+
+.note.note-3 {
+  bottom: 15%;
+  z-index: 103;
+}
+
+.note.note-3 .close-note {
+  bottom: 15.75rem;
+}
+
+.note.note-4 {
+  bottom: 20%;
+  z-index: 104;
+}
+
+.note.note-4 .close-note {
+  bottom: 18.25rem;
+}
+
+.note.note-5 {
+  bottom: 25%;
+  z-index: 105;
+}
+
+.note.note-5 .close-note {
+  bottom: 20.75rem;
+}
+
+.note.note-6 {
+  bottom: 30%;
+  z-index: 106;
+}
+
+.note.note-6 .close-note {
+  bottom: 23.25rem;
+}
+
+.note.note-7 {
+  bottom: 35%;
+  z-index: 107;
+}
+
+.note.note-7 .close-note {
+  bottom: 25.75rem;
+}
+
+.note.note-8 {
+  bottom: 40%;
+  z-index: 108;
+}
+
+.note.note-8 .close-note {
+  bottom: 28.25rem;
+}
+
+.note.note-9 {
+  bottom: 45%;
+  z-index: 109;
+}
+
+.note.note-9 .close-note {
+  bottom: 30.75rem;
+}
+
 .note img {
   height: .75rem;
 }
@@ -320,9 +411,9 @@ section.locked-section {
 .close-note {
   background: #333;
   cursor: pointer;
-  left: calc(75% - 2.25rem);
+  left: calc(77% - 2rem);
   position: fixed;
-  bottom: calc(8.5rem + 5.25rem);
+  bottom: calc(4.5rem + 5.25rem);
   padding: .5rem;
 }
 
@@ -842,6 +933,20 @@ div[data-num] {
 .research img {
   height: 1.5rem;
   vertical-align: top;
+}
+
+.tech-header {
+  background: rgba(255, 255, 255, 0.8);
+  left: 0;
+  padding: .5rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.tech-container {
+  margin-top: 9rem;
 }
 
 .tech {

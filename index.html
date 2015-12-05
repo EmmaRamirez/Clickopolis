@@ -20,10 +20,7 @@
   <h3 class="hint--right year-marker" data-hint="After your first Click, years begin to pass."></h3>
 </header>
 <div id="settings" class="settings"><img src="img/gear.png" /> Settings</div>
-<div class="note">
-  <div class="note-text"></div>
-  <div class="close-note"><img title='close' src='img/x.png' /></div>
-</div>
+
 
 <div class="overlay hidden" id="overlay"></div>
 <section class="intro hidden" id="intro">
@@ -336,25 +333,26 @@
     <div class="wonders-container"></div>
   </section>
 
-  <section class="research">
-    <h3>Technologies</h3>
-    <div class="research-info"><strong><img src="img/research.png"><span class="research-points">23</span> Research Points</strong><!--&mdash;1 from Pop, 2 from Citizenry, 1 from Culture, 1 from Trade--></div>
-    <div class="research-era">
-      <strong>Era: </strong>
-      <select>
-        <option class="All">All</option>
-        <option class="Ancient">Ancient</option>
-        <option value="Classical">Classical</option>
-        <option value="Medieval">Medieval</option>
-        <option value="Renaissance">Renaissance</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="checkbox" id="showLockedTechs" /> <strong>Show Locked Technologies</strong>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="checkbox" id="ShowPurchasedTechs" /> <strong>Show Purchased Technologies</strong>
+  <section class="research" id="technologies">
+    <div class="tech-header">
+      <h3>Technologies</h3>
+      <div class="research-info"><strong><img src="img/research.png"><span class="research-points">23</span> Research Points</strong><!--&mdash;1 from Pop, 2 from Citizenry, 1 from Culture, 1 from Trade--></div>
+      <div class="research-era">
+        <strong>Era: </strong>
+        <select>
+          <option class="All">All</option>
+          <option class="Ancient">Ancient</option>
+          <option value="Classical">Classical</option>
+          <option value="Medieval">Medieval</option>
+          <option value="Renaissance">Renaissance</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id="showLockedTechs" /> <strong>Show Locked Technologies</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" id="ShowPurchasedTechs" /> <strong>Show Purchased Technologies</strong>
+      </div>
     </div>
-    <br/>
-    <div id="techContainer"></div>
+    <div class="tech-container"></div>
   </section>
 
   <section class="military">
