@@ -1267,6 +1267,18 @@ var game = {
       visible: false
     },
     {
+      name: "Asclepieia",
+      num: 0,
+      numApplied: 0,
+      prod: 180,
+      cost: 1800,
+      misc: null,
+      misc: null,
+      effect: "+2 <img src='img/health.png' />",
+      description: "An ancient building aimed at healing your people.",
+      visible: true
+    },
+    {
       name: "Walls",
       num: 0,
       numApplied: 0,
