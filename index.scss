@@ -535,6 +535,7 @@ img {
   width: 8rem;
   &.sick {
     background: lighten(green, 50%);
+    border: 1px solid mix(green, blue);
   }
 }
 [data-button="pollution"] {

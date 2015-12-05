@@ -1822,7 +1822,13 @@ var game = {
 
 
     var healthPercentCalc = function() {
+      var h = $('[data-button="health-percent"]');
       var percent = game.empire.health / (game.empire.health + game.empire.pollution)
+      if (percent < .5) {
+        h.addClass('sick');
+      } else {
+        h.removeClass('sick');
+      }
       var percent = (percent * 100).toFixed(0) + "%";
       return percent;
     };

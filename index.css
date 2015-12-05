@@ -617,6 +617,7 @@ img {
 
 [data-button="health-percent"].sick {
   background: #80ff80;
+  border: 1px solid #00407f;
 }
 
 [data-button="culture-purchase"] {
