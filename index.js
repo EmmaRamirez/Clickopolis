@@ -1243,6 +1243,18 @@ var game = {
       visible: false
     },
     {
+      name: "Barracks",
+      num: 0,
+      numApplied: 0,
+      prod: 115,
+      cost: 1200,
+      misc: null,
+      misc2: null,
+      effect: "+1 Unit <img src='img/strength.png' />",
+      description: "A nice and comfy place for your soldiers to kick it.",
+      visible: true
+    },
+    {
       name: "Temple",
       num: 0,
       numApplied: 0,
