@@ -974,6 +974,10 @@ div[data-num] {
   background: #B0F27E;
 }
 
+.tech.attention {
+  box-shadow: 0 0 1rem blue;
+}
+
 .tech .tech-name {
   margin: 0 0.5rem;
 }

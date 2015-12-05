@@ -1222,7 +1222,7 @@ var game = {
       name: "Granary",
       num: 0,
       numApplied: 0,
-      prod: 40,
+      prod: 30,
       cost: 400,
       misc: null,
       misc2: null,
@@ -1234,7 +1234,7 @@ var game = {
       name: "Quarry",
       num: 0,
       numApplied: 0,
-      prod: 60,
+      prod: 40,
       cost: 600,
       misc: null,
       misc2: null,
@@ -2008,6 +2008,8 @@ var game = {
           note("One of your miners found a massive ore deposit! (+1 <img src='img/stone.png' />)");
         }
       }
+
+      (game.tech.research > game.tech.cost) ? $('.tech').addClass('attention') : $('.tech').removeClass('attention');
 
 
 

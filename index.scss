@@ -854,6 +854,9 @@ div[data-num] {
       background: #B0F27E;
     }
   }
+  &.attention {
+    box-shadow: 0 0 1rem blue;
+  }
   .tech-name {
     margin: 0 .5rem;
   }
