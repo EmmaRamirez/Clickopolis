@@ -1002,6 +1002,12 @@ var game = {
         effect: "+.2 <img src='img/faith.png' /> PM per Quarry."
       },
       {
+        name: "Lord of the Flies",
+        level: "Pantheon",
+        costMult: 1,
+        effect: "+1 <img src='img/happy.png' /> per 4 <img src='img/pollution.png' />"
+      },
+      {
         name: "Doggy Cult",
         level: "Pantheon",
         costMult: 1,
