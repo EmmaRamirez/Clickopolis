@@ -295,6 +295,7 @@ section {
   //display: none;
   background: #333;
   border-bottom: 1px solid #555;
+  border-radius: 4px;
   box-shadow: 0 0 .2em #aaa;
   bottom: 5%;
   color: white;
@@ -312,7 +313,7 @@ section {
     transition: 500ms all;
     z-index: -1 !important;
   }
-  &.tech {
+  &.tech-note {
     background: #BCE3E6;
     color: #222;
   }
@@ -320,7 +321,7 @@ section {
     background: rgba(0,0,0,0.2);
   }
   .note-type {
-    margin: -.5rem;
+    margin: -1rem;
     padding: .5rem;
     text-align: left;
   }

@@ -1770,7 +1770,7 @@ var game = {
       type = typeof type !== 'undefined' ? type : 'default';
       var typePost = "Game Notification";
       switch (type) {
-        case 'tech':
+        case 'tech-note':
           typePost = "Technology";
           break;
         case 'diplomacy-r':
@@ -2067,7 +2067,7 @@ var game = {
     setInterval(function() {
 
       if (game.tech.research > game.tech.cost && !game.flags.can_purchase_tech) {
-        note("You have enough Research Points to purchase a new <a href='#technologies'>Technology</a>!", 10000, "tech");
+        note("You have enough Research Points to purchase a new <a href='#technologies'>Technology</a>!", 10000, "tech-note");
         can_purchase_tech = true;
       }
 
@@ -2559,13 +2559,13 @@ var game = {
               game.tech.research -= game.tech.cost;
               game.tech.cost = (game.tech.cost * game.tech.costMult).toFixed(1);
             } else {
-              note("Not enough research points!");
+              note("Not enough research points!", 5000, "tech");
             }
 
             checkTechnologies();
             setTechnologies();
           } else {
-            noet("You can't create that technology yet!");
+            noet("You can't create that technology yet!", 5000, "tech");
           }
 
 

@@ -283,6 +283,7 @@ section.locked-section {
 .note {
   background: #333;
   border-bottom: 1px solid #555;
+  border-radius: 4px;
   box-shadow: 0 0 0.2em #aaa;
   bottom: 5%;
   color: white;
@@ -302,7 +303,7 @@ section.locked-section {
   z-index: -1 !important;
 }
 
-.note.tech {
+.note.tech-note {
   background: #BCE3E6;
   color: #222;
 }
@@ -312,7 +313,7 @@ section.locked-section {
 }
 
 .note .note-type {
-  margin: -.5rem;
+  margin: -1rem;
   padding: .5rem;
   text-align: left;
 }
