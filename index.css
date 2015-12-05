@@ -310,7 +310,7 @@ section.locked-section {
 }
 
 .note .note-type {
-  margin: -1rem;
+  margin: -.5rem;
   padding: .5rem;
   text-align: left;
 }

@@ -17,6 +17,7 @@ var game = {
   },
   flags: {
     can_purchase_tech: false,
+    just_purchased_tech: false,
     entered_ancient_era: true,
     entered_classical_era: false,
     entered_medieval_era: false,
@@ -1705,13 +1706,19 @@ var game = {
     var note = function(msg, ms, type) {
       ms = typeof ms !== 'undefined' ?  ms : 5000;
       type = typeof type !== 'undefined' ? type : 'default';
+      var typePost = "Game Notification";
+      switch (type) {
+        case 'tech':
+          typePost = "Technology";
+          break;
+      }
 
       var msgHTML = "<p>" + game.year + " AC: " + msg + "</p>";
       (game.settings.noteCounter < 10) ? game.settings.noteCounter += 1 : game.settings.noteCounter = 0;
 
       $(".log-text").prepend(msgHTML);
 
-      $("body").append("<div class='note note-" + game.settings.noteCounter + " " + type + "'><div class='note-type'>" + type + "</div><div class='note-text'>" + msgHTML + "</div><div class='close-note' data-close-n='" + game.settings.noteCounter + "'><img title='close' src='img/x.png' /></div></div>")
+      $("body").append("<div class='note note-" + game.settings.noteCounter + " " + type + "'><div class='note-type'>" + typePost + "</div><div class='note-text'>" + msgHTML + "</div><div class='close-note' data-close-n='" + game.settings.noteCounter + "'><img title='close' src='img/x.png' /></div></div>")
 
 
 
@@ -1727,7 +1734,7 @@ var game = {
       $(".close-note").click(function(){
         var n = $(this).attr('data-close-n');
         var el = $(".note-" + n);
-        el.addClass('vanish', 'hidden');
+        el.remove();
         game.settings.noteCounter = 0;
       });
 
@@ -1862,14 +1869,14 @@ var game = {
 
             game.resources.fish.total += 1;
             game.empire.health += game.resources.fish.healthBonus;
-            note("One of your citizens caught fish!");
+            note("One of your citizens caught fish! (+1 <img src='img/fish.png' />)");
           }
         }
         if (game.resources.horse.unlocked) {
           var horseRand = Math.random();
           if ((game.resources.horse.mult / 200) > horseRand) {
             game.resources.horse.total += 1;
-            note("One of your farmers bred a prize horse!");
+            note("One of your farmers bred a prize horse! (+1 <img src='img/horse.png' />)");
           }
         }
       }
@@ -1953,7 +1960,7 @@ var game = {
 
           game.resources.fish.total += 1;
           game.empire.health += game.resources.fish.healthBonus;
-          note("One of your citizens caught fish!");
+          note("One of your citizens caught fish! (+1 <img src='img/fish.png' />)");
         }
       }
 
@@ -1961,7 +1968,7 @@ var game = {
         var horseRand = Math.random();
         if ((game.resources.horse.mult / 2000) > horseRand) {
           game.resources.horse.total += 1;
-          note("One of your farmers bred a prize horse!");
+          note("One of your farmers bred a prize horse! (+1 <img src='img/horse.png' />)");
         }
       }
 
@@ -1992,7 +1999,10 @@ var game = {
     // per 30 seconds
     setInterval(function() {
 
-
+      if (game.tech.research > game.tech.cost && !game.flags.can_purchase_tech) {
+        note("You have enough Research Points to purchase a new <a href='#technologies'>Technology</a>!", 10000, "tech");
+        can_purchase_tech = true;
+      }
 
 
 
@@ -2001,13 +2011,6 @@ var game = {
 
 
     }, 30000);
-
-    // per 38 seconds
-    setInterval(function() {
-      if (game.tech.research > game.tech.cost) {
-        note("You have enough Research Points to purchase a new <a href='#technologies'>Technology</a>!", 10000, "tech");
-      }
-    }, 38000);
 
     // per minute
     setInterval(function(){
