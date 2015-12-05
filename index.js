@@ -44,7 +44,7 @@ var game = {
     goldenAge: false,
     goldenAgeTotal: 0, // total Num of Golden Ages
     goldenAgePoints: 0,
-    goldenAgeGoal: 10000,
+    goldenAgeGoal: 100000,
     goldenAgeLength: 5, //in minutes
   },
   military: {
@@ -1854,8 +1854,7 @@ var game = {
     };
 
     var goldenAgePaint = function() {
-      var percent = (game.empire.goldenAgePoints / game.empire.goldenAgeTotal) * 100;
-      console.log(game.empire.goldenAgePoints);
+      var percent = (game.empire.goldenAgePoints / game.empire.goldenAgeGoal) * 100;
       var percentString = percent + '%';
       var ga = $('[data-button="golden-age"]');
       ga.css("background", "linear-gradient(to right, #DBC776 " + percentString + ", #1F0F08 " + percentString + ", #1F0F08)").attr('title', percentString);

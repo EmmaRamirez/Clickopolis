@@ -606,6 +606,7 @@ img {
 }
 
 [data-button="golden-age"] img {
+  filter: drop-shadow(0 0 6px #1F0F08);
   height: .75rem;
 }
 
