@@ -1983,6 +1983,10 @@ var game = {
     // per 30 seconds
     setInterval(function() {
 
+      if (game.tech.research > game.tech.cost) {
+        note("You have enough Research Points to purchase a new Technology!", 10000);
+      }
+
 
       newEvent(game.era);
       advisorText();
