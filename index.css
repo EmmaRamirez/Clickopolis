@@ -600,6 +600,8 @@ img {
 }
 
 [data-button="golden-age"] {
+  background: #1F0F08;
+  color: white;
   width: 260px !important;
 }
 
@@ -608,7 +610,13 @@ img {
 }
 
 [data-button="health-percent"] {
+  background: #ffcccc;
+  border: 1px solid #ff6666;
   width: 8rem;
+}
+
+[data-button="health-percent"].sick {
+  background: #80ff80;
 }
 
 [data-button="culture-purchase"] {

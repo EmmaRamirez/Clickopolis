@@ -44,7 +44,7 @@ var game = {
     goldenAge: false,
     goldenAgeTotal: 0, // total Num of Golden Ages
     goldenAgePoints: 0,
-    goldenAgeGoal: 2500,
+    goldenAgeGoal: 10000,
     goldenAgeLength: 5, //in minutes
   },
   military: {
@@ -1889,6 +1889,9 @@ var game = {
       $('.anger').text(game.empire.anger);
       $('.mood-string').text(moodCalc());
 
+      $('.golden-age-points').text(abbrNum(game.empire.goldenAgePoints, 2));
+      $('.golden-age-goal').text(abbrNum(game.empire.goldenAgeGoal, 2));
+
       $('.farmer-ps').text(game.citizens.farmers.ps);
       $('.farmer-pc').text(game.citizens.farmers.pc);
       $('.miner-ps').text(game.citizens.miners.ps);
@@ -2018,6 +2021,8 @@ var game = {
       game.resources.food.total += game.resources.food.ps;
 
       game.resources.food.total -= game.empire.pop - 1;
+
+      game.empire.goldenAgePoints += (game.empire.happiness - game.empire.anger);
 
 
 
