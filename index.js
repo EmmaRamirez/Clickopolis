@@ -3,7 +3,7 @@ var game = {
 
   ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
-  era: "",
+  era: "Ancient",
   eraNum: 1,
   year: 0,
   resets: 0,
@@ -1654,36 +1654,27 @@ var game = {
 
     var setEra = function(era) {
       $(".overlay").html('');
-      if (era == game.era) {
-      } else {
+      var eraMarker = $('.era-marker');
 
-        var eraMarker = $('.era-marker');
-        eraMarker.text(game.era + " era");
-        if (era != "Ancient") {
+      eraMarker.text(game.era + " era");
 
-          $(".overlay").removeClass(game.era).removeClass("hidden");
-          $("body").removeClass(game.era);
+      $('.overlay').removeClass(game.era).removeClass('hidden');
+      $('body').removeClass(game.era);
 
-          game.era = era;
-          game.eraNum *= 2;
-
-          $(".overlay").append("<h1>Welcome to the " + game.era + " Era!</h1><p>Click anywhere to continue.</p>");
-          if (game.era == "Classical") {
-            $(".overlay").append("<p>+10 <img src='img/production.png' /> PC</p>");
-          }
-          $(".overlay").addClass(game.era).removeClass("hidden");
-          $("body").addClass(game.era);
-          eraMarker.text(game.era + " era");
+      game.era = era;
+      game.eraNum *= 2;
 
 
-          if (era == "Classical") {
-
-          }
-        }
+      $(".overlay").append("<h1>Welcome to the " + game.era + " Era!</h1><p>Click anywhere to continue.</p>");
+      if (game.era == "Classical") {
+        $(".overlay").append("<p>+10 <img src='img/production.png' /> PC</p>");
       }
+      $(".overlay").addClass(game.era).removeClass("hidden");
+      $("body").addClass(game.era);
+      eraMarker.text(game.era + " era");
 
     };
-    setEra("Ancient");
+    setEra(game.era);
     $(".overlay").click(function(){
       $(this).addClass("hidden");
     });
