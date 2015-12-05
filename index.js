@@ -1148,6 +1148,20 @@ var game = {
       met: false
     },
     {
+      name: "Calloway",
+      img: 10,
+      mood: "neutral",
+      moodNum: 50,
+      strength: 28,
+      defense: 63,
+      description: "A moderately small nation known for its thriving oceanic economy.",
+      env1: "Ocean",
+      env2: "",
+      personality: "amiable",
+      color: "periwinkle",
+      met: false
+    },
+    {
       name: "Mukthos",
       img: 8,
       mood: "angry",
