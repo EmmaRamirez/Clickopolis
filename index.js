@@ -1776,7 +1776,7 @@ var game = {
       $('.food-ps').text(abbrNum((game.resources.food.ps - (game.empire.pop - 1)).toFixed(1), 2));
       $('.food-pc').text(abbrNum(game.resources.food.pc.toFixed(1), 2));
       $('.food-max').text(abbrNum(game.resources.food.max, 2));
-      (game.resources.food.ps < 0) ? $('.food-ps').addClass('red-text') : $('.food-ps').removeClass('red-text');
+      //(game.resources.food.ps < 0) ? $('.food-ps').addClass('red-text') : $('.food-ps').removeClass('red-text');
 
       $('.prod-total').text(abbrNum(game.resources.prod.total.toFixed(0), 2));
       $('.prod-ps').text(abbrNum(game.resources.prod.ps.toFixed(1), 2));
