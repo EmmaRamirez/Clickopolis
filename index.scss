@@ -261,7 +261,7 @@ section {
   border: 2px solid darken(tan, 15%);
   color: white;
   cursor: default;
-  display: block !important;
+  display: block;
   left: 25rem;
   margin: .5rem auto;
   padding: .25rem;
@@ -275,6 +275,15 @@ section {
   border: 2px solid darken(#1A436E, 5%);
   @extend .era-marker;
   top: 2.5rem;
+
+}
+
+.golden-age-marker {
+  background: #1F0F08;
+  border: 2px solid black;
+  color: white;
+  @extend .era-marker;
+  left: 37rem;
 }
 
 .advisor {
@@ -526,8 +535,10 @@ img {
   color: white;
   width: 260px !important;
   img {
-    filter: drop-shadow(0 0 6px #1F0F08);
     height: .75rem;
+    -webkit-filter: drop-shadow(0 0 6px #1F0F08);
+    -ms-filter: drop-shadow(0 0 6px #1F0F08);
+    -moz-filter: drop-shadow(0 0 6px #1F0F08);
   }
 }
 [data-button="health-percent"] {
@@ -871,7 +882,7 @@ div[data-num] {
     }
   }
   &.attention {
-    box-shadow: 0 0 1rem blue;
+    border: 1px dashed blue;
   }
   .tech-name {
     margin: 0 .5rem;

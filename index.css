@@ -244,13 +244,13 @@ section.locked-section {
   height: 1rem;
 }
 
-.era-marker, .year-marker {
+.era-marker, .year-marker, .golden-age-marker {
   border-radius: 8px;
   background: #cba87a;
   border: 2px solid #bc9055;
   color: white;
   cursor: default;
-  display: block !important;
+  display: block;
   left: 25rem;
   margin: .5rem auto;
   padding: .25rem;
@@ -263,6 +263,13 @@ section.locked-section {
   background: #1A436E;
   border: 2px solid #153659;
   top: 2.5rem;
+}
+
+.golden-age-marker {
+  background: #1F0F08;
+  border: 2px solid black;
+  color: white;
+  left: 37rem;
 }
 
 .advisor {
@@ -606,8 +613,10 @@ img {
 }
 
 [data-button="golden-age"] img {
-  filter: drop-shadow(0 0 6px #1F0F08);
   height: .75rem;
+  -webkit-filter: drop-shadow(0 0 6px #1F0F08);
+  -ms-filter: drop-shadow(0 0 6px #1F0F08);
+  -moz-filter: drop-shadow(0 0 6px #1F0F08);
 }
 
 [data-button="health-percent"] {
@@ -984,7 +993,7 @@ div[data-num] {
 }
 
 .tech.attention {
-  box-shadow: 0 0 1rem blue;
+  border: 1px dashed blue;
 }
 
 .tech .tech-name {

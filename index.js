@@ -113,9 +113,9 @@ var game = {
       num: 0,
       pm: 5
     },
-    strippers: {
+    jesters: {
+      num: 0,
       happiness: 5,
-      pollution: 1
     }
 
   },
