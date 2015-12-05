@@ -1054,7 +1054,7 @@ var game = {
         name: "Virgin Birth",
         level: "Dogma",
         costMult: 125,
-        effect: " "
+        effect: "Retain 80% of <img src='img/food.png' /> after growth."
       },
       {
         name: "Ressurection",
