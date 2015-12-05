@@ -1711,6 +1711,9 @@ var game = {
         case 'tech':
           typePost = "Technology";
           break;
+        case 'diplomacy-r':
+          typePost = "Diplomatic Relations";
+          break;
       }
 
       var msgHTML = "<p>" + game.year + " AC: " + msg + "</p>";
@@ -2437,7 +2440,7 @@ var game = {
       if (nation.met == false) {
         nation.met = true;
         setNations();
-        note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000);
+        note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
       } else {
         meetNewNation();
       }
