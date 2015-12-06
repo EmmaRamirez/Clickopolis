@@ -2228,7 +2228,13 @@ var game = {
     };
 
     var updateFaith = function() {
-      game.faith.total += game.faith.pm / 60;
+      var fromArtists = 0;
+      var faithPM;
+      if (game.faith.upgrades[2].unlocked) {
+        fromArtists = game.citizens.artists.num / 2;
+      }
+      faithPM = game.faith.pm + fromArtists;
+      game.faith.total += faithPM / 60;
     };
 
 
@@ -3152,11 +3158,17 @@ var game = {
         if (n == 0) {
 
         }
+        if (n == 2) {
+          $('.artist-faith').removeClass('hidden');
+        }
         if (n == 3) {
           game.military.strength *= 1.15;
         }
         if (n == 6) {
           game.resources.food.pc += 10;
+        }
+        if (n == 7) {
+          game.military.defense *= 1.3;
         }
         if (n == 12) {
           game.faith.upgrades[n].effect = "Conversion complete.";
