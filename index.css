@@ -21,7 +21,7 @@ body {
 }
 
 .overlay.Ancient, .overlay.Classical, .overlay.Medieval {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/ancient-alt.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/ancient-alt.jpg");
   background-size: cover;
 }
 
@@ -36,11 +36,11 @@ body {
 }
 
 .overlay.Classical {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/classical.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/classical.jpg");
 }
 
 .overlay.Medieval {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/Medieval.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/Medieval.jpg");
 }
 
 header {

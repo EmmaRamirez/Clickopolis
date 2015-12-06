@@ -36,7 +36,7 @@ body.golden-age {
 
 .overlay.Ancient {
   $b: rgba(black, 0.8);
-  background: linear-gradient($b, $b), url('img/ancient-alt.jpg');
+  background-image: linear-gradient($b, $b), url('img/ancient-alt.jpg');
   background-size: cover;
   h1, p {
     color: #eee;
@@ -50,12 +50,12 @@ body.golden-age {
 .overlay.Classical {
   @extend .overlay.Ancient;
   $b: rgba(black, 0.8);
-  background: linear-gradient($b, $b), url('img/classical.jpg');
+  background-image: linear-gradient($b, $b), url('img/classical.jpg');
 }
 .overlay.Medieval {
   @extend .overlay.Ancient;
   $b: rgba(black, 0.8);
-  background: linear-gradient($b, $b), url('img/Medieval.jpg');
+  background-image: linear-gradient($b, $b), url('img/Medieval.jpg');
 }
 
 
