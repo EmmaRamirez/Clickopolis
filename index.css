@@ -738,6 +738,31 @@ img {
   border: 1px solid #666;
 }
 
+.trade-deal {
+  font-size: 14px;
+  text-align: center;
+}
+
+.trade-deal:nth-of-type(odd) span {
+  background: #eee;
+}
+
+.trade-deal.header {
+  font-weight: bold;
+}
+
+.trade-deal img {
+  height: .75rem;
+}
+
+.trade-deal span {
+  border: 1px solid #ddd;
+  display: inline-block;
+  margin-right: -4px;
+  padding: .25rem;
+  width: 24%;
+}
+
 .resource-column {
   border: 1px solid #ddd;
   padding: .25rem;
