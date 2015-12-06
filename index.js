@@ -1727,6 +1727,7 @@ var game = {
 
     if (game.settings.debugMode) {
       game.tech.research = 100000000;
+      game.faith.total = 1000;
     }
 
     var choose = function(arr) {
@@ -3147,11 +3148,19 @@ var game = {
     setFaithUpgrades();
 
     var checkFaithUpgrades = function(n) {
-      if (!game.culture.upgrades[n].activated) {
+      if (!game.faith.upgrades[n].activated) {
         if (n == 0) {
 
         }
-        game.culture.upgrades[n].activated = true;
+        if (n == 6) {
+          game.resources.food.pc += 10;
+        }
+        if (n == 12) {
+          game.
+          $("img[src='img/horse.png']").attr('src', 'img/chihuahua.png');
+
+        }
+        game.faith.upgrades[n].activated = true;
       } else {
         note("You already activated that culture purchase!");
       }
