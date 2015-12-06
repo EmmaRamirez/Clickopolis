@@ -627,11 +627,12 @@ img {
   }
 }
 [data-button="hire-mercenary"] {
-  background: url('img/coin.png');
+  background-color: lightyellow;
+  background-image: url('img/coin.png');
   background-position: .25rem;
   background-size: 1.5rem;
   background-repeat: no-repeat;
-  border: 1px solid grey;
+  border: 1px solid gold;
   display: inline-block;
   margin: .25rem;
   width: 100%;
