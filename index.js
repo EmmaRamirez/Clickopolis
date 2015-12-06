@@ -47,6 +47,11 @@ var game = {
     goldenAgePoints: 0,
     goldenAgeGoal: 100000,
     goldenAgeLength: 5, //in minutes
+    tradeDealHistory: [
+      // From, Gave, For, Year
+      ["Emporia", "10 Spices", "4 Gold", "14 AC"],
+      ["Ulundo", "12 Gold", "140 Cash", "22 AC"],
+    ]
   },
   military: {
     strength: 10,
