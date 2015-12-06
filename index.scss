@@ -619,6 +619,9 @@ img {
   background: white;
   text-align: left !important;
   width: 48%;
+  &.unlocked {
+    background: lightyellow;
+  }
   .faith-upgrade-effect {
     font-size: 14px;
     img {

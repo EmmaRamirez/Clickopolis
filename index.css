@@ -708,6 +708,10 @@ img {
   width: 48%;
 }
 
+[data-button="faith-upgrade"].unlocked {
+  background: lightyellow;
+}
+
 [data-button="faith-upgrade"] .faith-upgrade-effect {
   font-size: 14px;
 }
