@@ -149,6 +149,7 @@ section.locked-section {
   min-height: 0;
   height: 19.5rem;
   left: 29.5%;
+  overflow: auto;
   position: absolute;
   top: 20.5rem;
 }
