@@ -1094,6 +1094,38 @@ var game = {
         unlocked: false,
         activated: false
       },
+      {
+        name: "Animism",
+        level: "Belief",
+        costMult: 25,
+        effect: "+2 <img src='img/faith.png' /> from Stable, Harbor, and Zoo.",
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Dualism",
+        level: "Belief",
+        costMult: 25,
+        effect: "",
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Occultism",
+        level: "Belief",
+        costMult: 25,
+        effect: "",
+        unlocked: false,
+        acitvated: false
+      },
+      {
+        name: "Idolatry",
+        level: "Belief",
+        costMult: 25,
+        effect: "+10 <img src='img/faith.png'/>PM per Great Work.",
+        unlocked: false,
+        activated: false
+      },
 
       {
         name: "Purgatory",
