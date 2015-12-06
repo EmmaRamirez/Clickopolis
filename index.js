@@ -1891,7 +1891,7 @@ var game = {
       $('.spices-total').text(abbrNum(game.resources.spices.total, 2));
 
       $('.pop-text').text(game.empire.pop);
-      $('.pop-cost-mult').text(game.empire.popCostMult.toFixed(3));
+      //$('.pop-cost-mult').text(game.empire.popCostMult.toFixed(3));
 
       $('.total-cash').text(abbrNum(game.empire.cash.toFixed(1), 2));
       $('.cash-PM').text("$" + game.empire.cashPM.toFixed(2));
