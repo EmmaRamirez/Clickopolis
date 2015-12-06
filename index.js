@@ -2115,7 +2115,7 @@ var game = {
         var stoneRand = Math.random();
         if ((game.resources.stone.mult / (100 - game.citizens.miners.num)) > stoneRand) {
           game.resources.stone.total += 1;
-          note("One of your miners found a massive ore deposit! (+1 <img src='img/stone.png' />)");
+          //note("One of your miners found a massive ore deposit! (+1 <img src='img/stone.png' />)");
         }
       }
 
@@ -3151,6 +3151,9 @@ var game = {
       if (!game.faith.upgrades[n].activated) {
         if (n == 0) {
 
+        }
+        if (n == 3) {
+          game.military.strength *= 1.15;
         }
         if (n == 6) {
           game.resources.food.pc += 10;
