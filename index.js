@@ -1466,7 +1466,7 @@ var game = {
       cost: 2000,
       misc: null,
       misc2: null,
-      effect: "+2 <img src='img/science.png' />, +3 <img src='img/happy.png' />",
+      effect: "+2 <img src='img/research.png' />, +3 <img src='img/happy.png' />",
       description: "",
       visible: false
     },
@@ -3207,7 +3207,7 @@ var game = {
           game.faith.upgrades[4].effect = "+1% <img src='img/happy.png' /> per <img src='img/chihuahua.png' /> (max 25%).";
           $(".horse-label").text("Chihuahua");
           $("img[src='img/horse.png']").attr('src', 'img/chihuahua.png');
-
+          $("[data-resource='horse']").attr('data-hint', 'Raise a cuddly Chihuahua army with these yappy things.');
         }
         if (n == 13) {
           $(".secret.row").removeClass("hidden");
