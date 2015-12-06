@@ -3125,14 +3125,14 @@ var game = {
         if (game.faith.upgrades[i].unlocked) {
           $(".faith-upgrades." + game.faith.upgrades[i].level).append("<div data-button='faith-upgrade' data-n='" + i + "' class='unlocked'><img src='img/faith.png' /> <strong>" + (cost * game.faith.upgrades[i].costMult) + "</strong> " + game.faith.upgrades[i].name + "&nbsp;&nbsp;&nbsp;<em class='faith-upgrade-effect'>" + game.faith.upgrades[i].effect + "</em></div>");
         } else {
-          $(".faith-upgrades." + game.faith.upgrades[i].level).append("<div data-button='faith-upgrade' data-n='" + i + "'><img src='img/faith.png' /> <strong>" + (cost * game.faith.upgrades[i].costMult) + "</strong> " + game.faith.upgrades[i].name + "&nbsp;&nbsp;&nbsp;<em class='faith-upgrade-effect'>" + game.faith.upgrades[i].effect + "</em></div>");
+          $(".faith-upgrades." + game.faith.upgrades[i].level).append("<div data-button='faith-upgrade' data-n='" + i + "' title='" + i + "'><img src='img/faith.png' /> <strong>" + (cost * game.faith.upgrades[i].costMult) + "</strong> " + game.faith.upgrades[i].name + "&nbsp;&nbsp;&nbsp;<em class='faith-upgrade-effect'>" + game.faith.upgrades[i].effect + "</em></div>");
         }
 
       }
 
       $("[data-button='faith-upgrade']").click(function(){
         var n = $(this).attr('data-n');
-        if (game.faith.total >= (game.faith.upgrades[n].costMult * 10)) {
+        if (game.faith.total >= (game.faith.upgrades[n].costMult * 10) && !game.faith.upgrades[n].unlocked) {
 
           game.faith.total -= (game.faith.upgrades[n].costMult * 10);
           game.faith.upgrades[n].unlocked = true;
