@@ -1482,7 +1482,7 @@ var game = {
       name: "The Great Pyramids",
       img: "great-pyramids",
       time: 145,
-      required: "Requires 25 <img src='img/stone.png' />",
+      required: "25 <img src='img/stone.png' />",
       effect: "+1 Free Engineer.",
       description: "It'd probably build faster if we had aliens in this game.",
       visible: true,
