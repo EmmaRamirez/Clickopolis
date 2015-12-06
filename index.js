@@ -14,6 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
+    debugMode: true,
   },
   flags: {
     can_purchase_tech: false,
@@ -354,7 +355,7 @@ var game = {
         name: "Poetics",
         era: "Classical",
         description: "Improves Artists by 100%. Can build Ampitheatre.",
-        effects: ["Improves Artists by 100%", "Can build Ampitheatre.", "Reveals Civility technology."],
+        effects: ["Improves Artists by 100%", "Can assign Citizens as Jesters.", "Can build Ampitheatre.", "Reveals Civility technology."],
         flavor: " ",
         visible: false,
         unlocked: false,
@@ -1676,6 +1677,10 @@ var game = {
     //for (var i = 0; i < game.tech.techs.length; i++) { game.tech.techs[i].visible = true; }
     for (var i = 0; i < game.wonders.length; i++) { game.wonders[i].visible = false; }
 
+    if (game.settings.debugMode) {
+      game.tech.research = 100000000;
+    }
+
     var choose = function(arr) {
       return arr[Math.floor(Math.random()*arr.length)];
     }
@@ -2692,6 +2697,7 @@ var game = {
             $("[data-job='scientist']").removeClass('locked');
           }
           if (i == 16) {
+            $("[data-job='jester']").removeClass('locked');
             game.buildings[7].visible = true;
             setBuildings();
             game.tech.techs[19].visible = true;
@@ -2704,7 +2710,7 @@ var game = {
           }
 
           if (i == 18) {
-            $("[data-job='stripper']").removeClass('locked');
+
           }
 
           if (i == 19) {
