@@ -2774,8 +2774,11 @@ var game = {
             setTechnologies();
           }
           if (game.tech.techs[0].unlocked && game.tech.techs[1].unlocked && game.tech.techs[2].unlocked && game.tech.techs[3].unlocked && game.tech.techs[4].unlocked && game.tech.techs[5].unlocked && game.tech.techs[6].unlocked && game.tech.techs[7].unlocked && game.tech.techs[8].unlocked) {
-            setEra("Classical");
-            setTechnologies();
+            if (!game.flags.entered_classical_era) {
+              setEra("Classical");
+              setTechnologies();
+            }
+            game.flags.entered_classical_era = true;
           }
           if (game.tech.techs[9].unlocked && game.tech.techs[10].unlocked && game.tech.techs[11].unlocked && game.tech.techs[12].unlocked && game.tech.techs[13].unlocked && game.tech.techs[14].unlocked && game.tech.techs[15].unlocked && game.tech.techs[16].unlocked && game.tech.techs[17].unlocked && game.tech.techs[18].unlocked) {
             if (!game.flags.entered_medieval_era) {
