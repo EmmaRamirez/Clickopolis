@@ -3156,11 +3156,18 @@ var game = {
           game.resources.food.pc += 10;
         }
         if (n == 12) {
-          game.
+          game.faith.upgrades[n].effect = "Conversion complete.";
+          game.faith.upgrades[4].effect = "+1% <img src='img/happy.png' /> per <img src='img/chihuahua.png' /> (max 25%).";
+          $(".horse-label").text("Chihuahua");
           $("img[src='img/horse.png']").attr('src', 'img/chihuahua.png');
 
         }
+        if (n == 13) {
+          $(".secret.row").removeClass("hidden");
+          $("[data-resource='spaghetti']").removeClass('locked');
+        }
         game.faith.upgrades[n].activated = true;
+        setFaithUpgrades();
       } else {
         note("You already activated that culture purchase!");
       }
