@@ -375,7 +375,7 @@ var game = {
         name: "Calendar",
         era: "Classical",
         description: "",
-        effects: ["Can assign Citizens as Strippers", "Can build Plantation."],
+        effects: ["Can build Plantation."],
         flavor: "",
         visible: false,
         unlocked: false,
