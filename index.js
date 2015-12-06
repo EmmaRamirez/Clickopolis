@@ -3099,6 +3099,7 @@ var game = {
           $("[data-job-total='soldier']").text(game.citizens.soldiers.num);
           $(".soldier-assign input").attr('max', game.citizens.soldiers.num);
           updateResources();
+          note("You just hired a Mercenary soldier! Assign them in the military panel!");
         } else {
           note("You don't have enough cash to hire a Mercenary!");
         }
