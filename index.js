@@ -14,7 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: true,
+    debugMode: false,
   },
   flags: {
     can_purchase_tech: false,
@@ -2976,7 +2976,8 @@ var game = {
           }
 
           if (i == 29) {
-            game.empire.popCostMult *= .9;
+            game.empire.popCostBase *= .9;
+            $("#popCost").text(game.empire.popCostBase.toFixed(0));
             recalculateJob('farmer', 2, 2);
           }
 
