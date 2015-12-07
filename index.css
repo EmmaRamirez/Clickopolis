@@ -874,6 +874,10 @@ div[data-num] {
   vertical-align: top;
 }
 
+.horse-label.chihuahua-mode {
+  font-size: 14px;
+}
+
 .buildings .row div {
   min-width: 60px;
 }

@@ -2050,7 +2050,11 @@ var game = {
           var horseRand = Math.random();
           if ((game.resources.horse.mult / 200) > horseRand) {
             game.resources.horse.total += 1;
-            note("One of your farmers bred a prize horse! (+1 <img src='img/horse.png' />)");
+            if(game.faith.upgrades[12].unlocked) {
+              note("One of your farmers converted a wild horse into a Chihuahua! (+1 <img src='img/chihuahua.png' />)");
+            } else {
+              note("One of your farmers bred a prize horse! (+1 <img src='img/horse.png' />)");
+            }
           }
         }
       }
@@ -3210,7 +3214,7 @@ var game = {
         if (n == 12) {
           game.faith.upgrades[n].effect = "Conversion complete.";
           game.faith.upgrades[4].effect = "+1% <img src='img/happy.png' /> per <img src='img/chihuahua.png' /> (max 25%).";
-          $(".horse-label").text("Chihuahua");
+          $(".horse-label").text("Chihuahua").addClass('chihuahua-mode');
           $("img[src='img/horse.png']").attr('src', 'img/chihuahua.png');
           $("[data-resource='horse']").attr('data-hint', 'Raise a cuddly Chihuahua army with these yappy things.');
         }
