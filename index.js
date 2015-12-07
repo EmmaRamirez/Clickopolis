@@ -983,7 +983,14 @@ var game = {
         activated: false
       },
       {
-
+        name: "Arts Patronage",
+        type: "faith",
+        img: "faith-alt",
+        cost: 101,
+        effect: "Can expend Faith to find great works",
+        visible: true,
+        unlocked: false,
+        activated: false
       },
       {
         name: "Pure Evil",
