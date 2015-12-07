@@ -1559,7 +1559,7 @@ var game = {
     {
       name: "Stonehenge",
       img: "stone-henge",
-      time: 60,
+      time: 600,
       required: "10 <img title='stone' src='img/stone.png' />",
       effect: "+3 <img src='img/faith.png' /> PM",
       description: "Let's leave some rocks here to confuse future generations.",
@@ -1571,7 +1571,7 @@ var game = {
     {
       name: "The Great Pyramids",
       img: "great-pyramids",
-      time: 145,
+      time: 1450,
       required: "25 <img src='img/stone.png' />",
       effect: "+1 Free Engineer.",
       description: "It'd probably build faster if we had aliens in this game.",
