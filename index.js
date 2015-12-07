@@ -2687,7 +2687,7 @@ var game = {
             checkTechnologies();
             setTechnologies();
           } else {
-            noet("You can't create that technology yet!", 5000, "tech");
+            note("You can't create that technology yet!", 5000, "tech");
           }
 
 
