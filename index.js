@@ -182,7 +182,11 @@ var game = {
     },
     coal: 0,
     oil: 0,
-    uranium: 0
+    uranium: 0,
+    spaghetti: {
+      total: 0,
+      unlocked: false
+    }
   },
 
   totalClicks: 0,
@@ -1974,6 +1978,7 @@ var game = {
       $('.horse-total').text(abbrNum(game.resources.horse.total, 2));
       $('.stone-total').text(abbrNum(game.resources.stone.total, 2));
       $('.spices-total').text(abbrNum(game.resources.spices.total, 2));
+      $('.spaghetti-total').text(abbrNum(game.resources.spaghetti.total, 2));
 
       $('.pop-text').text(game.empire.pop);
       //$('.pop-cost-mult').text(game.empire.popCostMult.toFixed(3));
@@ -3219,6 +3224,8 @@ var game = {
         }
         if (n == 13) {
           $(".secret.row").removeClass("hidden");
+          game.resources.spaghetti.unlocked = false;
+          game.resources.spaghetti.total += 1;
           $("[data-resource='spaghetti']").removeClass('locked');
         }
         game.faith.upgrades[n].activated = true;
