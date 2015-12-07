@@ -14,7 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: false,
+    debugMode: true,
   },
   flags: {
     can_purchase_tech: false,
@@ -2247,10 +2247,11 @@ var game = {
       game.resources.food.total -= game.empire.pop - 1;
 
       if (game.empire.goldenAgePoints >= 0) {
-        game.empire.goldenAgePoints += (game.empire.happiness - game.empire.anger);
-      } else {
-        game.empire.goldenAgePoints = 0;
-        $(".golden-age-marker").addClass("hidden");
+        if ((game.empire.goldenAgePoints + (game.empire.happiness - game.empire.anger)) > 0) {
+          game.empire.goldenAgePoints += game.empire.happiness - game.empire.anger;
+        } else {
+          game.empire.goldenAgePoints = 0;
+        }
       }
 
 
@@ -2590,6 +2591,13 @@ var game = {
           game.citizens.merchants.num += amt;
           game.empire.popUnemployed -= amt;
           $("[data-job-total='merchant']").text(game.citizens.merchants.num);
+          checkUnemployed();
+        }
+        if (job == "jester") {
+          game.citizens.jesters.num += amt;
+          game.empire.popUnemployed -= amt;
+          game.empire.happiness += game.citizens.jesters.happiness;
+          $("[data-job-total='jester']").text(game.citizens.jesters.num);
           checkUnemployed();
         }
 
