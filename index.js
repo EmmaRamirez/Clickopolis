@@ -952,6 +952,16 @@ var game = {
         unlocked: false,
         activated: false
       },
+      {
+        name: "True Believers",
+        type: "faith",
+        img: "faith-alt",
+        cost: 55,
+        effect: "-10% Belief Cost",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
 
       {
         name: "Prosperity Gospel",
