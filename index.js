@@ -2142,7 +2142,12 @@ var game = {
 
       game.resources.food.total -= game.empire.pop - 1;
 
-      game.empire.goldenAgePoints += (game.empire.happiness - game.empire.anger);
+      if (game.empire.goldenAgePoints >= 0) {
+        game.empire.goldenAgePoints += (game.empire.happiness - game.empire.anger);
+      } else {
+        game.empire.goldenAgePoints = 0;
+        $(".golden-age-marker").addClass("hidden");
+      }
 
 
 
