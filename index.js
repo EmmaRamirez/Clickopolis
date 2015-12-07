@@ -971,6 +971,16 @@ var game = {
         visible: true,
         unlocked: false,
         activated: false
+      },
+      {
+        name: "Long Harvest",
+        type: "resources",
+        img: "resources",
+        cost: 12,
+        effect: "+3 Food/PS",
+        visible: true,
+        unlocked: false,
+        activated: false
       }
 
     ]
