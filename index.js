@@ -45,7 +45,7 @@ var game = {
     goldenAge: false,
     goldenAgeTotal: 0, // total Num of Golden Ages
     goldenAgePoints: 0,
-    goldenAgeGoal: 100,
+    goldenAgeGoal: 100000,
     goldenAgeLength: 300, //in secs
     goldenAgeTimer: 0,
     tradeDealHistory: [
@@ -1873,6 +1873,7 @@ var game = {
     if (game.settings.debugMode) {
       game.tech.research = 100000000;
       game.faith.total = 1000;
+      game.empire.goldenAgeGoal = 100;
     }
 
     var choose = function(arr) {
@@ -2113,8 +2114,8 @@ var game = {
       $(".soldier-assign input").attr('max', game.citizens.soldiers.num);
       $('[data-job-total="soldier"]').text(game.citizens.soldiers.num);
       $('.soldiers-assigned').text(game.military.soldiers.assigned);
-      $('.strength').text(game.military.strength);
-      $('.defense').text(game.military.defense);
+      $('.strength').text(game.military.strength.toFixed(0));
+      $('.defense').text(game.military.defense.toFixed(0));
 
       $('.land-total').text(abbrNum(game.empire.land, 2));
 
