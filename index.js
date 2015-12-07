@@ -962,6 +962,28 @@ var game = {
         unlocked: false,
         activated: false
       },
+      {
+        name: "Tithe",
+        type: "faith",
+        img: "faith-alt",
+        cost: 77,
+        effect: "+10 Cash per Temple.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+
+
+      {
+        name: "Religious Revival",
+        type: "faith",
+        img: "faith-alt",
+        cost: 999,
+        effect: "x10 Faith during Golden Ages",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
 
       {
         name: "Prosperity Gospel",
