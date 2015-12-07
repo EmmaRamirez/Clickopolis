@@ -961,6 +961,16 @@ var game = {
         visible: true,
         unlocked: false,
         activated: false
+      },
+      {
+        name: "Iron & Hammer",
+        type: "resources",
+        img: "resources",
+        cost: 12,
+        effect: "+3 Production/PS",
+        visible: true,
+        unlocked: false,
+        activated: false
       }
 
     ]
