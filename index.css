@@ -705,6 +705,16 @@ img {
   border: 1px solid #aeaeae;
 }
 
+[data-button="culture-purchase"].culture-resources {
+  background: linear-gradient(to right, #006700 32px, lightgreen 32px, lightgreen);
+  border: 1px solid #006700;
+}
+
+[data-button="culture-purchase"].culture-resources:hover, [data-button="culture-purchase"].culture-resources:active {
+  background: #7aeb7a;
+  border: 1px solid #004d00;
+}
+
 [data-button="faith-upgrade"] {
   border: 1px solid #806c00;
   background: white;

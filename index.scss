@@ -616,6 +616,14 @@ img {
       border: 1px solid darken(#eee, 25%);
     }
   }
+  &.culture-resources {
+    background: linear-gradient(to right, darken(green, 5%) 32px, lightgreen 32px, lightgreen);
+    border: 1px solid darken(green, 5%);
+    &:hover, &:active {
+      background: darken(lightgreen, 5%);
+      border: 1px solid darken(green, 10%);
+    }
+  }
 }
 [data-button="faith-upgrade"] {
   border: 1px solid darken(gold, 25%);

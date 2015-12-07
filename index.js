@@ -951,6 +951,16 @@ var game = {
         visible: true,
         unlocked: false,
         activated: false
+      },
+      {
+        name: "Agri-culture",
+        type: "resources",
+        img: "resources",
+        cost: 5,
+        effect: "Assigns new Citiznes as farmers automatically.",
+        visible: true,
+        unlocked: false,
+        activated: false
       }
 
     ]
