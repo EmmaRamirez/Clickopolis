@@ -952,6 +952,17 @@ var game = {
         unlocked: false,
         activated: false
       },
+
+      {
+        name: "Prosperity Gospel",
+        type: "faith",
+        img: "faith-alt",
+        cost: 1350,
+        effect: "Clerics gain +35 Cash",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
       {
         name: "Agri-culture",
         type: "resources",
