@@ -733,6 +733,16 @@ var game = {
         activated: false
       },
       {
+        name: "Building Patronage",
+        type: "economy",
+        img: "coin",
+        cost: 5,
+        effect: "10 Free Buildings.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Merchant Culture",
         type: "economy",
         img: "coin",
