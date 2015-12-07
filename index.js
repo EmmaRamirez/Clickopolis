@@ -46,7 +46,8 @@ var game = {
     goldenAgeTotal: 0, // total Num of Golden Ages
     goldenAgePoints: 0,
     goldenAgeGoal: 100,
-    goldenAgeLength: 5, //in minutes
+    goldenAgeLength: 300, //in secs
+    goldenAgeTimer: 0,
     tradeDealHistory: [
       // From, Gave, For, Year
       ["Emporia", "10 Spices", "4 Gold", "14 AC"],
@@ -1999,6 +2000,7 @@ var game = {
 
       $('.golden-age-points').text(abbrNum(game.empire.goldenAgePoints, 2));
       $('.golden-age-goal').text(abbrNum(game.empire.goldenAgeGoal, 2));
+      $('.golden-age-timer').text(time(game.empire.goldenAgeTimer));
 
       $('.farmer-ps').text(game.citizens.farmers.ps);
       $('.farmer-pc').text(game.citizens.farmers.pc);
@@ -2129,8 +2131,14 @@ var game = {
     setInterval(function(){
       game.totalTime += 1;
 
-      game.resources.prod.total += game.resources.prod.ps;
-      game.resources.food.total += game.resources.food.ps;
+      if (game.empire.goldenAge && game.empire.goldenAgeTimer > 0) {
+        game.resources.prod.total += game.resources.prod.ps * 10;
+        game.resources.food.total += game.resources.food.ps * 10;
+      } else {
+        game.resources.prod.total += game.resources.prod.ps;
+        game.resources.food.total += game.resources.food.ps;
+      }
+
 
       game.resources.food.total -= game.empire.pop - 1;
 
@@ -2168,6 +2176,10 @@ var game = {
 
       if (game.empire.goldenAgePoints >= game.empire.goldenAgeGoal) {
         activateGoldenAge();
+      }
+
+      if (game.empire.goldenAgeTimer > 0) {
+        game.empire.goldenAgeTimer -= 1;
       }
 
 
@@ -2211,16 +2223,18 @@ var game = {
         game.resources.spices.total += game.citizens.woodcutters.num;
       }
 
+
       updateYear();
     }, 60000);
 
     var activateGoldenAge = function() {
       game.empire.goldenAge = true;
       game.empire.goldenAgeTotal += 1;
-      game.empire.goldenAgePoints -= game.empire.goldenAgeTotal;
+      game.empire.goldenAgePoints -= game.empire.goldenAgeGoal;
       $(".golden-age-marker").removeClass("hidden");
       note("Your empire has entered a <img src='img/golden-age.png' /> Golden Age!")
       game.empire.goldenAgeGoal *= 5;
+      game.empire.goldenAgeTimer = game.empire.goldenAgeLength;
     }
 
     var newEvent = function(era) {

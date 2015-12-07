@@ -273,6 +273,10 @@ section.locked-section {
   left: 37rem;
 }
 
+.golden-age-timer {
+  font-weight: normal;
+}
+
 .advisor {
   border: 1px solid tan;
   min-height: 8rem;
