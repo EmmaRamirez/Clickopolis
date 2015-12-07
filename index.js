@@ -33,7 +33,7 @@ var game = {
     popCostMult: 1.35,
     name: "Emmatopia",
     leaderName: "Emma",
-    cash: 0,
+    cash: 50,
     cashPM: 0,
     cashMult: 1,
     land: 1000,
