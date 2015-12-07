@@ -982,6 +982,19 @@ var game = {
         unlocked: false,
         activated: false
       },
+      {
+
+      },
+      {
+        name: "Pure Evil",
+        type: "faith",
+        img: "faith-alt",
+        cost: 666,
+        effect: "Unlocks new Holiest Level Upgrades",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
 
 
       {
