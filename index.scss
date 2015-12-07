@@ -986,6 +986,25 @@ div[data-num] {
   }
 
 }
+.great-works > div > div {
+  border: 1px solid #ddd;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: -4px;
+  text-align: center;
+  width: calc(100% / 6);
+  img {
+    height: .75rem;
+  }
+}
+.great-work.header {
+  font-weight: bold;
+}
+.great-work:nth-of-type(odd) {
+  div {
+    background: #eee;
+  }
+}
 
 .faith-label {
   font-weight: bold;
