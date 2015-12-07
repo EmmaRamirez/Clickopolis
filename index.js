@@ -2809,7 +2809,7 @@ var game = {
           }
 
           if (i == 19) {
-            enableMercenaries();
+            //enableMercenaries();
             game.tech.techs[20].visible = true;
             game.tech.techs[25].visible = true;
             setTechnologies();
