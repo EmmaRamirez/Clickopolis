@@ -1857,7 +1857,6 @@ var game = {
     advisorText();
 
 
-    var index = 0;
     var note = function(msg, ms, type) {
       ms = typeof ms !== 'undefined' ?  ms : 5000;
       type = typeof type !== 'undefined' ? type : 'default';
