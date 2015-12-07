@@ -1472,7 +1472,7 @@ var game = {
       misc: null,
       misc2: null,
       effect: "+2 <img src='img/research.png' />, +3 <img src='img/happy.png' />",
-      description: "",
+      description: "Well, before the internet, we had, uh...",
       visible: false
     },
     {
