@@ -45,7 +45,7 @@ var game = {
     goldenAge: false,
     goldenAgeTotal: 0, // total Num of Golden Ages
     goldenAgePoints: 0,
-    goldenAgeGoal: 100000,
+    goldenAgeGoal: 100,
     goldenAgeLength: 5, //in minutes
     tradeDealHistory: [
       // From, Gave, For, Year
@@ -2166,6 +2166,10 @@ var game = {
 
       (game.tech.research > game.tech.cost) ? $('.tech').addClass('attention') : $('.tech').removeClass('attention');
 
+      if (game.empire.goldenAgePoints >= game.empire.goldenAgeGoal) {
+        activateGoldenAge();
+      }
+
 
 
 
@@ -2179,6 +2183,7 @@ var game = {
       updateResources();
       goldenAgePaint();
       setBuildings();
+
 
 
     }, 1000);
@@ -2208,6 +2213,15 @@ var game = {
 
       updateYear();
     }, 60000);
+
+    var activateGoldenAge = function() {
+      game.empire.goldenAge = true;
+      game.empire.goldenAgeTotal += 1;
+      game.empire.goldenAgePoints -= game.empire.goldenAgeTotal;
+      $(".golden-age-marker").removeClass("hidden");
+      note("Your empire has entered a <img src='img/golden-age.png' /> Golden Age!")
+      game.empire.goldenAgeGoal *= 5;
+    }
 
     var newEvent = function(era) {
       var r = Math.floor(Math.random() * 100);
