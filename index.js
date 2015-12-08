@@ -2375,7 +2375,7 @@ var game = {
         gw.year = game.year;
         game.culture.pm += gw.culture;
         setGreatWorks();
-        note("Your artists created " + gw.name + ", a great work of art!");
+        note("One of your artists created " + gw.name + ", a great work of art!");
       } else {
         selectGW();
       }
