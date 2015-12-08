@@ -14,7 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: false,
+    debugMode: true,
   },
   flags: {
     can_purchase_tech: false,
@@ -105,7 +105,7 @@ var game = {
     artists: {
       num: 0,
       pm: 1,
-      gw: .0001,
+      gw: .1,
     },
     engineers: {
       num: 0,
@@ -1984,6 +1984,11 @@ var game = {
       if (game.era == "Classical") {
         $(".overlay").append("<p>+10 <img src='img/production.png' /> PC</p>");
       }
+      for (var i = 0; i < game.culture.gw.length; i++) {
+        //game.culture.pm -= game.culture.gw[i].culture;
+        game.culture.gw[i].culture *= 2;
+      }
+      //setGreatWorks();
       $(".overlay").addClass(game.era).removeClass("hidden");
       $("body").addClass(game.era);
       eraMarker.text(game.era + " era");
