@@ -552,6 +552,17 @@ var game = {
         worth: 850,
         unlocked: true,
         sold: false
+      },
+      {
+        name: "Venus of Dolnice Vestonice",
+        link: "",
+        artist: "Unknown",
+        nation: "",
+        year: 0,
+        culture: 1,
+        worth: 1100,
+        unlocked: true,
+        sold: false
       }
     ],
     mult: 1,
@@ -559,7 +570,7 @@ var game = {
       {
         name: "Code of Honor",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 5,
         effect: "+2 Soldier Strength.",
         visible: true,
@@ -569,7 +580,7 @@ var game = {
       {
         name: "Brutish Bounty",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 10,
         effect: "+1 Culture per Victory.",
         visible: true,
@@ -579,7 +590,7 @@ var game = {
       {
         name: "Warrior Culture",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 15,
         effect: "Warriors provide +1 Culture.",
         visible: true,
@@ -589,7 +600,7 @@ var game = {
       {
         name: "Tactical Expertise",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 35,
         effect: "1 free General.",
         visible: true,
@@ -599,7 +610,7 @@ var game = {
       {
         name: "Code of Honor II",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 55,
         effect: "+10 Solider Strength.",
         visible: true,
@@ -609,7 +620,7 @@ var game = {
       {
         name: "Odyssean Legacy",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 100,
         effect: "+5 Culture per General.",
         visible: true,
@@ -619,7 +630,7 @@ var game = {
       {
         name: "Art of War",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 250,
         effect: "+1 Strength per Artist.",
         visible: true,
@@ -629,7 +640,7 @@ var game = {
       {
         name: "Defend the Nation",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 345,
         effect: "25% of Defense converted into Culture.",
         visible: true,
@@ -639,7 +650,7 @@ var game = {
       {
         name: "Military-Industrial Complex",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 580,
         effect: "Can sign Military Contracts.",
         visible: true,
@@ -649,7 +660,7 @@ var game = {
       {
         name: "Code of Honor III",
         type: "military",
-        img: "strength",
+        img: "military",
         cost: 870,
         effect: "+25 Soldier Strength.",
         visible: true,
