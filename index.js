@@ -541,6 +541,17 @@ var game = {
         worth: 1000,
         unlocked: true,
         sold: false
+      },
+      {
+        name: "Lascaux Cave Painting",
+        link: "",
+        artist: "Unknown",
+        nation: "",
+        year: 0,
+        culture: 1,
+        worth: 850,
+        unlocked: true,
+        sold: false
       }
     ],
     mult: 1,
@@ -3326,6 +3337,33 @@ var game = {
       });
     };
     setCulturalUpgrades();
+
+
+    var setGreatWorks = function() {
+      var section = $(".great-works");
+      $(".great-works").html('');
+
+      for (var i = 0; i < game.culture.gw.length; i++) {
+        // <figure class="great-work">
+        //   <img class="gw" src="img/venus-of-willendorf.jpg" />
+        //   <div class="labels">
+        //     <a href="#"><p>Venus of Willendorf</p></a>
+        //     <p><strong>Artist</strong>: Unknown | <strong>Nation</strong>: Emmatopia | <strong>Year</strong>: 15 AC</p>
+        //     <p><strong>Culture</strong>: 2 <img src='img/culture.png' /></p>
+        //     <p><strong>Worth</strong>: $3000</p>
+        //   </div>
+        // </figure>
+        if (game.culture.gw[i].unlocked) {
+          var src = game.culture.gw[i].name.replace(/\s+/g, '-').toLowerCase();
+          section.append("<figure class='great-work'><img class='gw' src='img/" + src + ".jpg' /><div class='labels'><a href='" + game.culture.gw[i].link + "'><p>" + game.culture.gw[i].name + "</p></a><p><strong>Artist</strong>: " + game.culture.gw[i].artist + " | <strong>Nation:</strong> " + game.culture.gw[i].nation + " | " + "<strong>Year:</strong> " + game.culture.gw[i].year + "</p><p><strong>Culture:</strong> " + game.culture.gw[i].culture + " <img src='img/culture.png' /></p><p><strong>Worth:</strong> $" + game.culture.gw[i].worth + "</p>");
+        } else {
+
+        }
+
+      }
+
+    }
+    setGreatWorks();
 
     var setFaithUpgrades = function() {
       var section = $(".faith-upgrades");
