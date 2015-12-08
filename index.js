@@ -215,7 +215,7 @@ var game = {
         name: "Archery",
         era: "Ancient",
         description: "Can assign soldiers as Archers.",
-        effects: ["Can assign Soldiers as Archers.", "+3 <img src='img/defense.png' />"],
+        effects: ["Can assign Soldiers as Archers.", "Can build Barracks", "+3 Empire <img src='img/defense.png' />"],
         flavor: "Bow and arrow, hitting bone and marrow.",
         visible: true,
         unlocked: false,
