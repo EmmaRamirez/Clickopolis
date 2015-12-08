@@ -2372,7 +2372,7 @@ var game = {
       if (gw.unlocked == false && gw.era == game.era) {
         gw.unlocked = true;
         gw.nation = game.empire.name;
-        gw.year = game.year;
+        gw.year = game.year + " AC";
         game.culture.pm += gw.culture;
         setGreatWorks();
         note("One of your artists created " + gw.name + ", a great work of art!");
