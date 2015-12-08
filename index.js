@@ -530,6 +530,19 @@ var game = {
     total: 0,
     pm: 0,
     greatWorks: 0,
+    gw: [
+      {
+        name: "Venus of Willendorf",
+        link: "https://www.khanacademy.org/humanities/prehistoric-art/paleolithic-art/v/nude-woman-venus-of-willendorf-c-28-000-25-000-b-c-e",
+        artist: "Unknown",
+        nation: "",
+        year: 0,
+        culture: 1,
+        worth: 1000,
+        unlocked: true,
+        sold: false
+      }
+    ],
     mult: 1,
     upgrades: [
       {
