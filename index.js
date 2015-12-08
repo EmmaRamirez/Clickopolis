@@ -564,7 +564,7 @@ var game = {
         year: 0,
         culture: 1,
         worth: 1100,
-        unlocked: true,
+        unlocked: false,
         sold: false
       }
     ],
@@ -2543,7 +2543,7 @@ var game = {
       game.empire.cash += amt;
     };
 
-    for(var i = 0; i < game.buildings.length; i++) {
+    for (var i = 0; i < game.buildings.length; i++) {
       game.buildings[i].maintenance = 1;
     }
 
