@@ -14,7 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: true,
+    debugMode: false,
   },
   flags: {
     can_purchase_tech: false,
@@ -1115,7 +1115,7 @@ var game = {
         name: "Fertility Goddess",
         level: "Pantheon",
         costMult: 1,
-        effect: "+10 <img src='img/food.png' /> PC.",
+        effect: "+5 <img src='img/food.png' /> PC.",
         unlocked: false,
         activated: false
       },
@@ -3356,7 +3356,7 @@ var game = {
           game.military.strength *= 1.15;
         }
         if (n == 6) {
-          game.resources.food.pc += 10;
+          game.resources.food.pc += 5;
         }
         if (n == 7) {
           game.military.defense *= 1.3;
