@@ -1106,25 +1106,47 @@ div[data-num] {
   vertical-align: bottom;
 }
 
-.great-works > div > div {
-  border: 1px solid #ddd;
+.great-work {
+  background: #222;
+  color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 6rem;
+  overflow: auto;
+  position: relative;
+}
+
+.great-work img.gw {
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.great-work .labels {
   display: inline-block;
-  font-size: 14px;
-  margin-right: -4px;
-  text-align: center;
-  width: calc(100% / 6);
+  left: 5rem;
+  position: absolute;
+  top: 0;
 }
 
-.great-works > div > div img {
+.great-work a {
+  border-bottom: 1px solid #55E6ED;
+  color: #55E6ED;
+  text-decoration: none;
+}
+
+.great-work a:hover {
+  border-bottom: 1px solid #18d5de;
+  color: #18d5de;
+}
+
+.great-work p {
+  margin: 0;
+  padding: .1rem;
+}
+
+.great-work p img {
   height: .75rem;
-}
-
-.great-work.header {
-  font-weight: bold;
-}
-
-.great-work:nth-of-type(odd) div {
-  background: #eee;
 }
 
 .faith-label {
