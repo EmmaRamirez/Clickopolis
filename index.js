@@ -105,7 +105,7 @@ var game = {
     artists: {
       num: 0,
       pm: 1,
-      gw: .001,
+      gw: 1,
     },
     engineers: {
       num: 0,
@@ -2330,6 +2330,13 @@ var game = {
         game.empire.goldenAgeTimer -= 1;
       }
 
+      if (game.citizens.artists.num > 0) {
+        var artRand = Math.random();
+        if ((game.citizens.artists.gw * game.citizens.artists.num) > artRand) {
+          selectGW();
+        }
+      }
+
 
 
 
@@ -2347,6 +2354,20 @@ var game = {
 
 
     }, 1000);
+
+    var selectGW = function() {
+      var gw = choose(game.culture.gw);
+      if (gw.unlocked == false && gw.era == game.era) {
+        gw.unlocked = true;
+        gw.nation = game.empire.name;
+        gw.year = game.year;
+        game.culture.pm += gw.culture;
+        setGreatWorks();
+        note("Your artists created " + gw.name + ", a great work of art!");
+      } else {
+        selectGW();
+      }
+    };
 
     // per 30 seconds
     setInterval(function() {
