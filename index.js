@@ -540,7 +540,7 @@ var game = {
         year: 0,
         culture: 1,
         worth: 1000,
-        unlocked: true,
+        unlocked: false,
         sold: false
       },
       {
@@ -552,7 +552,7 @@ var game = {
         year: 0,
         culture: 1,
         worth: 850,
-        unlocked: true,
+        unlocked: false,
         sold: false
       },
       {
@@ -564,6 +564,18 @@ var game = {
         year: 0,
         culture: 1,
         worth: 1100,
+        unlocked: false,
+        sold: false
+      },
+      {
+        name: "Victory Stele of Naram Sin",
+        link: "http://www.louvre.fr/en/oeuvre-notices/victory-stele-naram-sin",
+        artist: "Unknown",
+        era: "Ancient",
+        nation: "",
+        year: 0,
+        culture: 1,
+        worth: 1010,
         unlocked: false,
         sold: false
       }
