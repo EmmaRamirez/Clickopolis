@@ -7,10 +7,11 @@
   <script src="jquery.js"></script>
   <script type="text/javascript" src="tipped.js"></script>
   <script src="bootstrap.js"></script>
+  <script src="interact.min.js"></script>
   <link rel="stylesheet" type="text/css" href="tipped.css"/>
   <link rel="stylesheet" type="text/css" href="bootstrap.css" />
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -42,6 +43,11 @@
   <h3><img src='img/advisor.png' /> Advisor</h3>
   <p class="advisor-text"></p>
 </section>
+
+<div class="lea draggable">
+  <img src="img/lea.png">
+  <span class="lea-text">Hello, I'm Lea, your main advisor! Do you need a tutorial of Clickopolis?</span>
+</div>
 
 <div class="section-container">
   <section class="resources">
@@ -392,7 +398,7 @@
     <br/>
     <h4>Soldier Assignments</h4>
 
-    <span class="soldier-assign"><img src="img/foot-soldier.png">Foot Soldiers: <span class="unit-stats"></div><input name="foot-soldier" type="number" min="0" value="0" /></span>
+    <span class="soldier-assign"><img src="img/foot-soldier.png">Foot Soldiers: <span class="unit-stats"></span><input name="foot-soldier" type="number" min="0" value="0" /></span>
     <span class="soldier-assign"><img src="img/archer.png">Archers: <input name="archer" type="number" min="0" value="0" /></span>
     <span class="soldier-assign"><img src="img/spearman.png">Spearmen: <input name="spearman" type="number" min="0" value="0" /></span>
     <br/>
@@ -514,5 +520,6 @@
 <footer>
 </footer>
 <script src="index.js"></script>
+<script src="dragging.js"></script>
 </body>
 </html>

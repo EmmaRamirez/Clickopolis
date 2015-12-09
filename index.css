@@ -245,6 +245,34 @@ section.locked-section {
   height: 1rem;
 }
 
+.lea {
+  background: #4343B5;
+  border-radius: 4px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  color: white;
+  height: 9rem;
+  left: 5rem;
+  padding: .25rem;
+  position: absolute;
+  top: 5rem;
+  width: 25rem;
+  z-index: 102;
+}
+
+.lea img {
+  display: inline-block;
+  height: 100%;
+  width: auto;
+}
+
+.lea .lea-text {
+  display: inline-block;
+  font-size: 18px;
+  padding: .25rem;
+  width: 50%;
+  vertical-align: top;
+}
+
 .era-marker, .year-marker, .golden-age-marker {
   border-radius: 8px;
   background: #cba87a;
