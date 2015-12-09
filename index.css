@@ -284,6 +284,11 @@ section.locked-section {
   border: 2px solid white;
 }
 
+#overlay-settings [data-button]:hover, #overlay-settings [data-button]:active {
+  background: white;
+  color: black;
+}
+
 #overlay-settings .settings-close {
   background: black;
   cursor: pointer;
