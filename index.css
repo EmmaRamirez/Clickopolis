@@ -293,8 +293,16 @@ section.locked-section {
   background: #39d179;
 }
 
+.lea .answer.answer-yes:hover {
+  background: #29ae61;
+}
+
 .lea .answer.answer-no {
   background: #e74c3c;
+}
+
+.lea .answer.answer-no:hover {
+  background: #d62c1a;
 }
 
 .era-marker, .year-marker, .golden-age-marker {

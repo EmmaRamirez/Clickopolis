@@ -297,9 +297,15 @@ section {
     text-align: center;
     &.answer-yes {
       background: #39d179;
+      &:hover {
+        background: darken(#39d179, 10%);
+      }
     }
     &.answer-no {
       background: #e74c3c;
+      &:hover {
+        background: darken(#e74c3c, 10%);
+      }
     }
   }
 }
