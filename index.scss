@@ -130,6 +130,10 @@ section {
 
   }
 }
+.highlight {
+  box-shadow: 0 0 4rem rgba(0,0,0,0.5), inset 0 0 1rem rgba(gold, 0.7);
+  transition: 750ms all;
+}
 .resources {
   height: 40rem;
   border-top: 4px solid silver;
