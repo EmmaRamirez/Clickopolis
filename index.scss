@@ -262,11 +262,12 @@ section {
   box-shadow: 0 0 1rem rgba(0,0,0,.5);
   color: white;
   height: 9rem;
-  left: 5rem;
+  //left: 5rem;
   //overflow: auto;
   padding: .25rem;
   position: absolute;
-  top: 5rem;
+  right: 9rem;
+  top: 1rem;
   width: 25rem;
   z-index: 102;
   img {
@@ -280,6 +281,26 @@ section {
     padding: .25rem;
     width: 50%;
     vertical-align: top;
+  }
+  .answer-wrapper {
+    display: inline-block;
+    margin-top: -2.5rem;
+    margin-left: 10rem;
+  }
+  .answer {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    padding: .25rem;
+    width: 5rem;
+    text-align: center;
+    &.answer-yes {
+      background: #39d179;
+    }
+    &.answer-no {
+      background: #e74c3c;
+    }
   }
 }
 
@@ -352,8 +373,6 @@ section {
   border: 1px solid tan;
   min-height: 8rem;
   padding: .1rem;
-  position: absolute;
-  right: 9rem;
   top: 0;
 }
 .advisor-text {
