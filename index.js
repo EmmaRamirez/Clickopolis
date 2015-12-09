@@ -2000,7 +2000,7 @@ var game = {
 
     if (game.settings.debugMode) {
       game.tech.research = 100000000;
-      game.faith.total = 1000;
+      game.faith.total = 100000;
       game.empire.goldenAgeGoal = 100;
     }
 
@@ -3556,6 +3556,9 @@ var game = {
         }
         if (n == 7) {
           game.military.defense *= 1.3;
+        }
+        if (n == 9) {
+          game.empire.happiness += Math.floor(game.empire.pollution / 4);
         }
         if (n == 12) {
           game.faith.upgrades[n].effect = "Conversion complete.";
