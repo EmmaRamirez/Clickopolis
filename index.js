@@ -1552,7 +1552,7 @@ var game = {
       name: "Asclepieia",
       num: 0,
       numApplied: 0,
-      prod: 180,
+      prod: 80,
       cost: 1800,
       misc: null,
       misc: null,
