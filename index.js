@@ -1399,6 +1399,22 @@ var game = {
         effect: "+25% <img src='img/strength.png'/> when fighting a war you did not declare.",
         unlocked: false,
         activated: false
+      },
+      {
+        name: "Alpha Cult",
+        level: "Holiest",
+        costMult: 2000,
+        effect: "Joins you to the mysterious <img src='img/alpha.png' /> Cult.",
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Omega Cult",
+        level: "Holiest",
+        costMult: 2000,
+        effect: "Joins you to the shady <img src='img/omega.png' /> Cult",
+        unlocked: false,
+        activated: false
       }
     ]
   },
