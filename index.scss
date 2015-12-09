@@ -279,7 +279,7 @@ section {
     display: inline-block;
     font-size: 18px;
     padding: .25rem;
-    width: 50%;
+    width: 64%;
     vertical-align: top;
   }
   .answer-wrapper {
@@ -461,7 +461,7 @@ section {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
 }
 .intro {
   //display: none;
