@@ -501,7 +501,69 @@ var game = {
         unlocked: false,
         activated: false
       },
-
+      {
+        name: "Astronomy",
+        era: "Renaissance",
+        description: "",
+        effects: [""],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Calculus",
+        era: "Renaissance",
+        effects: [""],
+        description: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Chemistry",
+        era: "Renaissance",
+        effects: [""],
+        description: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Clockwork",
+        era: "Renaissance",
+        effects: [""],
+        flavor: "Time to click those resources!",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Economics",
+        era: "Renaissance",
+        effects: [""],
+        description: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Music Theory",
+        era: "Renaissance",
+        description: "",
+        effects: [""],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Navigation",
+        era: "Renaissance",
+        description: "",
+        effects: [""],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
       {
         name: "Printing Press",
         era: "Renaissance",
