@@ -22,8 +22,16 @@
 </header>
 <div id="settings" class="settings"><img src="img/gear.png" /> Settings</div>
 
-
-<div class="overlay hidden" id="overlay"></div>
+<div class="overlay hidden" id="overlay-settings">
+  <h1>Settings</h1>
+  <div class="settings-container">
+    <div class="settings-close"><img src='img/x.png' title="close settings" /></div>
+    <div data-button="reset">reset game</div>
+    <div data-button="wipe-save">wipe save</div>
+    <div data-button="notifications">notifications</div>
+  </div>
+</div>
+<div class="overlay hidden" id="overlay-era"></div>
 <section class="intro hidden" id="intro">
   <p>You are part of small tribe wandering the North American continent, in search of permanent settlement. You, as their leader, have decided to begin building houses near a fertile river valley. As their leader, you will guide them through turmoil and triumph, turning defeat into victory and building a civilization for ages to come. Are you up for the challenge?</p>
   <p id="hint">Hint: Start by clicking the Gather Food button, growing your population, then assigning citizens to farm.</p>
@@ -252,7 +260,8 @@
       <div data-button="alter-num" data-alter="100">x100</div>
     </div>
     <div class="row citizen-contrib">
-      Currently, each Citizen contributes: 1 <img src='img/angry.png' />, 1 <img src='img/pollution.png' />, 2 <img src='img/research.png' /> PM, and 1 <img src='img/coin.png' /> PM.
+      Currently, each Citizen contributes: 1 <img src='img/angry.png' />, 1 <img src='img/pollution.png' />, 2 <img src='img/research.png' /> PM, and 1 <img src='img/coin.png' /> PM.<br/>
+      Each citizen also consumes 1 <img src='img/food.png' />.
     </div>
     <div class="row ruler" id="rulerOption">
       <div data-num class="disabled">_</div>

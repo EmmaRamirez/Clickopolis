@@ -279,6 +279,33 @@ section {
 
 }
 
+#overlay-settings {
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  .settings-container {
+    background: #222;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    width: 50%;
+  }
+  [data-button] {
+    color: white;
+    border: 2px solid white;
+  }
+  .settings-close {
+    background: black;
+    cursor: pointer;
+    padding: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: .5rem;
+    width: 3.25rem;
+  }
+}
+
 .golden-age-marker {
   background: #1F0F08;
   border: 2px solid black;

@@ -1968,34 +1968,35 @@ var game = {
     //$("body").text(abbrNum(1000000000, 2));
 
     var setEra = function(era) {
-      $(".overlay").html('');
+      var o = $("#overlay-era");
+      o.html('');
       var eraMarker = $('.era-marker');
 
       eraMarker.text(game.era + " era");
 
-      $('.overlay').removeClass(game.era).removeClass('hidden');
+      o.removeClass(game.era).removeClass('hidden');
       $('body').removeClass(game.era);
 
       game.era = era;
       game.eraNum *= 2;
 
 
-      $(".overlay").append("<h1>Welcome to the " + game.era + " Era!</h1><p>Click anywhere to continue.</p>");
+      o.append("<h1>Welcome to the " + game.era + " Era!</h1><p>Click anywhere to continue.</p>");
       if (game.era == "Classical") {
-        $(".overlay").append("<p>+10 <img src='img/production.png' /> PC</p>");
+        o.append("<p>+10 <img src='img/production.png' /> PC</p>");
       }
       for (var i = 0; i < game.culture.gw.length; i++) {
         //game.culture.pm -= game.culture.gw[i].culture;
         game.culture.gw[i].culture *= 2;
       }
       //setGreatWorks();
-      $(".overlay").addClass(game.era).removeClass("hidden");
+      o.addClass(game.era).removeClass("hidden");
       $("body").addClass(game.era);
       eraMarker.text(game.era + " era");
 
     };
     setEra(game.era);
-    $(".overlay").click(function(){
+    $("#overlay-era").click(function(){
       $(this).addClass("hidden");
     });
 
@@ -2073,6 +2074,13 @@ var game = {
     // setInterval(function(){
     //   note("What's up?", 1000);
     // }, 2000);
+
+    $("#settings").click(function(){
+      $("#overlay-settings").removeClass('hidden');
+    });
+    $(".settings-close").click(function(){
+      $("#overlay-settings").addClass('hidden');
+    })
 
 
     var healthPercentCalc = function() {
