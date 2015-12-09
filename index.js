@@ -2129,6 +2129,13 @@ var game = {
       return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
     };
 
+    var lea = function() {
+      var advisor = $(".lea");
+      var text = $(".text");
+
+    };
+    lea();
+
     var updateResources = function() {
 
       $('.food-total').text(abbrNum(game.resources.food.total.toFixed(0), 2));
@@ -3103,7 +3110,7 @@ var game = {
             game.tech.techs[30].visible = true;
             setTechnologies();
           }
-          if (game.tech.techs[0].unlocked && game.tech.techs[1].unlocked && game.tech.techs[2].unlocked && game.tech.techs[3].unlocked && game.tech.techs[4].unlocked && game.tech.techs[5].unlocked && game.tech.techs[6].unlocked && game.tech.techs[7].unlocked && game.tech.techs[8].unlocked) {
+          if (game.tech.techs[9].unlocked || game.tech.techs[10].unlocked || game.tech.techs[11].unlocked || game.tech.techs[12].unlocked || game.tech.techs[13].unlocked || game.tech.techs[14].unlocked || game.tech.techs[15].unlocked || game.tech.techs[16].unlocked || game.tech.techs[17].unlocked || game.tech.techs[18].unlocked) {
             if (!game.flags.entered_classical_era) {
               setEra("Classical");
               setTechnologies();
