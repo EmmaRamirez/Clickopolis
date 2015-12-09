@@ -105,7 +105,7 @@ var game = {
     artists: {
       num: 0,
       pm: 1,
-      gw: .1,
+      gw: .001,
     },
     engineers: {
       num: 0,
