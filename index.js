@@ -2195,7 +2195,7 @@ var game = {
     //for (var i = 0; i < game.tech.techs.length; i++) { game.tech.techs[i].visible = true; }
     for (var i = 0; i < game.wonders.length; i++) { game.wonders[i].visible = false; }
 
-    $("section").addClass('draggable');
+    //$("section").addClass('draggable');
 
     if (game.settings.debugMode) {
       game.tech.research = 100000000;
