@@ -1089,6 +1089,9 @@ div[data-num] {
     font-size: 16px;
     padding: .25rem;
     width: 8rem;
+    &:hover {
+      background: white;
+    }
     img {
       height: 1rem;
     }

@@ -2197,6 +2197,7 @@ var game = {
       //$("#note-" + game.settings.noteCounter).css("z-index", (1001 + game.settings.noteCounter));
       setTimeout(function(){
         $(".note").addClass('vanish', 'hidden');
+        game.settings.noteCount = 0;
       }, ms);
 
       // $(".note").click(function(){

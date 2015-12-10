@@ -1227,6 +1227,10 @@ div[data-num] {
   width: 8rem;
 }
 
+.military-campaigns [data-button]:hover {
+  background: white;
+}
+
 .military-campaigns [data-button] img {
   height: 1rem;
 }
