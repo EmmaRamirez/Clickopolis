@@ -2945,7 +2945,7 @@ var game = {
           $(".diplomacy").css("backgroundColor", game.nations[i].color);
           panel.append("<p class='nation-military'><img src='img/strength.png'/> Strength: "+ game.nations[i].strength + " <img src='img/defense.png'/> Defense: " + game.nations[i].defense + "</p>");
           panel.append("<p class='nation-description'>" + game.nations[i].description + "</p>");
-          panel.append("<div class='row'><div class='nation-diplo' data-button='nation-trade'>Trade</div><div class='nation-diplo' data-button='insult'>Insult</div><div class='nation-diplo' data-button='return'> &larr; Go Back</div><div class='nation-diplo' data-button='declare-war' data-n='" + i + "'>Declare War!!</div></div>");
+          panel.append("<div class='row'><div class='nation-diplo' data-button='nation-trade'>Trade...</div><div class='nation-diplo' data-button='talk'>Talk...</div><div class='nation-diplo' data-button='return'> &larr; Go Back</div><div class='nation-diplo' data-button='declare-war' data-n='" + i + "'>Declare War!!</div></div>");
           $("[data-button='return']").click(function(){
             $('.diplomacy').css("backgroundColor", "rgba(255, 255, 255, 0.7)");
             $('.nation-panel').html('');
@@ -2972,6 +2972,17 @@ var game = {
 
 
 
+    };
+
+    var meetNewNation = function() {
+      var nation = choose(game.nations);
+      if (nation.met == false) {
+        nation.met = true;
+        setNations();
+        note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
+      } else {
+        meetNewNation();
+      }
     };
 
     var addMilitaryCampaign = function(n) {
@@ -3002,16 +3013,6 @@ var game = {
       // </div>
     };
 
-    var meetNewNation = function() {
-      var nation = choose(game.nations);
-      if (nation.met == false) {
-        nation.met = true;
-        setNations();
-        note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
-      } else {
-        meetNewNation();
-      }
-    };
     //meetNewNation();
 
     var updateResearch = function() {
@@ -3401,6 +3402,8 @@ var game = {
       game.tech.researchFromBuildings += (5 * (game.buildings[4].num - game.buildings[4].numApplied));
       // Walls
       game.military.defense += (5 * (game.buildings[5].num - game.buildings[5].numApplied));
+      // Asclepieia
+      game.empire.health += (2 * (game.buildings[6].num - game.buildings[6].numApplied));
       // Ampitheatre
       game.culture.pm += (1 * (game.buildings[7].num - game.buildings[7].numApplied));
       // Colosseum
