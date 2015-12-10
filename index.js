@@ -966,10 +966,30 @@ var game = {
         activated: false
       },
       {
-        name: "Merchant Culture",
+        name: "Free Money",
+        type: "economy",
+        img: "coin",
+        cost: 15,
+        effect: "+1K Cash",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Wise Investment",
         type: "economy",
         img: "coin",
         cost: 60,
+        effect: "+10 Cash/PM",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Merchant Culture",
+        type: "economy",
+        img: "coin",
+        cost: 125,
         effect: "+$5, +1 Culture per Merchant.",
         visible: true,
         unlocked: false,
@@ -996,11 +1016,51 @@ var game = {
         activated: false
       },
       {
+        name: "Wise Investment II",
+        type: "economy",
+        img: "coin",
+        cost: 480,
+        effect: "+200 Cash/PM",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Free Money II",
+        type: "economy",
+        img: "coin",
+        cost: 615,
+        effect: "+5k Cash",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Art Market",
         type: "economy",
         img: "coin",
         cost: 1300,
         effect: "Can sell Great Works for ridiculous sums.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Anarcho-Capitalism",
+        type: "economy",
+        img: "coin",
+        cost: 2100,
+        effect: "???",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Free Money III",
+        type: "economy",
+        img: "coin",
+        cost: 3000,
+        effect: "+5M Cash",
         visible: true,
         unlocked: false,
         activated: false
@@ -1237,7 +1297,6 @@ var game = {
         unlocked: false,
         activated: false
       },
-
       {
         name: "Prosperity Gospel",
         type: "faith",
