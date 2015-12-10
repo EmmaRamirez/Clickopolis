@@ -2161,7 +2161,7 @@ var game = {
 
 
     var note = function(msg, ms, type) {
-      ms = typeof ms !== 'undefined' ?  ms : 5000;
+      ms = typeof ms !== 'undefined' ?  ms : 2500;
       type = typeof type !== 'undefined' ? type : 'default';
       var typePost = "Game Notification";
       switch (type) {
@@ -2188,7 +2188,7 @@ var game = {
       //$("#note-" + game.settings.noteCounter).css("height", (10 + (game.settings.noteCounter * 2)) + "rem");
       //$("#note-" + game.settings.noteCounter).css("z-index", (1001 + game.settings.noteCounter));
       setTimeout(function(){
-        //$(".note").addClass('vanish', 'hidden');
+        $(".note").addClass('vanish', 'hidden');
       }, ms);
 
       // $(".note").click(function(){
