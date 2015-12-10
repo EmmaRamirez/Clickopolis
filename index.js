@@ -2957,6 +2957,7 @@ var game = {
             if (!game.nations[n].atWar) {
               game.nations[n].atWar = true;
               note("You declared war on " + game.nations[n].name + "!", 5000, "war");
+              addMilitaryCampaign(n);
             } else {
               note("You already declared war on " + game.nations[n].name + "!");
             }
@@ -2971,6 +2972,34 @@ var game = {
 
 
 
+    };
+
+    var addMilitaryCampaign = function(n) {
+      var section = $('.military-campaigns');
+      var i = n;
+      var campaign = "<div class='campaign'><span class='vs'>VS</span>";
+      campaign += "<div class='nation-campaign'><img src='img/empire-" + game.nations[i].img + ".png' /><p>" + game.nations[i].name + "</p></div>";
+      campaign += "<div class='nation-military'><img src='img/strength.png'/>" + game.nations[i].strength;
+      campaign += "<img src='img/defense.png' />" + game.nations[i].defense + "</div>";
+      campaign += '<div class="buttons"><div data-button="attack" data-n="' + i  + '"><img src="img/swords.png" /> Attack</div><div data-button="pillage" data-n="' + i  + '"><img src="img/fire.png" /> Pillage</div><div data-button="defend" data-n="' + i  + '"><img src="img/defense.png" /> Defend</div><div data-button="peace" data-n="' + i  + '"><img src="img/olive-branch.png" /> Peace</div></div>';
+      section.append(campaign);
+      // <div class="campaign">
+      //   <span class="vs">VS</span>
+      //   <div class="nation-campaign">
+      //     <img src='img/empire-6.png' />
+      //     <p>Ulundo</p>
+      //   </div>
+      //   <div class="nation-military">
+      //     <img src='img/strength.png' /> 12
+      //     <img src='img/defense.png' /> 16
+      //   </div>
+      //   <div class="buttons">
+      //     <div data-button="attack"><img src='img/swords.png' /> Attack</div>
+      //     <div data-button="pillage"><img src='img/fire.png' /> Pillage</div>
+      //     <div data-button="defend"><img src='img/defense.png' /> Defend</div>
+      //     <div data-button="peace"><img src='img/olive-branch.png' /> Peace</div>
+      //   </div>
+      // </div>
     };
 
     var meetNewNation = function() {

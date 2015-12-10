@@ -1200,6 +1200,7 @@ div[data-num] {
 .military-campaigns .campaign {
   border: 1px solid #eee;
   border-radius: 4px;
+  margin: .25rem;
   padding: .5rem;
 }
 
