@@ -2465,6 +2465,9 @@ var game = {
       if (game.empire.goldenAgeTimer > 0) {
         game.empire.goldenAgeTimer -= 1;
       }
+      if (game.empire.goldenAgeTimer == 0) {
+        $(".golden-age-marker").addClass('hidden');
+      }
 
       if (game.citizens.artists.num > 0) {
         var artRand = Math.random();
