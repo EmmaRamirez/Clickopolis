@@ -198,7 +198,7 @@ var game = {
     researchTotal: 0,
     researchFromBuildings: 0,
     cost: 1,
-    costMult: 1.85,
+    costMult: 1.15,
     totalTechs: 0,
     techs: [
       {
@@ -335,7 +335,7 @@ var game = {
         name: "Irrigation",
         era: "Classical",
         description: "Improves Farmers by 100%.",
-        effects: ["+2k Max <img src='img/food.png' /> for discovering this technology.", "Improves Farmers by 100%", "Reveals Three-Field Crop Rotation technology."],
+        effects: ["+2k Max <img src='img/food.png' /> for discovering this technology.", "Improves Farmers by 25%", "Reveals Three-Field Crop Rotation technology."],
         flavor: "",
         visible: false,
         unlocked: false,
@@ -495,7 +495,7 @@ var game = {
         name: "Three Field Crop Rotation",
         era: "Medieval",
         description: "",
-        effects: ["Improves Farmers by 100%", "-10% Growth Cost."],
+        effects: ["Improves Farmers by 30%", "-10% Growth Cost."],
         flavor: "The most potent rotation of all.",
         visible: false,
         unlocked: false,
@@ -2263,8 +2263,8 @@ var game = {
       $('.golden-age-goal').text(abbrNum(game.empire.goldenAgeGoal, 2));
       $('.golden-age-timer').text(time(game.empire.goldenAgeTimer));
 
-      $('.farmer-ps').text(game.citizens.farmers.ps);
-      $('.farmer-pc').text(game.citizens.farmers.pc);
+      $('.farmer-ps').text(game.citizens.farmers.ps.toFixed(3));
+      $('.farmer-pc').text(game.citizens.farmers.pc.toFixed(3));
       $('.miner-ps').text(game.citizens.miners.ps);
       $('.miner-pc').text(game.citizens.miners.pc);
 
@@ -3007,7 +3007,7 @@ var game = {
             if (game.tech.research >= game.tech.cost) {
               game.tech.techs[n].unlocked = true;
               game.tech.research -= game.tech.cost;
-              game.tech.cost = (game.tech.cost * game.tech.costMult).toFixed(1);
+              game.tech.cost = ((game.empire.pop * 2) + game.tech.cost * game.tech.costMult).toFixed(1);
               game.flags.can_purchase_tech = false;
             } else {
               note("Not enough research points!", 5000, "tech");
@@ -3109,7 +3109,7 @@ var game = {
           }
           if (i == 13) {
             game.resources.food.max += 2000;
-            recalculateJob('farmer', 2, 2);
+            recalculateJob('farmer', 1.25, 1.25);
             game.tech.techs[29].visible = true;
             setTechnologies();
           }
@@ -3166,7 +3166,7 @@ var game = {
           if (i == 29) {
             game.empire.popCostBase *= .9;
             $("#popCost").text(game.empire.popCostBase.toFixed(0));
-            recalculateJob('farmer', 2, 2);
+            recalculateJob('farmer', 1.3, 1.3);
           }
 
           game.tech.techs[i].activated = true;
