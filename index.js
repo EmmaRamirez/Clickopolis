@@ -2999,7 +2999,7 @@ var game = {
     var meetNewNation = function() {
       var nation = choose(game.nations);
       console.log(nation);
-      if (nation.met == false && nation.era == game.era) {
+      if (nation.met == false) {
         nation.met = true;
         setNations();
         note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
@@ -3228,6 +3228,8 @@ var game = {
             game.tech.techs[22].visible = true;
             game.tech.techs[23].visible = true;
             setTechnologies();
+            game.military.soldiers.army[2].unlocked = true;
+            setMilitary();
           }
           if (i == 13) {
             game.resources.food.max += 2000;
@@ -3667,6 +3669,11 @@ var game = {
           if (!game.culture.upgrades[n].activated) {
             if (n == 0) {
               game.military.soldiers.army[0].strength += 2;
+              setMilitary();
+            }
+
+            if (n == 3) {
+              game.military.soldiers.army[8].num += 1;
               setMilitary();
             }
 
