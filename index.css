@@ -1233,11 +1233,12 @@ div[data-num] {
 
 .military-campaigns .nation-campaign {
   padding: 0 1rem;
+  width: 100px;
 }
 
 .military-campaigns .nation-campaign img {
   height: 2rem;
-  margin-left: .5rem;
+  margin-left: 1.25rem;
 }
 
 .military-campaigns .nation-campaign p {
