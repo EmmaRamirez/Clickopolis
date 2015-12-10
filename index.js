@@ -3510,17 +3510,17 @@ var game = {
       // Quarry
       game.resources.prod.max += (100 * (game.buildings[2].num - game.buildings[2].numApplied));
       // Temple
-      game.faith.pm += (game.buildings[3].num - game.buildings[3].numApplied);
+      //game.faith.pm += (game.buildings[3].num - game.buildings[3].numApplied);
       // Library
-      game.tech.researchFromBuildings += (5 * (game.buildings[4].num - game.buildings[4].numApplied));
+      game.tech.researchFromBuildings += (5 * (game.buildings[5].num - game.buildings[5].numApplied));
       // Walls
-      game.military.defense += (5 * (game.buildings[5].num - game.buildings[5].numApplied));
+      //game.military.defense += (5 * (game.buildings[5].num - game.buildings[5].numApplied));
       // Asclepieia
       game.empire.health += (2 * (game.buildings[6].num - game.buildings[6].numApplied));
       // Ampitheatre
-      game.culture.pm += (1 * (game.buildings[7].num - game.buildings[7].numApplied));
+      //game.culture.pm += (1 * (game.buildings[7].num - game.buildings[7].numApplied));
       // Colosseum
-      game.empire.happiness += (3 * (game.buildings[11].num - game.buildings[11].numApplied));
+      //game.empire.happiness += (3 * (game.buildings[11].num - game.buildings[11].numApplied));
       // Workshop
       game.resources.prod.max += (500 * (game.buildings[13].num - game.buildings[13].numApplied));
       game.resources.prod.ps += (2 * (game.buildings[13].num - game.buildings[13].numApplied));
