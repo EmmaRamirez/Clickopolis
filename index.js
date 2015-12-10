@@ -3463,22 +3463,27 @@ var game = {
             // manage costs
             if (game.purchaseMode == false) {
               if (game.buildings[i].prod <= game.resources.prod.total) {
+
+                // TODO: check
                 if (i == 4) {
-                  if (game.resources.stone.total >= 2) {
-                    game.resources.stone.total -= 2;
-                  } else {
-                    alert("You don't have enough stones!");
-                    break;
-                  }
-                }
-                if (i == 3) {
-                  if (game.resouces.spices.total >= 10) {
+                  if (game.resources.spices.total >= 10) {
                     game.resources.spices.total -= 10;
                   } else {
                     alert("You don't have enough spices!");
                     break;
                   }
                 }
+
+                // TODO: uncomment
+                // if (i == 4) {
+                //   if (game.resources.stone.total >= 2) {
+                //     game.resources.stone.total -= 2;
+                //   } else {
+                //     alert("You don't have enough stones!");
+                //     break;
+                //   }
+                // }
+
                 game.buildings[i].num += 1;
                 game.resources.prod.total -= game.buildings[i].prod;
                 game.buildings[i].prod = Math.floor(game.buildings[i].prod + Math.log(game.buildings[i].prod));
