@@ -83,55 +83,64 @@ var game = {
           name: "Foot Soldiers",
           num: 0,
           strength: 5,
-          defense: 3
+          defense: 3,
+          unlocked: true
         },
         {
           name: "Archers",
           num: 0,
           strength: 3,
-          defense: 8
+          defense: 8,
+          unlocked: false
         },
         {
           name: "Spearmen",
           num: 0,
           strength: 7,
-          defense: -3
+          defense: -3,
+          unlocked: false
         },
         {
           name: "Cavalry",
           num: 0,
           strength: 11,
-          defense: 6
+          defense: 6,
+          unlocked: false
         },
         {
           name: "Cannon",
           num: 0,
           strength: 15,
-          defense: 0
+          defense: 0,
+          unlocked: false
         },
         {
           name: "Navy",
           num: 0,
           strength: 15,
-          defense: 15
+          defense: 15,
+          unlocked: false
         },
         {
           name: "Tanks",
           num: 0,
           strength: 27,
-          defense: 13
+          defense: 13,
+          unlocked: false
         },
         {
           name: "Air Force",
           num: 0,
           strength: 23,
-          defense: 5
+          defense: 5,
+          unlocked: false
         },
         {
           name: "General",
           num: 0,
           strength: 10,
-          defense: 10
+          defense: 10,
+          unlocked: true
         }
       ]
     }
@@ -2048,7 +2057,7 @@ var game = {
     if (game.settings.debugMode) {
       game.tech.research = 100000000;
       game.faith.total = 100000;
-      game.empire.goldenAgeGoal = 100;
+      //game.empire.goldenAgeGoal = 100;
       game.culture.total = 100000;
     }
 
