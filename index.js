@@ -2128,8 +2128,12 @@ var game = {
       if (game.era == "Classical") {
         o.append("<p>+5 <img src='img/production.png' /> PC</p>");
         o.append("<p>+5 <img src='img/food.png' /> PC</p>");
+        o.append("<p>+1k Max <img src='img/production.png' /></p>");
+        o.append("<p>+1k Max <img src='img/food.png' /> PC</p>");
         game.resources.prod.pc += 5;
         game.resources.food.pc += 5;
+        game.resources.food.max += 1000;
+        game.resources.prod.max += 1000;
       }
       for (var i = 0; i < game.culture.gw.length; i++) {
         //game.culture.pm -= game.culture.gw[i].culture;
