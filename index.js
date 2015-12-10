@@ -389,7 +389,7 @@ var game = {
         name: "Shipbuilding",
         era: "Classical",
         description: "",
-        effects: ["+2k Max <img src='img/production.png' /> for discovering this technology.", "Can build Harbor.", "Can assign Soldiers as Navy."],
+        effects: ["+2k Max <img src='img/production.png' /> for discovering this technology.", "Can assign soldiers as Navy.", "Can build Harbor.", "Can assign Soldiers as Navy."],
         flavor: "",
         visible: false,
         unlocked: false,
