@@ -859,7 +859,9 @@ img {
   display: inline-block;
 }
 
-[data-name="Military-Industrial Complex"] {
+[data-name="Military-Industrial Complex"],
+[data-name="Missile Defense System A"],
+[data-name="Missile Defense System B"] {
   font-size: 14px;
 }
 

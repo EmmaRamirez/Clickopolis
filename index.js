@@ -816,6 +816,36 @@ var game = {
         activated: false
       },
       {
+        name: "Missile Defense System A",
+        type: "military",
+        img: "military",
+        cost: 1150,
+        effect: "+50 Empire Defense.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Nuclear Speed-up",
+        type: "military",
+        img: "military",
+        cost: 1300,
+        effect: "+50% Nuke Build Rate",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Missile Defense System B",
+        type: "military",
+        img: "military",
+        cost: 2150,
+        effect: "+50 Empire Defense.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Quest for Truth",
         type: "research",
         img: "research",
