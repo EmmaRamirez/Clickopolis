@@ -3205,12 +3205,21 @@ var game = {
             }
             game.flags.entered_classical_era = true;
           }
-          if (game.tech.techs[9].unlocked && game.tech.techs[10].unlocked && game.tech.techs[11].unlocked && game.tech.techs[12].unlocked && game.tech.techs[13].unlocked && game.tech.techs[14].unlocked && game.tech.techs[15].unlocked && game.tech.techs[16].unlocked && game.tech.techs[17].unlocked && game.tech.techs[18].unlocked) {
+
+          if (game.tech.techs[19].unlocked || game.tech.techs[20].unlocked || game.tech.techs[21].unlocked || game.tech.techs[22].unlocked || game.tech.techs[23].unlocked || game.tech.techs[24].unlocked || game.tech.techs[25].unlocked || game.tech.techs[26].unlocked || game.tech.techs[27].unlocked || game.tech.techs[28].unlocked || game.tech.techs[29].unlocked) {
             if (!game.flags.entered_medieval_era) {
               setEra("Medieval");
               setTechnologies();
             }
             game.flags.entered_medieval_era = true;
+          }
+
+          if (game.tech.techs[30].unlocked || game.tech.techs[31].unlocked || game.tech.techs[32].unlocked || game.tech.techs[33].unlocked || game.tech.techs[34].unlocked || game.tech.techs[35].unlocked || game.tech.techs[36].unlocked || game.tech.techs[37].unlocked) {
+            if (!game.flags.entered_renaissance_era) {
+              setEra("Renaissance");
+              setTechnologies();
+            }
+            game.flags.entered_renaissance_era = true;
           }
         }
       }

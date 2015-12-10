@@ -20,27 +20,31 @@ body {
   -webkit-font-smoothing: none;
 }
 
-.overlay.Ancient, .overlay.Classical, .overlay.Medieval {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/ancient-alt.jpg");
+.overlay.Ancient, .overlay.Classical, .overlay.Medieval, .overlay.Renaissance {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/ancient-alt.jpg");
   background-size: cover;
 }
 
-.overlay.Ancient h1, .overlay.Classical h1, .overlay.Medieval h1, .overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p {
+.overlay.Ancient h1, .overlay.Classical h1, .overlay.Medieval h1, .overlay.Renaissance h1, .overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p, .overlay.Renaissance p {
   color: #eee;
   text-align: center;
 }
 
-.overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p {
+.overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p, .overlay.Renaissance p {
   font-size: 1.5rem;
   font-style: italic;
 }
 
 .overlay.Classical {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/classical.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/classical.jpg");
 }
 
 .overlay.Medieval {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/Medieval.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/Medieval.jpg");
+}
+
+.overlay.Renaissance {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/Renaissance.jpg");
 }
 
 header {
