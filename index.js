@@ -2310,6 +2310,8 @@ var game = {
       $('.fish-total').text(abbrNum(game.resources.fish.total, 2));
       $('.horse-total').text(abbrNum(game.resources.horse.total, 2));
       $('.stone-total').text(abbrNum(game.resources.stone.total, 2));
+      $('.gems-total').text(abbrNum(game.resources.gems.total, 2));
+      $('.gold-total').text(abbrNum(game.resources.gold.total, 2));
       $('.spices-total').text(abbrNum(game.resources.spices.total, 2));
       $('.spaghetti-total').text(abbrNum(game.resources.spaghetti.total, 2));
 
@@ -2400,9 +2402,19 @@ var game = {
         game.resources.prod.total += game.resources.prod.pc;
         if (game.tech.techs[3].unlocked && game.citizens.miners.num > 0) {
           var stoneRand = Math.random();
+          var goldRand = Math.random();
+          var gemRand = Math.random();
           if ((game.resources.stone.mult / (100 - game.citizens.miners.num)) > stoneRand) {
             game.resources.stone.total += 1;
             note("One of your miners found a massive ore deposit! (+1 <img src='img/stone.png' />)");
+          }
+          if ((game.resources.gold.mult / (1000 - game.citizens.miners.num)) > goldRand) {
+            game.resources.gold.total += 1;
+            note("One of your miners found an enormous gold ignot! (+1 <img src='img/gold.png' />)");
+          }
+          if ((game.resources.gems.mult / (10000 - game.citizens.miners.num)) > gemRand) {
+            game.resources.gems.total += 1;
+            note("One of your miners found a source of gems! (+1 <img src='img/gem.png' />)");
           }
         }
       }
@@ -2504,9 +2516,19 @@ var game = {
 
       if (game.tech.techs[3].unlocked && game.citizens.miners.num > 0) {
         var stoneRand = Math.random();
+        var goldRand = Math.random();
+        var gemRand = Math.random();
         if ((game.resources.stone.mult / (100 - game.citizens.miners.num)) > stoneRand) {
           game.resources.stone.total += 1;
           //note("One of your miners found a massive ore deposit! (+1 <img src='img/stone.png' />)");
+        }
+        if ((game.resources.gold.mult / (1000 - game.citizens.miners.num)) > goldRand) {
+          game.resources.gold.total += 1;
+          note("One of your miners found an enormous gold ignot! (+1 <img src='img/gold.png' />)");
+        }
+        if ((game.resources.gems.mult / (10000 - game.citizens.miners.num)) > gemRand) {
+          game.resources.gems.total += 1;
+          note("One of your miners found a source of gems! (+1 <img src='img/gem.png' />)");
         }
       }
 
@@ -2643,6 +2665,19 @@ var game = {
 
       if (r == 5 || r == 6 || r == 7 || r == 8 || r == 9) {
         meetNewNation();
+      }
+
+      if (r == 10) {
+
+      }
+
+      if (r == 11 && game.faith.upgrades[11].unlocked) {
+        note("One of your citizens has earned a fortune through their business and you get a cut of the profit from taxes!");
+        game.empire.cash += 500;
+      }
+      if (r == 12 && game.faith.upgrades[11].unlocked) {
+        note("Thanks to the technological prowess of your citizenry, your research total has been doubled!");
+        game.tech.research *= 2;
       }
 
       else {
@@ -2999,13 +3034,17 @@ var game = {
 
     var meetNewNation = function() {
       var nation = choose(game.nations);
+      var attempt = 0;
       console.log(nation);
       if (nation.met == false) {
         nation.met = true;
         setNations();
         note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
       } else {
-        meetNewNation();
+        if (attempt < 5) {
+          meetNewNation();
+          attempt += 1;
+        }
       }
     };
 
@@ -3033,6 +3072,9 @@ var game = {
             if (!game.nations[n].atWar) {
               game.nations[n].atWar = true;
               note("You declared war on " + game.nations[n].name + "!", 5000, "war");
+              if (game.faith.upgrades[10].unlocked) {
+                game.faith.total += 10;
+              }
               addMilitaryCampaign(n);
             } else {
               note("You already declared war on " + game.nations[n].name + "!");
