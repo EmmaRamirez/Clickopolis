@@ -88,6 +88,42 @@ var game = {
           num: 0,
           strength: 3,
           defense: 8
+        },
+        {
+          name: "Spearmen",
+          num: 0,
+          strength: 7,
+          defense: -3
+        },
+        {
+          name: "Cavalry",
+          num: 0,
+          strength: 11,
+          defense: 6
+        },
+        {
+          name: "Cannon",
+          num: 0,
+          strength: 15,
+          defense: 0
+        },
+        {
+          name: "Navy",
+          num: 0,
+          strength: 15,
+          defense: 15
+        },
+        {
+          name: "Air Force",
+          num: 0,
+          strength: 23,
+          defense: 5
+        },
+        {
+          name: "General",
+          num: 0,
+          strength: 10,
+          defense: 10
         }
       ]
     }
