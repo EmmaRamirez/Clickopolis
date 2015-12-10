@@ -2769,6 +2769,18 @@ var game = {
         case "Industrial":
           population = game.empire.pop * 2100 + rand;
           break;
+        case "Modern":
+          population = game.empire.pop * 3500 + rand;
+          break;
+        case "Atomic":
+          population = game.empire.pop * 6000 + rand;
+          break;
+        case "Information":
+          population = game.empire.pop * 9500 + rand;
+          break;
+        case "Future":
+          population = game.empire.pop * 12500 + rand;
+          break;
         default:
           population = game.empire.pop * 10000;
       }
