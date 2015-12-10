@@ -1150,7 +1150,7 @@ var game = {
         type: "diplomatic",
         img: "deal",
         cost: 1550,
-        effect: "Can stil build, but can't use, Nuclear Weapons.",
+        effect: "Can stil build, but cannot use, Nuclear Weapons.",
         visible: true,
         unlocked: false,
         activated: false
