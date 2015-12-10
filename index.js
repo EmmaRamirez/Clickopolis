@@ -24,7 +24,21 @@ var game = {
     entered_medieval_era: false,
     entered_renaissance_era: false,
     entered_enlightenment_era: false,
-
+    entered_industrial_era: false,
+    entered_modern_era: false,
+    entered_atomic_era: false,
+    entered_information_era: false,
+    lea: {
+      first_click: false,
+      ten_food: false,
+      grew_pop: false,
+      purchased_first_tech: false,
+      purchased_first_building: false,
+      purchased_first_pantheon: false,
+      purchased_first_culture: false,
+      met_first_nation: false,
+      gained_first_great_work: false,
+    }
   },
   empire: {
     pop: 1,
