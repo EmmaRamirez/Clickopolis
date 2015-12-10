@@ -69,9 +69,11 @@ var game = {
     ]
   },
   military: {
-    strength: 10,
+    strength: 0,
+    strengthBase: 10,
     strengthMod: 1,
-    defense: 10,
+    defense: 0,
+    defenseBase: 10,
     defenseMod: 1,
     soldiers: {
       total: 0,
@@ -2319,9 +2321,9 @@ var game = {
       $('.miner-ps').text(game.citizens.miners.ps);
       $('.miner-pc').text(game.citizens.miners.pc);
 
-      $(".soldier-assign input").attr('max', game.citizens.soldiers.num);
-      $('[data-job-total="soldier"]').text(game.citizens.soldiers.num);
-      $('.soldiers-assigned').text(game.military.soldiers.assigned);
+      //$(".soldier-assign input").attr('max', game.citizens.soldiers.num);
+      //$('[data-job-total="soldier"]').text(game.citizens.soldiers.num);
+      $('.soldiers-assigned').text(game.military.soldiers.assigned.toString(10));
       $('.strength').text(game.military.strength.toFixed(0));
       $('.defense').text(game.military.defense.toFixed(0));
 
@@ -2785,6 +2787,7 @@ var game = {
           game.military.soldiers.assigned += amt;
           //console.log(game.military.soldiers.army[0].num);
           game.military.soldiers.army[0].num += amt;
+          setMilitary();
           note("Your nation conscripted a new Soldier! They were automatically assigned as a Foot Soldier, which you can change in the military panel.", 10000);
           checkUnemployed();
         }
@@ -3565,13 +3568,42 @@ var game = {
       var section = $(".soldier-assignments");
       var totalStrength = 0;
       var totalDefense = 0;
+      var totalUnits = 0;
       var fileName;
       section.html('');
 
       for (var i = 0; i < game.military.soldiers.army.length; i++) {
         var fileName = game.military.soldiers.army[i].name.replace(/\s+/g, '-').toLowerCase();
-        section.append("<span class='soldier-assign'><img src='img/" + fileName + ".png'><span class='unit-name'>" + game.military.soldiers.army[i].name + "</span> <span class='unit-stats'><img src='img/strength.png' /> " + game.military.soldiers.army[i].strength + " <img src='img/defense.png' /> " + game.military.soldiers.army[i].defense + "</span><input name='" + fileName + "' type='number' min='0' value='0' /></span> ");
+        section.append("<span class='soldier-assign'><img src='img/" + fileName + ".png'><span class='unit-name'>" + game.military.soldiers.army[i].name + "</span> <span class='unit-stats'><img src='img/strength.png' /> " + game.military.soldiers.army[i].strength + " <img src='img/defense.png' /> " + game.military.soldiers.army[i].defense + "</span><input name='" + fileName + "' data-n='" + i + "' type='number' max='" + (game.military.soldiers.total - game.military.soldiers.assigned.toString(10)) + "' min='0' value='" + game.military.soldiers.army[i].num + "' /></span> ");
+        totalStrength += (game.military.soldiers.army[i].strength * game.military.soldiers.army[i].num);
+        totalDefense += (game.military.soldiers.army[i].defense * game.military.soldiers.army[i].num);
+        totalUnits += game.military.soldiers.army[i].num;
+
+
+
       }
+      totalStrength += game.military.strengthBase;
+      totalDefense += game.military.defenseBase;
+      game.military.soldiers.assigned = totalUnits;
+      game.military.strength = totalStrength;
+      game.military.defense = totalDefense;
+
+      $("input[data-n]").change(function(){
+        var n = $(this).attr('data-n');
+        if (totalUnits >= game.military.soldiers.total) {
+          game.military.soldiers.army[n].num = $(this).val();
+          note("Changed!");
+          setMilitary();
+        } else {
+          if ($(this).val > 0) {
+            game.military.soldiers.army[n].num = $(this).val();
+            setMilitary();
+          }
+        }
+
+      });
+
+
 
     };
     setMilitary();
