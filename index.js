@@ -3180,7 +3180,7 @@ var game = {
             if (game.tech.research >= game.tech.cost) {
               game.tech.techs[n].unlocked = true;
               game.tech.research -= game.tech.cost;
-              game.tech.cost = ((game.empire.pop * 2) + game.tech.cost * game.tech.costMult).toFixed(1);
+              game.tech.cost = ((game.empire.pop  / 2) + game.tech.cost * game.tech.costMult).toFixed(1);
               game.flags.can_purchase_tech = false;
             } else {
               note("Not enough research points!", 5000, "tech");
