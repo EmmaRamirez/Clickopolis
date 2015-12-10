@@ -2778,12 +2778,12 @@ var game = {
           checkUnemployed();
         }
         if (job == "soldier") {
-          game.citizens.soldiers.num += amt;
-          game.empire.popUnemployed -= amt;
-          $("[data-job-total='soldier']").text(game.citizens.soldiers.num);
-          $(".soldier-assign input").attr('max', game.citizens.soldiers.num);
-          $("input[name='foot-soldier']").val(amt);
           game.military.soldiers.total += amt;
+          game.empire.popUnemployed -= amt;
+          $("[data-job-total='soldier']").text(game.military.soldiers.total);
+          //$(".soldier-assign input").attr('max', game.citizens.soldiers.num);
+          //$("input[name='foot-soldier']").val(amt);
+          //game.military.soldiers.total += amt;
           game.military.soldiers.assigned += amt;
           //console.log(game.military.soldiers.army[0].num);
           game.military.soldiers.army[0].num += amt;
@@ -3574,7 +3574,11 @@ var game = {
 
       for (var i = 0; i < game.military.soldiers.army.length; i++) {
         var fileName = game.military.soldiers.army[i].name.replace(/\s+/g, '-').toLowerCase();
+
+
         section.append("<span class='soldier-assign'><img src='img/" + fileName + ".png'><span class='unit-name'>" + game.military.soldiers.army[i].name + "</span> <span class='unit-stats'><img src='img/strength.png' /> " + game.military.soldiers.army[i].strength + " <img src='img/defense.png' /> " + game.military.soldiers.army[i].defense + "</span><input name='" + fileName + "' data-n='" + i + "' type='number' max='" + (game.military.soldiers.total - game.military.soldiers.assigned.toString(10)) + "' min='0' value='" + game.military.soldiers.army[i].num + "' /></span> ");
+
+
         totalStrength += (game.military.soldiers.army[i].strength * game.military.soldiers.army[i].num);
         totalDefense += (game.military.soldiers.army[i].defense * game.military.soldiers.army[i].num);
         totalUnits += game.military.soldiers.army[i].num;
@@ -3587,6 +3591,7 @@ var game = {
       game.military.soldiers.assigned = totalUnits;
       game.military.strength = totalStrength;
       game.military.defense = totalDefense;
+      game.military.soldiers.assigned = 0;
 
       $("input[data-n]").change(function(){
         var n = $(this).attr('data-n');
@@ -3595,7 +3600,7 @@ var game = {
           note("Changed!");
           setMilitary();
         } else {
-          if ($(this).val > 0) {
+          if ($(this).val() > 0) {
             game.military.soldiers.army[n].num = $(this).val();
             setMilitary();
           }
@@ -3604,6 +3609,11 @@ var game = {
       });
 
 
+      console.log(game.military.strength);
+      console.log(game.military.defense);
+      console.log("Total " + game.military.soldiers.total);
+      console.log("Assigned " + game.military.soldiers.assigned);
+      console.log("T - A " + (game.military.soldiers.total - game.military.soldiers.assigned));
 
     };
     setMilitary();
@@ -3633,7 +3643,8 @@ var game = {
           setCulturalUpgrades();
           if (!game.culture.upgrades[n].activated) {
             if (n == 0) {
-              game.military.strength += 2;
+              game.military.soldiers.army[0].strength += 2;
+              setMilitary();
             }
 
             game.culture.upgrades[n].activated = true;
