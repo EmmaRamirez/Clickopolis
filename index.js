@@ -1,13 +1,37 @@
 var game = {
   achievements: [
-
+    {
+      name: "The First Click",
+      description: "Click once.",
+      unlocked: false
+    },
+    {
+      name: "A Hundred Mighty Clicks",
+      description: "Click 100 times.",
+      unlocked: false
+    },
+    {
+      name: "The Great Clicker",
+      description: "Click 1k times.",
+      unlocked: false
+    },
+    {
+      name: "King Clicker",
+      description: "Click 100k times.",
+      unlocked: false
+    },
+    {
+      name: "Empire of Clicks",
+      description: "Click 1M times.",
+      unlocked: false
+    }
   ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
   era: "Ancient",
   eraNum: 1,
   year: 0,
   resets: 0,
-  advisor: ["Money is accumulated through your population, including any multipliers. It updates incrementally. Merchants, financial buildings, and trade increase your money. Use money to purchase buildings and get ahead militarily!", "You advance into the next era when you've accumulated all the technologies of your current era.", "Nonclick resources are accumulated over time through clicking food and production and their per second gains.", "Horses are an important early era resource because they let you build better militaries.", "Don't neglect your military defenses! Prop them up with walls, castles, forts and other means!", "Buildings may become costly production-wise with each new addition, but they are always the same purchase price.", "You may need a great deal of farmers early on. Fret not, as crop technology advances, you'll need fewer citizens to be agrarians.", "Not only do unemployed citizens eat food without working, they also penalize your research growth!","Increasing your population is almost always beneficial. Just be wary of starving your people or increasing pollution too much.", "Assigning artists leads to increased Culture, as well as an increased chance for a Great Work of Art--which boosts your Culture and Happiness.", "An unhealthy population grow much slower than a healthy one.", "Don't neglect your Faith! It provides amazing boosts that last through resets."],
+  advisor: ["Money is accumulated through your population, including any multipliers. It updates incrementally. Merchants, financial buildings, and trade increase your money. Use money to purchase buildings and get ahead militarily!", "You advance into the next era when you've accumulated all the technologies of your current era.", "Nonclick resources are accumulated over time through clicking food and production and their per second gains.", "Horses are an important early era resource because they let you build better militaries.", "Don't neglect your military defenses! Prop them up with walls, castles, forts and other means!", "Buildings may become costly production-wise with each new addition, but they are always the same purchase price.", "You may need a great deal of farmers early on. Fret not, as crop technology advances, you'll need fewer citizens to be agrarians.", "Not only do unemployed citizens eat food without working, they also penalize your research growth!","Increasing your population is almost always beneficial. Just be wary of starving your people or increasing pollution too much.", "Assigning artists leads to increased Culture, as well as an increased chance for a Great Work of Art--which boosts your Culture and Happiness.", "An unhealthy population grows much slower than a healthy one.", "Don't neglect your Faith! It provides amazing boosts that last through resets."],
   advisorModern: [],
   adviceCurrent: "",
   purchaseMode: false,
@@ -2573,6 +2597,7 @@ var game = {
       setMax();
       checkPop();
       updateResources();
+      checkAchievements();
     });
 
     var setMax = function() {
@@ -2704,7 +2729,7 @@ var game = {
       updateResources();
       goldenAgePaint();
       setBuildings();
-
+      checkAchievements();
 
 
     }, 1000);
@@ -3179,7 +3204,7 @@ var game = {
           nationPanel(n);
         }
 
-        game.totalClicks += 1;
+        //game.totalClicks += 1;
 
         setMax();
         checkPop();
@@ -3578,6 +3603,37 @@ var game = {
       }
     };
 
+    var setAchievements = function() {
+      console.log("does it work???");
+      var section = $(".achievements");
+      $(".achievements .achievement").remove();
+
+      for (var i = 0; i < game.achievements.length; i++) {
+        var cname = game.achievements[i].name.replace(/\s+/g, '-').toLowerCase();
+        if (game.achievements[i].unlocked) {
+          section.append("<div class='achievement hint--top " + cname + "' data-hint='" + game.achievements[i].name + ": " + game.achievements[i].description + "'></div>");
+        } else {
+          section.append("<div class='achievement hint--top mystery' data-hint='???'></div>");
+        }
+      }
+
+      //section.html("HEY");
+    }
+    setAchievements();
+
+    var checkAchievements = function() {
+      if (game.totalClicks > 0 && !game.achievements[0].unlocked) {
+        note("<em>Achievement Unlocked!</em><br/><strong>" + game.achievements[0].name + "</strong>");
+        game.achievements[0].unlocked = true;
+      }
+      if (game.totalClicks > 100 && !game.achievements[1].unlocked) {
+        note("<em>Achievement Unlocked!</em><br/><strong>" + game.achievements[1].name + "</strong>");
+        game.achievements[1].unlocked = true;
+      }
+      setAchievements();
+    };
+    checkAchievements();
+
     var setBuildings = function() {
       var buildingContainer = $('.buildings-container');
       buildingContainer.html("");
@@ -3717,8 +3773,6 @@ var game = {
             section.append("<div class='row wonder'><img class='wonder-img' src='img/" + game.wonders[i].img + ".png' /><div data-button='wonder' data-n='" + i + "' data-time='" + game.wonders[i].time + "'>" + game.wonders[i].name + "</div> <span class='time'>DONE</span><span class='req'>" + game.wonders[i].required + "</span><span class='effect'>" + game.wonders[i].effect + "</span><span class='description'>" + game.wonders[i].description + "</span></div>");
           }
         }
-
-
       }
 
       $("[data-button='wonder']").click(function(){
@@ -4046,48 +4100,3 @@ var game = {
 };
 
 game.init();
-
-
-
-
-
-
-
-
-
-
-
-//
-// var game = {
-//   achievements: [
-//     ['click1', 'Noob: click once.', 'locked'],
-//     ['click2', 'Less noob: click 10 times.', 'locked'],
-//     ['click3', 'Click 100 times.', 'locked'],
-//     ['click4', 'Click 1K times', 'locked'],
-//     ['click5', 'Click 10K times', 'locked'],
-//     ['click6', 'Click 666666 times', 'locked'],
-//     ['click7', 'Click 7777777 times', 'locked'],
-//     ['pop1', 'Childbirth: Grow pop. once.', 'locked'],
-//     ['pop2', 'Boomtown: Grow pop. ten times', 'locked'],
-//     ['pop3', 'Megapolis: Grow pop. 100 times', 'locked'],
-//     ['pop4', 'Mexico City: Grow pop. 1k times', 'locked'],
-//     ['faith1', 'Devout follower: Gain 10 Faith', 'locked']],
-//   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Space
-//
-//   unlockAchievement: function(n) {
-//     game.achievements[n][2] == "unlocked";
-//     game.displayNote("Achievement unlocked! " + game.achievements[n][1]);
-//   },
-//
-//   generateAchievements: function() {
-//     var aH = "";
-//     var aC = document.getElementById("achievementsContainer");
-//     for (var i = 0; i < game.achievements.length; i++) {
-//       //achievementHTML += game.achievements[i][0];
-//
-//       aH += "<div class='achievement hint--bottom " + game.achievements[i][2] + " " + game.achievements[i][0] + "' data-hint=" + game.achievements[i][1] + "></div>";
-//     }
-//     //console.log(aH);
-//     aC.innerHTML = aH;
-//   }
-// }

@@ -1255,12 +1255,15 @@ div[data-num] {
   min-width: 64px;
 }
 
-.click1 {
+.mystery {
+  background-color: #333;
+}
+.the-first-click {
   background-color: lightblue;
   background-image: url('img/cursor.png');
 }
-.click2 {
-  @extend .click1;
+.a-hundred-mighty-clicks {
+  @extend .the-first-click;
   background-color: tomato;
 }
 

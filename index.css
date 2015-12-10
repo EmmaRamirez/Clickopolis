@@ -1383,12 +1383,16 @@ div[data-num] {
   min-width: 64px;
 }
 
-.click1, .click2, .click3 {
+.mystery {
+  background-color: #333;
+}
+
+.the-first-click, .a-hundred-mighty-clicks {
   background-color: lightblue;
   background-image: url("img/cursor.png");
 }
 
-.click2 {
+.a-hundred-mighty-clicks {
   background-color: tomato;
 }
 
