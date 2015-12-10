@@ -1251,11 +1251,25 @@ div[data-num] {
 }
 
 .soldier-assign {
+  border: 1px solid #eee;
+  border-radius: 4px;
   cursor: default;
   display: inline-block;
   margin-bottom: .25rem;
+  overflow: hidden;
+  padding: .25rem;
   position: relative;
   width: 300px;
+}
+
+.soldier-assign .unit-stats {
+  background: #eee;
+  padding: .5rem;
+  vertical-align: top;
+}
+
+.soldier-assign .unit-stats img {
+  height: .75rem;
 }
 
 .culture-points div {

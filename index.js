@@ -1603,7 +1603,7 @@ var game = {
       misc2: null,
       effect: "+1 Unit <img src='img/strength.png' />",
       description: "A nice and comfy place for your soldiers to kick it.",
-      visible: true
+      visible: false
     },
     {
       name: "Temple",
@@ -3092,6 +3092,8 @@ var game = {
           }
           if (i == 1) {
             game.military.defense += 3;
+            game.buildings[3].visible = true;
+            setBuildings();
           }
           if (i == 2) {
             $("[data-resource='fish']").removeClass('locked');
@@ -3530,7 +3532,7 @@ var game = {
           if (game.culture.upgrades[i].unlocked) {
             section.append("<div class='hint--left unlocked culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
           } else {
-            section.append("<div class='hint--left culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
+            section.append("<div title='" + i + "' class='hint--left culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
           }
         }
       }
