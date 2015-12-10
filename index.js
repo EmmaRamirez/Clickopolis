@@ -1156,7 +1156,7 @@ var game = {
         type: "resources",
         img: "resources",
         cost: 5,
-        effect: "Assigns new Citiznes as farmers automatically.",
+        effect: "Assigns new Citizens as farmers automatically.",
         visible: true,
         unlocked: false,
         activated: false
