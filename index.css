@@ -861,7 +861,8 @@ img {
 
 [data-name="Military-Industrial Complex"],
 [data-name="Missile Defense System A"],
-[data-name="Missile Defense System B"] {
+[data-name="Missile Defense System B"],
+[data-name="Robotic Annhialation Grid"] {
   font-size: 14px;
 }
 

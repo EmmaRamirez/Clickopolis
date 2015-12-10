@@ -846,6 +846,16 @@ var game = {
         activated: false
       },
       {
+        name: "Robotic Annhialation Grid",
+        type: "military",
+        img: "military",
+        cost: 5500,
+        effect: "+100% Robot Strength.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Quest for Truth",
         type: "research",
         img: "research",
