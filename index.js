@@ -3584,8 +3584,9 @@ var game = {
       for (var i = 0; i < game.military.soldiers.army.length; i++) {
         var fileName = game.military.soldiers.army[i].name.replace(/\s+/g, '-').toLowerCase();
 
-
-        section.append("<span class='soldier-assign'><img src='img/" + fileName + ".png'><span class='unit-name'>" + game.military.soldiers.army[i].name + "</span> <span class='unit-stats'><img src='img/strength.png' /> " + game.military.soldiers.army[i].strength + " <img src='img/defense.png' /> " + game.military.soldiers.army[i].defense + "</span><input name='" + fileName + "' data-n='" + i + "' type='number' max='" + (game.military.soldiers.total - game.military.soldiers.assigned.toString(10)) + "' min='0' value='" + game.military.soldiers.army[i].num + "' /></span> ");
+        if (game.military.soldiers.army[i].unlocked) {
+          section.append("<span class='soldier-assign'><img src='img/" + fileName + ".png'><span class='unit-name'>" + game.military.soldiers.army[i].name + "</span> <span class='unit-stats'><img src='img/strength.png' /> " + game.military.soldiers.army[i].strength + " <img src='img/defense.png' /> " + game.military.soldiers.army[i].defense + "</span><input name='" + fileName + "' data-n='" + i + "' type='number' max='" + (game.military.soldiers.total - game.military.soldiers.assigned.toString(10)) + "' min='0' value='" + game.military.soldiers.army[i].num + "' /></span> ");
+        }
 
 
         totalStrength += (game.military.soldiers.army[i].strength * game.military.soldiers.army[i].num);
@@ -3595,6 +3596,7 @@ var game = {
 
 
       }
+      $("input[name='general']").attr('disabled', 'true');
       totalStrength += game.military.strengthBase;
       totalDefense += game.military.defenseBase;
       game.military.soldiers.assigned = totalUnits;
