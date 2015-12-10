@@ -190,6 +190,10 @@ var game = {
     jesters: {
       num: 0,
       happiness: 5,
+    },
+    doctors: {
+      num: 0,
+      health: 11
     }
 
   },
