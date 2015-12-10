@@ -736,7 +736,7 @@ var game = {
         type: "military",
         img: "military",
         cost: 15,
-        effect: "Warriors provide +1 Culture.",
+        effect: "Soldiers provide +.25 Culture.",
         visible: true,
         unlocked: false,
         activated: false
