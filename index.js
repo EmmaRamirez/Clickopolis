@@ -2062,7 +2062,10 @@ var game = {
 
       o.append("<h1>Welcome to the " + game.era + " Era!</h1><p>Click anywhere to continue.</p>");
       if (game.era == "Classical") {
-        o.append("<p>+10 <img src='img/production.png' /> PC</p>");
+        o.append("<p>+5 <img src='img/production.png' /> PC</p>");
+        o.append("<p>+5 <img src='img/food.png' /> PC</p>");
+        game.resources.prod.pc += 5;
+        game.resources.food.pc += 5;
       }
       for (var i = 0; i < game.culture.gw.length; i++) {
         //game.culture.pm -= game.culture.gw[i].culture;
