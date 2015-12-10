@@ -2210,10 +2210,18 @@ var game = {
 
     var lea = function() {
       var advisor = $(".lea");
-      var text = $(".text");
+      var text = $(".lea-text");
+      var no = $(".answer-no");
+      var yes = $(".answer-yes");
+
+      yes.click(function(){
+        $(".resources").addClass('highlight');
+        text.text("Check out the resource panel here and click the Gather Food button!");
+      });
 
     };
     lea();
+
 
     var updateResources = function() {
 
