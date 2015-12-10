@@ -14,7 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: false,
+    debugMode: true,
   },
   flags: {
     can_purchase_tech: false,
@@ -2002,6 +2002,7 @@ var game = {
       game.tech.research = 100000000;
       game.faith.total = 100000;
       game.empire.goldenAgeGoal = 100;
+      game.culture.total = 100000;
     }
 
     var choose = function(arr) {
@@ -2472,6 +2473,7 @@ var game = {
         gw.nation = game.empire.name;
         gw.year = game.year + " AC";
         game.culture.pm += gw.culture;
+        game.culture.greatWorks += 1;
         setGreatWorks();
         note("One of your artists created " + gw.name + ", a great work of art!");
       } else {

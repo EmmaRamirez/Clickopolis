@@ -741,6 +741,10 @@ img {
   opacity: 1;
 }
 
+[data-button="culture-purchase"].unlocked {
+  border: 1px solid black !important;
+}
+
 [data-button="culture-purchase"] img:nth-of-type(1) {
   position: absolute;
   left: 4px;

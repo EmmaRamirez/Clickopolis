@@ -651,6 +651,9 @@ img {
   &:hover, &.unlocked {
     opacity: 1;
   }
+  &.unlocked {
+    border: 1px solid black !important;
+  }
 
   text-align: right !important;
   img:nth-of-type(1) {
