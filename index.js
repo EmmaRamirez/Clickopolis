@@ -14,7 +14,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: true,
+    debugMode: false,
   },
   flags: {
     can_purchase_tech: false,
@@ -1447,6 +1447,7 @@ var game = {
       personality: "peaceful",
       color: "#C1D4CC",
       met: true,
+      atWar: false,
     },
     {
       name: "Emporia",
@@ -1461,6 +1462,7 @@ var game = {
       personality: "peaceful",
       color: "#C2AC11",
       met: false,
+      atWar: false,
     },
     {
       name: "Gradince",
@@ -1475,26 +1477,8 @@ var game = {
       personality: "peaceful",
       color: "#EDCD64",
       met: false,
+      atWar: false,
     },
-    // {
-    //   name: "Cajolia",
-    //   img: 6,
-    //   mood: "neutral",
-    //   moodNum: 50,
-    //   description: "Cajolia is a nation nested inside a tropical rainforest known for its barbaric atrocities.",
-    //   color: "#90D4BC",
-    //   met: true
-    // },
-    // {
-    //   name: "Macchias",
-    //   img: 4,
-    //   mood: "neutral",
-    //   moodNum: 50,
-    //   description: "",
-    //   color: "#9114BC",
-    //   met: false,
-    //
-    // },
     {
       name: "Arendale",
       img: 15,
@@ -1507,7 +1491,8 @@ var game = {
       env2: "Coastal",
       personality: "friendly",
       color: "skyblue",
-      met: false
+      met: false,
+      atWar: false,
     },
     {
       name: "Calloway",
@@ -1521,7 +1506,8 @@ var game = {
       env2: "",
       personality: "amiable",
       color: "periwinkle",
-      met: false
+      met: false,
+      atWar: false,
     },
     {
       name: "Mukthos",
@@ -1535,7 +1521,8 @@ var game = {
       env2: "Humid",
       personality: "aggressive",
       color: "lightgreen",
-      met: false
+      met: false,
+      atWar: false,
     },
     {
       name: "Arcadia",
@@ -1549,7 +1536,8 @@ var game = {
       env2: "Forest",
       personality: "amiable",
       color: "pink",
-      met: false
+      met: false,
+      atWar: false,
     },
     {
       name: "Vatua",
@@ -1563,7 +1551,8 @@ var game = {
       env2: "Tropical",
       personality: "friendly",
       color: "skyblue",
-      met: false
+      met: false,
+      atWar: false,
     }
   ],
 
