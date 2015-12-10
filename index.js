@@ -1492,6 +1492,7 @@ var game = {
       img: 5,
       mood: "neutral",
       moodNum: 50,
+      era: "Ancient",
       strength: 15,
       defense: 25,
       description: "Ulundo is a mountainous nation with a temperate climate and disposition. Their people are largely secluded from the world and are very privy to fights.",
@@ -1507,6 +1508,7 @@ var game = {
       img: 3,
       mood: "neutral",
       moodNum: 50,
+      era: "Ancient",
       strength: 11,
       defense: 8,
       description: "A small village that broke off from Ulundo less than a decade ago. It is weak, but stronly nationalistic. Its people take pride in their mulberry pie.",
@@ -1522,6 +1524,7 @@ var game = {
       img: 12,
       mood: "furious",
       moodNum: 0,
+      era: "Ancient",
       strength: 25,
       defense: 12,
       description: "A small city-state on the open plains. It is quick to anger.",
@@ -1537,6 +1540,7 @@ var game = {
       img: 15,
       mood: "content",
       moodNum: 80,
+      era: "Ancient",
       strength: 40,
       defense: 85,
       description: "A coastal nation bordering the mountains. It is breezy and endures harsh winters, but its people are quite amiable.",
@@ -1552,6 +1556,7 @@ var game = {
       img: 10,
       mood: "neutral",
       moodNum: 50,
+      era: "Ancient",
       strength: 28,
       defense: 63,
       description: "A moderately small nation known for its thriving oceanic economy.",
@@ -1567,6 +1572,7 @@ var game = {
       img: 8,
       mood: "angry",
       moodNum: 40,
+      era: "Ancient",
       strength: 66,
       defense: 42,
       description: "A nation built upon swampy, humid land. Its inhabitants are known to be rude and demanding.",
@@ -1582,6 +1588,7 @@ var game = {
       img: 8,
       mood: "joyous",
       moodNum: 99,
+      era: "Classical",
       strength: 80,
       defense: 80,
       description: "A mythical land. No confirmation of it exists.",
@@ -1597,6 +1604,7 @@ var game = {
       img: 14,
       mood: "happy",
       moodNum: 75,
+      era: "Classical",
       strength: 74,
       defense: 64,
       description: "An island nation populated by peoples escaping religious persecution.",
@@ -2991,7 +2999,7 @@ var game = {
     var meetNewNation = function() {
       var nation = choose(game.nations);
       console.log(nation);
-      if (nation.met == false) {
+      if (nation.met == false && nation.era == game.era) {
         nation.met = true;
         setNations();
         note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
