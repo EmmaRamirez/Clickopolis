@@ -2640,7 +2640,7 @@ var game = {
         checkUnemployed();
       }
 
-      if (r == 5) {
+      if (r == 5 || r == 6 || r == 7 || r == 8 || r == 9) {
         meetNewNation();
       }
 
