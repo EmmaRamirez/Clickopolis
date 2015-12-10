@@ -422,6 +422,10 @@ section {
     background: #BCE3E6;
     color: #222;
   }
+  &.war {
+    background: darken(red, 15%);
+    color: #eee;
+  }
   .note-type {
     background: rgba(0,0,0,0.2);
   }

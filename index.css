@@ -420,6 +420,11 @@ section.locked-section {
   color: #222;
 }
 
+.note.war {
+  background: #b30000;
+  color: #eee;
+}
+
 .note .note-type {
   background: rgba(0, 0, 0, 0.2);
 }

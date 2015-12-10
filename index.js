@@ -2118,6 +2118,9 @@ var game = {
         case 'diplomacy-r':
           typePost = "Diplomatic Relations";
           break;
+        case 'war':
+          typePost = "Declaration of War";
+          break;
       }
 
       var msgHTML = "<p>" + game.year + " AC: " + msg + "</p>";
@@ -2942,11 +2945,22 @@ var game = {
           $(".diplomacy").css("backgroundColor", game.nations[i].color);
           panel.append("<p class='nation-military'><img src='img/strength.png'/> Strength: "+ game.nations[i].strength + " <img src='img/defense.png'/> Defense: " + game.nations[i].defense + "</p>");
           panel.append("<p class='nation-description'>" + game.nations[i].description + "</p>");
-          panel.append("<div class='row'><div class='nation-diplo' data-button='nation-trade'>Trade</div><div class='nation-diplo' data-button='declare-war'>Declare War!!</div><div class='nation-diplo' data-button='return'> &larr; Go Back</div></div>");
+          panel.append("<div class='row'><div class='nation-diplo' data-button='nation-trade'>Trade</div><div class='nation-diplo' data-button='insult'>Insult</div><div class='nation-diplo' data-button='return'> &larr; Go Back</div><div class='nation-diplo' data-button='declare-war' data-n='" + i + "'>Declare War!!</div></div>");
           $("[data-button='return']").click(function(){
             $('.diplomacy').css("backgroundColor", "rgba(255, 255, 255, 0.7)");
             $('.nation-panel').html('');
             $('.nations').removeClass('move-left');
+          });
+          $("[data-button='declare-war']").click(function(){
+            var n = $(this).attr('data-n');
+            //console.log(game.nations[i].atWar);
+            if (!game.nations[n].atWar) {
+              game.nations[n].atWar = true;
+              note("You declared war on " + game.nations[n].name + "!", 5000, "war");
+            } else {
+              note("You already declared war on " + game.nations[n].name + "!");
+            }
+
           });
 
         }
@@ -2954,6 +2968,7 @@ var game = {
 
         }
       }
+
 
 
     };
