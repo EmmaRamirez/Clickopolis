@@ -2195,6 +2195,8 @@ var game = {
     //for (var i = 0; i < game.tech.techs.length; i++) { game.tech.techs[i].visible = true; }
     for (var i = 0; i < game.wonders.length; i++) { game.wonders[i].visible = false; }
 
+    $("section").addClass('draggable');
+
     if (game.settings.debugMode) {
       game.tech.research = 100000000;
       game.faith.total = 100000;
@@ -2940,6 +2942,11 @@ var game = {
 
       game.empire.cashPM = amt * 60;
       game.empire.cash += amt;
+      if (game.empire.cash < 0) {
+        $(".economy-state.debt").removeClass('hidden');
+      } else {
+        $(".economy-state.debt").addClass('hidden');
+      }
     };
 
     for (var i = 0; i < game.buildings.length; i++) {
@@ -3279,7 +3286,12 @@ var game = {
       techPM = (researchFromEmpire + researchFromBuildings + researchFromCitizens) / 60;
       game.tech.research += techPM;
       $('.research-PM').text(techPM * 60);
-      game.tech.researchTotal += (researchFromEmpire + researchFromBuildings + researchFromCitizens) / 60;
+      if (game.empire.cash < 0) {
+        game.tech.researchTotal += ((researchFromEmpire + researchFromBuildings + researchFromCitizens) / 60) / 2;
+      } else {
+        game.tech.researchTotal += (researchFromEmpire + researchFromBuildings + researchFromCitizens) / 60;
+      }
+
 
     };
 
@@ -3855,9 +3867,9 @@ var game = {
       for (var i = 0; i < game.culture.upgrades.length; i++) {
         if (game.culture.upgrades[i].visible) {
           if (game.culture.upgrades[i].unlocked) {
-            section.append("<div class='hint--left unlocked culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
+            section.append("<div class='hint--top unlocked culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
           } else {
-            section.append("<div title='" + i + "' class='hint--left culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
+            section.append("<div title='" + i + "' class='hint--top culture-" + game.culture.upgrades[i].type + "' data-n='" + i + "' data-hint='" + game.culture.upgrades[i].effect + "' data-button='culture-purchase' data-name='" + game.culture.upgrades[i].name + "'><img src='img/" + game.culture.upgrades[i].img + ".png' /> <img  class='hidden' src='img/culture.png' /><span class='culture-cost'>" + game.culture.upgrades[i].cost + "</span>  " + game.culture.upgrades[i].name + "</div>");
           }
         }
       }

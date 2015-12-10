@@ -209,6 +209,11 @@ section.locked-section {
   width: calc(35% - 1rem);
 }
 
+.military, .diplomacy, .great-works-container {
+  height: 40rem;
+  overflow: auto;
+}
+
 .diplomacy {
   border-top: 4px solid orange;
   overflow-x: hidden;
@@ -217,16 +222,24 @@ section.locked-section {
 
 .culture {
   border-top: 4px solid purple;
+  width: calc(50% - 1rem);
+}
+
+.great-works-container {
+  border-top: 4px solid #cc00cc;
   width: calc(40% - 1rem);
 }
 
 .faith {
   border-top: 4px solid #ddd;
+  overflow: auto;
   width: calc(50% - 1rem);
 }
 
 .stats {
   width: calc(20% - 1rem);
+  height: 40rem;
+  overflow: auto;
 }
 
 .log {
@@ -236,7 +249,9 @@ section.locked-section {
 }
 
 .achievements {
-  width: calc(100% - 1rem);
+  width: calc(50% - 1rem);
+  height: 40rem;
+  overflow: auto;
 }
 
 .settings {
@@ -271,6 +286,7 @@ section.locked-section {
 .lea img {
   display: inline-block;
   height: 100%;
+  max-height: 8rem;
   width: auto;
 }
 
@@ -1288,6 +1304,10 @@ div[data-num] {
   display: inline-block;
   min-width: 96px;
   padding-left: .25rem;
+}
+
+.culture {
+  overflow: auto;
 }
 
 .culture-points div {
