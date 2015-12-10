@@ -114,6 +114,12 @@ var game = {
           defense: 15
         },
         {
+          name: "Tanks",
+          num: 0,
+          strength: 27,
+          defense: 13
+        },
+        {
           name: "Air Force",
           num: 0,
           strength: 23,
@@ -3555,7 +3561,20 @@ var game = {
     };
 
 
+    var setMilitary = function() {
+      var section = $(".soldier-assignments");
+      var totalStrength = 0;
+      var totalDefense = 0;
+      var fileName;
+      section.html('');
 
+      for (var i = 0; i < game.military.soldiers.army.length; i++) {
+        var fileName = game.military.soldiers.army[i].name.replace(/\s+/g, '-').toLowerCase();
+        section.append("<span class='soldier-assign'><img src='img/" + fileName + ".png'><span class='unit-name'>" + game.military.soldiers.army[i].name + "</span> <span class='unit-stats'><img src='img/strength.png' /> " + game.military.soldiers.army[i].strength + " <img src='img/defense.png' /> " + game.military.soldiers.army[i].defense + "</span><input name='" + fileName + "' type='number' min='0' value='0' /></span> ");
+      }
+
+    };
+    setMilitary();
 
 
 
@@ -3694,11 +3713,7 @@ var game = {
     };
     checkFaithUpgrades();
 
-    var updateStrength = function() {
-      game.military.strength = 10;
-      game.military.strength += (game.military.army[0].num * game.military.army[0].strength) * game.military.strengthMod;
 
-    };
 
     var enableMercenaries = function() {
       $("[data-button='hire-mercenary']").removeClass('hidden');

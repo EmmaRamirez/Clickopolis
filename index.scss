@@ -1127,6 +1127,11 @@ div[data-num] {
       height: .75rem;
     }
   }
+  .unit-name {
+    display: inline-block;
+    min-width: 96px;
+    padding-left: .25rem;
+  }
 }
 
 .culture {

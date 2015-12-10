@@ -1272,6 +1272,12 @@ div[data-num] {
   height: .75rem;
 }
 
+.soldier-assign .unit-name {
+  display: inline-block;
+  min-width: 96px;
+  padding-left: .25rem;
+}
+
 .culture-points div {
   font-weight: bold;
   text-align: center;
