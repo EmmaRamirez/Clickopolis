@@ -3779,7 +3779,7 @@ var game = {
         // </figure>
         if (game.culture.gw[i].unlocked) {
           var src = game.culture.gw[i].name.replace(/\s+/g, '-').toLowerCase();
-          section.append("<figure class='great-work'><img class='gw' src='img/" + src + ".jpg' /><div class='labels'><a href='" + game.culture.gw[i].link + "'><p>" + game.culture.gw[i].name + "</p></a><p><strong>Artist</strong>: " + game.culture.gw[i].artist + " | <strong>Nation:</strong> " + game.culture.gw[i].nation + " | " + "<strong>Year:</strong> " + game.culture.gw[i].year + "</p><p><strong>Culture:</strong> " + game.culture.gw[i].culture + " <img src='img/culture.png' /></p><p><strong>Worth:</strong> $" + game.culture.gw[i].worth + "</p>");
+          section.append("<figure class='great-work'><img class='gw' src='img/" + src + ".jpg' /><div class='labels'><a href='" + game.culture.gw[i].link + "' target='_blank'><p>" + game.culture.gw[i].name + "</p></a><p><strong>Artist</strong>: " + game.culture.gw[i].artist + " | <strong>Nation:</strong> " + game.culture.gw[i].nation + " | " + "<strong>Year:</strong> " + game.culture.gw[i].year + "</p><p><strong>Culture:</strong> " + game.culture.gw[i].culture + " <img src='img/culture.png' /></p><p><strong>Worth:</strong> $" + game.culture.gw[i].worth + "</p>");
         } else {
 
         }
