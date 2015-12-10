@@ -2121,7 +2121,7 @@ var game = {
       $('body').removeClass(game.era);
 
       game.era = era;
-      game.eraNum *= 2;
+      game.eraNum += 1;
 
 
       o.append("<h1>Welcome to the " + game.era + " Era!</h1><p>Click anywhere to continue.</p>");
@@ -2672,11 +2672,11 @@ var game = {
       }
 
       if (r == 11 && game.faith.upgrades[11].unlocked) {
-        note("One of your citizens has earned a fortune through their business and you get a cut of the profit from taxes!");
+        note("One of your citizens has earned a fortune through their business and you get a cut of the profit from taxes! (+500 <img src='img/coin.png' />)");
         game.empire.cash += 500;
       }
       if (r == 12 && game.faith.upgrades[11].unlocked) {
-        note("Thanks to the technological prowess of your citizenry, your research total has been doubled!");
+        note("Thanks to the technological prowess of your citizenry, your research total has been doubled! (x2 <img src='img/research.png' />)");
         game.tech.research *= 2;
       }
 
@@ -3277,6 +3277,10 @@ var game = {
             setBuildings();
             game.tech.techs[13].visible = true;
             setTechnologies();
+          }
+          if (i == 11) {
+            game.military.soldiers.army[3].unlocked = true;
+            setMilitary();
           }
           if (i == 12) {
             game.tech.techs[21].visible = true;
