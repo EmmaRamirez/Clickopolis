@@ -1066,6 +1066,36 @@ var game = {
         activated: false
       },
       {
+        name: "Powerful Lending",
+        type: "economy",
+        img: "coin",
+        cost: 4500,
+        effect: "No penalties from debt.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Easy & Cheap",
+        type: "economy",
+        img: "coin",
+        cost: 6000,
+        effect: "-50% Building Cost",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Super PACs",
+        type: "economy",
+        img: "coin",
+        cost: 7500,
+        effect: "+50% Influence from gifts",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Noble Statesmen",
         type: "diplomatic",
         img: "deal",
