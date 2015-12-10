@@ -2619,7 +2619,7 @@ var game = {
             note("One of your Citizens was killed by a " + choose(["Wolf", "Bear", "Lion", "Hyena", "Rabid Chihuahua"]) + "! (-1 <img src='img/citizens.png' />)", 10000);
           } else {
             note("One of your Citizens was threatened by a " + choose(["Wolf", "Bear", "Lion", "Hyena", "Rabid Chihuahua"]) + " but luckily, one of your soldiers stepped in and saved them! (+1 <img src='img/strength.png' />)", 10000);
-            game.military.strength += 1;
+            game.military.strengthBase += 1;
           }
         }
       }
@@ -2957,6 +2957,7 @@ var game = {
     //   <span class="nation-mood"><img src="img/neutral.png" /></span>
     // </div>
 
+
     var setNations = function() {
       var nationContainer = $('.nations');
       nationContainer.html('');
@@ -2986,6 +2987,18 @@ var game = {
       });
     };
     setNations();
+
+    var meetNewNation = function() {
+      var nation = choose(game.nations);
+      console.log(nation);
+      if (nation.met == false) {
+        nation.met = true;
+        setNations();
+        note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
+      } else {
+        meetNewNation();
+      }
+    };
 
     var nationPanel = function(nation) {
       $('.nations').addClass('move-left');
@@ -3026,17 +3039,6 @@ var game = {
 
 
 
-    };
-
-    var meetNewNation = function() {
-      var nation = choose(game.nations);
-      if (nation.met == false) {
-        nation.met = true;
-        setNations();
-        note("After much travel, one of your citizens met and engaged in new diplomatic ties with the Nation of " + nation.name + "!", 10000, "diplomacy-r");
-      } else {
-        meetNewNation();
-      }
     };
 
     var addMilitaryCampaign = function(n) {
@@ -3145,9 +3147,11 @@ var game = {
             setTechnologies();
           }
           if (i == 1) {
-            game.military.defense += 3;
+            game.military.defenseBase += 3;
             game.buildings[3].visible = true;
             setBuildings();
+            game.military.soldiers.army[1].unlocked = true;
+            setMilitary();
           }
           if (i == 2) {
             $("[data-resource='fish']").removeClass('locked');
