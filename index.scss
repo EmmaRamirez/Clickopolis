@@ -1060,6 +1060,50 @@ div[data-num] {
     width: 48%;
   }
 }
+.military-campaigns {
+  .campaign {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: .5rem;
+  }
+  .vs {
+    color: darken(red, 5%);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-left: 3rem;
+  }
+  .vs, .nation-campaign, .nation-military, .buttons, [data-button] {
+    display: inline-block;
+  }
+  .buttons {
+    margin-left: 1.5rem;
+    width: 20rem;
+  }
+  [data-button] {
+    background: #eee;
+    font-size: 16px;
+    padding: .25rem;
+    width: 8rem;
+    img {
+      height: 1rem;
+    }
+  }
+  .nation-campaign {
+    padding: 0 1rem;
+    img {
+      height: 2rem;
+      margin-left: .5rem;
+    }
+    p {
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+    }
+  }
+  .nation-military {
+    width: 3rem;
+  }
+}
 .soldier-assign {
   cursor: default;
   display: inline-block;

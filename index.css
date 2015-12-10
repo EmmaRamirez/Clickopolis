@@ -1192,6 +1192,58 @@ div[data-num] {
   width: 48%;
 }
 
+.military-campaigns .campaign {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: .5rem;
+}
+
+.military-campaigns .vs {
+  color: #e60000;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-left: 3rem;
+}
+
+.military-campaigns .vs, .military-campaigns .nation-campaign, .military-campaigns .nation-military, .military-campaigns .buttons, .military-campaigns [data-button] {
+  display: inline-block;
+}
+
+.military-campaigns .buttons {
+  margin-left: 1.5rem;
+  width: 20rem;
+}
+
+.military-campaigns [data-button] {
+  background: #eee;
+  font-size: 16px;
+  padding: .25rem;
+  width: 8rem;
+}
+
+.military-campaigns [data-button] img {
+  height: 1rem;
+}
+
+.military-campaigns .nation-campaign {
+  padding: 0 1rem;
+}
+
+.military-campaigns .nation-campaign img {
+  height: 2rem;
+  margin-left: .5rem;
+}
+
+.military-campaigns .nation-campaign p {
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.military-campaigns .nation-military {
+  width: 3rem;
+}
+
 .soldier-assign {
   cursor: default;
   display: inline-block;
