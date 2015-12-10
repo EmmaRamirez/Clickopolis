@@ -2677,7 +2677,7 @@ var game = {
 
       if (r == 11 && game.faith.upgrades[11].unlocked) {
         note("One of your citizens has earned a fortune through their business and you get a cut of the profit from taxes! (+500 <img src='img/coin.png' />)");
-        game.empire.cash += 500;
+        game.empire.cash += (500 * game.eraNum);
       }
       if (r == 12 && game.faith.upgrades[11].unlocked) {
         note("Thanks to the technological prowess of your citizenry, your research total has been doubled! (x2 <img src='img/research.png' />)");
