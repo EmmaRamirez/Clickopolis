@@ -3616,6 +3616,8 @@ var game = {
       game.military.soldiers.assigned = totalUnits;
       game.military.strength = totalStrength;
       game.military.defense = totalDefense;
+      game.military.strength *= game.military.strengthMod;
+      game.military.defense *= game.military.defenseMod;
       game.military.soldiers.assigned = 0;
 
       $("input[data-n]").change(function(){
