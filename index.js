@@ -2352,7 +2352,7 @@ var game = {
 
       $(".log-text").prepend(msgHTML);
 
-      $("body").append("<div class='note note-" + game.settings.noteCounter + " " + type + "'><div class='note-type'>" + typePost + "</div><div class='note-text'>" + msgHTML + "</div><div class='close-note' data-close-n='" + game.settings.noteCounter + "'><img title='close' src='img/x.png' /></div></div>")
+      $("body").append("<div class='note note " + type + "'><div class='note-type'>" + typePost + "</div><div class='note-text'>" + msgHTML + "</div><div class='close-note' data-close-n='" + game.settings.noteCounter + "'><img title='close' src='img/x.png' /></div></div>")
 
 
 
@@ -2368,7 +2368,7 @@ var game = {
       // });
       $(".close-note").click(function(){
         var n = $(this).attr('data-close-n');
-        var el = $(".note-" + n);
+        var el = $(".note");
         el.remove();
         game.settings.noteCounter = 0;
       });
