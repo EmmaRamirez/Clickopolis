@@ -24,6 +24,27 @@ var game = {
       name: "Empire of Clicks",
       description: "Click 1M times.",
       unlocked: false
+    },
+
+    {
+      name: "Newborn Empire",
+      description: "Grow population once.",
+      unlocked: false
+    },
+    {
+      name: "Slightly Crowded",
+      description: "Grow population ten times.",
+      unlocked: false
+    },
+    {
+      name: "Burgeoning",
+      description: "Grow population 100 times.",
+      unlocked: false
+    },
+    {
+      name: "The Expansive",
+      description: "Grow population 1k times.",
+      unlocked: false
     }
   ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
@@ -2025,7 +2046,7 @@ var game = {
       img: "great-pyramids",
       time: 1450,
       required: "25 <img src='img/stone.png' />",
-      effect: "+1 Free Engineer.",
+      effect: "+10 <img src='img/prod.png' /> PS.",
       description: "It'd probably build faster if we had aliens in this game.",
       visible: true,
       built: false,
@@ -2036,7 +2057,7 @@ var game = {
       name: "Moai Statues",
       img: "moai-statues",
       time: 360,
-      required: "Requires 3 Quarries",
+      required: "Requires 50 Quarries",
       effect: "???",
       description: "Also known as the NeedNoseJobs Statues.",
       visible: true,
@@ -3443,6 +3464,8 @@ var game = {
           if (i == 9) {
             game.buildings[5].visible = true;
             setBuildings();
+            game.wonders[2].visible true;
+            setWonders();
           }
 
           if (i == 10) {

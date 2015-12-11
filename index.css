@@ -1405,7 +1405,7 @@ div[data-num] {
   background-color: #333;
 }
 
-.the-first-click, .a-hundred-mighty-clicks {
+.click, .the-first-click, .a-hundred-mighty-clicks, .the-great-clicker, .king-clicker, .empire-of-clicks {
   background-color: lightblue;
   background-image: url("img/cursor.png");
 }
@@ -1414,8 +1414,16 @@ div[data-num] {
   background-color: tomato;
 }
 
-.click3 {
+.the-great-clicker {
   background-color: #B0F27E;
+}
+
+.king-clicker {
+  background-color: gold;
+}
+
+.empire-of-clicks {
+  background-color: #b3b3b3;
 }
 
 .tooltip {

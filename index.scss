@@ -1276,18 +1276,28 @@ div[data-num] {
 .mystery {
   background-color: #333;
 }
-.the-first-click {
+.click {
   background-color: lightblue;
   background-image: url('img/cursor.png');
 }
+.the-first-click {
+  @extend .click;
+}
 .a-hundred-mighty-clicks {
-  @extend .the-first-click;
+  @extend .click;
   background-color: tomato;
 }
-
-.click3 {
-  @extend .click1;
+.the-great-clicker {
+  @extend .click;
   background-color: #B0F27E;
+}
+.king-clicker {
+  @extend .click;
+  background-color: gold;
+}
+.empire-of-clicks {
+  @extend .click;
+  background-color: darken(silver, 5%);
 }
 
 .tooltip {
