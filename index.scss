@@ -222,6 +222,11 @@ section {
 .culture {
   border-top: 4px solid purple;
   width: calc(50% - 1rem);
+  z-index: 1;
+}
+.culture, .faith {
+  height: 60rem;
+  overflow: auto;
 }
 .great-works-container {
   border-top: 4px solid lighten(purple, 15%);
