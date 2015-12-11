@@ -3604,7 +3604,7 @@ var game = {
     };
 
     var setAchievements = function() {
-      console.log("does it work???");
+      //console.log("does it work???");
       var section = $(".achievements");
       $(".achievements .achievement").remove();
 
@@ -3765,7 +3765,7 @@ var game = {
       for (var i = 0; i < game.wonders.length; i++) {
         if (game.wonders[i].visible) {
           if (!game.wonders[i].built) {
-            var ot = [60, 145, 360, 450, 495, 515, 1020, 1320, 1500, 2220, 2000, 1800, 2100, 2500, 2300, 2770, 2860];
+            var ot = [412, 1450, 360, 450, 495, 515, 1020, 1320, 1500, 2220, 2000, 1800, 2100, 2500, 2300, 2770, 2860];
             var percent = (((ot[i] - game.wonders[i].time) / ot[i]) * 100) + '%';
 
             section.append("<div class='row wonder'><img class='wonder-img' src='img/" + game.wonders[i].img + ".png' /><div data-button='wonder' data-n='" + i + "' data-time='" + game.wonders[i].time + "' style='background: linear-gradient(to right, #7BDE2A " + percent + ", #eee " + percent + ", #eee);'>Build " + game.wonders[i].name + "</div> <span class='time'>" + time(game.wonders[i].time) + "</span><span class='req'>" + game.wonders[i].required + "</span><span class='effect'>" + game.wonders[i].effect + "</span><span class='description'>" + game.wonders[i].description + "</span></div>");
