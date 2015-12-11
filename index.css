@@ -20,17 +20,73 @@ body {
   -webkit-font-smoothing: none;
 }
 
-.overlay.Ancient, .overlay.Classical, .overlay.Medieval, .overlay.Renaissance {
+body.Ancient {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("img/ancient-alt.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.Ancient section:not(.achievements) {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+body.Modern {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/modern.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.Modern section:not(.achievements) {
+  background: #222;
+  border: 1px solid black;
+  color: #eee;
+}
+
+body.Modern [data-button], body.Modern .tech, body.Modern .unit-stats, body.Modern [data-num] {
+  color: #222;
+}
+
+body.Modern [data-button="golden-age"],
+body.Modern [data-button="pollution"],
+body.Modern [data-button="health"],
+body.Modern [data-button="happiness"],
+body.Modern [data-button="anger"],
+body.Modern .citizen-description {
+  border-color: #444;
+  color: #eee;
+}
+
+body.Modern .citizen-info img {
+  -webkit-filter: invert(80%);
+}
+
+body.Modern .game-title {
+  color: white;
+}
+
+body.Modern h2 {
+  color: white;
+}
+
+body.Modern .era-marker, body.Modern .year-marker, body.Modern .golden-age-marker {
+  background: #222;
+  border: 1px solid black;
+  border-radius: 0;
+}
+
+.overlay.Ancient, .overlay.Classical, .overlay.Medieval, .overlay.Renaissance, .overlay.Modern {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/ancient-alt.jpg");
   background-size: cover;
 }
 
-.overlay.Ancient h1, .overlay.Classical h1, .overlay.Medieval h1, .overlay.Renaissance h1, .overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p, .overlay.Renaissance p {
+.overlay.Ancient h1, .overlay.Classical h1, .overlay.Medieval h1, .overlay.Renaissance h1, .overlay.Modern h1, .overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p, .overlay.Renaissance p, .overlay.Modern p {
   color: #eee;
   text-align: center;
 }
 
-.overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p, .overlay.Renaissance p {
+.overlay.Ancient p, .overlay.Classical p, .overlay.Medieval p, .overlay.Renaissance p, .overlay.Modern p {
   font-size: 1.5rem;
   font-style: italic;
 }
@@ -45,6 +101,10 @@ body {
 
 .overlay.Renaissance {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/Renaissance.jpg");
+}
+
+.overlay.Modern {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/Modern.jpg");
 }
 
 header {
@@ -1148,7 +1208,6 @@ div[data-num] {
 }
 
 .tech-header {
-  background: rgba(255, 255, 255, 0.8);
   left: 0;
   padding: .5rem;
   position: absolute;

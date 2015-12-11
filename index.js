@@ -48,7 +48,7 @@ var game = {
     }
   ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
-  era: "Ancient",
+  era: "Modern",
   eraNum: 1,
   year: 0,
   resets: 0,
@@ -2057,7 +2057,7 @@ var game = {
       name: "Moai Statues",
       img: "moai-statues",
       time: 360,
-      required: "Requires 50 Quarries",
+      required: "Requires 3 Quarries",
       effect: "???",
       description: "Also known as the NeedNoseJobs Statues.",
       visible: true,
@@ -3464,7 +3464,7 @@ var game = {
           if (i == 9) {
             game.buildings[5].visible = true;
             setBuildings();
-            game.wonders[2].visible true;
+            game.wonders[2].visible = true;s
             setWonders();
           }
 

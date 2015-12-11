@@ -27,6 +27,63 @@ body {
   //font-size: 120%;
   //font-size: 90%;
 }
+body.Ancient {
+  $w: rgba(white, 0.7);
+  background-image: linear-gradient($w, $w), url('img/ancient-alt.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  section:not(.achievements) {
+    //background: lighten(tan, 25%);
+    background: rgba(white, 0.85);
+  }
+}
+body.Modern {
+  $w: rgba(black, 0.7);
+  background-image: linear-gradient($w, $w), url('img/modern.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  section:not(.achievements) {
+    //background: lighten(tan, 25%);
+    background: #222;
+    border: 1px solid black;
+    color: #eee;
+    // &:hover {
+    //   background: #eee;
+    //   color: #222;
+    //   transition: 500ms all;
+    // }
+  }
+  [data-button], .tech, .unit-stats, [data-num] {
+    color: #222;
+  }
+  [data-button="golden-age"],
+  [data-button="pollution"],
+  [data-button="health"],
+  [data-button="happiness"],
+  [data-button="anger"],
+  .citizen-description {
+    border-color: #444;
+    color: #eee;
+
+  }
+  .citizen-info img {
+    -webkit-filter: invert(80%);
+  }
+
+  .game-title {
+    color: white;
+  }
+  h2 {
+    color: white;
+  }
+  .era-marker {
+    background: #222;
+    border: 1px solid black;
+    border-radius: 0;
+  }
+}
 body.atomic {
 
 }
@@ -63,6 +120,11 @@ body.golden-age {
   background-image: linear-gradient($b, $b), url('img/Renaissance.jpg');
 }
 
+.overlay.Modern {
+  @extend .overlay.Ancient;
+  $b: rgba(black, 0.6);
+  background-image: linear-gradient($b, $b), url('img/Modern.jpg');
+}
 
 header {
   margin: .5rem;
@@ -1028,7 +1090,7 @@ div[data-num] {
   }
 }
 .tech-header {
-  background: rgba(255, 255, 255, 0.8);
+  //background: rgba(255, 255, 255, 0.8);
   left: 0;
   padding: .5rem;
   position: absolute;
