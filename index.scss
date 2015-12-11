@@ -74,8 +74,21 @@ h1 {
   font-family: 'Oswald', 'Helvetica';
   font-size: 64px;
   margin: .2em;
+  position: relative;
   text-transform: uppercase;
   -webkit-text-stroke: 2px black;
+  &.game-title {
+    &::after {
+      content: 'BETA';
+      display: block;
+      color: red;
+      font-size: 1.5rem;
+      position: absolute;
+      left: 18rem;
+      top: -1rem;
+      -webkit-text-stroke: 1px white;
+    }
+  }
 }
 h2 {
 
