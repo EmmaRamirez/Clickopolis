@@ -17,17 +17,17 @@ var game = {
     },
     {
       name: "King Clicker",
-      description: "Click 100k times.",
+      description: "Click 25K times.",
       unlocked: false
     },
     {
       name: "Empire of Clicks",
-      description: "Click 1M times.",
+      description: "Click 50K times.",
       unlocked: false
     },
     {
       name: "HyperClicker",
-      description: "Click 100M times.",
+      description: "Click 100K times.",
       unlocked: false
     },
 
@@ -3718,13 +3718,13 @@ var game = {
       if (game.totalClicks > 1000 && !game.achievements[2].unlocked) {
         win(2);
       }
-      if (game.totalClicks > 100000 && !game.achievements[3].unlocked) {
+      if (game.totalClicks > 25000 && !game.achievements[3].unlocked) {
         win(3);
       }
-      if (game.totalClicks > 1000000 && !game.achievements[4].unlocked) {
+      if (game.totalClicks > 50000 && !game.achievements[4].unlocked) {
         win(4);
       }
-      if (game.totalClicks > 100000000 && !game.achievements[5].unlocked) {
+      if (game.totalClicks > 100000 && !game.achievements[5].unlocked) {
         win(5);
       }
 
