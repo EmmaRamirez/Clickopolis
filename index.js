@@ -51,6 +51,11 @@ var game = {
       description: "Grow population 2k times.",
       unlocked: false
     },
+    {
+      name: "Mexico City",
+      description: "Grow population 200k times.",
+      unlocked: false
+    },
 
     {
       name: "Our Golden Year",
