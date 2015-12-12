@@ -386,6 +386,15 @@ section.locked-section {
   position: absolute;
 }
 
+.lea .lea-stats-panel {
+  display: block;
+  padding-left: 3rem;
+}
+
+.lea p {
+  margin: 0;
+}
+
 .lea .lea-text {
   display: inline-block;
   font-size: 18px;

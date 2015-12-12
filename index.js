@@ -3328,7 +3328,7 @@ var game = {
           panel.append("<p class='nation-description'>" + game.nations[i].description + "</p>");
           panel.append("<div class='row'><div class='nation-diplo' data-button='nation-trade'>Trade...</div><div class='nation-diplo' data-button='talk'>Talk...</div><div class='nation-diplo' data-button='return'> &larr; Go Back</div><div class='nation-diplo' data-button='declare-war' data-n='" + i + "'>Declare War!!</div></div>");
           $("[data-button='return']").click(function(){
-            $('.diplomacy').css("backgroundColor", "rgba(255, 255, 255, 0.7)");
+            $('.diplomacy').css("backgroundColor", "rgba(255, 255, 255, 0.95)");
             $('.nation-panel').html('');
             $('.nations').removeClass('move-left');
           });
