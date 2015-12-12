@@ -341,9 +341,31 @@ section.locked-section {
   position: absolute;
   right: 1rem;
   top: 1rem;
+  width: 120px;
 }
 
 .settings img {
+  height: 1rem;
+}
+
+.save {
+  position: absolute;
+  right: 1rem;
+  max-width: 120px;
+}
+
+.save.save-ex {
+  background: #222;
+  color: #eee;
+  top: 4rem;
+}
+
+.save.save-im {
+  background: #eee;
+  top: 7rem;
+}
+
+.save img {
   height: 1rem;
 }
 
