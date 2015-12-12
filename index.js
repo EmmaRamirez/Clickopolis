@@ -3528,7 +3528,7 @@ var game = {
           if (i == 9) {
             game.buildings[5].visible = true;
             setBuildings();
-            game.wonders[2].visible = true;s
+            game.wonders[2].visible = true;
             setWonders();
           }
 
