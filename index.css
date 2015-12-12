@@ -376,6 +376,16 @@ section.locked-section {
   cursor: pointer;
 }
 
+.lea .lea-stats {
+  background: #4343B5;
+  bottom: .25rem;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: .25rem;
+  position: absolute;
+}
+
 .lea .lea-text {
   display: inline-block;
   font-size: 18px;
@@ -385,9 +395,10 @@ section.locked-section {
 }
 
 .lea .answer-wrapper {
-  display: inline-block;
-  margin-top: -2.5rem;
-  margin-left: 10rem;
+  bottom: .5rem;
+  left: 45%;
+  position: absolute;
+  width: 50%;
 }
 
 .lea .answer {
@@ -396,7 +407,7 @@ section.locked-section {
   cursor: pointer;
   display: inline-block;
   padding: .25rem;
-  width: 5rem;
+  width: 45%;
   text-align: center;
 }
 

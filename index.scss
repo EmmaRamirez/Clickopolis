@@ -385,6 +385,15 @@ section {
     padding: .25rem;
     cursor: pointer;
   }
+  .lea-stats {
+    background: #4343B5;
+    bottom: .25rem;
+    cursor: pointer;
+    border: 1px solid rgba(white, 0.5);
+    border-radius: 50%;
+    padding: .25rem;
+    position: absolute;
+  }
   .lea-text {
     display: inline-block;
     font-size: 18px;
@@ -393,9 +402,13 @@ section {
     vertical-align: top;
   }
   .answer-wrapper {
-    display: inline-block;
-    margin-top: -2.5rem;
-    margin-left: 10rem;
+    //display: inline-block;
+    //margin-top: -2.5rem;
+    //margin-left: 10rem;
+    bottom: .5rem;
+    left: 45%;
+    position: absolute;
+    width: 50%;
   }
   .answer {
     border: 1px solid rgba(255, 255, 255, 0.7);
@@ -403,7 +416,7 @@ section {
     cursor: pointer;
     display: inline-block;
     padding: .25rem;
-    width: 5rem;
+    width: 45%;
     text-align: center;
     &.answer-yes {
       background: #39d179;
