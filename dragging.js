@@ -17,7 +17,7 @@ interact('.draggable')
     onend: function (event) {
       var target = event.target;
       target.style.boxShadow = "";
-      target.style.zIndex = 0;
+      //target.style.zIndex = 0;
     }
   })
   .resizable({
@@ -54,7 +54,7 @@ interact('.draggable')
 
     // translate the element
     target.style.boxShadow = "0 0 1rem rgba(0, 0, 0, 0.7)";
-    target.style.zIndex = "1";
+    target.style.zIndex = "100";
     target.style.webkitTransform =
     target.style.transform =
       'translate(' + x + 'px, ' + y + 'px)';

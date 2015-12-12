@@ -48,7 +48,7 @@ var game = {
     }
   ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
-  era: "Modern",
+  era: "Ancient",
   eraNum: 1,
   year: 0,
   resets: 0,
@@ -2476,6 +2476,17 @@ var game = {
 
     };
     lea();
+    var leaIndex = 2;
+    $(".lea-pin").click(function(){
+      if (leaIndex % 2 == 0) {
+        $(".lea").css("position", "fixed");
+        $(".lea-pin img").attr('src', "img/pin-alt.png");
+      } else {
+        $(".lea").css("position", "absolute");
+        $(".lea-pin img").attr('src', "img/pin.png");
+      }
+      leaIndex += 1;
+    });
 
 
     var updateResources = function() {
@@ -3646,16 +3657,23 @@ var game = {
 
     var checkAchievements = function() {
       if (game.totalClicks > 0 && !game.achievements[0].unlocked) {
-        note("<em>Achievement Unlocked!</em><br/><strong>" + game.achievements[0].name + "</strong>");
-        game.achievements[0].unlocked = true;
+        win(0);
       }
       if (game.totalClicks > 100 && !game.achievements[1].unlocked) {
-        note("<em>Achievement Unlocked!</em><br/><strong>" + game.achievements[1].name + "</strong>");
-        game.achievements[1].unlocked = true;
+        win(1);
       }
-      setAchievements();
+      if (game.totalClicks > 1000 && !game.achievements[2].unlocked) {
+        win(2);
+      }
+
     };
     checkAchievements();
+
+    var win = function(n) {
+      note("<em>Achievement Unlocked!</em><br/><strong>" + game.achievements[n].name + "</strong>");
+      game.achievements[n].unlocked = true;
+      setAchievements();
+    };
 
     var setBuildings = function() {
       var buildingContainer = $('.buildings-container');

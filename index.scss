@@ -28,14 +28,14 @@ body {
   //font-size: 90%;
 }
 body.Ancient {
-  $w: rgba(white, 0.7);
+  $w: rgba(tan, 0.7);
   background-image: linear-gradient($w, $w), url('img/ancient-alt.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   section:not(.achievements) {
     //background: lighten(tan, 25%);
-    background: rgba(white, 0.85);
+    background: rgba(white, 0.95);
   }
 }
 body.Modern {
@@ -372,11 +372,18 @@ section {
   top: 1rem;
   width: 25rem;
   z-index: 102;
-  img {
+  .lea-img {
     display: inline-block;
     height: 100%;
     max-height: 8rem;
     width: auto;
+  }
+  .lea-pin {
+    border: 1px solid rgba(white, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    padding: .25rem;
+    cursor: pointer;
   }
   .lea-text {
     display: inline-block;

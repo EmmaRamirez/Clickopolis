@@ -21,14 +21,14 @@ body {
 }
 
 body.Ancient {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("img/ancient-alt.jpg");
+  background-image: linear-gradient(rgba(210, 180, 140, 0.7), rgba(210, 180, 140, 0.7)), url("img/ancient-alt.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 body.Ancient section:not(.achievements) {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 body.Modern {
@@ -361,11 +361,19 @@ section.locked-section {
   z-index: 102;
 }
 
-.lea img {
+.lea .lea-img {
   display: inline-block;
   height: 100%;
   max-height: 8rem;
   width: auto;
+}
+
+.lea .lea-pin {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  padding: .25rem;
+  cursor: pointer;
 }
 
 .lea .lea-text {
