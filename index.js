@@ -3718,6 +3718,15 @@ var game = {
       if (game.totalClicks > 1000 && !game.achievements[2].unlocked) {
         win(2);
       }
+      if (game.totalClicks > 100000 && !game.achievements[3].unlocked) {
+        win(3);
+      }
+      if (game.totalClicks > 1000000 && !game.achievements[4].unlocked) {
+        win(4);
+      }
+      if (game.totalClicks > 100000000 && !game.achievements[5].unlocked) {
+        win(5);
+      }
 
     };
     checkAchievements();

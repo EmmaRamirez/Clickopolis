@@ -1369,6 +1369,11 @@ div[data-num] {
   @extend .click;
   background-color: darken(silver, 5%);
 }
+.hyper-clicker {
+  @extend .click;
+  background-color: white;
+  box-shadow: inset 0 0 .5rem rgba(gold, 0.7);
+}
 
 .tooltip {
   font-size: 12px !important;
