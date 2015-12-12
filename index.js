@@ -140,15 +140,49 @@ var game = {
       unlocked: false
     },
 
-
+    {
+      name: "Strong Arms",
+      description: "Assign 1st Soldier",
+      unlocked: false
+    },
+    {
+      name: "Strongest Army",
+      description: "Assign 100 Soldiers.",
+      unlocked: false
+    },
     {
       name: "Tactical Brilliance",
       description: "Have at least 5 Generals.",
       unlocked: false
     },
     {
+      name: "Commander of the Skies",
+      description: "Have at least 50 Air units.",
+      unlocked: false
+    },
+    {
+      name: "Naval Captain",
+      description: "Have at least 50 Navy units.",
+      unlocked: false
+    },
+    {
       name: "High Walls",
       description: "Have Defense x4 your Strength.",
+      unlocked: false
+    },
+    {
+      name: "First Victory!",
+      description: "Have your first victory.",
+      unlocked: false
+    },
+    {
+      name: "Victorious",
+      description: "Have at least 10 victories.",
+      unlocked: false
+    },
+    {
+      name: "V Day",
+      description: "Have at least 100 victories.",
       unlocked: false
     }
   ],
