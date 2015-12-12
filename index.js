@@ -112,7 +112,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: false,
+    debugMode: true,
   },
   flags: {
     can_purchase_tech: false,
@@ -2300,6 +2300,9 @@ var game = {
       game.faith.total = 100000;
       //game.empire.goldenAgeGoal = 100;
       game.culture.total = 100000;
+      setInterval(function(){
+        game.totalClicks += 1000;
+      }, 1000);
     }
 
     var choose = function(arr) {
