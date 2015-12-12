@@ -86,6 +86,18 @@ var game = {
       name: "Golden Century",
       description: "100 Golden Ages.",
       unlocked: false
+    },
+
+
+    {
+      name: "Tactical Brilliance",
+      description: "Have at least 5 Generals.",
+      unlocked: false
+    },
+    {
+      name: "High Walls",
+      description: "Have Defense x4 your Strength.",
+      unlocked: false
     }
   ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
