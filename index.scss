@@ -1394,6 +1394,17 @@ div[data-num] {
   background-color: white;
   box-shadow: inset 0 0 .5rem rgba(gold, 0.7);
 }
+.popgrowth {
+  background-color: #B0F27E;
+  background-image: url('img/citizens.png');
+}
+.newborn-empire {
+  @extend .popgrowth;
+}
+.slightly-crowded {
+  @extend .popgrowth;
+  background-color: tomato;
+}
 
 .tooltip {
   font-size: 12px !important;
