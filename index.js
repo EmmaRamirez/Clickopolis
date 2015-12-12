@@ -2928,8 +2928,8 @@ var game = {
         game.empire.cash += (500 * game.eraNum);
       }
       if (r == 12 && game.faith.upgrades[11].unlocked) {
-        note("Thanks to the technological prowess of your citizenry, your research total has been doubled! (x2 <img src='img/research.png' />)");
-        game.tech.research *= 2;
+        note("Thanks to the technological prowess of your citizenry, your research total has increased! (+10% <img src='img/research.png' />)");
+        game.tech.research *= 1.10;
       }
 
       else {
@@ -3442,7 +3442,7 @@ var game = {
             if (game.tech.research >= game.tech.cost) {
               game.tech.techs[n].unlocked = true;
               game.tech.research -= game.tech.cost;
-              game.tech.cost = ((game.empire.pop  / 2) + game.tech.cost * game.tech.costMult * game.eraNum).toFixed(1);
+              game.tech.cost = ((game.empire.pop  / 2) + game.eraNum + game.tech.cost * game.tech.costMult).toFixed(1);
               game.flags.can_purchase_tech = false;
             } else {
               note("Not enough research points!", 5000, "tech");
