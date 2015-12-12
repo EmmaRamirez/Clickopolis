@@ -25,6 +25,11 @@ var game = {
       description: "Click 1M times.",
       unlocked: false
     },
+    {
+      name: "HyperClicker",
+      description: "Click 100M times.",
+      unlocked: false
+    },
 
     {
       name: "Newborn Empire",
@@ -33,17 +38,48 @@ var game = {
     },
     {
       name: "Slightly Crowded",
-      description: "Grow population ten times.",
+      description: "Grow population 20 times.",
       unlocked: false
     },
     {
-      name: "Burgeoning",
-      description: "Grow population 100 times.",
+      name: "Claustrophobia",
+      description: "Grow population 200 times.",
       unlocked: false
     },
     {
-      name: "The Expansive",
-      description: "Grow population 1k times.",
+      name: "Many Faces",
+      description: "Grow population 2k times.",
+      unlocked: false
+    },
+
+    {
+      name: "Our Golden Year",
+      description: "1 Golden Age.",
+      unlocked: false
+    },
+    {
+      name: "Five Golden Ages",
+      description: "5 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "Dozen Golden Years",
+      description: "12 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "King Midas",
+      description: "25 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "Golden Anniversary",
+      description: "50 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "Golden Century",
+      description: "100 Golden Ages.",
       unlocked: false
     }
   ],
