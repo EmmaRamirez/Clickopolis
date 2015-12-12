@@ -58,6 +58,58 @@ var game = {
     },
 
     {
+      name: "Leader of the Ancients",
+      description: "Get all Ancient techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Classics",
+      description: "Get all Classic techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Medieval",
+      description: "Get all Medieval techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Renaissance",
+      description: "Get all Renaissance techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Enlightened",
+      description: "Get all Enlightenment techs.",
+      unlocked: false
+    },
+    {
+      name: "Captain of Industry",
+      description: "Get all Industrial techs.",
+      unlocked: false
+    },
+    {
+      name: "The Ubermensch",
+      description: "Get all Modern techs.",
+      unlocked: false
+    },
+    {
+      name: "Atomic Hero",
+      description: "Get all Atomic techs.",
+      unlocked: false
+    },
+    {
+      name: "21st Century Schizoid",
+      description: "Get all Information techs.",
+      unlocked: false
+    },
+    {
+      name: "Glorious Future Leader",
+      description: "Get all Future techs.",
+      unlocked: false
+    },
+
+
+    {
       name: "Our Golden Year",
       description: "1 Golden Age.",
       unlocked: false
@@ -112,7 +164,7 @@ var game = {
   totalTime: 0,
   settings: {
     noteCounter: 0,
-    debugMode: true,
+    debugMode: false,
   },
   flags: {
     can_purchase_tech: false,
@@ -2300,9 +2352,6 @@ var game = {
       game.faith.total = 100000;
       //game.empire.goldenAgeGoal = 100;
       game.culture.total = 100000;
-      setInterval(function(){
-        game.totalClicks += 1000;
-      }, 1000);
     }
 
     var choose = function(arr) {
