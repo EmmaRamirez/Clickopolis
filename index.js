@@ -2099,7 +2099,7 @@ var game = {
       img: "great-pyramids",
       time: 1450,
       required: "25 <img src='img/stone.png' />",
-      effect: "+10 <img src='img/prod.png' /> PS.",
+      effect: "+10 <img src='img/production.png' /> PS.",
       description: "It'd probably build faster if we had aliens in this game.",
       visible: true,
       built: false,
