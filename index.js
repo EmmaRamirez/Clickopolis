@@ -2110,7 +2110,7 @@ var game = {
       name: "Moai Statues",
       img: "moai-statues",
       time: 360,
-      required: "Requires 3 Quarries",
+      required: "Requires 20 Quarries",
       effect: "???",
       description: "Also known as the NeedNoseJobs Statues.",
       visible: true,
