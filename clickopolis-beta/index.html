@@ -11,20 +11,28 @@
       <input type="text" id="leaderName" placeholder="Your Name" />
     </header>
 
+    <div class="btn" data-button="hard-reset">Hard Reset</div>
+
 
     <div class="section-container">
-      <div class="btn" data-button="food">Grow Food</div>
-      <div class="btn" data-button="prod">Create Production</div>
+      <section class="resources">
+        <div class="btn" data-button="food">Grow Food</div>
+        <div class="btn" data-button="prod">Create Production</div>
 
-      <div data-post="resources.food.total"></div>
-      <div data-post="resources.food.ps"></div>
-      <div data-post="resources.food.pc"></div>
-      <div data-post="resources.food.max"></div>
+        <div data-post="resources.food.total" data-exception="fixnum"></div>
+        <div data-post="resources.food.ps"></div>
+        <div data-post="resources.food.pc"></div>
+        <div data-post="resources.food.max"></div>
 
-      <div data-post="resources.prod.total"></div>
-      <div data-post="resources.prod.ps"></div>
-      <div data-post="resources.prod.pc"></div>
-      <div data-post="resources.prod.max"></div>
+        <div data-post="resources.prod.total" data-exception="fixnum"></div>
+        <div data-post="resources.prod.ps"></div>
+        <div data-post="resources.prod.pc"></div>
+        <div data-post="resources.prod.max"></div>
+      </section>
+      <section>
+        <div data-post="economy.cash.total"></div>
+        <div data-post="economy.cash.pm"></div>
+      </section>
     </div>
 
 

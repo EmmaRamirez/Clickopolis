@@ -12,7 +12,10 @@ var data = {
     leaderName: ""
   },
   economy: {
-
+    cash: {
+      total: 50,
+      pm: 0
+    }
   },
   resources: {
     food: {
@@ -51,6 +54,9 @@ var game = {
         data.empire.civName = c;
         data.empire.leaderName = l;
       }
+      if (type == "hard-reset") {
+        Lockr.flush();
+      }
 
       game.updateData();
       game.setData();
@@ -71,6 +77,11 @@ var game = {
   //
   //   game.updateData();
   // }, 1000),
+
+  updateMin: setInterval(function() {
+    console.log("Data saved!");
+    game.setData();
+  }, 60000),
 
   getData: function() {
     data.empire.civName         = Lockr.get('civName') || data.empire.civName;
@@ -93,11 +104,21 @@ var game = {
   updateData: function() {
     $("[data-post]").text(function(){
       var d = $(this).attr('data-post');
+      var ex = $(this).attr('data-exception');
+      var fixnum = $(this).attr('data-fixedTo') || 0;
       d = d.split('.');
-      if (d.length == 1) return data[d[0]];
-      if (d.length == 2) return data[d[0]][d[1]];
-      if (d.length == 3) return data[d[0]][d[1]][d[2]];
-      if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]];
+      if (ex == "fixnum") {
+        if (d.length == 1) return data[d[0]].toFixed(fixnum);
+        if (d.length == 2) return data[d[0]][d[1]].toFixed(fixnum);
+        if (d.length == 3) return data[d[0]][d[1]][d[2]].toFixed(fixnum);
+        if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]].toFixed(fixnum);
+      } else {
+        if (d.length == 1) return data[d[0]];
+        if (d.length == 2) return data[d[0]][d[1]];
+        if (d.length == 3) return data[d[0]][d[1]][d[2]];
+        if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]];
+      }
+
     });
   },
 
