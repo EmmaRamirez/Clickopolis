@@ -487,6 +487,24 @@ var game = {
         activated: false,
       },
       {
+        name: "Herbal Medicines",
+        era: "Ancient",
+        effects: [""],
+        flavor: "",
+        visible: true,
+        unlocked: false,
+        activated: false,
+      },
+      {
+        name: "Masonry",
+        era: "Ancient",
+        effects: [""],
+        flavor: "",
+        visible: true,
+        unlocked: false,
+        activated: false,
+      },
+      {
         name: "Mining",
         era: "Ancient",
         description: "Can assign Miners. Can build Quarry.",
@@ -515,6 +533,15 @@ var game = {
         visible: true,
         unlocked: false,
         activated: false,
+      },
+      {
+        name: "Sailing",
+        era: "Ancient",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
       },
       {
         name: "Trading",
@@ -662,6 +689,15 @@ var game = {
         description: "Can build Public Schools.",
         effects: ["Can build Colleges."],
         flavor: "We don't need no education!...well, maybe we do.",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Engineering II",
+        era: "Medieval",
+        effects: [""],
+        flavor: "",
         visible: false,
         unlocked: false,
         activated: false
