@@ -829,6 +829,196 @@ var game = {
         unlocked: false,
         activated: false
       },
+      {
+        name: "Flintlock",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Humanism",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Imperialism",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Fortification",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Germ Theory",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Manufacturing",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Natural History",
+        era: "Enlightenment",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Archaeology",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Biology",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Combustion",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Dynamite",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Electricity",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Flight",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Radio",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Railroad",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Refrigeration",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Replaceable Parts",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Steam Power",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Telegraph",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
 
       {
         name: "Data Science",
