@@ -1010,6 +1010,16 @@ var game = {
         activated: false
       },
       {
+        name: "Textiles",
+        era: "Industrial",
+        description: "",
+        effects: [""],
+        flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Telegraph",
         era: "Industrial",
         description: "",
