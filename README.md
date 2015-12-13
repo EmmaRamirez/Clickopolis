@@ -21,7 +21,9 @@ A clicking-based civilization game.
     - x10 science with upgrades
     - x10 money with upgrades
   - Golden Age length & modifiers
-
+- Faith
+  - Faith bonuses implementation
+  - Faith generation
 - Save Import / Export into text file
   - Compression
 - LocalStorage get/set
