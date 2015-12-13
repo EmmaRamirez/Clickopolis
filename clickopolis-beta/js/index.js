@@ -30,6 +30,28 @@ var data = {
       pc: 1,
       max: 1
     },
+  },
+  tech: {
+
+    research: {
+      total: 0,
+      fromBuildings: 0,
+      fromCitizens: 0,
+      pm: 0
+
+    },
+    techs: [
+      {
+        name: "Agriculture",
+        era: "Ancient",
+        effects: ["Can assign Citizens as Farmers."],
+        flavor: "Something about agriculture.",
+        unlockedWith: "Nothing",
+        visible: true,
+        unlocked: true,
+        activated: true
+      },
+    ]
   }
 
 };
