@@ -383,13 +383,18 @@ section {
   color: white;
   height: 9rem;
   //left: 5rem;
-  //overflow: auto;
+  overflow: hidden;
   padding: .25rem;
   position: absolute;
   right: 9rem;
   top: 1rem;
+  transition: 250ms height;
   width: 25rem;
   z-index: 102;
+  &.lea-stats-height {
+    height: 350px;
+    transition: 250ms all;
+  }
   .lea-img {
     display: inline-block;
     height: 100%;
@@ -416,6 +421,7 @@ section {
     display: block;
     padding-left: 3rem;
   }
+
   p {
     margin: 0;
   }

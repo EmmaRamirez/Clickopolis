@@ -1,191 +1,4 @@
 var game = {
-  achievements: [
-    {
-      name: "The First Click",
-      description: "Click once.",
-      unlocked: false
-    },
-    {
-      name: "A Hundred Mighty Clicks",
-      description: "Click 100 times.",
-      unlocked: false
-    },
-    {
-      name: "The Great Clicker",
-      description: "Click 1k times.",
-      unlocked: false
-    },
-    {
-      name: "King Clicker",
-      description: "Click 25K times.",
-      unlocked: false
-    },
-    {
-      name: "Empire of Clicks",
-      description: "Click 50K times.",
-      unlocked: false
-    },
-    {
-      name: "HyperClicker",
-      description: "Click 100K times.",
-      unlocked: false
-    },
-
-    {
-      name: "Newborn Empire",
-      description: "Grow population once.",
-      unlocked: false
-    },
-    {
-      name: "Slightly Crowded",
-      description: "Grow population 20 times.",
-      unlocked: false
-    },
-    {
-      name: "Claustrophobia",
-      description: "Grow population 200 times.",
-      unlocked: false
-    },
-    {
-      name: "Many Faces",
-      description: "Grow population 2k times.",
-      unlocked: false
-    },
-    {
-      name: "Mexico City",
-      description: "Grow population 200k times.",
-      unlocked: false
-    },
-
-    {
-      name: "Leader of the Ancients",
-      description: "Get all Ancient techs.",
-      unlocked: false
-    },
-    {
-      name: "Leader of the Classics",
-      description: "Get all Classic techs.",
-      unlocked: false
-    },
-    {
-      name: "Leader of the Medieval",
-      description: "Get all Medieval techs.",
-      unlocked: false
-    },
-    {
-      name: "Leader of the Renaissance",
-      description: "Get all Renaissance techs.",
-      unlocked: false
-    },
-    {
-      name: "Leader of the Enlightened",
-      description: "Get all Enlightenment techs.",
-      unlocked: false
-    },
-    {
-      name: "Captain of Industry",
-      description: "Get all Industrial techs.",
-      unlocked: false
-    },
-    {
-      name: "The Ubermensch",
-      description: "Get all Modern techs.",
-      unlocked: false
-    },
-    {
-      name: "Atomic Hero",
-      description: "Get all Atomic techs.",
-      unlocked: false
-    },
-    {
-      name: "21st Century Schizoid",
-      description: "Get all Information techs.",
-      unlocked: false
-    },
-    {
-      name: "Glorious Future Leader",
-      description: "Get all Future techs.",
-      unlocked: false
-    },
-
-
-    {
-      name: "Our Golden Year",
-      description: "1 Golden Age.",
-      unlocked: false
-    },
-    {
-      name: "Five Golden Ages",
-      description: "5 Golden Ages.",
-      unlocked: false
-    },
-    {
-      name: "Dozen Golden Years",
-      description: "12 Golden Ages.",
-      unlocked: false
-    },
-    {
-      name: "King Midas",
-      description: "25 Golden Ages.",
-      unlocked: false
-    },
-    {
-      name: "Golden Anniversary",
-      description: "50 Golden Ages.",
-      unlocked: false
-    },
-    {
-      name: "Golden Century",
-      description: "100 Golden Ages.",
-      unlocked: false
-    },
-
-    {
-      name: "Strong Arms",
-      description: "Assign 1st Soldier",
-      unlocked: false
-    },
-    {
-      name: "Strongest Army",
-      description: "Assign 100 Soldiers.",
-      unlocked: false
-    },
-    {
-      name: "Tactical Brilliance",
-      description: "Have at least 5 Generals.",
-      unlocked: false
-    },
-    {
-      name: "Commander of the Skies",
-      description: "Have at least 50 Air units.",
-      unlocked: false
-    },
-    {
-      name: "Naval Captain",
-      description: "Have at least 50 Navy units.",
-      unlocked: false
-    },
-    {
-      name: "High Walls",
-      description: "Have Defense x4 your Strength.",
-      unlocked: false
-    },
-    {
-      name: "First Victory!",
-      description: "Have your first victory.",
-      unlocked: false
-    },
-    {
-      name: "Victorious",
-      description: "Have at least 10 victories.",
-      unlocked: false
-    },
-    {
-      name: "V Day",
-      description: "Have at least 100 victories.",
-      unlocked: false
-    }
-  ],
   // Ancient, Classical, Medieval, Renaissance, Industrial, Modern, Atomic, Information, Future
   era: "Ancient",
   eraNum: 1,
@@ -2610,6 +2423,193 @@ var game = {
     }
 
   ],
+  achievements: [
+    {
+      name: "The First Click",
+      description: "Click once.",
+      unlocked: false
+    },
+    {
+      name: "A Hundred Mighty Clicks",
+      description: "Click 100 times.",
+      unlocked: false
+    },
+    {
+      name: "The Great Clicker",
+      description: "Click 1k times.",
+      unlocked: false
+    },
+    {
+      name: "King Clicker",
+      description: "Click 25K times.",
+      unlocked: false
+    },
+    {
+      name: "Empire of Clicks",
+      description: "Click 50K times.",
+      unlocked: false
+    },
+    {
+      name: "HyperClicker",
+      description: "Click 100K times.",
+      unlocked: false
+    },
+
+    {
+      name: "Newborn Empire",
+      description: "Grow population once.",
+      unlocked: false
+    },
+    {
+      name: "Slightly Crowded",
+      description: "Grow population 20 times.",
+      unlocked: false
+    },
+    {
+      name: "Claustrophobia",
+      description: "Grow population 200 times.",
+      unlocked: false
+    },
+    {
+      name: "Many Faces",
+      description: "Grow population 2k times.",
+      unlocked: false
+    },
+    {
+      name: "Mexico City",
+      description: "Grow population 200k times.",
+      unlocked: false
+    },
+
+    {
+      name: "Leader of the Ancients",
+      description: "Get all Ancient techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Classics",
+      description: "Get all Classic techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Medieval",
+      description: "Get all Medieval techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Renaissance",
+      description: "Get all Renaissance techs.",
+      unlocked: false
+    },
+    {
+      name: "Leader of the Enlightened",
+      description: "Get all Enlightenment techs.",
+      unlocked: false
+    },
+    {
+      name: "Captain of Industry",
+      description: "Get all Industrial techs.",
+      unlocked: false
+    },
+    {
+      name: "The Ubermensch",
+      description: "Get all Modern techs.",
+      unlocked: false
+    },
+    {
+      name: "Atomic Hero",
+      description: "Get all Atomic techs.",
+      unlocked: false
+    },
+    {
+      name: "21st Century Schizoid",
+      description: "Get all Information techs.",
+      unlocked: false
+    },
+    {
+      name: "Glorious Future Leader",
+      description: "Get all Future techs.",
+      unlocked: false
+    },
+
+
+    {
+      name: "Our Golden Year",
+      description: "1 Golden Age.",
+      unlocked: false
+    },
+    {
+      name: "Five Golden Ages",
+      description: "5 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "Dozen Golden Years",
+      description: "12 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "King Midas",
+      description: "25 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "Golden Anniversary",
+      description: "50 Golden Ages.",
+      unlocked: false
+    },
+    {
+      name: "Golden Century",
+      description: "100 Golden Ages.",
+      unlocked: false
+    },
+
+    {
+      name: "Strong Arms",
+      description: "Assign 1st Soldier",
+      unlocked: false
+    },
+    {
+      name: "Strongest Army",
+      description: "Assign 100 Soldiers.",
+      unlocked: false
+    },
+    {
+      name: "Tactical Brilliance",
+      description: "Have at least 5 Generals.",
+      unlocked: false
+    },
+    {
+      name: "Commander of the Skies",
+      description: "Have at least 50 Air units.",
+      unlocked: false
+    },
+    {
+      name: "Naval Captain",
+      description: "Have at least 50 Navy units.",
+      unlocked: false
+    },
+    {
+      name: "High Walls",
+      description: "Have Defense x4 your Strength.",
+      unlocked: false
+    },
+    {
+      name: "First Victory!",
+      description: "Have your first victory.",
+      unlocked: false
+    },
+    {
+      name: "Victorious",
+      description: "Have at least 10 victories.",
+      unlocked: false
+    },
+    {
+      name: "V Day",
+      description: "Have at least 100 victories.",
+      unlocked: false
+    }
+  ],
 
   init: function() {
     //for (var i = 0; i < game.tech.techs.length; i++) { game.tech.techs[i].visible = true; }
@@ -2864,6 +2864,21 @@ var game = {
         $(".lea-pin img").attr('src', "img/pin.png");
       }
       leaIndex += 1;
+    });
+    var leaStatsIndex = 2;
+    $(".lea-stats").click(function(){
+      if (leaStatsIndex % 2 == 0) {
+        $(".lea").addClass('lea-stats-height');
+        $(".lea-stats img").attr('src', "img/stats-alt.png");
+        $(".lea-stats-panel").removeClass('hidden');
+        $(".lea-wrapper").addClass('hidden');
+      } else {
+        $(".lea-stats img").attr('src', "img/stats.png");
+        $(".lea-stats-panel").addClass('hidden');
+        $(".lea-wrapper").removeClass('hidden');
+        $(".lea").removeClass('lea-stats-height');
+      }
+      leaStatsIndex += 1;
     });
 
 

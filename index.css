@@ -375,12 +375,19 @@ section.locked-section {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   color: white;
   height: 9rem;
+  overflow: hidden;
   padding: .25rem;
   position: absolute;
   right: 9rem;
   top: 1rem;
+  transition: 250ms height;
   width: 25rem;
   z-index: 102;
+}
+
+.lea.lea-stats-height {
+  height: 350px;
+  transition: 250ms all;
 }
 
 .lea .lea-img {
