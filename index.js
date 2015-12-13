@@ -2491,6 +2491,9 @@ var game = {
     advisorText();
 
 
+
+
+
     var note = function(msg, ms, type) {
       ms = typeof ms !== 'undefined' ?  ms : 2500;
       type = typeof type !== 'undefined' ? type : 'default';
@@ -2630,9 +2633,9 @@ var game = {
 
     var updateResources = function() {
 
-      $('.food-total').text(abbrNum(game.resources.food.total.toFixed(0), 2));
-      $('.food-ps').text(abbrNum((game.resources.food.ps - (game.empire.pop - 1)).toFixed(1), 2));
-      $('.food-pc').text(abbrNum(game.resources.food.pc.toFixed(1), 2));
+      $('.food-total').text(abbrNum(game.resources.food.total, 2));
+      $('.food-ps').text(abbrNum((game.resources.food.ps - (game.empire.pop - 1)), 2));
+      $('.food-pc').text(abbrNum(game.resources.food.pc, 2));
       $('.food-max').text(abbrNum(game.resources.food.max, 2));
       //(game.resources.food.ps < 0) ? $('.food-ps').addClass('red-text') : $('.food-ps').removeClass('red-text');
 
@@ -2702,6 +2705,68 @@ var game = {
 
     updateResources();
 
+    var exportSave = function() {
+      note("Save exported!");
+      var t = $("textarea.save-data");
+      var saveData = "";
+      saveData += game.empire.name;
+      saveData += "|" + game.empire.leaderName;
+
+      saveData += "|" + game.resources.food.total;
+      saveData += "|" + game.resources.food.ps;
+      saveData += "|" + game.resources.food.pc;
+      saveData += "|" + game.resources.food.max;
+
+      saveData += "|" + game.resources.prod.total;
+      saveData += "|" + game.resources.prod.ps;
+      saveData += "|" + game.resources.prod.pc;
+      saveData += "|" + game.resources.prod.max;
+      saveData += "|";
+
+      var tech = "";
+      for (var i = 0; i < game.tech.techs.length; i++) {
+        tech += game.tech.techs[i].unlocked + ",";
+      }
+      saveData += tech;
+
+
+
+
+      t.text(saveData);
+    };
+
+    var importSave = function() {
+      //game.resources.food.total = 0;
+
+      var saveData = $("textarea.save-data").text();
+      console.log(saveData);
+      saveData = saveData.split('|');
+
+
+
+      console.log(saveData);
+      game.resources.food.total = Number(saveData[2]);
+      game.resources.food.ps = Number(saveData[3]);
+      game.resources.food.pc = Number(saveData[4]);
+      game.resources.food.max = Number(saveData[5]);
+
+      game.resources.prod.total = Number(saveData[6]);
+      game.resources.prod.ps = Number(saveData[7]);
+      game.resources.prod.pc = Number(saveData[8]);
+      game.resources.prod.max = Number(saveData[9]);
+
+
+      saveData[10] = saveData[10].split(',');
+      for (var i = 0; i < game.tech.techs.length; i++) {
+        game.tech.techs[i].unlocked = saveData[10][i];
+      };
+      setTechnologies();
+
+
+
+      note("Save imported!");
+    };
+
 
 
 
@@ -2761,6 +2826,12 @@ var game = {
       if (type == "nation") {
         console.log("Nation clicked!");
         nationPanel();
+      }
+      if (type == "export-save") {
+        exportSave();
+      }
+      if (type == "import-save") {
+        importSave();
       }
 
       game.totalClicks += 1;
@@ -4268,6 +4339,9 @@ var game = {
 
       });
     };
+
+
+
 
 
     // $(document).ready(function() {
