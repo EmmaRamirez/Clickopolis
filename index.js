@@ -2732,13 +2732,17 @@ var game = {
 
 
 
-      t.text(saveData);
+      t.html(saveData);
     };
+
+    // $("textarea.save-data").change(function(){
+    //   $(this).text() = $(this).html();
+    // });
 
     var importSave = function() {
       //game.resources.food.total = 0;
 
-      var saveData = $("textarea.save-data").text();
+      var saveData = $("textarea.save-data").html();
       console.log(saveData);
       saveData = saveData.split('|');
 
