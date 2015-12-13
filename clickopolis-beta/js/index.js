@@ -11,6 +11,9 @@ var data = {
     civName: "",
     leaderName: ""
   },
+  economy: {
+
+  },
   resources: {
     food: {
       total: 10,
