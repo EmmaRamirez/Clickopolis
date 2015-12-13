@@ -5,9 +5,20 @@ A clicking-based civilization game.
 - Resources
   - Resource unlock
   - Food / Production PS, PC, Max, & Total
+  - health: fish, banana
+  - strategic: horse, iron, uranium
+  - building: stone, iron, oil, uranium
+  - luxury: gold, gems, spaghetti
 - Technology
   - Technology unlock
   - Technology implementations
+- Buildings
+  - Purchase mode
+  - Production cost modifiers
+  - Implementations
+  - Great wonders
+    - timing function (find more efficient model)
+    
 - Eras
   - era implementations
   - era bonuses
@@ -24,6 +35,12 @@ A clicking-based civilization game.
 - Faith
   - Faith bonuses implementation
   - Faith generation
+- Culture
+  - Culture bonuses implementation
+  - Culture generation
+    - Great Works
+      - great work generation
+      - great work culture/cash increases
 - Save Import / Export into text file
   - Compression
 - LocalStorage get/set
