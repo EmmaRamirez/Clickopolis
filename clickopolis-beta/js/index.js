@@ -23,12 +23,11 @@ var game = {
     game.getData();
     game.updateData();
 
-    $("[data-post]").click(function(){
-      data.resources.food.total += 1;
-      data.resources.food.pc += 100;
-
+    $("[data-button]").click(function(){
       game.updateData();
       game.setData();
+
+      
     });
 
   },
