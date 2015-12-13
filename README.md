@@ -15,10 +15,11 @@ A clicking-based civilization game.
 - Buildings
   - Purchase mode
   - Production cost modifiers
+  - Misc costs
   - Implementations
   - Great wonders
     - timing function (find more efficient model)
-    
+    - implementations & bonuses
 - Eras
   - era implementations
   - era bonuses
