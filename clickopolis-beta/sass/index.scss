@@ -1,3 +1,11 @@
-body {
-  background: red;
-}
+@import "partials/_variables.scss";
+@import "partials/_extends.scss";
+@import "partials/_global.scss";
+@import "partials/_buttons.scss";
+@import "partials/_ui.scss";
+@import "partials/_eras.scss";
+@import "partials/_sections.scss";
+@import "partials/_tech.scss";
+@import "partials/_culture.scss";
+@import "partials/_faith.scss";
+@import "partials/_achievements.scss";
