@@ -4,6 +4,14 @@
     <title>Clickopolis</title>
   </head>
   <body>
+    <header>
+      <h2><span data-post="empire.civName"></span>, lead by <span data-post="empire.leaderName"></span> the Great.</h2>
+      <div class="btn" data-button="change-name">Change Name</div>
+      <input type="text" id="civName" placeholder="Civilization Name" />
+      <input type="text" id="leaderName" placeholder="Your Name" />
+    </header>
+
+
     <div class="section-container">
       <div class="btn" data-button="food">Grow Food</div>
       <div class="btn" data-button="prod">Create Production</div>
@@ -18,6 +26,8 @@
       <div data-post="resources.prod.pc"></div>
       <div data-post="resources.prod.max"></div>
     </div>
+
+
 
 
     <script src="js/lockr.min.js"></script>
