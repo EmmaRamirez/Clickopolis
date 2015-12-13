@@ -1,3 +1,10 @@
+//*********************************************************
+// Data Heirarchy
+//   Empire [Names]
+//   Economy [Cash, Trade Deal History, Trade Routes]
+//   Resources
+//*********************************************************
+
 var data = {
 
   empire: {
@@ -47,6 +54,20 @@ var game = {
     });
 
   },
+
+  updateMilSec: setInterval(function() {
+    data.resources.food.total += data.resources.food.ps / 10;
+    data.resources.prod.total += data.resources.prod.pc / 10;
+
+    game.updateData();
+  }, 100),
+
+  // updateSec: setInterval(function(){
+  //   data.resources.food.total += data.resources.food.ps;
+  //   data.resources.prod.total += data.resources.prod.pc;
+  //
+  //   game.updateData();
+  // }, 1000),
 
   getData: function() {
     data.empire.civName         = Lockr.get('civName') || data.empire.civName;
