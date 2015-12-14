@@ -498,7 +498,6 @@ var game = {
       {
         name: "Civility",
         era: "Medieval",
-        description: "???",
         effects: ["Allows the hiring of Mercenaries."],
         flavor: "Also, improves your manners.",
         visible: false,
@@ -508,7 +507,6 @@ var game = {
       {
         name: "Education",
         era: "Medieval",
-        description: "Can build Public Schools.",
         effects: ["Can build Colleges."],
         flavor: "We don't need no education!...well, maybe we do.",
         visible: false,
@@ -527,7 +525,6 @@ var game = {
       {
         name: "Gunpowder",
         era: "Medieval",
-        description: "",
         effects: ["Can assign Soldiers as Riflers.", "Unemployed Citizens are automatically conscripted as Militia.", "Increases <img src='img/strength.png' /> by 25%"],
         flavor: "It's like shooting techs in a tech tree.",
         visible: false,
@@ -537,7 +534,6 @@ var game = {
       {
         name: "Machinery",
         era: "Medieval",
-        description: "Improves Engineers by 25%.",
         effects: ["Improves Engineers by 25%", "Increases <img src='img/defense.png' /> by 25%"],
         flavor: "",
         visible: false,
@@ -547,7 +543,6 @@ var game = {
       {
         name: "Metal Casting",
         era: "Medieval",
-        description: "Improves Miners by 100%",
         effects: ["Improves Miners by 100%."],
         flavor: "",
         visible: false,
@@ -559,16 +554,6 @@ var game = {
         era: "Medieval",
         description: "",
         effects: ["Can build Watermill.", "Can build Lumbermill.", "Can build Papermill."],
-        flavor: "",
-        visible: false,
-        unlocked: false,
-        activated: false
-      },
-      {
-        name: "Oil Paint",
-        era: "Medieval",
-        description: "",
-        effects: ["Doubles Great Wonder generation of Artists"],
         flavor: "",
         visible: false,
         unlocked: false,
@@ -673,6 +658,16 @@ var game = {
         era: "Renaissance",
         description: "",
         effects: [""],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Oil Paint",
+        era: "Renaissance",
+        description: "",
+        effects: ["Doubles Great Wonder generation of Artists"],
+        flavor: "",
         visible: false,
         unlocked: false,
         activated: false
