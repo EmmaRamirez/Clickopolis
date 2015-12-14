@@ -875,9 +875,118 @@ var game = {
       {
         name: "Telegraph",
         era: "Industrial",
-        description: "",
         effects: [""],
         flavor: "",
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Advanced Ballistics",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Abstract Art",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Electronics",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Globalization",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Lasers",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Mass Media",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Penicillin",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Plastics",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Robotics",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Satellites",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Stealth",
+        era: "Modern",
+        effects: [],
+        flavor: "",
+        requires: [],
         visible: false,
         unlocked: false,
         activated: false
@@ -886,7 +995,6 @@ var game = {
       {
         name: "Data Science",
         era: "Information",
-        description: " jhh",
         effects: ["Unlocks new information in the Stats panel."],
         flavor: "",
         visible: false,
