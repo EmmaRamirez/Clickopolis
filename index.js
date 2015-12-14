@@ -4126,7 +4126,7 @@ var game = {
           }
 
         } else {
-          techContainer.append("<div class='tech locked hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>");
+          techContainer.append("<div class='tech locked' data-n='" + i + "' ><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>");
           for (var j = 0; j < game.tech.techs[i].effects.length; j++) {
             $("[data-n='" + i + "'] ul").append("<li>" + game.tech.techs[i].effects[j] + "</li>");
           }
