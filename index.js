@@ -272,7 +272,7 @@ var game = {
       {
         name: "Animal Husbandry",
         era: "Ancient",
-        effects: ["Unlocks <img src='img/horse.png' /> resource.", "Improves Farmers by 15%", "Reveals Horseback Riding technology."],
+        effects: ["Unlocks <img src='img/horse.png' /> resource.", "Improves Farmers by 15%", "Leads to: Horseback Riding technology."],
         flavor: "NO, it is not what you think it is.",
         visible: true,
         unlocked: false,
@@ -281,7 +281,7 @@ var game = {
       {
         name: "Archery",
         era: "Ancient",
-        effects: ["Can assign Soldiers as Archers.", "Can build Barracks", "+3 Empire <img src='img/defense.png' />"],
+        effects: ["Can assign Soldiers as Archers.", "Can build Barracks", "+3 Empire <img src='img/defense.png' />", "Leads to: War Strategy"],
         flavor: "Bow and arrow, hitting bone and marrow.",
         visible: true,
         unlocked: false,
@@ -290,7 +290,7 @@ var game = {
       {
         name: "Fishing",
         era: "Ancient",
-        effects: ["Unlocks <img src='img/fish.png' /> resource.", "Reveals <em>(with Engineering)</em> Shipbuilding technology."],
+        effects: ["Unlocks <img src='img/fish.png' /> resource.", "Leads to: Sailing."],
         flavor: "Just make sure to use a Super Rod.",
         visible: true,
         unlocked: false,
@@ -336,7 +336,7 @@ var game = {
       {
         name: "Pottery",
         era: "Ancient",
-        effects: ["Can assign Artists", "Can build Granary.", "Can build The Great Pyramids Wonder", "Reveals Trading technology.", "Reveals Calendar technology.", "Reveals Poetics technology."],
+        effects: ["Can assign Artists", "Can build Granary.", "Can build The Great Pyramids Wonder", "Leads to: Trading, Poetics"],
         flavor: "Does not come with a Pottery Barn discount.",
         visible: true,
         unlocked: false,
@@ -345,7 +345,7 @@ var game = {
       {
         name: "Sailing",
         era: "Ancient",
-        effects: ["Can assign Soldiers as Navy.", "Can meet Coastal and Oceanic Nations."],
+        effects: ["Can assign Soldiers as Navy.", "Can meet Coastal and Oceanic Nations.", "Leads to: Shipbuilding"],
         flavor: "It's a lot harder to sail if you stay at half-mast!",
         requires: ["Fishing"],
         visible: false,
@@ -355,7 +355,7 @@ var game = {
       {
         name: "Trading",
         era: "Ancient",
-        effects: ["Unlocks Bartering Economic System.", "Can assign Merchants.", "Reveals <em>(with Mysticism and Writing)</em> Philosophy technology."],
+        effects: ["Unlocks Bartering Economic System.", "Can assign Merchants.", "Leads to: Calendar"],
         flavor: "My six chickens for your very cute goat?",
         requires: ["Pottery"],
         visible: false,
@@ -366,7 +366,7 @@ var game = {
         name: "Woodworking",
         era: "Ancient",
         description: "Can assign Woodcutters.",
-        effects: ["Unlocks <img src='img/spices.png' /> resource.", "Can assign Woodcutters.", "Reveals Writing technology."],
+        effects: ["Unlocks <img src='img/spices.png' /> resource.", "Can assign Woodcutters.", "Leads to: Writing"],
         flavor: "TIMBER!!!",
         visible: true,
         unlocked: false,
@@ -375,8 +375,7 @@ var game = {
       {
         name: "Writing",
         era: "Ancient",
-        description: "Unlocks diplomatic relations. Can build Library.",
-        effects: ["Unlocks Diplomatic Relations.", "Can build Library.", "Reveals <em>(with Mysticism and Trading)</em> Philosophy technology.", "Reveals Mathematics technology."],
+        effects: ["Unlocks Diplomatic Relations.", "Can build Library.", "Leads to: Mathematics, Philosophy"],
         flavor: "Allows poorly written fanfiction in Information era.",
         requires: ["Woodworking"],
         visible: false,
