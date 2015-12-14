@@ -318,7 +318,7 @@ var game = {
       {
         name: "Mining",
         era: "Ancient",
-        effects: ["Can assign Miners.", "Unlocks <img src='img/stone.png' />, <img src='img/gold.png' />, <img src='img/gem.png' /> resources.", "Reveals Iron Working technology."],
+        effects: ["Can assign Miners.", "Unlocks <img src='img/stone.png' />, <img src='img/gold.png' />, <img src='img/gem.png' /> resources.", "Leads to: Iron Working"],
         flavor: "(Still not safe for minors).",
         visible: true,
         unlocked: false,
@@ -386,7 +386,7 @@ var game = {
       {
         name: "Calendar",
         era: "Classical",
-        effects: ["Can build Plantation."],
+        effects: ["Unlocks <img src='img/banana.png'/> resource.", "Can build Plantation."],
         flavor: "What time is it? Oh, just let me check my sundial.",
         requires: ["Mysticism", "Trading"],
         visible: false,
@@ -398,7 +398,7 @@ var game = {
         era: "Classical",
         effects: ["Improves Defense of Archers by 25%", "Can build Walls.", "Can build Colloseum.", "Reveals <em>(with Construction)</em> Engineering technology."],
         flavor: " ",
-        requires: ["Mathematics"],
+        requires: ["Mathematics", "Masonry"],
         visible: false,
         unlocked: false,
         activated: false
@@ -487,7 +487,7 @@ var game = {
       {
         name: "War Strategy",
         era: "Classical",
-        effects: ["+1 free <img src='img/general.png' />"],
+        effects: ["+1 free General"],
         flavor: "",
         requires: ["Archery", "Writing"],
         visible: false,
