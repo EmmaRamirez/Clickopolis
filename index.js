@@ -25,6 +25,7 @@ var game = {
     entered_modern_era: false,
     entered_atomic_era: false,
     entered_information_era: false,
+    entered_future_era: false
     lea: {
       first_click: false,
       ten_food: false,
