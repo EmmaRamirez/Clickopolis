@@ -217,6 +217,8 @@ section {
 .resources {
   height: 40rem;
   border-top: 4px solid silver;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: calc(30% - 1rem);
   z-index: 10;
 }
