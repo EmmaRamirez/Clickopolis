@@ -3,6 +3,10 @@ A clicking-based civilization game.
 
 ## Roadmap
 - Settings
+  - debugMode
+  - Save Import/exports
+  - Access to previous era skins
+  
 - Advisor
   - Defaults to Lea, choice between two?
 - Resources
