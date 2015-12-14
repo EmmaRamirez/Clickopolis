@@ -4165,10 +4165,10 @@ var game = {
             $("[data-n='" + i + "'] ul").append("<li>" + game.tech.techs[i].effects[j] + "</li>");
           }
           for (var k = 0; k < game.tech.techs[i].requires.length; k++) {
-            if (game.tech.techs[i].requires[k] == 'undefined') {
-              // whatever
+            if (k == game.tech.techs[i].requires.length - 1) {
+              $("[data-n='" + i + "'] .tech-requires").append(game.tech.techs[i].requires[k]);
             } else {
-              $("[data-n='" + i + "'] .tech-requires").append(game.tech.techs[i].requires[k] + " ");
+              $("[data-n='" + i + "'] .tech-requires").append(game.tech.techs[i].requires[k] + " | ");
             }
 
           }
