@@ -386,9 +386,18 @@ var game = {
         activated: false,
       },
       {
+        name: "Calendar",
+        era: "Classical",
+        effects: ["Can build Plantation."],
+        flavor: "What time is it? Oh, just let me check my sundial.",
+        requires: ["Mysticism", "Trading"],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Construction",
         era: "Classical",
-        description: "Improves Archers. Can build Walls.",
         effects: ["Improves Defense of Archers by 25%", "Can build Walls.", "Can build Colloseum.", "Reveals <em>(with Construction)</em> Engineering technology."],
         flavor: " ",
         requires: ["Mathematics"],
@@ -422,7 +431,7 @@ var game = {
         era: "Classical",
         effects: ["Can assign Soldiers as Spearmen.", "Unlocks <img src='img/iron.png'/> resource.", "Reveals Metal Casting technology.", "Reveals <em>(with Construction)</em> Engineering technology."],
         flavor: "Strike it while it's hot.",
-        requires: ["Mining"],
+        requires: ["Mining", "Masonry"],
         visible: false,
         unlocked: false,
         activated: false
@@ -478,16 +487,7 @@ var game = {
         unlocked: false,
         activated: false
       },
-      {
-        name: "Calendar",
-        era: "Classical",
-        description: "",
-        effects: ["Can build Plantation."],
-        flavor: "",
-        visible: false,
-        unlocked: false,
-        activated: false
-      },
+
       {
         name: "Civility",
         era: "Medieval",
