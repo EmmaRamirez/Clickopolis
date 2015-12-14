@@ -359,6 +359,7 @@ var game = {
         era: "Ancient",
         effects: ["Unlocks Bartering Economic System.", "Can assign Merchants.", "Reveals <em>(with Mysticism and Writing)</em> Philosophy technology."],
         flavor: "[Description needed]",
+        requires: ["Pottery"],
         visible: false,
         unlocked: false,
         activated: false
@@ -390,6 +391,7 @@ var game = {
         description: "Improves Archers. Can build Walls.",
         effects: ["Improves Defense of Archers by 25%", "Can build Walls.", "Reveals <em>(with Construction)</em> Engineering technology."],
         flavor: " ",
+        requires: ["Mathematics"],
         visible: false,
         unlocked: false,
         activated: false
@@ -410,6 +412,7 @@ var game = {
         description: "Can assign soldiers as Cavalry.",
         effects: ["Can assign Soldiers as Cavalry.", "Can build Stable."],
         flavor: "",
+        requires: ["Animal Husbandry", "Trading"],
         visible: false,
         unlocked: false,
         activated: false
@@ -420,6 +423,7 @@ var game = {
         description: "Can assign soldiers as Spearmen.",
         effects: ["Can assign Soldiers as Spearmen.", "Reveals Metal Casting technology.", "Reveals <em>(with Construction)</em> Engineering technology."],
         flavor: "",
+        requires: ["Mining"],
         visible: false,
         unlocked: false,
         activated: false
@@ -430,6 +434,7 @@ var game = {
         description: "Improves Farmers by 100%.",
         effects: ["+2k Max <img src='img/food.png' /> for discovering this technology.", "Improves Farmers by 25%", "Reveals Three-Field Crop Rotation technology."],
         flavor: "",
+        requires: ["Engineering"],
         visible: false,
         unlocked: false,
         activated:  false
@@ -437,9 +442,9 @@ var game = {
       {
         name: "Mathematics",
         era: "Classical",
-        description: "Unlocks several new buildings.",
         flavor: "I've got 9.94987437^2 problems, but exponentiation ain't one.",
         effects: ["Unlocks new buildings??", "Reveals Construction technology."],
+        requires: ["Writing"],
         visible: false,
         unlocked: false,
         activated: false,
@@ -447,9 +452,9 @@ var game = {
       {
         name: "Philosophy",
         era: "Classical",
-        description: "Can build Colleges. Can assign Scientist.",
         effects: ["Can build Forums.", "Can assign Scientists."],
         flavor: " ",
+        requires: ["Writing", "Mysticism"],
         visible: false,
         unlocked: false,
         activated: false
@@ -457,9 +462,9 @@ var game = {
       {
         name: "Poetics",
         era: "Classical",
-        description: "Improves Artists by 100%. Can build Ampitheatre.",
         effects: ["Improves Artists by 100%", "Can assign Citizens as Jesters.", "Can build Ampitheatre.", "Reveals Civility technology."],
         flavor: " ",
+        requires: ["Writing", "Pottery"],
         visible: false,
         unlocked: false,
         activated: false
