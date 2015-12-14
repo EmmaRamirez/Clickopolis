@@ -2540,6 +2540,19 @@ var game = {
       visible: false
     },
     {
+      name: "Lumbermill",
+      num: 0,
+      numApplied: 0,
+      max: 5,
+      prod: 1580,
+      cost: 5000,
+      misc: null,
+      misc2: null,
+      effect: "+.5 <img src='img/production.png' /> PS/PC per Woodcutter",
+      description: "Max 5.",
+      visible: false
+    },
+    {
       name: "Watermill",
       num: 0,
       numApplied: 0,
@@ -2552,6 +2565,7 @@ var game = {
       description: "Max 5.",
       visible: false
     },
+
 
     {
       name: "Hospital",
