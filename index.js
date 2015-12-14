@@ -402,6 +402,7 @@ var game = {
         description: "Unlocks new buildings. Can assign Engineers.",
         effects: ["Can assign Engineers.", "Can build Aqueducts.", "Reveals Irrigation technology.", "Reveals <em>(with Fishing)</em> Shipbuilding technology."],
         flavor: " ",
+        requires: ["Construction", "Iron Working"],
         visible: false,
         unlocked: false,
         activated: false
@@ -409,7 +410,6 @@ var game = {
       {
         name: "Horseback Riding",
         era: "Classical",
-        description: "Can assign soldiers as Cavalry.",
         effects: ["Can assign Soldiers as Cavalry.", "Can build Stable."],
         flavor: "",
         requires: ["Animal Husbandry", "Trading"],
@@ -420,9 +420,8 @@ var game = {
       {
         name: "Iron Working",
         era: "Classical",
-        description: "Can assign soldiers as Spearmen.",
-        effects: ["Can assign Soldiers as Spearmen.", "Reveals Metal Casting technology.", "Reveals <em>(with Construction)</em> Engineering technology."],
-        flavor: "",
+        effects: ["Can assign Soldiers as Spearmen.", "Unlocks <img src='img/iron.png'/> resource.", "Reveals Metal Casting technology.", "Reveals <em>(with Construction)</em> Engineering technology."],
+        flavor: "Strike it while it's hot.",
         requires: ["Mining"],
         visible: false,
         unlocked: false,
