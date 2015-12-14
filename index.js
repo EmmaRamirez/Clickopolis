@@ -224,7 +224,10 @@ var game = {
       mult: 1,
       unlocked: false
     },
-    ivory: 0,
+    ivory: {
+      total: 0,
+      unlocked: false
+    },
     iron: {
       total: 0,
       mult: 1,
@@ -250,9 +253,18 @@ var game = {
       mult: 1,
       unlocked: false
     },
-    coal: 0,
-    oil: 0,
-    uranium: 0,
+    coal: {
+      total: 0,
+      unlocked: false
+    },
+    oil: {
+      total: 0,
+      unlocked: false
+    },
+    uranium: {
+      total: 0,
+      unlocked: false
+    },
     spaghetti: {
       total: 0,
       unlocked: false
