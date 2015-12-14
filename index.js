@@ -882,16 +882,6 @@ var game = {
         activated: false
       },
       {
-        name: "Advanced Ballistics",
-        era: "Modern",
-        effects: [],
-        flavor: "",
-        requires: [],
-        visible: false,
-        unlocked: false,
-        activated: false
-      },
-      {
         name: "Abstract Art",
         era: "Modern",
         effects: [],
@@ -962,8 +952,168 @@ var game = {
         activated: false
       },
       {
+        name: "Atomic Theory",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Combined Arms",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Computers",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Ecology",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Nuclear Fission",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Penicillin",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Radar",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Rocketry",
+        era: "Atomic",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Advanced Ballistics",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Autonomous Systems",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Data Science",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Holographics",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Mobile Tactics",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Nanotechnology",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Nuclear Fusion",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Particle Physics",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Robotics",
-        era: "Modern",
+        era: "Information",
         effects: [],
         flavor: "",
         requires: [],
@@ -973,7 +1123,7 @@ var game = {
       },
       {
         name: "Satellites",
-        era: "Modern",
+        era: "Information",
         effects: [],
         flavor: "",
         requires: [],
@@ -983,7 +1133,7 @@ var game = {
       },
       {
         name: "Stealth",
-        era: "Modern",
+        era: "Information",
         effects: [],
         flavor: "",
         requires: [],
@@ -991,12 +1141,22 @@ var game = {
         unlocked: false,
         activated: false
       },
-
       {
-        name: "Data Science",
+        name: "Telecommunications",
         era: "Information",
-        effects: ["Unlocks new information in the Stats panel."],
+        effects: [],
         flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "The Internet",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
         visible: false,
         unlocked: false,
         activated: false
