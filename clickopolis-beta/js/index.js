@@ -47,22 +47,28 @@ var data = {
       total: 0,
       fromBuildings: 0,
       fromCitizens: 0,
+      fromCulture: 0,
+      fromFaith: 0,
       pm: 0
 
     },
     techs: [
       {
-        name: "Agriculture",
+        name: "Fake-Tech",
         era: "Ancient",
         effects: ["Can assign Citizens as Farmers."],
-        flavor: "Something about agriculture.",
-        unlockedWith: "Nothing",
+        flavor: "This technology is solely a test.",
+        reqiures: ["Nothing", "Biology", "Data Science"],
         visible: true,
         unlocked: true,
         activated: true
       },
     ]
-  }
+  },
+
+  culture: {
+
+  },
 
 };
 
