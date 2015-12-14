@@ -31,6 +31,23 @@ body.Ancient section:not(.achievements) {
   background: rgba(255, 255, 255, 0.95);
 }
 
+body.Classical {
+  background-image: linear-gradient(rgba(210, 180, 140, 0.7), rgba(210, 180, 140, 0.7)), url("img/classical.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.Classical section:not(.achievements) {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body.Classical .era-marker.game-era, body.Classical .game-era.year-marker, body.Classical .game-era.golden-age-marker {
+  background: #f2f2f2;
+  color: #333;
+  border-color: gold;
+}
+
 body.Modern {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/modern.jpg");
   background-size: cover;

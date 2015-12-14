@@ -38,6 +38,22 @@ body.Ancient {
     background: rgba(white, 0.95);
   }
 }
+body.Classical {
+  $w: rgba(tan, 0.7);
+  background-image: linear-gradient($w, $w), url('img/classical.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  section:not(.achievements) {
+    //background: lighten(tan, 25%);
+    background: rgba(white, 0.95);
+  }
+  .era-marker.game-era {
+    background: darken(white, 5%);
+    color: #333;
+    border-color: gold;
+  }
+}
 body.Modern {
   $w: rgba(black, 0.7);
   background-image: linear-gradient($w, $w), url('img/modern.jpg');
