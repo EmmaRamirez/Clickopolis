@@ -2565,6 +2565,18 @@ var game = {
       description: "Max 5.",
       visible: false
     },
+    {
+      name: "Papermill",
+      num: 0,
+      numApplied: 0,
+      prod: 1580,
+      cost: 5000,
+      misc: null,
+      misc2: null,
+      effect: "+250 <img src='img/production.png' /> Total",
+      description: "",
+      visible: false
+    },
 
 
     {
