@@ -1308,7 +1308,7 @@ div[data-num] {
   color: white;
   padding: .5rem;
   position: absolute;
-  top: 1rem;
+  top: calc(50% - 18px);
   opacity: 0;
   transition: 500ms opacity;
 }

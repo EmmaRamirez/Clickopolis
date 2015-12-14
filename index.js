@@ -500,6 +500,7 @@ var game = {
         era: "Medieval",
         effects: ["Allows the hiring of Mercenaries."],
         flavor: "Also, improves your manners.",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -509,6 +510,7 @@ var game = {
         era: "Medieval",
         effects: ["Can build Colleges."],
         flavor: "We don't need no education!...well, maybe we do.",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -518,6 +520,7 @@ var game = {
         era: "Medieval",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -527,6 +530,7 @@ var game = {
         era: "Medieval",
         effects: ["Can assign Soldiers as Riflers.", "Unemployed Citizens are automatically conscripted as Militia.", "Increases <img src='img/strength.png' /> by 25%"],
         flavor: "It's like shooting techs in a tech tree.",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -536,6 +540,7 @@ var game = {
         era: "Medieval",
         effects: ["Improves Engineers by 25%", "Increases <img src='img/defense.png' /> by 25%"],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -545,6 +550,7 @@ var game = {
         era: "Medieval",
         effects: ["Improves Miners by 100%."],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -555,6 +561,7 @@ var game = {
         description: "",
         effects: ["Can build Watermill.", "Can build Lumbermill.", "Can build Papermill."],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -565,6 +572,7 @@ var game = {
         description: "",
         effects: [],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -575,6 +583,7 @@ var game = {
         description: "",
         effects: [],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -583,6 +592,7 @@ var game = {
         name: "Theology",
         era: "Medieval",
         description: "",
+        requires: [""],
         effects: ["Improves Clerics by 150%"],
         flavor: "",
         visible: false,
@@ -593,6 +603,7 @@ var game = {
         name: "Three Field Crop Rotation",
         era: "Medieval",
         description: "",
+        requires: [""],
         effects: ["Improves Farmers by 30%", "-10% Growth Cost."],
         flavor: "The most potent rotation of all.",
         visible: false,
@@ -604,6 +615,7 @@ var game = {
         era: "Renaissance",
         description: "",
         effects: [""],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -613,6 +625,7 @@ var game = {
         era: "Renaissance",
         effects: [""],
         description: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -621,7 +634,7 @@ var game = {
         name: "Chemistry",
         era: "Renaissance",
         effects: [""],
-        description: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -631,6 +644,7 @@ var game = {
         era: "Renaissance",
         effects: [""],
         flavor: "Time to click those resources!",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -640,6 +654,7 @@ var game = {
         era: "Renaissance",
         effects: [""],
         description: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -649,6 +664,7 @@ var game = {
         era: "Renaissance",
         description: "",
         effects: [""],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -658,6 +674,7 @@ var game = {
         era: "Renaissance",
         description: "",
         effects: [""],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -668,6 +685,7 @@ var game = {
         description: "",
         effects: ["Doubles Great Wonder generation of Artists"],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -675,9 +693,9 @@ var game = {
       {
         name: "Printing Press",
         era: "Renaissance",
-        description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -688,6 +706,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -698,6 +717,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -705,9 +725,9 @@ var game = {
       {
         name: "Imperialism",
         era: "Enlightenment",
-        description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -715,9 +735,9 @@ var game = {
       {
         name: "Fortification",
         era: "Enlightenment",
-        description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -728,6 +748,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -738,6 +759,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -748,6 +770,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -758,6 +781,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -765,9 +789,9 @@ var game = {
       {
         name: "Biology",
         era: "Industrial",
-        description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -775,9 +799,9 @@ var game = {
       {
         name: "Combustion",
         era: "Industrial",
-        description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -788,6 +812,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -798,6 +823,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -808,6 +834,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -818,6 +845,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -828,6 +856,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -838,6 +867,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -848,6 +878,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -858,6 +889,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -868,6 +900,7 @@ var game = {
         description: "",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -877,6 +910,7 @@ var game = {
         era: "Industrial",
         effects: [""],
         flavor: "",
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -886,7 +920,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -896,7 +930,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -906,7 +940,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -916,7 +950,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -926,7 +960,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -936,7 +970,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -946,7 +980,7 @@ var game = {
         era: "Modern",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -956,7 +990,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -966,7 +1000,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -976,7 +1010,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -986,7 +1020,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -996,7 +1030,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1006,7 +1040,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1016,7 +1050,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1026,7 +1060,7 @@ var game = {
         era: "Atomic",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1036,7 +1070,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1046,7 +1080,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1056,7 +1090,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1066,7 +1100,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1076,7 +1110,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1086,7 +1120,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1096,7 +1130,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: ["Can build Large Hardon Collider wonder."],
         visible: false,
         unlocked: false,
         activated: false
@@ -1106,7 +1140,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1116,7 +1150,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1126,7 +1160,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1136,7 +1170,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1146,7 +1180,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1156,7 +1190,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -1166,7 +1200,7 @@ var game = {
         era: "Information",
         effects: [],
         flavor: "",
-        requires: [],
+        requires: [""],
         visible: false,
         unlocked: false,
         activated: false
@@ -4131,7 +4165,12 @@ var game = {
             $("[data-n='" + i + "'] ul").append("<li>" + game.tech.techs[i].effects[j] + "</li>");
           }
           for (var k = 0; k < game.tech.techs[i].requires.length; k++) {
-            $("[data-n='" + i + "'] .tech-requires").append(game.tech.techs[i].requires[k] + " ");
+            if (game.tech.techs[i].requires[k] == 'undefined') {
+              // whatever
+            } else {
+              $("[data-n='" + i + "'] .tech-requires").append(game.tech.techs[i].requires[k] + " ");
+            }
+
           }
         }
       }
