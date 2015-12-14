@@ -2,6 +2,9 @@
 A clicking-based civilization game.
 
 ## Roadmap
+- Settings
+- Advisor
+  - Defaults to Lea, choice between two?
 - Resources
   - Resource unlock
   - Food / Production PS, PC, Max, & Total
