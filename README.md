@@ -42,8 +42,9 @@ A clicking-based civilization game.
     - 9 Tiers (for each Era)
   - Culture generation
     - Great Works
-      - great work generation
+      - great work generation / by generation
       - great work culture/cash increases
+      - great works trade with other nations
 - Save Import / Export into text file
   - Compression
 - LocalStorage get/set
