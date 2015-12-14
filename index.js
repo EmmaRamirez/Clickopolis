@@ -309,7 +309,7 @@ var game = {
       {
         name: "Masonry",
         era: "Ancient",
-        effects: ["Can build The Great Pyramids."],
+        effects: ["Can build The Great Pyramids wonder.", "Can build Quarry."],
         flavor: "It could be an Illuminati tech, but we're not allowed to say.",
         visible: true,
         unlocked: false,
@@ -318,7 +318,7 @@ var game = {
       {
         name: "Mining",
         era: "Ancient",
-        effects: ["Can assign Miners.", "Unlocks <img src='img/stone.png' />, <img src='img/gold.png' />, <img src='img/gem.png' /> resources.","Can build Quarry.", "Reveals Iron Working technology."],
+        effects: ["Can assign Miners.", "Unlocks <img src='img/stone.png' />, <img src='img/gold.png' />, <img src='img/gem.png' /> resources.", "Reveals Iron Working technology."],
         flavor: "(Still not safe for minors).",
         visible: true,
         unlocked: false,
@@ -327,8 +327,7 @@ var game = {
       {
         name: "Mysticism",
         era: "Ancient",
-        description: "Unlocks faith. Can assign Clerics. Can build Temple.",
-        effects: ["Unlocks Faith.", "Can assign Clerics.", "Can build Temple.", "Can build Stonehenge Wonder", "Reveals <em>(with Writing and Trading)</em> Philosophy technology."],
+        effects: ["Can assign Clerics.", "Can build Temple.", "Can build Stonehenge Wonder", "Leads to: Philosophy."],
         flavor: "Mysterious gods bring riches, temples, and a couple blood sacrifices.",
         visible: true,
         unlocked: false,
@@ -337,8 +336,7 @@ var game = {
       {
         name: "Pottery",
         era: "Ancient",
-        description: "Unlocks culture. Can assign Artists. Can build Granary.",
-        effects: ["Unlocks Culture", "Can assign Artists", "Can build Granary.", "Can build The Great Pyramids Wonder", "Reveals Trading technology.", "Reveals Calendar technology.", "Reveals Poetics technology."],
+        effects: ["Can assign Artists", "Can build Granary.", "Can build The Great Pyramids Wonder", "Reveals Trading technology.", "Reveals Calendar technology.", "Reveals Poetics technology."],
         flavor: "Does not come with a Pottery Barn discount.",
         visible: true,
         unlocked: false,
@@ -479,10 +477,19 @@ var game = {
       {
         name: "Shipbuilding",
         era: "Classical",
-        description: "",
         effects: ["+2k Max <img src='img/production.png' /> for discovering this technology.", "Can assign soldiers as Navy.", "Can build Harbor.", "Can assign Soldiers as Navy."],
         flavor: "",
         requires: ["Engineering", "Sailing"],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "War Strategy",
+        era: "Classical",
+        effects: ["+1 free <img src='img/general.png' />"],
+        flavor: "",
+        requires: ["Archery", "Writing"],
         visible: false,
         unlocked: false,
         activated: false
@@ -3827,9 +3834,9 @@ var game = {
         //game.tech.techs[i].effects = ["Unlocks Farmers.", "Can build Strip Club", "Unlocks Merchant Culture"];
         if (game.tech.techs[i].visible == true) {
           if (game.tech.techs[i].unlocked == true) {
-            techContainer.append("<div class='tech unlocked hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "</div>");
+            techContainer.append("<div class='tech unlocked' data-n='" + i + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "</div>");
           } else {
-            techContainer.append("<div class='tech hint--top' data-n='" + i + "' data-hint='" + game.tech.techs[i].description + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>");
+            techContainer.append("<div class='tech' data-n='" + i + "'><img src='img/research.png' /><span class='tech-cost'>" + abbrNum(game.tech.cost, 2) + "</span><span class='tech-name'>" + game.tech.techs[i].name + "</span><span class='tech-flavor'>" + game.tech.techs[i].flavor + "</span>" + i + "<br/><ul></ul></div>");
             for (var j = 0; j < game.tech.techs[i].effects.length; j++) {
               $("[data-n='" + i + "'] ul").append("<li>" + game.tech.techs[i].effects[j] + "</li>");
             }
