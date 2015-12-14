@@ -35,6 +35,7 @@ A clicking-based civilization game.
   - Golden Age length & modifiers
 - Faith
   - Faith bonuses implementation
+    - 4 Cateogires (Pantheon, Belief, Dogma, Holiest Powers)
   - Faith generation
 - Culture
   - Culture bonuses implementation
