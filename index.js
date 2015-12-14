@@ -1160,6 +1160,16 @@ var game = {
         visible: false,
         unlocked: false,
         activated: false
+      },
+      {
+        name: "The Future",
+        era: "Future",
+        effects: [],
+        flavor: "",
+        requires: ["Everything."],
+        visible: false,
+        unlocked: false,
+        activated: false
       }
     ],
   },
