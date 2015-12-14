@@ -1062,16 +1062,6 @@ var game = {
         activated: false
       },
       {
-        name: "Holographics",
-        era: "Information",
-        effects: [],
-        flavor: "",
-        requires: [],
-        visible: false,
-        unlocked: false,
-        activated: false
-      },
-      {
         name: "Mobile Tactics",
         era: "Information",
         effects: [],
@@ -1132,6 +1122,16 @@ var game = {
         activated: false
       },
       {
+        name: "Space Colonization",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
         name: "Stealth",
         era: "Information",
         effects: [],
@@ -1153,6 +1153,16 @@ var game = {
       },
       {
         name: "The Internet",
+        era: "Information",
+        effects: [],
+        flavor: "",
+        requires: [],
+        visible: false,
+        unlocked: false,
+        activated: false
+      },
+      {
+        name: "Virtual Reality",
         era: "Information",
         effects: [],
         flavor: "",
