@@ -6,7 +6,7 @@ A clicking-based civilization game.
   - debugMode
   - Save Import/exports
   - Access to previous era skins
-  
+
 - Advisor
   - Defaults to Lea, choice between two?
 - Resources
@@ -53,6 +53,14 @@ A clicking-based civilization game.
       - great work generation / by generation
       - great work culture/cash increases
       - great works trade with other nations
+- Military
+  - Soldier Assembly, Assignment
+  
+- Diplomacy
+  - Meet New Nation function
+    - split by Era
+  - Should they be generated randomly or preset?
+  - United Nations (or similar name)
 - Save Import / Export into text file
   - Compression
 - LocalStorage get/set
