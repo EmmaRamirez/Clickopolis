@@ -327,7 +327,7 @@ var game = {
       {
         name: "Mysticism",
         era: "Ancient",
-        effects: ["Can assign Clerics.", "Can build Temple.", "Can build Stonehenge Wonder", "Leads to: Philosophy."],
+        effects: ["Can assign Clerics.", "Can build Temple.", "Can build Stonehenge Wonder", "Leads to: Philosophy"],
         flavor: "Mysterious gods bring riches, temples, and a couple blood sacrifices.",
         visible: true,
         unlocked: false,
@@ -2391,7 +2391,7 @@ var game = {
       misc: null,
       effect: "+2 <img src='img/health.png' />",
       description: "An ancient building aimed at healing your people.",
-      visible: true
+      visible: false
     },
     {
       name: "Walls",
@@ -2526,6 +2526,33 @@ var game = {
       description: "Hammering iron is our specialty!",
       visible: false
     },
+
+    {
+      name: "Fort",
+      num: 0,
+      numApplied: 0,
+      prod: 1000,
+      cost: 5000,
+      misc: null,
+      misc2: null,
+      effect: "+25 <img src='img/defense.png' />",
+      description: "It's not made out of pillows...I swear!",
+      visible: false
+    },
+    {
+      name: "Watermill",
+      num: 0,
+      numApplied: 0,
+      max: 5,
+      prod: 1580,
+      cost: 5000,
+      misc: null,
+      misc2: null,
+      effect: "+5% <img src='img/production.png' /> PS",
+      description: "Max 5.",
+      visible: false
+    },
+
     {
       name: "Hospital",
       num: 0,
