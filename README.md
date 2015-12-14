@@ -38,6 +38,8 @@ A clicking-based civilization game.
   - Faith generation
 - Culture
   - Culture bonuses implementation
+    - 7 Categories (Resources, Economy, Culture, Faith, Military, Diplomacy, Tech)
+    - 9 Tiers (for each Era)
   - Culture generation
     - Great Works
       - great work generation
