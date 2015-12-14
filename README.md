@@ -6,7 +6,6 @@ A clicking-based civilization game.
   - debugMode
   - Save Import/exports
   - Access to previous era skins
-
 - Advisor
   - Defaults to Lea, choice between two?
 - Resources
@@ -55,7 +54,12 @@ A clicking-based civilization game.
       - great works trade with other nations
 - Military
   - Soldier Assembly, Assignment
-  
+  - Combat
+    - Peace
+    - Attack
+    - Defend
+    - Pillage
+  - Military Contracts
 - Diplomacy
   - Meet New Nation function
     - split by Era
