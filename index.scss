@@ -1170,14 +1170,25 @@ div[data-num] {
   &.unlocked {
     background: #B0F27E;
     pointer-events: none;
+    &:hover {
+      background: #B0F27E;
+    }
+  }
+  &.locked {
     .tech-requires {
       background: rgba(0, 0, 0, 0.7);
       color: white;
       padding: .5rem;
       position: absolute;
+      top: 1rem;
+      opacity: 0;
+      transition: 500ms opacity;
     }
     &:hover {
-      background: #B0F27E;
+      .tech-requires {
+        opacity: 1;
+        transition: 500ms opacity;
+      }
     }
   }
   &.attention {

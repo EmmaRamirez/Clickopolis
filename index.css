@@ -1299,15 +1299,23 @@ div[data-num] {
   pointer-events: none;
 }
 
-.tech.unlocked .tech-requires {
+.tech.unlocked:hover {
+  background: #B0F27E;
+}
+
+.tech.locked .tech-requires {
   background: rgba(0, 0, 0, 0.7);
   color: white;
   padding: .5rem;
   position: absolute;
+  top: 1rem;
+  opacity: 0;
+  transition: 500ms opacity;
 }
 
-.tech.unlocked:hover {
-  background: #B0F27E;
+.tech.locked:hover .tech-requires {
+  opacity: 1;
+  transition: 500ms opacity;
 }
 
 .tech.attention {
