@@ -21,7 +21,7 @@ var data = {
   era: 1,
 
   elements: {
-
+    button: $("[data-button]")
   },
   empire: {
     civName: "Mystery Empire",
@@ -86,6 +86,7 @@ var data = {
         effects: ["Can assign Citizens as Farmers."],
         flavor: "This technology is solely a test.",
         reqiures: ["Nothing", "Biology", "Data Science"],
+        img: "../img/agriculture.png",
         visible: true,
         unlocked: true,
         activated: true
@@ -102,10 +103,16 @@ var data = {
 var game = {
   init: function() {
 
-    game.getData();
-    game.updateData();
+    this.bindButton();
+    this.getData();
+    this.updateData();
 
-    $("[data-button]").click(function(){
+
+
+  },
+
+  bindButton: function() {
+    data.elements.button.click(function(){
       var type = $(this).attr('data-button');
       if (type == "food") {
         data.resources.food.total += data.resources.food.pc;
@@ -127,14 +134,13 @@ var game = {
       game.updateData();
       game.setData();
     });
-
   },
 
   updateMilSec: setInterval(function() {
     data.resources.food.total += data.resources.food.ps / 10;
     data.resources.prod.total += data.resources.prod.pc / 10;
 
-    game.updateData();
+    //game.updateData();
   }, 100),
 
   // updateSec: setInterval(function(){
@@ -145,7 +151,7 @@ var game = {
   // }, 1000),
 
   updateMin: setInterval(function() {
-    console.log("Data saved!");
+    //console.log("Data saved!");
     game.setData();
   }, 60000),
 
@@ -187,17 +193,30 @@ var game = {
       var d = $(this).attr('data-post');
       var ex = $(this).attr('data-exception');
       var fixnum = $(this).attr('data-fixedTo') || 0;
-      d = d.split('.');
+      //d = d.split('.');
+      // var da = 'data';
+      // for (var i = 0; i < d.length; i++) {
+      //   da += '[d[' + i + ']]';
+      // }
+
+      var da = d.split('.').reduce((o,i)=>o[i], data);
+      console.log(da);
+      // if (ex == "fixnum") {
+      //   if (d.length == 1) return data[d[0]].toFixed(fixnum);
+      //   if (d.length == 2) return data[d[0]][d[1]].toFixed(fixnum);
+      //   if (d.length == 3) return data[d[0]][d[1]][d[2]].toFixed(fixnum);
+      //   if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]].toFixed(fixnum);
+      // } else {
+      //   if (d.length == 1) return data[d[0]];
+      //   if (d.length == 2) return data[d[0]][d[1]];
+      //   if (d.length == 3) return data[d[0]][d[1]][d[2]];
+      //   if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]];
+      // }
       if (ex == "fixnum") {
-        if (d.length == 1) return data[d[0]].toFixed(fixnum);
-        if (d.length == 2) return data[d[0]][d[1]].toFixed(fixnum);
-        if (d.length == 3) return data[d[0]][d[1]][d[2]].toFixed(fixnum);
-        if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]].toFixed(fixnum);
-      } else {
-        if (d.length == 1) return data[d[0]];
-        if (d.length == 2) return data[d[0]][d[1]];
-        if (d.length == 3) return data[d[0]][d[1]][d[2]];
-        if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]];
+        return da.toFixed(fixnum);
+      }
+      else {
+        return da;
       }
 
     });
