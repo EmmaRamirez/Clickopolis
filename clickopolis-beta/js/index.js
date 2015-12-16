@@ -29,8 +29,8 @@ var data = {
   },
   resources: {
     food: {
-      total: 10,
-      ps: 45,
+      total: 1,
+      ps: 0,
       pc: 1,
       max: 0
     },
@@ -114,6 +114,7 @@ var game = {
         data.empire.leaderName = l;
       }
       if (type == "hard-reset") {
+        console.log("it worked");
         Lockr.flush();
       }
 
@@ -172,7 +173,7 @@ var game = {
     Lockr.set('fishTotal', data.resources.fish.total);
     Lockr.set('stoneTotal', data.resources.stone.total);
 
-    Lockr.set('horseImg', data.resources.horse.total);
+    Lockr.set('horseImg', data.resources.horse.img);
   },
 
   updateData: function() {
