@@ -50,6 +50,11 @@ var data = {
       total: 33,
       multiplier: 1,
       img: "../img/stone.png"
+    },
+    ivory: {
+      total: 2,
+      multiplier: 1,
+      img: "../img/ivory.png"
     }
   },
   tech: {
@@ -185,7 +190,7 @@ var game = {
   setResources: function() {
     var resources = ['fish', 'stone'];
     for (var i = 0; i < resources.length; i++) {
-      $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");  
+      $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
     }
   },
 
