@@ -40,6 +40,15 @@ var data = {
       pc: 1,
       max: 1
     },
+    fish: {
+      total: 35,
+      multiplier: 1,
+      healthBonus: .5
+    },
+    stone: {
+      total: 33,
+      multiplier: 1
+    }
   },
   tech: {
 
@@ -124,19 +133,30 @@ var game = {
   getData: function() {
     data.empire.civName         = Lockr.get('civName') || data.empire.civName;
     data.empire.leaderName      = Lockr.get('leaderName') || data.empire.leaderName;
+
     data.resources.food.total   = Lockr.get('foodTotal') || data.resources.food.total;
     data.resources.food.ps      = Lockr.get('foodPS') || data.resources.food.ps;
     data.resources.food.pc      = Lockr.get('foodPC') || data.resources.food.pc;
+
     data.resources.prod.total   = Lockr.get('prodTotal') || data.resources.prod.total;
+
+    data.resources.fish.total   = Lockr.get('fishTotal') || data.resources.fish.total;
+    data.resources.stone.total  = Lockr.get('stoneTotal') || data.resources.stone.total;
+
   },
 
   setData: function() {
     Lockr.set('civName', data.empire.civName);
     Lockr.set('leaderName', data.empire.leaderName);
+
     Lockr.set('foodTotal', data.resources.food.total);
     Lockr.set('foodPS', data.resources.food.ps);
     Lockr.set('foodPC', data.resources.food.pc);
+
     Lockr.set('prodTotal', data.resources.prod.total);
+
+    Lockr.set('fishTotal', data.resources.fish.total);
+    Lockr.set('stoneTotal', data.resources.stone.total);
   },
 
   updateData: function() {
