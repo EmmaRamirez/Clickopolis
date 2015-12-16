@@ -55,6 +55,11 @@ var data = {
       total: 2,
       multiplier: 1,
       img: "../img/ivory.png"
+    },
+    horse: {
+      total: 2,
+      multiplier: 2,
+      img: "../img/horse.png"
     }
   },
   tech: {
@@ -150,6 +155,8 @@ var game = {
     data.resources.fish.total   = Lockr.get('fishTotal') || data.resources.fish.total;
     data.resources.stone.total  = Lockr.get('stoneTotal') || data.resources.stone.total;
 
+    data.resources.horse.img    = Lockr.get('horseImg') || data.resources.horse.img;
+
   },
 
   setData: function() {
@@ -164,6 +171,8 @@ var game = {
 
     Lockr.set('fishTotal', data.resources.fish.total);
     Lockr.set('stoneTotal', data.resources.stone.total);
+
+    Lockr.set('horseImg', data.resources.horse.total);
   },
 
   updateData: function() {
@@ -188,7 +197,7 @@ var game = {
   },
 
   setResources: function() {
-    var resources = ['fish', 'stone'];
+    var resources = ['fish', 'stone', 'ivory', 'horse'];
     for (var i = 0; i < resources.length; i++) {
       $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
     }
