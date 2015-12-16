@@ -17,9 +17,15 @@
 //     };
 var data = {
 
+  time: 0,
+  era: 1,
+
+  elements: {
+
+  },
   empire: {
-    civName: "",
-    leaderName: ""
+    civName: "Mystery Empire",
+    leaderName: "Nameless"
   },
   economy: {
     cash: {
