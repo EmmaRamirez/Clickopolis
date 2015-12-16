@@ -43,11 +43,13 @@ var data = {
     fish: {
       total: 35,
       multiplier: 1,
-      healthBonus: .5
+      healthBonus: .5,
+      img: "../img/fish.png"
     },
     stone: {
       total: 33,
-      multiplier: 1
+      multiplier: 1,
+      img: "../img/stone.png"
     }
   },
   tech: {
@@ -180,6 +182,13 @@ var game = {
     });
   },
 
+  setResources: function() {
+    var resources = ['fish', 'stone'];
+    for (var i = 0; i < resources.length; i++) {
+      $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");  
+    }
+  },
+
 
 
 
@@ -189,3 +198,5 @@ var game = {
 
 };
 game.init();
+
+game.setResources();
