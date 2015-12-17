@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Clickopolis</title>
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <header>
@@ -9,6 +10,8 @@
       <div class="btn" data-button="change-name">Change Name</div>
       <input type="text" id="civName" placeholder="Civilization Name" />
       <input type="text" id="leaderName" placeholder="Your Name" />
+      <div class="era"></div>
+      <div class="year"></div>
     </header>
 
     <div class="btn" data-button="hard-reset">Hard Reset</div>
@@ -16,7 +19,7 @@
 
     <div class="section-container">
       <section class="resources">
-        <div class="btn" data-button="food">Grow Food</div>
+        <div class="btn" data-button="food"><img src="img/food.png" />Grow Food</div>
         <div class="btn" data-button="prod">Create Production</div>
 
         <div data-post="resources.food.total" data-exception="fixnum"></div>
@@ -37,6 +40,14 @@
           Stone: <span data-post="resources.stone.total"></span>
         </div>
 
+        <div class="resources-item" data-unlocked="true" data-resource="gold">
+          Gold: <span data-post="resources.gold.total"></span>
+        </div>
+
+        <div class="resources-item" data-unlocked="true" data-resource="gems">
+          Gems: <span data-post="resources.gems.total"></span>
+        </div>
+
         <div class="resources-item" data-unlocked="true" data-resource="ivory">
           Ivory: <span data-post="resources.ivory.total"></span>
         </div>
@@ -44,6 +55,7 @@
         <div class="resources-item" data-unlocked="true" data-resource="horse">
           Horses: <span data-post="resources.horse.total"></span>
         </div>
+
       </section>
       <section class="economy">
         <div data-post="economy.cash.total"></div>
