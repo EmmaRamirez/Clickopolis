@@ -1,17 +1,26 @@
-@import "partials/_variables.scss";
-@import "partials/_extends.scss";
-@import "partials/_global.scss";
-@import "partials/_buttons.scss";
-@import "partials/_ui.scss";
-@import "partials/_eras.scss";
-@import "partials/_sections.scss";
-@import "partials/_tech.scss";
-@import "partials/_culture.scss";
-@import "partials/_diplomacy.scss";
-@import "partials/_military.scss";
-@import "partials/_faith.scss";
-@import "partials/_achievements.scss";
+// @import "partials/_variables.scss";
+// @import "partials/_extends.scss";
+// @import "partials/_global.scss";
+ @import "partials/_buttons.scss";
+// @import "partials/_ui.scss";
+// @import "partials/_eras.scss";
+// @import "partials/_sections.scss";
+// @import "partials/_tech.scss";
+// @import "partials/_culture.scss";
+// @import "partials/_diplomacy.scss";
+// @import "partials/_military.scss";
+// @import "partials/_faith.scss";
+// @import "partials/_achievements.scss";
 
-body {
-  background: black;
+.resources-item {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  padding: .5rem;
+  text-align: center;
+  width: 8rem;
+  img {
+    height: .75rem;
+  }
 }
