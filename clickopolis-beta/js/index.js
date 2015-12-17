@@ -20,6 +20,7 @@ var data = {
   version: "0.1.0",
   time: 0,
   era: 1,
+  year: 0,
 
   elements: {
     button: $("[data-button]")
@@ -39,19 +40,25 @@ var data = {
       total: 1,
       ps: 0,
       pc: 1,
-      max: 0
+      max: 1000
     },
     prod: {
       total: 10,
       ps: 1,
       pc: 44,
-      max: 1
+      max: 1000
     },
     fish: {
       total: 35,
       multiplier: 1,
       healthBonus: .5,
       img: "../img/fish.png"
+    },
+    banana: {
+      total: 12,
+      multiplier: 1,
+      healthBonus: .5,
+      img: "../img/banana.png"
     },
     stone: {
       total: 33,
@@ -218,7 +225,7 @@ var game = {
   },
 
   setTime: function() {
-    $(".year").text(game.time(data.time));
+    $(".time").text(game.time(data.time));
   },
 
   updateMilSec: setInterval(function() {
@@ -233,10 +240,15 @@ var game = {
     data.time += 1;
     game.setTime();
 
+
+
   }, 1000),
 
   updateMin: setInterval(function() {
     //console.log("Data saved!");
+
+    data.year += 1;
+    game.updateData($(".year span"));
 
     game.setData();
   }, 60000),
@@ -244,6 +256,7 @@ var game = {
   getData: function() {
     data.time                   = Lockr.get('time') || data.time;
     data.era                    = Lockr.get('era') || data.era;
+    data.year                   = Lockr.get('year') || data.year;
 
     data.empire.civName         = Lockr.get('civName') || data.empire.civName;
     data.empire.leaderName      = Lockr.get('leaderName') || data.empire.leaderName;
@@ -264,6 +277,7 @@ var game = {
   setData: function() {
     Lockr.set('time', data.time);
     Lockr.set('era', data.era);
+    Lockr.set('year', data.year);
 
     Lockr.set('civName', data.empire.civName);
     Lockr.set('leaderName', data.empire.leaderName);
@@ -315,7 +329,7 @@ var game = {
   },
 
   setResources: function() {
-    var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems', 'oil'];
+    var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems', 'oil', 'banana'];
     for (var i = 0; i < resources.length; i++) {
       $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
     }

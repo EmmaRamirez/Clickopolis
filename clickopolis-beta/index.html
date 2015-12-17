@@ -18,7 +18,8 @@
       <div class="btn" data-button="change-name">Change Name</div>
 
       <div class="era"></div>
-      <div class="year"></div>
+      <div class="time"></div>
+      <div class="year"><span data-post="year"></span> AC</div>
     </header>
 
     <div class="btn tooltip" title="Resets your data." data-button="hard-reset">Hard Reset</div>
@@ -63,6 +64,10 @@
           Fish: <span data-post="resources.fish.total"></span>
         </div>
 
+        <div class="resources-item tooltip" data-unlocked="true" data-resource="banana" title="Bananas provide health for your Empire.">
+          Bananas: <span data-post="resources.banana.total"></span>
+        </div>
+
         <div class="resources-item" data-unlocked="false" data-resource="stone">
           Stone: <span data-post="resources.stone.total"></span>
         </div>
@@ -71,7 +76,7 @@
           Gold: <span data-post="resources.gold.total"></span>
         </div>
 
-        <div class="resources-item" data-unlocked="true" data-resource="gems">
+        <div class="resources-item tooltip" data-unlocked="true" data-resource="gems" title="Gems increase your happiness.">
           Gems: <span data-post="resources.gems.total"></span>
         </div>
 
@@ -89,8 +94,13 @@
 
       </section>
       <section class="economy">
+        <h3>Economy</h3>
         <div data-post="economy.cash.total"></div>
         <div data-post="economy.cash.pm"></div>
+      </section>
+      <section class="citizens">
+        <h3>Citizens</h3>
+
       </section>
     </div>
 
