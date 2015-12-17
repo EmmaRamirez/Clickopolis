@@ -6,6 +6,7 @@
   </head>
   <body>
     <header>
+      <h1 class="game-title">Clickopolis</h1>
       <h2><span data-post="empire.civName"></span>, lead by <span data-post="empire.leaderName"></span> the Great.</h2>
 
       <input type="text" id="civName" placeholder="Civilization Name" />
@@ -22,18 +23,37 @@
     <div class="section-container">
       <section class="resources">
         <h3>Resources</h3>
-        <div class="btn" data-button="food"><img src="img/food.png" />Grow Food</div>
-        <div class="btn" data-button="prod"><img src="img/prod.png" />Create Production</div>
 
-        <div data-post="resources.food.total" data-exception="fixnum"></div>
-        <div data-post="resources.food.ps"></div>
-        <div data-post="resources.food.pc"></div>
-        <div data-post="resources.food.max"></div>
+        <table class="resources-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Total</th>
+              <th>PS</th>
+              <th>PC</th>
+              <th>Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="btn" data-button="food"><img src="img/food.png" />Grow Food</div></td>
+              <td><div data-post="resources.food.total" data-exception="fixnum"></div></td>
+              <td><div data-post="resources.food.ps"></div></td>
+              <td><div data-post="resources.food.pc"></div></td>
+              <td><div data-post="resources.food.max"></div></td>
+            </tr>
+            <tr>
+              <td><div class="btn" data-button="prod"><img src="img/prod.png" />Create Production</div></td>
+              <td><div data-post="resources.prod.total" data-exception="fixnum"></div></td>
+              <td><div data-post="resources.prod.ps"></div></td>
+              <td><div data-post="resources.prod.pc"></div></td>
+              <td><div data-post="resources.prod.max"></div></td>
+            </tr>
+          </tbody>
 
-        <div data-post="resources.prod.total" data-exception="fixnum"></div>
-        <div data-post="resources.prod.ps"></div>
-        <div data-post="resources.prod.pc"></div>
-        <div data-post="resources.prod.max"></div>
+        </table>
+
+
 
         <div class="resources-item" data-unlocked="true" data-resource="fish">
           Fish: <span data-post="resources.fish.total"></span>
@@ -68,7 +88,7 @@
 
 
 
-
+<!-- <iframe  width="0" height="0" src="https://www.youtube.com/embed/Spkx2tvCt6Y?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe> -->
     <script src="js/lockr.min.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/index.js"></script>

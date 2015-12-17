@@ -17,6 +17,7 @@
 //     };
 var data = {
 
+  version: "0.1.0",
   time: 0,
   era: 1,
 
