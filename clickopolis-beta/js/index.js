@@ -334,3 +334,14 @@ var game = {
 
 };
 game.init();
+
+$(document).ready(function() {
+  $('.tooltip').tooltipster({
+    position: 'top',
+    offsetY: -10,
+    arrow: false,
+    interactive: true,
+    positionTracker: true,
+    maxWidth: 200,
+  });
+});

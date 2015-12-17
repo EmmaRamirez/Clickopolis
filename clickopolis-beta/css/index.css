@@ -55,3 +55,7 @@ section {
 .resources-item img {
   height: .75rem;
 }
+
+.resources-table td {
+  padding: .25rem;
+}

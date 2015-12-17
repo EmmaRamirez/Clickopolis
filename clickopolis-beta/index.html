@@ -3,6 +3,10 @@
   <head>
     <title>Clickopolis</title>
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/tooltipster.css" />
+
+
+
   </head>
   <body>
     <header>
@@ -17,7 +21,7 @@
       <div class="year"></div>
     </header>
 
-    <div class="btn" data-button="hard-reset">Hard Reset</div>
+    <div class="btn tooltip" title="Resets your data." data-button="hard-reset">Hard Reset</div>
 
 
     <div class="section-container">
@@ -79,7 +83,7 @@
           Horses: <span data-post="resources.horse.total"></span>
         </div>
 
-        <div class="resources-item" data-unlocked="true" data-resource="oil">
+        <div class="resources-item tooltip" data-unlocked="true" data-resource="oil" title="Oil is an important strategic resource for the energy of your empire.">
           Oil: <span data-post="resources.oil.total"></span>
         </div>
 
@@ -95,6 +99,8 @@
 <!-- <iframe  width="0" height="0" src="https://www.youtube.com/embed/Spkx2tvCt6Y?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe> -->
     <script src="js/lockr.min.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.tooltipster.min.js"></script>
     <script src="js/index.js"></script>
+
   </body>
 </html>
