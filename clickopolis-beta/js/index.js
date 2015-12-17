@@ -346,7 +346,7 @@ var game = {
         $(".settings-panel").removeClass("pull-down");
         $("body").removeClass("pull-down");
       }
-      index++;
+      index += 1;
     });
   },
 
