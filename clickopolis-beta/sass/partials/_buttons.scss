@@ -22,6 +22,9 @@ a.btn {
   color: $a-btn-color;
   text-decoration: none;
   @extend %transition-s;
+  img {
+    height: 1rem;
+  }
   &:hover {
     background: #fff;
     color: darken($a-btn-color, 15%);

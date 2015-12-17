@@ -332,6 +332,10 @@ a.btn {
   text-decoration: none;
 }
 
+a.btn img {
+  height: 1rem;
+}
+
 a.btn:hover {
   background: #fff;
   color: #11839c;
