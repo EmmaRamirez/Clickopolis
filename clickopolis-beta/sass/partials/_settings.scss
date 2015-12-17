@@ -1,0 +1,21 @@
+.settings-panel {
+  background: #eee;
+  height: 30rem;
+  padding: 5rem;
+  position: absolute;
+  top: -30rem;
+  width: 100%;
+  &.pull-down {
+    top: 0;
+  }
+}
+
+.settings-lever {
+  background: #222;
+  color: #eee;
+  cursor: pointer;
+  padding: .5rem;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+}

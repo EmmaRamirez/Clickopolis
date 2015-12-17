@@ -134,6 +134,7 @@ var game = {
     this.setEra();
     this.setTime();
     this.setResources();
+    this.settingsClick();
 
 
 
@@ -333,6 +334,13 @@ var game = {
     for (var i = 0; i < resources.length; i++) {
       $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
     }
+  },
+
+  settingsClick: function() {
+    $(".settings-lever").click(function(){
+      $(".settings-panel").addClass("pull-down");
+      $("body").addClass("pull-down");
+    });
   },
 
 
