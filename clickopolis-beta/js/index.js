@@ -184,6 +184,7 @@ var game = {
   hardReset: function() {
     // We'll have to manually reset everything :(
     data.resources.food.total = 0;
+    data.resources.prod.total = 0;
     Lockr.flush();
   },
 
