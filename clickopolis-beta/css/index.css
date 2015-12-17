@@ -317,6 +317,10 @@ h6 {
   margin: 0 0.25rem;
 }
 
+header {
+  padding: 1rem;
+}
+
 section {
   border: 1px solid #eee;
   margin: .5rem;
