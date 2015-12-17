@@ -21,3 +21,14 @@
   right: 1rem;
   top: 0;
 }
+
+.settings-audio-lever {
+  background-color: #222;
+  color: #eee;
+  cursor: pointer;
+  padding: .5rem;
+  position: absolute;
+  right: 6rem;
+  top: 0;
+  @extend %img-s;
+}

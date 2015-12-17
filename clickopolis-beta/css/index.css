@@ -11,6 +11,10 @@ body, body.pull-down, .settings-panel, .settings-panel.pull-down {
           transition: 350ms all;
 }
 
+.settings-audio-lever img {
+  height: .75rem;
+}
+
 *,
 *::before,
 *::after {
@@ -366,5 +370,15 @@ section {
   padding: .5rem;
   position: absolute;
   right: 1rem;
+  top: 0;
+}
+
+.settings-audio-lever {
+  background-color: #222;
+  color: #eee;
+  cursor: pointer;
+  padding: .5rem;
+  position: absolute;
+  right: 6rem;
   top: 0;
 }
