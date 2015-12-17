@@ -15,6 +15,23 @@
 //         }
 //         return allStrings ? 3 + ((allStrings.length*16)/(8*1024)) + ' KB' : 'Empty (0 KB)';
 //     };
+
+
+// Get an array of checkout values only
+// var bookCheckouts = books.map(function(item) {
+//     return item.checkouts;
+// });
+//
+// // Sum the array's values from left to right
+// var total = bookCheckouts.reduce(function(prev, curr) {
+//     return prev + curr;
+// });
+// var total = books
+//             .map(function(b) { return b.checkouts; })
+//             .reduce(function(p, c) { return p + c; });
+
+
+
 var data = {
 
   version: "0.1.0",
