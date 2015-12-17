@@ -20,6 +20,11 @@
   margin: 0 0.25rem;
 }
 
+section {
+  border: 1px solid #eee;
+  padding: 1rem;
+}
+
 .resources-item {
   background: #eee;
   border: 1px solid #ccc;
