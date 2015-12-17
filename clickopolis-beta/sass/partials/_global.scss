@@ -8,6 +8,11 @@
 body {
   font-family: "Roboto";
   font-weight: 300;
+  @extend %transition-s;
+  &.pull-down {
+    margin-top: 30rem;
+    @extend %transition-s;
+  }
 }
 
 h1,

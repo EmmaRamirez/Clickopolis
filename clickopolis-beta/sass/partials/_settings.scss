@@ -5,8 +5,10 @@
   position: absolute;
   top: -30rem;
   width: 100%;
+  @extend %transition-s;
   &.pull-down {
     top: 0;
+    @extend %transition-s;
   }
 }
 

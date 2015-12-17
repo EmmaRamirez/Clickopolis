@@ -6,6 +6,11 @@
           user-select: none;
 }
 
+body, body.pull-down, .settings-panel, .settings-panel.pull-down {
+  -webkit-transition: 350ms all;
+          transition: 350ms all;
+}
+
 *,
 *::before,
 *::after {
@@ -235,6 +240,10 @@ table {
 body {
   font-family: "Roboto";
   font-weight: 300;
+}
+
+body.pull-down {
+  margin-top: 30rem;
 }
 
 h1,
