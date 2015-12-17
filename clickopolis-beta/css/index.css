@@ -358,7 +358,9 @@ header {
 section {
   border: 1px solid #eee;
   margin: .5rem;
+  min-height: 6rem;
   padding: 1rem;
+  position: relative;
 }
 
 .resources-item {
@@ -377,9 +379,53 @@ section {
   height: .75rem;
 }
 
+.resources-table .btn {
+  width: 12rem;
+}
+
 .resources-table td {
   padding: .25rem;
   text-align: center;
+}
+
+.culture {
+  width: 50%;
+}
+
+.culture .heading {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.culture .heading img {
+  height: 1.75rem;
+  vertical-align: middle;
+}
+
+.culture .heading .heading-inner {
+  background: #E6395F;
+  color: white;
+  display: inline-block;
+  height: 3rem;
+  margin-right: -4px;
+  padding: .5rem;
+  width: 25%;
+  vertical-align: middle;
+}
+
+.culture .heading .heading-inner:nth-of-type(2) {
+  background: #e3224d;
+}
+
+.culture .heading .heading-inner:nth-of-type(3) {
+  background: #bb183b;
+}
+
+.culture .heading .heading-inner:nth-of-type(4) {
+  background: #d21a43;
 }
 
 .settings-panel {

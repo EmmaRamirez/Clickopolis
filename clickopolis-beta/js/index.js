@@ -135,7 +135,8 @@ var data = {
   },
 
   culture: {
-
+    total: 199,
+    pm: 12
   },
 
 };

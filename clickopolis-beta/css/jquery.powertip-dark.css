@@ -12,6 +12,9 @@
 	white-space: nowrap;
 	z-index: 2147483647;
 }
+#powerTip img {
+	height: .75rem;
+}
 #powerTip:before {
 	content: "";
 	position: absolute;

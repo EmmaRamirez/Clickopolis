@@ -19,7 +19,7 @@
     <div class="settings-audio-lever"><img src="img/audio.png" /></div>
     <header>
       <h1 class="game-title">Clickopolis</h1>
-      <h2><span data-post="empire.civName"></span>, lead by <span data-post="empire.leaderName"></span> the Great.</h2>
+      <h2><span data-post="empire.civName"></span>, lead by <span data-post="empire.leaderName"></span> the <span>Great</span></h2>
 
       <input type="text" id="civName" placeholder="Civilization Name" />
       <input type="text" id="leaderName" placeholder="Your Name" />
@@ -31,8 +31,9 @@
 
       <div class="game-status-bar">
         <a class="btn" href="#resources"><img src="img/resources.png"/>Resources</a>
+        <a class="btn" href="#empire"><img src="img/empire-6.png">Empire</a>
         <a class="btn" href="#economy"><img src="img/money.png">Economy</a>
-
+        <a class="btn" href="#citizens"><img src="img/citizens.png">Citizens</a>
         <a class="btn" href="#buildings"><img src="img/buildings.png">Buildings</a>
         <a class="btn" href="#wonders"><img src="img/wonder.png">Wonders</a>
         <a class="btn" href="#research"><img src="img/research.png">Research</a>
@@ -96,11 +97,11 @@
           Stone: <span data-post="resources.stone.total"></span>
         </div>
 
-        <div class="resources-item" data-unlocked="true" data-resource="gold">
+        <div class="resources-item tooltip" data-unlocked="true" data-resource="gold" title="Gold increases Empire <img src='img/happy.png' />">
           Gold: <span data-post="resources.gold.total"></span>
         </div>
 
-        <div class="resources-item tooltip" data-unlocked="true" data-resource="gems" title="Gems increase your happiness.">
+        <div class="resources-item tooltip" data-unlocked="true" data-resource="gems" title="Gems increase Empire <img src='img/happy.png' />">
           Gems: <span data-post="resources.gems.total"></span>
         </div>
 
@@ -131,6 +132,17 @@
       </section>
       <section class="research" id="research">
         <h3>Research</h3>
+      </section>
+      <section class="culture" id="culture">
+        <div class="heading">
+          <span class="heading-inner">CULTURE <img src="img/culture.png" /></span>
+          <span class="heading-inner"><span data-post="culture.total"></span> Total</span>
+          <span class="heading-inner"><span data-post="culture.pm"></span> <span class="question tooltip" title="Per Minute">PM</span></span>
+          <span class="heading-inner">15 Upgrades</span>
+        </div>
+        <div class="searchbar-container">
+          <input type="search" placeholder="filter" />
+        </div>
       </section>
 
       <section class="filler">
