@@ -57,6 +57,16 @@ var data = {
       multiplier: 1,
       img: "../img/stone.png"
     },
+    gold: {
+      total: 22,
+      multiplier: 1,
+      img: "../img/gold.png"
+    },
+    gems: {
+      total: 21,
+      multiplier: 1,
+      img: "../img/gems.png"
+    },
     ivory: {
       total: 2,
       multiplier: 1,
@@ -100,12 +110,21 @@ var data = {
 
 };
 
+Object.observe(data, function(changes) {
+  changes.forEach(function(change) {
+    console.log(change.type, change.name, change.oldValue);
+  })
+});
+
 var game = {
   init: function() {
 
     this.bindButton();
     this.getData();
     this.updateData();
+    this.setEra();
+    this.setTime();
+    this.setResources();
 
 
 
@@ -136,6 +155,65 @@ var game = {
     });
   },
 
+  convertEra: function(era) {
+    switch (era) {
+      case 1:
+        return "Ancient";
+        break;
+      case 2:
+        return "Classical";
+        break;
+      case 3:
+        return "Medieval";
+        break;
+      case 4:
+        return "Renaissance";
+        break;
+      case 5:
+        return "Enlightenment";
+        break;
+      case 6:
+        return "Industrial";
+        break;
+      case 7:
+        return "Modern";
+        break;
+      case 8:
+        return "Atomic";
+        break;
+      case 9:
+        return "Information";
+        break;
+      case 10:
+        return "Future";
+        break;
+    }
+
+  },
+
+  setEra: function() {
+    $(".era").text(game.convertEra(data.era) + " era");
+  },
+
+  updateEra: function() {
+    data.era += 1;
+
+    game.setEra();
+  },
+
+  
+
+  time: function(d) {
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+    return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
+  },
+
+  setTime: function() {
+    $(".year").text(game.time(data.time));
+  },
+
   updateMilSec: setInterval(function() {
     data.resources.food.total += data.resources.food.ps / 10;
     data.resources.prod.total += data.resources.prod.pc / 10;
@@ -143,19 +221,23 @@ var game = {
     //game.updateData();
   }, 100),
 
-  // updateSec: setInterval(function(){
-  //   data.resources.food.total += data.resources.food.ps;
-  //   data.resources.prod.total += data.resources.prod.pc;
-  //
-  //   game.updateData();
-  // }, 1000),
+  updateSec: setInterval(function(){
+
+    data.time += 1;
+    game.setTime();
+
+  }, 1000),
 
   updateMin: setInterval(function() {
     //console.log("Data saved!");
+
     game.setData();
   }, 60000),
 
   getData: function() {
+    data.time                   = Lockr.get('time') || data.time;
+    data.era                    = Lockr.get('era') || data.era;
+
     data.empire.civName         = Lockr.get('civName') || data.empire.civName;
     data.empire.leaderName      = Lockr.get('leaderName') || data.empire.leaderName;
 
@@ -173,6 +255,9 @@ var game = {
   },
 
   setData: function() {
+    Lockr.set('time', data.time);
+    Lockr.set('era', data.era);
+
     Lockr.set('civName', data.empire.civName);
     Lockr.set('leaderName', data.empire.leaderName);
 
@@ -223,7 +308,7 @@ var game = {
   },
 
   setResources: function() {
-    var resources = ['fish', 'stone', 'ivory', 'horse'];
+    var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems'];
     for (var i = 0; i < resources.length; i++) {
       $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
     }
@@ -238,5 +323,3 @@ var game = {
 
 };
 game.init();
-
-game.setResources();
