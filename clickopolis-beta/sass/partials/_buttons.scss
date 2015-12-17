@@ -3,6 +3,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
+  display: inline-block;
   margin: .25rem 0;
   max-width: 16rem;
   padding: .25rem;
@@ -13,5 +14,17 @@
     height: 1.25rem;
     margin: 0 .25rem;
     //vertical-align: middle;
+  }
+}
+
+a.btn {
+  $a-btn-color: rgb(25, 189, 225);
+  color: $a-btn-color;
+  text-decoration: none;
+  @extend %transition-s;
+  &:hover {
+    background: #fff;
+    color: darken($a-btn-color, 15%);
+    @extend %transition-s;
   }
 }
