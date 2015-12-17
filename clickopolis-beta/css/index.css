@@ -362,6 +362,7 @@ section {
   min-height: 6rem;
   padding: 1rem;
   position: relative;
+  vertical-align: top;
 }
 
 section .heading {
@@ -414,6 +415,10 @@ section .heading .heading-inner {
 .resources-table td {
   padding: .25rem;
   text-align: center;
+}
+
+.empire {
+  width: 30%;
 }
 
 .culture {
