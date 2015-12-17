@@ -7,8 +7,10 @@
   padding: .25rem;
   text-align: center;
   //vertical-align: middle;
+  @extend %no-select;
   img {
     height: 1.25rem;
+    margin: 0 .25rem;
     //vertical-align: middle;
   }
 }

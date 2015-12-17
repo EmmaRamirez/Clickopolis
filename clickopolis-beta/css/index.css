@@ -1,4 +1,11 @@
 .btn {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.btn {
   background: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -10,6 +17,7 @@
 
 .btn img {
   height: 1.25rem;
+  margin: 0 0.25rem;
 }
 
 .resources-item {
