@@ -11,6 +11,7 @@
   border-radius: 4px;
   cursor: pointer;
   margin: .25rem 0;
+  max-width: 16rem;
   padding: .25rem;
   text-align: center;
 }

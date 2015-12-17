@@ -146,13 +146,18 @@ var game = {
         data.empire.leaderName = l;
       }
       if (type == "hard-reset") {
-        console.log("it worked");
-        Lockr.flush();
+        game.hardReset();
       }
 
       game.updateData();
       game.setData();
     });
+  },
+
+  hardReset: function() {
+    // We'll have to manually reset everything :(
+    data.resources.food.total = 0;
+    Lockr.flush();
   },
 
   convertEra: function(era) {
@@ -201,7 +206,7 @@ var game = {
     game.setEra();
   },
 
-  
+
 
   time: function(d) {
     var h = Math.floor(d / 3600);
