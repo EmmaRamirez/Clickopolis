@@ -345,6 +345,16 @@ header {
   padding: 1rem;
 }
 
+.game-status-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
 section {
   border: 1px solid #eee;
   margin: .5rem;
