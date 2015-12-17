@@ -77,6 +77,11 @@ var data = {
       total: 2,
       multiplier: 2,
       img: "../img/horse.png"
+    },
+    oil: {
+      total: 0,
+      multiplier: 1,
+      img: "../img/oil.png"
     }
   },
   tech: {
@@ -314,7 +319,7 @@ var game = {
   },
 
   setResources: function() {
-    var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems'];
+    var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems', 'oil'];
     for (var i = 0; i < resources.length; i++) {
       $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
     }
