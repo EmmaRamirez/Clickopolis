@@ -44,7 +44,7 @@ var data = {
     prod: {
       total: 10,
       ps: 1,
-      pc: 1,
+      pc: 44,
       max: 1
     },
     fish: {
@@ -225,7 +225,7 @@ var game = {
     data.resources.food.total += data.resources.food.ps / 10;
     data.resources.prod.total += data.resources.prod.pc / 10;
 
-    //game.updateData();
+    game.updateData($("[data-post='resources.prod.total']"));
   }, 100),
 
   updateSec: setInterval(function(){
@@ -280,8 +280,9 @@ var game = {
     Lockr.set('horseImg', data.resources.horse.img);
   },
 
-  updateData: function() {
-    $("[data-post]").text(function(){
+  updateData: function(el) {
+    el = typeof el !== 'undefined' ?  el : $("[data-post]");
+    el.text(function() {
       var d = $(this).attr('data-post');
       var ex = $(this).attr('data-exception');
       var fixnum = $(this).attr('data-fixedTo') || 0;
@@ -292,7 +293,6 @@ var game = {
       // }
 
       var da = d.split('.').reduce((o,i)=>o[i], data);
-      console.log(da);
       // if (ex == "fixnum") {
       //   if (d.length == 1) return data[d[0]].toFixed(fixnum);
       //   if (d.length == 2) return data[d[0]][d[1]].toFixed(fixnum);
