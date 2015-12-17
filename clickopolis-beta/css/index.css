@@ -263,6 +263,11 @@ h6 {
   opacity: 0.3;
 }
 
+.question {
+  border-bottom: 1px dotted #ccc;
+  cursor: help;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -335,6 +340,7 @@ section {
   background: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
+  cursor: default;
   display: inline-block;
   margin: .25rem;
   padding: .5rem;
@@ -348,6 +354,7 @@ section {
 
 .resources-table td {
   padding: .25rem;
+  text-align: center;
 }
 
 .settings-panel {

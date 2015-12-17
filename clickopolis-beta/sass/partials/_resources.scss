@@ -2,6 +2,7 @@
   background: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
+  cursor: default;
   display: inline-block;
   margin: .25rem;
   padding: .5rem;
@@ -15,5 +16,6 @@
 .resources-table {
   td {
     padding: .25rem;
+    text-align: center;
   }
 }

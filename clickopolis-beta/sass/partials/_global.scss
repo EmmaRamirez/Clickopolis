@@ -28,6 +28,11 @@ h6 {
   opacity: 0.3;
 }
 
+.question {
+  border-bottom: 1px dotted #ccc;
+  cursor: help;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
