@@ -1,3 +1,27 @@
-body {
-  background: red;
+.btn {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: .25rem 0;
+  padding: .25rem;
+  text-align: center;
+}
+
+.btn img {
+  height: 1.25rem;
+}
+
+.resources-item {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  padding: .5rem;
+  text-align: center;
+  width: 8rem;
+}
+
+.resources-item img {
+  height: .75rem;
 }
