@@ -363,6 +363,10 @@ section {
   position: relative;
 }
 
+.resources {
+  width: 30%;
+}
+
 .resources-item {
   background: #eee;
   border: 1px solid #ccc;
@@ -426,6 +430,14 @@ section {
 
 .culture .heading .heading-inner:nth-of-type(4) {
   background: #d21a43;
+}
+
+.searchbar-container {
+  margin-top: 3rem;
+}
+
+.searchbar-container input {
+  float: right;
 }
 
 .settings-panel {
