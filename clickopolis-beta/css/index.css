@@ -357,14 +357,38 @@ header {
 
 section {
   border: 1px solid #eee;
+  display: inline-block;
   margin: .5rem;
   min-height: 6rem;
   padding: 1rem;
   position: relative;
 }
 
+section .heading {
+  margin-bottom: 1rem;
+  margin-left: -1rem;
+  margin-top: -1rem;
+  width: -webkit-calc(100% + 2rem);
+  width: calc(100% + 2rem);
+  text-align: center;
+}
+
+section .heading img {
+  height: 1.75rem;
+  vertical-align: middle;
+}
+
+section .heading .heading-inner {
+  display: inline-block;
+  padding: .25rem;
+}
+
 .resources {
   width: 30%;
+}
+
+.resources .heading {
+  background: #CCE8A9;
 }
 
 .resources-item {
@@ -396,26 +420,11 @@ section {
   width: 50%;
 }
 
-.culture .heading {
-  font-weight: bold;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-
-.culture .heading img {
-  height: 1.75rem;
-  vertical-align: middle;
-}
-
 .culture .heading .heading-inner {
   background: #E6395F;
   color: white;
-  display: inline-block;
-  height: 3rem;
+  height: 36px;
   margin-right: -4px;
-  padding: .5rem;
   width: 25%;
   vertical-align: middle;
 }
@@ -430,14 +439,6 @@ section {
 
 .culture .heading .heading-inner:nth-of-type(4) {
   background: #d21a43;
-}
-
-.searchbar-container {
-  margin-top: 3rem;
-}
-
-.searchbar-container input {
-  float: right;
 }
 
 .settings-panel {

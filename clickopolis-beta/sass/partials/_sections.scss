@@ -1,7 +1,25 @@
 section {
   border: 1px solid #eee;
+  display: inline-block;
   margin: .5rem;
   min-height: 6rem;
   padding: 1rem;
   position: relative;
+  .heading {
+    //position: absolute;
+    margin-bottom: 1rem;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    width: calc(100% + 2rem);
+    text-align: center;
+    img {
+      height: 1.75rem;
+      vertical-align: middle;
+    }
+    .heading-inner {
+      display: inline-block;
+      padding: .25rem;
+    }
+  }
+
 }

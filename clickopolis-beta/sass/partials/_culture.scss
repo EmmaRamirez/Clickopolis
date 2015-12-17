@@ -6,22 +6,13 @@ $culture-color: #E6395F;
 
   .heading {
 
-    font-weight: bold;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    img {
-      height: 1.75rem;
-      vertical-align: middle;
-    }
     .heading-inner {
       background: $culture-color;
       color: white;
-      display: inline-block;
-      height: 3rem;
+      //display: inline-block;
+      height: 36px;
       margin-right: -4px;
-      padding: .5rem;
+
       width: 25%;
       vertical-align: middle;
       &:nth-of-type(2) {
@@ -38,8 +29,7 @@ $culture-color: #E6395F;
 }
 
 .searchbar-container {
-  margin-top: 3rem;
   input {
-    float: right;
+
   }
 }
