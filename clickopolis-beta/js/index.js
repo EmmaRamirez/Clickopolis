@@ -116,11 +116,7 @@ var data = {
 
 };
 
-Object.observe(data, function(changes) {
-  changes.forEach(function(change) {
-    console.log(change.type, change.name, change.oldValue);
-  })
-});
+
 
 var game = {
   init: function() {
@@ -336,12 +332,7 @@ var game = {
 game.init();
 
 $(document).ready(function() {
-  $('.tooltip').tooltipster({
-    position: 'top',
-    offsetY: -10,
-    arrow: false,
-    interactive: true,
-    positionTracker: true,
-    maxWidth: 200,
-  });
+  $('.tooltip').powerTip({
+    followMouse: true
+  })
 });
