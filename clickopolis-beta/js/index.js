@@ -337,9 +337,16 @@ var game = {
   },
 
   settingsClick: function() {
-    $(".settings-lever").click(function(){
-      $(".settings-panel").addClass("pull-down");
-      $("body").addClass("pull-down");
+    var index = 2;
+    $(".settings-lever").click(function() {
+      if (index % 2 == 0) {
+        $(".settings-panel").addClass("pull-down");
+        $("body").addClass("pull-down");
+      } else {
+        $(".settings-panel").removeClass("pull-down");
+        $("body").removeClass("pull-down");
+      }
+      index++;
     });
   },
 
