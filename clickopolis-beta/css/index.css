@@ -506,7 +506,7 @@ section .heading .heading-inner {
 }
 
 .culture {
-  width: 50%;
+  width: 40%;
 }
 
 .culture .heading .heading-inner {
@@ -544,12 +544,32 @@ section .heading .heading-inner {
 }
 
 .military {
-  width: 40%;
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  width: 25%;
 }
 
 .military .heading {
   background: #d22d2d;
   color: white;
+}
+
+.diplomacy {
+  width: 30%;
+}
+
+.diplomacy .heading {
+  background: #e8d8c3;
+}
+
+.faith {
+  width: 40%;
+}
+
+.faith .heading {
+  background: #eee;
 }
 
 .settings-panel {
