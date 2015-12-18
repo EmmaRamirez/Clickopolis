@@ -572,6 +572,17 @@ section .heading .heading-inner {
   background: #eee;
 }
 
+.legacy {
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+.legacy .heading {
+  background: #f2da5a;
+}
+
 .settings-panel {
   background: #eee;
   height: 30rem;
