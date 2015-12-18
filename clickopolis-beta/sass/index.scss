@@ -1,5 +1,5 @@
 
-// @import "partials/_variables.scss";
+@import "partials/_variables.scss";
 @import "partials/_extends.scss";
 @import "partials/_normalize.scss";
 @import "partials/_global.scss";
@@ -13,8 +13,10 @@
 @import "partials/_citizens.scss";
 @import "partials/_economy.scss";
 @import "partials/_buildings.scss";
+@import "partials/_research.scss";
 @import "partials/_culture.scss";
 @import "partials/_settings.scss";
+@import "partials/_eras.scss";
 // @import "partials/_tech.scss";
 // @import "partials/_culture.scss";
 // @import "partials/_diplomacy.scss";

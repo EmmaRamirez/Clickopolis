@@ -9,7 +9,7 @@
 
 
   </head>
-  <body>
+  <body class="Ancient">
     <div class="settings-panel">
       {{Settings}}
       <div class="btn tooltip" title="Resets your data." data-button="hard-reset">Hard Reset</div>
@@ -126,7 +126,8 @@
         <div class="heading">
           <span class="heading-inner">EMPIRE <img src="img/empire-6.png" /></span>
         </div>
-        <div class="btn" data-button="pop-grow">+1 Pop.</div>
+        <div class="btn pop-growth-btn" data-button="pop-grow">Grow Pop. <img src="img/food.png" /> <span data-post="empire.popCost"></span></div>
+        <div class="btn pop">Pop: <span data-post="empire.pop"></span><img src="img/citizens.png" /></div>
       </section>
 
       <section class="citizens" id="citizens">
@@ -148,7 +149,9 @@
         </div>
       </section>
       <section class="research" id="research">
-        <h3>Research</h3>
+        <div class="heading">
+          <span class="heading-inner">RESEARCH <img src="img/research.png" /></span>
+        </div>
       </section>
       <section class="culture" id="culture">
         <div class="heading">
@@ -172,6 +175,17 @@
 
 
 
+      </section>
+      <section class="great-works" id="greatworks">
+        <div class="heading">
+          <div class="heading-inner">GREAT WORKS <img src="img/art.png" /></span>
+        </div>
+      </section>
+
+      <section class="military" id="military">
+        <div class="heading">
+          <div class="heading-inner">MILITARY <img src="img/military.png" /></span>
+        </div>
       </section>
 
       <section class="filler">

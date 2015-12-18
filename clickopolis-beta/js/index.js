@@ -44,7 +44,9 @@ var data = {
   },
   empire: {
     civName: "Mystery Empire",
-    leaderName: "Nameless"
+    leaderName: "Nameless",
+    pop: 1,
+    popCost: 10,
   },
   economy: {
     cash: {

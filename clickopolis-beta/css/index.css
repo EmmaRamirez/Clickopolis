@@ -346,6 +346,7 @@ header {
 }
 
 .game-status-bar {
+  background: rgba(0, 0, 0, 0.7);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -353,6 +354,13 @@ header {
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
+  padding: .25rem;
+}
+
+.game-status-bar .btn {
+  background: #222;
+  border: 1px solid #111;
+  border-radius: 0;
 }
 
 .section-container {
@@ -368,13 +376,14 @@ header {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 section {
+  background: white;
   border: 1px solid #eee;
   margin: .5rem;
   min-height: 6rem;
@@ -445,6 +454,10 @@ section .heading .heading-inner {
 }
 
 .citizens {
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
   width: 30%;
 }
 
@@ -462,11 +475,23 @@ section .heading .heading-inner {
 }
 
 .buildings {
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
   width: 45%;
 }
 
 .buildings .heading {
   background: #E8E6A9;
+}
+
+.research {
+  width: 30%;
+}
+
+.research .heading {
+  background: #A9E8E1;
 }
 
 .culture {
@@ -492,6 +517,15 @@ section .heading .heading-inner {
 
 .culture .heading .heading-inner:nth-of-type(4) {
   background: #d21a43;
+}
+
+.great-works {
+  width: 30%;
+}
+
+.great-works .heading {
+  background: #cc00cc;
+  color: white;
 }
 
 .settings-panel {
@@ -525,4 +559,10 @@ section .heading .heading-inner {
   position: absolute;
   right: 6rem;
   top: 0;
+}
+
+body.Ancient {
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/Ancient-alt.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/Ancient-alt.jpg");
+  background-size: cover;
 }

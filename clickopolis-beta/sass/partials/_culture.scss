@@ -1,5 +1,3 @@
-$culture-color: #E6395F;
-
 .culture {
 
   width: 50%;
@@ -25,6 +23,14 @@ $culture-color: #E6395F;
         background: darken($culture-color, 10%);
       }
     }
+  }
+}
+
+.great-works {
+  width: 30%;
+  .heading {
+    background: $great-works-color;
+    color: white;
   }
 }
 
