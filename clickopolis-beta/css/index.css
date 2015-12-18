@@ -426,6 +426,14 @@ section .heading .heading-inner {
   background: #eee;
 }
 
+.citizens {
+  width: 30%;
+}
+
+.citizens .heading {
+  background: lightblue;
+}
+
 .culture {
   width: 50%;
 }
