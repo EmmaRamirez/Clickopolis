@@ -1,6 +1,13 @@
+.section-container {
+  //align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 section {
   border: 1px solid #eee;
-  display: inline-block;
+  //display: inline-block;
   margin: .5rem;
   min-height: 6rem;
   padding: 1rem;
