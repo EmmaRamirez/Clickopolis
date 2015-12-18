@@ -434,6 +434,15 @@ section .heading .heading-inner {
   background: lightblue;
 }
 
+.economy {
+  width: 20%;
+}
+
+.economy .heading {
+  background: green;
+  color: white;
+}
+
 .culture {
   width: 50%;
 }

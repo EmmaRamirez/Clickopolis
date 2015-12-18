@@ -136,7 +136,23 @@ var data = {
 
   culture: {
     total: 199,
-    pm: 12
+    pm: 12,
+    works: [
+      
+    ],
+    upgrades: [
+      {
+        name: "Code of Honor",
+        tier: "tier-I",
+        type: "military",
+        img: "military",
+        cost: 5,
+        effect: "+2 Soldier Strength.",
+        visible: true,
+        unlocked: false,
+        activated: false
+      },
+    ]
   },
 
 };
