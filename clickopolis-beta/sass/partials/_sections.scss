@@ -7,7 +7,7 @@
 }
 section {
   background: white;
-  border: 1px solid #eee;
+  border: 1px solid #222;
   //display: inline-block;
   margin: .5rem;
   min-height: 6rem;
@@ -15,6 +15,7 @@ section {
   position: relative;
   vertical-align: top;
   .heading {
+    display: flex;
     //position: absolute;
     margin-bottom: 1rem;
     margin-left: -1rem;
@@ -28,6 +29,8 @@ section {
     .heading-inner {
       display: inline-block;
       padding: .25rem;
+      text-align: center;
+      width: 100%;
     }
   }
 
