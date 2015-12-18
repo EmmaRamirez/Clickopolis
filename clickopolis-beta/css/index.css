@@ -543,6 +543,15 @@ section .heading .heading-inner {
   color: white;
 }
 
+.military {
+  width: 40%;
+}
+
+.military .heading {
+  background: #d22d2d;
+  color: white;
+}
+
 .settings-panel {
   background: #eee;
   height: 30rem;
@@ -580,4 +589,10 @@ body.Ancient {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/Ancient-alt.jpg");
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/Ancient-alt.jpg");
   background-size: cover;
+}
+
+.achievements {
+  background: #222;
+  color: #eee;
+  width: 50%;
 }
