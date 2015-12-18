@@ -259,6 +259,10 @@ h6 {
   margin: 0;
 }
 
+h1, h2 {
+  color: white;
+}
+
 [data-unlocked="false"] {
   opacity: 0.3;
 }
@@ -384,7 +388,7 @@ header {
 
 section {
   background: white;
-  border: 1px solid #eee;
+  border: 1px solid #222;
   margin: .5rem;
   min-height: 6rem;
   padding: 1rem;
@@ -393,6 +397,10 @@ section {
 }
 
 section .heading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-bottom: 1rem;
   margin-left: -1rem;
   margin-top: -1rem;
@@ -409,6 +417,8 @@ section .heading img {
 section .heading .heading-inner {
   display: inline-block;
   padding: .25rem;
+  text-align: center;
+  width: 100%;
 }
 
 .resources {
@@ -502,9 +512,13 @@ section .heading .heading-inner {
   background: #E6395F;
   color: white;
   height: 36px;
-  margin-right: -4px;
   width: 25%;
   vertical-align: middle;
+}
+
+.culture .heading .heading-inner:nth-of-type(1) {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .culture .heading .heading-inner:nth-of-type(2) {
