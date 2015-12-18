@@ -385,6 +385,7 @@ section .heading .heading-inner {
 }
 
 .resources {
+  background: #fff;
   width: 30%;
 }
 
@@ -419,6 +420,10 @@ section .heading .heading-inner {
 
 .empire {
   width: 30%;
+}
+
+.empire .heading {
+  background: #eee;
 }
 
 .culture {
