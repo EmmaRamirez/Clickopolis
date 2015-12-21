@@ -48,6 +48,10 @@
         leaderName: "Nameless",
         pop: 1,
         popCost: 10,
+        health: 25,
+        pollution: 1,
+        happiness: 15,
+        anger: 0
       },
       economy: {
         cash: {
