@@ -174,7 +174,12 @@
         pm: 0,
         upgrades: [
           {
-            
+            name: "Faith Upgrade",
+            level: "pantheon",
+            description: "A faith upgrade",
+            cost: 10,
+            unlocked: false,
+            activated: false
           }
         ]
       }
