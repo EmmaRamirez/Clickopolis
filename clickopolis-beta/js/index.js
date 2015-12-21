@@ -113,6 +113,11 @@
           total: 0,
           multiplier: 1,
           img: "../img/oil.png"
+        },
+        uranium: {
+          total: 0,
+          multiplier: 1,
+          img: "../img/uranium.png"
         }
       },
       tech: {
@@ -411,7 +416,7 @@
       },
 
       setResources: function() {
-        var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems', 'oil', 'banana'];
+        var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems', 'oil', 'banana', 'uranium'];
         for (var i = 0; i < resources.length; i++) {
           $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
         }
