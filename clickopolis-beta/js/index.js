@@ -52,7 +52,8 @@
         health: 25,
         pollution: 1,
         happiness: 15,
-        anger: 0
+        anger: 0,
+        influence: 0
       },
       economy: {
         cash: {
@@ -202,7 +203,8 @@
             description: "A faith upgrade",
             cost: 10,
             unlocked: false,
-            activated: false
+            activated: false,
+            extraInfo: "NA"
           }
         ]
       }
