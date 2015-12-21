@@ -62,14 +62,14 @@
       resources: {
         food: {
           total: 1,
-          ps: 0,
+          ps: 1,
           pc: 1,
           max: 1000
         },
         prod: {
-          total: 10,
+          total: 1,
           ps: 1,
-          pc: 44,
+          pc: 1,
           max: 1000
         },
         fish: {
@@ -313,6 +313,7 @@
         data.resources.food.total += data.resources.food.ps / 10;
         data.resources.prod.total += data.resources.prod.pc / 10;
 
+        game.updateData($("[data-post='resources.food.total']"));
         game.updateData($("[data-post='resources.prod.total']"));
       }, 100),
 
