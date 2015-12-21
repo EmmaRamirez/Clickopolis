@@ -27,5 +27,23 @@
   td {
     padding: .25rem;
     text-align: center;
+    .btn {
+      padding: .5rem;
+      &[data-button="food"] {
+        background: $food-color;
+        border: 1px solid darken($food-color, 15%);
+        &:hover, &:active {
+          background: darken($food-color, 15%);
+        }
+      }
+      &[data-button="prod"] {
+        background: $prod-color;
+        border: 1px solid darken($prod-color, 15%);
+        &:hover, &:active {
+          background: darken($prod-color, 15%);
+        }
+      }
+    }
+
   }
 }

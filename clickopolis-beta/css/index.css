@@ -456,6 +456,28 @@ section .heading .heading-inner {
   text-align: center;
 }
 
+.resources-table td .btn {
+  padding: .5rem;
+}
+
+.resources-table td .btn[data-button="food"] {
+  background: lightgreen;
+  border: 1px solid #4ee44e;
+}
+
+.resources-table td .btn[data-button="food"]:hover, .resources-table td .btn[data-button="food"]:active {
+  background: #4ee44e;
+}
+
+.resources-table td .btn[data-button="prod"] {
+  background: #ffdb1a;
+  border: 1px solid #ccac00;
+}
+
+.resources-table td .btn[data-button="prod"]:hover, .resources-table td .btn[data-button="prod"]:active {
+  background: #ccac00;
+}
+
 .empire {
   width: 30%;
 }
