@@ -223,6 +223,9 @@
           if (type == "hard-reset") {
             game.hardReset();
           }
+          if (type == "pop-grow") {
+            game.popGrow();
+          }
 
           game.updateData();
           game.setData();
@@ -234,6 +237,13 @@
         data.resources.food.total = 0;
         data.resources.prod.total = 0;
         Lockr.flush();
+      },
+
+      popGrow: function() {
+        data.empire.pop += 1;
+        data.resources.food.total -= data.empire.popCost;
+        data.empire.popCost = (data.empire.popCost * 1.15).toFixed(0);
+        game.updateData();
       },
 
       convertEra: function(era) {
