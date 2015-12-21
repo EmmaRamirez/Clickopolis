@@ -47,6 +47,7 @@
         civName: "Mystery Empire",
         leaderName: "Nameless",
         pop: 1,
+        popUnemployed: 0,
         popCost: 10,
         health: 25,
         pollution: 1,
@@ -57,6 +58,19 @@
         cash: {
           total: 50,
           pm: 0
+        }
+      },
+      citizens: {
+        rulers: {
+          num: 1
+        },
+        farmers: {
+          num: 0,
+          ps: 1.2,
+          pc: .2
+        },
+        soldiers: {
+          num: 0
         }
       },
       resources: {
