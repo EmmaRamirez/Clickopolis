@@ -91,48 +91,48 @@
           total: 35,
           multiplier: 1,
           healthBonus: .5,
-          img: "../img/fish.png"
+          img: "img/fish.png"
         },
         banana: {
           total: 12,
           multiplier: 1,
           healthBonus: .5,
-          img: "../img/banana.png"
+          img: "img/banana.png"
         },
         stone: {
           total: 33,
           multiplier: 1,
-          img: "../img/stone.png"
+          img: "img/stone.png"
         },
         gold: {
           total: 22,
           multiplier: 1,
-          img: "../img/gold.png"
+          img: "img/gold.png"
         },
         gems: {
           total: 21,
           multiplier: 1,
-          img: "../img/gems.png"
+          img: "img/gems.png"
         },
         ivory: {
           total: 2,
           multiplier: 1,
-          img: "../img/ivory.png"
+          img: "img/ivory.png"
         },
         horse: {
           total: 2,
           multiplier: 2,
-          img: "../img/horse.png"
+          img: "img/horse.png"
         },
         oil: {
           total: 0,
           multiplier: 1,
-          img: "../img/oil.png"
+          img: "img/oil.png"
         },
         uranium: {
           total: 0,
           multiplier: 1,
-          img: "../img/uranium.png"
+          img: "img/uranium.png"
         }
       },
       tech: {
@@ -415,24 +415,7 @@
           var d = $(this).attr('data-post');
           var ex = $(this).attr('data-exception');
           var fixnum = $(this).attr('data-fixedTo') || 0;
-          //d = d.split('.');
-          // var da = 'data';
-          // for (var i = 0; i < d.length; i++) {
-          //   da += '[d[' + i + ']]';
-          // }
-
           var da = d.split('.').reduce((o,i)=>o[i], data);
-          // if (ex == "fixnum") {
-          //   if (d.length == 1) return data[d[0]].toFixed(fixnum);
-          //   if (d.length == 2) return data[d[0]][d[1]].toFixed(fixnum);
-          //   if (d.length == 3) return data[d[0]][d[1]][d[2]].toFixed(fixnum);
-          //   if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]].toFixed(fixnum);
-          // } else {
-          //   if (d.length == 1) return data[d[0]];
-          //   if (d.length == 2) return data[d[0]][d[1]];
-          //   if (d.length == 3) return data[d[0]][d[1]][d[2]];
-          //   if (d.length == 4) return data[d[0]][d[1]][d[2]][d[3]];
-          // }
           if (ex == "fixnum") {
             return da.toFixed(fixnum);
           }
