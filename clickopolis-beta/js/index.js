@@ -62,16 +62,21 @@
         }
       },
       citizens: {
-        rulers: {
-          num: 1
-        },
+
         farmers: {
           num: 0,
           ps: 1.2,
-          pc: .2
+          pc: .2,
+          description: "Farmers produce food.",
+          effect: "<span class='citizen-effect'>+<span data-post='citizens.farmers.ps'><img src='img/food.png'/>PS</span></span>",
+          img: "farmer.png"
         },
+
         soldiers: {
-          num: 0
+          num: 0,
+          description: "Soldiers fight for you.",
+          effect: "",
+          img: "soldier.png"
         }
       },
       resources: {
@@ -234,6 +239,7 @@
         this.setEra();
         this.setTime();
         this.setResources();
+        this.setCitizens();
         this.settingsClick();
 
 
@@ -430,6 +436,14 @@
         var resources = ['fish', 'stone', 'ivory', 'horse', 'gold', 'gems', 'oil', 'banana', 'uranium'];
         for (var i = 0; i < resources.length; i++) {
           $("[data-resource='" + resources[i] + "']").prepend("<img src='" + data.resources[resources[i]].img + "' />");
+        }
+      },
+
+      setCitizens: function() {
+        var citizens = $(".citizens");
+
+        for (var i = 0; i < data.citizens.length; i++) {
+          citizens.append("hey");
         }
       },
 

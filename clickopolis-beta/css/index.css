@@ -6,7 +6,7 @@
           user-select: none;
 }
 
-body, body.pull-down, a.btn, a.btn:hover, .settings-panel, .settings-panel.pull-down {
+body, body.pull-down, a.btn, a.btn:hover, .citizens .citizen-add:hover, .citizens .citizen-remove:hover, .settings-panel, .settings-panel.pull-down {
   -webkit-transition: 350ms all;
           transition: 350ms all;
 }
@@ -495,7 +495,30 @@ section .heading .heading-inner {
 }
 
 .citizens .heading {
-  background: lightblue;
+  background: skyblue;
+}
+
+.citizens .citizen-add, .citizens .citizen-remove {
+  background: skyblue;
+  border: 1px solid #45b3e0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  width: 1.5rem;
+}
+
+.citizens .citizen-add:hover, .citizens .citizen-remove:hover {
+  background: #5bbce4;
+}
+
+.citizens .citizen-effect {
+  color: #ccc;
+  font-style: italic;
+}
+
+.citizens img {
+  height: .75rem;
 }
 
 .economy {
