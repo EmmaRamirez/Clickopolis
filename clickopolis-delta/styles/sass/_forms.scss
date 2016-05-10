@@ -7,12 +7,6 @@
     position: relative;
     text-align: left;
     width: 30%;
-    &:hover {
-      input[type='checkbox'] {
-        background: #ccc;
-        @extend %transition-s;
-      }
-    }
   }
   input {
     left: 0;

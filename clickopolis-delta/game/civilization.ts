@@ -20,7 +20,10 @@ class Civilization {
     this.civName = civName;
     this.leaderName = leaderName;
     this.location = location;
+
+    this.leaderTraits = [];
   }
+
 
 }
 

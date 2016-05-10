@@ -4,6 +4,7 @@ var Civilization = (function () {
         this.civName = civName;
         this.leaderName = leaderName;
         this.location = location;
+        this.leaderTraits = [];
     }
     return Civilization;
 }());

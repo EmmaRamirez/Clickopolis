@@ -6,9 +6,15 @@ import notify = require('./notify');
 
 
 let game:Game = new Game(0);
+let playerCiv:Civilization = new Civilization('', '', '');
 
 document.querySelector('.prev-btn').setAttribute('disabled', 'true');
 
+function removeItem(arr:any[], item:any) {
+  for (var i = arr.length - 1; i--;) {
+    if (arr[i] === item) arr.splice(i, 1);
+  }
+}
 
 function createCiv(step:number, leaderNameInput:HTMLInputElement, civNameInput:HTMLInputElement, locationInput:HTMLSelectElement):void {
   let leaderName:string = leaderNameInput.value;
@@ -33,13 +39,13 @@ function createCiv(step:number, leaderNameInput:HTMLInputElement, civNameInput:H
 }
 
 function createCivStepOne(leaderName:string, civName:string, location:string):void {
-  let playerCiv:Civilization = new Civilization(civName, leaderName, location);
+  //let playerCiv:Civilization = new Civilization(civName, leaderName, location);
   let stepOne:HTMLElement = <HTMLElement>document.querySelector('.step-one');
   let stepTwo:string = `
     <span class='step-two'>
       <h2>Welcome ${playerCiv.leaderName}, leader of ${playerCiv.civName}, brave inhabitant of the ${playerCiv.location}!</h2>
       <p>What are your traits, O Glorious Leader? (Select <span id='traitsLeft'>3</span>)</p>
-      <div class='checkbox-list'>
+      <div class='checkbox-list trait-cbl'>
         <label><input type='checkbox' value='aggressive'>Aggressive</label>
         <label><input type='checkbox' value='communal'>Communal</label>
         <label><input type='checkbox' value='cunning'>Cunning</label>
@@ -54,11 +60,37 @@ function createCivStepOne(leaderName:string, civName:string, location:string):vo
     </span>`;
   stepOne.insertAdjacentHTML('afterend', stepTwo);
   stepOne.className += " hidden";
-  activateTraitList();
+  activateTraitList(playerCiv);
 }
 
-function activateTraitList():void {
+function activateTraitList(playerCiv:Civilization):void {
+  let traitCheckBoxes:NodeListOf<HTMLInputElement> = <NodeListOf<HTMLInputElement>>document.querySelectorAll('.trait-cbl input');
+  let traitsLeft:HTMLSpanElement = <HTMLSpanElement>document.getElementById('traitsLeft');
+  for (var i = 0; i < traitCheckBoxes.length; i++) {
+    traitCheckBoxes[i].addEventListener('change', function(event) {
 
+
+      if (this.checked === true) {
+        if (playerCiv.leaderTraits.length >= 3) {
+          console.error("Exceedeed max traits.");
+          event.preventDefault();
+        } else {
+          playerCiv.leaderTraits.push(this.value);
+          console.log(playerCiv.leaderTraits);
+          traitsLeft.textContent = (3 - playerCiv.leaderTraits.length).toString();
+        }
+
+      } else {
+        removeItem(playerCiv.leaderTraits, this.value);
+        console.log(playerCiv.leaderTraits);
+        traitsLeft.textContent = (playerCiv.leaderTraits.length).toString();
+      }
+
+
+
+
+    });
+  }
 }
 
 document.querySelector('.next-btn').addEventListener('click', function():void {
