@@ -1,10 +1,11 @@
 "use strict";
 var Civilization = require('./civilization');
+var notify = require('./notify');
 function createEmpire(triggerBtn, leaderNameInput, civNameInput, locationInput) {
     triggerBtn.addEventListener('click', function (event) {
         // TODO: Replace this with the constructor for Civilization!!
         if (civNameInput.value === "" || leaderNameInput.value === "" || locationInput.value === "none") {
-            alert("one of the fields is missing, bro.");
+            notify("Make sure to fill out all the fields!");
         }
         else {
             var playerCiv = new Civilization(civNameInput.value, leaderNameInput.value, locationInput.value);

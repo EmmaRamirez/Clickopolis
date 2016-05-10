@@ -9,6 +9,8 @@ class Resource {
   prodBonus: number;
   healthBonus: number;
 
+  exchangeRate: number;
+
 }
 
 export = Resource;
