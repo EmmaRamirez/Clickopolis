@@ -1,12 +1,18 @@
 class Civilization {
   civName: string;
   leaderName: string;
+  leaderTraits: string[];
 
   location: string;
 
   happiness: number;
   anger: number;
   influence: number;
+
+  goldenAges: number;
+  goldenAgeProgess: number;
+  goldenAgeGoal: number;
+  goldenAgeMult: number;
 
   conquestedCivs: Civilization[];
 

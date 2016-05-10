@@ -1,15 +1,43 @@
 @import "_normalize.scss";
 @import "_variables.scss";
+@import "_extends.scss";
+@import "_global.scss";
 @import "_button.scss";
+@import "_forms.scss";
+
 
 body {
   background: #eee;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
 }
 
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+section {
+  padding: 2rem;
+  z-index: 2;
+}
 
 .clickopolis-intro {
-  background: #fff;
+  background-color: #ccc;
+  background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('../../img/world.png');
+  background-position: center center;
+  background-size: cover;
+  border-radius: 4px;
+  color: #444;
+  left: calc(50% - 20rem);
+  margin: 0 auto;
+  max-width: 40rem;
   padding: 2rem;
+  position: absolute;
   text-align: center;
+  top: 25%;
 }

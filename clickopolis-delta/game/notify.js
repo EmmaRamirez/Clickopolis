@@ -2,7 +2,7 @@
 function notify(message) {
     // TODO: create settimeout
     var note = document.createElement('p');
-    note.setAttribute('class', 'notification');
+    note.className = 'notification';
     note.textContent = message;
     document.body.appendChild(note);
 }

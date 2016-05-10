@@ -1,0 +1,25 @@
+button {
+  background: $blue;
+  color: #eee;
+  border: 1px solid darken($blue, 15%);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: .25rem;
+  @extend %transition-s;
+  &:hover {
+    background: darken($blue, 10%);
+    @extend %transition-s;
+  }
+  &.large {
+    font-size: 150%;
+  }
+  &.step-btn {
+
+  }
+  &[disabled] {
+    background: #ccc !important;
+    color: #222;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+  }
+}
