@@ -53,7 +53,11 @@
         pollution: 1,
         happiness: 15,
         anger: 0,
-        influence: 0
+        influence: 0,
+        goldenAgePoints: 0,
+        goldenAgePointsTotal: 0,
+        goldenAgeGoal: 10000,
+        goldenAges: 0
       },
       economy: {
         cash: {
@@ -126,7 +130,7 @@
         },
         horse: {
           total: 2,
-          multiplier: 2,
+          multiplier: 1,
           img: "img/horse.png"
         },
         oil: {
@@ -349,8 +353,17 @@
       },
 
       updateMilSec: setInterval(function() {
-        data.resources.food.total += data.resources.food.ps / 10;
-        data.resources.prod.total += data.resources.prod.pc / 10;
+        if (data.resources.food.total >= data.resources.food.max) {
+          data.resources.food.total = data.resources.food.max;
+        } else {
+          data.resources.food.total += data.resources.food.ps / 10;
+        }
+        if (data.resources.prod.total >= data.resources.prod.max) {
+          data.resources.prod.total = data.resources.prod.max;
+        } else {
+          data.resources.prod.total += data.resources.prod.pc / 10;
+        }
+
 
         game.updateData($("[data-post='resources.food.total']"));
         game.updateData($("[data-post='resources.prod.total']"));
@@ -360,8 +373,6 @@
 
         data.time += 1;
         game.setTime();
-
-
 
       }, 1000),
 

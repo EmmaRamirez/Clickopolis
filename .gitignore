@@ -5,6 +5,9 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+# Node
+clickopolis-delta/node_modules
+
 Prepros Build/
 
 *.cfg

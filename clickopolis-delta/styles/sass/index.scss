@@ -1,0 +1,15 @@
+@import "_normalize.scss";
+@import "_variables.scss";
+@import "_button.scss";
+
+body {
+  background: #eee;
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+}
+
+
+.clickopolis-intro {
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+}
