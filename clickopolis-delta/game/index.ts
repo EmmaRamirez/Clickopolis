@@ -40,20 +40,25 @@ function createCivStepOne(leaderName:string, civName:string, location:string):vo
       <h2>Welcome ${playerCiv.leaderName}, leader of ${playerCiv.civName}, brave inhabitant of the ${playerCiv.location}!</h2>
       <p>What are your traits, O Glorious Leader? (Select <span id='traitsLeft'>3</span>)</p>
       <div class='checkbox-list'>
-        <label><input type='checkbox' value='industrious'>Industrious</label>
         <label><input type='checkbox' value='aggressive'>Aggressive</label>
-        <label><input type='checkbox' value='pacifistic'>Pacificistic</label>
-        <label><input type='checkbox' value='expansionist'>Expansionist</label>
-        <label><input type='checkbox' value='isolationist'>Isolationist</label>
-        <label><input type='checkbox' value='deliberate'>Deliberate</label>
-        <label><input type='checkbox' value='cunning'>Cunning</label>
         <label><input type='checkbox' value='communal'>Communal</label>
+        <label><input type='checkbox' value='cunning'>Cunning</label>
+        <label><input type='checkbox' value='deliberate'>Deliberate</label>
+        <label><input type='checkbox' value='expansionist'>Expansionist</label>
         <label><input type='checkbox' value='individualistic'>Individualistic</label>
+        <label><input type='checkbox' value='industrious'>Industrious</label>
+        <label><input type='checkbox' value='isolationist'>Isolationist</label>
+        <label><input type='checkbox' value='pacifistic'>Pacificistic</label>
         <label><input type='checkbox' value='persuasive'>Persuasive</label>
       </div>
     </span>`;
   stepOne.insertAdjacentHTML('afterend', stepTwo);
   stepOne.className += " hidden";
+  activateTraitList();
+}
+
+function activateTraitList():void {
+
 }
 
 document.querySelector('.next-btn').addEventListener('click', function():void {

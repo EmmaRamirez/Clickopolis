@@ -410,7 +410,7 @@ textarea {
   /* 2 */
 }
 
-button, button:hover {
+button, button:hover, .checkbox-list label:hover input[type='checkbox'], .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled] {
   transition: 250ms all;
 }
 
@@ -492,6 +492,10 @@ button[disabled] {
   width: 30%;
 }
 
+.checkbox-list label:hover input[type='checkbox'] {
+  background: #ccc;
+}
+
 .checkbox-list input {
   left: 0;
   position: absolute;
@@ -504,12 +508,18 @@ button[disabled] {
   -webkit-appearance: none;
   border: 1px solid grey;
   border-radius: 50%;
+  margin-top: .25rem;
   height: .75rem;
   width: .75rem;
 }
 
 .checkbox-list input[type='checkbox']:checked {
   background: grey;
+}
+
+.checkbox-list input[type='checkbox'][disabled] {
+  cursor: not-allowed;
+  opacity: 0;
 }
 
 body {

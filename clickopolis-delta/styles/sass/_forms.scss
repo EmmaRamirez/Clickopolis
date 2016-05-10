@@ -7,6 +7,12 @@
     position: relative;
     text-align: left;
     width: 30%;
+    &:hover {
+      input[type='checkbox'] {
+        background: #ccc;
+        @extend %transition-s;
+      }
+    }
   }
   input {
     left: 0;
@@ -19,10 +25,17 @@
     -webkit-appearance: none;
     border: 1px solid grey;
     border-radius: 50%;
+    margin-top: .25rem;
     height: .75rem;
     width: .75rem;
     &:checked {
       background: grey;
+      @extend %transition-s;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0;
+      @extend %transition-s;
     }
   }
 }
