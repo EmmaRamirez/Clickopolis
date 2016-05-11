@@ -1,13 +1,19 @@
 // <reference path="store.d.ts" />
+// <reference path="underscore.d.ts" />
 
+import _ = require('underscore');
 import Game = require('./game');
+import Settings = require('./settings');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import notify = require('./notify');
 
 
+console.log(_.random(0, 100));
+
 let game:Game = new Game(0);
 let playerCiv:Civilization;
+
 
 if (store.get('playerCiv') !== undefined) {
   let loadCiv = store.get('playerCiv');
@@ -108,23 +114,32 @@ function newGameStart():void {
   //bindPrevButton();
 }
 
-function bindNextButton():void {
+function bindNextButton() {
   document.querySelector('.next-btn').addEventListener('click', function() {
 
-    if (game.introStep === 0) {
-      let lni = <HTMLInputElement>document.getElementById('leaderName');
-      let cni = <HTMLInputElement>document.getElementById('civName');
-      let loc = <HTMLSelectElement>document.getElementById('location');
-      createCiv(game.introStep, lni, cni, loc);
-      game.introStep++;
-    }
-    if (game.introStep === 1) {
+    switch (game.introStep) {
+      case 0:
+        let lni = <HTMLInputElement>document.getElementById('leaderName');
+        let cni = <HTMLInputElement>document.getElementById('civName');
+        let loc = <HTMLSelectElement>document.getElementById('location');
+        createCiv(game.introStep, lni, cni, loc);
+        game.introStep++;
 
-      game.introStep++;
-    }
 
+      break;
+      case 1:
+        console.log('1 step ay');
+        game.introStep++;
+      break;
+      default:
+      break;
+    }
 
   });
+}
+
+function validateStepOne() {
+
 }
 
 function createCiv(step:number, leaderNameInput:HTMLInputElement, civNameInput:HTMLInputElement, locationInput:HTMLSelectElement):void {
@@ -202,10 +217,6 @@ function activateTraitList(playerCiv:Civilization):void {
         console.log(playerCiv.leaderTraits);
         traitsLeft.textContent = (playerCiv.leaderTraits.length).toString();
       }
-
-
-
-
     });
   }
 }

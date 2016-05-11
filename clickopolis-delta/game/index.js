@@ -1,7 +1,10 @@
 // <reference path="store.d.ts" />
+// <reference path="underscore.d.ts" />
 "use strict";
+var _ = require('underscore');
 var Game = require('./game');
 var Civilization = require('./civilization');
+console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
 if (store.get('playerCiv') !== undefined) {
@@ -50,17 +53,24 @@ function newGameStart() {
 }
 function bindNextButton() {
     document.querySelector('.next-btn').addEventListener('click', function () {
-        if (game.introStep === 0) {
-            var lni = document.getElementById('leaderName');
-            var cni = document.getElementById('civName');
-            var loc = document.getElementById('location');
-            createCiv(game.introStep, lni, cni, loc);
-            game.introStep++;
-        }
-        if (game.introStep === 1) {
-            game.introStep++;
+        switch (game.introStep) {
+            case 0:
+                var lni = document.getElementById('leaderName');
+                var cni = document.getElementById('civName');
+                var loc = document.getElementById('location');
+                createCiv(game.introStep, lni, cni, loc);
+                game.introStep++;
+                break;
+            case 1:
+                console.log('1 step ay');
+                game.introStep++;
+                break;
+            default:
+                break;
         }
     });
+}
+function validateStepOne() {
 }
 function createCiv(step, leaderNameInput, civNameInput, locationInput) {
     var leaderName = leaderNameInput.value;
