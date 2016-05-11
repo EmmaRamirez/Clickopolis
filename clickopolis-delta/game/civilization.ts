@@ -1,5 +1,6 @@
 class Civilization {
   civName: string;
+  
   leaderName: string;
   leaderTraits: string[];
 
@@ -8,6 +9,9 @@ class Civilization {
   happiness: number;
   anger: number;
   influence: number;
+  legacy: number;
+
+  achievements: number;
 
   goldenAges: number;
   goldenAgeProgess: number;

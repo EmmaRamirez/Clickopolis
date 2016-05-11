@@ -410,7 +410,7 @@ textarea {
   /* 2 */
 }
 
-button, button:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled] {
+button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled] {
   transition: 250ms all;
 }
 
@@ -455,6 +455,11 @@ button, button:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-l
   background: grey;
 }
 
+img {
+  height: 1rem;
+  vertical-align: middle;
+}
+
 button {
   background: #3498db;
   color: #eee;
@@ -468,8 +473,16 @@ button:hover {
   background: #217dbb;
 }
 
-button.large {
+button.large-btn {
   font-size: 150%;
+}
+
+button.start-btn {
+  display: block;
+  margin: .5rem auto;
+  position: relative;
+  text-align: center;
+  width: 50%;
 }
 
 button[disabled] {
@@ -477,6 +490,35 @@ button[disabled] {
   color: #222;
   border: 1px solid #ddd;
   cursor: not-allowed;
+}
+
+.current-btn {
+  background: #ecf0f1;
+  color: #222;
+}
+
+.current-btn:hover {
+  background: #cfd9db;
+}
+
+.current-btn .current-game-heading {
+  font-weight: bold;
+  text-align: center;
+}
+
+.current-btn p {
+  font-size: 1rem;
+  margin: .25rem;
+  text-align: left;
+}
+
+.current-btn p span {
+  background: #dde4e6;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: .9rem;
+  margin: 0 .1rem;
+  padding: .2rem;
 }
 
 .checkbox-list {
@@ -524,7 +566,7 @@ body {
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   height: 100%;
   left: 0;
   position: fixed;
@@ -538,7 +580,18 @@ section {
   z-index: 2;
 }
 
-.clickopolis-intro {
+.clickopolis-start {
+  z-index: 10;
+}
+
+.clickopolis-start h1 {
+  font-size: 3rem;
+  margin: .5rem;
+  text-transform: uppercase;
+}
+
+.modal, .clickopolis-intro,
+.clickopolis-start {
   background-color: #ccc;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../img/world.png");
   background-position: center center;
@@ -546,10 +599,12 @@ section {
   border-radius: 4px;
   color: #444;
   left: calc(50% - 20rem);
+  height: 22rem;
   margin: 0 auto;
   max-width: 40rem;
+  min-width: 40rem;
   padding: 2rem;
   position: absolute;
   text-align: center;
-  top: 25%;
+  top: calc(50% - 11rem);
 }

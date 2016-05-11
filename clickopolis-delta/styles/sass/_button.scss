@@ -10,10 +10,18 @@ button {
     background: darken($blue, 10%);
     @extend %transition-s;
   }
-  &.large {
+  &.large-btn {
     font-size: 150%;
   }
   &.step-btn {
+
+  }
+  &.start-btn {
+    display: block;
+    margin: .5rem auto;
+    position: relative;
+    text-align: center;
+    width: 50%;
 
   }
   &[disabled] {
@@ -21,5 +29,31 @@ button {
     color: #222;
     border: 1px solid #ddd;
     cursor: not-allowed;
+  }
+}
+
+.current-btn {
+  background: $off-white;
+  color: #222;
+  &:hover {
+    background: darken($off-white, 10%);
+    @extend %transition-s;
+  }
+  .current-game-heading {
+    font-weight: bold;
+    text-align: center;
+  }
+  p {
+    font-size: 1rem;
+    margin: .25rem;
+    text-align: left;
+    span {
+      background: darken($off-white, 5%);
+      border-radius: 2px;
+      display: inline-block;
+      font-size: .9rem;
+      margin: 0 .1rem;
+      padding: .2rem;
+    }
   }
 }

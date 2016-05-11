@@ -12,7 +12,7 @@ body {
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   height: 100%;
   left: 0;
   position: fixed;
@@ -26,7 +26,21 @@ section {
   z-index: 2;
 }
 
-.clickopolis-intro {
+.clickopolis-intro,
+.clickopolis-start {
+  @extend .modal;
+}
+
+.clickopolis-start {
+  z-index: 10;
+  h1 {
+    font-size: 3rem;
+    margin: .5rem;
+    text-transform: uppercase;
+  }
+}
+
+.modal {
   background-color: #ccc;
   background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('../../img/world.png');
   background-position: center center;
@@ -34,10 +48,12 @@ section {
   border-radius: 4px;
   color: #444;
   left: calc(50% - 20rem);
+  height: 22rem;
   margin: 0 auto;
   max-width: 40rem;
+  min-width: 40rem;
   padding: 2rem;
   position: absolute;
   text-align: center;
-  top: 25%;
+  top: calc(50% - 11rem);
 }
