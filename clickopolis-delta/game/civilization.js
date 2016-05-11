@@ -5,6 +5,7 @@ var Civilization = (function () {
         this.leaderName = leaderName;
         this.location = location;
         this.leaderTraits = [];
+        this.leaderTraitsMax = 3;
     }
     return Civilization;
 }());

@@ -1,8 +1,9 @@
 class Civilization {
   civName: string;
-  
+
   leaderName: string;
   leaderTraits: string[];
+  leaderTraitsMax: number;
 
   location: string;
 
@@ -26,7 +27,10 @@ class Civilization {
     this.location = location;
 
     this.leaderTraits = [];
+    this.leaderTraitsMax = 3;
   }
+
+
 
 
 }
