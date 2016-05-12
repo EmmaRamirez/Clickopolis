@@ -30,6 +30,9 @@ button {
     border: 1px solid #ddd;
     cursor: not-allowed;
   }
+  &:focus {
+    box-shadow: 0 0 .25rem skyblue;
+  }
 }
 
 .current-btn {

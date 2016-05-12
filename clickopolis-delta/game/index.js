@@ -4,16 +4,11 @@
 var _ = require('underscore');
 var Game = require('./game');
 var Civilization = require('./civilization');
+var Templates = require('./template');
 console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
-if (store.get('playerCiv') !== undefined) {
-    var loadCiv = store.get('playerCiv');
-    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.location);
-}
-else {
-    playerCiv = new Civilization('', '', '');
-}
+var templates = new Templates();
 function savePlayer() {
     store.set('playerCiv', playerCiv);
     console.log(store.get('playerCiv'));
@@ -25,32 +20,150 @@ function removeItem(arr, item) {
     }
 }
 function prepend(node, html) {
-    document[node].insertAdjacentHTML('beforeend', html);
+    var el = document.querySelector(node);
+    el.insertAdjacentHTML('beforeend', html);
 }
-function startScreen() {
-    var htmlString = "\n    <section class=\"clickopolis-start\">\n      <h1>Clickopolis</h1>\n      <div class=\"start-options\">\n        <button class=\"large-btn start-btn load-btn\">Load Game...</button>\n        <button class=\"large-btn start-btn new-btn\">New Game</button>\n        <button class=\"large-btn start-btn current-btn\">\n          <p class=\"current-game-heading\">Current Game - " + playerCiv.leaderName + " of " + playerCiv.civName + " </p>\n          <p>\n            <span>\n              <img src=\"img/achievements.png\"> 5\n            </span>\n            <span>\n              <img src=\"img/strength.png\"> 33\n            </span>\n            <span>\n              <img src=\"img/defense.png\"> 44\n            </span>\n            <span>\n              <img src=\"img/legacy.png\"> 2\n            </span>\n            <span>\n              <img src=\"img/coin.png\"> 1K\n            </span>\n            <span>\n              <img src=\"img/wonder.png\"> 1\n            </span>\n          </p>\n        </button>\n      </div>\n    </section>\n  ";
-    document.body.insertAdjacentHTML('beforeend', htmlString);
-    bindLoadGameButton();
-    bindNewGameButton();
-    bindCurrentGameButton();
+function append(node, html) {
+    var el = document.querySelector(node);
+    el.insertAdjacentHTML('afterend', html);
 }
-function bindLoadGameButton() { }
+function bindElement(node, eventType, callback) {
+    var el = document.querySelector(node);
+    el.addEventListener(eventType, function (event) {
+        console.log(callback);
+        return callback();
+    });
+}
+function unbindElement(node, eventType) {
+}
+function hideElement(element) {
+    element = element;
+    element.className += " hidden";
+}
+function removeElement(element) {
+    element = element;
+    element.remove();
+}
+function startGame() {
+    if (store.get('playerCiv') !== undefined) {
+        var loadCiv = store.get('playerCiv');
+        playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.location);
+        startSavedGame();
+    }
+    else {
+        startNewGame();
+        playerCiv = new Civilization('', '', '');
+    }
+}
+function startSavedGame() {
+    console.debug("Loading Saved Game...");
+    append('body', templates.startScreen);
+    store.clear();
+}
 ;
-function bindNewGameButton() {
-    document.querySelector('.new-btn').addEventListener('click', function (event) {
-        newGameStart();
+function startNewGame() {
+    console.debug("Starting New Game...");
+    append('body', templates.settingsScreen);
+    // bindElement('.new-btn', 'click', function () {
+    //   console.log('Hey...is this thing working??');
+    // });
+    bindElement('.begin-btn', 'click', function () {
+        console.log('hi');
+        createGameUI();
+    });
+    document.querySelector('#trait').addEventListener('change', function () {
+        traitsSelection(0);
     });
 }
 ;
+function traitsSelection(index) {
+    var traitSelect = document.querySelector('#trait');
+    var trait = traitSelect.value;
+    playerCiv.leaderTraits[index] = trait;
+    console.log(traitSelect.value, playerCiv.leaderTraits);
+}
+function createGameUI() {
+    var intro = document.querySelector('.clickopolis-intro');
+    var clickopolisGame = document.createElement('section');
+    clickopolisGame.setAttribute('class', 'clickopolis');
+    clickopolisGame.setAttribute('id', 'clickopolis');
+    clickopolisGame.innerHTML = templates.resourcesScreen + templates.citizensScreen;
+    intro.remove();
+    document.body.appendChild(clickopolisGame);
+    //append('body', templates.resourcesScreen);
+}
+// function startScreen():void {
+//   let htmlString:string = `
+//     <section class="clickopolis-start">
+// <h1>Clickopolis</h1>
+// <div class="start-options">
+//   <button class="large-btn start-btn load-btn">Load Game...</button>
+//   <button class="large-btn start-btn new-btn">New Game</button>
+//   <button class="large-btn start-btn current-btn">
+//     <p class="current-game-heading">Current Game - ${playerCiv.leaderName} of ${playerCiv.civName} </p>
+//     <p>
+//       <span>
+//         <img src="img/achievements.png"> 5
+//       </span>
+//       <span>
+//         <img src="img/strength.png"> 33
+//       </span>
+//       <span>
+//         <img src="img/defense.png"> 44
+//       </span>
+//       <span>
+//         <img src="img/legacy.png"> 2
+//       </span>
+//       <span>
+//         <img src="img/coin.png"> 1K
+//       </span>
+//       <span>
+//         <img src="img/wonder.png"> 1
+//       </span>
+//     </p>
+//   </button>
+// </div>
+//     </section>
+//   `;
+//   document.body.insertAdjacentHTML('beforeend', htmlString);
+//   bindLoadGameButton();
+//   bindNewGameButton();
+//   bindCurrentGameButton();
+// }
+// function bindLoadGameButton() {};
+// function bindNewGameButton():void {
+//   document.querySelector('.new-btn').addEventListener('click', function(event) {
+//     newGameStart();
+//   });
+// };
 function bindCurrentGameButton() { }
 ;
-function newGameStart() {
-    var htmlString = "\n    <section class=\"clickopolis-intro\">\n      <span class=\"step-one\">\n        <h1>Welcome to the World of Clickopolis!</h1>\n        <p>Starting from the flames of the ancient world, you will progress steadily towards modernity&hellip;and beyond. You, the leader of a small faction of hunter-gatherers, have decided to settle\n          <select id=\"location\">\n            <option value=\"none\">select an option!</option>\n            <option value=\"coast\">by the Coast</option>\n            <option value=\"oasis\">in an Oasis</option>\n            <option value=\"forest\">in a Forest</option>\n            <option value=\"tundra\">in a Tundra</option>\n            <option value=\"iceberg\">on an Iceberg</option>\n          </select>\n        </p>\n        <p>Your name? <input type=\"text\" id=\"leaderName\" placeholder=\"Jake\"><br><br> And the name of your empire? <input type=\"text\" id=\"civName\" placeholder=\"Jaketopia\"></p>\n      </span>\n\n      <button class=\"step-btn prev-btn\">&larr; Prev</button>\n      <button class=\"step-btn next-btn\">Next &rarr;</button>\n    </section>\n  ";
-    document.querySelector('.clickopolis-start').remove();
-    prepend('body', htmlString);
-    bindNextButton();
-    //bindPrevButton();
-}
+// function newGameStart():void {
+//   let htmlString = `
+//     <section class="clickopolis-intro">
+//       <span class="step-one">
+//         <h1>Welcome to the World of Clickopolis!</h1>
+//         <p>Starting from the flames of the ancient world, you will progress steadily towards modernity&hellip;and beyond. You, the leader of a small faction of hunter-gatherers, have decided to settle
+//           <select id="location">
+//             <option value="none">select an option!</option>
+//             <option value="coast">by the Coast</option>
+//             <option value="oasis">in an Oasis</option>
+//             <option value="forest">in a Forest</option>
+//             <option value="tundra">in a Tundra</option>
+//             <option value="iceberg">on an Iceberg</option>
+//           </select>
+//         </p>
+//         <p>Your name? <input type="text" id="leaderName" placeholder="Jake"><br><br> And the name of your empire? <input type="text" id="civName" placeholder="Jaketopia"></p>
+//       </span>
+//
+//       <button class="step-btn next-btn">Next &rarr;</button>
+//     </section>
+//   `;
+//   document.querySelector('.clickopolis-start').remove();
+//   prepend('body', htmlString);
+//   bindNextButton();
+//   //bindPrevButton();
+// }
 function bindNextButton() {
     document.querySelector('.next-btn').addEventListener('click', function () {
         switch (game.introStep) {
@@ -59,10 +172,11 @@ function bindNextButton() {
                 var cni = document.getElementById('civName');
                 var loc = document.getElementById('location');
                 createCiv(game.introStep, lni, cni, loc);
-                game.introStep++;
+                //game.introStep++;
                 break;
             case 1:
                 console.log('1 step ay');
+                configureSettings();
                 game.introStep++;
                 break;
             default:
@@ -127,8 +241,14 @@ function activateTraitList(playerCiv) {
         });
     }
 }
+function configureSettings() {
+    var stepTwo = document.querySelector('.step-two');
+    hideElement(stepTwo);
+    var stepThree = "\n    <section class='step-three'>\n      <h2>Configure & Confirm Your Settings</h2>\n      <label>Name</label><input value=\"" + playerCiv.leaderName + "\"><br>\n      <label>Civilization</label><input value=\"" + playerCiv.civName + "\"><br>\n      <label>Settlement<label><input value=\"" + playerCiv.location + "\"><br>\n\n    </section>\n  ";
+    prepend('.stepThree', stepThree);
+}
 function init() {
-    startScreen();
+    startGame();
 }
 init();
 //# sourceMappingURL=index.js.map

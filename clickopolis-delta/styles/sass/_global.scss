@@ -1,6 +1,8 @@
 .hidden {
   display: none;
 }
+
+
 .shown {
   display: inherit;
 }
@@ -34,7 +36,11 @@
   }
 }
 
-img {
+img:not(.custom-size-img) {
   height: 1rem;
   vertical-align: middle;
+}
+
+img.clickopolis-logo {
+  height: 2.5rem;
 }
