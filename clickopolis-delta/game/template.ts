@@ -113,7 +113,9 @@ class Templates {
         <section class='resources-screen-inner'>
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
-            <span class='resource-info'></span>
+            <span class='resource-info'>${resources[0].perClick} PC</span>
+            <span class='resource-info'>${resources[0].perSecond} PS</span>
+            <span class='resource-info'>${resources[0].total} total</span>
           </div>
           <div class='panel prod-panel'>
             <button class='prod-btn'><img src='img/prod.png'> Create Production</button>

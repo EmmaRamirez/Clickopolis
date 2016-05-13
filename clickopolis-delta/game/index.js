@@ -6,7 +6,6 @@ var Game = require('./game');
 var Civilization = require('./civilization');
 var Resource = require('./resource');
 var Templates = require('./template');
-var notify = require('./notify');
 console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
@@ -15,7 +14,7 @@ var food = new Resource('food', 1, 0, 200, 0, 'food', 'Food.');
 var prod = new Resource('prod', 1, 0, 200, 0, 'prod', 'Prod.');
 var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
-notify('hello');
+//notify('hello');
 var resources = [food, prod, stone, fish];
 game.era = 'ancient';
 console.log(resources[0], resources[1]);
@@ -103,12 +102,20 @@ function traitsSelection(index) {
 function createGameUI() {
     var intro = document.querySelector('.clickopolis-intro');
     var clickopolisGame = document.createElement('section');
+    clickopolisGame.innerHTML = '';
     clickopolisGame.setAttribute('class', 'clickopolis');
     clickopolisGame.setAttribute('id', 'clickopolis');
-    clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.createResourcesScreen(playerCiv, resources) + templates.createCitizenScreen(playerCiv);
+    clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) +
+        templates.createResourcesScreen(playerCiv, resources) +
+        templates.createCivilizationScreen(playerCiv) +
+        templates.createCitizenScreen(playerCiv);
     intro != undefined ? intro.remove() : console.log('intro not defined');
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
+    bindElement('.food-btn', 'click', function () {
+        resources[0].total += 1;
+        createGameUI();
+    });
 }
 function setPlayerCiv() {
     var civNameInput = document.querySelector('#civName'), leaderNameInput = document.querySelector('#leaderName'), location = document.querySelector('#location');
@@ -116,161 +123,6 @@ function setPlayerCiv() {
     playerCiv.leaderName = leaderNameInput.value;
     playerCiv.location = location.value;
     savePlayer();
-}
-// function startScreen():void {
-//   let htmlString:string = `
-//     <section class="clickopolis-start">
-// <h1>Clickopolis</h1>
-// <div class="start-options">
-//   <button class="large-btn start-btn load-btn">Load Game...</button>
-//   <button class="large-btn start-btn new-btn">New Game</button>
-//   <button class="large-btn start-btn current-btn">
-//     <p class="current-game-heading">Current Game - ${playerCiv.leaderName} of ${playerCiv.civName} </p>
-//     <p>
-//       <span>
-//         <img src="img/achievements.png"> 5
-//       </span>
-//       <span>
-//         <img src="img/strength.png"> 33
-//       </span>
-//       <span>
-//         <img src="img/defense.png"> 44
-//       </span>
-//       <span>
-//         <img src="img/legacy.png"> 2
-//       </span>
-//       <span>
-//         <img src="img/coin.png"> 1K
-//       </span>
-//       <span>
-//         <img src="img/wonder.png"> 1
-//       </span>
-//     </p>
-//   </button>
-// </div>
-//     </section>
-//   `;
-//   document.body.insertAdjacentHTML('beforeend', htmlString);
-//   bindLoadGameButton();
-//   bindNewGameButton();
-//   bindCurrentGameButton();
-// }
-// function bindLoadGameButton() {};
-// function bindNewGameButton():void {
-//   document.querySelector('.new-btn').addEventListener('click', function(event) {
-//     newGameStart();
-//   });
-// };
-function bindCurrentGameButton() { }
-;
-// function newGameStart():void {
-//   let htmlString = `
-//     <section class="clickopolis-intro">
-//       <span class="step-one">
-//         <h1>Welcome to the World of Clickopolis!</h1>
-//         <p>Starting from the flames of the ancient world, you will progress steadily towards modernity&hellip;and beyond. You, the leader of a small faction of hunter-gatherers, have decided to settle
-//           <select id="location">
-//             <option value="none">select an option!</option>
-//             <option value="coast">by the Coast</option>
-//             <option value="oasis">in an Oasis</option>
-//             <option value="forest">in a Forest</option>
-//             <option value="tundra">in a Tundra</option>
-//             <option value="iceberg">on an Iceberg</option>
-//           </select>
-//         </p>
-//         <p>Your name? <input type="text" id="leaderName" placeholder="Jake"><br><br> And the name of your empire? <input type="text" id="civName" placeholder="Jaketopia"></p>
-//       </span>
-//
-//       <button class="step-btn next-btn">Next &rarr;</button>
-//     </section>
-//   `;
-//   document.querySelector('.clickopolis-start').remove();
-//   prepend('body', htmlString);
-//   bindNextButton();
-//   //bindPrevButton();
-// }
-function bindNextButton() {
-    document.querySelector('.next-btn').addEventListener('click', function () {
-        switch (game.introStep) {
-            case 0:
-                var lni = document.getElementById('leaderName');
-                var cni = document.getElementById('civName');
-                var loc = document.getElementById('location');
-                createCiv(game.introStep, lni, cni, loc);
-                //game.introStep++;
-                break;
-            case 1:
-                console.log('1 step ay');
-                configureSettings();
-                game.introStep++;
-                break;
-            default:
-                break;
-        }
-    });
-}
-function validateStepOne() {
-}
-function createCiv(step, leaderNameInput, civNameInput, locationInput) {
-    var leaderName = leaderNameInput.value;
-    var civName = civNameInput.value;
-    var location = locationInput.value;
-    var prevBtn = document.querySelector('.prev-btn');
-    var nextBtn = document.querySelector('.next-btn');
-    playerCiv.leaderName = leaderName;
-    playerCiv.civName = civName;
-    playerCiv.location = location;
-    savePlayer();
-    if (step === 0) {
-        if (leaderName === "" || civName === "" || location === "none") {
-            console.error('Not all fields filled out.');
-        }
-        else {
-            createCivStepOne(leaderName, civName, location);
-            prevBtn.disabled = false;
-            game.introStep = 1;
-        }
-    }
-    if (step === 1) {
-    }
-}
-function createCivStepOne(leaderName, civName, location) {
-    //let playerCiv:Civilization = new Civilization(civName, leaderName, location);
-    var stepOne = document.querySelector('.step-one');
-    var stepTwo = "\n    <span class='step-two'>\n      <h2>Welcome " + playerCiv.leaderName + ", leader of " + playerCiv.civName + ", brave inhabitant of the " + playerCiv.location + "!</h2>\n      <p>What are your traits, O Glorious Leader? (Select <em id='traitsLeft'>3</em>)</p>\n      <div class='checkbox-list trait-cbl'>\n        <label><input type='checkbox' value='aggressive'>Aggressive</label>\n        <label><input type='checkbox' value='communal'>Communal</label>\n        <label><input type='checkbox' value='cunning'>Cunning</label>\n        <label><input type='checkbox' value='deliberate'>Deliberate</label>\n        <label><input type='checkbox' value='expansionist'>Expansionist</label>\n        <label><input type='checkbox' value='individualistic'>Individualistic</label>\n        <label><input type='checkbox' value='industrious'>Industrious</label>\n        <label><input type='checkbox' value='isolationist'>Isolationist</label>\n        <label><input type='checkbox' value='pacifistic'>Pacificistic</label>\n        <label><input type='checkbox' value='persuasive'>Persuasive</label>\n      </div>\n    </span>";
-    stepOne.insertAdjacentHTML('afterend', stepTwo);
-    stepOne.className += " hidden";
-    activateTraitList(playerCiv);
-}
-function activateTraitList(playerCiv) {
-    var traitCheckBoxes = document.querySelectorAll('.trait-cbl input');
-    var traitsLeft = document.getElementById('traitsLeft');
-    for (var i = 0; i < traitCheckBoxes.length; i++) {
-        traitCheckBoxes[i].addEventListener('change', function (event) {
-            if (this.checked === true) {
-                if (playerCiv.leaderTraits.length >= 3) {
-                    console.error("Exceedeed max traits.");
-                    event.preventDefault();
-                }
-                else {
-                    playerCiv.leaderTraits.push(this.value);
-                    console.log(playerCiv.leaderTraits);
-                    traitsLeft.textContent = (3 - playerCiv.leaderTraits.length).toString();
-                }
-            }
-            else {
-                removeItem(playerCiv.leaderTraits, this.value);
-                console.log(playerCiv.leaderTraits);
-                traitsLeft.textContent = (playerCiv.leaderTraits.length).toString();
-            }
-        });
-    }
-}
-function configureSettings() {
-    var stepTwo = document.querySelector('.step-two');
-    hideElement(stepTwo);
-    var stepThree = "\n    <section class='step-three'>\n      <h2>Configure & Confirm Your Settings</h2>\n      <label>Name</label><input value=\"" + playerCiv.leaderName + "\"><br>\n      <label>Civilization</label><input value=\"" + playerCiv.civName + "\"><br>\n      <label>Settlement<label><input value=\"" + playerCiv.location + "\"><br>\n\n    </section>\n  ";
-    prepend('.stepThree', stepThree);
 }
 function init() {
     startGame();
