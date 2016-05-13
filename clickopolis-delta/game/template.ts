@@ -1,4 +1,5 @@
 import Civilization = require('./civilization');
+import Resource = require('./resource');
 
 class Templates {
 
@@ -105,38 +106,32 @@ class Templates {
     </section>
   `;
 
-  resourcesScreen:string = `
-    <section class='screen resources-screen'>
-      <h2><img src='img/resources.png'> Resources</h2>
-      <section class='resources-screen-inner'>
-        <div class='panel food-panel'>
-          <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
-          <span class='resource-info'></span>
-        </div>
-        <div class='panel prod-panel'>
-          <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
-        </div>
+  createResourcesScreen(playerCiv:Civilization, resources:Resource[]) {
+    let resourcesScreen = `
+      <section class='screen resources-screen'>
+        <h2><img src='img/resources.png'> Resources</h2>
+        <section class='resources-screen-inner'>
+          <div class='panel food-panel'>
+            <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
+            <span class='resource-info'></span>
+          </div>
+          <div class='panel prod-panel'>
+            <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
+          </div>
 
-        <div class='panel resources-panel'>
-          <span class='resource' data-resource='stone'>
-            <img src='img/stone.png'> <span>25</span>
-          </span>
-        </div>
+          <div class='panel resources-panel'>
+            <span class='resource' data-resource='stone'>
+              <img src='img/stone.png'> <span>25</span>
+            </span>
+          </div>
 
+        </section>
       </section>
-    </section>
+    `;
+    return resourcesScreen;
+  }
 
-  `;
 
-  citizensScreen:string = `
-    <section class='screen citizens-screen'>
-      <h2>Citizens</h2>
-      <section class='citizens-screen-inner'>
-        <div class='row citizen-farmer'>
-        </div>
-      </section>
-    </section>
-  `;
 
   createScreenHeader(playerCiv:Civilization):string {
     let screenHeader = `
@@ -151,7 +146,7 @@ class Templates {
   createCitizenScreen(playerCiv:Civilization):string {
     let citizensScreen = `
       <section class='screen citizens-screen'>
-        <h2>Citizens</h2>
+        <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
           <div class='row citizen-farmer'>
             ${playerCiv.civName}
@@ -162,6 +157,18 @@ class Templates {
       </section>
     `;
     return citizensScreen;
+  }
+
+  createCivilizationScreen(player:Civilization):string {
+    let civilizationScreen = `
+      <section class='screen civilization-screen'>
+        <h2>Civilization</h2>
+        <section class='civilization-screen-inner'>
+
+        </section>
+      </section>
+    `;
+    return civilizationScreen;
   }
 
 

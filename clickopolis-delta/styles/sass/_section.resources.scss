@@ -2,9 +2,10 @@
   $green: #32E361;
   $yellow: #E6D83E;
 
+  border-top: 4px solid $green;
+
   h2 {
     color: darken($green, 10%);
-    text-transform: uppercase;
   }
 
   .food-btn,

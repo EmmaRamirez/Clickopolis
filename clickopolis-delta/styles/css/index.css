@@ -568,9 +568,16 @@ button:focus {
   opacity: 0;
 }
 
+.screen h2 {
+  text-transform: uppercase;
+}
+
+.resources-screen {
+  border-top: 4px solid #32E361;
+}
+
 .resources-screen h2 {
   color: #1bc749;
-  text-transform: uppercase;
 }
 
 .resources-screen .food-btn,

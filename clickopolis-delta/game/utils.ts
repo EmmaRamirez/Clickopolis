@@ -1,5 +1,5 @@
 class Utils {
-  
+
 }
 
 export = Utils;

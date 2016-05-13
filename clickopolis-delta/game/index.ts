@@ -6,8 +6,10 @@ import Game = require('./game');
 import Settings = require('./settings');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
+import Resources = require('./resources');
 import Templates = require('./template');
 import notify = require('./notify');
+
 
 
 console.log(_.random(0, 100));
@@ -15,10 +17,14 @@ console.log(_.random(0, 100));
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
-let food:Resource = new Resource('food', 1, 0, 200, 0);
-let resources:Resource[] = [food];
+let food:Resource = new Resource('food', 1, 0, 200, 0, 'food', 'Food.');
+let prod:Resource = new Resource('prod', 1, 0, 200, 0, 'prod', 'Prod.');
+let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 
-console.log(resources[0]);
+
+let resources:Resource[] = [food, prod];
+
+console.log(resources[0], resources[1]);
 
 
 
@@ -130,7 +136,7 @@ function createGameUI() {
 
   clickopolisGame.setAttribute('class', 'clickopolis');
   clickopolisGame.setAttribute('id', 'clickopolis');
-  clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.resourcesScreen + templates.createCitizenScreen(playerCiv);
+  clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.createResourcesScreen(playerCiv, resources) + templates.createCitizenScreen(playerCiv);
 
   intro != undefined ? intro.remove() : console.log('intro not defined');
 

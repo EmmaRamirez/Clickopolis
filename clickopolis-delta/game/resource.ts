@@ -7,6 +7,9 @@ class Resource {
   image: string;
   description: string;
 
+  unlocked: boolean;
+  visible: boolean;
+
   foodBonus: number;
   prodBonus: number;
   healthBonus: number;
@@ -16,12 +19,14 @@ class Resource {
 
   exchangeRate: number;
 
-  constructor(name:string, perClick:number, perSecond:number, max:number, total:number) {
+  constructor(name:string, perClick:number, perSecond:number, max:number, total:number, image:string, description: string) {
     this.name = name;
     this.perClick = perClick;
     this.perSecond = perSecond;
     this.max = max;
     this.total = total;
+    this.image = image;
+    this.description = description;
   }
 
 }

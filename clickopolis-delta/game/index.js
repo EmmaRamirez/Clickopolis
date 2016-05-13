@@ -10,9 +10,11 @@ console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
 var templates = new Templates();
-var food = new Resource('food', 1, 0, 200, 0);
-var resources = [food];
-console.log(resources[0]);
+var food = new Resource('food', 1, 0, 200, 0, 'food', 'Food.');
+var prod = new Resource('prod', 1, 0, 200, 0, 'prod', 'Prod.');
+var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
+var resources = [food, prod];
+console.log(resources[0], resources[1]);
 function savePlayer() {
     store.set('playerCiv', playerCiv);
     console.log(store.get('playerCiv'));
@@ -99,7 +101,7 @@ function createGameUI() {
     var clickopolisGame = document.createElement('section');
     clickopolisGame.setAttribute('class', 'clickopolis');
     clickopolisGame.setAttribute('id', 'clickopolis');
-    clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.resourcesScreen + templates.createCitizenScreen(playerCiv);
+    clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.createResourcesScreen(playerCiv, resources) + templates.createCitizenScreen(playerCiv);
     intro != undefined ? intro.remove() : console.log('intro not defined');
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
