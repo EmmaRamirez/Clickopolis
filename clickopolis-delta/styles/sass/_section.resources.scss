@@ -1,0 +1,36 @@
+.resources-screen {
+  $green: #32E361;
+  $yellow: #E6D83E;
+
+  h2 {
+    color: darken($green, 10%);
+    text-transform: uppercase;
+  }
+
+  .food-btn,
+  .prod-btn {
+    color: #222;
+    font-size: 1.25rem;
+    margin: .25rem;
+    padding: .5rem;
+    width: 14rem;
+  }
+
+  .food-btn {
+    background: $green;
+    @extend %transition-s;
+    &:hover {
+      background: darken($green, 10%);
+      @extend %transition-s;
+    }
+  }
+
+  .prod-btn {
+    background: $yellow;
+    @extend %transition-s;
+    &:hover {
+      background: darken($yellow, 10%);
+      @extend %transition-s;
+    }
+  }
+}

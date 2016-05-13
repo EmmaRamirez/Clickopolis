@@ -1,3 +1,5 @@
+import Civilization = require('./civilization');
+
 class Templates {
 
   startScreen:string = `
@@ -33,6 +35,43 @@ class Templates {
       <!-- <button class='next-btn'>Next &rarr;</button> -->
     </section>
   `;
+
+  createStartScreen(playerCiv:Civilization) {
+    let startScreen = `
+      <section class='clickopolis-intro'>
+        <h1>Clickopolis</h1>
+        <div class="start-options">
+          <button class="large-btn start-btn load-btn">Load Game...</button>
+          <button class="large-btn start-btn new-btn">New Game</button>
+          <button class="large-btn start-btn current-btn">
+            <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
+            <p>
+              <span>
+                <img src="img/achievements.png"> 5
+              </span>
+              <span>
+                <img src="img/strength.png"> 33
+              </span>
+              <span>
+                <img src="img/defense.png"> 44
+              </span>
+              <span>
+                <img src="img/legacy.png"> 2
+              </span>
+              <span>
+                <img src="img/coin.png"> 1K
+              </span>
+              <span>
+                <img src="img/wonder.png"> 1
+              </span>
+            </p>
+          </button>
+        </div>
+        <!-- <button class='next-btn'>Next &rarr;</button> -->
+      </section>
+    `;
+    return startScreen;
+  };
 
   settingsScreen:string = `
     <section class='clickopolis-intro'>
@@ -72,6 +111,7 @@ class Templates {
       <section class='resources-screen-inner'>
         <div class='panel food-panel'>
           <button class='food-btn'><img src='img/food.png'> Grow Food</button>
+          <span class='resource-info'></span>
         </div>
         <div class='panel prod-panel'>
           <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
@@ -79,7 +119,7 @@ class Templates {
 
         <div class='panel resources-panel'>
           <span class='resource' data-resource='stone'>
-            <img src='img/stone.png'> <span data-link='stone'>25</span>
+            <img src='img/stone.png'> <span>25</span>
           </span>
         </div>
 
@@ -91,9 +131,38 @@ class Templates {
   citizensScreen:string = `
     <section class='screen citizens-screen'>
       <h2>Citizens</h2>
-
+      <section class='citizens-screen-inner'>
+        <div class='row citizen-farmer'>
+        </div>
+      </section>
     </section>
   `;
+
+  createScreenHeader(playerCiv:Civilization):string {
+    let screenHeader = `
+      <header class='screen-header'>
+        <h1>Clickopolis</h1>
+        <h2>${playerCiv.civName} of ${playerCiv.leaderName}</h2>
+      </header>
+    `;
+    return screenHeader;
+  }
+
+  createCitizenScreen(playerCiv:Civilization):string {
+    let citizensScreen = `
+      <section class='screen citizens-screen'>
+        <h2>Citizens</h2>
+        <section class='citizens-screen-inner'>
+          <div class='row citizen-farmer'>
+            ${playerCiv.civName}
+            ${playerCiv.leaderName}
+            ${playerCiv.leaderTraits[0]}
+          </div>
+        </section>
+      </section>
+    `;
+    return citizensScreen;
+  }
 
 
 

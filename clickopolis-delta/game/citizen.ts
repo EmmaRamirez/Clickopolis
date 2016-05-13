@@ -1,0 +1,5 @@
+class Citizen {
+  
+}
+
+export = Citizen;

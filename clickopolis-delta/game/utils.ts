@@ -1,0 +1,5 @@
+class Utils {
+  
+}
+
+export = Utils;

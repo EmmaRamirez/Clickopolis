@@ -57,8 +57,14 @@ function startGame() {
 }
 function startSavedGame() {
     console.debug("Loading Saved Game...");
-    append('body', templates.startScreen);
-    store.clear();
+    append('body', templates.createStartScreen(playerCiv));
+    //store.clear();
+    bindElement('.load-btn', 'click', function () {
+        createGameUI();
+    });
+    bindElement('.current-btn', 'click', function () {
+        createGameUI();
+    });
 }
 ;
 function startNewGame() {
@@ -68,7 +74,8 @@ function startNewGame() {
     //   console.log('Hey...is this thing working??');
     // });
     bindElement('.begin-btn', 'click', function () {
-        console.log('hi');
+        //console.log('hi');
+        setPlayerCiv();
         createGameUI();
     });
     document.querySelector('#trait').addEventListener('change', function () {
@@ -81,16 +88,24 @@ function traitsSelection(index) {
     var trait = traitSelect.value;
     playerCiv.leaderTraits[index] = trait;
     console.log(traitSelect.value, playerCiv.leaderTraits);
+    savePlayer();
 }
 function createGameUI() {
     var intro = document.querySelector('.clickopolis-intro');
     var clickopolisGame = document.createElement('section');
     clickopolisGame.setAttribute('class', 'clickopolis');
     clickopolisGame.setAttribute('id', 'clickopolis');
-    clickopolisGame.innerHTML = templates.resourcesScreen + templates.citizensScreen;
+    clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.resourcesScreen + templates.createCitizenScreen(playerCiv);
     intro.remove();
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
+}
+function setPlayerCiv() {
+    var civNameInput = document.querySelector('#civName'), leaderNameInput = document.querySelector('#leaderName'), location = document.querySelector('#location');
+    playerCiv.civName = civNameInput.value;
+    playerCiv.leaderName = leaderNameInput.value;
+    playerCiv.location = location.value;
+    savePlayer();
 }
 // function startScreen():void {
 //   let htmlString:string = `

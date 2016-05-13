@@ -76,8 +76,16 @@ function startGame() {
 
 function startSavedGame() {
   console.debug("Loading Saved Game...");
-  append('body', templates.startScreen);
-  store.clear();
+  append('body', templates.createStartScreen(playerCiv));
+  //store.clear();
+
+  bindElement('.load-btn', 'click', function() {
+    createGameUI();
+  });
+
+  bindElement('.current-btn', 'click', function() {
+    createGameUI();
+  });
 };
 
 
@@ -91,7 +99,8 @@ function startNewGame() {
   // });
 
   bindElement('.begin-btn', 'click', function() {
-    console.log('hi');
+    //console.log('hi');
+    setPlayerCiv();
     createGameUI();
   });
 
@@ -109,6 +118,7 @@ function traitsSelection(index:number) {
   let trait = traitSelect.value;
   playerCiv.leaderTraits[index] = trait;
   console.log(traitSelect.value, playerCiv.leaderTraits);
+  savePlayer();
 }
 
 function createGameUI() {
@@ -117,15 +127,23 @@ function createGameUI() {
 
   clickopolisGame.setAttribute('class', 'clickopolis');
   clickopolisGame.setAttribute('id', 'clickopolis');
-  clickopolisGame.innerHTML = templates.resourcesScreen + templates.citizensScreen;
+  clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.resourcesScreen + templates.createCitizenScreen(playerCiv);
 
   intro.remove();
 
   document.body.appendChild(clickopolisGame);
   //append('body', templates.resourcesScreen);
 
+}
 
-
+function setPlayerCiv() {
+  let civNameInput = <HTMLInputElement>document.querySelector('#civName'),
+      leaderNameInput = <HTMLInputElement>document.querySelector('#leaderName'),
+      location = <HTMLSelectElement>document.querySelector('#location');
+  playerCiv.civName = civNameInput.value;
+  playerCiv.leaderName = leaderNameInput.value;
+  playerCiv.location = location.value;
+  savePlayer();
 }
 
 

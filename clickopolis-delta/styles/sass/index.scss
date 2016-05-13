@@ -4,6 +4,7 @@
 @import "_global.scss";
 @import "_button.scss";
 @import "_forms.scss";
+@import "_section.resources.scss";
 
 
 body {
@@ -59,12 +60,21 @@ section {
 }
 
 .clickopolis {
-  height: 60%;
+  height: 70%;
 
   left: 20%;
   position: absolute;
-  top: 20%;
+  top: 10%;
   width: 60%;
+}
+
+.screen-header {
+  background: $gold;
+  color: $clouds;
+  padding: .25rem 1rem;
+  * {
+    margin: 0;
+  }
 }
 
 .screen {
@@ -72,7 +82,7 @@ section {
   display: inline-block;
   height: 100%;
   padding: 1rem;
-  outline: 1px solid blue;
+  //outline: 1px solid blue;
   width: calc(50% - 2px);
   vertical-align: top;
   h2 {
