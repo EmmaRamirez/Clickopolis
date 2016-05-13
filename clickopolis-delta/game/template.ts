@@ -39,7 +39,7 @@ class Templates {
   createStartScreen(playerCiv:Civilization) {
     let startScreen = `
       <section class='clickopolis-intro'>
-        <h1>Clickopolis</h1>
+        <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
         <div class="start-options">
           <button class="large-btn start-btn load-btn">Load Game...</button>
           <button class="large-btn start-btn new-btn">New Game</button>
@@ -107,10 +107,10 @@ class Templates {
 
   resourcesScreen:string = `
     <section class='screen resources-screen'>
-      <h2>Resources</h2>
+      <h2><img src='img/resources.png'> Resources</h2>
       <section class='resources-screen-inner'>
         <div class='panel food-panel'>
-          <button class='food-btn'><img src='img/food.png'> Grow Food</button>
+          <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
           <span class='resource-info'></span>
         </div>
         <div class='panel prod-panel'>
@@ -142,7 +142,7 @@ class Templates {
     let screenHeader = `
       <header class='screen-header'>
         <h1>Clickopolis</h1>
-        <h2>${playerCiv.civName} of ${playerCiv.leaderName}</h2>
+        <h2>${playerCiv.leaderName} of ${playerCiv.civName}</h2>
       </header>
     `;
     return screenHeader;
