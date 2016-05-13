@@ -20,9 +20,14 @@ let templates:Templates = new Templates();
 let food:Resource = new Resource('food', 1, 0, 200, 0, 'food', 'Food.');
 let prod:Resource = new Resource('prod', 1, 0, 200, 0, 'prod', 'Prod.');
 let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
+let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
+
+notify('hello');
+
+let resources:Resource[] = [food, prod, stone, fish];
 
 
-let resources:Resource[] = [food, prod];
+game.era = 'ancient';
 
 console.log(resources[0], resources[1]);
 

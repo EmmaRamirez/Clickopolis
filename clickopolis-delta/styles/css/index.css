@@ -605,6 +605,20 @@ button:focus {
   background: #d5c61c;
 }
 
+.notification {
+  background: #222;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  bottom: 10%;
+  color: #ecf0f1;
+  font-size: 1.25rem;
+  left: 35%;
+  padding: 2rem;
+  position: fixed;
+  text-align: center;
+  width: 30%;
+  z-index: 100;
+}
+
 body {
   background: #eee;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
