@@ -9,13 +9,15 @@ To run, just `npm install` and then type `http-server` in the command line.
 Clickopolis-delta is the current working version of teh game (written in Typescript :]).
 
 ## Roadmap
+- Documentation
+  - [] Guide outline
+  - [] Full Guide
 - Settings
-  - debugMode
-  - Save Import/exports
-  - Access to previous era skins
-- Advisor
-  - Defaults to Lea, choice between two?
+  - [] debugMode
+  - [] Save Import/exports
+  - [] Access to previous era skins
 - Resources
+  - [] Soil Fertility Algorithm
   - Resource unlock
   - Food / Production PS, PC, Max, & Total
   - health: fish, banana
@@ -33,6 +35,9 @@ Clickopolis-delta is the current working version of teh game (written in Typescr
   - Great wonders
     - timing function (find more efficient model)
     - implementations & bonuses
+- Economy
+  - [] BoomBust Cycle Algorithm
+  - [] Trade System implementation 
 - Eras
   - era implementations
   - era bonuses
