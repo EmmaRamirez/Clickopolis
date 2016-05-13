@@ -15,7 +15,10 @@ console.log(_.random(0, 100));
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
+let food:Resource = new Resource('food', 1, 0, 200, 0);
+let resources:Resource[] = [food];
 
+console.log(resources[0]);
 
 
 
@@ -129,7 +132,7 @@ function createGameUI() {
   clickopolisGame.setAttribute('id', 'clickopolis');
   clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.resourcesScreen + templates.createCitizenScreen(playerCiv);
 
-  intro.remove();
+  intro != undefined ? intro.remove() : console.log('intro not defined');
 
   document.body.appendChild(clickopolisGame);
   //append('body', templates.resourcesScreen);

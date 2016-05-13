@@ -4,11 +4,15 @@
 var _ = require('underscore');
 var Game = require('./game');
 var Civilization = require('./civilization');
+var Resource = require('./resource');
 var Templates = require('./template');
 console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
 var templates = new Templates();
+var food = new Resource('food', 1, 0, 200, 0);
+var resources = [food];
+console.log(resources[0]);
 function savePlayer() {
     store.set('playerCiv', playerCiv);
     console.log(store.get('playerCiv'));
@@ -96,7 +100,7 @@ function createGameUI() {
     clickopolisGame.setAttribute('class', 'clickopolis');
     clickopolisGame.setAttribute('id', 'clickopolis');
     clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) + templates.resourcesScreen + templates.createCitizenScreen(playerCiv);
-    intro.remove();
+    intro != undefined ? intro.remove() : console.log('intro not defined');
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
 }
