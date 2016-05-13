@@ -1,5 +1,12 @@
-# Clickopolis
+# Clickopolis (WIP)
 A clicking-based civilization game.
+
+## Notes
+This game is still a work in progress, and as such things are bound to wildly change.
+
+To run, just `npm install` and then type `http-server` in the command line.
+
+Clickopolis-delta is the current working version of teh game (written in Typescript :]).
 
 ## Roadmap
 - Settings
