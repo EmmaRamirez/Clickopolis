@@ -4,9 +4,9 @@ A clicking-based civilization game.
 ## Notes
 This game is still a work in progress, and as such things are bound to wildly change.
 
-To run, just `npm install` and then type `http-server` in the command line.
+To run, just navigate to `clickopolis-delta` then `npm install` and then type `http-server` in the command line.
 
-Clickopolis-delta is the current working version of teh game (written in Typescript :]).
+Clickopolis-delta is the current working version of the game (written in Typescript :]).
 
 ## Roadmap
 - Documentation
@@ -37,7 +37,7 @@ Clickopolis-delta is the current working version of teh game (written in Typescr
     - implementations & bonuses
 - Economy
   - [] BoomBust Cycle Algorithm
-  - [] Trade System implementation 
+  - [] Trade System implementation
 - Eras
   - era implementations
   - era bonuses
