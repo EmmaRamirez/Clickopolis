@@ -6,8 +6,10 @@ ehthumbs.db
 Desktop.ini
 
 # Old Work
-clickpolis-alpha
+clickopolis-alpha
 clickopolis-beta
+./clickopolis-alpha
+./clickopolis-beta
 
 # Node
 clickopolis-delta/node_modules
