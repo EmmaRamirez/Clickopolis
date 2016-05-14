@@ -33,6 +33,8 @@ class Civilization {
 
     this.happiness = 0;
     this.anger = 0;
+    this.health = 0;
+    this.pollution = 0;
     this.influence = 0;
     this.legacy = 0;
 

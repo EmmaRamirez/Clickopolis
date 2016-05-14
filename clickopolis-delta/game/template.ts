@@ -96,8 +96,8 @@ class Templates {
           </div>
 
           <div class='panel resources-panel'>
-            <span class='resource' data-resource='stone'>
-              <img src='img/stone.png'> <span>25</span>
+            <span class='resource'>
+              <img src='img/health.png'> Health
             </span>
 
             <span class='resource' data-resource='fish'>
@@ -108,16 +108,26 @@ class Templates {
               <img src='img/banana.png'> <span>22</span>
             </span>
 
-            <span class='resource' data-resource='gold'>
-              <img src='img/gold.png'> <span>0</span>
+            <br>
+
+            <span class='resource'>
+              <img src='img/buildings.png'> Building
             </span>
 
-            <span class='resource' data-resource='gems'>
-              <img src='img/gems.png'> <span>34</span>
+            <span class='resource' data-resource='stone'>
+              <img src='img/stone.png'> <span>25</span>
             </span>
 
             <span class='resource' data-resource='iron'>
               <img src='img/iron.png'> <span>22</span>
+            </span>
+
+
+
+            <br>
+
+            <span class='resource'>
+              <img src='img/cavalry.png'> Strategic
             </span>
 
             <span class='resource' data-resource='oil'>
@@ -127,6 +137,32 @@ class Templates {
             <span class='resource' data-resource='uranium'>
               <img src='img/uranium.png'> <span>22</span>
             </span>
+
+            <br>
+
+            <span class='resource'>
+              <img src='img/crown.png'> Luxury
+            </span>
+
+            <span class='resource' data-resource='gold'>
+              <img src='img/gold.png'> <span>0</span>
+            </span>
+
+            <span class='resource' data-resource='gems'>
+              <img src='img/gems.png'> <span>34</span>
+            </span>
+
+            <br>
+
+            <span class='resource'>
+              <img src='img/illuminati.png'> Power
+            </span>
+
+            <span class='resource'>
+              <img src='img/spaghetti.png'> Spaghetti
+            </span>
+
+
           </div>
 
 
@@ -180,10 +216,10 @@ class Templates {
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>
-              <img src='img/happiness.png'> ${playerCiv.happiness}
+              <img src='img/happy.png'> ${playerCiv.happiness}
             </span>
             <span class='civ-metric metric-anger'>
-              <img src='img/anger.png'> ${playerCiv.anger}
+              <img src='img/angry.png'> ${playerCiv.anger}
             </span>
             <span class='civ-metric metric-health'>
               <img src='img/health.png'> ${playerCiv.health}
