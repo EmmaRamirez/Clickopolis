@@ -17,16 +17,24 @@ console.log(_.random(0, 100));
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
-let food:Resource = new Resource('food', 1, 0, 200, 0, 'food', 'Food.');
+let food:Resource = new Resource('food', 1, 1, 200, 0, 'food', 'Food.');
 let prod:Resource = new Resource('prod', 1, 0, 200, 0, 'prod', 'Prod.');
 let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
-
+let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
+let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
+let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
+let oil:Resource = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
+let uranium:Resource = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
+let iron:Resource = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
+let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
+let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 
-let resources:Resource[] = [food, prod, stone, fish];
+let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
 
-
+console.log(resources.get('food'));
+console.log(resources.items);
 
 game.era = 'ancient';
 
@@ -36,7 +44,6 @@ function saveGame():void {
   store.get('game');
 }
 
-console.log(resources[0], resources[1]);
 
 
 
@@ -228,26 +235,43 @@ function createGameUI() {
   //   console.log(this);
   // });
 
-  bindElement('.food-btn', 'click', function () {
-    let foodTotalElement = <HTMLElement>document.querySelector('.r-food-total');
+  // bindElement('.food-btn', 'click', function () {
+  //   let foodTotalElement = <HTMLElement>document.querySelector('.r-food-total');
+  //
+  //   if (resources[0].total >= resources[0].max) resources[0].total = resources[0].max;
+  //   else resources[0].total += resources[0].perClick;
+  //
+  //
+  //   foodTotalElement.innerHTML = resources[0].total.toString() + ' total';
+  //
+  //   console.log(this);
+  // });
 
-    if (resources[0].total >= resources[0].max) resources[0].total = resources[0].max;
-    else resources[0].total += resources[0].perClick;
+  bindElement('.food-btn', 'click', function (event:Event) {
+    addClickToTotal('.r-food-total', 'food');
 
+  });
 
-    foodTotalElement.innerHTML = resources[0].total.toString() + ' total';
-
-    console.log(this);
+  bindElement('.prod-btn', 'click', function (event:Event) {
+    addClickToTotal('.r-prod-total', 'prod');
   });
 
 
 }
 
-setInterval(function() {
-  if (resources[0].total >= resources[0].max) resources[0].total = resources[0].max;
-  else resources[0].total += resources[0].perSecond;
+function addClickToTotal(el:string, item:string) {
+  let element = elt(el);
+  if (resources.get(item).total >= resources.get(item).max) resources.get(item).total = resources.get(item).max;
+  else resources.get(item).total += resources.get(item).perClick;
 
-  elt('.r-food-total').textContent = resources[0].total.toString() + ' total';
+  element.innerHTML = resources.get(item).total.toString() + ' total';
+}
+
+setInterval(function() {
+  if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
+  else resources.get('food').total += resources.get('food').perSecond;
+
+  elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
 
 }, 1000);
 
@@ -267,14 +291,16 @@ function resourceClick(button:string, i:number) {
   //     console.log(item, idx);
   //   });
   // };
-  [].forEach.call(resourceButtons, function(item:any) {
-    item.addEventListener('click', function () {
-      resources[i].total += resources[i].perClick;
-      foodTotalElement.innerHTML = resources[i].total.toString() + ' total';
-      console.log(this);
-      //createGameUI();
-    })(item);
-  })
+  resources.get('food').total += resources.get('food').perClick;
+  foodTotalElement.innerHTML = resources.get('food').total.toString() + ' total';
+  // [].forEach.call(resourceButtons, function(item:any) {
+  //   item.addEventListener('click', function () {
+  //     resources[i].total += resources[i].perClick;
+  //     foodTotalElement.innerHTML = resources[i].total.toString() + ' total';
+  //     console.log(this);
+  //     //createGameUI();
+  //   })(item);
+  //})
 }
 
 
