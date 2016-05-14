@@ -188,7 +188,7 @@ class Templates {
             <span class='civ-metric metric-pollution'>
               <img src='img/pollution.png'> ${playerCiv.pollution}
             </span>
-            <span class='civ-emtric metric-influence'>
+            <span class='civ-metric metric-influence'>
               <img src='img/influence.png'> ${playerCiv.influence}
             </span>
           </div>
