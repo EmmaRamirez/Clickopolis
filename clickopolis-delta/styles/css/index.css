@@ -615,9 +615,12 @@ button:focus {
 }
 
 .resources-screen .location-panel {
+  background: #43d269;
   border-left: 4px solid #32E361;
+  color: white;
   margin: .25rem;
   padding: .25rem;
+  text-align: center;
 }
 
 .resources-screen .location-panel p {
