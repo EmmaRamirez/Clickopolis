@@ -30,6 +30,12 @@ let resources:Resource[] = [food, prod, stone, fish];
 
 game.era = 'ancient';
 
+
+function saveGame():void {
+  store.set('game', game);
+  store.get('game');
+}
+
 console.log(resources[0], resources[1]);
 
 
@@ -138,7 +144,7 @@ function startGame() {
 
 function startSavedGame() {
   console.debug("Loading Saved Game...");
-  append('body', templates.createStartScreen(playerCiv));
+  append('body', templates.createStartScreen(playerCiv, game));
   //store.clear();
 
   bindElement('.load-btn', 'click', function() {

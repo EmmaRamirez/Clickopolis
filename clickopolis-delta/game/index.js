@@ -17,6 +17,10 @@ var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 //notify('hello');
 var resources = [food, prod, stone, fish];
 game.era = 'ancient';
+function saveGame() {
+    store.set('game', game);
+    store.get('game');
+}
 console.log(resources[0], resources[1]);
 function savePlayer() {
     store.set('playerCiv', playerCiv);
@@ -111,7 +115,7 @@ function startGame() {
 }
 function startSavedGame() {
     console.debug("Loading Saved Game...");
-    append('body', templates.createStartScreen(playerCiv));
+    append('body', templates.createStartScreen(playerCiv, game));
     //store.clear();
     bindElement('.load-btn', 'click', function () {
         createGameUI();

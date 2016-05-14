@@ -1,5 +1,7 @@
+import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
+
 
 class Templates {
 
@@ -37,7 +39,7 @@ class Templates {
     </section>
   `;
 
-  createStartScreen(playerCiv:Civilization) {
+  createStartScreen(playerCiv:Civilization, game:Game) {
     let startScreen = `
       <section class='clickopolis-intro'>
         <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
@@ -46,6 +48,7 @@ class Templates {
           <button class="large-btn start-btn new-btn">New Game</button>
           <button class="large-btn start-btn current-btn">
             <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
+            <p>${game.era}</p>
             <p>
               <span>
                 <img src="img/achievements.png"> 5
