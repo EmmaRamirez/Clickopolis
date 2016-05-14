@@ -36,6 +36,24 @@
   }
 
   .resource {
-
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin: .25rem;
+    min-width: 10rem;
+    padding: .5rem;
+    text-align: center;
   }
+
+  .resource-info {
+    margin: .25rem;
+    text-align: center;
+  }
+}
+
+.citizens-screen {
+  border-top: 4px solid tan;
+}
+
+.civilization-screen {
+  border-top: 4px solid darkblue;
 }

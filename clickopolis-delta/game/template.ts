@@ -113,19 +113,42 @@ class Templates {
         <section class='resources-screen-inner'>
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
-            <span class='resource-info'>${resources[0].perClick} PC</span>
-            <span class='resource-info'>${resources[0].perSecond} PS</span>
-            <span class='resource-info'>${resources[0].total} total</span>
+            <span class='resource-info r-food-pc'>${resources[0].perClick} PC</span>
+            <span class='resource-info r-food-ps'>${resources[0].perSecond} PS</span>
+            <span class='resource-info r-food-max'>${resources[0].max} max</span>
+            <span class='resource-info r-food-total'>${resources[0].total} total</span>
           </div>
           <div class='panel prod-panel'>
             <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
+            <span class='resource-info'>${resources[1].perClick} PC</span>
+            <span class='resource-info'>${resources[1].perSecond} PS</span>
+            <span class='resource-info'>${resources[1].max} max</span>
+            <span class='resource-info'>${resources[1].total} total</span>
           </div>
 
           <div class='panel resources-panel'>
             <span class='resource' data-resource='stone'>
               <img src='img/stone.png'> <span>25</span>
             </span>
+
+            <span class='resource' data-resource='fish'>
+              <img src='img/fish.png'> <span>33</span>
+            </span>
+
+            <span class='resource' data-resource='banana'>
+              <img src='img/banana.png'> <span>22</span>
+            </span>
+
+            <span class='resource' data-resource='gold'>
+              <img src='img/gold.png'> <span>0</span>
+            </span>
+
+            <span class='resource' data-resource='gems'>
+              <img src='img/gems.png'> <span>34</span>
+            </span>
           </div>
+
+
 
         </section>
       </section>
@@ -164,9 +187,13 @@ class Templates {
   createCivilizationScreen(player:Civilization):string {
     let civilizationScreen = `
       <section class='screen civilization-screen'>
-        <h2>Civilization</h2>
+        <h2><img src='img/empire.png'> Civilization</h2>
         <section class='civilization-screen-inner'>
-
+          <div class='panel population-panel'>
+            <button class='pop-btn'>Grow Population (+1)</button>
+            <span>Growth Cost: <img src='img/food.png'> 10</span>
+            <span>Population: <img src='img/citizen.png'> 33</span>
+          </div>
         </section>
       </section>
     `;

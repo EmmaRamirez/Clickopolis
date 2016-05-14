@@ -605,6 +605,28 @@ button:focus {
   background: #d5c61c;
 }
 
+.resources-screen .resource {
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin: .25rem;
+  min-width: 10rem;
+  padding: .5rem;
+  text-align: center;
+}
+
+.resources-screen .resource-info {
+  margin: .25rem;
+  text-align: center;
+}
+
+.citizens-screen {
+  border-top: 4px solid tan;
+}
+
+.civilization-screen {
+  border-top: 4px solid darkblue;
+}
+
 .notification {
   background: #222;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);

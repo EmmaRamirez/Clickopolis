@@ -27,6 +27,7 @@ let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 let resources:Resource[] = [food, prod, stone, fish];
 
 
+
 game.era = 'ancient';
 
 console.log(resources[0], resources[1]);
@@ -142,10 +143,8 @@ function createGameUI() {
 
   clickopolisGame.setAttribute('class', 'clickopolis');
   clickopolisGame.setAttribute('id', 'clickopolis');
-  clickopolisGame.innerHTML = templates.createScreenHeader(playerCiv) +
-                              templates.createResourcesScreen(playerCiv, resources) +
-                              templates.createCivilizationScreen(playerCiv) +
-                              templates.createCitizenScreen(playerCiv);
+
+  drawUI(clickopolisGame);
 
   intro != undefined ? intro.remove() : console.log('intro not defined');
 
@@ -153,12 +152,71 @@ function createGameUI() {
   //append('body', templates.resourcesScreen);
 
 
-  bindElement('.food-btn', 'click', function() {
+  //btnClick();
+  //resourceClick('.food-btn', 0);
+  //resourceClick('.prod-btn', 1);
 
-    resources[0].total += 1;
-    createGameUI();
+  // bindElement('.prod-btn', 'click', function () {
+  //   let prodTotalElement = <HTMLElement>document.querySelector('.r-prod-total');
+  //
+  //   resources[1].total += resources[1].perClick;
+  //   prodTotalElement.innerHTML = resources[1].total.toString() + ' total';
+  //
+  //   console.log(this);
+  // });
+
+  bindElement('.food-btn', 'click', function () {
+    let foodTotalElement = <HTMLElement>document.querySelector('.r-food-total');
+
+    resources[0].total += resources[0].perClick;
+    foodTotalElement.innerHTML = resources[0].total.toString() + ' total';
+
+    console.log(this);
   });
+
+
 }
+
+function drawUI(el:HTMLElement) {
+  el.innerHTML =  templates.createScreenHeader(playerCiv) +
+                  templates.createResourcesScreen(playerCiv, resources) +
+                  templates.createCivilizationScreen(playerCiv) +
+                  templates.createCitizenScreen(playerCiv);
+}
+
+function resourceClick(button:string, i:number) {
+  let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll(button);
+  let foodTotalElement = <HTMLElement>document.querySelector('.r-food-total');
+
+  // resourceButtons.forEach(function (item:any, idx:number) {
+  //   item.addEventListener('click', function () {
+  //     console.log(item, idx);
+  //   });
+  // })
+
+  [].forEach.call(resourceButtons, function(item:any) {
+    item.addEventListener('click', function () {
+      resources[i].total += resources[i].perClick;
+      foodTotalElement.innerHTML = resources[i].total.toString() + ' total';
+
+      console.log(this);
+
+      //createGameUI();
+
+    })(item);
+  })
+}
+
+// function btnClick() {
+//   bindElement('.food-btn', 'click', function() {
+//
+//     resources[0].total += resources[0].perClick;
+//     console.log(resources[0].total);
+//
+//
+//
+//   });
+// }
 
 
 function setPlayerCiv() {
