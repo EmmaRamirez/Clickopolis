@@ -252,7 +252,7 @@ setInterval(function() {
 }, 1000);
 
 function drawUI(el:HTMLElement) {
-  el.innerHTML =  templates.createScreenHeader(playerCiv) +
+  el.innerHTML =  templates.createScreenHeader(playerCiv, game) +
                   templates.createResourcesScreen(playerCiv, resources) +
                   templates.createCivilizationScreen(playerCiv) +
                   templates.createCitizenScreen(playerCiv);

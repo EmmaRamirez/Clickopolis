@@ -194,7 +194,7 @@ setInterval(function () {
     elt('.r-food-total').textContent = resources[0].total.toString() + ' total';
 }, 1000);
 function drawUI(el) {
-    el.innerHTML = templates.createScreenHeader(playerCiv) +
+    el.innerHTML = templates.createScreenHeader(playerCiv, game) +
         templates.createResourcesScreen(playerCiv, resources) +
         templates.createCivilizationScreen(playerCiv) +
         templates.createCitizenScreen(playerCiv);
