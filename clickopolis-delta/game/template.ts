@@ -150,6 +150,14 @@ class Templates {
             <span class='resource' data-resource='iron'>
               <img src='img/iron.png'> <span>22</span>
             </span>
+
+            <span class='resource' data-resource='oil'>
+              <img src='img/oil.png'> <span>22</span>
+            </span>
+
+            <span class='resource' data-resource='uranium'>
+              <img src='img/uranium.png'> <span>22</span>
+            </span>
           </div>
 
 
