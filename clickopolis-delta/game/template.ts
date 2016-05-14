@@ -192,7 +192,7 @@ class Templates {
     let screenHeader = `
       <header class='screen-header'>
         <h1>Clickopolis</h1>
-        <h2>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era}</h2>
+        <h2>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era</h2>
       </header>
     `;
     return screenHeader;
