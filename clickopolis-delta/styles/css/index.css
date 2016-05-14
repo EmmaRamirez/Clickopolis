@@ -410,7 +410,7 @@ textarea {
   /* 2 */
 }
 
-button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled], .resources-screen .food-btn, .resources-screen .food-btn:hover, .resources-screen .prod-btn, .resources-screen .prod-btn:hover {
+button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled], .resources-screen .food-btn, .resources-screen .food-btn:hover, .resources-screen .prod-btn, .resources-screen .prod-btn:hover, .resources-screen .resource[data-resource]:hover {
   transition: 250ms all;
 }
 
@@ -607,6 +607,7 @@ button:focus {
 
 .resources-screen .resource {
   border: 1px solid #ccc;
+  border-radius: 4px;
   display: inline-block;
   margin: .25rem;
   min-width: 10rem;
@@ -614,9 +615,32 @@ button:focus {
   text-align: center;
 }
 
+.resources-screen .resource[data-resource]:hover {
+  background: #dde4e6;
+}
+
+.resources-screen .resource[data-resource].active {
+  border: 1px solid #222;
+}
+
 .resources-screen .resource-info {
   margin: .25rem;
   text-align: center;
+}
+
+.resources-screen .resource-info-screen {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: .5rem;
+}
+
+.resources-screen .resource-info-screen h3 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.resources-screen .resource-info-screen h3 img {
+  height: 1.5rem;
 }
 
 .citizens-screen {

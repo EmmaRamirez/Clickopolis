@@ -95,6 +95,8 @@ class Templates {
             <span class='resource-info'>${resources[1].total} total</span>
           </div>
 
+          <br>
+
           <div class='panel resources-panel'>
             <span class='resource'>
               <img src='img/health.png'> Health
@@ -158,14 +160,20 @@ class Templates {
               <img src='img/illuminati.png'> Power
             </span>
 
-            <span class='resource'>
-              <img src='img/spaghetti.png'> Spaghetti
+            <span class='resource' data-resource='spaghetti'>
+              <img src='img/spaghetti.png'> 22
             </span>
 
 
           </div>
 
 
+
+        </section>
+        <br>
+        <section class='resource-screen-inner resource-info-screen'>
+          <h3><img src='img/fish.png'> Fish<br></h3>
+          <p>Fish are caught in nets by citizens every now and then. Each fish provides +.5 <img src='img/health.png'> Fish are a popular trade item with Desert nations.</p>
 
         </section>
       </section>
