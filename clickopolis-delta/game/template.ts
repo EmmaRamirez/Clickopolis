@@ -5,40 +5,6 @@ import Resource = require('./resource');
 
 class Templates {
 
-  startScreen:string = `
-    <section class='clickopolis-intro'>
-      <h1>Clickopolis</h1>
-      <div class="start-options">
-        <button class="large-btn start-btn load-btn">Load Game...</button>
-        <button class="large-btn start-btn new-btn">New Game</button>
-        <button class="large-btn start-btn current-btn">
-          <p class="current-game-heading">Current Game -</p>
-          <p>
-            <span>
-              <img src="img/achievements.png"> 5
-            </span>
-            <span>
-              <img src="img/strength.png"> 33
-            </span>
-            <span>
-              <img src="img/defense.png"> 44
-            </span>
-            <span>
-              <img src="img/legacy.png"> 2
-            </span>
-            <span>
-              <img src="img/coin.png"> 1K
-            </span>
-            <span>
-              <img src="img/wonder.png"> 1
-            </span>
-          </p>
-        </button>
-      </div>
-      <!-- <button class='next-btn'>Next &rarr;</button> -->
-    </section>
-  `;
-
   createStartScreen(playerCiv:Civilization, game:Game) {
     let startScreen = `
       <section class='clickopolis-intro'>
