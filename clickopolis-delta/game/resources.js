@@ -8,7 +8,7 @@ var Resources = (function () {
     };
     Resources.prototype.get = function (query) {
         var r = this.items;
-        for (var i = 0; i > r.length; i++) {
+        for (var i = 0; i < r.length; i++) {
             if (query === r[i].name) {
                 return r[i];
             }
