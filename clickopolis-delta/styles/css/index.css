@@ -576,6 +576,52 @@ button:focus {
   opacity: 0;
 }
 
+.screen {
+  overflow-y: auto;
+}
+
+.screen::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.screen::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+.screen::-webkit-scrollbar-thumb {
+  background: #525252;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+.screen::-webkit-scrollbar-thumb:hover {
+  background: #585858;
+}
+
+.screen::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+
+.screen::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+.screen::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+
+.screen::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+
+.screen::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .screen h2 {
   text-transform: uppercase;
 }
@@ -615,9 +661,12 @@ button:focus {
 }
 
 .resources-screen .location-panel {
+  background: #43d269;
   border-left: 4px solid #32E361;
+  color: white;
   margin: .25rem;
   padding: .25rem;
+  text-align: center;
 }
 
 .resources-screen .location-panel p {
