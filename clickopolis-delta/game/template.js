@@ -17,7 +17,7 @@ var Templates = (function () {
         return screenHeader;
     };
     Templates.prototype.createCitizenScreen = function (playerCiv) {
-        var citizensScreen = "\n      <section class='screen citizens-screen'>\n        <h2><img src='img/citizens.png'> Citizens</h2>\n        <section class='citizens-screen-inner'>\n          <div class='row citizen-farmer'>\n            " + playerCiv.civName + "\n            " + playerCiv.leaderName + "\n            " + playerCiv.leaderTraits[0] + "\n          </div>\n        </section>\n      </section>\n    ";
+        var citizensScreen = "\n      <section class='screen citizens-screen'>\n        <h2><img src='img/citizens.png'> Citizens</h2>\n        <section class='citizens-screen-inner'>\n          <div class='row citizen-farmer'>\n            <button data-citizien-amount='-1'>-1</button>\n            <span class='citizen-icon'><img src='img/farmer.png'></span>\n            <button data-citizen-amount='1'>+1</button>\n            <span class='citizen-info'>\n              Farmers: <strong>12</strong> | <em>Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.</em>\n            </span>\n          </div>\n        </section>\n      </section>\n    ";
         return citizensScreen;
     };
     Templates.prototype.createCivilizationScreen = function (playerCiv) {

@@ -155,9 +155,12 @@ class Templates {
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
           <div class='row citizen-farmer'>
-            ${playerCiv.civName}
-            ${playerCiv.leaderName}
-            ${playerCiv.leaderTraits[0]}
+            <button data-citizien-amount='-1'>-1</button>
+            <span class='citizen-icon'><img src='img/farmer.png'></span>
+            <button data-citizen-amount='1'>+1</button>
+            <span class='citizen-info'>
+              Farmers: <strong>12</strong> | <em>Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.</em>
+            </span>
           </div>
         </section>
       </section>
