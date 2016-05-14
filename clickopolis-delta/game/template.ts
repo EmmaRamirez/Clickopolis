@@ -169,6 +169,9 @@ class Templates {
               <img src='img/spaghetti.png'> 22
             </span>
 
+            <span class='resouce' data-resource='chihuahua'>
+              <img src='img/chihuahua.png'> 2
+            </span>
 
           </div>
 
@@ -255,7 +258,7 @@ class Templates {
       <section class='screen economy-screen'>
         <h2><img src='img/money.png'> Economy</h2>
         <section class='economy-screen-inner'>
-          
+
         </section>
       </section>
     `;
