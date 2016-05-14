@@ -232,8 +232,8 @@ class Templates {
         <section class='civilization-screen-inner'>
           <div class='panel population-panel'>
             <button class='pop-btn'>Grow Population (+1)</button>
-            <span class='civ-metric'>Growth Cost: <img src='img/food.png'> 10</span>
-            <span class='civ-metric'>Population: <img src='img/citizen.png'> 33</span>
+            <span class='civ-metric metric-growth-cost'>Growth Cost: <img src='img/food.png'> 10</span>
+            <span class='civ-metric metric-population'>Population: <img src='img/citizen.png'> 33</span>
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>

@@ -697,13 +697,40 @@ button:focus {
 }
 
 .civilization-screen .civ-metric {
-  border: 1px solid #666;
   border-radius: 4px;
   display: inline-block;
   margin: .5rem .25rem;
   min-width: 6rem;
-  padding: .25rem;
+  padding: .5rem;
   text-align: center;
+}
+
+.civilization-screen .metric-growth-cost {
+  background: #ecf0f1;
+}
+
+.civilization-screen .metric-population {
+  background: #ecf0f1;
+}
+
+.civilization-screen .metric-happiness {
+  background: #ffff66;
+}
+
+.civilization-screen .metric-anger {
+  background: #ff8080;
+}
+
+.civilization-screen .metric-health {
+  background: #ecf0f1;
+}
+
+.civilization-screen .metric-pollution {
+  background: #66cc66;
+}
+
+.civilization-screen .metric-influence {
+  background: #BAE0E8;
 }
 
 .economy-screen {

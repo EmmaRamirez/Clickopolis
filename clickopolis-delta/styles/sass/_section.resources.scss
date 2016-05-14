@@ -113,13 +113,34 @@
     padding: .5rem;
   }
   .civ-metric {
-    border: 1px solid #666;
+    //border: 1px solid #666;
     border-radius: 4px;
     display: inline-block;
     margin: .5rem .25rem;
     min-width: 6rem;
-    padding: .25rem;
+    padding: .5rem;
     text-align: center;
+  }
+  .metric-growth-cost {
+    background: $clouds;
+  }
+  .metric-population {
+    background: $clouds;
+  }
+  .metric-happiness {
+    background: lighten(yellow, 20%);
+  }
+  .metric-anger {
+    background: lighten(red, 25%);
+  }
+  .metric-health {
+    background: $clouds;
+  }
+  .metric-pollution {
+    background: lighten(desaturate(green, 50%), 35%);
+  }
+  .metric-influence {
+    background: #BAE0E8;
   }
 }
 
