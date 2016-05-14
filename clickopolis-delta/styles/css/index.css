@@ -468,6 +468,10 @@ img.clickopolis-logo {
   height: 2.5rem;
 }
 
+.center-text {
+  text-align: center;
+}
+
 button {
   background: #3498db;
   color: #eee;

@@ -16,7 +16,7 @@ class Templates {
           <button class="large-btn start-btn new-btn">New Game</button>
           <button class="large-btn start-btn current-btn">
             <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
-            <p>${game.era} era</p>
+            <p class='center-text'>${game.era} era</p>
             <p>
               <span>
                 <img src="img/achievements.png"> 5
@@ -169,7 +169,7 @@ class Templates {
               <img src='img/spaghetti.png'> 22
             </span>
 
-            <span class='resouce' data-resource='chihuahua'>
+            <span class='resource' data-resource='chihuahua'>
               <img src='img/chihuahua.png'> 2
             </span>
 
