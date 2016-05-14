@@ -137,7 +137,7 @@ class Templates {
               <img src='img/cavalry.png'> Strategic
             </span>
 
-            <span class='resource' data-resource='oil'>
+            <span class='resource' data-unlocked='false' data-resource='oil'>
               <img src='img/oil.png'> <span>22</span>
             </span>
 
@@ -155,7 +155,7 @@ class Templates {
               <img src='img/gold.png'> <span>0</span>
             </span>
 
-            <span class='resource' data-resource='gems'>
+            <span class='resource' data-visible='false' data-resource='gems'>
               <img src='img/gems.png'> <span>34</span>
             </span>
 
