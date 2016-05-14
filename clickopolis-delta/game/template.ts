@@ -250,6 +250,18 @@ class Templates {
     return civilizationScreen;
   }
 
+  createEconomyScreen(playerCiv:Civilization) {
+    let economyScreen = `
+      <section class='screen economy-screen'>
+        <h2><img src='img/money.png'> Economy</h2>
+        <section class='economy-screen-inner'>
+          
+        </section>
+      </section>
+    `;
+    return economyScreen;
+  }
+
 
 
 }

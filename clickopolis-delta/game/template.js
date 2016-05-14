@@ -26,6 +26,10 @@ var Templates = (function () {
         var civilizationScreen = "\n      <section class='screen civilization-screen'>\n        <h2><img src='img/empire.png'> Civilization</h2>\n        <section class='civilization-screen-inner'>\n          <div class='panel population-panel'>\n            <button class='pop-btn'>Grow Population (+1)</button>\n            <span class='civ-metric'>Growth Cost: <img src='img/food.png'> 10</span>\n            <span class='civ-metric'>Population: <img src='img/citizen.png'> 33</span>\n          </div>\n          <div class='panel civ-metric-panel'>\n            <span class='civ-metric metric-happiness'>\n              <img src='img/happy.png'> " + playerCiv.happiness + "\n            </span>\n            <span class='civ-metric metric-anger'>\n              <img src='img/angry.png'> " + playerCiv.anger + "\n            </span>\n            <span class='civ-metric metric-health'>\n              <img src='img/health.png'> " + playerCiv.health + "\n            </span>\n            <span class='civ-metric metric-pollution'>\n              <img src='img/pollution.png'> " + playerCiv.pollution + "\n            </span>\n            <span class='civ-metric metric-influence'>\n              <img src='img/influence.png'> " + playerCiv.influence + "\n            </span>\n          </div>\n        </section>\n      </section>\n    ";
         return civilizationScreen;
     };
+    Templates.prototype.createEconomyScreen = function (playerCiv) {
+        var economyScreen = "\n      <section class='screen economy-screen'>\n        <h2><img src='img/money.png'> Economy</h2>\n        <section class='economy-screen-inner'>\n          \n        </section>\n      </section>\n    ";
+        return economyScreen;
+    };
     return Templates;
 }());
 module.exports = Templates;
