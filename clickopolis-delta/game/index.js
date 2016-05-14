@@ -17,8 +17,14 @@ var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 var banana = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
 var gold = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
+var gems = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
+var oil = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
+var uranium = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
+var iron = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
+var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
+var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
-var resources = new Resources([food, prod, stone, fish, banana, gold]);
+var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
 console.log(resources.get('food'));
 console.log(resources.items);
 game.era = 'ancient';
@@ -192,13 +198,19 @@ function createGameUI() {
     //   console.log(this);
     // });
     bindElement('.food-btn', 'click', function (event) {
-        var element = elt('.r-food-total');
-        if (resources.get('food').total >= resources.get('food').max)
-            resources.get('food').total = resources.get('food').max;
-        else
-            resources.get('food').total += resources.get('food').perClick;
-        element.innerHTML = resources.get('food').total.toString() + ' total';
+        addClickToTotal('.r-food-total', 'food');
     });
+    bindElement('.prod-btn', 'click', function (event) {
+        addClickToTotal('.r-prod-total', 'prod');
+    });
+}
+function addClickToTotal(el, item) {
+    var element = elt(el);
+    if (resources.get(item).total >= resources.get(item).max)
+        resources.get(item).total = resources.get(item).max;
+    else
+        resources.get(item).total += resources.get(item).perClick;
+    element.innerHTML = resources.get(item).total.toString() + ' total';
 }
 setInterval(function () {
     if (resources.get('food').total >= resources.get('food').max)

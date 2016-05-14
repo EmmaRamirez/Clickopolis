@@ -23,10 +23,15 @@ let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
 let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
-
+let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
+let oil:Resource = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
+let uranium:Resource = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
+let iron:Resource = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
+let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
+let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 
-let resources:Resources = new Resources([food, prod, stone, fish, banana, gold]);
+let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
 
 console.log(resources.get('food'));
 console.log(resources.items);
@@ -243,15 +248,23 @@ function createGameUI() {
   // });
 
   bindElement('.food-btn', 'click', function (event:Event) {
-    let element = elt('.r-food-total');
-    if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
-    else resources.get('food').total += resources.get('food').perClick;
+    addClickToTotal('.r-food-total', 'food');
 
-    element.innerHTML = resources.get('food').total.toString() + ' total';
+  });
 
-  })
+  bindElement('.prod-btn', 'click', function (event:Event) {
+    addClickToTotal('.r-prod-total', 'prod');
+  });
 
 
+}
+
+function addClickToTotal(el:string, item:string) {
+  let element = elt(el);
+  if (resources.get(item).total >= resources.get(item).max) resources.get(item).total = resources.get(item).max;
+  else resources.get(item).total += resources.get(item).perClick;
+
+  element.innerHTML = resources.get(item).total.toString() + ' total';
 }
 
 setInterval(function() {

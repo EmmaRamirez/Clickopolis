@@ -98,7 +98,7 @@ class Templates {
             <span class='resource-info'>${resources.get('prod').perClick} PC</span>
             <span class='resource-info'>${resources.get('prod').perSecond} PS</span>
             <span class='resource-info'>${resources.get('prod').max} max</span>
-            <span class='resource-info'>${resources.get('prod').total} total</span>
+            <span class='resource-info r-prod-total'>${resources.get('prod').total} total</span>
 
           </div>
 
