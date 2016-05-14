@@ -8,12 +8,39 @@ To run, just navigate to `clickopolis-delta` then `npm install` and then type `h
 
 Clickopolis-delta is the current working version of the game (written in Typescript :]).
 
-## Roadmap
+## Task List
+
+### Settings
+- [ ] debugMode
+- [ ] Save Imports
+- [ ] Save exports
+- [ ] Access to previous era skins
+
+### Resources
+- [ ] Resource UI
+- [ ] Food Button click event
+- [ ] Production Button click event
+- [ ] Resource unlock/visibility implementation
+- [ ] Resource Bonus Implementations
+  - [ ] Health: fish, banana
+  - [ ] Building: Stone, Iron
+  - [ ] Strategic: Iron, uranium
+  - [ ] Luxury: Gold, Gems
+  - [ ] Power: Spaghetti, Chihuahuas
+- [ ] Soil Fertility Algorithm
+
+### Citizens
+- [ ] Citizens UI
+
+### Technology
+- [ ] Technology UI
+- [ ] Technology unlock, visibility, and purchase
+- [ ] Technology implementations
+  - [ ] Ancient era
+  - [ ] Classical era
 
 
-- [ ] Test
-
-
+<!--
 - Documentation
   - [] Guide outline
   - [] Full Guide
@@ -21,17 +48,6 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - [] debugMode
   - [] Save Import/exports
   - [] Access to previous era skins
-- Resources
-  - [] Soil Fertility Algorithm
-  - Resource unlock
-  - Food / Production PS, PC, Max, & Total
-  - health: fish, banana
-  - strategic: horse, iron, uranium
-  - building: stone, iron, oil, uranium
-  - luxury: gold, gems, spaghetti
-- Technology
-  - Technology unlock
-  - Technology implementations
 - Buildings
   - Purchase mode
   - Production cost modifiers
@@ -86,3 +102,4 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - Compression
 - LocalStorage get/set
   - Compression
+  -->
