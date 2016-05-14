@@ -111,11 +111,16 @@
     padding: .5rem;
   }
   .civ-metric {
-    border: 1px solid #222;
+    border: 1px solid #666;
     border-radius: 4px;
     display: inline-block;
-    margin: .5rem;
+    margin: .5rem .25rem;
+    min-width: 6rem;
     padding: .25rem;
     text-align: center;
   }
+}
+
+.economy-screen {
+  border-top: 4px solid green;
 }

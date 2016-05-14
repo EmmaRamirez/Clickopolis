@@ -41,6 +41,10 @@ img:not(.custom-size-img) {
   vertical-align: top;
 }
 
+h2 img:not(.custom-size-img) {
+  height: 1.5rem;
+}
+
 img.clickopolis-logo {
   height: 2.5rem;
 }
