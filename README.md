@@ -9,6 +9,11 @@ To run, just navigate to `clickopolis-delta` then `npm install` and then type `h
 Clickopolis-delta is the current working version of the game (written in Typescript :]).
 
 ## Roadmap
+
+
+- [ ] Test
+
+
 - Documentation
   - [] Guide outline
   - [] Full Guide
