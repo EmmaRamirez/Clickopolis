@@ -28,6 +28,44 @@ function removeItem(arr, item) {
             arr.splice(i, 1);
     }
 }
+function abbrNum(number, decPlaces) {
+    // 2 decimal places => 100, 3 => 1000, etc
+    decPlaces = Math.pow(10, decPlaces);
+    // Enumerate number abbreviations
+    var abbrev = ["k", "m", "b", "t"];
+    // Go through the array backwards, so we do the largest first
+    for (var i = abbrev.length - 1; i >= 0; i--) {
+        // Convert array index to "1000", "1000000", etc
+        var size = Math.pow(10, (i + 1) * 3);
+        // If the number is bigger or equal do the abbreviation
+        if (size <= number) {
+            // Here, we multiply by decPlaces, round, and then divide by decPlaces.
+            // This gives us nice rounding to a particular decimal place.
+            number = Math.round(number * decPlaces / size) / decPlaces;
+            // Handle special case where we round up to the next abbreviation
+            if ((number == 1000) && (i < abbrev.length - 1)) {
+                number = 1;
+                i++;
+            }
+            // Add the letter for the abbreviation
+            number += abbrev[i];
+            // We are done... stop
+            break;
+        }
+    }
+    return number;
+}
+;
+function time(d) {
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+    return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
+}
+;
+function choose(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
 function prepend(node, html) {
     var el = document.querySelector(node);
     el.insertAdjacentHTML('beforeend', html);
@@ -52,6 +90,13 @@ function hideElement(element) {
 function removeElement(element) {
     element = element;
     element.remove();
+}
+function elt(query, all) {
+    if (all === void 0) { all = false; }
+    if (all == false)
+        return document.querySelector(query);
+    else
+        return document.querySelectorAll(query);
 }
 function startGame() {
     if (store.get('playerCiv') !== undefined) {
@@ -92,6 +137,13 @@ function startNewGame() {
     });
 }
 ;
+function setPlayerCiv() {
+    var civNameInput = document.querySelector('#civName'), leaderNameInput = document.querySelector('#leaderName'), location = document.querySelector('#location');
+    playerCiv.civName = civNameInput.value;
+    playerCiv.leaderName = leaderNameInput.value;
+    playerCiv.location = location.value;
+    savePlayer();
+}
 function traitsSelection(index) {
     var traitSelect = document.querySelector('#trait');
     var trait = traitSelect.value;
@@ -122,11 +174,21 @@ function createGameUI() {
     // });
     bindElement('.food-btn', 'click', function () {
         var foodTotalElement = document.querySelector('.r-food-total');
-        resources[0].total += resources[0].perClick;
+        if (resources[0].total >= resources[0].max)
+            resources[0].total = resources[0].max;
+        else
+            resources[0].total += resources[0].perClick;
         foodTotalElement.innerHTML = resources[0].total.toString() + ' total';
         console.log(this);
     });
 }
+setInterval(function () {
+    if (resources[0].total >= resources[0].max)
+        resources[0].total = resources[0].max;
+    else
+        resources[0].total += resources[0].perSecond;
+    elt('.r-food-total').textContent = resources[0].total.toString() + ' total';
+}, 1000);
 function drawUI(el) {
     el.innerHTML = templates.createScreenHeader(playerCiv) +
         templates.createResourcesScreen(playerCiv, resources) +
@@ -140,7 +202,7 @@ function resourceClick(button, i) {
     //   item.addEventListener('click', function () {
     //     console.log(item, idx);
     //   });
-    // })
+    // };
     [].forEach.call(resourceButtons, function (item) {
         item.addEventListener('click', function () {
             resources[i].total += resources[i].perClick;
@@ -149,23 +211,6 @@ function resourceClick(button, i) {
             //createGameUI();
         })(item);
     });
-}
-// function btnClick() {
-//   bindElement('.food-btn', 'click', function() {
-//
-//     resources[0].total += resources[0].perClick;
-//     console.log(resources[0].total);
-//
-//
-//
-//   });
-// }
-function setPlayerCiv() {
-    var civNameInput = document.querySelector('#civName'), leaderNameInput = document.querySelector('#leaderName'), location = document.querySelector('#location');
-    playerCiv.civName = civNameInput.value;
-    playerCiv.leaderName = leaderNameInput.value;
-    playerCiv.location = location.value;
-    savePlayer();
 }
 function init() {
     startGame();
