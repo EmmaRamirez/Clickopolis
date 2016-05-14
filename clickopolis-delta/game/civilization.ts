@@ -9,6 +9,8 @@ class Civilization {
 
   happiness: number;
   anger: number;
+  health: number;
+  pollution: number;
   influence: number;
   legacy: number;
 

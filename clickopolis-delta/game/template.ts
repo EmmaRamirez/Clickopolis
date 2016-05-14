@@ -165,7 +165,7 @@ class Templates {
     return citizensScreen;
   }
 
-  createCivilizationScreen(player:Civilization):string {
+  createCivilizationScreen(playerCiv:Civilization):string {
     let civilizationScreen = `
       <section class='screen civilization-screen'>
         <h2><img src='img/empire.png'> Civilization</h2>
@@ -177,19 +177,19 @@ class Templates {
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>
-              <img src='img/happiness.png'> 33
+              <img src='img/happiness.png'> ${playerCiv.happiness}
             </span>
             <span class='civ-metric metric-anger'>
-              <img src='img/anger.png'> 44
+              <img src='img/anger.png'> ${playerCiv.anger}
             </span>
             <span class='civ-metric metric-health'>
-              <img src='img/health.png'> 34
+              <img src='img/health.png'> ${playerCiv.health}
             </span>
             <span class='civ-metric metric-pollution'>
-              <img src='img/pollution.png'> 33
+              <img src='img/pollution.png'> ${playerCiv.pollution}
             </span>
             <span class='civ-emtric metric-influence'>
-              <img src='img/influence.png'> 22
+              <img src='img/influence.png'> ${playerCiv.influence}
             </span>
           </div>
         </section>
