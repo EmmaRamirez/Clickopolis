@@ -16,7 +16,7 @@ class Templates {
           <button class="large-btn start-btn new-btn">New Game</button>
           <button class="large-btn start-btn current-btn">
             <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
-            <p>${game.era}</p>
+            <p>${game.era} era</p>
             <p>
               <span>
                 <img src="img/achievements.png"> 5
@@ -224,8 +224,8 @@ class Templates {
         <section class='civilization-screen-inner'>
           <div class='panel population-panel'>
             <button class='pop-btn'>Grow Population (+1)</button>
-            <span>Growth Cost: <img src='img/food.png'> 10</span>
-            <span>Population: <img src='img/citizen.png'> 33</span>
+            <span class='civ-metric'>Growth Cost: <img src='img/food.png'> 10</span>
+            <span class='civ-metric'>Population: <img src='img/citizen.png'> 33</span>
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>

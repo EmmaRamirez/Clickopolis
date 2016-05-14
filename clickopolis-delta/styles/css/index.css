@@ -573,6 +573,7 @@ button:focus {
 }
 
 .resources-screen {
+  background: linear-gradient(to bottom, white, #b9f5c9) !important;
   border-top: 4px solid #32E361;
 }
 
@@ -617,6 +618,7 @@ button:focus {
 }
 
 .resources-screen .resource {
+  background: #ecf0f1;
   border: 1px solid #ccc;
   border-radius: 4px;
   display: inline-block;
@@ -641,6 +643,7 @@ button:focus {
 }
 
 .resources-screen .resource-info-screen {
+  background: #ecf0f1;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: .5rem;
@@ -661,6 +664,20 @@ button:focus {
 
 .civilization-screen {
   border-top: 4px solid darkblue;
+}
+
+.civilization-screen .pop-btn {
+  background: #00cd00;
+  padding: .5rem;
+}
+
+.civilization-screen .civ-metric {
+  border: 1px solid #222;
+  border-radius: 4px;
+  display: inline-block;
+  margin: .5rem;
+  padding: .25rem;
+  text-align: center;
 }
 
 .notification {
