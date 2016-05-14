@@ -39,10 +39,12 @@
 
   .location-panel {
     //background: $clouds;
+    background: desaturate($green, 15%);
     border-left: 4px solid $green;
+    color: white;
     margin: .25rem;
     padding: .25rem;
-    //text-align: center;
+    text-align: center;
     p { padding: 0; margin: 0; }
   }
 
