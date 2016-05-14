@@ -35,6 +35,15 @@
     }
   }
 
+  .location-panel {
+    //background: $clouds;
+    border-left: 4px solid $green;
+    margin: .25rem;
+    padding: .25rem;
+    //text-align: center;
+    p { padding: 0; margin: 0; }
+  }
+
   .resource {
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -45,6 +54,7 @@
     text-align: center;
     &[data-resource]:hover {
       background: darken($clouds, 5%);
+      cursor: pointer;
       @extend %transition-s;
     }
     &[data-resource].active {
@@ -56,6 +66,8 @@
     margin: .25rem;
     text-align: center;
   }
+
+
 
   .resource-info-screen {
     border: 1px solid #ccc;

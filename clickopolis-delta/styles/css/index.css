@@ -605,6 +605,17 @@ button:focus {
   background: #d5c61c;
 }
 
+.resources-screen .location-panel {
+  border-left: 4px solid #32E361;
+  margin: .25rem;
+  padding: .25rem;
+}
+
+.resources-screen .location-panel p {
+  padding: 0;
+  margin: 0;
+}
+
 .resources-screen .resource {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -617,6 +628,7 @@ button:focus {
 
 .resources-screen .resource[data-resource]:hover {
   background: #dde4e6;
+  cursor: pointer;
 }
 
 .resources-screen .resource[data-resource].active {

@@ -95,14 +95,17 @@ class Templates {
             <span class='resource-info'>${resources[1].total} total</span>
           </div>
 
-          <br>
+          <div class='panel location-panel'>
+            <p>Biome (${playerCiv.location}) Bonus: </p>
+          </div>
+
 
           <div class='panel resources-panel'>
             <span class='resource'>
               <img src='img/health.png'> Health
             </span>
 
-            <span class='resource' data-resource='fish'>
+            <span class='resource active' data-resource='fish'>
               <img src='img/fish.png'> <span>33</span>
             </span>
 
