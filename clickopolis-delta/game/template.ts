@@ -1,6 +1,7 @@
 import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
+import Resources = require('./resources');
 import Utils = require('./utils');
 
 let u = new Utils();
@@ -77,7 +78,7 @@ class Templates {
     </section>
   `;
 
-  createResourcesScreen(playerCiv:Civilization, resources:Resource[]) {
+  createResourcesScreen(playerCiv:Civilization, resources:Resources) {
     let resourcesScreen = `
       <section class='screen resources-screen'>
         <h2><img src='img/resources.png'> Resources</h2>

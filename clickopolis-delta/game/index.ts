@@ -24,8 +24,7 @@ let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 
 //notify('hello');
 
-let resources:Resource[] = [food, prod, stone, fish];
-
+let resources:Resources = new Resources([food, prod, stone, fish]);
 
 
 game.era = 'ancient';
@@ -36,7 +35,6 @@ function saveGame():void {
   store.get('game');
 }
 
-console.log(resources[0], resources[1]);
 
 
 

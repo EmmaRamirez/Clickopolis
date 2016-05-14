@@ -1,14 +1,14 @@
 import Resource = require('./resource');
 
 class Resources {
-  resources:Resource[];
+  items:Resource[];
 
   push(resource:Resource) {
-    this.resources.push(resource);
+    this.items.push(resource);
   }
 
   get(query:string):Resource {
-    let r = this.resources;
+    let r = this.items;
 
     for (let i = 0; i > r.length; i++) {
       if (query === r[i].name) {
@@ -20,5 +20,11 @@ class Resources {
     }
   }
 
+  constructor(items:Resource[]) {
+    this.items = items;
+  }
+
 
 }
+
+export = Resources;

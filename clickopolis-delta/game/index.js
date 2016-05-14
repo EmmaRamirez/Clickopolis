@@ -5,6 +5,7 @@ var _ = require('underscore');
 var Game = require('./game');
 var Civilization = require('./civilization');
 var Resource = require('./resource');
+var Resources = require('./resources');
 var Templates = require('./template');
 console.log(_.random(0, 100));
 var game = new Game(0);
@@ -15,13 +16,12 @@ var prod = new Resource('prod', 1, 0, 200, 0, 'prod', 'Prod.');
 var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 //notify('hello');
-var resources = [food, prod, stone, fish];
+var resources = new Resources([food, prod, stone, fish]);
 game.era = 'ancient';
 function saveGame() {
     store.set('game', game);
     store.get('game');
 }
-console.log(resources[0], resources[1]);
 function savePlayer() {
     store.set('playerCiv', playerCiv);
     console.log(store.get('playerCiv'));
