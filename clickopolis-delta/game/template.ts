@@ -1,7 +1,9 @@
 import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
+import Utils = require('./utils');
 
+let u = new Utils();
 
 class Templates {
 
@@ -96,7 +98,7 @@ class Templates {
           </div>
 
           <div class='panel location-panel'>
-            <p>Biome (${playerCiv.location}) Bonus: </p>
+            <p>Biome (${playerCiv.location}) Bonus: +10% <img src='img/food.png'> PC</p>
           </div>
 
 
