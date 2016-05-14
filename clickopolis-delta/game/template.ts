@@ -175,6 +175,23 @@ class Templates {
             <span>Growth Cost: <img src='img/food.png'> 10</span>
             <span>Population: <img src='img/citizen.png'> 33</span>
           </div>
+          <div class='panel civ-metric-panel'>
+            <span class='civ-metric metric-happiness'>
+              <img src='img/happiness.png'> 33
+            </span>
+            <span class='civ-metric metric-anger'>
+              <img src='img/anger.png'> 44
+            </span>
+            <span class='civ-metric metric-health'>
+              <img src='img/health.png'> 34
+            </span>
+            <span class='civ-metric metric-pollution'>
+              <img src='img/pollution.png'> 33
+            </span>
+            <span class='civ-emtric metric-influence'>
+              <img src='img/influence.png'> 22
+            </span>
+          </div>
         </section>
       </section>
     `;
