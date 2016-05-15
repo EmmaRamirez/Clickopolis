@@ -6,7 +6,9 @@ class Citizen {
   prodContribution: number;
 
   healthContribution: number;
+  pollutionContribution: number;
   happinessContribution: number;
+  angerContribution: number;
 
   scienceContribution: number;
   influenceContribution: number;
