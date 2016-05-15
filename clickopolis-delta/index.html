@@ -30,5 +30,21 @@
     <!-- <script src="node_modules/underscore/underscore.js"></script> -->
     <script src="node_modules/store/store.js"></script>
     <script src="bundle.js"></script>
+    <script>
+    (function() {
+        function scrollHorizontally(e) {
+            e = window.event || e;
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+            document.querySelector('body').scrollLeft -= (delta*-30); // Multiplied by 40
+            e.preventDefault();
+        }
+        if (document.querySelector('body').addEventListener) {
+            // IE9, Chrome, Safari, Opera
+            document.querySelector('body').addEventListener("mousewheel", scrollHorizontally, false);
+            // Firefox
+            document.querySelector('body').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+        }
+    })();
+    </script>
   </body>
 </html>

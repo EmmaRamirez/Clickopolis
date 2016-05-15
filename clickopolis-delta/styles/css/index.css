@@ -410,7 +410,7 @@ textarea {
   /* 2 */
 }
 
-button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled], .resources-screen .food-btn, .resources-screen .food-btn:hover, .resources-screen .prod-btn, .resources-screen .prod-btn:hover, .resources-screen .resource[data-resource]:hover {
+button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled], .screen, .screen:hover, .resources-screen .food-btn, .resources-screen .food-btn:hover, .resources-screen .prod-btn, .resources-screen .prod-btn:hover, .resources-screen .resource[data-resource]:hover {
   transition: 250ms all;
 }
 
@@ -469,7 +469,7 @@ img.clickopolis-logo {
 }
 
 .center-text {
-  text-align: center;
+  text-align: center !important;
 }
 
 button {
@@ -574,6 +574,10 @@ button:focus {
 .checkbox-list input[type='checkbox'][disabled] {
   cursor: not-allowed;
   opacity: 0;
+}
+
+.screen:hover {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
 }
 
 .screen h2 {
@@ -710,7 +714,7 @@ button:focus {
 }
 
 .civilization-screen .metric-population {
-  background: #ecf0f1;
+  background: #E6DBB3;
 }
 
 .civilization-screen .metric-happiness {
@@ -803,14 +807,19 @@ section {
   height: 70%;
   left: 20%;
   position: absolute;
-  top: 10%;
-  width: 60%;
+  top: 15%;
+  width: 6000px;
 }
 
 .screen-header {
   background: #C4C38B;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../../img/ancient-alt.jpg");
   color: #ecf0f1;
-  padding: .25rem 1rem;
+  padding: 1rem 1rem;
+  position: fixed;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  top: 5%;
+  width: 1200px;
 }
 
 .screen-header * {
@@ -822,7 +831,7 @@ section {
   display: inline-block;
   height: 100%;
   padding: 1rem;
-  width: calc(50% - 2px);
+  width: 600px;
   vertical-align: top;
 }
 

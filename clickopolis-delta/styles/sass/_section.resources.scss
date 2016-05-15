@@ -4,7 +4,7 @@
 
   background: linear-gradient(to bottom, white, lighten($green, 30%)) !important;
   border-top: 4px solid $green;
-
+  
 
   h2 {
     color: darken($green, 10%);
@@ -125,7 +125,7 @@
     background: $clouds;
   }
   .metric-population {
-    background: $clouds;
+    background: #E6DBB3;
   }
   .metric-happiness {
     background: lighten(yellow, 20%);

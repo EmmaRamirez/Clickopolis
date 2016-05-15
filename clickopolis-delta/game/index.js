@@ -218,6 +218,11 @@ setInterval(function () {
     else
         resources.get('food').total += resources.get('food').perSecond;
     elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
+    if (resources.get('prod').total >= resources.get('prod').max)
+        resources.get('prod').total = resources.get('prod').max;
+    else
+        resources.get('food').total += resources.get('prod').perSecond;
+    elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
 }, 1000);
 function drawUI(el) {
     el.innerHTML = templates.createScreenHeader(playerCiv, game) +

@@ -80,7 +80,7 @@ class Templates {
 
   createResourcesScreen(playerCiv:Civilization, resources:Resources) {
     let resourcesScreen = `
-      <section class='screen resources-screen'>
+      <section class='screen resources-screen' id='resources'>
         <h2><img src='img/resources.png'> Resources</h2>
         <section class='resources-screen-inner'>
           <div class='panel food-panel'>
@@ -208,7 +208,7 @@ class Templates {
 
   createCitizenScreen(playerCiv:Civilization):string {
     let citizensScreen = `
-      <section class='screen citizens-screen'>
+      <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
           <div class='row citizen-farmer'>
@@ -227,12 +227,11 @@ class Templates {
 
   createCivilizationScreen(playerCiv:Civilization):string {
     let civilizationScreen = `
-      <section class='screen civilization-screen'>
+      <section class='screen civilization-screen' id='civilization'>
         <h2><img src='img/empire.png'> Civilization</h2>
         <section class='civilization-screen-inner'>
           <div class='panel population-panel'>
-            <button class='pop-btn'>Grow Population (+1)</button>
-            <span class='civ-metric metric-growth-cost'>Growth Cost: <img src='img/food.png'> 10</span>
+            <button class='pop-btn'>+1 Population (<img src='img/food.png'> 10)</button>
             <span class='civ-metric metric-population'>Population: <img src='img/citizen.png'> 33</span>
           </div>
           <div class='panel civ-metric-panel'>
@@ -260,7 +259,7 @@ class Templates {
 
   createEconomyScreen(playerCiv:Civilization) {
     let economyScreen = `
-      <section class='screen economy-screen'>
+      <section class='screen economy-screen' id='economy'>
         <h2><img src='img/money.png'> Economy</h2>
         <section class='economy-screen-inner'>
 

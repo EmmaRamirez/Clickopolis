@@ -14,6 +14,9 @@ class Civilization {
   influence: number;
   legacy: number;
 
+  population: number;
+  populationGrowthCost: number;
+
   achievements: number;
 
   goldenAges: number;

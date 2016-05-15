@@ -1,4 +1,9 @@
 .screen {
+  @extend %transition-s;
+  &:hover {
+    box-shadow: 0 0 .25rem rgba(black, 0.2);
+    @extend %transition-s;
+  }
   h2 {
     text-transform: uppercase;
   }
