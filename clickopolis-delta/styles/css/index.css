@@ -582,6 +582,50 @@ button:focus {
 
 .screen:hover {
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
+
+  overflow-y: auto;
+}
+
+.screen::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.screen::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+.screen::-webkit-scrollbar-thumb {
+  background: #525252;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+.screen::-webkit-scrollbar-thumb:hover {
+  background: #585858;
+}
+
+.screen::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+
+.screen::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+.screen::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+
+.screen::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+
+.screen::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .screen h2 {
