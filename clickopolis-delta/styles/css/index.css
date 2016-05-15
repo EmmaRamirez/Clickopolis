@@ -578,12 +578,11 @@ button:focus {
 
 .screen {
   border-top: 4px solid transparent;
+  overflow-y: auto;
 }
 
 .screen:hover {
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
-
-  overflow-y: auto;
 }
 
 .screen::-webkit-scrollbar {
@@ -776,7 +775,7 @@ button:focus {
 }
 
 .civilization-screen .metric-health {
-  background: #ecf0f1;
+  background: white;
 }
 
 .civilization-screen .metric-pollution {
@@ -789,6 +788,10 @@ button:focus {
 
 .economy-screen {
   border-top: 4px solid green;
+}
+
+.buildings-screen {
+  border-top: 4px solid gold;
 }
 
 .notification {
