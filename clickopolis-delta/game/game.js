@@ -4,6 +4,7 @@ var Game = (function () {
         this.introStep = introStep;
         this.era = 'ancient';
         this.year = 0;
+        this.time = 0;
     }
     return Game;
 }());
