@@ -32,6 +32,7 @@ var Templates = (function () {
     };
     Templates.prototype.createBuildingsScreen = function () {
         var buildingsScreen = "\n      <section class='screen buildings-screen' id='buildings'>\n        <h2><img src='img/buildings.png'> Buildings</h2>\n        <section class='buildings-screen-inner'>\n\n        </section>\n      </section>\n    ";
+        return buildingsScreen;
     };
     return Templates;
 }());

@@ -278,6 +278,7 @@ class Templates {
         </section>
       </section>
     `;
+    return buildingsScreen;
   }
 
 
