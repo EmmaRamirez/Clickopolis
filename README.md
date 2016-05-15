@@ -29,6 +29,17 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - [ ] Power: Spaghetti, Chihuahuas
 - [ ] Soil Fertility Algorithm
 
+
+### Civilization
+- [ ] Civilization UI
+- [ ] Population increase
+- [ ] Happiness / anger
+  - [ ] Effects from unhappiness
+  - [ ] Revolt/revolution implementation
+- [ ] Health / pollution
+- [ ] influence
+- [ ] Golden Ages
+
 ### Citizens
 - [ ] Citizens UI
 
@@ -39,7 +50,9 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - [ ] Ancient era
   - [ ] Classical era
 
-
+### Events
+- [ ] Event creation
+  - [ ] Plague event
 <!--
 - Documentation
   - [] Guide outline
