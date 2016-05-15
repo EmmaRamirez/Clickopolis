@@ -36,7 +36,7 @@ let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, 
 console.log(resources.get('food'));
 console.log(resources.items);
 
-game.era = 'ancient';
+//game.era = 'ancient';
 
 
 function saveGame():void {

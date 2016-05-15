@@ -15,7 +15,7 @@ var Templates = (function () {
         return resourcesScreen;
     };
     Templates.prototype.createScreenHeader = function (playerCiv, game) {
-        var screenHeader = "\n      <header class='screen-header'>\n        <h1>Clickopolis</h1>\n        <h2>" + playerCiv.leaderName + " of " + playerCiv.civName + " &mdash; " + game.era + " era</h2>\n      </header>\n    ";
+        var screenHeader = "\n      <header class='screen-header'>\n        <h1>Clickopolis</h1>\n        <h2>" + playerCiv.leaderName + " of " + playerCiv.civName + " &mdash; " + game.era + " era &mdash; " + game.year + " AC</h2>\n      </header>\n    ";
         return screenHeader;
     };
     Templates.prototype.createCitizenScreen = function (playerCiv) {

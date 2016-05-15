@@ -2,6 +2,8 @@
 var Game = (function () {
     function Game(introStep) {
         this.introStep = introStep;
+        this.era = 'ancient';
+        this.year = 0;
     }
     return Game;
 }());

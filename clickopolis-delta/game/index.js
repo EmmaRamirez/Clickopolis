@@ -27,7 +27,7 @@ var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
 console.log(resources.get('food'));
 console.log(resources.items);
-game.era = 'ancient';
+//game.era = 'ancient';
 function saveGame() {
     store.set('game', game);
     store.get('game');

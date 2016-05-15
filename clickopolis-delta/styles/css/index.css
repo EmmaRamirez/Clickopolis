@@ -576,6 +576,10 @@ button:focus {
   opacity: 0;
 }
 
+.screen {
+  border-top: 4px solid transparent;
+}
+
 .screen:hover {
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
 }
@@ -585,7 +589,7 @@ button:focus {
 }
 
 .resources-screen {
-  background: linear-gradient(to bottom, white, #b9f5c9) !important;
+  background: linear-gradient(to bottom, #eee, #b9f5c9) !important;
   border-top: 4px solid #32E361;
 }
 
@@ -688,10 +692,12 @@ button:focus {
 }
 
 .citizens-screen {
+  background: linear-gradient(to bottom, white, #E6DBB3) !important;
   border-top: 4px solid tan;
 }
 
 .civilization-screen {
+  background: linear-gradient(to bottom, white, #B3BEE6) !important;
   border-top: 4px solid darkblue;
 }
 
@@ -756,7 +762,7 @@ button:focus {
 }
 
 body {
-  background: #eee;
+  background: #222;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
 }
 
