@@ -269,6 +269,17 @@ class Templates {
     return economyScreen;
   }
 
+  createBuildingsScreen() {
+    let buildingsScreen = `
+      <section class='screen buildings-screen' id='buildings'>
+        <h2><img src='img/buildings.png'> Buildings</h2>
+        <section class='buildings-screen-inner'>
+
+        </section>
+      </section>
+    `;
+  }
+
 
 
 }

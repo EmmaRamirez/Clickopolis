@@ -286,7 +286,8 @@ function drawUI(el:HTMLElement) {
                   templates.createResourcesScreen(playerCiv, resources) +
                   templates.createCivilizationScreen(playerCiv) +
                   templates.createCitizenScreen(playerCiv) +
-                  templates.createEconomyScreen(playerCiv);
+                  templates.createEconomyScreen(playerCiv) +
+                  templates.createBuildingsScreen();
 }
 
 function resourceClick(button:string, i:number) {

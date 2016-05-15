@@ -229,7 +229,8 @@ function drawUI(el) {
         templates.createResourcesScreen(playerCiv, resources) +
         templates.createCivilizationScreen(playerCiv) +
         templates.createCitizenScreen(playerCiv) +
-        templates.createEconomyScreen(playerCiv);
+        templates.createEconomyScreen(playerCiv) +
+        templates.createBuildingsScreen();
 }
 function resourceClick(button, i) {
     var resourceButtons = document.querySelectorAll(button);
