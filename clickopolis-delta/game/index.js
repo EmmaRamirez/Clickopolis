@@ -25,9 +25,6 @@ var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts')
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
-console.log(resources.get('food'));
-console.log(resources.items);
-//game.era = 'ancient';
 function saveGame() {
     store.set('game', game);
     store.get('game');
@@ -175,28 +172,6 @@ function createGameUI() {
     intro != undefined ? intro.remove() : console.log('intro not defined');
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
-    //btnClick();
-    //resourceClick('.food-btn', 0);
-    //resourceClick('.prod-btn', 1);
-    // bindElement('.prod-btn', 'click', function () {
-    //   let prodTotalElement = <HTMLElement>document.querySelector('.r-prod-total');
-    //
-    //   resources[1].total += resources[1].perClick;
-    //   prodTotalElement.innerHTML = resources[1].total.toString() + ' total';
-    //
-    //   console.log(this);
-    // });
-    // bindElement('.food-btn', 'click', function () {
-    //   let foodTotalElement = <HTMLElement>document.querySelector('.r-food-total');
-    //
-    //   if (resources[0].total >= resources[0].max) resources[0].total = resources[0].max;
-    //   else resources[0].total += resources[0].perClick;
-    //
-    //
-    //   foodTotalElement.innerHTML = resources[0].total.toString() + ' total';
-    //
-    //   console.log(this);
-    // });
     bindElement('.food-btn', 'click', function (event) {
         addClickToTotal('.r-food-total', 'food');
     });
