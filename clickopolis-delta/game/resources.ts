@@ -9,15 +9,17 @@ class Resources {
 
   get(query:string):Resource {
     let r = this.items;
+    let ri:Resource;
 
-    for (let i = 0; i < r.length; i++) {
-      if (query === r[i].name) {
-        return r[i];
-      } else {
-        // QUESTION: defaults to food?
+    switch (query) {
+      case 'food':
         return r[0];
-      }
+      case 'prod':
+        return r[1];
+      default:
+        return r[2];
     }
+
   }
 
   constructor(items:Resource[]) {

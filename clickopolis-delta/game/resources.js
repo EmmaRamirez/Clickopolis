@@ -8,14 +8,14 @@ var Resources = (function () {
     };
     Resources.prototype.get = function (query) {
         var r = this.items;
-        for (var i = 0; i < r.length; i++) {
-            if (query === r[i].name) {
-                return r[i];
-            }
-            else {
-                // QUESTION: defaults to food?
+        var ri;
+        switch (query) {
+            case 'food':
                 return r[0];
-            }
+            case 'prod':
+                return r[1];
+            default:
+                return r[2];
         }
     };
     return Resources;
