@@ -29,7 +29,6 @@ var Utils = (function () {
         }
         return number;
     };
-    ;
     return Utils;
 }());
 module.exports = Utils;

@@ -44,7 +44,7 @@ class Civilization {
     this.achievements = 0;
 
     this.goldenAgeProgress = 0;
-    this.goldenAgeGoal = 10000;
+    this.goldenAgeGoal = 100000;
   }
 
 

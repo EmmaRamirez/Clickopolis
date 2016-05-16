@@ -684,7 +684,7 @@ button:focus {
   border: 1px solid #ccc;
   display: inline-block;
   margin: .25rem;
-  min-width: 10rem;
+  min-width: 7rem;
   padding: .5rem;
   text-align: center;
 }

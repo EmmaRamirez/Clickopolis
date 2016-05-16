@@ -26,7 +26,7 @@ class Utils {
       }
 
       return number;
-  };
+  }
 }
 
 export = Utils;

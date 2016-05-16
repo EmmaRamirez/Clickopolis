@@ -142,6 +142,10 @@ class Templates {
               <img src='img/cavalry.png'> Strategic
             </span>
 
+            <span class='resource' data-resource='horse'>
+              <img src='img/horse.png'> <span>35</span>
+            </span>
+
             <span class='resource' data-unlocked='false' data-resource='oil'>
               <img src='img/oil.png'> <span>22</span>
             </span>
