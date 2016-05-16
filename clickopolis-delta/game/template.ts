@@ -164,7 +164,7 @@ class Templates {
               <img src='img/gold.png'> <span>0</span>
             </span>
 
-            <span class='resource' data-visible='false' data-resource='gems'>
+            <span class='resource' data-resource='gems'>
               <img src='img/gems.png'> <span>34</span>
             </span>
 
@@ -215,12 +215,21 @@ class Templates {
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
+          <p class='center-text'>Each citizen provides 1 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <div class='row citizen-farmer'>
             <button data-citizien-amount='-1'>-1</button>
             <span class='citizen-icon'><img src='img/farmer.png'></span>
             <button data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
-              Farmers: <strong>12</strong> | <em>Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.</em>
+              Farmers: <strong>12</strong> | Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.
+            </span>
+          </div>
+          <div class='row citizen-miner'>
+            <button data-citizien-amount='-1'>-1</button>
+            <span class='citizen-icon'><img src='img/miner.png'></span>
+            <button data-citizen-amount='1'>+1</button>
+            <span class='citizen-info'>
+              Miners: <strong>14</strong> | Miners provide +1 <img src='img/prod.png'> PC and +.2 PC.
             </span>
           </div>
         </section>
