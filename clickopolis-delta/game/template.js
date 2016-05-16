@@ -27,7 +27,7 @@ var Templates = (function () {
         return civilizationScreen;
     };
     Templates.prototype.createEconomyScreen = function (playerCiv) {
-        var economyScreen = "\n      <section class='screen economy-screen' id='economy'>\n        <h2><img src='img/money.png'> Economy</h2>\n        <section class='economy-screen-inner'>\n\n        </section>\n      </section>\n    ";
+        var economyScreen = "\n      <section class='screen economy-screen' id='economy'>\n        <h2><img src='img/money.png'> Economy</h2>\n        <section class='economy-screen-inner'>\n          <div class='total-cash'>\n            <img src='img/coin.png'> " + playerCiv.cash + "\n          </div>\n        </section>\n      </section>\n    ";
         return economyScreen;
     };
     Templates.prototype.createBuildingsScreen = function () {

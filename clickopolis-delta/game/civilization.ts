@@ -20,6 +20,8 @@ class Civilization {
 
   achievements: number;
 
+  cash: number;
+
   goldenAges: number;
   goldenAgeProgress: number;
   goldenAgeGoal: number;
@@ -50,6 +52,8 @@ class Civilization {
     this.population = 1;
     this.populationGrowthCost = 10;
     this.populationReal = 1000;
+
+    this.cash = 0;
   }
 
 

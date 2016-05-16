@@ -169,6 +169,17 @@
 .economy-screen {
   background: linear-gradient(to bottom, white, #A0D190) !important;
   border-top: 4px solid green;
+  .total-cash {
+    background: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: .5rem;
+    text-align: right;
+    img {
+      height: 1.5rem;
+      margin-top: 4px;
+    }
+  }
 }
 
 .buildings-screen {

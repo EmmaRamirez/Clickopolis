@@ -287,7 +287,9 @@ class Templates {
       <section class='screen economy-screen' id='economy'>
         <h2><img src='img/money.png'> Economy</h2>
         <section class='economy-screen-inner'>
-
+          <div class='total-cash'>
+            <img src='img/coin.png'> ${playerCiv.cash}
+          </div>
         </section>
       </section>
     `;
