@@ -739,6 +739,20 @@ button:focus {
   border-top: 4px solid tan;
 }
 
+.citizens-screen .row {
+  background: rgba(255, 255, 255, 0.9);
+  padding: .5rem;
+}
+
+.citizens-screen .citizen-icon img {
+  height: 1.5rem;
+}
+
+.citizens-screen button {
+  text-align: center;
+  width: 2rem;
+}
+
 .civilization-screen {
   background: linear-gradient(to bottom, white, #B3BEE6) !important;
   border-top: 4px solid darkblue;
@@ -793,10 +807,12 @@ button:focus {
 }
 
 .economy-screen {
+  background: linear-gradient(to bottom, white, #A0D190) !important;
   border-top: 4px solid green;
 }
 
 .buildings-screen {
+  background: linear-gradient(to bottom, white, #CDD483) !important;
   border-top: 4px solid gold;
 }
 

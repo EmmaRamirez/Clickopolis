@@ -105,6 +105,20 @@
 .citizens-screen {
   background: linear-gradient(to bottom, white, #E6DBB3) !important;
   border-top: 4px solid tan;
+
+  .row {
+    background: rgba(white, 0.9);
+    padding: .5rem;
+  }
+
+  .citizen-icon img {
+    height: 1.5rem;
+  }
+
+  button {
+    text-align: center;
+    width: 2rem;
+  }
 }
 
 .civilization-screen {
@@ -152,9 +166,11 @@
 }
 
 .economy-screen {
+  background: linear-gradient(to bottom, white, #A0D190) !important;
   border-top: 4px solid green;
 }
 
 .buildings-screen {
+  background: linear-gradient(to bottom, white, #CDD483) !important;
   border-top: 4px solid gold;
 }
