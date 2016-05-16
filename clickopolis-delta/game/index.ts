@@ -238,6 +238,8 @@ function createGameUI() {
     checkPopulationGrowthCost();
   });
 
+  resourceClick();
+
   bindElement('.pop-btn', 'click', function () {
     console.log('Systems are a go!')
     let popGrowthCost = document.querySelector('.pop-growth-cost');
@@ -302,24 +304,23 @@ function drawUI(el:HTMLElement) {
                   templates.createTechnologyScreen();
 }
 
-function resourceClick(button:string, i:number) {
-  let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll(button);
-  let foodTotalElement = <HTMLElement>document.querySelector('.r-food-total');
-  // resourceButtons.forEach(function (item:any, idx:number) {
-  //   item.addEventListener('click', function () {
-  //     console.log(item, idx);
-  //   });
-  // };
-  resources.get('food').total += resources.get('food').perClick;
-  foodTotalElement.innerHTML = resources.get('food').total.toString() + ' total';
-  // [].forEach.call(resourceButtons, function(item:any) {
-  //   item.addEventListener('click', function () {
-  //     resources[i].total += resources[i].perClick;
-  //     foodTotalElement.innerHTML = resources[i].total.toString() + ' total';
-  //     console.log(this);
-  //     //createGameUI();
-  //   })(item);
-  //})
+function resourceClick() {
+  let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('.resource');
+  [].forEach.call(resourceButtons, function (item:any) {
+    item.addEventListener('click', function () {
+      let name = this.getAttribute('data-resource');
+      if (this.className === "resource active") {
+        this.className = "resource";
+      } else {
+        this.className += " active";
+      }
+      showResourceInfo(name);
+    });
+  });
+}
+
+function showResourceInfo(name:string) {
+  console.log(name);
 }
 
 function checkPopulationGrowthCost() {
