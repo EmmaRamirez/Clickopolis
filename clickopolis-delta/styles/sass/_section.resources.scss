@@ -199,6 +199,25 @@
       font-weight: bold;
     }
   }
+  table {
+    background: white;
+    margin-top: .5rem;
+    width: 100%;
+    tr {
+      padding: .25rem;
+    }
+    tr {
+      text-align: center;
+    }
+    tr:nth-of-type(1) {
+      //font-size: 1.25rem;
+      font-weight: bold;
+
+    }
+    tr:nth-of-type(even) {
+      background: #eee;
+    }
+  }
 }
 
 .buildings-screen {

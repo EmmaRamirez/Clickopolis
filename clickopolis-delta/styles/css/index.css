@@ -848,6 +848,28 @@ button:focus {
   font-weight: bold;
 }
 
+.economy-screen table {
+  background: white;
+  margin-top: .5rem;
+  width: 100%;
+}
+
+.economy-screen table tr {
+  padding: .25rem;
+}
+
+.economy-screen table tr {
+  text-align: center;
+}
+
+.economy-screen table tr:nth-of-type(1) {
+  font-weight: bold;
+}
+
+.economy-screen table tr:nth-of-type(even) {
+  background: #eee;
+}
+
 .buildings-screen {
   background: linear-gradient(to bottom, white, #CDD483) !important;
   border-top: 4px solid gold;

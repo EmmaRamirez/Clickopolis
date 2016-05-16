@@ -297,6 +297,27 @@ class Templates {
             <span class='cash-item'>From Military: <span class='cash-from-military'>24</span></span>
             <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>25</span></span>
           </span>
+          <div class='trade-deal-history'>
+            <table>
+              <tr>
+                <td colspan='4'><img src='img/trade-deal.png'> Trade Deal History</td>
+              </tr>
+              <tr>
+                <td>Nation</td>
+                <td>Gave...</td>
+                <td>For...</td>
+                <td>Year</td>
+              </tr>
+              <tr>
+                <td>Ulonia</td>
+                <td></td>
+                <td></td>
+                <td>25 AC</td>
+              </tr>
+            </table>
+
+
+          </div>
         </section>
       </section>
     `;
