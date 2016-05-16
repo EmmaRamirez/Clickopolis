@@ -816,6 +816,11 @@ button:focus {
   border-top: 4px solid gold;
 }
 
+.technology-screen {
+  background: linear-gradient(to bottom, white, #83D4D4) !important;
+  border-top: 4px solid #83D4D4;
+}
+
 .notification {
   background: #222;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
@@ -902,7 +907,6 @@ section {
 }
 
 .screen {
-  background: #fff;
   display: inline-block;
   height: 100%;
   padding: 1rem;

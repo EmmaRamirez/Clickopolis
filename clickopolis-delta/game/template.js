@@ -34,6 +34,10 @@ var Templates = (function () {
         var buildingsScreen = "\n      <section class='screen buildings-screen' id='buildings'>\n        <h2><img src='img/buildings.png'> Buildings</h2>\n        <section class='buildings-screen-inner'>\n\n        </section>\n      </section>\n    ";
         return buildingsScreen;
     };
+    Templates.prototype.createTechnologyScreen = function () {
+        var technologyScreen = "\n      <section class='screen technology-screen' id='technology'>\n        <h2><img src='img/research.png'> Technology</h2>\n        <section class='technology-screen-inner'>\n\n        </section>\n      </section>\n    ";
+        return technologyScreen;
+    };
     return Templates;
 }());
 module.exports = Templates;
