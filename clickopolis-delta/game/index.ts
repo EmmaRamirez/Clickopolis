@@ -23,6 +23,7 @@ let prod:Resource = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
 let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
+let spices:Resource = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
 let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
 let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
 let oil:Resource = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
@@ -33,7 +34,7 @@ let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Sp
 let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 
-let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
+let resources:Resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 
 let u = new Utils();
 

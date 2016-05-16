@@ -17,6 +17,7 @@ var prod = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
 var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
 var banana = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
+var spices = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
 var gold = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
 var gems = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
 var oil = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
@@ -26,7 +27,7 @@ var horse = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
 var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
-var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
+var resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 var u = new Utils();
 var isWindowActive = true;
 window.addEventListener('focus', function () {

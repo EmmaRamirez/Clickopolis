@@ -161,6 +161,10 @@ class Templates {
               <img src='img/crown.png'> Luxury
             </span>
 
+            <span class='resource' data-resource='spices'>
+              <img src='img/spices.png'> <span>15</span>
+            </span>
+
             <span class='resource' data-resource='gold'>
               <img src='img/gold.png'> <span>0</span>
             </span>
@@ -310,8 +314,8 @@ class Templates {
               </tr>
               <tr>
                 <td>Ulonia</td>
-                <td></td>
-                <td></td>
+                <td>10 <img src='img/horse.png'></td>
+                <td>5 <img src='img/gold.png'></td>
                 <td>25 AC</td>
               </tr>
             </table>
