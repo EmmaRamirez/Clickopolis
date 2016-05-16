@@ -244,8 +244,8 @@ class Templates {
         <h2><img src='img/empire.png'> Civilization</h2>
         <section class='civilization-screen-inner'>
           <div class='panel population-panel'>
-            <button class='pop-btn' disabled='true'>+1 Population (<img src='img/food.png'> <span class='pop-growth-cost'>10</span>)</button>
-            <span class='civ-metric metric-population'>Population: <img src='img/citizen.png'> 33</span>
+            <button class='pop-btn' disabled='true'>+1 Population (<img src='img/food.png'> <span class='pop-growth-cost'>${playerCiv.populationGrowthCost}</span>)</button>
+            <span class='civ-metric metric-population' title='${playerCiv.populationReal + ' people'}'>Population: <img src='img/citizen.png'> ${playerCiv.population}</span>
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>
