@@ -9,6 +9,7 @@ let u = new Utils();
 class Templates {
 
   createStartScreen(playerCiv:Civilization, game:Game) {
+
     let startScreen = `
       <section class='clickopolis-intro'>
         <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
@@ -264,7 +265,7 @@ class Templates {
               <img src='img/influence.png'> ${playerCiv.influence}
             </span>
             <span class='civ-metric metric-golden-age'>
-              <img src='img/golden-age.png'> ${playerCiv.goldenAgeProgress} / ${playerCiv.goldenAgeGoal}
+              <img src='img/golden-age.png'> Golden Age Points ${playerCiv.goldenAgeProgress} / ${u.abbrNum(playerCiv.goldenAgeGoal, 2)}
             </span>
           </div>
         </section>

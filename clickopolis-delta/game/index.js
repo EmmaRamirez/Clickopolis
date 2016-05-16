@@ -2,6 +2,7 @@
 // <reference path="underscore.d.ts" />
 "use strict";
 var _ = require('underscore');
+var Utils = require('./utils');
 var Game = require('./game');
 var Civilization = require('./civilization');
 var Resource = require('./resource');
@@ -25,6 +26,14 @@ var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts')
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
+var u = new Utils();
+var isWindowActive = true;
+window.addEventListener('focus', function () {
+    isWindowActive = true;
+});
+window.addEventListener('blur', function () {
+    isWindowActive = false;
+});
 function saveGame() {
     store.set('game', game);
     store.get('game');
@@ -190,18 +199,21 @@ function addClickToTotal(el, item) {
     element.innerHTML = resources.get(item).total.toString() + ' total';
 }
 setInterval(function () {
-    if (resources.get('food').total >= resources.get('food').max)
-        resources.get('food').total = resources.get('food').max;
-    else
-        resources.get('food').total += resources.get('food').perSecond;
-    elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
-    if (resources.get('prod').total >= resources.get('prod').max)
-        resources.get('prod').total = resources.get('prod').max;
-    else
-        resources.get('food').total += resources.get('prod').perSecond;
-    elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
-    game.time += 1;
-    checkPopulationGrowthCost();
+    if (isWindowActive) {
+        if (resources.get('food').total >= resources.get('food').max)
+            resources.get('food').total = resources.get('food').max;
+        else
+            resources.get('food').total += resources.get('food').perSecond;
+        elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
+        if (resources.get('prod').total >= resources.get('prod').max)
+            resources.get('prod').total = resources.get('prod').max;
+        else
+            resources.get('food').total += resources.get('prod').perSecond;
+        elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
+        game.time += 1;
+        checkPopulationGrowthCost();
+    }
+    console.log(isWindowActive);
 }, 1000);
 setInterval(function () {
     game.year += 1;

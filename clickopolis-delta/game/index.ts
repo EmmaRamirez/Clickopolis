@@ -2,6 +2,7 @@
 // <reference path="underscore.d.ts" />
 
 import _ = require('underscore');
+import Utils = require('./utils');
 import Game = require('./game');
 import Settings = require('./settings');
 import Civilization = require('./civilization');
@@ -32,6 +33,18 @@ let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Ba
 //notify('hello');
 
 let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
+
+let u = new Utils();
+
+let isWindowActive:boolean = true;
+
+window.addEventListener('focus', function () {
+  isWindowActive = true;
+});
+
+window.addEventListener('blur', function () {
+  isWindowActive = false;
+});
 
 function saveGame():void {
   store.set('game', game);
@@ -234,20 +247,26 @@ function addClickToTotal(el:string, item:string) {
 }
 
 setInterval(function() {
-  if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
-  else resources.get('food').total += resources.get('food').perSecond;
 
-  elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
+  if (isWindowActive) {
+    if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
+    else resources.get('food').total += resources.get('food').perSecond;
+
+    elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
 
 
-  if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
-  else resources.get('food').total += resources.get('prod').perSecond;
+    if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
+    else resources.get('food').total += resources.get('prod').perSecond;
 
-  elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
+    elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
 
-  game.time += 1;
+    game.time += 1;
 
-  checkPopulationGrowthCost();
+    checkPopulationGrowthCost();
+  }
+
+
+  console.log(isWindowActive);
 
 }, 1000);
 

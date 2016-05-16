@@ -802,8 +802,9 @@ button:focus {
 
 .civilization-screen .metric-golden-age {
   background: #222;
+  border: 1px solid black;
   color: #fff;
-  width: 12rem;
+  width: 16rem;
 }
 
 .economy-screen {
