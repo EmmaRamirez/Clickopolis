@@ -288,8 +288,15 @@ class Templates {
         <h2><img src='img/money.png'> Economy</h2>
         <section class='economy-screen-inner'>
           <div class='total-cash'>
-            <img src='img/coin.png'> ${playerCiv.cash}
+            <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span>
           </div>
+          <span class='cash-breakdown'>
+            <span class='cash-item'>From Workers: <span class='cash-from-workers'>23</span></span>
+            <span class='cash-item'>From Trade Routes: <span class='cash-from-routes'>45</span></span>
+            <span class='cash-item'>From Buildings: <span class='cash-from-buildings'>12</span></span>
+            <span class='cash-item'>From Military: <span class='cash-from-military'>24</span></span>
+            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>25</span></span>
+          </span>
         </section>
       </section>
     `;

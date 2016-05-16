@@ -12,7 +12,7 @@ console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
 var templates = new Templates();
-var food = new Resource('food', 1, 1, 1000, 0, 'food', 'Food.');
+var food = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
 var prod = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
 var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
 var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fishies');
@@ -183,25 +183,27 @@ function createGameUI() {
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
     bindElement('.food-btn', 'click', function (event) {
-        event.preventDefault();
+        //event.preventDefault();
         addClickToTotal('.r-food-total', 'food');
         checkPopulationGrowthCost();
     });
     bindElement('.prod-btn', 'click', function (event) {
-        event.preventDefault();
+        //event.preventDefault();
         addClickToTotal('.r-prod-total', 'prod');
         checkPopulationGrowthCost();
     });
     resourceClick();
-    bindElement('.pop-btn', 'click', function () {
-        console.log('Systems are a go!');
-        var popGrowthCost = document.querySelector('.pop-growth-cost');
-        var populationText = document.querySelector('.population-text');
-        resources.get('food').total -= playerCiv.populationGrowthCost;
-        playerCiv.population += 1;
-        populationText.textContent = playerCiv.population.toString();
-        popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
-    });
+    // bindElement('.pop-btn', 'click', function () {
+    //   console.log('Systems are a go!')
+    //   let popGrowthCost = document.querySelector('.pop-growth-cost');
+    //   let populationText = document.querySelector('.population-text');
+    //   resources.get('food').total -= playerCiv.populationGrowthCost;
+    //   playerCiv.population += 1;
+    //
+    //   populationText.textContent = playerCiv.population.toString();
+    //   popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+    //
+    // });
 }
 function addClickToTotal(el, item) {
     var element = elt(el);
@@ -231,6 +233,7 @@ setInterval(function () {
 setInterval(function () {
     if (isWindowActive) {
         game.year += 1;
+        addCash();
     }
 }, 1000 * 60);
 function drawUI(el) {
@@ -241,6 +244,11 @@ function drawUI(el) {
         templates.createEconomyScreen(playerCiv) +
         templates.createBuildingsScreen() +
         templates.createTechnologyScreen();
+}
+function addCash() {
+    playerCiv.cash += 10;
+    var cashText = elt('.cash-text');
+    cashText.textContent = playerCiv.cash.toString();
 }
 function resourceClick() {
     var resourceButtons = document.querySelectorAll('.resource');

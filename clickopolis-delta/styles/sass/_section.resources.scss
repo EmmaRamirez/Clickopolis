@@ -171,13 +171,32 @@
   border-top: 4px solid green;
   .total-cash {
     background: #fff;
+    border: 1px solid green;
+    border-radius: 4px;
     font-size: 1.5rem;
     font-weight: bold;
     padding: .5rem;
     text-align: right;
+    &.debt {
+      color: red;
+    }
     img {
       height: 1.5rem;
       margin-top: 4px;
+    }
+  }
+  .cash-item {
+    background: lighten(green, 15%);
+    color: white;
+    display: block;
+    margin: .25rem 0;
+    padding: .25rem;
+    text-align: right;
+    &.cash-item-total {
+      background: green;
+    }
+    span {
+      font-weight: bold;
     }
   }
 }

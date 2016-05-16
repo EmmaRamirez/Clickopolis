@@ -814,15 +814,38 @@ button:focus {
 
 .economy-screen .total-cash {
   background: #fff;
+  border: 1px solid green;
+  border-radius: 4px;
   font-size: 1.5rem;
   font-weight: bold;
   padding: .5rem;
   text-align: right;
 }
 
+.economy-screen .total-cash.debt {
+  color: red;
+}
+
 .economy-screen .total-cash img {
   height: 1.5rem;
   margin-top: 4px;
+}
+
+.economy-screen .cash-item {
+  background: #00cd00;
+  color: white;
+  display: block;
+  margin: .25rem 0;
+  padding: .25rem;
+  text-align: right;
+}
+
+.economy-screen .cash-item.cash-item-total {
+  background: green;
+}
+
+.economy-screen .cash-item span {
+  font-weight: bold;
 }
 
 .buildings-screen {
