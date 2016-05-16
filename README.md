@@ -16,6 +16,9 @@ Clickopolis-delta is the current working version of the game (written in Typescr
 - [ ] Save exports
 - [ ] Access to previous era skins
 - [ ] Audio on/off
+- [ ] Ability to switch between UIs
+  - [ ] Horizontal UI
+  - [ ] Grid UI
 
 ### Resources
 - [ ] Resource UI
@@ -54,6 +57,13 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - [ ] Scientists
   - [ ] Engineers
 
+### Economy
+- [ ] Economy UI
+- [ ] Total Cash Reserve display
+  - [ ] Breakdown
+  - [ ] Trends Graph
+- Trade Deal History
+- Trade Routes
 
 ### Buildings
 - [ ] Buildings UI
