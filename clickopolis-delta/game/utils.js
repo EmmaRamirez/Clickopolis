@@ -3,6 +3,7 @@ var Utils = (function () {
     function Utils() {
     }
     Utils.prototype.abbrNum = function (number, decPlaces) {
+        if (decPlaces === void 0) { decPlaces = 2; }
         // 2 decimal places => 100, 3 => 1000, etc
         decPlaces = Math.pow(10, decPlaces);
         // Enumerate number abbreviations

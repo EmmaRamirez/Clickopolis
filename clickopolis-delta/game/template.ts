@@ -233,6 +233,14 @@ class Templates {
               Miners: <strong>14</strong> | Miners provide +1 <img src='img/prod.png'> PC and +.2 PC.
             </span>
           </div>
+          <div class='row citizen-soldier'>
+            <button data-citizien-amount='-1'>-1</button>
+            <span class='citizen-icon'><img src='img/soldier-alt.png'></span>
+            <button data-citizen-amount='1'>+1</button>
+            <span class='citizen-info'>
+              Soldiers: <strong>3</strong> | Soldiers defend and fight for your empire. -3 <img src='img/coin.png'>
+            </span>
+          </div>
         </section>
       </section>
     `;
@@ -245,8 +253,8 @@ class Templates {
         <h2><img src='img/empire.png'> Civilization</h2>
         <section class='civilization-screen-inner'>
           <div class='panel population-panel'>
-            <button class='pop-btn' disabled='true'>+1 Population (<img src='img/food.png'> <span class='pop-growth-cost'>${playerCiv.populationGrowthCost}</span>)</button>
-            <span class='civ-metric metric-population' title='${playerCiv.populationReal + ' people'}'>Population: <img src='img/citizen.png'> ${playerCiv.population}</span>
+            <button class='pop-btn'>+1 Population (<img src='img/food.png'> <span class='pop-growth-cost'>${playerCiv.populationGrowthCost}</span>)</button>
+            <span class='civ-metric metric-population' title='${playerCiv.populationReal + ' people'}'>Population: <img src='img/citizen.png'> <span class='population-text'>${playerCiv.population}</span></span>
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>

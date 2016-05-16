@@ -28,11 +28,12 @@ let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
 let oil:Resource = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
 let uranium:Resource = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
 let iron:Resource = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
+let horse:Resource = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
 let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
 let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 
-let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
+let resources:Resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 
 let u = new Utils();
 
@@ -235,6 +236,19 @@ function createGameUI() {
     checkPopulationGrowthCost();
   });
 
+  bindElement('.pop-btn', 'click', function () {
+    console.log('Systems are a go!')
+    let popGrowthCost = document.querySelector('.pop-growth-cost');
+    let populationText = document.querySelector('.population-text');
+    resources.get('food').total -= playerCiv.populationGrowthCost;
+    playerCiv.population += 1;
+
+    populationText.textContent = playerCiv.population.toString();
+    popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+
+  });
+
+
 
 }
 
@@ -271,7 +285,9 @@ setInterval(function() {
 }, 1000);
 
 setInterval(function() {
-  game.year += 1;
+  if (isWindowActive) {
+     game.year += 1;
+  }
 }, 1000 * 60);
 
 function drawUI(el:HTMLElement) {
@@ -309,9 +325,11 @@ function checkPopulationGrowthCost() {
   if (playerCiv.populationGrowthCost > resources.get('food').total) {
     console.log(playerCiv.populationGrowthCost);
     button.setAttribute('disabled', 'true');
+    return false;
   } else {
     console.log(playerCiv.populationGrowthCost);
     button.setAttribute('disabled', 'false');
+    return true;
   }
 
 }
@@ -323,6 +341,7 @@ function checkPopulationGrowthCost() {
 
 function init() {
   startGame();
+
 }
 
 init();

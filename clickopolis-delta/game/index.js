@@ -22,10 +22,11 @@ var gems = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
 var oil = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
 var uranium = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
 var iron = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
+var horse = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
 var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
-var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti]);
+var resources = new Resources([food, prod, stone, fish, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 var u = new Utils();
 var isWindowActive = true;
 window.addEventListener('focus', function () {
@@ -189,6 +190,15 @@ function createGameUI() {
         addClickToTotal('.r-prod-total', 'prod');
         checkPopulationGrowthCost();
     });
+    bindElement('.pop-btn', 'click', function () {
+        console.log('Systems are a go!');
+        var popGrowthCost = document.querySelector('.pop-growth-cost');
+        var populationText = document.querySelector('.population-text');
+        resources.get('food').total -= playerCiv.populationGrowthCost;
+        playerCiv.population += 1;
+        populationText.textContent = playerCiv.population.toString();
+        popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+    });
 }
 function addClickToTotal(el, item) {
     var element = elt(el);
@@ -216,7 +226,9 @@ setInterval(function () {
     console.log(isWindowActive);
 }, 1000);
 setInterval(function () {
-    game.year += 1;
+    if (isWindowActive) {
+        game.year += 1;
+    }
 }, 1000 * 60);
 function drawUI(el) {
     el.innerHTML = templates.createScreenHeader(playerCiv, game) +
@@ -251,10 +263,12 @@ function checkPopulationGrowthCost() {
     if (playerCiv.populationGrowthCost > resources.get('food').total) {
         console.log(playerCiv.populationGrowthCost);
         button.setAttribute('disabled', 'true');
+        return false;
     }
     else {
         console.log(playerCiv.populationGrowthCost);
         button.setAttribute('disabled', 'false');
+        return true;
     }
 }
 function init() {
