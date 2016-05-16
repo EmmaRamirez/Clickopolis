@@ -497,7 +497,7 @@ button.start-btn {
   width: 50%;
 }
 
-button[disabled] {
+button[disabled='true'] {
   background: #ccc !important;
   color: #222;
   border: 1px solid #ddd;

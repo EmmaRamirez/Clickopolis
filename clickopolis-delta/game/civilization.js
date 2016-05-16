@@ -15,6 +15,8 @@ var Civilization = (function () {
         this.achievements = 0;
         this.goldenAgeProgress = 0;
         this.goldenAgeGoal = 100000;
+        this.population = 1;
+        this.populationGrowthCost = 10;
     }
     return Civilization;
 }());

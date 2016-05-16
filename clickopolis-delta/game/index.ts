@@ -214,11 +214,12 @@ function createGameUI() {
 
   bindElement('.food-btn', 'click', function (event:Event) {
     addClickToTotal('.r-food-total', 'food');
-
+    checkPopulationGrowthCost();
   });
 
   bindElement('.prod-btn', 'click', function (event:Event) {
     addClickToTotal('.r-prod-total', 'prod');
+    checkPopulationGrowthCost();
   });
 
 
@@ -245,6 +246,8 @@ setInterval(function() {
   elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
 
   game.time += 1;
+
+  checkPopulationGrowthCost();
 
 }, 1000);
 
@@ -280,6 +283,18 @@ function resourceClick(button:string, i:number) {
   //     //createGameUI();
   //   })(item);
   //})
+}
+
+function checkPopulationGrowthCost() {
+  let button = document.querySelector('.pop-btn');
+  if (playerCiv.populationGrowthCost > resources.get('food').total) {
+    console.log(playerCiv.populationGrowthCost);
+    button.setAttribute('disabled', 'true');
+  } else {
+    console.log(playerCiv.populationGrowthCost);
+    button.setAttribute('disabled', 'false');
+  }
+
 }
 
 

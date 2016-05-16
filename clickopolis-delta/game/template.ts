@@ -244,7 +244,7 @@ class Templates {
         <h2><img src='img/empire.png'> Civilization</h2>
         <section class='civilization-screen-inner'>
           <div class='panel population-panel'>
-            <button class='pop-btn'>+1 Population (<img src='img/food.png'> 10)</button>
+            <button class='pop-btn' disabled='true'>+1 Population (<img src='img/food.png'> <span class='pop-growth-cost'>10</span>)</button>
             <span class='civ-metric metric-population'>Population: <img src='img/citizen.png'> 33</span>
           </div>
           <div class='panel civ-metric-panel'>

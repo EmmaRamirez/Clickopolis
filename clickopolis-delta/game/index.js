@@ -174,9 +174,11 @@ function createGameUI() {
     //append('body', templates.resourcesScreen);
     bindElement('.food-btn', 'click', function (event) {
         addClickToTotal('.r-food-total', 'food');
+        checkPopulationGrowthCost();
     });
     bindElement('.prod-btn', 'click', function (event) {
         addClickToTotal('.r-prod-total', 'prod');
+        checkPopulationGrowthCost();
     });
 }
 function addClickToTotal(el, item) {
@@ -199,6 +201,7 @@ setInterval(function () {
         resources.get('food').total += resources.get('prod').perSecond;
     elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
     game.time += 1;
+    checkPopulationGrowthCost();
 }, 1000);
 setInterval(function () {
     game.year += 1;
@@ -230,6 +233,17 @@ function resourceClick(button, i) {
     //     //createGameUI();
     //   })(item);
     //})
+}
+function checkPopulationGrowthCost() {
+    var button = document.querySelector('.pop-btn');
+    if (playerCiv.populationGrowthCost > resources.get('food').total) {
+        console.log(playerCiv.populationGrowthCost);
+        button.setAttribute('disabled', 'true');
+    }
+    else {
+        console.log(playerCiv.populationGrowthCost);
+        button.setAttribute('disabled', 'false');
+    }
 }
 function init() {
     startGame();
