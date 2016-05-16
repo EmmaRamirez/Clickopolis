@@ -244,7 +244,13 @@ setInterval(function() {
 
   elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
 
+  game.time += 1;
+
 }, 1000);
+
+setInterval(function() {
+  game.year += 1;
+}, 1000 * 60);
 
 function drawUI(el:HTMLElement) {
   el.innerHTML =  templates.createScreenHeader(playerCiv, game) +

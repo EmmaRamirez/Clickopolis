@@ -198,7 +198,11 @@ setInterval(function () {
     else
         resources.get('food').total += resources.get('prod').perSecond;
     elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
+    game.time += 1;
 }, 1000);
+setInterval(function () {
+    game.year += 1;
+}, 1000 * 60);
 function drawUI(el) {
     el.innerHTML = templates.createScreenHeader(playerCiv, game) +
         templates.createResourcesScreen(playerCiv, resources) +
