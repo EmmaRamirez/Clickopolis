@@ -15,6 +15,7 @@ Clickopolis-delta is the current working version of the game (written in Typescr
 - [ ] Save Imports
 - [ ] Save exports
 - [ ] Access to previous era skins
+- [ ] Audio on/off
 
 ### Resources
 - [ ] Resource UI
@@ -28,7 +29,7 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - [ ] Luxury: Gold, Gems
   - [ ] Power: Spaghetti, Chihuahuas
 - [ ] Soil Fertility Algorithm
-
+- [ ] Resource info display
 
 ### Civilization
 - [ ] Civilization UI
@@ -39,9 +40,26 @@ Clickopolis-delta is the current working version of the game (written in Typescr
 - [ ] Health / pollution
 - [ ] influence
 - [ ] Golden Ages
+- [ ] Charts of metrics
 
 ### Citizens
 - [ ] Citizens UI
+- [ ] Adding/Removing Citizens
+- [ ] Types of Citizens
+  - [ ] Farmers
+  - [ ] Miners
+  - [ ] Soldiers
+  - [ ] Clerics
+  - [ ] Artists
+  - [ ] Scientists
+  - [ ] Engineers
+
+
+### Buildings
+- [ ] Buildings UI
+- [ ] Building unlock, visibility, and Purchase
+- [ ] Ancient Era Buildings
+- [ ] Classical Era Buildings
 
 ### Technology
 - [ ] Technology UI
