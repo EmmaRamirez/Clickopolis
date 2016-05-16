@@ -250,6 +250,9 @@ class Templates {
             <span class='civ-metric metric-influence'>
               <img src='img/influence.png'> ${playerCiv.influence}
             </span>
+            <span class='civ-metric metric-golden-age'>
+              <img src='img/golden-age.png'> ${playerCiv.goldenAgeProgress} / ${playerCiv.goldenAgeGoal}
+            </span>
           </div>
         </section>
       </section>

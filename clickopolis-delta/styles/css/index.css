@@ -786,6 +786,12 @@ button:focus {
   background: #BAE0E8;
 }
 
+.civilization-screen .metric-golden-age {
+  background: #222;
+  color: #fff;
+  width: 12rem;
+}
+
 .economy-screen {
   border-top: 4px solid green;
 }

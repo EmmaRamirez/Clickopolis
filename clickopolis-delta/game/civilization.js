@@ -13,6 +13,8 @@ var Civilization = (function () {
         this.influence = 0;
         this.legacy = 0;
         this.achievements = 0;
+        this.goldenAgeProgress = 0;
+        this.goldenAgeGoal = 10000;
     }
     return Civilization;
 }());

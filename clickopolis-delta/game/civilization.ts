@@ -20,7 +20,7 @@ class Civilization {
   achievements: number;
 
   goldenAges: number;
-  goldenAgeProgess: number;
+  goldenAgeProgress: number;
   goldenAgeGoal: number;
   goldenAgeMult: number;
 
@@ -42,6 +42,9 @@ class Civilization {
     this.legacy = 0;
 
     this.achievements = 0;
+
+    this.goldenAgeProgress = 0;
+    this.goldenAgeGoal = 10000;
   }
 
 
