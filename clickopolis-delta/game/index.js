@@ -227,6 +227,7 @@ setInterval(function () {
             resources.get('food').total += resources.get('prod').perSecond;
         elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
         game.time += 1;
+        addGoldenAgePoints();
         checkPopulationGrowthCost();
     }
     console.log(isWindowActive);
@@ -245,6 +246,12 @@ function drawUI(el) {
         templates.createEconomyScreen(playerCiv) +
         templates.createBuildingsScreen() +
         templates.createTechnologyScreen();
+}
+function addGoldenAgePoints() {
+    var goldenAgeProgress = elt('.golden-age-progress');
+    var goldenAgePoints = playerCiv.happiness - playerCiv.anger;
+    playerCiv.goldenAgeProgress += goldenAgePoints;
+    goldenAgeProgress.textContent = playerCiv.goldenAgeProgress.toString();
 }
 function addCash() {
     playerCiv.cash += 10;

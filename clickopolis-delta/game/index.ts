@@ -281,6 +281,7 @@ setInterval(function() {
 
     game.time += 1;
 
+    addGoldenAgePoints();
     checkPopulationGrowthCost();
   }
 
@@ -304,6 +305,13 @@ function drawUI(el:HTMLElement) {
                   templates.createEconomyScreen(playerCiv) +
                   templates.createBuildingsScreen() +
                   templates.createTechnologyScreen();
+}
+
+function addGoldenAgePoints() {
+  let goldenAgeProgress = elt('.golden-age-progress');
+  let goldenAgePoints = playerCiv.happiness - playerCiv.anger;
+  playerCiv.goldenAgeProgress += goldenAgePoints;
+  goldenAgeProgress.textContent = playerCiv.goldenAgeProgress.toString();
 }
 
 function addCash() {

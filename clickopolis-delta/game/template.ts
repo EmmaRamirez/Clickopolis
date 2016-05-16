@@ -278,7 +278,7 @@ class Templates {
               <img src='img/influence.png'> ${playerCiv.influence}
             </span>
             <span class='civ-metric metric-golden-age'>
-              <img src='img/golden-age.png'> Golden Age Points ${playerCiv.goldenAgeProgress} / ${u.abbrNum(playerCiv.goldenAgeGoal, 2)}
+              <img src='img/golden-age.png'> Golden Age Points <span class='golden-age-progress'>${playerCiv.goldenAgeProgress}</span> / <span class='golden-age-goal'>${u.abbrNum(playerCiv.goldenAgeGoal, 2)}</span>
             </span>
           </div>
         </section>
