@@ -227,11 +227,13 @@ function createGameUI() {
   //append('body', templates.resourcesScreen);
 
   bindElement('.food-btn', 'click', function (event:Event) {
+    event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     checkPopulationGrowthCost();
   });
 
   bindElement('.prod-btn', 'click', function (event:Event) {
+    event.preventDefault();
     addClickToTotal('.r-prod-total', 'prod');
     checkPopulationGrowthCost();
   });

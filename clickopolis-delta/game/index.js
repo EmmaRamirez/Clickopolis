@@ -183,10 +183,12 @@ function createGameUI() {
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
     bindElement('.food-btn', 'click', function (event) {
+        event.preventDefault();
         addClickToTotal('.r-food-total', 'food');
         checkPopulationGrowthCost();
     });
     bindElement('.prod-btn', 'click', function (event) {
+        event.preventDefault();
         addClickToTotal('.r-prod-total', 'prod');
         checkPopulationGrowthCost();
     });
