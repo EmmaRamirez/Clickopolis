@@ -926,6 +926,7 @@ button:focus {
 
 .economy-screen table {
   background: #222;
+  border: 1px solid #111;
   color: #eee;
   margin-top: .5rem;
   width: 100%;
