@@ -16,8 +16,12 @@ class Resources {
         return r[0];
       case 'prod':
         return r[1];
-      default:
+      case 'stone':
         return r[2];
+      case 'fish':
+        return r[3]
+      default:
+        return r[4];
     }
 
   }

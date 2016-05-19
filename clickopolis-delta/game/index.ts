@@ -290,6 +290,7 @@ setInterval(function() {
   if (isWindowActive) {
      game.year += 1;
      addCash();
+     addResearchPoints();
   }
 }, 1000 * 60);
 
@@ -310,6 +311,11 @@ function addGoldenAgePoints() {
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 }
 
+function addResearchPoints() {
+  playerCiv.research += 1;
+  elt('.research-text').textContent = playerCiv.research.toString();
+}
+
 function addCash() {
   playerCiv.cash += 10;
   let cashText = elt('.cash-text');
@@ -321,10 +327,15 @@ function resourceClick() {
   [].forEach.call(resourceButtons, function (item:any) {
     item.addEventListener('click', function () {
       let name = this.getAttribute('data-resource');
+      let r = resources.get(name);
       if (this.className === "resource active") {
         this.className = "resource";
       } else {
         this.className += " active";
+        elt('.resource-info-screen').innerHTML = `
+          <h3><img src='img/${r.image}.png'> ${r.name}<br></h3>
+          <p>${r.description}</p>
+        `;
       }
       showResourceInfo(name);
     });
