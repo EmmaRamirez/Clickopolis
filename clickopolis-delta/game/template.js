@@ -35,7 +35,7 @@ var Templates = (function () {
         return buildingsScreen;
     };
     Templates.prototype.createTechnologyScreen = function (playerCiv) {
-        var technologyScreen = "\n      <section class='screen technology-screen' id='technology'>\n        <h2><img src='img/research.png'> Technology</h2>\n        <section class='technology-screen-inner'>\n          <div class='research-progress-bar'></div>" + playerCiv.research + " / " + playerCiv.researchCost + "\n        </section>\n        <section class='technology-screen-inner technologies'>\n\n        </section>\n      </section>\n    ";
+        var technologyScreen = "\n      <section class='screen technology-screen' id='technology'>\n        <h2><img src='img/research.png'> Technology</h2>\n        <section class='technology-screen-inner'>\n          <span class='research-text r-text'>" + playerCiv.research + "</span>\n          <div class='research-progress-bar'></div>\n          <span class='research-cost-text r-text'>" + playerCiv.researchCost + "</span>\n        </section>\n        <section class='technology-screen-inner technologies'>\n\n        </section>\n      </section>\n    ";
         return technologyScreen;
     };
     return Templates;

@@ -346,7 +346,9 @@ class Templates {
       <section class='screen technology-screen' id='technology'>
         <h2><img src='img/research.png'> Technology</h2>
         <section class='technology-screen-inner'>
-          <div class='research-progress-bar'></div>${playerCiv.research} / ${playerCiv.researchCost}
+          <span class='research-text r-text'>${playerCiv.research}</span>
+          <div class='research-progress-bar'></div>
+          <span class='research-cost-text r-text'>${playerCiv.researchCost}</span>
         </section>
         <section class='technology-screen-inner technologies'>
 
