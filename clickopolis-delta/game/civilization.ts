@@ -27,6 +27,10 @@ class Civilization {
   goldenAgeGoal: number;
   goldenAgeMult: number;
 
+  research: number;
+  researchCost: number;
+
+
   conquestedCivs: Civilization[];
 
   constructor(civName:string, leaderName:string, location:string) {
@@ -54,6 +58,9 @@ class Civilization {
     this.populationReal = 1000;
 
     this.cash = 0;
+
+    this.research = 0;
+    this.researchCost = 10;
   }
 
 

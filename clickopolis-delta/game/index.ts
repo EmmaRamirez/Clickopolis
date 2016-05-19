@@ -300,7 +300,7 @@ function drawUI(el:HTMLElement) {
                   templates.createCitizenScreen(playerCiv) +
                   templates.createEconomyScreen(playerCiv) +
                   templates.createBuildingsScreen() +
-                  templates.createTechnologyScreen();
+                  templates.createTechnologyScreen(playerCiv);
 }
 
 function addGoldenAgePoints() {

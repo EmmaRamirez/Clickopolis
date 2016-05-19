@@ -19,6 +19,8 @@ var Civilization = (function () {
         this.populationGrowthCost = 10;
         this.populationReal = 1000;
         this.cash = 0;
+        this.research = 0;
+        this.researchCost = 10;
     }
     return Civilization;
 }());
