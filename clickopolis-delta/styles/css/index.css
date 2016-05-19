@@ -984,6 +984,23 @@ button:focus {
   border-radius: 50%;
 }
 
+.technology-screen .research-progress-bar {
+  background: #83D4D4;
+  border: 1px solid #111;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 0 auto;
+  height: 1rem;
+  width: 80%;
+}
+
+.technology-screen .r-text {
+  color: #eee;
+  display: inline-block;
+  text-align: center;
+  width: 8%;
+}
+
 .notification {
   background: #222;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);

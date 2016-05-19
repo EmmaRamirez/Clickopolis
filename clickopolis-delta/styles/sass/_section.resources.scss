@@ -326,4 +326,19 @@
       border-radius: 50%;
     }
   }
+  .research-progress-bar {
+    background: #83D4D4;
+    border: 1px solid #111;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 0 auto;
+    height: 1rem;
+    width: 80%;
+  }
+  .r-text {
+    color: #eee;
+    display: inline-block;
+    text-align: center;
+    width: 8%;
+  }
 }
