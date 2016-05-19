@@ -1001,6 +1001,33 @@ button:focus {
   width: 8%;
 }
 
+.technology-screen .technologies {
+  padding: 1rem;
+}
+
+.technology-screen .tech {
+  background: #83D4D4;
+  border: 1px solid #111;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.technology-screen .tech .tech-name {
+  font-weight: bold;
+}
+
+.technology-screen .tech .tech-description {
+  font-size: .9rem;
+  font-style: italic;
+  margin-left: 2rem;
+}
+
+.technology-screen .tech .tech-list {
+  font-size: .95rem;
+  padding: 0;
+  margin-left: 2rem;
+}
+
 .notification {
   background: #222;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);

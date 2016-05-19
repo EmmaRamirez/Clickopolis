@@ -341,4 +341,28 @@
     text-align: center;
     width: 8%;
   }
+  .technologies {
+    padding: 1rem;
+  }
+
+  .tech {
+    background: #83D4D4;
+    border: 1px solid #111;
+    border-radius: 4px;
+    padding: 1rem;
+    .tech-name {
+      font-weight: bold;
+    }
+    .tech-description {
+      font-size: .9rem;
+      font-style: italic;
+      margin-left: 2rem;
+
+    }
+    .tech-list {
+      font-size: .95rem;
+      padding: 0;
+      margin-left: 2rem;
+    }
+  }
 }
