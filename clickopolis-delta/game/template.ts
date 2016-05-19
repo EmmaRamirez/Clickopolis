@@ -351,6 +351,10 @@ class Templates {
           <div class='research-progress-bar'></div>
           <span class='research-cost-text r-text'>${playerCiv.researchCost}</span>
         </section>
+        <section class='technology-screen-inner search'>
+          <input type='search' placeholder='filter...'>
+
+        </section>
         <section class='technology-screen-inner technologies'>
           <div class='tech' data-tech='agriculture'>
             <span class='tech-name'>Agriculture</span>
