@@ -966,6 +966,15 @@ button:focus {
   border-radius: 50%;
 }
 
+.current-research {
+  color: #eee !important;
+  margin: .5rem;
+}
+
+.current-research span {
+  font-weight: bold;
+}
+
 .technology-screen {
   background: #333;
   border-top: 4px solid #83D4D4;
@@ -1010,6 +1019,7 @@ button:focus {
   border: 1px solid #111;
   border-radius: 4px;
   cursor: pointer;
+  margin: .25rem auto;
   padding: .5rem;
 }
 
@@ -1018,7 +1028,7 @@ button:focus {
 }
 
 .technology-screen .tech.active {
-  background: #DB657F;
+  background: #DB9665;
 }
 
 .technology-screen .tech .tech-name {

@@ -312,6 +312,14 @@
 
 }
 
+.current-research {
+  color: #eee !important;
+  margin: .5rem;
+  span {
+    font-weight: bold;
+  }
+}
+
 .technology-screen {
   background: #333;
   border-top: 4px solid #83D4D4;
@@ -350,13 +358,14 @@
     border: 1px solid #111;
     border-radius: 4px;
     cursor: pointer;
+    margin: .25rem auto;
     padding: .5rem;
     &:hover {
       background: darken(#83D4D4, 15%);
       @extend %transition-s;
     }
     &.active {
-      background: #DB657F;
+      background: #DB9665;
     }
     .tech-name {
       font-weight: bold;

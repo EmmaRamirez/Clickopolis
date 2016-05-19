@@ -346,6 +346,7 @@ class Templates {
       <section class='screen technology-screen' id='technology'>
         <h2><img src='img/research.png'> Technology</h2>
         <section class='technology-screen-inner'>
+          <div class='center-text current-research'>Currently researching towards: <span class='researching-techs'>Mining</span></div>
           <span class='research-text r-text'>${playerCiv.research}</span>
           <div class='research-progress-bar'></div>
           <span class='research-cost-text r-text'>${playerCiv.researchCost}</span>
@@ -355,8 +356,17 @@ class Templates {
             <span class='tech-name'>Agriculture</span>
             <span class='tech-description'>This is a description</span>
             <ul class='tech-list'>
-              <li>+.2 <img src='img/food.png'> per farmer</li>
+              <li>+.2 <img src='img/food.png'> PS per farmer</li>
               <li>Unlocks: Animal Husbandry, Mining</li>
+            </ul>
+          </div>
+
+          <div class='tech active' data-tech='mining'>
+            <span class='tech-name'>Mining</span>
+            <span class='tech-description'>This is a description</span>
+            <ul class='tech-list'>
+              <li>+.2 <img src='img/prod.png'> PS per miner</li>
+              <li>Unlocks: Masonry, Pottery</li>
             </ul>
           </div>
         </section>
