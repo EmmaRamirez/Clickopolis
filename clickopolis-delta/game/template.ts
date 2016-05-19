@@ -383,6 +383,24 @@ class Templates {
   }
 
 
+
+
+
+  createSettingsScreen() {
+    let settingsScreen = `
+      <section class='screen settings-screen' id='settings'>
+        <h2>
+          <img src='img/gear.png'> Settings
+        </h2>
+        <section class='settings-screen-inner'>
+
+        </section>
+      </section>
+    `;
+    return settingsScreen;
+  }
+
+
 }
 
 export = Templates;

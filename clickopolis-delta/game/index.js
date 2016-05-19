@@ -242,7 +242,8 @@ function drawUI(el) {
         templates.createCitizenScreen(playerCiv) +
         templates.createEconomyScreen(playerCiv) +
         templates.createBuildingsScreen() +
-        templates.createTechnologyScreen(playerCiv);
+        templates.createTechnologyScreen(playerCiv) +
+        templates.createSettingsScreen();
 }
 function addGoldenAgePoints() {
     var goldenAgeProgress = elt('.golden-age-progress');
