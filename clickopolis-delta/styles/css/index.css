@@ -1014,6 +1014,18 @@ button:focus {
   padding: 1rem;
 }
 
+.technology-screen .search {
+  padding: 1rem;
+  padding-bottom: .25rem;
+}
+
+.technology-screen .search input[type='search'] {
+  background: #222;
+  border: 1px solid #111;
+  color: #eee;
+  padding: .5rem;
+}
+
 .technology-screen .tech {
   background: #83D4D4;
   border: 1px solid #111;

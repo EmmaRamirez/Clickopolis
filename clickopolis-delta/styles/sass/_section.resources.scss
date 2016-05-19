@@ -353,6 +353,17 @@
     padding: 1rem;
   }
 
+  .search {
+    padding: 1rem;
+    padding-bottom: .25rem;
+    input[type='search'] {
+      background: #222;
+      border: 1px solid #111;
+      color: #eee;
+      padding: .5rem;
+    }
+  }
+
   .tech {
     background: #83D4D4;
     border: 1px solid #111;
