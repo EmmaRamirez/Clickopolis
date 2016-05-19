@@ -44,6 +44,7 @@ Clickopolis-delta is the current working version of the game (written in Typescr
 - [ ] influence
 - [ ] Golden Ages
 - [ ] Charts of metrics
+- [ ] Larger view Civilization Summary
 
 ### Citizens
 - [ ] Citizens UI
@@ -62,14 +63,19 @@ Clickopolis-delta is the current working version of the game (written in Typescr
 - [ ] Total Cash Reserve display
   - [ ] Breakdown
   - [ ] Trends Graph
-- Trade Deal History
-- Trade Routes
+- [ ] Trade Deal History
+- [ ] Trade Routes
+- [ ] Boom-bust Cycle Algorithm
 
 ### Buildings
 - [ ] Buildings UI
 - [ ] Building unlock, visibility, and Purchase
+- [ ] Purchase/Build Mode
 - [ ] Ancient Era Buildings
 - [ ] Classical Era Buildings
+- [ ] Great wonders
+  - [ ] Timing Functions
+  - [ ] Implementation & Bonuses
 
 ### Technology
 - [ ] Technology UI
@@ -78,69 +84,37 @@ Clickopolis-delta is the current working version of the game (written in Typescr
   - [ ] Ancient era
   - [ ] Classical era
 
+### Diplomacy
+- [ ] Diplomacy UI
+- [ ] Meet new nation function
+
+### Military
+- [ ] Military UI
+- [ ] Combat
+  - [ ] Peace
+  - [ ] Attack
+  - [ ] Defend
+  - [ ] Pillage
+
+### Culture
+- [ ] Culture UI
+- [ ] 7 Categories + 9 Tiers
+- [ ] Culture generation
+- [ ] Great Works
+
+### Faith
+- [ ] Faith UI
+
+### Legacy
+- [ ] Legacy UI
+
+### Achievements
+- [ ] Achievements UI
+
 ### Events
 - [ ] Event creation
   - [ ] Plague event
-<!--
-- Documentation
-  - [] Guide outline
-  - [] Full Guide
-- Settings
-  - [] debugMode
-  - [] Save Import/exports
-  - [] Access to previous era skins
-- Buildings
-  - Purchase mode
-  - Production cost modifiers
-  - Misc costs
-  - Implementations
-  - Great wonders
-    - timing function (find more efficient model)
-    - implementations & bonuses
-- Economy
-  - [] BoomBust Cycle Algorithm
-  - [] Trade System implementation
-- Eras
-  - era implementations
-  - era bonuses
-  - era skins
-- Golden Ages
-  - Golden Age set-up
-  - Golden Age bonuses
-    - x10 food PS, food PC, prod PS, prod PC
-    - x10 faith with upgrades
-    - x10 culture with upgrades
-    - x10 science with upgrades
-    - x10 money with upgrades
-  - Golden Age length & modifiers
-- Faith
-  - Faith bonuses implementation
-    - 4 Cateogires (Pantheon, Belief, Dogma, Holiest Powers)
-  - Faith generation
-- Culture
-  - Culture bonuses implementation
-    - 7 Categories (Resources, Economy, Culture, Faith, Military, Diplomacy, Tech)
-    - 9 Tiers (for each Era)
-  - Culture generation
-    - Great Works
-      - great work generation / by generation
-      - great work culture/cash increases
-      - great works trade with other nations
-- Military
-  - Soldier Assembly, Assignment
-  - Combat
-    - Peace
-    - Attack
-    - Defend
-    - Pillage
-  - Military Contracts
-- Diplomacy
-  - Meet New Nation function
-    - split by Era
-  - Should they be generated randomly or preset?
-  - United Nations (or similar name)
-- Save Import / Export into text file
-  - Compression
-- LocalStorage get/set
-  - Compression
-  -->
+
+### Documentation
+- [ ] Guide outline
+- [ ] Full Guide
