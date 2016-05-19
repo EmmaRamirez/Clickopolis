@@ -362,6 +362,22 @@
       color: #eee;
       padding: .5rem;
     }
+    .research-filters {
+      background: #222;
+      border: 1px soild #111;
+      color: #eee;
+      display: inline-block;
+      font-size: .9rem;
+      padding: .25rem;
+      transform: translate(5px, 7px);
+      label:nth-of-type(1) {
+        border-bottom: 1px solid #666;
+      }
+      input {
+        margin-right: .5rem;
+        vertical-align: middle;
+      }
+    }
   }
 
   .tech {
