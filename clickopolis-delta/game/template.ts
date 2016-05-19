@@ -353,7 +353,10 @@ class Templates {
         </section>
         <section class='technology-screen-inner search'>
           <input type='search' placeholder='filter...'>
-
+          <span class='research-filters'>
+            <label><input type='checkbox'>Show Unavailable Techs</label><br>
+            <label><input type='checkbox'>Show Purchased Techs</label>
+          </span>
         </section>
         <section class='technology-screen-inner technologies'>
           <div class='tech' data-tech='agriculture'>
