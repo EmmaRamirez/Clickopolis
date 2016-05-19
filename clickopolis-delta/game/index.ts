@@ -123,10 +123,6 @@ function bindElement(node:string, eventType:string, callback:Function) {
   });
 }
 
-function unbindElement(node:string, eventType:string) {
-
-}
-
 function hideElement(element:HTMLElement) {
   element = <HTMLElement>element;
   element.className += " hidden";

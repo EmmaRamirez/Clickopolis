@@ -103,8 +103,6 @@ function bindElement(node, eventType, callback) {
         return callback();
     });
 }
-function unbindElement(node, eventType) {
-}
 function hideElement(element) {
     element = element;
     element.className += " hidden";
