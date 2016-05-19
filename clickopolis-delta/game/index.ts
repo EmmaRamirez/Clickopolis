@@ -223,13 +223,13 @@ function createGameUI() {
   document.body.appendChild(clickopolisGame);
   //append('body', templates.resourcesScreen);
 
-  bindElement('.food-btn', 'click', function (event:Event) {
+  bindElement('.food-btn', 'click', function () {
     //event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     checkPopulationGrowthCost();
   });
 
-  bindElement('.prod-btn', 'click', function (event:Event) {
+  bindElement('.prod-btn', 'click', function () {
     //event.preventDefault();
     addClickToTotal('.r-prod-total', 'prod');
     checkPopulationGrowthCost();
@@ -237,17 +237,17 @@ function createGameUI() {
 
   resourceClick();
 
-  // bindElement('.pop-btn', 'click', function () {
-  //   console.log('Systems are a go!')
-  //   let popGrowthCost = document.querySelector('.pop-growth-cost');
-  //   let populationText = document.querySelector('.population-text');
-  //   resources.get('food').total -= playerCiv.populationGrowthCost;
-  //   playerCiv.population += 1;
-  //
-  //   populationText.textContent = playerCiv.population.toString();
-  //   popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
-  //
-  // });
+  bindElement('.pop-btn', 'click', function () {
+    console.log('Systems are a go!')
+    let popGrowthCost = document.querySelector('.pop-growth-cost');
+    let populationText = document.querySelector('.population-text');
+    resources.get('food').total -= playerCiv.populationGrowthCost;
+    playerCiv.population += 1;
+
+    populationText.textContent = playerCiv.population.toString();
+    popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+
+  });
 
 
 
@@ -326,6 +326,7 @@ function resourceClick() {
   let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('.resource');
   [].forEach.call(resourceButtons, function (item:any) {
     item.addEventListener('click', function () {
+      item.className = "resource";
       let name = this.getAttribute('data-resource');
       let r = resources.get(name);
       if (this.className === "resource active") {
@@ -350,11 +351,11 @@ function checkPopulationGrowthCost() {
   let button = document.querySelector('.pop-btn');
   if (playerCiv.populationGrowthCost > resources.get('food').total) {
     console.log(playerCiv.populationGrowthCost);
-    button.setAttribute('disabled', 'true');
+    button.className = 'disabled pop-btn';
     return false;
   } else {
     console.log(playerCiv.populationGrowthCost);
-    button.setAttribute('disabled', 'false');
+    button.className = 'pop-btn';
     return true;
   }
 

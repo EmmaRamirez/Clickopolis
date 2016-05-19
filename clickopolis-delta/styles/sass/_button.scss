@@ -30,6 +30,13 @@ button {
     border: 1px solid #ddd;
     cursor: not-allowed;
   }
+  &.disabled {
+    background: #ccc !important;
+    color: #222;
+    border: 1px solid #222;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
   &:focus {
     box-shadow: 0 0 .25rem skyblue;
   }
