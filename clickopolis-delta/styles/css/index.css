@@ -410,7 +410,7 @@ textarea {
   /* 2 */
 }
 
-button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled], .screen, .screen:hover, .resources-screen .food-btn, .resources-screen .food-btn:hover, .resources-screen .prod-btn, .resources-screen .prod-btn:hover, .resources-screen .resource[data-resource]:hover {
+button, button:hover, .current-btn:hover, .checkbox-list input[type='checkbox']:checked, .checkbox-list input[type='checkbox'][disabled], .screen, .screen:hover, .resources-screen .food-btn, .resources-screen .food-btn:hover, .resources-screen .prod-btn, .resources-screen .prod-btn:hover, .resources-screen .resource[data-resource]:hover, .technology-screen .tech:hover {
   transition: 250ms all;
 }
 
@@ -1009,7 +1009,16 @@ button:focus {
   background: #83D4D4;
   border: 1px solid #111;
   border-radius: 4px;
-  padding: 1rem;
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.technology-screen .tech:hover {
+  background: #4ac0c0;
+}
+
+.technology-screen .tech.active {
+  background: #DB657F;
 }
 
 .technology-screen .tech .tech-name {
@@ -1025,7 +1034,8 @@ button:focus {
 .technology-screen .tech .tech-list {
   font-size: .95rem;
   padding: 0;
-  margin-left: 2rem;
+  margin: 0;
+  margin-left: 3rem;
 }
 
 .notification {

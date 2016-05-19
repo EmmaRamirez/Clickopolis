@@ -349,7 +349,15 @@
     background: #83D4D4;
     border: 1px solid #111;
     border-radius: 4px;
-    padding: 1rem;
+    cursor: pointer;
+    padding: .5rem;
+    &:hover {
+      background: darken(#83D4D4, 15%);
+      @extend %transition-s;
+    }
+    &.active {
+      background: #DB657F;
+    }
     .tech-name {
       font-weight: bold;
     }
@@ -362,7 +370,8 @@
     .tech-list {
       font-size: .95rem;
       padding: 0;
-      margin-left: 2rem;
+      margin: 0;
+      margin-left: 3rem;
     }
   }
 }
