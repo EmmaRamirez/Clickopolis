@@ -865,7 +865,8 @@ button:focus {
   background: #222;
   border: 1px solid black;
   color: #fff;
-  width: 16rem;
+  padding: .5rem auto;
+  width: 20rem;
 }
 
 .economy-screen {

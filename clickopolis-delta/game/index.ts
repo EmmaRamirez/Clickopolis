@@ -307,7 +307,7 @@ function addGoldenAgePoints() {
   let goldenAgeProgress = elt('.golden-age-progress');
   let goldenAgePoints = playerCiv.happiness - playerCiv.anger;
   playerCiv.goldenAgeProgress += goldenAgePoints;
-  goldenAgeProgress.textContent = playerCiv.goldenAgeProgress.toString();
+  goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 }
 
 function addCash() {
