@@ -227,11 +227,24 @@
 }
 
 .economy-screen {
-  background: linear-gradient(to bottom, white, #A0D190) !important;
-  border-top: 4px solid green;
+  //background: linear-gradient(to bottom, white, #A0D190) !important;
+  background: #333;
+  border-top: 4px solid darken(#A0D190, 15%);
+  h2 {
+    background: #A0D190;
+    color: #eee;
+    margin: .25rem .25rem 1.25rem .25rem;
+    padding: 1rem;
+    img {
+      background: white;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+  }
   .total-cash {
-    background: #fff;
-    border: 1px solid green;
+    background: #222;
+    border: 1px solid #111;
+    color: #eee;
     border-radius: 4px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -246,21 +259,22 @@
     }
   }
   .cash-item {
-    background: lighten(green, 15%);
-    color: white;
+    background: lighten(#222, 15%);
+    color: #eee;
     display: block;
     margin: .25rem 0;
     padding: .25rem;
     text-align: right;
     &.cash-item-total {
-      background: green;
+      color: lightgreen;
     }
     span {
       font-weight: bold;
     }
   }
   table {
-    background: white;
+    background: #222;
+    color: #eee;
     margin-top: .5rem;
     width: 100%;
     tr {
@@ -275,17 +289,40 @@
 
     }
     tr:nth-of-type(even) {
-      background: #eee;
+      background: #111;
     }
   }
 }
 
 .buildings-screen {
-  background: linear-gradient(to bottom, white, #CDD483) !important;
-  border-top: 4px solid gold;
+  background: #333;
+  border-top: 4px solid #D6CA3E;
+  h2 {
+    background: #D6CA3E;
+    color: #eee;
+    margin: .25rem .25rem 1.25rem .25rem;
+    padding: 1rem;
+    img {
+      background: white;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+  }
+
 }
 
 .technology-screen {
-  background: linear-gradient(to bottom, white, #83D4D4) !important;
+  background: #333;
   border-top: 4px solid #83D4D4;
+  h2 {
+    background: #83D4D4;
+    color: #eee;
+    margin: .25rem .25rem 1.25rem .25rem;
+    padding: 1rem;
+    img {
+      background: white;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+  }
 }
