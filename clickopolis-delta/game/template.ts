@@ -351,7 +351,14 @@ class Templates {
           <span class='research-cost-text r-text'>${playerCiv.researchCost}</span>
         </section>
         <section class='technology-screen-inner technologies'>
-
+          <div class='tech' data-tech='agriculture'>
+            <span class='tech-name'>Agriculture</span>
+            <span class='tech-description'>This is a description</span>
+            <ul class='tech-list'>
+              <li>+.2 <img src='img/food.png'> per farmer</li>
+              <li>Unlocks: Animal Husbandry, Mining</li>
+            </ul>
+          </div>
         </section>
       </section>
     `;

@@ -35,7 +35,7 @@ var Templates = (function () {
         return buildingsScreen;
     };
     Templates.prototype.createTechnologyScreen = function (playerCiv) {
-        var technologyScreen = "\n      <section class='screen technology-screen' id='technology'>\n        <h2><img src='img/research.png'> Technology</h2>\n        <section class='technology-screen-inner'>\n          <span class='research-text r-text'>" + playerCiv.research + "</span>\n          <div class='research-progress-bar'></div>\n          <span class='research-cost-text r-text'>" + playerCiv.researchCost + "</span>\n        </section>\n        <section class='technology-screen-inner technologies'>\n\n        </section>\n      </section>\n    ";
+        var technologyScreen = "\n      <section class='screen technology-screen' id='technology'>\n        <h2><img src='img/research.png'> Technology</h2>\n        <section class='technology-screen-inner'>\n          <span class='research-text r-text'>" + playerCiv.research + "</span>\n          <div class='research-progress-bar'></div>\n          <span class='research-cost-text r-text'>" + playerCiv.researchCost + "</span>\n        </section>\n        <section class='technology-screen-inner technologies'>\n          <div class='tech' data-tech='agriculture'>\n            <span class='tech-name'>Agriculture</span>\n            <span class='tech-description'>This is a description</span>\n            <ul class='tech-list'>\n              <li>+.2 <img src='img/food.png'> per farmer</li>\n              <li>Unlocks: Animal Husbandry, Mining</li>\n            </ul>\n          </div>\n        </section>\n      </section>\n    ";
         return technologyScreen;
     };
     return Templates;
