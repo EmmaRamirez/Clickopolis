@@ -141,7 +141,7 @@ function removeElement(element:HTMLElement) {
 }
 
 function elt(query:string, all:boolean = false):any {
-  if (all == false)
+  if (all === false)
     return <HTMLElement>document.querySelector(query);
   else
     return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
@@ -389,13 +389,14 @@ function checkPopulationGrowthCost() {
 }
 
 
+function checkAchievements() {
 
+}
 
 
 
 function init() {
   startGame();
-
 }
 
 init();

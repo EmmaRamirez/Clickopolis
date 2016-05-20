@@ -1003,6 +1003,12 @@ button:focus {
   padding: .5rem;
 }
 
+.buildings-screen .building-total {
+  background: #eee;
+  color: #a59a23;
+  padding: .5rem;
+}
+
 .current-research {
   color: #eee !important;
   margin: .5rem;

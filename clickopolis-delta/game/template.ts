@@ -340,6 +340,7 @@ class Templates {
         </section>
         <section class='buildings-screen-inner'>
           <div class='building'>
+            <span class='building-total' title='how many you own'>0</span>
             <span class='building-cost'><span class='building-cost-text'>15</span> <img src='img/prod.png'></span>
             <span class='building-name'>Hut</span>
             <span class='building-description'>A simple hut. Could use air conditioning.</span>

@@ -316,7 +316,7 @@
     background: #D6CA3E;
     color: #222;
     padding: .5rem;
-    width: ${(128 / 16) + rem};
+    //width: ${(128 / 16) + rem};
   }
 
   .building {
@@ -326,6 +326,7 @@
     margin: .25rem 1rem;
     padding: .5rem;
   }
+
   .building-name {
     font-weight: bold;
     padding: .5rem;
@@ -336,7 +337,14 @@
     padding: .5rem;
   }
 
+  .building-total {
+    background: #eee;
+    color: darken(#D6CA3E, 15%);
+    padding: .5rem;
+  }
+
 }
+
 
 .current-research {
   color: #eee !important;

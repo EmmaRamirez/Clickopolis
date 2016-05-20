@@ -1,7 +1,8 @@
 "use strict";
 var Building = (function () {
-    function Building(name, prodCost, cashCost, description, effect) {
+    function Building(name, amount, prodCost, cashCost, description, effect) {
         this.name = name;
+        this.amount = amount;
         this.prodCost = prodCost;
         this.cashCost = cashCost;
         this.description = description;

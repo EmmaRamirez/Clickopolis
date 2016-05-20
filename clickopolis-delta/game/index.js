@@ -116,7 +116,7 @@ function removeElement(element) {
 }
 function elt(query, all) {
     if (all === void 0) { all = false; }
-    if (all == false)
+    if (all === false)
         return document.querySelector(query);
     else
         return document.querySelectorAll(query);
@@ -308,6 +308,8 @@ function checkPopulationGrowthCost() {
         button.className = 'pop-btn';
         return true;
     }
+}
+function checkAchievements() {
 }
 function init() {
     startGame();
