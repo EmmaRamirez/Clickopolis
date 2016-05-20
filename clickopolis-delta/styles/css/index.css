@@ -1041,6 +1041,11 @@ button:focus {
   border-radius: 50%;
 }
 
+.technology-screen .research-exceeding {
+  color: #eee;
+  margin-bottom: .25rem;
+}
+
 .technology-screen .research-progress-bar {
   background: #444;
   border: 1px solid #111;
