@@ -407,7 +407,9 @@ class Templates {
         <img src='img/deal.png'> Diplomacy
       </h2>
       <section class='diplomacy-screen-inner'>
-
+        <div class='diplomacy-summary'>
+          Nations Met: <span class='nations-met-text'>25</span>
+        </div>
       </section>
     </section>
     `;

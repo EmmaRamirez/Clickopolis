@@ -39,7 +39,7 @@ var Templates = (function () {
         return technologyScreen;
     };
     Templates.prototype.createDiplomacyScreen = function (playerCiv) {
-        var diplomacyScreen = "\n    <section class='screen diplomacy-screen' id='diplomacy'>\n      <h2>\n        <img src='img/deal.png'> Diplomacy\n      </h2>\n      <section class='diplomacy-screen-inner'>\n\n      </section>\n    </section>\n    ";
+        var diplomacyScreen = "\n    <section class='screen diplomacy-screen' id='diplomacy'>\n      <h2>\n        <img src='img/deal.png'> Diplomacy\n      </h2>\n      <section class='diplomacy-screen-inner'>\n        <div class='diplomacy-summary'>\n          Nations Met: <span class='nations-met-text'>25</span>\n        </div>\n      </section>\n    </section>\n    ";
         return diplomacyScreen;
     };
     Templates.prototype.createSettingsScreen = function () {

@@ -1150,6 +1150,14 @@ button:focus {
   border-radius: 50%;
 }
 
+.diplomacy-screen .diplomacy-summary {
+  background: #F57F2C;
+  border: 1px solid #222;
+  border-radius: 4px;
+  color: #eee;
+  padding: .5rem;
+}
+
 .settings-screen {
   background: #333;
   border-top: 4px solid black;
