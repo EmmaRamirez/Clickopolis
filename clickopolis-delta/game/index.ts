@@ -302,6 +302,7 @@ function drawUI(el:HTMLElement) {
                   templates.createEconomyScreen(playerCiv) +
                   templates.createBuildingsScreen() +
                   templates.createTechnologyScreen(playerCiv) +
+                  templates.createDiplomacyScreen(playerCiv) +
                   templates.createSettingsScreen();
 }
 

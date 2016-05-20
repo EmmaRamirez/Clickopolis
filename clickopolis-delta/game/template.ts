@@ -383,6 +383,19 @@ class Templates {
   }
 
 
+  createDiplomacyScreen(playerCiv:Civilization) {
+    let diplomacyScreen = `
+    <section class='screen diplomacy-screen' id='diplomacy'>
+      <h2>
+        <img src='img/deal.png'> Diplomacy
+      </h2>
+      <section class='diplomacy-screen-inner'>
+
+      </section>
+    </section>
+    `;
+    return diplomacyScreen;
+  }
 
 
 

@@ -243,6 +243,7 @@ function drawUI(el) {
         templates.createEconomyScreen(playerCiv) +
         templates.createBuildingsScreen() +
         templates.createTechnologyScreen(playerCiv) +
+        templates.createDiplomacyScreen(playerCiv) +
         templates.createSettingsScreen();
 }
 function addGoldenAgePoints() {
