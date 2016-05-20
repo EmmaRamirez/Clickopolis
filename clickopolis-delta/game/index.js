@@ -16,7 +16,7 @@ var templates = new Templates();
 var food = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
 var prod = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
 var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
-var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens every now and then. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.');
+var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.');
 var banana = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
 var spices = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
 var gold = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
