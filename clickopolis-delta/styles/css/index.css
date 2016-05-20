@@ -975,7 +975,7 @@ button:focus {
 }
 
 .buildings-screen .panel {
-  padding: .5rem;
+  padding: .5rem 1rem;
 }
 
 .buildings-screen .purchase-mode-btn {

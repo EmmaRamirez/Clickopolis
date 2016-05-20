@@ -310,12 +310,13 @@
     }
   }
   .panel {
-    padding: .5rem;
+    padding: .5rem 1rem;
   }
   .purchase-mode-btn {
     background: #D6CA3E;
     color: #222;
     padding: .5rem;
+    width: ${(128 / 16) + rem};
   }
 
   .building {
