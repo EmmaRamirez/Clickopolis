@@ -6,6 +6,9 @@ var Tech = (function () {
         //this.prerequisite = prequisite;
         this.description = description;
         this.effects = effects;
+        this.available = false;
+        this.purchased = false;
+        this.selected = false;
     }
     return Tech;
 }());

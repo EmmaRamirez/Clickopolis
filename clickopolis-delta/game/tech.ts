@@ -3,6 +3,7 @@ class Tech {
   era: string;
   available: boolean;
   purchased: boolean;
+  selected: boolean;
   prerequisite: Tech[];
   description: string;
   effects: string[];
@@ -13,6 +14,10 @@ class Tech {
     //this.prerequisite = prequisite;
     this.description = description;
     this.effects = effects;
+
+    this.available = false;
+    this.purchased = false;
+    this.selected = false;
   }
 }
 
