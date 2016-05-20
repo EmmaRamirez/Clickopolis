@@ -113,7 +113,7 @@ class Templates {
               <img src='img/health.png'> Health
             </span>
 
-            <span class='resource active' data-resource='fish'>
+            <span class='resource' data-resource='fish'>
               <img src='img/fish.png'> <span>${resources.get('fish').total}</span>
             </span>
 
@@ -194,9 +194,7 @@ class Templates {
         </section>
         <br>
         <section class='resource-screen-inner resource-info-screen'>
-          <h3><img src='img/fish.png'> Fish<br></h3>
-          <p>Fish are caught in nets by citizens every now and then. Each fish provides +.5 <img src='img/health.png'> Fish are a popular trade item with Desert nations.</p>
-
+          <p></p>
         </section>
       </section>
     `;
