@@ -328,6 +328,12 @@ function addResearchPoints() {
 
   let bgString:string = `linear-gradient(to right, #83D4D4 0%, #83D4D4 ${researchPercent}, #444 ${researchPercent}, #444 100%)`;
   elt('.research-progress-bar').style.background = bgString;
+
+  if (playerCiv.research > playerCiv.researchCost) {
+    elt('.research-exceeding').textContent = 'You are currently exceeding your current tech goal.';
+  } else {
+    elt('.research-exceeding').textContent = '';
+  }
 }
 
 function addCash() {
