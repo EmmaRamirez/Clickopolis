@@ -323,8 +323,12 @@
     background: #D6CA3E;
     border: 1px solid #222;
     border-radius: 4px;
+    cursor: pointer;
     margin: .25rem 1rem;
     padding: .5rem;
+    &:hover {
+      background: darken(#D6CA3E, 15%);
+    }
   }
 
   .building-name {

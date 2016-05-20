@@ -245,7 +245,6 @@ function createGameUI() {
   resourceClick();
 
   bindElement('.pop-btn', 'click', function () {
-    console.log('Systems are a go!')
     let popGrowthCost = document.querySelector('.pop-growth-cost');
     let populationText = document.querySelector('.population-text');
     resources.get('food').total -= playerCiv.populationGrowthCost;
@@ -318,9 +317,14 @@ function drawUI(el:HTMLElement) {
 
 function addGoldenAgePoints() {
   let goldenAgeProgress = elt('.golden-age-progress');
+  let goldenAgeMeter = elt('.metric-golden-age');
   let goldenAgePoints = playerCiv.happiness - playerCiv.anger;
   playerCiv.goldenAgeProgress += goldenAgePoints;
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
+
+  let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
+  let bgString:string = `linear-gradient(to right, #BDBD6C 0%, #BDBD6C ${goldenAgePercent}, #222 ${goldenAgePercent}, #222)`;
+  goldenAgeMeter.style.background = bgString;
 }
 
 function addResearchPoints() {
