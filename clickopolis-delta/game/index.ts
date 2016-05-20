@@ -232,13 +232,13 @@ function createGameUI() {
   //append('body', templates.resourcesScreen);
 
   bindElement('.food-btn', 'click', function () {
-    //event.preventDefault();
+    event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     checkPopulationGrowthCost();
   });
 
   bindElement('.prod-btn', 'click', function () {
-    //event.preventDefault();
+    event.preventDefault();
     addClickToTotal('.r-prod-total', 'prod');
     checkPopulationGrowthCost();
   });
@@ -246,6 +246,7 @@ function createGameUI() {
   resourceClick();
 
   bindElement('.pop-btn', 'click', function () {
+    event.preventDefault();
     let popGrowthCost = document.querySelector('.pop-growth-cost');
     let populationText = document.querySelector('.population-text');
     resources.get('food').total -= playerCiv.populationGrowthCost;

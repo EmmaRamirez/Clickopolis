@@ -185,17 +185,18 @@ function createGameUI() {
     document.body.appendChild(clickopolisGame);
     //append('body', templates.resourcesScreen);
     bindElement('.food-btn', 'click', function () {
-        //event.preventDefault();
+        event.preventDefault();
         addClickToTotal('.r-food-total', 'food');
         checkPopulationGrowthCost();
     });
     bindElement('.prod-btn', 'click', function () {
-        //event.preventDefault();
+        event.preventDefault();
         addClickToTotal('.r-prod-total', 'prod');
         checkPopulationGrowthCost();
     });
     resourceClick();
     bindElement('.pop-btn', 'click', function () {
+        event.preventDefault();
         var popGrowthCost = document.querySelector('.pop-growth-cost');
         var populationText = document.querySelector('.population-text');
         resources.get('food').total -= playerCiv.populationGrowthCost;
