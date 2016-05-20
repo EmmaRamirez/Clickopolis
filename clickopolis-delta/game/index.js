@@ -226,15 +226,14 @@ setInterval(function () {
         else
             resources.get('food').total += resources.get('prod').perSecond;
         elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
-        game.time += 1;
+        updateTime();
         addGoldenAgePoints();
         checkPopulationGrowthCost();
     }
-    console.log(isWindowActive);
 }, 1000);
 setInterval(function () {
     if (isWindowActive) {
-        game.year += 1;
+        updateYear();
         addCash();
         addResearchPoints();
     }
@@ -249,6 +248,14 @@ function drawUI(el) {
         templates.createTechnologyScreen(playerCiv) +
         templates.createDiplomacyScreen(playerCiv) +
         templates.createSettingsScreen();
+}
+function updateYear() {
+    game.year += 1;
+    elt('.game-year-text').textContent = game.year;
+}
+function updateTime() {
+    game.time += 1;
+    elt('.game-year-text').title = time(game.time);
 }
 function addGoldenAgePoints() {
     var goldenAgeProgress = elt('.golden-age-progress');

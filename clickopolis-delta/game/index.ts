@@ -55,6 +55,7 @@ window.addEventListener('blur', function () {
   isWindowActive = false;
 });
 
+
 function saveGame():void {
   store.set('game', game);
   store.get('game');
@@ -271,33 +272,24 @@ function addClickToTotal(el:string, item:string) {
 }
 
 setInterval(function() {
-
   if (isWindowActive) {
     if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
     else resources.get('food').total += resources.get('food').perSecond;
-
     elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
-
 
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
     else resources.get('food').total += resources.get('prod').perSecond;
-
     elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
 
-    game.time += 1;
-
+    updateTime();
     addGoldenAgePoints();
     checkPopulationGrowthCost();
   }
-
-
-  console.log(isWindowActive);
-
 }, 1000);
 
 setInterval(function() {
   if (isWindowActive) {
-     game.year += 1;
+     updateYear();
      addCash();
      addResearchPoints();
   }
@@ -313,6 +305,16 @@ function drawUI(el:HTMLElement) {
                   templates.createTechnologyScreen(playerCiv) +
                   templates.createDiplomacyScreen(playerCiv) +
                   templates.createSettingsScreen();
+}
+
+function updateYear() {
+  game.year += 1;
+  elt('.game-year-text').textContent = game.year;
+}
+
+function updateTime() {
+  game.time += 1;
+  elt('.game-year-text').title = time(game.time);
 }
 
 function addGoldenAgePoints() {
