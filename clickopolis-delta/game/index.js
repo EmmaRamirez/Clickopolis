@@ -7,6 +7,7 @@ var Game = require('./game');
 var Civilization = require('./civilization');
 var Resource = require('./resource');
 var Resources = require('./resources');
+var Tech = require('./tech');
 var Templates = require('./template');
 console.log(_.random(0, 100));
 var game = new Game(0);
@@ -28,6 +29,8 @@ var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts')
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 var resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
+var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['use it fool']);
+var mining = new Tech('mining', 'ancient', 'not safe for minors', ['improves miners']);
 var u = new Utils();
 var isWindowActive = true;
 window.addEventListener('focus', function () {

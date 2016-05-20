@@ -7,14 +7,12 @@ class Tech {
   description: string;
   effects: string[];
 
-  Tech(name: string, era: string, prequisite: Tech[], description: string, effects: string[]) {
+  constructor(name: string, era: string, description: string, effects: string[]) {
     this.name = name;
     this.era = era;
-    this.prerequisite = prequisite;
+    //this.prerequisite = prequisite;
     this.description = description;
     this.effects = effects;
-    this.available = false;
-    this.purchased = false;
   }
 }
 

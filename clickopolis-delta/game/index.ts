@@ -8,6 +8,7 @@ import Settings = require('./settings');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Resources = require('./resources');
+import Tech = require('./tech');
 import Templates = require('./template');
 import notify = require('./notify');
 
@@ -35,6 +36,12 @@ let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Ba
 //notify('hello');
 
 let resources:Resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
+
+let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['use it fool']);
+let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['improves miners']);
+
+
+
 
 let u = new Utils();
 
