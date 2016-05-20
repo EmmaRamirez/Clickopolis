@@ -334,7 +334,17 @@ class Templates {
       <section class='screen buildings-screen' id='buildings'>
         <h2><img src='img/buildings.png'> Buildings</h2>
         <section class='buildings-screen-inner'>
-
+          <div class='panel buildings-mode'>
+            <button class='purchase-mode-btn'>Purchase Mode</button>
+          </div>
+        </section>
+        <section class='buildings-screen-inner'>
+          <div class='building'>
+            <span class='building-cost'><span class='building-cost-text'>15</span> <img src='img/prod.png'></span>
+            <span class='building-name'>Hut</span>
+            <span class='building-description'>A simple hut. Could use air conditioning.</span>
+            <span class='building-effect'>+1 <img src='img/happy.png'></span>
+          </div>
         </section>
       </section>
     `;

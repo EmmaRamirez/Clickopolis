@@ -31,7 +31,7 @@ var Templates = (function () {
         return economyScreen;
     };
     Templates.prototype.createBuildingsScreen = function () {
-        var buildingsScreen = "\n      <section class='screen buildings-screen' id='buildings'>\n        <h2><img src='img/buildings.png'> Buildings</h2>\n        <section class='buildings-screen-inner'>\n\n        </section>\n      </section>\n    ";
+        var buildingsScreen = "\n      <section class='screen buildings-screen' id='buildings'>\n        <h2><img src='img/buildings.png'> Buildings</h2>\n        <section class='buildings-screen-inner'>\n          <div class='panel buildings-mode'>\n            <button class='purchase-mode-btn'>Purchase Mode</button>\n          </div>\n        </section>\n        <section class='buildings-screen-inner'>\n          <div class='building'>\n            <span class='building-cost'><span class='building-cost-text'>15</span> <img src='img/prod.png'></span>\n            <span class='building-name'>Hut</span>\n            <span class='building-description'>A simple hut. Could use air conditioning.</span>\n            <span class='building-effect'>+1 <img src='img/happy.png'></span>\n          </div>\n        </section>\n      </section>\n    ";
         return buildingsScreen;
     };
     Templates.prototype.createTechnologyScreen = function (playerCiv) {

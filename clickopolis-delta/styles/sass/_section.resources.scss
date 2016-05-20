@@ -309,6 +309,31 @@
       border-radius: 50%;
     }
   }
+  .panel {
+    padding: .5rem;
+  }
+  .purchase-mode-btn {
+    background: #D6CA3E;
+    color: #222;
+    padding: .5rem;
+  }
+
+  .building {
+    background: #D6CA3E;
+    border: 1px solid #222;
+    border-radius: 4px;
+    margin: .25rem 1rem;
+    padding: .5rem;
+  }
+  .building-name {
+    font-weight: bold;
+    padding: .5rem;
+  }
+  .building-effect {
+    background: #222;
+    color: #eee;
+    padding: .5rem;
+  }
 
 }
 
@@ -335,7 +360,7 @@
     }
   }
   .research-progress-bar {
-    background: #83D4D4;
+    background: #444;
     border: 1px solid #111;
     border-radius: 8px;
     display: inline-block;

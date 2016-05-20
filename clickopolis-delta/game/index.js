@@ -198,8 +198,10 @@ function createGameUI() {
         var populationText = document.querySelector('.population-text');
         resources.get('food').total -= playerCiv.populationGrowthCost;
         playerCiv.population += 1;
+        playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
         populationText.textContent = playerCiv.population.toString();
         popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+        checkPopulationGrowthCost();
     });
 }
 function addClickToTotal(el, item) {
@@ -253,8 +255,11 @@ function addGoldenAgePoints() {
     goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 }
 function addResearchPoints() {
-    playerCiv.research += 1;
+    playerCiv.research += playerCiv.population;
     elt('.research-text').textContent = playerCiv.research.toString();
+    var researchPercent = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
+    var bgString = "linear-gradient(to right, #83D4D4 0%, #83D4D4 " + researchPercent + ", #444 " + researchPercent + ", #444 100%)";
+    elt('.research-progress-bar').style.background = bgString;
 }
 function addCash() {
     playerCiv.cash += 10;
