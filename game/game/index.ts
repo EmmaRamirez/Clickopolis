@@ -428,6 +428,7 @@ function citizenClick() {
   [].forEach.call(citizenButtons, function (item:any) {
     item.addEventListener('click', function () {
       console.log(this.getAttribute('data-citizen-amount'));
+      console.log(citizens.get(this.getAttribute('data-citizen')));
     })
   })
 }
