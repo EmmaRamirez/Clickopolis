@@ -14,7 +14,9 @@ clickopolis-beta
 # Node
 clickopolis-delta/node_modules
 clickopolis-gamma/node_modules
+game/node_modules
 guide/node_modules
+*/node_modules
 
 Prepros Build/
 

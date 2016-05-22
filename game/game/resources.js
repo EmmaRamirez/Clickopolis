@@ -9,18 +9,12 @@ var Resources = (function () {
     Resources.prototype.get = function (query) {
         var r = this.items;
         var ri;
-        switch (query) {
-            case 'food':
-                return r[0];
-            case 'prod':
-                return r[1];
-            case 'stone':
-                return r[2];
-            case 'fish':
-                return r[3];
-            default:
-                return r[4];
+        for (var i = 0; i < r.length; i++) {
+            if (r[i].name === query) {
+                ri = r[i];
+            }
         }
+        return ri;
     };
     return Resources;
 }());

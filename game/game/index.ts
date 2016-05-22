@@ -9,6 +9,7 @@ import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Resources = require('./resources');
 import Tech = require('./tech');
+import Techs = require('./techs');
 import Templates = require('./template');
 import notify = require('./notify');
 
@@ -40,7 +41,7 @@ let resources:Resources = new Resources([food, prod, stone, fish, spices, banana
 let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['use it fool']);
 let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['improves miners']);
 
-
+let techs:Techs = new Techs([agriculture, mining]);
 
 
 let u = new Utils();

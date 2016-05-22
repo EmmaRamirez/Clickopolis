@@ -408,7 +408,45 @@ class Templates {
       </h2>
       <section class='diplomacy-screen-inner'>
         <div class='diplomacy-summary'>
-          Nations Met: <span class='nations-met-text'>25</span>
+          Nations Met: <span class='nations-met-text'>25</span> &lozf;
+          Nations Destroyed: <span class='nations-destroyed-text'>0</span> &lozf;
+          Nations Absorbed: <span class='nations-absorbed-text'>0</span>
+        </div>
+      </section>
+      <section class='diplomacy-screen-inner'>
+        <div class='nation'>
+          <div class='nation-header'>
+            <div class='nation-name'>Entropia</div>
+            <img class='nation-img' src='img/empire-4.png'>
+            <button class='nation-interact-btn'>Interact</button>
+          </div>
+          <div class='nation-profile'>
+            <p class='nation-description'>
+              A technologically advanced nation ocuppied by religious exiles.
+            </p>
+            <div class='nation-metrics'>
+              <img src='img/influence.png'> <span class='nation-influence-text'>12</span>
+              <img src='img/strength.png'> <span class='nation-strength-text'>33</span>
+              <img src='img/defense.png'> <span class='nation-defense-text'>23</span>
+              <img src='img/coin.png'> <span class='nation-cash-text'>1.5K</span>
+            </div>
+          </div>
+        </div>
+
+        <div class='nation'>
+          <div class='nation-header' style='background: #6CDBE0;'>
+            <div class='nation-name'>Arcopolis</div>
+            <img class='nation-img' src='img/empire-8.png'>
+            <button class='nation-interact-btn'>Interact</button>
+          </div>
+          <div class='nation-profile'>
+            <p class='nation-description'>
+              A seafaring nation prone to violence.
+            </p>
+            <div class='nation-metrics'>
+
+            </div>
+          </div>
         </div>
       </section>
     </section>
