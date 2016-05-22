@@ -8,6 +8,8 @@ import Settings = require('./settings');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Resources = require('./resources');
+import Citizen = require('./citizen');
+import Citizens = require('./citizens');
 import Tech = require('./tech');
 import Techs = require('./techs');
 import Templates = require('./template');
@@ -45,6 +47,9 @@ let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <im
 
 let techs:Techs = new Techs([agriculture, masonry, mining]);
 
+let farmer:Citizen = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
+
+let citizens:Citizens = new Citizens([farmer]);
 
 let u = new Utils();
 

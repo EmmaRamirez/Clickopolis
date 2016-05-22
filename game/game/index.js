@@ -7,6 +7,8 @@ var Game = require('./game');
 var Civilization = require('./civilization');
 var Resource = require('./resource');
 var Resources = require('./resources');
+var Citizen = require('./citizen');
+var Citizens = require('./citizens');
 var Tech = require('./tech');
 var Techs = require('./techs');
 var Templates = require('./template');
@@ -34,6 +36,8 @@ var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img 
 var masonry = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
 var mining = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
 var techs = new Techs([agriculture, masonry, mining]);
+var farmer = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
+var citizens = new Citizens([farmer]);
 var u = new Utils();
 var isWindowActive = true;
 window.addEventListener('focus', function () {
