@@ -4,7 +4,9 @@ A clicking-based civilization game.
 ## Notes
 This game is still a work in progress, and as such things are bound to wildly change.
 
-To run, just navigate to `clickopolis-delta` then `npm install` and then type `http-server` in the command line.
+
+## How to Run
+First navigate to `game` then `npm install`
 
 Clickopolis-delta is the current working version of the game (written in Typescript :]).
 
