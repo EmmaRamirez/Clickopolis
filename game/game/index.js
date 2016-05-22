@@ -207,9 +207,21 @@ function createGameUI() {
         playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
         populationText.textContent = playerCiv.population.toString();
         popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+        updatePopulation(1);
         checkPopulationGrowthCost();
     });
     populateTechnologies();
+    citizenClick();
+}
+function updatePopulation(pop) {
+    playerCiv.cashPM += pop * 1;
+    playerCiv.researchPM += pop * 2;
+    playerCiv.anger += pop * 1;
+    playerCiv.pollution += pop * 1;
+    //elt('.research-text').textContent = playerCiv.research.toString();
+    elt('.cash-PM').textContent = playerCiv.cashPM;
+    elt('.civ-anger-text').textContent = playerCiv.anger;
+    elt('.civ-pollution-text').textContent = playerCiv.pollution;
 }
 function addClickToTotal(el, item) {
     var element = elt(el);
@@ -233,14 +245,14 @@ setInterval(function () {
         elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
         updateTime();
         addGoldenAgePoints();
+        addCash();
+        addResearchPoints();
         checkPopulationGrowthCost();
     }
 }, 1000);
 setInterval(function () {
     if (isWindowActive) {
         updateYear();
-        addCash();
-        addResearchPoints();
     }
 }, 1000 * 60);
 function drawUI(el) {
@@ -282,8 +294,8 @@ function addGoldenAgePoints() {
     goldenAgeMeter.style.background = bgString;
 }
 function addResearchPoints() {
-    playerCiv.research += playerCiv.population;
-    elt('.research-text').textContent = playerCiv.research.toString();
+    playerCiv.research += playerCiv.researchPM / 60;
+    elt('.research-text').textContent = abbrNum(playerCiv.research.toFixed(1), 2);
     var researchPercent = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
     var bgString = "linear-gradient(to right, #83D4D4 0%, #83D4D4 " + researchPercent + ", #444 " + researchPercent + ", #444 100%)";
     elt('.research-progress-bar').style.background = bgString;
@@ -295,9 +307,9 @@ function addResearchPoints() {
     }
 }
 function addCash() {
-    playerCiv.cash += 10;
+    playerCiv.cash += playerCiv.cashPM / 60;
     var cashText = elt('.cash-text');
-    cashText.textContent = playerCiv.cash.toString();
+    cashText.textContent = playerCiv.cash.toFixed(2);
 }
 function resourceClick() {
     var resourceButtons = document.querySelectorAll('.resource');
@@ -314,6 +326,14 @@ function resourceClick() {
                 elt('.resource-info-screen').innerHTML = "\n          <h3><img src='img/" + r.image + ".png'> " + r.name + "<br></h3>\n          <p>" + r.description + "</p>\n        ";
             }
             showResourceInfo(name);
+        });
+    });
+}
+function citizenClick() {
+    var citizenButtons = document.querySelectorAll('button[data-citizen]');
+    [].forEach.call(citizenButtons, function (item) {
+        item.addEventListener('click', function () {
+            console.log(this.getAttribute('data-citizen-amount'));
         });
     });
 }

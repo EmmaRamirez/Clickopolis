@@ -21,6 +21,7 @@ class Civilization {
   achievements: number;
 
   cash: number;
+  cashPM: number;
 
   goldenAges: number;
   goldenAgeProgress: number;
@@ -28,6 +29,7 @@ class Civilization {
   goldenAgeMult: number;
 
   research: number;
+  researchPM: number;
   researchCost: number;
 
 
@@ -58,8 +60,10 @@ class Civilization {
     this.populationReal = 1000;
 
     this.cash = 0;
+    this.cashPM = 0;
 
     this.research = 0;
+    this.researchPM = 0;
     this.researchCost = 10;
   }
 

@@ -219,11 +219,11 @@ class Templates {
           <p class='center-text'>Each citizen provides 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <p class='center-text'>Each citizen also consumes 1 <img src='img/food.png'> PS</p>
           <div class='row citizen-farmer'>
-            <button data-citizien-amount='-1'>-1</button>
+            <button data-citizen='farmer' data-citizen-amount='-1'>-1</button>
             <span class='citizen-icon'><img src='img/farmer.png'></span>
-            <button data-citizen-amount='1'>+1</button>
+            <button data-citizen='farmer' data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
-              Farmers: <strong>12</strong> | Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.
+              Farmers: <strong class='farmer-num-text'>0</strong> | Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.
             </span>
           </div>
           <div class='row citizen-miner'>
@@ -231,7 +231,7 @@ class Templates {
             <span class='citizen-icon'><img src='img/miner.png'></span>
             <button data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
-              Miners: <strong>14</strong> | Miners provide +1 <img src='img/prod.png'> PC and +.2 PC.
+              Miners: <strong class='miner-num-text'>0</strong> | Miners provide +1 <img src='img/prod.png'> PC and +.2 PC.
             </span>
           </div>
           <div class='row citizen-soldier'>
@@ -239,7 +239,7 @@ class Templates {
             <span class='citizen-icon'><img src='img/soldier-alt.png'></span>
             <button data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
-              Soldiers: <strong>3</strong> | Soldiers defend and fight for your empire. -3 <img src='img/coin.png'>
+              Soldiers: <strong class='soldier-num-text'>0</strong> | Soldiers defend and fight for your empire. -3 <img src='img/coin.png'>
             </span>
           </div>
         </section>
@@ -262,13 +262,13 @@ class Templates {
               <img src='img/happy.png'> ${playerCiv.happiness}
             </span>
             <span class='civ-metric metric-anger'>
-              <img src='img/angry.png'> ${playerCiv.anger}
+              <img src='img/angry.png'> <span class='civ-anger-text'>${playerCiv.anger}</span>
             </span>
             <span class='civ-metric metric-health'>
               <img src='img/health.png'> ${playerCiv.health}
             </span>
             <span class='civ-metric metric-pollution'>
-              <img src='img/pollution.png'> ${playerCiv.pollution}
+              <img src='img/pollution.png'> <span class='civ-pollution-text'>${playerCiv.pollution}</span>
             </span>
             <span class='civ-metric metric-influence'>
               <img src='img/influence.png'> ${playerCiv.influence}
@@ -292,11 +292,11 @@ class Templates {
             <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span>
           </div>
           <span class='cash-breakdown'>
-            <span class='cash-item'>From Workers: <span class='cash-from-workers'>23</span></span>
+            <span class='cash-item'>From Citizens: <span class='cash-from-citizens'>23</span></span>
             <span class='cash-item'>From Trade Routes: <span class='cash-from-routes'>45</span></span>
             <span class='cash-item'>From Buildings: <span class='cash-from-buildings'>12</span></span>
             <span class='cash-item'>From Military: <span class='cash-from-military'>24</span></span>
-            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>25</span></span>
+            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>0</span></span>
           </span>
           <div class='trade-deal-history'>
             <table>

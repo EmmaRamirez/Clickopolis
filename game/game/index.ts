@@ -260,11 +260,28 @@ function createGameUI() {
     populationText.textContent = playerCiv.population.toString();
     popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
 
+    updatePopulation(1);
+
     checkPopulationGrowthCost();
 
   });
 
   populateTechnologies();
+
+  citizenClick();
+
+}
+
+function updatePopulation(pop:number) {
+  playerCiv.cashPM += pop * 1;
+  playerCiv.researchPM += pop * 2;
+  playerCiv.anger += pop * 1;
+  playerCiv.pollution += pop * 1;
+
+  //elt('.research-text').textContent = playerCiv.research.toString();
+  elt('.cash-PM').textContent = playerCiv.cashPM;
+  elt('.civ-anger-text').textContent = playerCiv.anger;
+  elt('.civ-pollution-text').textContent = playerCiv.pollution;
 
 }
 
@@ -288,6 +305,8 @@ setInterval(function() {
 
     updateTime();
     addGoldenAgePoints();
+    addCash();
+    addResearchPoints();
     checkPopulationGrowthCost();
   }
 }, 1000);
@@ -295,8 +314,8 @@ setInterval(function() {
 setInterval(function() {
   if (isWindowActive) {
      updateYear();
-     addCash();
-     addResearchPoints();
+
+
   }
 }, 1000 * 60);
 
@@ -356,12 +375,9 @@ function addGoldenAgePoints() {
 }
 
 function addResearchPoints() {
+  playerCiv.research += playerCiv.researchPM / 60;
 
-
-  playerCiv.research += playerCiv.population;
-
-
-  elt('.research-text').textContent = playerCiv.research.toString();
+  elt('.research-text').textContent = abbrNum(playerCiv.research.toFixed(1), 2);
 
   let researchPercent:string = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
 
@@ -376,9 +392,9 @@ function addResearchPoints() {
 }
 
 function addCash() {
-  playerCiv.cash += 10;
+  playerCiv.cash += playerCiv.cashPM / 60;
   let cashText = elt('.cash-text');
-  cashText.textContent = playerCiv.cash.toString();
+  cashText.textContent = playerCiv.cash.toFixed(2);
 }
 
 function resourceClick() {
@@ -400,6 +416,15 @@ function resourceClick() {
       showResourceInfo(name);
     });
   });
+}
+
+function citizenClick() {
+  let citizenButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('button[data-citizen]');
+  [].forEach.call(citizenButtons, function (item:any) {
+    item.addEventListener('click', function () {
+      console.log(this.getAttribute('data-citizen-amount'));
+    })
+  })
 }
 
 function showResourceInfo(name:string) {
