@@ -1,0 +1,15 @@
+.notification {
+  background: #222;
+  box-shadow: 0 0 1rem rgba(black, 0.2);
+  bottom: 10%;
+  color: $clouds;
+  font-size: 1.25rem;
+
+  left: 35%;
+  padding: 2rem;
+  position: fixed;
+  text-align: center;
+
+  width: 30%;
+  z-index: 100;
+}

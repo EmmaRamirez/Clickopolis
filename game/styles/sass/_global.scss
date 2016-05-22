@@ -1,0 +1,54 @@
+.hidden {
+  display: none;
+}
+
+
+.shown {
+  display: inherit;
+}
+
+.checkbox-list {
+  margin: 1rem;
+  width: 100%;
+  label {
+    display: inline-block;
+    padding-left: 1rem;
+    position: relative;
+    text-align: left;
+    width: 30%;
+  }
+  input {
+    left: 0;
+    position: absolute;
+  }
+  input[type='checkbox'] {
+    appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid grey;
+    border-radius: 50%;
+    height: .75rem;
+    width: .75rem;
+    &:checked {
+      background: grey;
+    }
+  }
+}
+
+img:not(.custom-size-img) {
+  height: 1rem;
+  vertical-align: top;
+}
+
+h2 img:not(.custom-size-img) {
+  height: 1.5rem;
+}
+
+img.clickopolis-logo {
+  height: 2.5rem;
+}
+
+.center-text {
+  text-align: center !important;
+}
