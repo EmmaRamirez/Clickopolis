@@ -331,8 +331,6 @@ function populateTechnologies() {
     </div>`;
   }
 
-
-
 }
 
 function updateYear() {

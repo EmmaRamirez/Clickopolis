@@ -118,7 +118,7 @@ class Templates {
             </span>
 
             <span class='resource' data-resource='banana'>
-              <img src='img/banana.png'> <span>22</span>
+              <img src='img/banana.png'> <span>${resources.get('banana').total}</span>
             </span>
 
             <br>
@@ -128,11 +128,11 @@ class Templates {
             </span>
 
             <span class='resource' data-resource='stone'>
-              <img src='img/stone.png'> <span>25</span>
+              <img src='img/stone.png'> <span>${resources.get('stone').total}</span>
             </span>
 
             <span class='resource' data-resource='iron'>
-              <img src='img/iron.png'> <span>22</span>
+              <img src='img/iron.png'> <span>${resources.get('iron').total}</span>
             </span>
 
 
@@ -144,15 +144,15 @@ class Templates {
             </span>
 
             <span class='resource' data-resource='horse'>
-              <img src='img/horse.png'> <span>35</span>
+              <img src='img/horse.png'> <span>${resources.get('horse').total}</span>
             </span>
 
             <span class='resource' data-unlocked='false' data-resource='oil'>
-              <img src='img/oil.png'> <span>22</span>
+              <img src='img/oil.png'> <span>${resources.get('oil').total}</span>
             </span>
 
             <span class='resource' data-resource='uranium'>
-              <img src='img/uranium.png'> <span>22</span>
+              <img src='img/uranium.png'> <span>${resources.get('uranium').total}</span>
             </span>
 
             <br>
@@ -162,15 +162,15 @@ class Templates {
             </span>
 
             <span class='resource' data-resource='spices'>
-              <img src='img/spices.png'> <span>15</span>
+              <img src='img/spices.png'> <span>${resources.get('spices').total}</span>
             </span>
 
             <span class='resource' data-resource='gold'>
-              <img src='img/gold.png'> <span>0</span>
+              <img src='img/gold.png'> <span>${resources.get('gold').total}</span>
             </span>
 
             <span class='resource' data-resource='gems'>
-              <img src='img/gems.png'> <span>34</span>
+              <img src='img/gems.png'> <span>${resources.get('gems').total}</span>
             </span>
 
             <br>
@@ -180,11 +180,11 @@ class Templates {
             </span>
 
             <span class='resource' data-resource='spaghetti'>
-              <img src='img/spaghetti.png'> 22
+              <img src='img/spaghetti.png'> <span>${resources.get('spaghetti').total}</span>
             </span>
 
             <span class='resource' data-resource='chihuahua'>
-              <img src='img/chihuahua.png'> 2
+              <img src='img/chihuahua.png'> <span>${resources.get('chihuahua').total}</span>
             </span>
 
           </div>
