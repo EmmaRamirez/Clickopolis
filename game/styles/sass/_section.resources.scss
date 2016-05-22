@@ -433,11 +433,12 @@
       background: darken(#83D4D4, 15%);
       @extend %transition-s;
     }
-    &.active {
+    &[data-selected=true] {
       background: #DB9665;
     }
     .tech-name {
       font-weight: bold;
+      text-transform: capitalize;
     }
     .tech-description {
       font-size: .9rem;

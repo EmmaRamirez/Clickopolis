@@ -30,9 +30,10 @@ var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts')
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 var resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
-var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['use it fool']);
-var mining = new Tech('mining', 'ancient', 'not safe for minors', ['improves miners']);
-var techs = new Techs([agriculture, mining]);
+var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
+var masonry = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
+var mining = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
+var techs = new Techs([agriculture, masonry, mining]);
 var u = new Utils();
 var isWindowActive = true;
 window.addEventListener('focus', function () {
@@ -208,6 +209,7 @@ function createGameUI() {
         popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
         checkPopulationGrowthCost();
     });
+    populateTechnologies();
 }
 function addClickToTotal(el, item) {
     var element = elt(el);
@@ -251,6 +253,15 @@ function drawUI(el) {
         templates.createTechnologyScreen(playerCiv) +
         templates.createDiplomacyScreen(playerCiv) +
         templates.createSettingsScreen();
+}
+function populateTechnologies() {
+    var technologies = document.querySelector('.technologies');
+    console.debug("tech element", technologies);
+    for (var i = 0; i < techs.items.length; i++) {
+        var t = techs.items[i];
+        console.log(techs.items[i]);
+        technologies.innerHTML += "\n    <div class='tech' data-tech='" + t.name + "' data-selected=" + t.selected + ">\n      <span class='tech-name'>" + t.name + "</span>\n      <span class='tech-description'>" + t.description + "</span>\n      <ul class='tech-list'>\n        <li>" + t.effects[0] + "</li>\n        <li>" + t.effects[1] + "</li>\n      </ul>\n    </div>";
+    }
 }
 function updateYear() {
     game.year += 1;

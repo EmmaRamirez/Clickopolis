@@ -201,8 +201,6 @@ class Templates {
     return resourcesScreen;
   }
 
-
-
   createScreenHeader(playerCiv:Civilization, game:Game):string {
     let screenHeader = `
       <header class='screen-header'>
@@ -376,23 +374,6 @@ class Templates {
           </span>
         </section>
         <section class='technology-screen-inner technologies'>
-          <div class='tech' data-tech='agriculture'>
-            <span class='tech-name'>Agriculture</span>
-            <span class='tech-description'>This is a description</span>
-            <ul class='tech-list'>
-              <li>+.2 <img src='img/food.png'> PS per farmer</li>
-              <li>Unlocks: Animal Husbandry, Mining</li>
-            </ul>
-          </div>
-
-          <div class='tech active' data-tech='mining'>
-            <span class='tech-name'>Mining</span>
-            <span class='tech-description'>This is a description</span>
-            <ul class='tech-list'>
-              <li>+.2 <img src='img/prod.png'> PS per miner</li>
-              <li>Unlocks: Masonry, Pottery</li>
-            </ul>
-          </div>
         </section>
       </section>
     `;

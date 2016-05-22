@@ -1111,12 +1111,13 @@ button:focus {
   background: #4ac0c0;
 }
 
-.technology-screen .tech.active {
+.technology-screen .tech[data-selected=true] {
   background: #DB9665;
 }
 
 .technology-screen .tech .tech-name {
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .technology-screen .tech .tech-description {

@@ -38,10 +38,12 @@ let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Ba
 
 let resources:Resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 
-let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['use it fool']);
-let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['improves miners']);
+let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
+let masonry:Tech = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
+let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
 
-let techs:Techs = new Techs([agriculture, mining]);
+
+let techs:Techs = new Techs([agriculture, masonry, mining]);
 
 
 let u = new Utils();
@@ -227,6 +229,7 @@ function createGameUI() {
 
   drawUI(clickopolisGame);
 
+
   intro != undefined ? intro.remove() : console.log('intro not defined');
 
   document.body.appendChild(clickopolisGame);
@@ -261,7 +264,7 @@ function createGameUI() {
 
   });
 
-
+  populateTechnologies();
 
 }
 
@@ -307,6 +310,29 @@ function drawUI(el:HTMLElement) {
                   templates.createTechnologyScreen(playerCiv) +
                   templates.createDiplomacyScreen(playerCiv) +
                   templates.createSettingsScreen();
+
+}
+
+function populateTechnologies() {
+  let technologies = document.querySelector('.technologies');
+  console.debug("tech element", technologies);
+
+  for (let i = 0; i < techs.items.length; i++) {
+    let t = techs.items[i];
+    console.log(techs.items[i]);
+    technologies.innerHTML += `
+    <div class='tech' data-tech='${t.name}' data-selected=${t.selected}>
+      <span class='tech-name'>${t.name}</span>
+      <span class='tech-description'>${t.description}</span>
+      <ul class='tech-list'>
+        <li>${t.effects[0]}</li>
+        <li>${t.effects[1]}</li>
+      </ul>
+    </div>`;
+  }
+
+
+
 }
 
 function updateYear() {
