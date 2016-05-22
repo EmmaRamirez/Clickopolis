@@ -2,13 +2,11 @@
 A clicking-based civilization game.
 
 ## Notes
-This game is still a work in progress, and as such things are bound to wildly change.
+*This game is still a work in progress, and as such things are bound to wildly change.*
 
 
 ## How to Run
-First navigate to `game` then `npm install`
-
-Clickopolis-delta is the current working version of the game (written in Typescript :]).
+First navigate to `game` then `npm install` and run `http-server` to run the game in your localhost (default port 8080).
 
 ## Task List
 
