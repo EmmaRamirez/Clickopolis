@@ -1,8 +1,9 @@
 "use strict";
 var Nation = (function () {
-    function Nation(name, image, description, influence, strength, defense, cash, peacefulness, isAtWar) {
+    function Nation(name, image, color, description, influence, strength, defense, cash, peacefulness, isAtWar) {
         this.name = name;
         this.image = image;
+        this.color = color;
         this.description = description;
         this.influence = influence;
         this.strength = strength;
