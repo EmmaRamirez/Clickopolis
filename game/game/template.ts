@@ -216,7 +216,7 @@ class Templates {
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
-          <p class='center-text'>Each citizen provides 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
+          <p class='center-text'>Each citizen produces 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <p class='center-text'>Each citizen also consumes 1 <img src='img/food.png'> PS</p>
           <div class='row citizen-farmer'>
             <button data-citizen='farmer' data-citizen-amount='-1'>-1</button>
