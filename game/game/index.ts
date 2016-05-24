@@ -328,7 +328,7 @@ function drawUI(el:HTMLElement) {
   el.innerHTML =  templates.createScreenHeader(playerCiv, game) +
                   templates.createResourcesScreen(playerCiv, resources) +
                   templates.createCivilizationScreen(playerCiv) +
-                  templates.createCitizenScreen(playerCiv) +
+                  templates.createCitizenScreen(playerCiv, citizens) +
                   templates.createEconomyScreen(playerCiv) +
                   templates.createBuildingsScreen() +
                   templates.createTechnologyScreen(playerCiv) +
@@ -427,10 +427,27 @@ function citizenClick() {
   let citizenButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('button[data-citizen]');
   [].forEach.call(citizenButtons, function (item:any) {
     item.addEventListener('click', function () {
+      let citizen:string = this.getAttribute('data-citizen');
+      let sel:string = '.' + citizen + '-num-text';
+
+      console.log(citizens.get(citizen).amount);
+
       console.log(this.getAttribute('data-citizen-amount'));
-      console.log(citizens.get(this.getAttribute('data-citizen')));
-    })
-  })
+
+      citizens.get(citizen).amount += <number>this.getAttribute('data-citizen-amount');
+
+      console.log(citizens.get(citizen).amount);
+
+      elt(sel).textContent = citizens.get(citizen).amount;
+
+      console.log(elt(sel).textContent);
+
+
+      // console.log(this.getAttribute('data-citizen-amount'));
+      // console.log(citizens.get(this.getAttribute('data-citizen')));
+      // elt(this.getAttribute('data-citizen') + '-num-text').textContent = citizens.get(this.getAttribute('data-citizen')).amount + 1;
+    });
+  });
 }
 
 function showResourceInfo(name:string) {

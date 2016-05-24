@@ -2,6 +2,8 @@ import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Resources = require('./resources');
+import Citizen = require('./citizen');
+import Citizens = require('./citizens');
 import Utils = require('./utils');
 
 let u = new Utils();
@@ -211,7 +213,7 @@ class Templates {
     return screenHeader;
   }
 
-  createCitizenScreen(playerCiv:Civilization):string {
+  createCitizenScreen(playerCiv:Civilization, citizens:Citizens):string {
     let citizensScreen = `
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
@@ -219,23 +221,23 @@ class Templates {
           <p class='center-text'>Each citizen produces 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <p class='center-text'>Each citizen also consumes 1 <img src='img/food.png'> PS</p>
           <div class='row citizen-farmer'>
-            <button data-citizen='farmer' data-citizen-amount='-1'>-1</button>
+            <button data-citizen='farmer' data-citizen-amount=-1>-1</button>
             <span class='citizen-icon'><img src='img/farmer.png'></span>
-            <button data-citizen='farmer' data-citizen-amount='1'>+1</button>
+            <button data-citizen='farmer' data-citizen-amount=1>+1</button>
             <span class='citizen-info'>
-              Farmers: <strong class='farmer-num-text'>0</strong> | Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.
+              Farmers: <strong class='farmer-num-text'>${citizens.get('farmer').amount}</strong> | Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.
             </span>
           </div>
           <div class='row citizen-miner'>
-            <button data-citizien-amount='-1'>-1</button>
+            <button data-citizen='miner' data-citizen-amount='-1'>-1</button>
             <span class='citizen-icon'><img src='img/miner.png'></span>
-            <button data-citizen-amount='1'>+1</button>
+            <button data-citizen='miner' data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
               Miners: <strong class='miner-num-text'>0</strong> | Miners provide +1 <img src='img/prod.png'> PC and +.2 PC.
             </span>
           </div>
           <div class='row citizen-soldier'>
-            <button data-citizien-amount='-1'>-1</button>
+            <button data-citizen-amount='-1'>-1</button>
             <span class='citizen-icon'><img src='img/soldier-alt.png'></span>
             <button data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>

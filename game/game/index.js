@@ -263,7 +263,7 @@ function drawUI(el) {
     el.innerHTML = templates.createScreenHeader(playerCiv, game) +
         templates.createResourcesScreen(playerCiv, resources) +
         templates.createCivilizationScreen(playerCiv) +
-        templates.createCitizenScreen(playerCiv) +
+        templates.createCitizenScreen(playerCiv, citizens) +
         templates.createEconomyScreen(playerCiv) +
         templates.createBuildingsScreen() +
         templates.createTechnologyScreen(playerCiv) +
@@ -337,8 +337,17 @@ function citizenClick() {
     var citizenButtons = document.querySelectorAll('button[data-citizen]');
     [].forEach.call(citizenButtons, function (item) {
         item.addEventListener('click', function () {
+            var citizen = this.getAttribute('data-citizen');
+            var sel = '.' + citizen + '-num-text';
+            console.log(citizens.get(citizen).amount);
             console.log(this.getAttribute('data-citizen-amount'));
-            console.log(citizens.get(this.getAttribute('data-citizen')));
+            citizens.get(citizen).amount += this.getAttribute('data-citizen-amount');
+            console.log(citizens.get(citizen).amount);
+            elt(sel).textContent = citizens.get(citizen).amount;
+            console.log(elt(sel).textContent);
+            // console.log(this.getAttribute('data-citizen-amount'));
+            // console.log(citizens.get(this.getAttribute('data-citizen')));
+            // elt(this.getAttribute('data-citizen') + '-num-text').textContent = citizens.get(this.getAttribute('data-citizen')).amount + 1;
         });
     });
 }
