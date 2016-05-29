@@ -296,6 +296,8 @@ function createGameUI() {
 
   });
 
+  setInfluenceImage();
+
   populateTechnologies();
 
   citizenClick();
@@ -430,6 +432,14 @@ function addCash() {
   playerCiv.cash += playerCiv.cashPM / 60;
   let cashText = elt('.cash-text');
   cashText.textContent = playerCiv.cash.toFixed(2);
+}
+
+function setInfluenceImage() {
+  if (playerCiv.influence >= 0) {
+    elt('.influence-img').src = 'img/influence.png';
+  } else {
+    elt('.influence-img').src = 'img/influence-alt.png';
+  }
 }
 
 function resourceClick() {
