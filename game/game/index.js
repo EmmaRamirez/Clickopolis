@@ -11,6 +11,7 @@ var Citizens = require('./citizens');
 var Tech = require('./tech');
 var Techs = require('./techs');
 var Templates = require('./template');
+var notify = require('./notify');
 var game = new Game(0);
 var playerCiv;
 var templates = new Templates();
@@ -236,6 +237,7 @@ function createGameUI() {
         popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
         updatePopulation(1);
         checkPopulationGrowthCost();
+        notify('Your population just grew, unlocking more possibilities!');
     });
     setInfluenceImage();
     populateTechnologies();

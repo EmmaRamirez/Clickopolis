@@ -294,6 +294,8 @@ function createGameUI() {
 
     checkPopulationGrowthCost();
 
+    notify('Your population just grew, unlocking more possibilities!');
+
   });
 
   setInfluenceImage();

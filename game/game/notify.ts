@@ -7,7 +7,7 @@ function notify(message:string):void {
   document.body.appendChild(note);
   setTimeout(function () {
     note.className = 'notification hidden';
-  }, 1000);
+  }, 2500);
 }
 
 export = notify;

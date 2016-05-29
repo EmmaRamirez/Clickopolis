@@ -7,7 +7,7 @@ function notify(message) {
     document.body.appendChild(note);
     setTimeout(function () {
         note.className = 'notification hidden';
-    }, 1000);
+    }, 2500);
 }
 module.exports = notify;
 //# sourceMappingURL=notify.js.map
