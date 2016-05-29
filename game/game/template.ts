@@ -465,16 +465,14 @@ class Templates {
           <img src='img/gear.png'> Settings
         </h2>
         <section class='settings-screen-inner'>
-          <p>Game Skin:
+          <p><span class='settings-label'>Game Skin:</span>
             <select>
               <option>Ancient</option>
             </select>
           </p>
-          <p>UI:
-            <select>
-              <option>Horizontal</option>
-              <option>Grid</option>
-            </select>
+          <p><span class='settings-label'>UI:</span>
+            <img src='img/horizontal.png' title='horizontal'>
+            <img src='img/grid.png' title='grid'>
           </p>
         </section>
       </section>

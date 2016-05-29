@@ -1264,6 +1264,16 @@ button:focus {
   border-radius: 50%;
 }
 
+.settings-screen .settings-screen-inner {
+  color: white;
+}
+
+.settings-screen .settings-label {
+  display: inline-block;
+  width: 6rem;
+  padding-right: .5rem;
+}
+
 .notification {
   background: #222;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
