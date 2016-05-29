@@ -7,7 +7,9 @@ A clicking-based civilization game.
 Contributions through issues and pull requests are greatly appreciated!
 
 ## How to Run
-First navigate to `game` then `npm install` and run `npm start` to run the game in your localhost (default port 8080).
+Run `git clone https://github.com/EmmaRamirez/Clickopolis.git` to download the current repo.
+
+Then navigate to `Clickopolis\game` then `npm install` and run `npm start` to run the game in your localhost (default port 8080).
 
 In order to run the next version of Clickopolis, just switch to the branch `latest`, or check out one of the `feature/**` branches.
 
