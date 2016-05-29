@@ -1287,10 +1287,21 @@ button:focus {
   color: white;
 }
 
+.settings-screen p {
+  border: 1px solid black;
+}
+
 .settings-screen .settings-label {
+  background: #222;
   display: inline-block;
-  width: 6rem;
-  padding-right: .5rem;
+  width: 8rem;
+  padding: .5rem;
+  text-align: right;
+}
+
+.settings-screen .era-skin {
+  border: 1px solid white;
+  border-radius: 4px;
 }
 
 .settings-screen .ui-button {
@@ -1298,13 +1309,9 @@ button:focus {
   padding: .5rem;
 }
 
-.settings-screen .ui-button img {
-  height: 2rem;
-}
-
 .settings-screen .ui-button:hover {
   cursor: pointer;
-  background: skyblue;
+  background: #3498db;
 }
 
 .notification {

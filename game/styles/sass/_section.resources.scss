@@ -589,21 +589,31 @@
   .settings-screen-inner {
     color: white;
   }
+  p {
+    border: 1px solid black;
+  }
   .settings-label {
+    background: #222;
     display: inline-block;
-    width: 6rem;
-    padding-right: .5rem;
+    width: 8rem;
+    padding: .5rem;
+    text-align: right;
+  }
+  .era-skin {
+    border: 1px solid white;
+    border-radius: 4px;
   }
   .ui-button {
     display: inline-block;
     padding: .5rem;
-    img {
-      height: 2rem;
-    }
     &:hover {
       cursor: pointer;
-      background: skyblue;
+      background: $blue;
     }
+  }
+  .horizontal-button,
+  .grid-button {
+
   }
 
 }

@@ -26,10 +26,10 @@ class Templates {
                 <img src="img/achievements.png"> 5
               </span>
               <span>
-                <img src="img/strength.png"> 33
+                <img src="img/strength.png"> ${playerCiv.strength}
               </span>
               <span>
-                <img src="img/defense.png"> 44
+                <img src="img/defense.png"> ${playerCiv.defense}
               </span>
               <span>
                 <img src="img/legacy.png"> 2
@@ -477,13 +477,13 @@ class Templates {
         </h2>
         <section class='settings-screen-inner'>
           <p><span class='settings-label'>Game Skin:</span>
-            <select>
-              <option>Ancient</option>
-            </select>
+            <span class='ui-button ancient ancient-skin'>Ancient</span>
+            <span class='ui-button classical classical-skin'>Classical</span>
+            <span class='ui-button medieval medieval-skin'>Medieval</span>
           </p>
           <p><span class='settings-label'>UI:</span>
-            <div class='ui-button horizontal-button'><img src='img/horizontal.png' title='horizontal'></div>
-            <div class='ui-button grid-button'><img src='img/grid.png' title='grid'></div>
+            <span class='ui-button horizontal-button'><img src='img/horizontal.png' title='horizontal'></span>
+            <span class='ui-button grid-button'><img src='img/grid.png' title='grid'></span>
           </p>
         </section>
       </section>
