@@ -94,13 +94,13 @@ document.addEventListener('keydown', function (event:any) {
 })
 
 function saveGame():void {
-  //store.set('game', game);
-  //store.get('game');
+  store.set('game', game);
+  store.get('game');
 }
 
 
 function savePlayer():void {
-  //store.set('playerCiv', playerCiv);
+  store.set('playerCiv', playerCiv);
   console.log(store.get('playerCiv'));
 }
 
