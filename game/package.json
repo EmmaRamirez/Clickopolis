@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",
-    "css": "node-sass styles/sass/ --output styles/css/ --watch --output-style expanded",
-    "go": "\"npm run webpack\" \"npm run css\" \"http-server\""
+    "css": "node-sass styles/sass/ --output styles/css/ --watch --output-style expanded"
   },
   "author": "Emma Ramirez",
   "license": "ISC",
@@ -19,6 +18,9 @@
     "vue": "^1.0.22"
   },
   "devDependencies": {
-    "concurrently": "^2.0.0"
+    "concurrently": "^2.0.0",
+    "css-loader": "^0.23.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1"
   }
 }
