@@ -1246,6 +1246,16 @@ button:focus {
   border-radius: 50%;
 }
 
+.military-screen .military-metric {
+  background: #222;
+  color: #eee;
+  border: 1px solid #111;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: .5rem;
+  padding: .5rem;
+}
+
 .settings-screen {
   background: #333;
   border-top: 4px solid black;
