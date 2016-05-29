@@ -17,6 +17,7 @@ clickopolis-gamma/node_modules
 game/node_modules
 guide/node_modules
 */node_modules
+game/dist
 
 Prepros Build/
 
