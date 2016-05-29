@@ -442,6 +442,8 @@ class Templates {
     return diplomacyScreen;
   }
 
+  
+
 
 
   createSettingsScreen(playerCiv:Civilization, game:Game) {
@@ -451,12 +453,24 @@ class Templates {
           <img src='img/gear.png'> Settings
         </h2>
         <section class='settings-screen-inner'>
-
+          <p>Game Skin:
+            <select>
+              <option>Ancient</option>
+            </select>
+          </p>
+          <p>UI:
+            <select>
+              <option>Horizontal</option>
+              <option>Grid</option>
+            </select>
+          </p>
         </section>
       </section>
     `;
     return settingsScreen;
   }
+
+
 
 
 }
