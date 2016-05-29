@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './game/index.ts',
+  entry: './src/scripts/index.ts',
   output: {
-    filename: 'bundle.js'
+    filename: './dist/scripts/bundle.js'
   },
   devtool: 'source-map',
   resolve: {
@@ -14,7 +14,9 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts-loader' }
+      { test: /\.ts$/, loader: 'ts-loader' },
+      { test: /\.scss$/, loaders: ['style', 'css', 'sass' ]}
     ]
-  }
+  },
+  watch: true
 }

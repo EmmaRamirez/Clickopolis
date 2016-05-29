@@ -1,6 +1,8 @@
 // <reference path="store.d.ts" />
 // <reference path="underscore.d.ts" />
 
+require('../styles/sass/index.scss');
+
 import _ = require('underscore');
 import Utils = require('./utils');
 import Game = require('./game');
@@ -92,13 +94,13 @@ document.addEventListener('keydown', function (event:any) {
 })
 
 function saveGame():void {
-  store.set('game', game);
-  store.get('game');
+  //store.set('game', game);
+  //store.get('game');
 }
 
 
 function savePlayer():void {
-  store.set('playerCiv', playerCiv);
+  //store.set('playerCiv', playerCiv);
   console.log(store.get('playerCiv'));
 }
 
