@@ -36,14 +36,18 @@ var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img 
 var animalHusbandry = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
 var archery = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
 var fishing = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
+var herbalMedicine = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
 var masonry = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
 var mining = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
+var mysticism = new Tech('mysticism', 'ancient', 'Mysterious gods bring riches, temples, and a couple blood sacrifices.', ['Can assign Clerics.', 'Can build Temples.', 'Can build Stonehenge.']);
 var techs = new Techs([agriculture,
     animalHusbandry,
     archery,
     fishing,
+    herbalMedicine,
     masonry,
-    mining]);
+    mining,
+    mysticism]);
 var farmer = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
 var citizens = new Citizens([farmer]);
 var u = new Utils();

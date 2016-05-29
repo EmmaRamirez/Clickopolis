@@ -44,16 +44,20 @@ let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 
 let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
 let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
 let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
+let herbalMedicine:Tech = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
 let masonry:Tech = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
 let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
+let mysticism:Tech = new Tech('mysticism', 'ancient', 'Mysterious gods bring riches, temples, and a couple blood sacrifices.', ['Can assign Clerics.', 'Can build Temples.', 'Can build Stonehenge.']);
 
 
 let techs:Techs = new Techs([agriculture,
                             animalHusbandry,
                             archery,
                             fishing,
+                            herbalMedicine,
                             masonry,
-                            mining]);
+                            mining,
+                            mysticism]);
 
 let farmer:Citizen = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
 
