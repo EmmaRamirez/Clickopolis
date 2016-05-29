@@ -333,7 +333,7 @@ function drawUI(el:HTMLElement) {
                   templates.createBuildingsScreen() +
                   templates.createTechnologyScreen(playerCiv) +
                   templates.createDiplomacyScreen(playerCiv) +
-                  templates.createSettingsScreen();
+                  templates.createSettingsScreen(playerCiv, game);
 
 }
 

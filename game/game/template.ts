@@ -294,11 +294,11 @@ class Templates {
             <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span>
           </div>
           <span class='cash-breakdown'>
-            <span class='cash-item'>From Citizens: <span class='cash-from-citizens'>23</span></span>
-            <span class='cash-item'>From Trade Routes: <span class='cash-from-routes'>45</span></span>
-            <span class='cash-item'>From Buildings: <span class='cash-from-buildings'>12</span></span>
-            <span class='cash-item'>From Military: <span class='cash-from-military'>24</span></span>
-            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>0</span></span>
+            <span class='cash-item'>From Citizens: <span class='cash-from-citizens'>0</span></span>
+            <span class='cash-item'>From Trade Routes: <span class='cash-from-routes'>0</span></span>
+            <span class='cash-item'>From Buildings: <span class='cash-from-buildings'>0</span></span>
+            <span class='cash-item'>From Military: <span class='cash-from-military'>0</span></span>
+            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>${playerCiv.cashPM}</span></span>
           </span>
           <div class='trade-deal-history'>
             <table>
@@ -439,7 +439,7 @@ class Templates {
 
 
 
-  createSettingsScreen() {
+  createSettingsScreen(playerCiv:Civilization, game:Game) {
     let settingsScreen = `
       <section class='screen settings-screen' id='settings'>
         <h2>
