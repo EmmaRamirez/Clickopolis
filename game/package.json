@@ -1,7 +1,7 @@
 {
   "name": "clickopolis-delta",
   "version": "0.0.1",
-  "description": "",
+  "description": "An epic clicking-based empire management game.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
