@@ -429,7 +429,10 @@ class Templates {
               A seafaring nation prone to violence.
             </p>
             <div class='nation-metrics'>
-
+              <img src='img/influence.png'> <span class='nation-influence-text'>-4</span>
+              <img src='img/strength.png'> <span class='nation-strength-text'>55</span>
+              <img src='img/defense.png'> <span class='nation-defense-text'>68</span>
+              <img src='img/coin.png'> <span class='nation-cash-text'>3.7K</span>
             </div>
           </div>
         </div>

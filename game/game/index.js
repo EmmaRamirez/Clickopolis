@@ -1,7 +1,6 @@
 // <reference path="store.d.ts" />
 // <reference path="underscore.d.ts" />
 "use strict";
-var _ = require('underscore');
 var Utils = require('./utils');
 var Game = require('./game');
 var Civilization = require('./civilization');
@@ -12,7 +11,6 @@ var Citizens = require('./citizens');
 var Tech = require('./tech');
 var Techs = require('./techs');
 var Templates = require('./template');
-console.log(_.random(0, 100));
 var game = new Game(0);
 var playerCiv;
 var templates = new Templates();
@@ -30,7 +28,6 @@ var iron = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
 var horse = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
 var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
 var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
-//notify('hello');
 var resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
 var animalHusbandry = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);

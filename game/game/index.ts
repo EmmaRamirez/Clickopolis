@@ -12,16 +12,15 @@ import Citizen = require('./citizen');
 import Citizens = require('./citizens');
 import Tech = require('./tech');
 import Techs = require('./techs');
+import Nation = require('./nation');
+import Nations = require('./nations');
 import Templates = require('./template');
 import notify = require('./notify');
-
-
-
-console.log(_.random(0, 100));
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
+
 let food:Resource = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
 let prod:Resource = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
 let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings.');
@@ -36,7 +35,6 @@ let iron:Resource = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
 let horse:Resource = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
 let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
 let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
-//notify('hello');
 
 let resources:Resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 
