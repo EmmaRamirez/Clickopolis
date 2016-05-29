@@ -6,7 +6,17 @@ A clicking-based civilization game.
 
 
 ## How to Run
-First navigate to `game` then `npm install` and run `http-server` to run the game in your localhost (default port 8080).
+First navigate to `game` then `npm install` and run `npm start` to run the game in your localhost (default port 8080).
+
+In order to run the next version of Clickopolis, just switch to the branch `latest`, or check out one of the `feature/**` branches.
+
+## Roadmap
+
+### 0.2.0
+- Saving game to file
+
+### 0.1.0
+- Working implementations of all main UIs
 
 ## Task List
 
@@ -19,6 +29,9 @@ First navigate to `game` then `npm install` and run `http-server` to run the gam
 - [ ] Ability to switch between UIs
   - [ ] Horizontal UI
   - [ ] Grid UI
+- [ ] Ability to change UI color
+  - [ ] Dark UI
+  - [ ] Light UI
 
 ### Resources
 - [ ] Resource UI
@@ -90,6 +103,7 @@ First navigate to `game` then `npm install` and run `http-server` to run the gam
 
 ### Military
 - [ ] Military UI
+- [ ] Military Assignments
 - [ ] Combat
   - [ ] Peace
   - [ ] Attack
