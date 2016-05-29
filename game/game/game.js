@@ -5,6 +5,7 @@ var Game = (function () {
         this.era = 'ancient';
         this.year = 0;
         this.time = 0;
+        this.version = '0.0.1';
     }
     return Game;
 }());
