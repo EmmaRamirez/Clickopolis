@@ -5,6 +5,9 @@ function notify(message) {
     note.className = 'notification';
     note.textContent = message;
     document.body.appendChild(note);
+    setTimeout(function () {
+        note.className = 'notification hidden';
+    }, 1000);
 }
 module.exports = notify;
 //# sourceMappingURL=notify.js.map

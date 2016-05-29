@@ -17,6 +17,7 @@ import Nations = require('./nations');
 import Templates = require('./template');
 import notify = require('./notify');
 
+
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();

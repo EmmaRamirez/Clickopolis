@@ -5,6 +5,9 @@ function notify(message:string):void {
 
   note.textContent = message;
   document.body.appendChild(note);
+  setTimeout(function () {
+    note.className = 'notification hidden';
+  }, 1000);
 }
 
 export = notify;
