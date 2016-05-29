@@ -73,7 +73,7 @@ class Civilization {
     this.researchPM = 0;
     this.researchCost = 10;
     this.researchingTechs = 'none';
-    this.reasearchingTechsArray = [];
+    this.researchingTechsArray = [];
 
     this.techs = 0;
 

@@ -520,8 +520,8 @@ function techClick() {
           techs.get(tech).purchased = true;
           item.setAttribute('data-purchased', true);
           playerCiv.research -= playerCiv.researchCost;
-          //playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
-          //elt('.research-cost-text').textContent = playerCiv.researchCost;
+          playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
+          elt('.research-cost-text').textContent = playerCiv.researchCost;
         }
       }
 
