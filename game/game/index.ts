@@ -302,6 +302,8 @@ function createGameUI() {
 
   techClick();
 
+  UiSettingsButtons();
+
 }
 
 function updatePopulation(pop:number) {
@@ -519,6 +521,13 @@ function checkPopulationGrowthCost() {
     return true;
   }
 
+}
+
+function UiSettingsButtons() {
+  // TODO: Remove eventlistener for horizontal scrolling
+  elt('.grid-button').addEventListener('click', function () {
+    elt('.clickopolis').style.width = '1200px';
+  });
 }
 
 

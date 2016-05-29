@@ -47,7 +47,7 @@ var Templates = (function () {
         return militaryScreen;
     };
     Templates.prototype.createSettingsScreen = function (playerCiv, game) {
-        var settingsScreen = "\n      <section class='screen settings-screen' id='settings'>\n        <h2>\n          <img src='img/gear.png'> Settings\n        </h2>\n        <section class='settings-screen-inner'>\n          <p><span class='settings-label'>Game Skin:</span>\n            <select>\n              <option>Ancient</option>\n            </select>\n          </p>\n          <p><span class='settings-label'>UI:</span>\n            <img src='img/horizontal.png' title='horizontal'>\n            <img src='img/grid.png' title='grid'>\n          </p>\n        </section>\n      </section>\n    ";
+        var settingsScreen = "\n      <section class='screen settings-screen' id='settings'>\n        <h2>\n          <img src='img/gear.png'> Settings\n        </h2>\n        <section class='settings-screen-inner'>\n          <p><span class='settings-label'>Game Skin:</span>\n            <select>\n              <option>Ancient</option>\n            </select>\n          </p>\n          <p><span class='settings-label'>UI:</span>\n            <div class='ui-button horizontal-button'><img src='img/horizontal.png' title='horizontal'></div>\n            <div class='ui-button grid-button'><img src='img/grid.png' title='grid'></div>\n          </p>\n        </section>\n      </section>\n    ";
         return settingsScreen;
     };
     return Templates;

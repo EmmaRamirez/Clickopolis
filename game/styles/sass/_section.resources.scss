@@ -578,4 +578,16 @@
     width: 6rem;
     padding-right: .5rem;
   }
+  .ui-button {
+    display: inline-block;
+    padding: .5rem;
+    img {
+      height: 2rem;
+    }
+    &:hover {
+      cursor: pointer;
+      background: skyblue;
+    }
+  }
+
 }

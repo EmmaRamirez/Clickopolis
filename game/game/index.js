@@ -240,6 +240,7 @@ function createGameUI() {
     populateTechnologies();
     citizenClick();
     techClick();
+    UiSettingsButtons();
 }
 function updatePopulation(pop) {
     playerCiv.cashPM += pop * 1;
@@ -415,6 +416,12 @@ function checkPopulationGrowthCost() {
         button.className = 'pop-btn';
         return true;
     }
+}
+function UiSettingsButtons() {
+    // TODO: Remove eventlistener for horizontal scrolling
+    elt('.grid-button').addEventListener('click', function () {
+        elt('.clickopolis').style.width = '1200px';
+    });
 }
 function checkAchievements() {
 }

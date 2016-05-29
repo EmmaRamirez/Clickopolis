@@ -1274,6 +1274,20 @@ button:focus {
   padding-right: .5rem;
 }
 
+.settings-screen .ui-button {
+  display: inline-block;
+  padding: .5rem;
+}
+
+.settings-screen .ui-button img {
+  height: 2rem;
+}
+
+.settings-screen .ui-button:hover {
+  cursor: pointer;
+  background: skyblue;
+}
+
 .notification {
   background: #222;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);

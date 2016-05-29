@@ -471,8 +471,8 @@ class Templates {
             </select>
           </p>
           <p><span class='settings-label'>UI:</span>
-            <img src='img/horizontal.png' title='horizontal'>
-            <img src='img/grid.png' title='grid'>
+            <div class='ui-button horizontal-button'><img src='img/horizontal.png' title='horizontal'></div>
+            <div class='ui-button grid-button'><img src='img/grid.png' title='grid'></div>
           </p>
         </section>
       </section>
