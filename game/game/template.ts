@@ -442,7 +442,19 @@ class Templates {
     return diplomacyScreen;
   }
 
-  
+  createMilitaryScreen(playerCiv:Civilization) {
+    let militaryScreen = `
+      <section class='screen military-screen' id='military'>
+        <h2>
+          <img src='img/military.png'> Military
+        </h2>
+        <section class='military-screen-inner'>
+
+        </section>
+      </section>
+    `;
+    return militaryScreen;
+  }
 
 
 
