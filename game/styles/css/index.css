@@ -1118,6 +1118,10 @@ button:focus {
   background: #DB9665;
 }
 
+.technology-screen .tech[data-purchased=true] {
+  background: #2DE066;
+}
+
 .technology-screen .tech .tech-name {
   font-weight: bold;
   text-transform: capitalize;
