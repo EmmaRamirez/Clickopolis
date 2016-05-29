@@ -23,6 +23,7 @@ var Civilization = (function () {
         this.research = 0;
         this.researchPM = 0;
         this.researchCost = 10;
+        this.researchingTechs = 'none';
     }
     return Civilization;
 }());

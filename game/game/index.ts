@@ -465,16 +465,18 @@ function techClick() {
       let tech = item.getAttribute('data-tech');
       let selected = item.getAttribute('data-selected');
       if (isCtrlPressed) {
-        console.log('ctrl pressed');
         if (techs.get(tech).selected) {
           techs.get(tech).selected = false;
           item.setAttribute('data-selected', false);
         }
       } else {
-        console.log('ctrl not pressed');
         techs.get(tech).selected = true;
         console.log(techs.get(tech).selected);
         item.setAttribute('data-selected', true);
+        if (techs.get(tech).selected) {
+          // TODO: fix this mess
+          elt('.researching-techs').textContent = techs.get(tech).name;
+        }
       }
 
     })

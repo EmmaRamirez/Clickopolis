@@ -31,6 +31,7 @@ class Civilization {
   research: number;
   researchPM: number;
   researchCost: number;
+  researchingTechs: string;
 
 
   conquestedCivs: Civilization[];
@@ -65,6 +66,7 @@ class Civilization {
     this.research = 0;
     this.researchPM = 0;
     this.researchCost = 10;
+    this.researchingTechs = 'none';
   }
 
 
