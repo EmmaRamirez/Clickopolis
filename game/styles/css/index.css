@@ -1265,6 +1265,24 @@ button:focus {
   pointer-events: none;
 }
 
+.culture-screen {
+  background: #333;
+  border-top: 4px solid #C41B7E;
+}
+
+.culture-screen h2 {
+  background: #C41B7E;
+  color: #eee;
+  margin: .25rem .25rem 1.25rem .25rem;
+  padding: 1rem;
+}
+
+.culture-screen h2 img {
+  background: white;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
 .settings-screen {
   background: #333;
   border-top: 4px solid black;
@@ -1297,11 +1315,6 @@ button:focus {
   width: 8rem;
   padding: .5rem;
   text-align: right;
-}
-
-.settings-screen .era-skin {
-  border: 1px solid white;
-  border-radius: 4px;
 }
 
 .settings-screen .ui-button {
@@ -1381,7 +1394,7 @@ section {
   left: 20%;
   position: absolute;
   top: 15%;
-  width: 6000px;
+  width: 8000px;
 }
 
 .screen-header {

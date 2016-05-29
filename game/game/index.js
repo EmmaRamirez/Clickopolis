@@ -299,6 +299,7 @@ function drawUI(el) {
         templates.createTechnologyScreen(playerCiv) +
         templates.createDiplomacyScreen(playerCiv) +
         templates.createMilitaryScreen(playerCiv) +
+        templates.createCultureScreen(playerCiv) +
         templates.createSettingsScreen(playerCiv, game);
 }
 function populateTechnologies() {

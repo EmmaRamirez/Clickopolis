@@ -369,6 +369,7 @@ function drawUI(el:HTMLElement) {
                   templates.createTechnologyScreen(playerCiv) +
                   templates.createDiplomacyScreen(playerCiv) +
                   templates.createMilitaryScreen(playerCiv) +
+                  templates.createCultureScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game);
 
 }

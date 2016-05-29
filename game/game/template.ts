@@ -467,6 +467,20 @@ class Templates {
     return militaryScreen;
   }
 
+  createCultureScreen(playerCiv:Civilization) {
+    let cultureScreen = `
+      <section class='screen culture-screen' id='culture'>
+        <h2>
+          <img src='img/culture.png'> Culture
+        </h2>
+        <section class='culture-screen-inner'>
+
+        </section>
+      </section>
+    `;
+    return cultureScreen;
+  }
+
 
 
   createSettingsScreen(playerCiv:Civilization, game:Game) {
@@ -477,12 +491,12 @@ class Templates {
         </h2>
         <section class='settings-screen-inner'>
           <p><span class='settings-label'>Game Skin:</span>
-            <span class='ui-button ancient ancient-skin'>Ancient</span>
-            <span class='ui-button classical classical-skin'>Classical</span>
-            <span class='ui-button medieval medieval-skin'>Medieval</span>
+            <span class='ui-button ancient era-skin'>Ancient</span>
+            <span class='ui-button classical era-skin'>Classical</span>
+            <span class='ui-button medieval era-skin'>Medieval</span>
           </p>
           <p><span class='settings-label'>UI:</span>
-            <span class='ui-button horizontal-button'><img src='img/horizontal.png' title='horizontal'></span>
+            <span class='ui-button vertical-button'><img src='img/vertical.png' title='vertical'></span>
             <span class='ui-button grid-button'><img src='img/grid.png' title='grid'></span>
           </p>
         </section>
@@ -490,6 +504,8 @@ class Templates {
     `;
     return settingsScreen;
   }
+
+
 
 
 
