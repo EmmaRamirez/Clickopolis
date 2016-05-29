@@ -89,8 +89,8 @@ class Templates {
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
 
-            <span class='resource-info r-food-pc'>${resources.get('food').perClick} PC</span>
-            <span class='resource-info r-food-ps'>${resources.get('food').perSecond} PS</span>
+            <span class='resource-info r-food-pc' title='the amount of food you earn per click'>${resources.get('food').perClick} PC</span>
+            <span class='resource-info r-food-ps' title='the amount of food you earn per second'>${resources.get('food').perSecond} PS</span>
             <span class='resource-info r-food-max'>${resources.get('food').max} max</span>
             <span class='resource-info r-food-total'>${resources.get('food').total} total</span>
 
@@ -98,8 +98,8 @@ class Templates {
           <div class='panel prod-panel'>
             <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
 
-            <span class='resource-info'>${resources.get('prod').perClick} PC</span>
-            <span class='resource-info'>${resources.get('prod').perSecond} PS</span>
+            <span class='resource-info' title='the amount of production you make per click'>${resources.get('prod').perClick} PC</span>
+            <span class='resource-info' title='the amount of production you make per second'>${resources.get('prod').perSecond} PS</span>
             <span class='resource-info'>${resources.get('prod').max} max</span>
             <span class='resource-info r-prod-total'>${resources.get('prod').total} total</span>
 
