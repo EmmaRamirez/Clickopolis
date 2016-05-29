@@ -825,6 +825,11 @@ button:focus {
   border-radius: 50%;
 }
 
+.civilization-screen h3 {
+  color: #eee;
+  text-align: center;
+}
+
 .civilization-screen .pop-btn {
   background: #00cd00;
   padding: .5rem;
