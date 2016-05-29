@@ -4,6 +4,7 @@ A clicking-based civilization game.
 ## Notes
 *This game is still a work in progress, and as such things are bound to wildly change.*
 
+Contributions through issues and pull requests are greatly appreciated!
 
 ## How to Run
 First navigate to `game` then `npm install` and run `npm start` to run the game in your localhost (default port 8080).
