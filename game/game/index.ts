@@ -24,9 +24,9 @@ let playerCiv:Civilization;
 let templates:Templates = new Templates();
 let food:Resource = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
 let prod:Resource = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
-let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
+let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings.');
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.');
-let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
+let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana are harvested by farmers periodically. Each banana provides +.5 <img src="img/health.png"> Banana are a popular trade item with Tundra nations.');
 let spices:Resource = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
 let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
 let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
@@ -41,11 +41,19 @@ let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Ba
 let resources:Resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 
 let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
+let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
+let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
+let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
 let masonry:Tech = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
 let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
 
 
-let techs:Techs = new Techs([agriculture, masonry, mining]);
+let techs:Techs = new Techs([agriculture,
+                            animalHusbandry,
+                            archery,
+                            fishing,
+                            masonry,
+                            mining]);
 
 let farmer:Citizen = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
 

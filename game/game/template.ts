@@ -197,7 +197,7 @@ class Templates {
         </section>
         <br>
         <section class='resource-screen-inner resource-info-screen'>
-          <p></p>
+          <p>Click on a resource to recieve more information on it!</p>
         </section>
       </section>
     `;
@@ -276,7 +276,7 @@ class Templates {
             <span class='civ-metric metric-influence'>
               <img src='img/influence.png'> ${playerCiv.influence}
             </span>
-            <span class='civ-metric metric-golden-age'>
+            <span class='civ-metric metric-golden-age' title='Golden age points trigger Golden Ages. Points are earned by your happiness, minus anger.'>
               <img src='img/golden-age.png'> Golden Age Points <span class='golden-age-progress'>${playerCiv.goldenAgeProgress}</span> / <span class='golden-age-goal'>${u.abbrNum(playerCiv.goldenAgeGoal, 2)}</span>
             </span>
           </div>

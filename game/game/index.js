@@ -18,9 +18,9 @@ var playerCiv;
 var templates = new Templates();
 var food = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
 var prod = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
-var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stone');
+var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings.');
 var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.');
-var banana = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana');
+var banana = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana are harvested by farmers periodically. Each banana provides +.5 <img src="img/health.png"> Banana are a popular trade item with Tundra nations.');
 var spices = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
 var gold = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
 var gems = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
@@ -33,9 +33,17 @@ var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
 //notify('hello');
 var resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
+var animalHusbandry = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
+var archery = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
+var fishing = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
 var masonry = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
 var mining = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
-var techs = new Techs([agriculture, masonry, mining]);
+var techs = new Techs([agriculture,
+    animalHusbandry,
+    archery,
+    fishing,
+    masonry,
+    mining]);
 var farmer = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
 var citizens = new Citizens([farmer]);
 var u = new Utils();
