@@ -10,6 +10,7 @@ clickopolis-alpha
 clickopolis-beta
 ./clickopolis-alpha
 ./clickopolis-beta
+./game/dist
 
 # Node
 clickopolis-delta/node_modules
