@@ -40,11 +40,17 @@ var farmer = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
 var citizens = new Citizens([farmer]);
 var u = new Utils();
 var isWindowActive = true;
+var isCtrlPressed = false;
 window.addEventListener('focus', function () {
     isWindowActive = true;
 });
 window.addEventListener('blur', function () {
     isWindowActive = false;
+});
+document.addEventListener('keydown', function (event) {
+    if (event.which === 17) {
+        isCtrlPressed = true;
+    }
 });
 function saveGame() {
     store.set('game', game);
@@ -216,6 +222,7 @@ function createGameUI() {
     });
     populateTechnologies();
     citizenClick();
+    techClick();
 }
 function updatePopulation(pop) {
     playerCiv.cashPM += pop * 1;
@@ -276,7 +283,7 @@ function populateTechnologies() {
     for (var i = 0; i < techs.items.length; i++) {
         var t = techs.items[i];
         console.log(techs.items[i]);
-        technologies.innerHTML += "\n    <div class='tech' data-tech='" + t.name + "' data-selected=" + t.selected + ">\n      <span class='tech-name'>" + t.name + "</span>\n      <span class='tech-description'>" + t.description + "</span>\n      <ul class='tech-list'>\n        <li>" + t.effects[0] + "</li>\n        <li>" + t.effects[1] + "</li>\n      </ul>\n    </div>";
+        technologies.innerHTML += "\n    <div class='tech' data-tech='" + t.name + "' data-selected=" + t.selected + " data-purchased=" + t.purchased + ">\n      <span class='tech-name'>" + t.name + "</span>\n      <span class='tech-description'>" + t.description + "</span>\n      <ul class='tech-list'>\n        <li>" + t.effects[0] + "</li>\n        <li>" + t.effects[1] + "</li>\n      </ul>\n    </div>";
     }
 }
 function updateYear() {
@@ -348,6 +355,28 @@ function citizenClick() {
             // console.log(this.getAttribute('data-citizen-amount'));
             // console.log(citizens.get(this.getAttribute('data-citizen')));
             // elt(this.getAttribute('data-citizen') + '-num-text').textContent = citizens.get(this.getAttribute('data-citizen')).amount + 1;
+        });
+    });
+}
+function techClick() {
+    var techEls = document.querySelectorAll('.tech');
+    [].forEach.call(techEls, function (item) {
+        item.addEventListener('click', function () {
+            var tech = item.getAttribute('data-tech');
+            var selected = item.getAttribute('data-selected');
+            if (isCtrlPressed) {
+                console.log('ctrl pressed');
+                if (techs.get(tech).selected) {
+                    techs.get(tech).selected = false;
+                    item.setAttribute('data-selected', false);
+                }
+            }
+            else {
+                console.log('ctrl not pressed');
+                techs.get(tech).selected = true;
+                console.log(techs.get(tech).selected);
+                item.setAttribute('data-selected', true);
+            }
         });
     });
 }
