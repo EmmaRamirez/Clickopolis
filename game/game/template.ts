@@ -453,6 +453,15 @@ class Templates {
           <span class='military-defense military-metric'><img src='img/defense.png'> Defense: <span class='military-defense-text'>${playerCiv.defense}</span></span>
           <span class='military-soldiers military-metric'><img src='img/soldier.png'> Soldiers: <span class='military-soldiers-text'>0</span></span>
         </section>
+        <section class='military-screen-inner'>
+          <h3>Soldier Assignments</h3>
+        </section>
+        <section class='military-screen-inner'>
+          <h3>Military Bases</h3>
+        </section>
+        <section class='military-screen-inner'>
+          <h3>Military Operations</h3>
+        </section>
       </section>
     `;
     return militaryScreen;

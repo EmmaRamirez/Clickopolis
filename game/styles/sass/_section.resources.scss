@@ -563,6 +563,13 @@
     margin-right: .5rem;
     padding: .5rem;
   }
+  h3 {
+    color: #eee;
+  }
+  &.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
 }
 
 .settings-screen {

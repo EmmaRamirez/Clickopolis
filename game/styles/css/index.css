@@ -1256,6 +1256,15 @@ button:focus {
   padding: .5rem;
 }
 
+.military-screen h3 {
+  color: #eee;
+}
+
+.military-screen.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 .settings-screen {
   background: #333;
   border-top: 4px solid black;
