@@ -411,6 +411,13 @@ function techClick() {
                     // TODO: fix this mess
                     elt('.researching-techs').textContent = techs.get(tech).name;
                 }
+                if (playerCiv.research >= playerCiv.researchCost) {
+                    notify('You purchased the ' + techs.get(tech).name + ' technology!');
+                    techs.get(tech).purchased = true;
+                    item.setAttribute('data-purchased', true);
+                    playerCiv.research -= playerCiv.researchCost;
+                    playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
+                }
             }
         });
     });
