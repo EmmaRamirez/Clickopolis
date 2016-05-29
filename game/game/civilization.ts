@@ -35,6 +35,9 @@ class Civilization {
 
   techs: number;
 
+  strength: number;
+  defense: number;
+
 
   conquestedCivs: Civilization[];
 
@@ -71,6 +74,9 @@ class Civilization {
     this.researchingTechs = 'none';
 
     this.techs = 0;
+
+    this.strength = 10;
+    this.defense = 10;
   }
 
 

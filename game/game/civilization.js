@@ -25,6 +25,8 @@ var Civilization = (function () {
         this.researchCost = 10;
         this.researchingTechs = 'none';
         this.techs = 0;
+        this.strength = 10;
+        this.defense = 10;
     }
     return Civilization;
 }());
