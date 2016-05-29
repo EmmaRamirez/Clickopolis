@@ -281,6 +281,9 @@ class Templates {
             </span>
           </div>
         </section>
+        <section class='civilization-screen-inner'>
+          <h3>Civilization Overview</h3>
+        </section>
       </section>
     `;
     return civilizationScreen;
