@@ -8,7 +8,6 @@
     },
     "exclude": [
         "node_modules",
-        "wwwroot",
-        "./src/scripts"
+        "wwwroot"
     ]
 }
