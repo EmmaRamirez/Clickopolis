@@ -20,7 +20,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.ts$/, loader: 'ts-loader' },
-      { test: /\.scss$/, loaders: ['style', 'css', 'sass' ]}
+      { test: /\.scss$/, loaders: ['style', 'css', 'sass' ]},
+      { test: /\.styl$/, loaders: ['style', 'css', 'stylus']}
     ]
   },
   watch: true
