@@ -21,7 +21,9 @@ module.exports = {
     loaders: [
       { test: /\.ts$/, loader: 'ts-loader' },
       { test: /\.scss$/, loaders: ['style', 'css', 'sass' ]},
-      { test: /\.styl$/, loaders: ['style', 'css', 'stylus']}
+      { test: /\.styl$/, loaders: ['style', 'css', 'stylus']},
+      { test: /\.jpg$/, loader: "url-loader?limit=10000&minetype=image/jpg" },
+      { test: /\.png$/, loader: "url-loader?limit=10000&minetype=image/png" }
     ]
   },
   watch: true
