@@ -289,7 +289,7 @@ function createGameUI() {
     let populationText = document.querySelector('.population-text');
     resources.get('food').total -= playerCiv.populationGrowthCost;
     playerCiv.population += 1;
-    playerCiv.populationGrowthCost = Math.floor((playerCiv.population * .5) + playerCiv.populationGrowthCost);
+    playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
 
     populationText.textContent = playerCiv.population.toString();
     popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
@@ -514,8 +514,7 @@ function techClick() {
         item.setAttribute('data-selected', true);
         if (techs.get(tech).selected) {
           // TODO: fix this mess
-          //playerCiv.researchingTechsArray.push(techs.get(tech).name);
-          //elt('.researching-techs').textContent = playerCiv.researchingTechsArray[0];
+          elt('.researching-techs').textContent = techs.get(tech).name;
         }
         if (playerCiv.research >= playerCiv.researchCost) {
           notify('You purchased the ' + techs.get(tech).name + ' technology!');
@@ -524,7 +523,7 @@ function techClick() {
           playerCiv.research -= playerCiv.researchCost;
           playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
           elt('.research-cost-text').textContent = playerCiv.researchCost;
-        }
+         }
       }
 
     })
