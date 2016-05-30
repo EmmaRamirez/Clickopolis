@@ -1,0 +1,69 @@
+button {
+  background: $blue;
+  color: #eee;
+  border: 1px solid darken($blue, 15%);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: .25rem;
+  //@extend %transition-s;
+  &:hover {
+    background: darken($blue, 10%);
+    //@extend %transition-s;
+  }
+  &.large-btn {
+    font-size: 150%;
+  }
+  &.step-btn {
+
+  }
+  &.start-btn {
+    display: block;
+    margin: .5rem auto;
+    position: relative;
+    text-align: center;
+    width: 50%;
+
+  }
+  &[disabled='true'] {
+    background: #ccc !important;
+    color: #222;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+  }
+  &.disabled {
+    background: #ccc !important;
+    color: #222;
+    border: 1px solid #222;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &:focus {
+    box-shadow: 0 0 .25rem skyblue;
+  }
+}
+
+.current-btn {
+  background: $off-white;
+  color: #222;
+  &:hover {
+    background: darken($off-white, 10%);
+    //@extend %transition-s;
+  }
+  .current-game-heading {
+    font-weight: bold;
+    text-align: center;
+  }
+  p {
+    font-size: 1rem;
+    margin: .25rem;
+    text-align: left;
+    span {
+      background: darken($off-white, 5%);
+      border-radius: 2px;
+      display: inline-block;
+      font-size: .9rem;
+      margin: 0 .1rem;
+      padding: .2rem;
+    }
+  }
+}
