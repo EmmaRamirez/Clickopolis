@@ -8,6 +8,10 @@
 // @import "_section.resources.scss";
 // @import "_notification.scss";
 @import 'normalize.styl';
+@import 'variables.styl';
+@import 'global.styl';
+@import 'forms.styl';
+@import 'screen.resources.styl';
 
 body
   background: #222;
@@ -23,13 +27,7 @@ body
   z-index: 1;
 
 section
-  //padding: 2rem;
   z-index: 2;
-
-// .clickopolis-intro,
-// .clickopolis-start {
-//   @extend .modal;
-// }
 
 .clickopolis-start
   z-index: 10;
@@ -63,7 +61,7 @@ section
   width: 8000px;
 
 .screen-header
-  // background: $gold;
+  background: $gold;
   // //background: linear-gradient(to top, rgba(black, 0.7), rgba(black, 0.8)), url('');
   // color: $clouds;
   padding: 1rem 1rem;

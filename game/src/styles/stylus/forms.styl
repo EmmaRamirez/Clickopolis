@@ -1,0 +1,33 @@
+.checkbox-list {
+  margin: 1rem 0;
+  width: 100%;
+  label {
+    display: inline-block;
+    padding-left: 1rem;
+    position: relative;
+    text-align: left;
+    width: 30%;
+  }
+  input {
+    left: 0;
+    position: absolute;
+  }
+  input[type='checkbox'] {
+    appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid grey;
+    border-radius: 50%;
+    margin-top: .25rem;
+    height: .75rem;
+    width: .75rem;
+    &:checked {
+      background: grey;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0;
+    }
+  }
+}
