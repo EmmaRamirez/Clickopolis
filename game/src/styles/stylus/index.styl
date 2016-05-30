@@ -11,7 +11,12 @@
 @import 'variables.styl';
 @import 'global.styl';
 @import 'forms.styl';
+@import 'buttons.styl';
+@import 'screens.styl';
 @import 'screen.resources.styl';
+@import 'screen.citizens.styl';
+
+@import 'notify.styl';
 
 body
   background: #222;
@@ -36,9 +41,11 @@ section
     margin: .5rem;
     text-transform: uppercase;
 
-.modal
+.modal,
+.clickopolis-intro,
+.clickopolis-start
   background-color: #ccc;
-  //background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('../img/world.png');
+  //background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('~!file!../img/world.png');
   background-position: center center;
   background-size: cover;
   border-radius: 4px;
