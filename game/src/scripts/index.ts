@@ -564,6 +564,7 @@ function checkAchievements() {
 
 
 function init() {
+  //elt('.clickopolis-intro').style.background = 'linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url(../img/world.png)';
   startGame();
 }
 
