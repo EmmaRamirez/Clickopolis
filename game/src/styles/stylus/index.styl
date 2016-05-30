@@ -7,13 +7,13 @@
 // @import "_screens.scss";
 // @import "_section.resources.scss";
 // @import "_notification.scss";
+@import 'normalize.styl';
 
-body {
+body
   background: #222;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
-}
 
-.overlay {
+.overlay
   background: rgba(0, 0, 0, 0.9);
   height: 100%;
   left: 0;
@@ -21,28 +21,24 @@ body {
   top: 0;
   width: 100%;
   z-index: 1;
-}
 
-section {
+section
   //padding: 2rem;
   z-index: 2;
-}
 
 // .clickopolis-intro,
 // .clickopolis-start {
 //   @extend .modal;
 // }
 
-.clickopolis-start {
+.clickopolis-start
   z-index: 10;
-  h1 {
+  h1
     font-size: 3rem;
     margin: .5rem;
     text-transform: uppercase;
-  }
-}
 
-.modal {
+.modal
   background-color: #ccc;
   //background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('../img/world.png');
   background-position: center center;
@@ -58,18 +54,15 @@ section {
   position: absolute;
   text-align: center;
   top: calc(50% - 15rem);
-}
 
-.clickopolis {
+.clickopolis
   height: 70%;
-
   left: 20%;
   position: absolute;
   top: 15%;
   width: 8000px;
-}
 
-.screen-header {
+.screen-header
   // background: $gold;
   // //background: linear-gradient(to top, rgba(black, 0.7), rgba(black, 0.8)), url('');
   // color: $clouds;
@@ -78,12 +71,10 @@ section {
   text-shadow: 0 0 2px rgba(black, 0.5);
   top: 5%;
   width: 1200px;
-  * {
+  *
     margin: 0;
-  }
-}
 
-.screen {
+.screen
   //background: #fff;
   display: inline-block;
   height: 100%;
@@ -91,7 +82,5 @@ section {
   //outline: 1px solid blue;
   width: 600px;
   vertical-align: top;
-  h2 {
+  h2
     text-align: center;
-  }
-}
