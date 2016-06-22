@@ -3,26 +3,10 @@
   <head>
     <title>Clickopolis | A Powerful Adventure Game--with clicks!</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700|Slabo+27px' rel='stylesheet' type='text/css'>
-    <link href='../styles/index.css' rel='stylesheet'>
+    <link href='../dist/styles/index.css' rel='stylesheet'>
   </head>
   <body>
     <script src="../node_modules/store/store.js"></script>
     <script src="./scripts/bundle.js"></script>
-    <script>
-    (function() {
-        function scrollHorizontally(e) {
-            e = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-            document.querySelector('body').scrollLeft -= (delta*-30); // Multiplied by 40
-            e.preventDefault();
-        }
-        if (document.querySelector('body').addEventListener) {
-            // IE9, Chrome, Safari, Opera
-            document.querySelector('body').addEventListener("mousewheel", scrollHorizontally, false);
-            // Firefox
-            document.querySelector('body').addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        }
-    })();
-    </script>
   </body>
 </html>

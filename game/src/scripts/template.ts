@@ -484,6 +484,20 @@ class Templates {
     return cultureScreen;
   }
 
+  createFaithScreen(playerCiv:Civilization) {
+    let faithScreen = `
+      <section class='screen faith-screen' id='faith'>
+        <h2>
+          <img src='img/faith-alt.png'> Faith
+        </h2>
+        <section class='faith-screen-inner'>
+
+        </section>
+      </section>
+    `;
+    return faithScreen;
+  }
+
 
 
   createSettingsScreen(playerCiv:Civilization, game:Game) {

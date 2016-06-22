@@ -95,6 +95,15 @@ document.addEventListener('keydown', function (event:any) {
   }
 })
 
+function scrollHorizontally(e:any) {
+  e = window.event || e;
+  var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+  document.querySelector('body').scrollLeft -= (delta*-30); // Multiplied by 40
+  e.preventDefault();
+}
+
+elt('body').addEventListener('mousewheel', scrollHorizontally, false);
+
 function saveGame():void {
   store.set('game', game);
   store.get('game');
@@ -374,6 +383,7 @@ function drawUI(el:HTMLElement) {
                   templates.createDiplomacyScreen(playerCiv) +
                   templates.createMilitaryScreen(playerCiv) +
                   templates.createCultureScreen(playerCiv) +
+                  templates.createFaithScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game);
 
 }
