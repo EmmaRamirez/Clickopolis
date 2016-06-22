@@ -1,8 +1,9 @@
-// <reference path="store.d.ts" />
-// <reference path="underscore.d.ts" />
+/// <reference path="./require.d.ts" />
+/// <reference path="store.d.ts" />
+/// <reference path="underscore.d.ts" />
 
 //require('../styles/sass/index.scss');
-require('../styles/stylus/index.styl');
+//require('../styles/stylus/index.styl');
 
 import _ = require('underscore');
 import Utils = require('./utils');
