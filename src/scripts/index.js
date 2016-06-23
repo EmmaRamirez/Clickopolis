@@ -5,61 +5,18 @@
 var Utils = require('./utils');
 var Game = require('./game');
 var Civilization = require('./civilization');
-var Resource = require('./resource');
-var Resources = require('./resources');
-var Citizen = require('./citizen');
-var Citizens = require('./citizens');
-var Tech = require('./tech');
-var Techs = require('./techs');
 var Templates = require('./template');
 var notify = require('./notify');
+var techData = require('./data.tech');
+var resourceData = require('./data.resource');
+var citizenData = require('./data.citizen');
+var u = new Utils();
+var techs = techData;
+var resources = resourceData;
+var citizens = citizenData;
 var game = new Game(0);
 var playerCiv;
 var templates = new Templates();
-var food = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
-var prod = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
-var stone = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings.');
-var fish = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.');
-var banana = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana are harvested by farmers periodically. Each banana provides +.5 <img src="img/health.png"> Banana are a popular trade item with Tundra nations.');
-var spices = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
-var gold = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
-var gems = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
-var oil = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
-var uranium = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
-var iron = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
-var horse = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
-var spaghetti = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
-var chihuahua = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
-var resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
-var agriculture = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
-var animalHusbandry = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
-var archery = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
-var fishing = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
-var herbalMedicine = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
-var masonry = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
-var mining = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
-var mysticism = new Tech('mysticism', 'ancient', 'Mysterious gods bring riches, temples, and a couple blood sacrifices.', ['Can assign Clerics.', 'Can build Temples.', 'Can build Stonehenge.']);
-var sailing = new Tech('sailing', 'ancient', 'It\'s a lot harder to sail if you stay at half-mast!', ['Can assign soldiers as Navy.', 'Can meet Coastal and Oceanic Nations.']);
-var trading = new Tech('trading', 'ancient', 'My six chickens for your goat?', ['Unlocks Bartering Economic System.', 'Can assign Merchants.']);
-var woodworking = new Tech('woodworking', 'ancient', 'TIMBER!!!', ['Unlocks <img src="img/spices.png"> resources.', 'Can assign Woodcutters.']);
-var writing = new Tech('writing', 'ancient', 'Allows poorly written fanfiction in Information era.', ['Unlocks Diplomacy.', 'Can build Library.']);
-var techs = new Techs([agriculture,
-    animalHusbandry,
-    archery,
-    fishing,
-    herbalMedicine,
-    masonry,
-    mining,
-    mysticism,
-    sailing,
-    trading,
-    woodworking,
-    writing]);
-var farmer = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
-var miner = new Citizen('miner', 'miner', 0, 'a miner', 1, 0);
-var soldier = new Citizen('soldier', 'soldier', 0, 'a soldier', 1, 0);
-var citizens = new Citizens([farmer, miner, soldier]);
-var u = new Utils();
 var isWindowActive = true;
 var isCtrlPressed = false;
 window.addEventListener('focus', function () {
@@ -94,41 +51,12 @@ function removeItem(arr, item) {
             arr.splice(i, 1);
     }
 }
-function abbrNum(number, decPlaces) {
-    // 2 decimal places => 100, 3 => 1000, etc
-    decPlaces = Math.pow(10, decPlaces);
-    // Enumerate number abbreviations
-    var abbrev = ["k", "m", "b", "t"];
-    // Go through the array backwards, so we do the largest first
-    for (var i = abbrev.length - 1; i >= 0; i--) {
-        // Convert array index to "1000", "1000000", etc
-        var size = Math.pow(10, (i + 1) * 3);
-        // If the number is bigger or equal do the abbreviation
-        if (size <= number) {
-            // Here, we multiply by decPlaces, round, and then divide by decPlaces.
-            // This gives us nice rounding to a particular decimal place.
-            number = Math.round(number * decPlaces / size) / decPlaces;
-            // Handle special case where we round up to the next abbreviation
-            if ((number == 1000) && (i < abbrev.length - 1)) {
-                number = 1;
-                i++;
-            }
-            // Add the letter for the abbreviation
-            number += abbrev[i];
-            // We are done... stop
-            break;
-        }
-    }
-    return number;
-}
-;
 function time(d) {
     var h = Math.floor(d / 3600);
     var m = Math.floor(d % 3600 / 60);
     var s = Math.floor(d % 3600 % 60);
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
 }
-;
 function choose(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -149,7 +77,7 @@ function bindElement(node, eventType, callback) {
 }
 function hideElement(element) {
     element = element;
-    element.className += " hidden";
+    element.classList.add('hidden');
 }
 function removeElement(element) {
     element = element;
@@ -340,9 +268,9 @@ function addGoldenAgePoints() {
 }
 function addResearchPoints() {
     playerCiv.research += playerCiv.researchPM / 60;
-    elt('.research-text').textContent = abbrNum(playerCiv.research.toFixed(1), 2);
+    elt('.research-text').textContent = u.abbrNum(playerCiv.research.toFixed(1), 2);
     var researchPercent = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
-    var bgString = "linear-gradient(to right, #83D4D4 0%, #83D4D4 " + researchPercent + ", #444 " + researchPercent + ", #444 100%)";
+    var bgString = u.progressBar(researchPercent, '#83D4D4', '#444');
     elt('.research-progress-bar').style.background = bgString;
     if (playerCiv.research > playerCiv.researchCost) {
         elt('.research-exceeding').textContent = 'You are currently exceeding your current tech goal.';
@@ -449,10 +377,10 @@ function checkPopulationGrowthCost() {
     }
 }
 function UiSettingsButtons() {
-    // TODO: Remove eventlistener for horizontal scrolling
     elt('.grid-button').addEventListener('click', function () {
-        elt('.clickopolis').style.width = '1200px';
+        elt('.clickopolis').style.width = '100%';
     });
+    elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
 }
 function checkAchievements() {
 }
