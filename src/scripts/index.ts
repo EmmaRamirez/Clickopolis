@@ -440,21 +440,8 @@ function citizenClick() {
     item.addEventListener('click', function () {
       let citizen:string = this.getAttribute('data-citizen');
       let sel:string = '.' + citizen + '-num-text';
-
-      console.log(citizens.get(citizen).amount);
-
-      console.log(this.getAttribute('data-citizen-amount'));
-
       citizens.get(citizen).amount += parseInt(this.getAttribute('data-citizen-amount'));
-
       elt(sel).textContent = citizens.get(citizen).amount;
-
-      console.log(elt(sel).textContent);
-
-
-      // console.log(this.getAttribute('data-citizen-amount'));
-      // console.log(citizens.get(this.getAttribute('data-citizen')));
-      // elt(this.getAttribute('data-citizen') + '-num-text').textContent = citizens.get(this.getAttribute('data-citizen')).amount + 1;
     });
   });
 }
