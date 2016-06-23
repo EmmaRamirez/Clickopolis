@@ -337,7 +337,7 @@ class Templates {
         <h2><img src='img/buildings.png'> Buildings</h2>
         <section class='buildings-screen-inner'>
           <div class='panel buildings-mode'>
-            <button class='purchase-mode-btn'>Purchase Mode</button>
+            <button class='purchase-mode-btn hidden'>Purchase Mode</button>
           </div>
         </section>
         <section class='buildings-screen-inner'>
