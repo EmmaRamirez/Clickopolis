@@ -9,8 +9,9 @@ class Nation {
   cash: number;
   peacefulness: number;
   isAtWar: boolean;
+  timesInteracted: number;
 
-  constructor(name:string, image:number, color:string, description:string, influence:number, strength:number, defense:number, cash:number, peacefulness:number, isAtWar:boolean) {
+  constructor(name:string, image:number, color:string, description:string, influence:number, strength:number, defense:number, cash:number, peacefulness:number, isAtWar:boolean, timesInteracted:number = 0) {
     this.name = name;
     this.image = image;
     this.color = color;
@@ -21,6 +22,7 @@ class Nation {
     this.cash = cash;
     this.peacefulness = peacefulness;
     this.isAtWar = isAtWar;
+    this.timesInteracted = timesInteracted;
   }
 
 }
