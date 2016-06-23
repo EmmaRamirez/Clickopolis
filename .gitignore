@@ -86,3 +86,5 @@ npm-debug.log
 *.log
 
 game/src/scripts/data.tech.js
+
+game/src/scripts/notify.js
