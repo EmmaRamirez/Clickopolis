@@ -18,7 +18,7 @@ class Collection {
     return item;
   }
 
-  constructor(name: string, items: any[]) {
+  constructor(name: string = 'Collection', items: any[]) {
     this.name = name;
     this.items = items;
   }
