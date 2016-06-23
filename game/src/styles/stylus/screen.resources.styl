@@ -3,12 +3,9 @@
 .resources-screen {
   $green = #32E361;
   $yellow = #E6D83E;
-
   //background: linear-gradient(to bottom, #eee, lighten($green, 30%)) !important;
   background: #333;
-
   border-top: 4px solid $green;
-
 
   h2 {
     background: darken($green, 10%);
@@ -22,7 +19,6 @@
       border: 4px solid white;
     }
   }
-
   .food-btn,
   .prod-btn {
     border: 1px solid #222;
@@ -32,7 +28,6 @@
     padding: .5rem;
     width: 14rem;
   }
-
   .food-btn {
     background: $green;
     //@extend %transition-s;
@@ -41,7 +36,6 @@
       //@extend %transition-s;
     }
   }
-
   .prod-btn {
     background: $yellow;
     //@extend %transition-s;
@@ -50,7 +44,6 @@
       //@extend %transition-s;
     }
   }
-
   .location-panel {
     //background: $clouds;
     background: desaturate($green, 15%);
@@ -61,12 +54,10 @@
     text-align: center;
     p { padding: 0; margin: 0; }
   }
-
   .resource {
     background: #222;
     color: #eee;
     border: 1px solid #111;
-
     display: inline-block;
     margin: .25rem;
     min-width: 7rem;
@@ -93,15 +84,11 @@
       border: 1px solid $green;
     }
   }
-
   .resource-info {
     color: #eee;
     margin: .25rem;
     text-align: center;
   }
-
-
-
   .resource-info-screen {
     background: #222;
     color: #eee;
@@ -109,425 +96,11 @@
     border-radius: 4px;
     //margin: .5rem;
     padding: .5rem;
-
     h3 {
       text-align: center;
       text-transform: uppercase;
       img { height: 1.5rem; }
     }
-  }
-
-}
-
-
-.civilization-screen {
-  //background: linear-gradient(to bottom, white, #B3BEE6) !important;
-  background: #333;
-  border-top: 4px solid darken(#B845E6, 15%);
-  h2 {
-    background: #B845E6;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  h3 {
-    color: #eee;
-    text-align: center;
-  }
-  .pop-btn {
-    background: lighten(green, 15%);
-    padding: .5rem;
-  }
-  .civ-metric {
-    //border: 1px solid #666;
-    border-radius: 4px;
-    display: inline-block;
-    margin: .5rem .25rem;
-    min-width: 6rem;
-    padding: .5rem;
-    text-align: center;
-  }
-  .metric-growth-cost {
-    background: $clouds;
-  }
-  .metric-population {
-    background: #E6DBB3;
-  }
-  .metric-happiness {
-    background: lighten(yellow, 20%);
-  }
-  .metric-anger {
-    background: lighten(red, 25%);
-  }
-  .metric-health {
-    background: white;
-  }
-  .metric-pollution {
-    background: lighten(desaturate(green, 50%), 35%);
-  }
-  .metric-influence {
-    background: #BAE0E8;
-  }
-  .metric-golden-age {
-    background: #222;
-    border: 1px solid black;
-    color: #fff;
-    padding: .5rem auto;
-    width: 20rem;
-  }
-}
-
-.economy-screen {
-  //background: linear-gradient(to bottom, white, #A0D190) !important;
-  background: #333;
-  border-top: 4px solid darken(#A0D190, 15%);
-  h2 {
-    background: #A0D190;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  .total-cash {
-    background: #222;
-    border: 1px solid #111;
-    color: #eee;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: .5rem;
-    text-align: right;
-    &.debt {
-      color: red;
-    }
-    img {
-      height: 1.5rem;
-      margin-top: 4px;
-    }
-  }
-  .cash-item {
-    background: lighten(#222, 15%);
-    color: #eee;
-    display: block;
-    margin: .25rem 0;
-    padding: .25rem;
-    text-align: right;
-    &.cash-item-total {
-      color: lightgreen;
-    }
-    span {
-      font-weight: bold;
-    }
-  }
-  table {
-    background: #222;
-    border: 1px solid #111;
-    color: #eee;
-    margin-top: .5rem;
-    width: 100%;
-    tr {
-      padding: .25rem;
-    }
-    tr {
-      text-align: center;
-    }
-    tr:nth-of-type(1) {
-      //font-size: 1.25rem;
-      font-weight: bold;
-
-    }
-    tr:nth-of-type(even) {
-      background: #111;
-    }
-  }
-}
-
-.buildings-screen {
-  background: #333;
-  border-top: 4px solid #D6CA3E;
-  h2 {
-    background: #D6CA3E;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  .panel {
-    padding: .5rem 1rem;
-  }
-  .purchase-mode-btn {
-    background: #D6CA3E;
-    color: #222;
-    padding: .5rem;
-    //width: ${(128 / 16) + rem};
-  }
-
-  .building {
-    background: #D6CA3E;
-    border: 1px solid #222;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: .25rem 1rem;
-    padding: .5rem;
-    &:hover {
-      background: darken(#D6CA3E, 15%);
-    }
-  }
-
-  .building-name {
-    font-weight: bold;
-    padding: .5rem;
-  }
-  .building-effect {
-    background: #222;
-    color: #eee;
-    padding: .5rem;
-  }
-
-  .building-total {
-    background: #eee;
-    color: darken(#D6CA3E, 15%);
-    padding: .5rem;
-  }
-
-}
-
-
-.current-research {
-  color: #eee !important;
-  margin: .5rem;
-  span {
-    font-weight: bold;
-  }
-}
-
-.technology-screen {
-  background: #333;
-  border-top: 4px solid #83D4D4;
-  h2 {
-    background: #83D4D4;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  .research-exceeding {
-    color: #eee;
-    margin-bottom: .25rem;
-  }
-  .research-progress-bar {
-    background: #444;
-    border: 1px solid #111;
-    border-radius: 8px;
-    display: inline-block;
-    margin: 0 auto;
-    height: 1rem;
-    width: 80%;
-  }
-  .r-text {
-    color: #eee;
-    display: inline-block;
-    text-align: center;
-    width: 8%;
-  }
-  .technologies {
-    padding: 1rem;
-  }
-
-  .search {
-    padding: 1rem;
-    padding-bottom: .25rem;
-    input[type='search'] {
-      background: #222;
-      border: 1px solid #111;
-      color: #eee;
-      padding: .5rem;
-    }
-    .research-filters {
-      background: #222;
-      border: 1px soild #111;
-      color: #eee;
-      display: inline-block;
-      font-size: .9rem;
-      padding: .25rem;
-      transform: translate(5px, 7px);
-      label:nth-of-type(1) {
-        border-bottom: 1px solid #666;
-      }
-      input {
-        margin-right: .5rem;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .tech {
-    background: #83D4D4;
-    border: 1px solid #111;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: .25rem auto;
-    padding: .5rem;
-    &:hover {
-      background: darken(#83D4D4, 15%);
-      //@extend %transition-s;
-    }
-    &[data-selected=true] {
-      background: #DB9665;
-    }
-    &[data-purchased=true] {
-      background: #2DE066;
-    }
-    .tech-name {
-      font-weight: bold;
-      text-transform: capitalize;
-    }
-    .tech-description {
-      font-size: .9rem;
-      font-style: italic;
-      margin-left: 2rem;
-
-    }
-    .tech-list {
-      font-size: .95rem;
-      padding: 0;
-      margin: 0;
-      margin-left: 3rem;
-    }
-  }
-}
-
-.diplomacy-screen {
-  background: #333;
-  border-top: 4px solid #F57F2C;
-  h2 {
-    background: #F57F2C;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  .diplomacy-summary {
-    background: #F57F2C;
-    border: 1px solid #222;
-    border-radius: 4px;
-    color: #eee;
-    padding: .5rem;
-    text-align: center;
-  }
-  .nation {
-    border: 1px solid #222;
-    border-radius: 4px;
-    height: 8rem;
-    margin: 1rem;
-    width: calc(100% - 2rem);
-  }
-  .nation-header,
-  .nation-profile {
-    display: inline-block;
-  }
-  .nation-header {
-    background: #F57F2C;
-    border-right: 1px solid #444;
-    color: #eee;
-    height: 100%;
-    padding: .5rem;
-    width: 25%;
-    .nation-name {
-      font-size: 1.5rem;
-      text-align: center;
-    }
-    .nation-interact-btn {
-      background: rgba(black, 0.8);
-      border: 1px solid #222;
-      margin: .5rem .5rem;
-      width: 6rem;
-    }
-  }
-  .nation-profile {
-    background: #222;
-    color: #eee;
-    //background: lighten(#F57F2C, 15%);
-    height: 100%;
-    margin-left: -4px;
-    padding: 1rem;
-    position: relative;
-    width: 75%;
-    vertical-align: top;
-  }
-  .nation-description {
-    font-size: 14px;
-    margin: .5rem;
-    text-align: center;
-  }
-  .nation-metrics {
-    bottom: 0;
-    padding: 1rem;
-    position: absolute;
-    span {
-      padding-right: .5rem;
-    }
-  }
-  .nation-img {
-    background: white;
-    border: 4px solid white;
-    border-radius: 50%;
-    height: 2.5rem;
-    margin-left: 2rem;
-    text-align: center;
-  }
-}
-
-.military-screen {
-  background: #333;
-  border-top: 4px solid #DB1818;
-  h2 {
-    background: #DB1818;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  .military-metric {
-    background: #222;
-    color: #eee;
-    border: 1px solid #111;
-    border-radius: 4px;
-    display: inline-block;
-    margin-right: .5rem;
-    padding: .5rem;
-  }
-  h3 {
-    color: #eee;
-  }
-  &.disabled {
-    opacity: 0.3;
-    pointer-events: none;
   }
 }
 
@@ -561,46 +134,4 @@
       border-radius: 50%;
     }
   }
-}
-
-.settings-screen {
-  background: #333;
-  border-top: 4px solid black;
-  h2 {
-    background: black;
-    color: #eee;
-    margin: .25rem .25rem 1.25rem .25rem;
-    padding: 1rem;
-    img {
-      background: white;
-      border: 4px solid white;
-      border-radius: 50%;
-    }
-  }
-  .settings-screen-inner {
-    color: white;
-  }
-  p {
-    border: 1px solid black;
-  }
-  .settings-label {
-    background: #222;
-    display: inline-block;
-    width: 8rem;
-    padding: .5rem;
-    text-align: right;
-  }
-  .ui-button {
-    display: inline-block;
-    padding: .5rem;
-    &:hover {
-      cursor: pointer;
-      background: $blue;
-    }
-  }
-  .horizontal-button,
-  .grid-button {
-
-  }
-
 }

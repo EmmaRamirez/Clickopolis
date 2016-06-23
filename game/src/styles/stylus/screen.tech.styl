@@ -1,0 +1,107 @@
+.current-research {
+  color: #eee !important;
+  margin: .5rem;
+  span {
+    font-weight: bold;
+  }
+}
+
+.technology-screen {
+  background: #333;
+  border-top: 4px solid #83D4D4;
+  h2 {
+    background: #83D4D4;
+    color: #eee;
+    margin: .25rem .25rem 1.25rem .25rem;
+    padding: 1rem;
+    img {
+      background: white;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+  }
+  .research-exceeding {
+    color: #eee;
+    margin-bottom: .25rem;
+  }
+  .research-progress-bar {
+    background: #444;
+    border: 1px solid #111;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 0 auto;
+    height: 1rem;
+    width: 80%;
+  }
+  .r-text {
+    color: #eee;
+    display: inline-block;
+    text-align: center;
+    width: 8%;
+  }
+  .technologies {
+    padding: 1rem;
+  }
+
+  .search {
+    padding: 1rem;
+    padding-bottom: .25rem;
+    input[type='search'] {
+      background: #222;
+      border: 1px solid #111;
+      color: #eee;
+      padding: .5rem;
+    }
+    .research-filters {
+      background: #222;
+      border: 1px soild #111;
+      color: #eee;
+      display: inline-block;
+      font-size: .9rem;
+      padding: .25rem;
+      transform: translate(5px, 7px);
+      label:nth-of-type(1) {
+        border-bottom: 1px solid #666;
+      }
+      input {
+        margin-right: .5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .tech {
+    background: #83D4D4;
+    border: 1px solid #111;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: .25rem auto;
+    padding: .5rem;
+    &:hover {
+      background: darken(#83D4D4, 15%);
+      //@extend %transition-s;
+    }
+    &[data-selected=true] {
+      background: #DB9665;
+    }
+    &[data-purchased=true] {
+      background: #2DE066;
+    }
+    .tech-name {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+    .tech-description {
+      font-size: .9rem;
+      font-style: italic;
+      margin-left: 2rem;
+
+    }
+    .tech-list {
+      font-size: .95rem;
+      padding: 0;
+      margin: 0;
+      margin-left: 3rem;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.buildings-screen {
+  background: #333;
+  border-top: 4px solid #D6CA3E;
+  h2 {
+    background: #D6CA3E;
+    color: #eee;
+    margin: .25rem .25rem 1.25rem .25rem;
+    padding: 1rem;
+    img {
+      background: white;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+  }
+  .panel {
+    padding: .5rem 1rem;
+  }
+  .purchase-mode-btn {
+    background: #D6CA3E;
+    color: #222;
+    padding: .5rem;
+    //width: ${(128 / 16) + rem};
+  }
+
+  .building {
+    background: #D6CA3E;
+    border: 1px solid #222;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: .25rem 1rem;
+    padding: .5rem;
+    &:hover {
+      background: darken(#D6CA3E, 15%);
+    }
+  }
+
+  .building-name {
+    font-weight: bold;
+    padding: .5rem;
+  }
+  .building-effect {
+    background: #222;
+    color: #eee;
+    padding: .5rem;
+  }
+
+  .building-total {
+    background: #eee;
+    color: darken(#D6CA3E, 15%);
+    padding: .5rem;
+  }
+
+}
