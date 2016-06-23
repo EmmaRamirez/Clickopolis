@@ -7,8 +7,8 @@ class Buildings {
     this.items.push(building);
   }
 
-  get(query:string):Citizen {
-    let b = this.item;
+  get(query:string):Building {
+    let b = this.items;
     let bi:Building;
 
     for (let i = 0; i < b.length; i++) {
@@ -20,7 +20,7 @@ class Buildings {
     return bi;
   }
 
-  constructor() {
+  constructor(items:Building[]) {
     this.items = items;
   }
 
