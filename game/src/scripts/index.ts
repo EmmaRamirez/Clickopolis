@@ -464,7 +464,6 @@ function techClick() {
           elt('.research-cost-text').textContent = playerCiv.researchCost;
          }
       }
-
     })
   });
 }
@@ -484,14 +483,13 @@ function checkPopulationGrowthCost() {
     button.className = 'pop-btn';
     return true;
   }
-
 }
 
 function UiSettingsButtons() {
-  // TODO: Remove eventlistener for horizontal scrolling
   elt('.grid-button').addEventListener('click', function () {
-    elt('.clickopolis').style.width = '1200px';
+    elt('.clickopolis').style.width = '100%';
   });
+  elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
 }
 
 
