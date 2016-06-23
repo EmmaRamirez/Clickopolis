@@ -24,60 +24,51 @@ import Nations = require('./nations');
 import Templates = require('./template');
 import notify = require('./notify');
 
+import techData = require('./data.tech');
+import resourceData = require('./data.resource');
+
+let techs = techData;
+let resources = resourceData;
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
 
-let food:Resource = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.');
-let prod:Resource = new Resource('prod', 1, 0, 2000, 0, 'prod', 'Prod.');
-let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings.');
-let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.');
-let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Banana are harvested by farmers periodically. Each banana provides +.5 <img src="img/health.png"> Banana are a popular trade item with Tundra nations.');
-let spices:Resource = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices');
-let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold');
-let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gemss');
-let oil:Resource = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil');
-let uranium:Resource = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium');
-let iron:Resource = new Resource('iron', 0, 0, -1, 0, 'iron', 'Iron');
-let horse:Resource = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies :]');
-let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'Spaghetts');
-let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark!');
-
-let resources:Resources = new Resources([food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
-
-let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
-let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
-let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
-let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
-let herbalMedicine:Tech = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
-let masonry:Tech = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
-let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
-let mysticism:Tech = new Tech('mysticism', 'ancient', 'Mysterious gods bring riches, temples, and a couple blood sacrifices.', ['Can assign Clerics.', 'Can build Temples.', 'Can build Stonehenge.']);
-let sailing:Tech = new Tech('sailing', 'ancient', 'It\'s a lot harder to sail if you stay at half-mast!', ['Can assign soldiers as Navy.', 'Can meet Coastal and Oceanic Nations.']);
-let trading:Tech = new Tech('trading', 'ancient', 'My six chickens for your goat?', ['Unlocks Bartering Economic System.', 'Can assign Merchants.']);
-let woodworking:Tech = new Tech('woodworking', 'ancient', 'TIMBER!!!', ['Unlocks <img src="img/spices.png"> resources.', 'Can assign Woodcutters.']);
-let writing:Tech = new Tech('writing', 'ancient', 'Allows poorly written fanfiction in Information era.', ['Unlocks Diplomacy.', 'Can build Library.']);
 
 
-let techs:Techs = new Techs([agriculture,
-                            animalHusbandry,
-                            archery,
-                            fishing,
-                            herbalMedicine,
-                            masonry,
-                            mining,
-                            mysticism,
-                            sailing,
-                            trading,
-                            woodworking,
-                            writing]);
+// let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
+// let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
+// let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
+// let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
+// let herbalMedicine:Tech = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
+// let masonry:Tech = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
+// let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
+// let mysticism:Tech = new Tech('mysticism', 'ancient', 'Mysterious gods bring riches, temples, and a couple blood sacrifices.', ['Can assign Clerics.', 'Can build Temples.', 'Can build Stonehenge.']);
+// let sailing:Tech = new Tech('sailing', 'ancient', 'It\'s a lot harder to sail if you stay at half-mast!', ['Can assign soldiers as Navy.', 'Can meet Coastal and Oceanic Nations.']);
+// let trading:Tech = new Tech('trading', 'ancient', 'My six chickens for your goat?', ['Unlocks Bartering Economic System.', 'Can assign Merchants.']);
+// let woodworking:Tech = new Tech('woodworking', 'ancient', 'TIMBER!!!', ['Unlocks <img src="img/spices.png"> resources.', 'Can assign Woodcutters.']);
+// let writing:Tech = new Tech('writing', 'ancient', 'Allows poorly written fanfiction in Information era.', ['Unlocks Diplomacy.', 'Can build Library.']);
+//
+//
+// let techs:Collection = new Collection('Techs',
+//                                       [agriculture,
+//                                       animalHusbandry,
+//                                       archery,
+//                                       fishing,
+//                                       herbalMedicine,
+//                                       masonry,
+//                                       mining,
+//                                       mysticism,
+//                                       sailing,
+//                                       trading,
+//                                       woodworking,
+//                                       writing]);
 
 let farmer:Citizen = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
 let miner:Citizen = new Citizen('miner', 'miner', 0, 'a miner', 1, 0);
 let soldier:Citizen = new Citizen('soldier', 'soldier', 0, 'a soldier', 1, 0);
 
-let citizens:Citizens = new Citizens([farmer, miner, soldier]);
+let citizens:Collection = new Collection('Citizens', [farmer, miner, soldier]);
 
 let u = new Utils();
 
