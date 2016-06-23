@@ -137,7 +137,7 @@ class Templates {
               <img src='img/stone.png'> <span>${resources.get('stone').total}</span>
             </span>
 
-            <span class='resource' data-resource='iron'>
+            <span class='resource' data-unlocked='false' data-resource='iron'>
               <img src='img/iron.png'> <span>${resources.get('iron').total}</span>
             </span>
 
@@ -149,7 +149,7 @@ class Templates {
               <img src='img/cavalry.png'> Strategic
             </span>
 
-            <span class='resource' data-resource='horse'>
+            <span class='resource' data-unlocked='false' data-resource='horse'>
               <img src='img/horse.png'> <span>${resources.get('horse').total}</span>
             </span>
 
@@ -157,7 +157,7 @@ class Templates {
               <img src='img/oil.png'> <span>${resources.get('oil').total}</span>
             </span>
 
-            <span class='resource' data-resource='uranium'>
+            <span class='resource' data-unlocked='false' data-resource='uranium'>
               <img src='img/uranium.png'> <span>${resources.get('uranium').total}</span>
             </span>
 
@@ -185,11 +185,11 @@ class Templates {
               <img src='img/illuminati.png'> Power
             </span>
 
-            <span class='resource' data-resource='spaghetti'>
+            <span class='resource' data-unlocked='false' data-resource='spaghetti'>
               <img src='img/spaghetti.png'> <span>${resources.get('spaghetti').total}</span>
             </span>
 
-            <span class='resource' data-resource='chihuahua'>
+            <span class='resource' data-unlocked='false' data-resource='chihuahua'>
               <img src='img/chihuahua.png'> <span>${resources.get('chihuahua').total}</span>
             </span>
 
@@ -241,9 +241,9 @@ class Templates {
             </span>
           </div>
           <div class='row citizen-soldier'>
-            <button data-citizen-amount='-1'>-1</button>
+            <button data-citizen='soldier' data-citizen-amount='-1'>-1</button>
             <span class='citizen-icon'><img src='img/soldier-alt.png'></span>
-            <button data-citizen-amount='1'>+1</button>
+            <button data-citizen='soldier' data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
               Soldiers: <strong class='soldier-num-text'>0</strong> | Soldiers defend and fight for your empire. -3 <img src='img/coin.png'>
             </span>

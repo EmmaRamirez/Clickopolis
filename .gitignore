@@ -110,3 +110,5 @@ src/scripts/index.js
 src/scripts/template.js
 
 src/scripts/trade-deal.js
+
+src/scripts/data.resource.js
