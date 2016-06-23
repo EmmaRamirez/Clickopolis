@@ -413,9 +413,13 @@ function resourceClick() {
   let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('.resource');
   [].forEach.call(resourceButtons, function (item:any) {
     item.addEventListener('click', function () {
-      item.className = "resource";
+      [].forEach.call(resourceButtons, function (item:any) { item.className = "resource"; });
       let name = this.getAttribute('data-resource');
       let r = resources.get(name);
+
+
+
+
       if (this.className === "resource active") {
         this.className = "resource";
       } else {
@@ -442,8 +446,6 @@ function citizenClick() {
       console.log(this.getAttribute('data-citizen-amount'));
 
       citizens.get(citizen).amount += parseInt(this.getAttribute('data-citizen-amount'));
-
-      console.log(citizens.get(citizen).amount);
 
       elt(sel).textContent = citizens.get(citizen).amount;
 
