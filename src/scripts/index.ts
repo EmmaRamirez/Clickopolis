@@ -23,6 +23,7 @@ import techData = require('./data.tech');
 import resourceData = require('./data.resource');
 import citizenData = require('./data.citizen');
 import buildingData = require('./data.building');
+import nationData = require('./data.nation');
 
 let u = new Utils();
 
@@ -30,6 +31,7 @@ let techs = techData;
 let resources = resourceData;
 let citizens = citizenData;
 let buildings = buildingData;
+let nations = nationData;
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;

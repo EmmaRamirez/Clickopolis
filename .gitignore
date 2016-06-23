@@ -120,3 +120,5 @@ src/scripts/data.citizen.js
 src/scripts/data.nation.js
 
 src/scripts/civilization.js
+
+src/scripts/notify.js
