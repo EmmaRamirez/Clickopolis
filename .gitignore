@@ -75,3 +75,7 @@ game/src/scripts/index.js
 game/src/scripts/utils.js
 
 game/src/scripts/template.js
+
+*.map
+
+game/src/scripts/index.js

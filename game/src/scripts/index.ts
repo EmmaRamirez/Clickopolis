@@ -136,7 +136,7 @@ function bindElement(node:string, eventType:string, callback:Function) {
 
 function hideElement(element:HTMLElement) {
   element = <HTMLElement>element;
-  element.className += " hidden";
+  element.classList.add('hidden');
 }
 
 function removeElement(element:HTMLElement) {
