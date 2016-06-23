@@ -37,6 +37,12 @@ class Utils {
     else
       return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
   }
+
+  randomColor():string {
+    let randomColor = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+    return randomColor;
+  }
+
 }
 
 export = Utils;
