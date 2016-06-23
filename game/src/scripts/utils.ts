@@ -27,6 +27,10 @@ class Utils {
     return number;
   }
 
+  capitalize(str:string):string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   choose(arr:any[]):any {
     return arr[Math.floor(Math.random()*arr.length)];
   }
