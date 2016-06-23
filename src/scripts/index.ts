@@ -244,6 +244,7 @@ function createGameUI() {
   setInfluenceImage();
 
   populateTechnologies();
+  populateCitizens();
   populateBuildings();
 
   citizenClick();
@@ -290,6 +291,7 @@ setInterval(function() {
     addCash();
     addResearchPoints();
     checkPopulationGrowthCost();
+    setInfluenceImage();
   }
 }, 1000);
 
@@ -314,7 +316,6 @@ function drawUI(el:HTMLElement) {
                   templates.createCultureScreen(playerCiv) +
                   templates.createFaithScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game);
-
 }
 
 function populateTechnologies() {
@@ -334,6 +335,26 @@ function populateTechnologies() {
     </div>`;
   }
 
+}
+
+function populateCitizens() {
+  let citizensContainer = elt('.citizens');
+  citizensContainer.innerHTML = '';
+
+  for (let i = 0; i < citizens.items.length; i++) {
+    let c = citizens.items[i];
+
+    citizensContainer.innerHTML += `
+    <div class='row citizen-${c.name}' data-id='${i}'>
+      <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
+      <span class='citizen-icon'><img src='img/${c.image}.png'></span>
+      <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
+      <span class='citizen-info'>
+        ${u.capitalize(c.name + 's')}: <strong class='${c.name}-num-text'>${c.amount}</strong> | ${c.description}
+      </span>
+    </div>
+    `;
+  }
 }
 
 function populateBuildings() {
@@ -373,7 +394,7 @@ function addGoldenAgePoints() {
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 
   let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
-  let bgString:string = `linear-gradient(to right, #BDBD6C 0%, #BDBD6C ${goldenAgePercent}, #222 ${goldenAgePercent}, #222)`;
+  let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
   goldenAgeMeter.style.background = bgString;
 }
 
