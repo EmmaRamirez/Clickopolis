@@ -6,16 +6,26 @@ class Collection {
     this.items.push(item);
   }
 
-  get(query:string):any {
+  delete(query:string):void {
+    this.items.splice(this.get(query, true), 1);
+  }
+
+  get(query:string, returnIndex: boolean = false):any {
     let items = this.items;
     let item:any;
+    let index:number;
 
     for (let i = 0; i < items.length; i++) {
       if (items[i].name === query) {
         item = items[i];
+        index = i;
       }
     }
-    return item;
+    if (returnIndex) {
+      return index;
+    } else {
+      return item;
+    }
   }
 
   constructor(name: string = 'Collection', items: any[]) {
