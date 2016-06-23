@@ -61,3 +61,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+game/src/scripts/index.js
+
+game/src/scripts/data.citizen.js
+
+*.map
+
+game/src/scripts/data.nation.js
+
+game/src/scripts/index.js
+
+game/src/scripts/utils.js
