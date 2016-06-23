@@ -20,6 +20,7 @@ guide/node_modules
 */node_modules
 game/dist
 ./src/scripts/*.js
+npm-deub.log
 
 Prepros Build/
 
@@ -79,3 +80,7 @@ game/src/scripts/template.js
 *.map
 
 game/src/scripts/index.js
+
+npm-debug.log
+
+*.log
