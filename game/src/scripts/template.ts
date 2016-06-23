@@ -70,6 +70,8 @@ class Templates {
           <option value="cosmpolitan">cosmpolitan</option>
           <option value="daring">daring</option>
           <option value="expansionist">expansionist</option>
+          <option value="haughty">haughty</option>
+          <option value="flirtatious">flirtatious</option>
           <option value="industrious">industrious</option>
           <option value="isolationist">isolationist</option>
           <option value="pacifistic">pacifistic</option>
