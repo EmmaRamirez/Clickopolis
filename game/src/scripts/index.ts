@@ -12,65 +12,26 @@ import Settings = require('./settings');
 import Collection = require('./collection');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
-import Resources = require('./resources');
 import Citizen = require('./citizen');
-import Citizens = require('./citizens');
 import Building = require('./building');
-import Buildings = require('./buildings');
 import Tech = require('./tech');
-import Techs = require('./techs');
 import Nation = require('./nation');
-import Nations = require('./nations');
 import Templates = require('./template');
 import notify = require('./notify');
 
 import techData = require('./data.tech');
 import resourceData = require('./data.resource');
+import citizenData = require('./data.citizen');
+
+let u = new Utils();
 
 let techs = techData;
 let resources = resourceData;
+let citizens = citizenData;
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
-
-
-
-// let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
-// let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
-// let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
-// let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
-// let herbalMedicine:Tech = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
-// let masonry:Tech = new Tech('masonry', 'ancient', 'wububuu', ['', '']);
-// let mining:Tech = new Tech('mining', 'ancient', 'not safe for minors', ['+.2 <img src="img/prod.png"> PS per miner', 'Unlocks: Masonry, Pottery']);
-// let mysticism:Tech = new Tech('mysticism', 'ancient', 'Mysterious gods bring riches, temples, and a couple blood sacrifices.', ['Can assign Clerics.', 'Can build Temples.', 'Can build Stonehenge.']);
-// let sailing:Tech = new Tech('sailing', 'ancient', 'It\'s a lot harder to sail if you stay at half-mast!', ['Can assign soldiers as Navy.', 'Can meet Coastal and Oceanic Nations.']);
-// let trading:Tech = new Tech('trading', 'ancient', 'My six chickens for your goat?', ['Unlocks Bartering Economic System.', 'Can assign Merchants.']);
-// let woodworking:Tech = new Tech('woodworking', 'ancient', 'TIMBER!!!', ['Unlocks <img src="img/spices.png"> resources.', 'Can assign Woodcutters.']);
-// let writing:Tech = new Tech('writing', 'ancient', 'Allows poorly written fanfiction in Information era.', ['Unlocks Diplomacy.', 'Can build Library.']);
-//
-//
-// let techs:Collection = new Collection('Techs',
-//                                       [agriculture,
-//                                       animalHusbandry,
-//                                       archery,
-//                                       fishing,
-//                                       herbalMedicine,
-//                                       masonry,
-//                                       mining,
-//                                       mysticism,
-//                                       sailing,
-//                                       trading,
-//                                       woodworking,
-//                                       writing]);
-
-let farmer:Citizen = new Citizen('farmer', 'farmer', 0, 'a farmer', 1, 0);
-let miner:Citizen = new Citizen('miner', 'miner', 0, 'a miner', 1, 0);
-let soldier:Citizen = new Citizen('soldier', 'soldier', 0, 'a soldier', 1, 0);
-
-let citizens:Collection = new Collection('Citizens', [farmer, miner, soldier]);
-
-let u = new Utils();
 
 let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
@@ -151,7 +112,7 @@ function time(d:number) {
   return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
 };
 
-function choose(arr:any[]) {
+function choose(arr:any[]):any {
   return arr[Math.floor(Math.random()*arr.length)];
 }
 
