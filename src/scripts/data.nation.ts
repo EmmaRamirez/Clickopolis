@@ -7,9 +7,9 @@ let u = new Utils();
 // constructor(name:string, image:number, color:string, description:string, influence:number, strength:number, defense:number, cash:number, peacefulness:number, isAtWar:boolean)
 
 function createRandomName():string {
-  let prefix = ['viv', 'arg', 'top', 'tum', 'tu', 'roq', 'lax', 'acr', 'arc', 'ber', 'l', 'lol', 'lon', 'arlon', 'ganlon'];
+  let prefix = ['viv', 'arg', 'top', 'tum', 'tu', 'roq', 'lax', 'acr', 'arc', 'ber', 'l', 'lol', 'lon', 'arlon', 'ganlon', 'entr', 'art'];
   let joiner = ['o', 'a', 'e', 'u'];
-  let suffix = ['polis', 'topia', 'dom', 'gok', 'ton', 'runq', 'lore', 'dash', 'm', 'n'];
+  let suffix = ['polis', 'topia', 'dom', 'gok', 'ton', 'runq', 'lore', 'dash', 'm', 'n', 'pia', 'los', 'las'];
 
   let resultString = u.choose(prefix) + u.choose(joiner) + u.choose(suffix);
 

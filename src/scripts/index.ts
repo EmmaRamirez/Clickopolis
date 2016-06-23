@@ -231,6 +231,7 @@ function createGameUI() {
     playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
 
     populationText.textContent = playerCiv.population.toString();
+    elt('.citizens-population-text').textContent = playerCiv.populationEmployed.toString() + '/' + playerCiv.population.toString();
     popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
 
     updatePopulation(1);
@@ -298,8 +299,6 @@ setInterval(function() {
 setInterval(function() {
   if (isWindowActive) {
      updateYear();
-
-
   }
 }, 1000 * 60);
 
@@ -334,7 +333,6 @@ function populateTechnologies() {
       </ul>
     </div>`;
   }
-
 }
 
 function populateCitizens() {
@@ -343,7 +341,6 @@ function populateCitizens() {
 
   for (let i = 0; i < citizens.items.length; i++) {
     let c = citizens.items[i];
-
     citizensContainer.innerHTML += `
     <div class='row citizen-${c.name}' data-id='${i}'>
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
@@ -437,10 +434,6 @@ function resourceClick() {
       [].forEach.call(resourceButtons, function (item:any) { item.className = "resource"; });
       let name = this.getAttribute('data-resource');
       let r = resources.get(name);
-
-
-
-
       if (this.className === "resource active") {
         this.className = "resource";
       } else {

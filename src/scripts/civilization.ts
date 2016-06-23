@@ -17,6 +17,7 @@ class Civilization {
   population: number;
   populationGrowthCost: number;
   populationReal: number;
+  populationEmployed: number;
 
   achievements: number;
 
@@ -65,6 +66,7 @@ class Civilization {
     this.population = 1;
     this.populationGrowthCost = 10;
     this.populationReal = 1000;
+    this.populationEmployed = 1;
 
     this.cash = 0;
     this.cashPM = 0;
