@@ -92,3 +92,5 @@ game/src/scripts/notify.js
 game/src/scripts/nation.js
 
 game/src/scripts/trade-deal.js
+
+game/src/scripts/economy.js

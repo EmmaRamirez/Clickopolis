@@ -18,3 +18,5 @@ class TradeDeal {
     this.year = year;
   }
 }
+
+export = TradeDeal;
