@@ -1,4 +1,4 @@
-function notify(message:string, color:string = '#222'):void {
+function notify(message:string, color:string = '#222', time:number = 2500):void {
   // TODO: create settimeout
   let note = document.createElement('div');
   note.className = 'notification';
@@ -8,7 +8,8 @@ function notify(message:string, color:string = '#222'):void {
   document.body.appendChild(note);
   setTimeout(function () {
     note.className = 'notification hidden';
-  }, 2500);
+  }, time);
+  note.remove();
 }
 
 export = notify;
