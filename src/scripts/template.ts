@@ -343,21 +343,7 @@ class Templates {
             <button class='purchase-mode-btn hidden'>Purchase Mode</button>
           </div>
         </section>
-        <section class='buildings-screen-inner'>
-          <div class='building'>
-            <span class='building-total' title='how many you own'>0</span>
-            <span class='building-cost'><span class='building-cost-text'>15</span> <img src='img/prod.png'></span>
-            <span class='building-name'>Hut</span>
-            <span class='building-description'>A simple hut. Could use air conditioning.</span>
-            <span class='building-effect'>+1 <img src='img/happy.png'></span>
-          </div>
-          <div class='building'>
-            <span class='building-total' title='how many you own'>0</span>
-            <span class='building-cost'><span class='building-cost-text'>25</span> <img src='img/prod.png'></span>
-            <span class='building-name'>Granary</span>
-            <span class='building-description'>A granary for storing food.</span>
-            <span class='building-effect'>+200 <img src='img/food.png'> Max</span>
-          </div>
+        <section class='buildings-screen-inner buildings'>
         </section>
       </section>
     `;

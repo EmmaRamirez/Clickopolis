@@ -22,12 +22,14 @@ import notify = require('./notify');
 import techData = require('./data.tech');
 import resourceData = require('./data.resource');
 import citizenData = require('./data.citizen');
+import buildingData = require('./data.building');
 
 let u = new Utils();
 
 let techs = techData;
 let resources = resourceData;
 let citizens = citizenData;
+let buildings = buildingData;
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;
@@ -242,6 +244,7 @@ function createGameUI() {
   setInfluenceImage();
 
   populateTechnologies();
+  populateBuildings();
 
   citizenClick();
 
@@ -316,11 +319,10 @@ function drawUI(el:HTMLElement) {
 
 function populateTechnologies() {
   let technologies = document.querySelector('.technologies');
-  console.debug("tech element", technologies);
+  technologies.innerHTML = '';
 
   for (let i = 0; i < techs.items.length; i++) {
     let t = techs.items[i];
-    console.log(techs.items[i]);
     technologies.innerHTML += `
     <div class='tech' data-tech='${t.name}' data-selected=${t.selected} data-purchased=${t.purchased}>
       <span class='tech-name'>${t.name}</span>
@@ -332,6 +334,25 @@ function populateTechnologies() {
     </div>`;
   }
 
+}
+
+function populateBuildings() {
+  let buildingsContainer = elt('.buildings');
+  buildingsContainer.innerHTML = '';
+
+  for (let i = 0; i < buildings.items.length; i++) {
+    let b = buildings.items[i];
+    console.log(b);
+    buildingsContainer.innerHTML += `
+      <div class='building'>
+        <span class='building-total' title='how many you own'>${b.amount}</span>
+        <span class='building-cost'><span class='building-cost-text'>${b.prodCost}</span> <img src='img/prod.png'></span>
+        <span class='building-name'>${b.name}</span>
+        <span class='building-description'>${b.description}</span>
+        <span class='building-effect'>${b.effect}</span>
+      </div>
+    `;
+  }
 }
 
 function updateYear() {

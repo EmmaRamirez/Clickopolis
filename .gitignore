@@ -100,3 +100,13 @@ game/src/scripts/trade-deal.js
 game/src/scripts/economy.js
 
 *.map
+
+src/scripts/data.building.js
+
+src/scripts/economy.js
+
+src/scripts/index.js
+
+src/scripts/template.js
+
+src/scripts/trade-deal.js
