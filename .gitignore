@@ -73,3 +73,5 @@ game/src/scripts/data.nation.js
 game/src/scripts/index.js
 
 game/src/scripts/utils.js
+
+game/src/scripts/template.js

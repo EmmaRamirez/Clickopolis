@@ -1,9 +1,9 @@
 import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
-import Resources = require('./resources');
 import Citizen = require('./citizen');
 import Citizens = require('./citizens');
+import Collection = require('./collection');
 import Utils = require('./utils');
 
 let u = new Utils();
@@ -44,6 +44,7 @@ class Templates {
           </button>
         </div>
         <!-- <button class='next-btn'>Next &rarr;</button> -->
+        <p class='center-text'>version ${game.version}</p>
       </section>
     `;
     return startScreen;
@@ -81,7 +82,7 @@ class Templates {
     </section>
   `;
 
-  createResourcesScreen(playerCiv:Civilization, resources:Resources) {
+  createResourcesScreen(playerCiv:Civilization, resources:Collection) {
     let resourcesScreen = `
       <section class='screen resources-screen' id='resources'>
         <h2><img src='img/resources.png'> Resources</h2>
