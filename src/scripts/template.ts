@@ -110,12 +110,11 @@ class Templates {
 
           <div class='panel location-panel'>
             <p>Biome (${playerCiv.location}) Bonus: +10% <img src='img/food.png'> PC</p>
-            <p>Secondary Biome (${playerCiv.location}) Bonus: '????'</p>
           </div>
 
 
           <div class='panel resources-panel'>
-            <span class='resource'>
+            <span class='resource health-resources'>
               <img src='img/health.png'> Health
             </span>
 
@@ -129,7 +128,7 @@ class Templates {
 
             <br>
 
-            <span class='resource'>
+            <span class='resource building-resources'>
               <img src='img/buildings.png'> Building
             </span>
 
@@ -145,7 +144,7 @@ class Templates {
 
             <br>
 
-            <span class='resource'>
+            <span class='resource strategic-resources'>
               <img src='img/cavalry.png'> Strategic
             </span>
 
@@ -163,7 +162,7 @@ class Templates {
 
             <br>
 
-            <span class='resource'>
+            <span class='resource luxury-resources'>
               <img src='img/crown.png'> Luxury
             </span>
 
@@ -181,7 +180,7 @@ class Templates {
 
             <br>
 
-            <span class='resource'>
+            <span class='resource power-resources'>
               <img src='img/illuminati.png'> Power
             </span>
 
@@ -246,6 +245,14 @@ class Templates {
             <button data-citizen='soldier' data-citizen-amount='1'>+1</button>
             <span class='citizen-info'>
               Soldiers: <strong class='soldier-num-text'>0</strong> | Soldiers defend and fight for your empire. -3 <img src='img/coin.png'>
+            </span>
+          </div>
+          <div class='row citizen-cleric'>
+            <button data-citizen='cleric' data-citizen-amount='-1'>-1</button>
+            <span class='citizen-icon'><img src='img/cleric.png'></span>
+            <button data-citizen='cleric' data-citizen-amount='1'>+1</button>
+            <span class='citizen-info'>
+              Clerics: <strong class='cleric-num-text'>0</strong> | Clerics heal your empire. +1 <img src='img/health.png'>, +1 <img src='img/faith.png'> PM
             </span>
           </div>
         </section>
