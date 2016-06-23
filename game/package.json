@@ -1,5 +1,5 @@
 {
-  "name": "clickopolis-delta",
+  "name": "clickopolis",
   "version": "0.0.1",
   "description": "An epic clicking-based empire management game.",
   "main": "./src/index.ts",
@@ -10,7 +10,7 @@
     "start": "http-server"
   },
   "author": "Emma Ramirez",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "http-server": "^0.9.0",
     "jquery": "^2.2.3",
