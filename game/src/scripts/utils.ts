@@ -26,6 +26,10 @@ class Utils {
     }
     return number;
   }
+
+  choose(arr:any[]):any {
+    return arr[Math.floor(Math.random()*arr.length)];
+  }
 }
 
 export = Utils;
