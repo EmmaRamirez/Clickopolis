@@ -84,3 +84,5 @@ game/src/scripts/index.js
 npm-debug.log
 
 *.log
+
+game/src/scripts/data.tech.js

@@ -2,7 +2,7 @@ import Tech = require('./tech');
 import Collection = require('./collection');
 
 let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining']);
-let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'a tech', ['', '']);
+let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'It\'s not what you think it is.', ['Unlocks <img src="img/horse.png"> resource', '']);
 let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
 let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
 let herbalMedicine:Tech = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
@@ -16,7 +16,9 @@ let writing:Tech = new Tech('writing', 'ancient', 'Allows poorly written fanfict
 
 
 let techs:Collection = new Collection('Techs',
-                                      [agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, sailing, trading, woodworking, writing]
-                                    );
+    [
+      agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, sailing, trading, woodworking, writing
+    ]
+  );
 
 export = techs;
