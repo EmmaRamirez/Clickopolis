@@ -38,6 +38,14 @@ class Utils {
       return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
   }
 
+  progressBar(percent:string, progressColor: string, endColor: string, direction: string = 'right'):string {
+    function render() {
+      let progressBar = `linear-gradient(to ${direction}, ${progressColor} 0%, ${progressColor} ${percent}, ${endColor} ${percent}, ${endColor} 100%)`;
+      return progressBar;
+    }
+    return render();
+  }
+
   randomColor():string {
     let randomColor = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
     return randomColor;

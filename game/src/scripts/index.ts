@@ -363,7 +363,8 @@ function addResearchPoints() {
 
   let researchPercent:string = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
 
-  let bgString:string = `linear-gradient(to right, #83D4D4 0%, #83D4D4 ${researchPercent}, #444 ${researchPercent}, #444 100%)`;
+  let bgString:string = u.progressBar(researchPercent, '#83D4D4', '#444');
+
   elt('.research-progress-bar').style.background = bgString;
 
   if (playerCiv.research > playerCiv.researchCost) {
