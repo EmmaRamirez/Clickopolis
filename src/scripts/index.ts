@@ -247,8 +247,8 @@ function createGameUI() {
   populateBuildings();
 
   citizenClick();
-
   techClick();
+  buildingClick();
 
   UiSettingsButtons();
 
@@ -344,7 +344,7 @@ function populateBuildings() {
     let b = buildings.items[i];
     console.log(b);
     buildingsContainer.innerHTML += `
-      <div class='building'>
+      <div class='building' data-id='${i}' data-building='${b.name}'>
         <span class='building-total' title='how many you own'>${b.amount}</span>
         <span class='building-cost'><span class='building-cost-text'>${b.prodCost}</span> <img src='img/prod.png'></span>
         <span class='building-name'>${b.name}</span>
@@ -441,7 +441,7 @@ function citizenClick() {
 
       console.log(this.getAttribute('data-citizen-amount'));
 
-      citizens.get(citizen).amount += <number>this.getAttribute('data-citizen-amount');
+      citizens.get(citizen).amount += parseInt(this.getAttribute('data-citizen-amount'));
 
       console.log(citizens.get(citizen).amount);
 
@@ -454,6 +454,28 @@ function citizenClick() {
       // console.log(citizens.get(this.getAttribute('data-citizen')));
       // elt(this.getAttribute('data-citizen') + '-num-text').textContent = citizens.get(this.getAttribute('data-citizen')).amount + 1;
     });
+  });
+}
+
+function buildingClick() {
+  let buildingEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.building');
+  console.debug('buildingEls', buildingEls);
+
+  [].forEach.call(buildingEls, function (item:any) {
+    console.log(item);
+
+    item.addEventListener('click', function () {
+
+      let building = item.getAttribute('data-building');
+      if (resources.get('prod').total >= buildings.get(building).prodCost) {
+        notify(`Your citizen built a ${buildings.get(building).name}`);
+        buildings.get(building).amount += 1;
+        console.table(buildings.get(building));
+      } else {
+        notify(`You don't have the <img src="img/prod.png"> to purchase a ${buildings.get(building).name}`);
+      }
+    });
+
   });
 }
 
