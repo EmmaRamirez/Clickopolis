@@ -76,41 +76,12 @@ function removeItem(arr:any[], item:any) {
   }
 }
 
-function abbrNum (number:any, decPlaces:number) {
-    // 2 decimal places => 100, 3 => 1000, etc
-    decPlaces = Math.pow(10,decPlaces);
-    // Enumerate number abbreviations
-    var abbrev = [ "k", "m", "b", "t" ];
-    // Go through the array backwards, so we do the largest first
-    for (var i=abbrev.length-1; i>=0; i--) {
-        // Convert array index to "1000", "1000000", etc
-        var size = Math.pow(10,(i+1)*3);
-        // If the number is bigger or equal do the abbreviation
-        if(size <= number) {
-             // Here, we multiply by decPlaces, round, and then divide by decPlaces.
-             // This gives us nice rounding to a particular decimal place.
-             number = Math.round(number*decPlaces/size)/decPlaces;
-             // Handle special case where we round up to the next abbreviation
-             if((number == 1000) && (i < abbrev.length - 1)) {
-                 number = 1;
-                 i++;
-             }
-             // Add the letter for the abbreviation
-             number += abbrev[i];
-             // We are done... stop
-             break;
-        }
-    }
-
-    return number;
-};
-
 function time(d:number) {
   var h = Math.floor(d / 3600);
   var m = Math.floor(d % 3600 / 60);
   var s = Math.floor(d % 3600 % 60);
   return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
-};
+}
 
 function choose(arr:any[]):any {
   return arr[Math.floor(Math.random()*arr.length)];
@@ -388,7 +359,7 @@ function addGoldenAgePoints() {
 function addResearchPoints() {
   playerCiv.research += playerCiv.researchPM / 60;
 
-  elt('.research-text').textContent = abbrNum(playerCiv.research.toFixed(1), 2);
+  elt('.research-text').textContent = u.abbrNum(playerCiv.research.toFixed(1), 2);
 
   let researchPercent:string = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
 

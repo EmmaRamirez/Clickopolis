@@ -30,6 +30,13 @@ class Utils {
   choose(arr:any[]):any {
     return arr[Math.floor(Math.random()*arr.length)];
   }
+
+  elt(query:string, all:boolean = false):any {
+    if (all === false)
+      return <HTMLElement>document.querySelector(query);
+    else
+      return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
+  }
 }
 
 export = Utils;
