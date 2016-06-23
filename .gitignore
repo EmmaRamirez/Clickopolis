@@ -88,3 +88,5 @@ npm-debug.log
 game/src/scripts/data.tech.js
 
 game/src/scripts/notify.js
+
+game/src/scripts/nation.js
