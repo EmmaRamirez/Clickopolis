@@ -302,7 +302,7 @@ setInterval(function() {
     addGoldenAgePoints();
     addCash();
     addResearchPoints();
-    checkPopulationGrowthCost();
+    checkPopulationGrowthCost()
     checkBuildingCosts();
     setInfluenceImage();
   }
@@ -311,6 +311,7 @@ setInterval(function() {
 setInterval(function() {
   if (isWindowActive) {
      updateYear();
+     checkUnemployed();
   }
 }, 1000 * 60);
 
@@ -329,9 +330,14 @@ function drawUI(el:HTMLElement) {
                   templates.createSettingsScreen(playerCiv, game);
 }
 
+function checkUnemployed() {
+  if (playerCiv.population !== playerCiv.populationEmployed) {
+    notify('You have unemployed citizens! <img src="img/citizen.png"> Employ them in the citizens panel!');
+  }
+}
+
 function checkBuildingCosts() {
   let buildingEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.building');
-
   [].forEach.call(buildingEls, function (item:any, index:number) {
     let building = item.getAttribute('data-building');
     if (resources.get('prod').total >= buildings.get(building).prodCost) {
@@ -347,14 +353,17 @@ function populateTechnologies() {
   technologies.innerHTML = '';
 
   for (let i = 0; i < techs.items.length; i++) {
+    let effects = '';
+    for (let j = 0; j < techs.items[i].effects.length; j++) {
+      effects += `<li>${techs.items[i].effects[j]}</li>`;
+    }
     let t = techs.items[i];
     technologies.innerHTML += `
     <div class='tech' data-tech='${t.name}' data-selected=${t.selected} data-purchased=${t.purchased}>
       <span class='tech-name'>${t.name}</span>
       <span class='tech-description'>${t.description}</span>
       <ul class='tech-list'>
-        <li>${t.effects[0]}</li>
-        <li>${t.effects[1]}</li>
+        ${effects}
       </ul>
     </div>`;
   }
