@@ -296,11 +296,14 @@ setInterval(function() {
     else resources.get('food').total += resources.get('prod').perSecond;
     elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
 
+
+
     updateTime();
     addGoldenAgePoints();
     addCash();
     addResearchPoints();
     checkPopulationGrowthCost();
+    checkBuildingCosts();
     setInfluenceImage();
   }
 }, 1000);
@@ -324,6 +327,19 @@ function drawUI(el:HTMLElement) {
                   //templates.createCultureScreen(playerCiv) +
                   //templates.createFaithScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game);
+}
+
+function checkBuildingCosts() {
+  let buildingEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.building');
+
+  [].forEach.call(buildingEls, function (item:any, index:number) {
+    let building = item.getAttribute('data-building');
+    if (resources.get('prod').total >= buildings.get(building).prodCost) {
+      item.setAttribute('data-purchaseable', true);
+    } else {
+      item.setAttribute('data-purchaseable', false);
+    }
+  });
 }
 
 function populateTechnologies() {
@@ -371,7 +387,7 @@ function populateBuildings() {
     let b = buildings.items[i];
     console.log(b);
     buildingsContainer.innerHTML += `
-      <div class='building' data-id='${i}' data-building='${b.name}'>
+      <div class='building' data-id='${i}' data-building='${b.name}' data-purchaseable='false'>
         <span class='building-total' data-building='${b.name}' title='how many you own'>${b.amount}</span>
         <span class='building-cost'><span class='building-cost-text data-id='${i}'>${b.prodCost}</span> <img src='img/prod.png'></span>
         <span class='building-name'>${b.name}</span>
@@ -490,6 +506,7 @@ function buildingClick() {
         console.log(buildings.get(building).prodCost);
         elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
         console.table(buildings.get(building));
+        buildings.get(building).func(playerCiv);
       } else {
         notify(`You don't have the <img src="img/prod.png"> to purchase a ${buildings.get(building).name}`);
       }
