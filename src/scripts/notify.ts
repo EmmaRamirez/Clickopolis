@@ -1,4 +1,4 @@
-function notify(message:string, color:string = '#222', time:number = 2500, css:string = ''):void {
+function notify(message:string, color:string = '#222', time:number = 5000, css:string = ''):void {
   // TODO: create settimeout
   console.debug('Note was created with message of: ' + message);
   let note = document.createElement('div');
