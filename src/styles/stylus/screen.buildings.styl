@@ -30,8 +30,15 @@
     margin: .25rem 1rem;
     padding: .5rem;
     position: relative;
+    transition: 500ms all;
     &:hover {
       background: darken(#D6CA3E, 15%);
+      transition: 500ms all;
+    }
+    &[data-purchaseable='false'] {
+      background: #ddd;
+      cursor: not-allowed;
+      transition: 500ms all;
     }
   }
 
