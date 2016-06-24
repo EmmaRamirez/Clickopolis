@@ -181,7 +181,7 @@ class Templates {
             <br>
 
             <span class='resource power-resources'>
-              <img src='img/illuminati.png'> Power
+              <img src='img/illuminati-alt.png'> Power
             </span>
 
             <span class='resource' data-unlocked='false' data-resource='spaghetti'>
