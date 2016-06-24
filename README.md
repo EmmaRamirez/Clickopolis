@@ -9,17 +9,15 @@ Contributions through issues and pull requests are greatly appreciated!
 ## How to Run
 Run `git clone https://github.com/EmmaRamirez/Clickopolis.git` to download the current repo.
 
-Then navigate to `Clickopolis\game` then `npm install` and run `npm start` to run the game in your localhost (default port 8080).
+Then navigate to `Clickopolis` then `npm install` and run `npm webpack`, `npm stylus`, and `npm start` in different tabs to run the game in your localhost (default port 8080).
 
-In order to run the next version of Clickopolis, just switch to the branch `latest`, or check out one of the `feature/**` branches.
+In order to run the next version (read: experimental) of Clickopolis, just switch to the branch `latest`, or check out one of the `feature/**` branches.
 
 ## Roadmap
 
 ### 0.2.0
-- Saving game to file
 
 ### 0.1.0
-- Working implementations of all main UIs
 
 ## Task List
 
