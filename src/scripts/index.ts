@@ -104,7 +104,7 @@ function append(node:any, html:string) {
 function bindElement(node:string, eventType:string, callback:Function) {
   let el = <HTMLElement>document.querySelector(node);
   el.addEventListener(eventType, function( event ) {
-    console.log(callback)
+    //console.log(callback)
     return callback();
   });
 }
@@ -204,7 +204,6 @@ function createGameUI() {
 
   drawUI(clickopolisGame);
 
-
   intro != undefined ? intro.remove() : console.log('intro not defined');
 
   document.body.appendChild(clickopolisGame);
@@ -213,12 +212,20 @@ function createGameUI() {
   bindElement('.food-btn', 'click', function () {
     event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
+    if (resources.get('food').total === 10) {
+      notify('Yay! You have enough <img src="img/food.png"> to grow your population!');
+    }
+
     checkPopulationGrowthCost();
   });
 
   bindElement('.prod-btn', 'click', function () {
     event.preventDefault();
     addClickToTotal('.r-prod-total', 'prod');
+
+    if (resources.get('prod').total === 15) {
+      notify('Yay! You have enough <img src="img/prod.png"> to build your first building!');
+    }
     checkPopulationGrowthCost();
   });
 
@@ -548,7 +555,6 @@ function checkAchievements() {
 
 
 function init() {
-  //elt('.clickopolis-intro').style.background = 'linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url(../img/world.png)';
   startGame();
 }
 
