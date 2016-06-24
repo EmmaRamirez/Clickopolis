@@ -2,7 +2,6 @@ import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
-import Citizens = require('./citizens');
 import Collection = require('./collection');
 import Utils = require('./utils');
 
@@ -216,7 +215,7 @@ class Templates {
     return screenHeader;
   }
 
-  createCitizenScreen(playerCiv:Civilization, citizens:Citizens):string {
+  createCitizenScreen(playerCiv:Civilization, citizens:Collection):string {
     let citizensScreen = `
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
