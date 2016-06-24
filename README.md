@@ -14,12 +14,31 @@ Then navigate to `Clickopolis` then `npm install` and run `npm webpack`, `npm st
 In order to run the next version (read: experimental) of Clickopolis, just switch to the branch `next`, or check out one of the `feature/**` branches.
 
 ## Roadmap
+*Latest*: 0.0.0
+
+This Roadmap is a glance at planned releases of Clickopolis. It does not include patches and other minor fixes. For a complete list of all changes made to the game, see the [changelog](https://github.com/EmmaRamirez/Clickopolis/blob/master/CHANGELOG.md).
 
 
+### 0.6.0 A New World
+- Introduces the `land` mechanic
+- Implements `Exploration`
+
+### 0.5.0 &mdash; War & Peace
+- Implements the `Military` screen
+- Introduces War and Military Campaigns
+- Implements the Enlightenment Era
+
+### 0.4.0 &mdash; A Diplomatic Entanglement
+- Implements `Diplomacy` and the `influence` mechanic
+- Introduces new Nations
+- Implements `Trade Routes` & `Trade Deals`
+- Implements the Renaissance Era
 
 ### 0.3.0 &mdash; The Faithful Many
 - Implements `Faith` and `Faith Bonuses`
 - Introduces the `Alpha` and `Omega` cults
+  - New Alpha/Omega specific resources, techs, & upgrades
+- Implements the Medieval Era
 
 ### 0.2.0 &mdash; An Empire of the Arts
 - Implements `Culture`, `Cultural Upgrades`, and `Great Works.`
