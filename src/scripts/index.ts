@@ -17,6 +17,7 @@ import Building = require('./building');
 import Tech = require('./tech');
 import Nation = require('./nation');
 import Templates = require('./template');
+//import Flags = require('./flags');
 import notify = require('./notify');
 
 import techData = require('./data.tech');
@@ -311,10 +312,10 @@ function drawUI(el:HTMLElement) {
                   templates.createEconomyScreen(playerCiv) +
                   templates.createBuildingsScreen() +
                   templates.createTechnologyScreen(playerCiv) +
-                  templates.createDiplomacyScreen(playerCiv) +
-                  templates.createMilitaryScreen(playerCiv) +
-                  templates.createCultureScreen(playerCiv) +
-                  templates.createFaithScreen(playerCiv) +
+                  //templates.createDiplomacyScreen(playerCiv) +
+                  //templates.createMilitaryScreen(playerCiv) +
+                  //templates.createCultureScreen(playerCiv) +
+                  //templates.createFaithScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game);
 }
 
