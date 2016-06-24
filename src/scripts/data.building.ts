@@ -1,7 +1,17 @@
 import Building = require('./building');
 import Collection = require('./collection');
+import Civilization = require('./civilization');
+import Utils = require('./utils');
+import notify = require('./notify');
 
-let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">');
+let u = new Utils();
+
+let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">', function (playerCiv:Civilization) {
+  playerCiv.happiness += 1;
+  u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
+  notify(`The happiness of your Civilization grew to <img src="img/happy.png"> ${playerCiv.happiness}`);
+  console.log(playerCiv.happiness);
+});
 let granary:Building = new Building('Granary', 0, 25, 250, 'Feeds all your cute animals.', '+200 <img src="img/food.png"> max');
 let quarry:Building = new Building('Quarry', 0, 30, 300, 'Your very own diamond in the rough.', '+200 <img src="img/prod.png"> max');
 let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers at the ready!', '+1 <img src="img/strength.png">');

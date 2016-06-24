@@ -132,3 +132,5 @@ src/scripts/nation.js
 src/scripts/log.js
 
 src/scripts/flags.js
+
+src/scripts/building.js
