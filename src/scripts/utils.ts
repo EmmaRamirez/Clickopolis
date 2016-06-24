@@ -42,6 +42,18 @@ class Utils {
       return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
   }
 
+  once(fn: Function, context:any):Function {
+    let result:Function;
+    return function() {
+      if (fn) {
+        result = fn.apply(context || this, arguments);
+        fn = null;
+      }
+      return result;
+    }
+  }
+
+
   progressBar(percent:string, progressColor: string, endColor: string, direction: string = 'right'):string {
     function render() {
       let progressBar = `linear-gradient(to ${direction}, ${progressColor} 0%, ${progressColor} ${percent}, ${endColor} ${percent}, ${endColor} 100%)`;
