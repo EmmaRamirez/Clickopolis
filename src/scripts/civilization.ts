@@ -44,6 +44,10 @@ class Civilization {
 
   conquestedCivs: Civilization[];
 
+  reset() {
+    // exhaustive method goes here
+  }
+
   constructor(civName:string, leaderName:string, location:string) {
     this.civName = civName;
     this.leaderName = leaderName;

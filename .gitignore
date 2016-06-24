@@ -128,3 +128,7 @@ src/scripts/utils.js
 src/scripts/data.tech.js
 
 src/scripts/nation.js
+
+src/scripts/log.js
+
+src/scripts/flags.js
