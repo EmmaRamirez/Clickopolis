@@ -11,13 +11,26 @@ Run `git clone https://github.com/EmmaRamirez/Clickopolis.git` to download the c
 
 Then navigate to `Clickopolis` then `npm install` and run `npm webpack`, `npm stylus`, and `npm start` in different tabs to run the game in your localhost (default port 8080).
 
-In order to run the next version (read: experimental) of Clickopolis, just switch to the branch `latest`, or check out one of the `feature/**` branches.
+In order to run the next version (read: experimental) of Clickopolis, just switch to the branch `next`, or check out one of the `feature/**` branches.
 
 ## Roadmap
 
-### 0.2.0
 
-### 0.1.0
+
+### 0.3.0 &mdash; The Faithful Many
+- Implements `Faith` and `Faith Bonuses`
+- Introduces the `Alpha` and `Omega` cults
+
+### 0.2.0 &mdash; An Empire of the Arts
+- Implements `Culture`, `Cultural Upgrades`, and `Great Works.`
+- Implements the Classical Era
+  - New Technologies
+  - New Buildings
+
+### 0.1.0 &mdash; The Initial Game
+- Implements the Base Game, which consists of the following:
+
+
 
 ## Task List
 
