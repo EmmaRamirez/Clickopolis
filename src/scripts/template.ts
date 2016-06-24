@@ -23,7 +23,7 @@ class Templates {
             <p class='center-text'>${game.era} era</p>
             <p>
               <span>
-                <img src="img/achievements.png"> 5
+                <img src="img/achievements.png"> ${playerCiv.achievements}
               </span>
               <span>
                 <img src="img/strength.png"> ${playerCiv.strength}
@@ -32,13 +32,13 @@ class Templates {
                 <img src="img/defense.png"> ${playerCiv.defense}
               </span>
               <span>
-                <img src="img/legacy.png"> 2
+                <img src="img/legacy.png"> ${playerCiv.legacy}
               </span>
               <span>
-                <img src="img/coin.png"> 1K
+                <img src="img/coin.png"> ${playerCiv.cash}
               </span>
               <span>
-                <img src="img/wonder.png"> 1
+                <img src="img/wonder.png"> ${playerCiv.wondersBuilt}
               </span>
             </p>
           </button>

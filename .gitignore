@@ -128,3 +128,5 @@ src/scripts/utils.js
 src/scripts/data.citizen.ts
 
 src/scripts/data.tech.js
+
+src/scripts/nation.js

@@ -20,6 +20,7 @@ class Civilization {
   populationEmployed: number;
 
   achievements: number;
+  wondersBuilt: number;
 
   cash: number;
   cashPM: number;
@@ -59,6 +60,7 @@ class Civilization {
     this.legacy = 0;
 
     this.achievements = 0;
+    this.wondersBuilt = 0;
 
     this.goldenAgeProgress = 0;
     this.goldenAgeGoal = 100000;
