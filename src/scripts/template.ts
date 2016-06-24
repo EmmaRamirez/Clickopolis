@@ -220,7 +220,7 @@ class Templates {
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
-          <p class='center-text'>
+          <p class='center-text citizens-employed'>
             <span><img src='img/citizen.png'> <span class='citizens-population-text'></span>
           </p>
           <p class='center-text'>Each citizen produces 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
