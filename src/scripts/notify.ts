@@ -1,3 +1,14 @@
+
+
+interface note {
+  message:string;
+  year?:number;
+  color?:string;
+  time?:number;
+  css?:string;
+  history?:string[];
+}
+
 function notify(message:string, color:string = '#222', time:number = 5000, css:string = '', history:string[] = undefined):void {
   // TODO: create settimeout
   console.debug('Note was created with message of: ' + message);
