@@ -233,15 +233,8 @@ function createGameUI() {
 
   bindElement('.pop-btn', 'click', function () {
     event.preventDefault();
-    let popGrowthCost = document.querySelector('.pop-growth-cost');
-    let populationText = document.querySelector('.population-text');
-    resources.get('food').total -= playerCiv.populationGrowthCost;
-    playerCiv.population += 1;
-    playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
 
-    populationText.textContent = playerCiv.population.toString();
-    elt('.citizens-population-text').textContent = playerCiv.populationEmployed.toString() + '/' + playerCiv.population.toString();
-    popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+    resources.get('food').total -= playerCiv.populationGrowthCost;
 
     updatePopulation(1);
 
@@ -265,7 +258,20 @@ function createGameUI() {
 
 }
 
+function updatePopulationEmployed():void {
+  elt('.citizens-population-text').textContent = playerCiv.populationEmployed.toString() + '/' + playerCiv.population.toString();
+}
+
 function updatePopulation(pop:number) {
+  let popGrowthCost = document.querySelector('.pop-growth-cost');
+  let populationText = document.querySelector('.population-text');
+
+  playerCiv.population += pop;
+  playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
+
+  populationText.textContent = playerCiv.population.toString();
+  popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+
   playerCiv.cashPM += pop * 1;
   playerCiv.researchPM += pop * 2;
   playerCiv.anger += pop * 1;
@@ -276,25 +282,29 @@ function updatePopulation(pop:number) {
   elt('.civ-anger-text').textContent = playerCiv.anger;
   elt('.civ-pollution-text').textContent = playerCiv.pollution;
 
+  updatePopulationEmployed();
+
 }
+
+
 
 function addClickToTotal(el:string, item:string) {
   let element = elt(el);
   if (resources.get(item).total >= resources.get(item).max) resources.get(item).total = resources.get(item).max;
   else resources.get(item).total += resources.get(item).perClick;
 
-  element.innerHTML = resources.get(item).total.toString() + ' total';
+  element.innerHTML = resources.get(item).total.toFixed(0).toString() + ' total';
 }
 
 setInterval(function() {
   if (isWindowActive) {
     if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
     else resources.get('food').total += resources.get('food').perSecond;
-    elt('.r-food-total').textContent = resources.get('food').total.toString() + ' total';
+    elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString() + ' total';
 
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
     else resources.get('food').total += resources.get('prod').perSecond;
-    elt('.r-prod-total').textContent = resources.get('prod').total.toString() + ' total';
+    elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString() + ' total';
 
 
 
@@ -488,7 +498,20 @@ function citizenClick() {
     item.addEventListener('click', function () {
       let citizen:string = this.getAttribute('data-citizen');
       let sel:string = '.' + citizen + '-num-text';
-      citizens.get(citizen).amount += parseInt(this.getAttribute('data-citizen-amount'));
+      let amount:number = parseInt(this.getAttribute('data-citizen-amount'))
+      if (citizens.get(citizen).amount === 0 && amount < 0) {
+        notify('You can\'t go below zero ' + citizens.get(citizen).name + 's!');
+      } else {
+        if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
+          notify('All of your population is already employed!');
+        } else {
+          citizens.get(citizen).amount += amount;
+          playerCiv.populationEmployed += amount;
+          updatePopulationEmployed();
+          citizens.get(citizen).func(resources, amount);
+          console.log(citizens.get(citizen).func);
+        }
+      }
       elt(sel).textContent = citizens.get(citizen).amount;
     });
   });
