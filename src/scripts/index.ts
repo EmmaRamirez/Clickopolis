@@ -235,12 +235,14 @@ function createGameUI() {
     event.preventDefault();
 
     resources.get('food').total -= playerCiv.populationGrowthCost;
+    resources.get('food').perSecond -= 1;
+    elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1) + ' PS';
 
     updatePopulation(1);
 
     checkPopulationGrowthCost();
 
-    notify('Your population just grew, unlocking more possibilities!');
+    notify('Your population just grew! Assign your new citizen to work!');
 
   });
 
@@ -267,7 +269,7 @@ function updatePopulation(pop:number) {
   let populationText = document.querySelector('.population-text');
 
   playerCiv.population += pop;
-  playerCiv.populationGrowthCost = Math.round(playerCiv.populationGrowthCost * playerCiv.population * .9);
+  playerCiv.populationGrowthCost = Math.round((playerCiv.populationGrowthCost * 1.2) + playerCiv.population);
 
   populationText.textContent = playerCiv.population.toString();
   popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
@@ -573,6 +575,7 @@ function techClick() {
           playerCiv.research -= playerCiv.researchCost;
           playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
           elt('.research-cost-text').textContent = playerCiv.researchCost;
+          techs.get(tech).func();
          }
       }
     })

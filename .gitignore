@@ -136,3 +136,5 @@ src/scripts/flags.js
 src/scripts/building.js
 
 src/scripts/citizen.js
+
+src/scripts/tech.js
