@@ -138,3 +138,7 @@ src/scripts/building.js
 src/scripts/citizen.js
 
 src/scripts/tech.js
+
+src/scripts/data.wonder.js
+
+src/scripts/wonder.js
