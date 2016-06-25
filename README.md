@@ -19,9 +19,14 @@ In order to run the next version (read: experimental) of Clickopolis, just switc
 This Roadmap is a glance at planned releases of Clickopolis. It does not include patches and other minor fixes. For a complete list of all changes made to the game, see the [changelog](https://github.com/EmmaRamirez/Clickopolis/blob/master/CHANGELOG.md).
 
 
-### 0.6.0 A New World
+### 0.7.0 &mdash; Boom & Bust
+- Implements ability to trade or sell `Great Works`
+- Implements the Modern Era
+
+### 0.6.0 &mdash; A New World
 - Introduces the `land` mechanic
 - Implements `Exploration`
+- Implements the Industrial Era
 
 ### 0.5.0 &mdash; War & Peace
 - Implements the `Military` screen
@@ -33,6 +38,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Introduces new Nations
 - Implements `Trade Routes` & `Trade Deals`
 - Implements the Renaissance Era
+- Implements `Events`
 
 ### 0.3.0 &mdash; The Faithful Many
 - Implements `Faith` and `Faith Bonuses`
@@ -48,6 +54,14 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 
 ### 0.1.0 &mdash; The Initial Game
 - Implements the Base Game, which consists of the following:
+  - Ability to create a Civilization!
+  - Resources like gems and gold
+  - Ability to employ your Citizens
+  - A robust economy
+  - The ability to build new buildings and Wonders
+  - Technology, like Agriculture or Writing
+  - History&mdash;keep a written record of your Empire
+- Ability to save your game using `localStorage`
 
 
 
