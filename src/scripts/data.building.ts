@@ -19,10 +19,11 @@ let temple:Building = new Building('Temple', 0, 45, 450, 'Cultivate your empire\
 let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronounce it either.', '+1 <img src="img/health.png">')
 let graveyard:Building = new Building('Graveyard', 0, 70, 700, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">');
 let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defend the state!', '+5 <img src="img/defense.png">');
+let library:Building = new Building('Library', 0, 200, 2000, 'Be learned new things.', '+1 <img src="img/research.png"> PM');
 
 let buildings:Collection = new Collection('Buildings',
                                           [
-                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, fort
+                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, fort, library
                                           ])
 
 // name:string, amount:number, prodCost:number, cashCost:number, description:string, effect:string
