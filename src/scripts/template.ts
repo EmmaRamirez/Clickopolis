@@ -100,9 +100,9 @@ class Templates {
           <div class='panel prod-panel'>
             <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
 
-            <span class='resource-info' title='the amount of production you make per click'>${resources.get('prod').perClick} PC</span>
-            <span class='resource-info' title='the amount of production you make per second'>${resources.get('prod').perSecond} PS</span>
-            <span class='resource-info'>${resources.get('prod').max} max</span>
+            <span class='resource-info r-prod-pc' title='the amount of production you make per click'>${resources.get('prod').perClick} PC</span>
+            <span class='resource-info r-prod-ps' title='the amount of production you make per second'>${resources.get('prod').perSecond} PS</span>
+            <span class='resource-info r-prod-max'>${resources.get('prod').max} max</span>
             <span class='resource-info r-prod-total'>${resources.get('prod').total} total</span>
 
           </div>
@@ -221,7 +221,7 @@ class Templates {
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
           <p class='center-text citizens-employed'>
-            <span><img src='img/citizen.png'> <span class='citizens-population-text'></span>
+            <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
           </p>
           <p class='center-text'>Each citizen produces 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <p class='center-text'>Each citizen also consumes 1 <img src='img/food.png'> PS</p>
