@@ -498,6 +498,20 @@ class Templates {
     return faithScreen;
   }
 
+  createHistoryScreen(playerCiv:Civilization) {
+    let historyScreen = `
+      <section class='screen history-screen' id='history'>
+        <h2>
+          <img src='img/history.png'> History of ${playerCiv.civName}
+        </h2>
+        <section class='history-screen-inner'>
+
+        </section>
+      </section>
+    `;
+    return historyScreen;
+  }
+
 
 
   createSettingsScreen(playerCiv:Civilization, game:Game) {
