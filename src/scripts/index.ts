@@ -33,6 +33,7 @@ let resources = resourceData;
 let citizens = citizenData;
 let buildings = buildingData;
 let nations = nationData;
+let history:string[] = [];
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;

@@ -1,4 +1,4 @@
-function notify(message:string, color:string = '#222', time:number = 5000, css:string = ''):void {
+function notify(message:string, color:string = '#222', time:number = 5000, css:string = '', history:string[] = undefined):void {
   // TODO: create settimeout
   console.debug('Note was created with message of: ' + message);
   let note = document.createElement('div');
@@ -11,6 +11,10 @@ function notify(message:string, color:string = '#222', time:number = 5000, css:s
   setTimeout(function () {
     note.className = 'notification hidden';
   }, time);
+
+  if (typeof history != 'undefined') {
+    history.push(message);
+  }
 
   console.log(note);
 }
