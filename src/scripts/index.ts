@@ -214,7 +214,7 @@ function createGameUI() {
     event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     if (resources.get('food').total === 10) {
-      notify('Yay! You have enough <img src="img/food.png"> to grow your population!');
+      notify({message: 'Yay! You have enough <img src="img/food.png"> to grow your population!'});
     }
 
     checkPopulationGrowthCost();
@@ -225,7 +225,7 @@ function createGameUI() {
     addClickToTotal('.r-prod-total', 'prod');
 
     if (resources.get('prod').total === 15) {
-      notify('Yay! You have enough <img src="img/prod.png"> to build your first building!');
+      notify({message:'Yay! You have enough <img src="img/prod.png"> to build your first building!'});
     }
     checkPopulationGrowthCost();
   });
@@ -243,7 +243,7 @@ function createGameUI() {
 
     checkPopulationGrowthCost();
 
-    notify('Your population just grew! Assign your new citizen to work!');
+    notify({message:'Your population just grew! Your citizen was automatically assigned as a farmer.'});
 
   });
 
@@ -284,6 +284,8 @@ function updatePopulation(pop:number) {
   elt('.cash-PM').textContent = playerCiv.cashPM;
   elt('.civ-anger-text').textContent = playerCiv.anger;
   elt('.civ-pollution-text').textContent = playerCiv.pollution;
+
+  addCitizen('farmer', pop, '.farmer-num-text');
 
   updatePopulationEmployed();
 
@@ -346,7 +348,7 @@ function drawUI(el:HTMLElement) {
 
 function checkUnemployed() {
   if (playerCiv.population !== playerCiv.populationEmployed) {
-    notify('You have unemployed citizens! <img src="img/citizen.png"> Employ them in the citizens panel!');
+    notify({message: 'You have unemployed citizens! <img src="img/citizen.png"> Employ them in the citizens panel!'});
   }
 }
 
@@ -504,25 +506,30 @@ function citizenClick() {
       let sel:string = '.' + citizen + '-num-text';
       let amount:number = parseInt(this.getAttribute('data-citizen-amount'));
       if (citizens.get(citizen).name === 'ruler') {
-        notify('You can\'t have more than one ruler!');
+        notify({message:'You can\'t have more than one ruler!'});
       } else {
         if (citizens.get(citizen).amount === 0 && amount < 0) {
-          notify('You can\'t go below zero ' + citizens.get(citizen).name + 's!');
+          notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'});
         } else {
           if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
-            notify('All of your population is already employed!');
+            notify({message:'All of your population is already employed!'});
           } else {
-            citizens.get(citizen).amount += amount;
-            playerCiv.populationEmployed += amount;
-            updatePopulationEmployed();
-            citizens.get(citizen).func(resources, amount);
-            console.log(citizens.get(citizen).func);
+            addCitizen(citizen, amount, sel);
           }
         }
-        elt(sel).textContent = citizens.get(citizen).amount;
+
       }
     });
   });
+}
+
+function addCitizen(citizen:string, amount: number, sel:string) {
+  citizens.get(citizen).amount += amount;
+  playerCiv.populationEmployed += amount;
+  updatePopulationEmployed();
+  citizens.get(citizen).func(resources, amount);
+  console.log(citizens.get(citizen).func);
+  elt(sel).textContent = citizens.get(citizen).amount;
 }
 
 function buildingClick() {
@@ -538,7 +545,7 @@ function buildingClick() {
       let totalSelt = '.building-total[data-building="' + buildings.get(building).name + '"]';
       let costSelt = '.building-cost-text';
       if (resources.get('prod').total >= buildings.get(building).prodCost) {
-        notify(`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`);
+        notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
         buildings.get(building).amount += 1;
         resources.get('prod').total -= buildings.get(building).prodCost;
         elt(totalSelt).textContent = buildings.get(building).amount;
@@ -548,7 +555,7 @@ function buildingClick() {
         console.table(buildings.get(building));
         buildings.get(building).func(playerCiv);
       } else {
-        notify(`You don't have the <img src="img/prod.png"> to purchase a ${buildings.get(building).name}`);
+        notify({message:`You don't have the <img src="img/prod.png"> to purchase a ${buildings.get(building).name}`});
       }
     });
 
@@ -568,7 +575,7 @@ function techClick() {
         }
       } else {
         if (techs.get(tech).purchased === true) {
-          notify('You already purchased the ' + techs.get(tech).name + ' technology!');
+          notify({message:'You already purchased the ' + techs.get(tech).name + ' technology!'});
         } else {
           techs.get(tech).selected = true;
           console.log(techs.get(tech).selected);
@@ -578,7 +585,7 @@ function techClick() {
             elt('.researching-techs').textContent = techs.get(tech).name;
           }
           if (playerCiv.research >= playerCiv.researchCost) {
-            notify('You purchased the ' + techs.get(tech).name + ' technology!');
+            notify({message:'You purchased the ' + techs.get(tech).name + ' technology!'});
             techs.get(tech).purchased = true;
             item.setAttribute('data-purchased', true);
             playerCiv.research -= playerCiv.researchCost;

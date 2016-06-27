@@ -9,24 +9,26 @@ interface note {
   history?:string[];
 }
 
-function notify(message:string, color:string = '#222', time:number = 5000, css:string = '', history:string[] = undefined):void {
+function notify(note:note):void {
+  if (typeof note.time === 'undefined') {
+    note.time = 2500;
+  }
   // TODO: create settimeout
-  console.debug('Note was created with message of: ' + message);
-  let note = document.createElement('div');
-  note.className = 'notification';
+  console.debug('Note was created with message of: ' + note.message);
+  let notification = document.createElement('div');
+  notification.className = 'notification';
 
-  note.innerHTML = message;
-  note.style.backgroundColor = color;
-  note.setAttribute('style', css);
-  document.body.appendChild(note);
+  notification.innerHTML = note.message;
+  notification.style.backgroundColor = note.color;
+  notification.setAttribute('style', note.css);
+  document.body.appendChild(notification);
   setTimeout(function () {
-    note.className = 'notification hidden';
-  }, time);
+    notification.className = 'notification hidden';
+  }, note.time);
 
   if (typeof history != 'undefined') {
-    history.push(message);
+    note.history.push(note.message);
   }
-
   console.log(note);
 }
 
