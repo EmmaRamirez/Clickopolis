@@ -18,13 +18,21 @@ In order to run the next version (read: experimental) of Clickopolis, just switc
 
 This Roadmap is a glance at planned releases of Clickopolis. It does not include patches and other minor fixes. For a complete list of all changes made to the game, see the [changelog](https://github.com/EmmaRamirez/Clickopolis/blob/master/CHANGELOG.md).
 
+### 0.10.0 &mdash; The Future.
+- Implements the Future Era
+
+### 0.9.0 &mdash; Androids Do Dream
+- Implements the Information Era
+
+### 0.8.0 &mdash; A-Bombs & B-planes
+- Implements the Atomic Era
 
 ### 0.7.0 &mdash; Boom & Bust
 - Implements ability to trade or sell `Great Works`
 - Implements the Modern Era
 
 ### 0.6.0 &mdash; A New World
-- Introduces the `land` mechanic
+- Fleshes out the `land` mechanic
 - Implements `Exploration`
 - Implements the Industrial Era
 
