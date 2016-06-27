@@ -1,5 +1,3 @@
-
-
 interface note {
   message:string;
   year?:number;
@@ -26,8 +24,8 @@ function notify(note:note):void {
     notification.className = 'notification hidden';
   }, note.time);
 
-  if (typeof history != 'undefined') {
-    note.history.push(note.message);
+  if (typeof note.history != 'undefined' && typeof note.year != 'undefined') {
+    note.history.push(`<strong>${note.year}:</strong> note.message`);
   }
   console.log(note);
 }
