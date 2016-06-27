@@ -63,7 +63,7 @@ function scrollHorizontally(e:any) {
   e.preventDefault();
 }
 
-elt('body').addEventListener('mousewheel', scrollHorizontally, false);
+u.elt('body').addEventListener('mousewheel', scrollHorizontally, false);
 
 function saveGame():void {
   store.set('game', game);
@@ -120,12 +120,7 @@ function removeElement(element:HTMLElement) {
   element.remove();
 }
 
-function elt(query:string, all:boolean = false):any {
-  if (all === false)
-    return <HTMLElement>document.querySelector(query);
-  else
-    return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
-}
+
 
 function startGame() {
   if (store.get('playerCiv') !== undefined) {
@@ -237,7 +232,7 @@ function createGameUI() {
 
     resources.get('food').total -= playerCiv.populationGrowthCost;
     resources.get('food').perSecond -= 1;
-    elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1) + ' PS';
+    u.elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1) + ' PS';
 
     updatePopulation(1);
 
@@ -262,7 +257,7 @@ function createGameUI() {
 }
 
 function updatePopulationEmployed():void {
-  elt('.citizens-population-text').textContent = playerCiv.populationEmployed.toString() + '/' + playerCiv.population.toString();
+  u.elt('.citizens-population-text').textContent = playerCiv.populationEmployed.toString() + '/' + playerCiv.population.toString();
 }
 
 function updatePopulation(pop:number) {
@@ -281,9 +276,9 @@ function updatePopulation(pop:number) {
   playerCiv.pollution += pop * 1;
 
   //elt('.research-text').textContent = playerCiv.research.toString();
-  elt('.cash-PM').textContent = playerCiv.cashPM;
-  elt('.civ-anger-text').textContent = playerCiv.anger;
-  elt('.civ-pollution-text').textContent = playerCiv.pollution;
+  u.elt('.cash-PM').textContent = playerCiv.cashPM;
+  u.elt('.civ-anger-text').textContent = playerCiv.anger;
+  u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
 
   addCitizen('farmer', pop, '.farmer-num-text');
 
@@ -294,7 +289,7 @@ function updatePopulation(pop:number) {
 
 
 function addClickToTotal(el:string, item:string) {
-  let element = elt(el);
+  let element = u.elt(el);
   if (resources.get(item).total >= resources.get(item).max) resources.get(item).total = resources.get(item).max;
   else resources.get(item).total += resources.get(item).perClick;
 
@@ -305,11 +300,11 @@ setInterval(function() {
   if (isWindowActive) {
     if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
     else resources.get('food').total += resources.get('food').perSecond;
-    elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString() + ' total';
+    u.elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString() + ' total';
 
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
     else resources.get('food').total += resources.get('prod').perSecond;
-    elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString() + ' total';
+    u.elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString() + ' total';
 
 
 
@@ -386,7 +381,7 @@ function populateTechnologies() {
 }
 
 function populateCitizens() {
-  let citizensContainer = elt('.citizens');
+  let citizensContainer = u.elt('.citizens');
   citizensContainer.innerHTML = '';
 
   for (let i = 0; i < citizens.items.length; i++) {
@@ -405,7 +400,7 @@ function populateCitizens() {
 }
 
 function populateBuildings() {
-  let buildingsContainer = elt('.buildings');
+  let buildingsContainer = u.elt('.buildings');
   buildingsContainer.innerHTML = '';
 
   for (let i = 0; i < buildings.items.length; i++) {
@@ -425,17 +420,17 @@ function populateBuildings() {
 
 function updateYear() {
   game.year += 1;
-  elt('.game-year-text').textContent = game.year;
+  u.elt('.game-year-text').textContent = game.year;
 }
 
 function updateTime() {
   game.time += 1;
-  elt('.game-year-text').title = time(game.time);
+  u.elt('.game-year-text').title = time(game.time);
 }
 
 function addGoldenAgePoints() {
-  let goldenAgeProgress = elt('.golden-age-progress');
-  let goldenAgeMeter = elt('.metric-golden-age');
+  let goldenAgeProgress = u.elt('.golden-age-progress');
+  let goldenAgeMeter = u.elt('.metric-golden-age');
   let goldenAgePoints = playerCiv.happiness - playerCiv.anger;
   playerCiv.goldenAgeProgress += goldenAgePoints;
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
@@ -448,32 +443,32 @@ function addGoldenAgePoints() {
 function addResearchPoints() {
   playerCiv.research += playerCiv.researchPM / 60;
 
-  elt('.research-text').textContent = u.abbrNum(playerCiv.research.toFixed(1), 2);
+  u.elt('.research-text').textContent = u.abbrNum(playerCiv.research.toFixed(1), 2);
 
   let researchPercent:string = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
 
   let bgString:string = u.progressBar(researchPercent, '#83D4D4', '#444');
 
-  elt('.research-progress-bar').style.background = bgString;
+  u.elt('.research-progress-bar').style.background = bgString;
 
   if (playerCiv.research > playerCiv.researchCost) {
-    elt('.research-exceeding').textContent = 'You are currently exceeding your current tech goal.';
+    u.elt('.research-exceeding').textContent = 'You are currently exceeding your current tech goal.';
   } else {
-    elt('.research-exceeding').textContent = '';
+    u.elt('.research-exceeding').textContent = '';
   }
 }
 
 function addCash() {
   playerCiv.cash += playerCiv.cashPM / 60;
-  let cashText = elt('.cash-text');
+  let cashText = u.elt('.cash-text');
   cashText.textContent = playerCiv.cash.toFixed(2);
 }
 
 function setInfluenceImage() {
   if (playerCiv.influence >= 0) {
-    elt('.influence-img').src = 'img/influence.png';
+    u.elt('.influence-img').src = 'img/influence.png';
   } else {
-    elt('.influence-img').src = 'img/influence-alt.png';
+    u.elt('.influence-img').src = 'img/influence-alt.png';
   }
 }
 
@@ -488,7 +483,7 @@ function resourceClick() {
         this.className = "resource";
       } else {
         this.className += " active";
-        elt('.resource-info-screen').innerHTML = `
+        u.elt('.resource-info-screen').innerHTML = `
           <h3><img src='img/${r.image}.png'> ${r.name}<br></h3>
           <p>${r.description}</p>
         `;
@@ -529,7 +524,7 @@ function addCitizen(citizen:string, amount: number, sel:string) {
   updatePopulationEmployed();
   citizens.get(citizen).func(resources, amount);
   console.log(citizens.get(citizen).func);
-  elt(sel).textContent = citizens.get(citizen).amount;
+  u.elt(sel).textContent = citizens.get(citizen).amount;
 }
 
 function buildingClick() {
@@ -548,10 +543,10 @@ function buildingClick() {
         notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
         buildings.get(building).amount += 1;
         resources.get('prod').total -= buildings.get(building).prodCost;
-        elt(totalSelt).textContent = buildings.get(building).amount;
+        u.elt(totalSelt).textContent = buildings.get(building).amount;
         buildings.get(building).prodCost = Math.floor(Math.sqrt(buildings.get(building).prodCost) + (buildings.get(building).prodCost * 1.25));
         console.log(buildings.get(building).prodCost);
-        elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
+        u.elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
         console.table(buildings.get(building));
         buildings.get(building).func(playerCiv);
       } else {
@@ -582,7 +577,7 @@ function techClick() {
           item.setAttribute('data-selected', true);
           if (techs.get(tech).selected) {
             // TODO: fix this mess
-            elt('.researching-techs').textContent = techs.get(tech).name;
+            u.elt('.researching-techs').textContent = techs.get(tech).name;
           }
           if (playerCiv.research >= playerCiv.researchCost) {
             notify({message:'You purchased the ' + techs.get(tech).name + ' technology!'});
@@ -590,7 +585,7 @@ function techClick() {
             item.setAttribute('data-purchased', true);
             playerCiv.research -= playerCiv.researchCost;
             playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
-            elt('.research-cost-text').textContent = playerCiv.researchCost;
+            u.elt('.research-cost-text').textContent = playerCiv.researchCost;
             techs.get(tech).func();
            }
         }
@@ -618,10 +613,10 @@ function checkPopulationGrowthCost() {
 }
 
 function UiSettingsButtons() {
-  elt('.grid-button').addEventListener('click', function () {
-    elt('.clickopolis').style.width = '100%';
+  u.elt('.grid-button').addEventListener('click', function () {
+    u.elt('.clickopolis').style.width = '100%';
   });
-  elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
+  u.elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
 }
 
 
