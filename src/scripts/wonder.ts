@@ -1,7 +1,8 @@
 class Wonder {
   name: string;
   img: string;
-  time: number;
+  buildTime: number;
+  remainingTime: number;
   description: string;
   effect: string;
   func: Function;
@@ -10,10 +11,15 @@ class Wonder {
     return '../img/' + this.img + '.png';
   }
 
-  constructor(name: string, img: string, time: number, description: string, effect: string, func: Function = function () {}) {
+  getTimePercent():string {
+    return `%${(this.remainingTime / this.buildTime) * 100}`;
+  }
+
+  constructor(name: string, img: string, buildTime: number, remainingTime: number, description: string, effect: string, func: Function = function () {}) {
     this.name = name;
     this.img = img;
-    this.time = time;
+    this.buildTime = buildTime;
+    this.remainingTime = remainingTime;
     this.description = description;
     this.effect = effect;
     this.func = func;
