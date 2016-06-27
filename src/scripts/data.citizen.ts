@@ -5,6 +5,7 @@ import notify = require('./notify');
 
 let u = new Utils();
 
+let ruler:Citizen = new Citizen('ruler', 'CEO', 1, 'This is you, their greatest citizen.', 0, 0);
 let farmer:Citizen = new Citizen('farmer', 'farmer', 0, 'Farmers provide +.2 <img src="img/food.png"> PC and +1.2 PS.', 1.2, 0, function (resources:Collection, amount:number) {
   resources.get('food').perClick += amount * .2;
   resources.get('food').perSecond += amount * 1.2;
@@ -22,6 +23,6 @@ let miner:Citizen = new Citizen('miner', 'miner', 0, 'Miners provide +.2 <img sr
 let soldier:Citizen = new Citizen('soldier', 'soldier-alt', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', 0, 0);
 let cleric:Citizen = new Citizen('cleric', 'cleric', 0, 'Clerics proselytize your empire. +1 <img src="img/faith.png"> PM', 0, 0);
 
-let citizens:Collection = new Collection('Citizens', [farmer, miner, soldier, cleric]);
+let citizens:Collection = new Collection('Citizens', [ruler, farmer, miner, soldier, cleric]);
 
 export = citizens;
