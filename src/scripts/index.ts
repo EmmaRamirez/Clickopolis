@@ -502,21 +502,25 @@ function citizenClick() {
     item.addEventListener('click', function () {
       let citizen:string = this.getAttribute('data-citizen');
       let sel:string = '.' + citizen + '-num-text';
-      let amount:number = parseInt(this.getAttribute('data-citizen-amount'))
-      if (citizens.get(citizen).amount === 0 && amount < 0) {
-        notify('You can\'t go below zero ' + citizens.get(citizen).name + 's!');
+      let amount:number = parseInt(this.getAttribute('data-citizen-amount'));
+      if (citizens.get(citizen).name === 'ruler') {
+        notify('You can\'t have more than one ruler!');
       } else {
-        if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
-          notify('All of your population is already employed!');
+        if (citizens.get(citizen).amount === 0 && amount < 0) {
+          notify('You can\'t go below zero ' + citizens.get(citizen).name + 's!');
         } else {
-          citizens.get(citizen).amount += amount;
-          playerCiv.populationEmployed += amount;
-          updatePopulationEmployed();
-          citizens.get(citizen).func(resources, amount);
-          console.log(citizens.get(citizen).func);
+          if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
+            notify('All of your population is already employed!');
+          } else {
+            citizens.get(citizen).amount += amount;
+            playerCiv.populationEmployed += amount;
+            updatePopulationEmployed();
+            citizens.get(citizen).func(resources, amount);
+            console.log(citizens.get(citizen).func);
+          }
         }
+        elt(sel).textContent = citizens.get(citizen).amount;
       }
-      elt(sel).textContent = citizens.get(citizen).amount;
     });
   });
 }
@@ -563,22 +567,27 @@ function techClick() {
           item.setAttribute('data-selected', false);
         }
       } else {
-        techs.get(tech).selected = true;
-        console.log(techs.get(tech).selected);
-        item.setAttribute('data-selected', true);
-        if (techs.get(tech).selected) {
-          // TODO: fix this mess
-          elt('.researching-techs').textContent = techs.get(tech).name;
+        if (techs.get(tech).purchased === true) {
+          notify('You already purchased the ' + techs.get(tech).name + ' technology!');
+        } else {
+          techs.get(tech).selected = true;
+          console.log(techs.get(tech).selected);
+          item.setAttribute('data-selected', true);
+          if (techs.get(tech).selected) {
+            // TODO: fix this mess
+            elt('.researching-techs').textContent = techs.get(tech).name;
+          }
+          if (playerCiv.research >= playerCiv.researchCost) {
+            notify('You purchased the ' + techs.get(tech).name + ' technology!');
+            techs.get(tech).purchased = true;
+            item.setAttribute('data-purchased', true);
+            playerCiv.research -= playerCiv.researchCost;
+            playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
+            elt('.research-cost-text').textContent = playerCiv.researchCost;
+            techs.get(tech).func();
+           }
         }
-        if (playerCiv.research >= playerCiv.researchCost) {
-          notify('You purchased the ' + techs.get(tech).name + ' technology!');
-          techs.get(tech).purchased = true;
-          item.setAttribute('data-purchased', true);
-          playerCiv.research -= playerCiv.researchCost;
-          playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
-          elt('.research-cost-text').textContent = playerCiv.researchCost;
-          techs.get(tech).func();
-         }
+
       }
     })
   });
