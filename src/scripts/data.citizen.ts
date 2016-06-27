@@ -20,9 +20,16 @@ let miner:Citizen = new Citizen('miner', 'miner', 0, 'Miners provide +.2 <img sr
   u.elt('.r-prod-ps').textContent = resources.get('prod').perSecond.toFixed(1) + ' PS';
   console.log(resources.get('prod'));
 });
+let woodcutter:Citizen = new Citizen('woodcutter', 'woodcutter', 0, 'Woodcutters provide +.2 <img src="img/prod.png"> PC and +.2 PS', 0, 0, function (resources:Collection, amount:number) {
+  resources.get('prod').perClick += amount * .2;
+  resources.get('prod').perSecond += amount * .2;
+  u.elt('.r-prod-pc').textContent = resources.get('prod').perClick.toFixed(1) + ' PC';
+  u.elt('.r-prod-ps').textContent = resources.get('prod').perSecond.toFixed(1) + ' PS';
+  console.log(resources.get('prod'));
+})
 let soldier:Citizen = new Citizen('soldier', 'soldier-alt', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', 0, 0);
 let cleric:Citizen = new Citizen('cleric', 'cleric', 0, 'Clerics proselytize your empire. +1 <img src="img/faith.png"> PM', 0, 0);
 
-let citizens:Collection = new Collection('Citizens', [ruler, farmer, miner, soldier, cleric]);
+let citizens:Collection = new Collection('Citizens', [ruler, farmer, miner, woodcutter]);
 
 export = citizens;
