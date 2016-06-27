@@ -25,6 +25,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Implements the Information Era
 
 ### 0.8.0 &mdash; A-Bombs & B-planes
+- Introduces Nuclear Warfare
 - Implements the Atomic Era
 
 ### 0.7.0 &mdash; Boom & Bust
