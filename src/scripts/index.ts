@@ -19,6 +19,7 @@ import Nation = require('./nation');
 import Templates = require('./template');
 //import Flags = require('./flags');
 import notify = require('./notify');
+import log = require('./log');
 
 import techData = require('./data.tech');
 import resourceData = require('./data.resource');
@@ -32,8 +33,8 @@ let techs = techData;
 let resources = resourceData;
 let citizens = citizenData;
 let buildings = buildingData;
+let history:string[];
 let nations = nationData;
-let history:string[] = [];
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;
@@ -41,6 +42,7 @@ let templates:Templates = new Templates();
 
 let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
+
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
@@ -63,7 +65,7 @@ function scrollHorizontally(e:any) {
   e.preventDefault();
 }
 
-u.elt('body').addEventListener('mousewheel', scrollHorizontally, false);
+//u.elt('body').addEventListener('mousewheel', scrollHorizontally, false);
 
 function saveGame():void {
   store.set('game', game);
@@ -79,13 +81,6 @@ function removeItem(arr:any[], item:any) {
   for (var i = arr.length - 1; i--;) {
     if (arr[i] === item) arr.splice(i, 1);
   }
-}
-
-function time(d:number) {
-  let h = Math.floor(d / 3600);
-  let m = Math.floor(d % 3600 / 60);
-  let s = Math.floor(d % 3600 % 60);
-  return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
 }
 
 function choose(arr:any[]):any {
@@ -126,6 +121,7 @@ function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
     playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.location);
+    history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
     startSavedGame();
   } else {
     startNewGame();
@@ -163,7 +159,7 @@ function startNewGame() {
     createGameUI();
   });
 
-  document.querySelector('#trait').addEventListener('change', function() {
+  u.elt('#trait').addEventListener('change', function() {
     traitsSelection(0);
   });
 
@@ -178,6 +174,7 @@ function setPlayerCiv() {
   playerCiv.leaderName = leaderNameInput.value;
   playerCiv.location = location.value;
   savePlayer();
+
 }
 
 
@@ -191,6 +188,7 @@ function traitsSelection(index:number) {
 }
 
 function createGameUI() {
+
   let intro = <HTMLElement>document.querySelector('.clickopolis-intro');
   let clickopolisGame = document.createElement('section');
   clickopolisGame.innerHTML = '';
@@ -392,13 +390,22 @@ function populateCitizens() {
 
   for (let i = 0; i < citizens.items.length; i++) {
     let c = citizens.items[i];
+    let d:string;
+    if (c.descriptionOverride) {
+      d = `<span>${c.description}</span>`;
+    } else {
+      d = `
+        <span>+${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod}, </span>
+        <span>+${c.contrib2.amount} <img src="img/${c.contrib2.name}.png"> ${c.contrib2.mod}</span>
+      `;
+    }
     citizensContainer.innerHTML += `
     <div class='row citizen-${c.name}' data-id='${i}'>
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
       <span class='citizen-icon'><img src='img/${c.image}.png'></span>
       <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
       <span class='citizen-info'>
-        ${u.capitalize(c.name + 's')}: <strong class='${c.name}-num-text'>${c.amount}</strong> | ${c.description}
+        ${u.capitalize(c.name + 's')}: <strong class='${c.name}-num-text'>${c.amount}</strong> | ${d}
       </span>
     </div>
     `;
@@ -431,7 +438,7 @@ function updateYear() {
 
 function updateTime() {
   game.time += 1;
-  u.elt('.game-year-text').title = time(game.time);
+  u.elt('.game-year-text').title = u.time(game.time);
 }
 
 function addGoldenAgePoints() {
@@ -586,14 +593,14 @@ function techClick() {
             u.elt('.researching-techs').textContent = techs.get(tech).name;
           }
           if (playerCiv.research >= playerCiv.researchCost) {
-            //notify({message:'You discovered the ' + techs.get(tech).name + ' technology!'});
             notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
+            history.push(log({year: game.year, message: playerCiv.leaderName + ' discovered the ' + techs.get(tech).name + ' technology!', categoryImage: 'research'}));
             techs.get(tech).purchased = true;
             item.setAttribute('data-purchased', true);
             playerCiv.research -= playerCiv.researchCost;
             playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
             u.elt('.research-cost-text').textContent = playerCiv.researchCost;
-            techs.get(tech).func();
+            techs.get(tech).func(citizens);
            }
         }
 
@@ -605,7 +612,7 @@ function techClick() {
 function renderHistory(history:string[]) {
   let historyLog = u.elt('.history');
   historyLog.innerHTML = '';
-  for (let i = history.length; i === 0; --i) {
+  for (let i = history.length; i >= 0; --i) {
     historyLog.innerHTML += history[i] + '<br>';
   }
   console.log(history);
