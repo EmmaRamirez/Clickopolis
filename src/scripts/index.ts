@@ -325,7 +325,7 @@ setInterval(function() {
   if (isWindowActive) {
      updateYear();
      checkUnemployed();
-     history.push(`<strong>${game.year}</strong>: The year was logged.`);
+     history.push(`<div class='log'><strong>${game.year} AC</strong>: The year was logged.`);
 
   }
 }, 1000 * 60);
@@ -605,7 +605,7 @@ function techClick() {
 function renderHistory(history:string[]) {
   let historyLog = u.elt('.history');
   historyLog.innerHTML = '';
-  for (let i = 0; i < history.length; i++) {
+  for (let i = history.length; i === 0; --i) {
     historyLog.innerHTML += history[i] + '<br>';
   }
   console.log(history);
