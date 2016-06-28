@@ -318,7 +318,7 @@ class Templates {
             <span class='cash-item'>From Military: <span class='cash-from-military'>0</span></span>
             <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>${playerCiv.cashPM}</span></span>
           </span>
-          <div class='trade-deal-history'>
+          <div class='trade-deal-history hidden'>
             <table>
               <tr>
                 <td colspan='4'><img src='img/trade-deal.png'> Trade Deal History</td>
@@ -517,7 +517,7 @@ class Templates {
         <h2>
           <img src='img/history.png'> History of ${playerCiv.civName}
         </h2>
-        <section class='history-screen-inner'>
+        <section class='history-screen-inner history'>
 
         </section>
       </section>
