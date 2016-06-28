@@ -9,11 +9,19 @@ let u = new Utils();
 let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">', function (playerCiv:Civilization) {
   playerCiv.happiness += 1;
   u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
-  notify(`The happiness of your Civilization grew to <img src="img/happy.png"> ${playerCiv.happiness}`);
+  notify({message:`The happiness of your Civilization grew to <img src="img/happy.png"> ${playerCiv.happiness}`});
   console.log(playerCiv.happiness);
 });
-let granary:Building = new Building('Granary', 0, 25, 250, 'Feeds all your cute animals.', '+200 <img src="img/food.png"> max');
-let quarry:Building = new Building('Quarry', 0, 30, 300, 'Your very own diamond in the rough.', '+200 <img src="img/prod.png"> max');
+let granary:Building = new Building('Granary', 0, 25, 250, 'Feeds all your cute animals.', '+200 <img src="img/food.png"> max', function (playerCiv:Civilization, resources:Collection) {
+  resources.get('food').max += 200;
+  notify({message: `Your civilization now has a max <img src="img/food.png"> storage of ${resources.get('food').max}`});
+  u.elt('.r-food-max').textContent = u.abbrNum(resources.get('food').max) + ' max';
+});
+let quarry:Building = new Building('Quarry', 0, 30, 300, 'Your very own diamond in the rough.', '+200 <img src="img/prod.png"> max', function (playerCiv:Civilization, resources:Collection) {
+  resources.get('prod').max += 200;
+  notify({message: `Your civilization now has a max <img src="img/prod.png"> capacity of ${resources.get('food').max}`});
+  u.elt('.r-prod-max').textContent = u.abbrNum(resources.get('prod').max) + ' max';
+});
 let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers at the ready!', '+1 <img src="img/strength.png">');
 let temple:Building = new Building('Temple', 0, 45, 450, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM');
 let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronounce it either.', '+1 <img src="img/health.png">')
