@@ -361,6 +361,19 @@ class Templates {
     return buildingsScreen;
   }
 
+  createWondersScreen() {
+    let wondersScreen = `
+      <section class='screen wonders-screen' id='wonders'>
+        <h2><img src='img/wonder.png'> Wonders</h2>
+        <section class='wonders-screen-inner'>
+        </section>
+        <section class='wonders-screen-inner wonders'>
+        </section>
+      </section>
+    `;
+    return wondersScreen;
+  }
+
   createTechnologyScreen(playerCiv:Civilization) {
     let technologyScreen = `
       <section class='screen technology-screen' id='technology'>

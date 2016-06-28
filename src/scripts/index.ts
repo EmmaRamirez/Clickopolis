@@ -332,6 +332,7 @@ function drawUI(el:HTMLElement) {
                   templates.createCitizenScreen(playerCiv, citizens) +
                   templates.createEconomyScreen(playerCiv) +
                   templates.createBuildingsScreen() +
+                  templates.createWondersScreen() +
                   templates.createTechnologyScreen(playerCiv) +
                   //templates.createDiplomacyScreen(playerCiv) +
                   //templates.createMilitaryScreen(playerCiv) +
