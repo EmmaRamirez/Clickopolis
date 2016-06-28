@@ -248,6 +248,8 @@ function createGameUI() {
   populateCitizens();
   populateBuildings();
 
+  renderHistory(history);
+
   citizenClick();
   techClick();
   buildingClick();
@@ -314,6 +316,7 @@ setInterval(function() {
     addResearchPoints();
     checkPopulationGrowthCost()
     checkBuildingCosts();
+    renderHistory(history);
     setInfluenceImage();
   }
 }, 1000);
@@ -322,6 +325,8 @@ setInterval(function() {
   if (isWindowActive) {
      updateYear();
      checkUnemployed();
+     history.push(`<strong>${game.year}</strong>: The year was logged.`);
+
   }
 }, 1000 * 60);
 
@@ -338,8 +343,8 @@ function drawUI(el:HTMLElement) {
                   //templates.createMilitaryScreen(playerCiv) +
                   //templates.createCultureScreen(playerCiv) +
                   //templates.createFaithScreen(playerCiv) +
-                  templates.createHistoryScreen(playerCiv) +
-                  templates.createSettingsScreen(playerCiv, game);
+                  templates.createHistoryScreen(playerCiv);
+                  //templates.createSettingsScreen(playerCiv, game);
 }
 
 function checkUnemployed() {
@@ -549,7 +554,7 @@ function buildingClick() {
         console.log(buildings.get(building).prodCost);
         u.elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
         console.table(buildings.get(building));
-        buildings.get(building).func(playerCiv);
+        buildings.get(building).func(playerCiv, resources);
       } else {
         notify({message:`You don't have the <img src="img/prod.png"> to purchase a ${buildings.get(building).name}`});
       }
@@ -581,7 +586,8 @@ function techClick() {
             u.elt('.researching-techs').textContent = techs.get(tech).name;
           }
           if (playerCiv.research >= playerCiv.researchCost) {
-            notify({message:'You purchased the ' + techs.get(tech).name + ' technology!'});
+            //notify({message:'You discovered the ' + techs.get(tech).name + ' technology!'});
+            notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
             techs.get(tech).purchased = true;
             item.setAttribute('data-purchased', true);
             playerCiv.research -= playerCiv.researchCost;
@@ -596,6 +602,15 @@ function techClick() {
   });
 }
 
+function renderHistory(history:string[]) {
+  let historyLog = u.elt('.history');
+  historyLog.innerHTML = '';
+  for (let i = 0; i < history.length; i++) {
+    historyLog.innerHTML += history[i] + '<br>';
+  }
+  console.log(history);
+}
+
 function showResourceInfo(name:string) {
   console.log(name);
 }
@@ -603,11 +618,9 @@ function showResourceInfo(name:string) {
 function checkPopulationGrowthCost() {
   let button = document.querySelector('.pop-btn');
   if (playerCiv.populationGrowthCost > resources.get('food').total) {
-    console.log(playerCiv.populationGrowthCost);
     button.className = 'disabled pop-btn';
     return false;
   } else {
-    console.log(playerCiv.populationGrowthCost);
     button.className = 'pop-btn';
     return true;
   }
