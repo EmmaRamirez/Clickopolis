@@ -36,6 +36,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Fleshes out the `land` mechanic
 - Implements `Exploration`
 - Implements the Industrial Era
+- Implements multiple `Biomes`
 
 ### 0.5.0 &mdash; War & Peace
 - Implements the `Military` screen
@@ -60,6 +61,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Implements the Classical Era
   - New Technologies
   - New Buildings
+- Implements `Biomes`
 
 ### 0.1.0 &mdash; The Initial Game
 - Implements the Base Game, which consists of the following:
