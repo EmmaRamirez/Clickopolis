@@ -121,7 +121,6 @@ function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
     playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.location);
-    history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
     startSavedGame();
   } else {
     startNewGame();
@@ -246,6 +245,7 @@ function createGameUI() {
   populateCitizens();
   populateBuildings();
 
+  history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
 
   citizenClick();
@@ -610,12 +610,14 @@ function techClick() {
 }
 
 function renderHistory(history:string[]) {
-  let historyLog = u.elt('.history');
-  historyLog.innerHTML = '';
-  for (let i = history.length; i >= 0; --i) {
-    historyLog.innerHTML += history[i] + '<br>';
+  if (typeof history != 'undefined') {
+    let historyLog = u.elt('.history');
+    historyLog.innerHTML = '';
+    for (let i = history.length - 1; i >= 0; --i) {
+      historyLog.innerHTML += history[i] + '<br>';
+    }
+    console.log(history);
   }
-  console.log(history);
 }
 
 function showResourceInfo(name:string) {
