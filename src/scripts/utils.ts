@@ -1,5 +1,5 @@
 class Utils {
-  abbrNum (number:any, decPlaces:number = 2) {
+  abbrNum (number:any, decPlaces:number = 2):string {
     // 2 decimal places => 100, 3 => 1000, etc
     decPlaces = Math.pow(10,decPlaces);
     // Enumerate number abbreviations
