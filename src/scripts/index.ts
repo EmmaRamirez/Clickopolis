@@ -631,7 +631,7 @@ function techClick() {
             playerCiv.research -= playerCiv.researchCost;
             playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
             u.elt('.research-cost-text').textContent = playerCiv.researchCost;
-            techs.get(tech).func(citizens);
+            techs.get(tech).func(citizens, resources);
            }
         }
 
