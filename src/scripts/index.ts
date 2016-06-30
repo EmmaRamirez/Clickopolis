@@ -500,6 +500,17 @@ function addResearchPoints() {
   } else {
     u.elt('.research-exceeding').textContent = '';
   }
+
+  checkAutomaticTechPurchase();
+}
+
+function checkAutomaticTechPurchase() {
+  if (playerCiv.research >= playerCiv.researchCost) {
+    if (playerCiv.researchingTechsArray.length > 0) {
+      purchaseTech(playerCiv.researchingTechsArray[0], undefined);
+      playerCiv.researchingTechsArray.shift();
+    }
+  }
 }
 
 function addCash() {
@@ -621,23 +632,37 @@ function techClick() {
           item.setAttribute('data-selected', true);
           if (techs.get(tech).selected) {
             // TODO: fix this mess
-            u.elt('.researching-techs').textContent = techs.get(tech).name;
+            if (playerCiv.researchingTechsArray.indexOf(tech) > -1) {
+              throw new Error('Invalid addition to tech array: already included.');
+            } else {
+              playerCiv.researchingTechsArray.push(techs.get(tech).name);
+            }
+
+            //u.elt('.researching-techs').textContent = techs.get(tech).name;
           }
           if (playerCiv.research >= playerCiv.researchCost) {
-            notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
-            history.push(log({year: game.year, message: playerCiv.leaderName + ' discovered the ' + techs.get(tech).name + ' technology!', categoryImage: 'research'}));
-            techs.get(tech).purchased = true;
-            item.setAttribute('data-purchased', true);
-            playerCiv.research -= playerCiv.researchCost;
-            playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
-            u.elt('.research-cost-text').textContent = playerCiv.researchCost;
-            techs.get(tech).func(citizens, resources);
-           }
+            purchaseTech(tech, item);
+          }
         }
-
       }
-    })
+      console.log(playerCiv.researchingTechsArray);
+    });
   });
+}
+
+function purchaseTech(tech:string, element:HTMLElement) {
+  notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
+  history.push(log({year: game.year, message: playerCiv.leaderName + ' discovered the ' + techs.get(tech).name + ' technology!', categoryImage: 'research'}));
+  techs.get(tech).purchased = true;
+  if (typeof element != 'undefined') {
+    element.setAttribute('data-purchased', 'true');
+  } else {
+    u.elt('[data-tech="' + tech + '"]').setAttribute('data-purchased', 'true');
+  }
+  playerCiv.research -= playerCiv.researchCost;
+  playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
+  u.elt('.research-cost-text').textContent = playerCiv.researchCost;
+  techs.get(tech).func(citizens, resources);
 }
 
 
@@ -648,7 +673,7 @@ function renderHistory(history:string[]) {
     for (let i = history.length - 1; i >= 0; --i) {
       historyLog.innerHTML += history[i] + '<br>';
     }
-    console.log(history);
+    //console.log(history);
   }
 }
 

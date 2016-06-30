@@ -379,7 +379,7 @@ class Templates {
       <section class='screen technology-screen' id='technology'>
         <h2><img src='img/research.png'> Technology</h2>
         <section class='technology-screen-inner'>
-          <div class='center-text current-research'>Currently researching towards: <span class='researching-techs'>${playerCiv.researchingTechs}</span></div>
+          <div class='center-text current-research hidden'>Currently researching towards: <span class='researching-techs'>${playerCiv.researchingTechs}</span></div>
           <div class='center-text research-exceeding'></div>
           <span class='research-text r-text'>${playerCiv.research}</span>
           <div class='research-progress-bar'></div>
