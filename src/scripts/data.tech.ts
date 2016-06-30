@@ -1,12 +1,17 @@
 import Tech = require('./tech');
 import Collection = require('./collection');
+import Utils = require('./utils');
+
+let u = new Utils();
 
 let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining'], function (citizens:Collection) {
   citizens.get('farmer').contrib1.amount += .2;
 
   console.log(citizens.get('farmer').contrib1.amount);
 });
-let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'It\'s not what you think it is.', ['Unlocks <img src="img/horse.png"> resource', '']);
+let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'It\'s not what you think it is.', ['Unlocks <img src="img/horse.png"> resource', ''], function (citizens:Collection, resources:Collection) {
+  u.unlockResource('horse', resources);
+});
 let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
 let fishing:Tech = new Tech('fishing', 'ancient', 'Just make sure to use a Super Rod.', ['Unlocks <img src="img/fish.png"> resource.', 'Unlocks: Sailing']);
 let herbalMedicine:Tech = new Tech('herbal medicine', 'ancient', '', ['Can build Ascelpeia.', '+10 <img src="img/health.png"> for discovering.']);
