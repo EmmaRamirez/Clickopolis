@@ -135,7 +135,7 @@ class Templates {
               <img src='img/stone.png'> <span>${resources.get('stone').total}</span>
             </span>
 
-            <span class='resource' data-unlocked='false' data-resource='iron'>
+            <span class='resource' data-unlocked='${resources.get('iron').unlocked}' data-resource='iron'>
               <img src='img/iron.png'> <span>${resources.get('iron').total}</span>
             </span>
 
@@ -147,15 +147,15 @@ class Templates {
               <img src='img/cavalry.png'> Strategic
             </span>
 
-            <span class='resource' data-unlocked='false' data-resource='horse'>
+            <span class='resource' data-unlocked='${resources.get('horse').unlocked}' data-resource='horse'>
               <img src='img/horse.png'> <span>${resources.get('horse').total}</span>
             </span>
 
-            <span class='resource' data-unlocked='false' data-resource='oil'>
+            <span class='resource' data-unlocked='${resources.get('oil').unlocked}' data-resource='oil'>
               <img src='img/oil.png'> <span>${resources.get('oil').total}</span>
             </span>
 
-            <span class='resource' data-unlocked='false' data-resource='uranium'>
+            <span class='resource' data-unlocked='${resources.get('uranium').unlocked}' data-resource='uranium'>
               <img src='img/uranium.png'> <span>${resources.get('uranium').total}</span>
             </span>
 
@@ -183,11 +183,11 @@ class Templates {
               <img src='img/illuminati-alt.png'> Power
             </span>
 
-            <span class='resource' data-unlocked='false' data-resource='spaghetti'>
+            <span class='resource' data-unlocked='${resources.get('spaghetti').unlocked}' data-resource='spaghetti'>
               <img src='img/spaghetti.png'> <span>${resources.get('spaghetti').total}</span>
             </span>
 
-            <span class='resource' data-unlocked='false' data-resource='chihuahua'>
+            <span class='resource' data-unlocked='${resources.get('chihuahua').unlocked}' data-resource='chihuahua'>
               <img src='img/chihuahua.png'> <span>${resources.get('chihuahua').total}</span>
             </span>
 

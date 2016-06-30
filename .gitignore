@@ -142,3 +142,5 @@ src/scripts/tech.js
 src/scripts/data.wonder.js
 
 src/scripts/wonder.js
+
+src/scripts/resource.js

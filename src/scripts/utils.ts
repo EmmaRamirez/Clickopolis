@@ -1,3 +1,5 @@
+import Collection = require('./collection');
+
 class Utils {
   abbrNum (number:any, decPlaces:number = 2):string {
     // 2 decimal places => 100, 3 => 1000, etc
@@ -72,6 +74,13 @@ class Utils {
     let m = Math.floor(d % 3600 / 60);
     let s = Math.floor(d % 3600 % 60);
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
+  }
+
+  unlockResource(resource:string, resources:Collection) {
+    // NOTES: this needs to be streamlined~
+    resources.get(resource).unlocked = true;
+    let elt = this.elt('[data-resource="' + resource + '"]');
+    elt.setAttribute('data-unlocked', true);
   }
 
 }
