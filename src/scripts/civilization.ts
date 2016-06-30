@@ -18,6 +18,7 @@ class Civilization {
   health: number;
   pollution: number;
   influence: number;
+  land: number;
   legacy: number;
 
   population: number;
@@ -67,6 +68,7 @@ class Civilization {
     this.health = 25;
     this.pollution = 1;
     this.influence = 0;
+    this.land = 1;
     this.legacy = 0;
 
     this.achievements = 0;
