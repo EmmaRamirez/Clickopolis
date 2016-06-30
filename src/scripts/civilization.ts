@@ -1,3 +1,8 @@
+interface Biome {
+  name: string;
+  func: Function;
+}
+
 class Civilization {
   civName: string;
 
@@ -6,6 +11,7 @@ class Civilization {
   leaderTraitsMax: number;
 
   location: string;
+  biomes: Biome[];
 
   happiness: number;
   anger: number;
