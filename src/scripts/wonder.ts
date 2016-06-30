@@ -8,7 +8,7 @@ class Wonder {
   func: Function;
 
   getImg():string {
-    return '../img/' + this.img + '.png';
+    return 'img/' + this.img + '.png';
   }
 
   getTimePercent():string {
