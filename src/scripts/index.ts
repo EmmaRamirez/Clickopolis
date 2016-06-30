@@ -14,6 +14,7 @@ import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
 import Building = require('./building');
+import Wonder = require('./wonder');
 import Tech = require('./tech');
 import Nation = require('./nation');
 import Templates = require('./template');
@@ -26,6 +27,7 @@ import resourceData = require('./data.resource');
 import citizenData = require('./data.citizen');
 import buildingData = require('./data.building');
 import nationData = require('./data.nation');
+import wonderData = require('./data.wonder');
 
 let u = new Utils();
 
@@ -33,8 +35,10 @@ let techs = techData;
 let resources = resourceData;
 let citizens = citizenData;
 let buildings = buildingData;
-let history:string[];
 let nations = nationData;
+let wonders = wonderData;
+
+let history:string[];
 
 let game:Game = new Game(0);
 let playerCiv:Civilization;
@@ -244,6 +248,7 @@ function createGameUI() {
   populateTechnologies();
   populateCitizens();
   populateBuildings();
+  populateWonders();
 
   history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
@@ -431,6 +436,32 @@ function populateBuildings() {
   }
 }
 
+//name: string;
+// img: string;
+// buildTime: number;
+// remainingTime: number;
+// description: string;
+// effect: string;
+// func: Function;
+
+function populateWonders():void {
+  let wondersContainer = u.elt('.wonders');
+  wondersContainer.innerHTML = '';
+
+  for (let i = 0; i < wonders.items.length; i++) {
+    let w = wonders.items[i];
+    wondersContainer.innerHTML = `
+      <div class='wonder' data-id='${i}' data-wonder='${w.name}'>
+        <span class='wonder-image'><img src='${w.getImg()}'></span>
+        <span class='wonder-name'>${w.name}</span><br>
+        <span class='wonder-description'>${w.description}</span>
+        <span class='wonder-effect'>${w.effect}</span>
+        <span class='btn btn-build-wonder'>Build (${u.time(w.buildTime)})</span>
+      </div>
+    `;
+  }
+}
+
 function updateYear() {
   game.year += 1;
   u.elt('.game-year-text').textContent = game.year;
@@ -608,6 +639,7 @@ function techClick() {
     })
   });
 }
+
 
 function renderHistory(history:string[]) {
   if (typeof history != 'undefined') {
