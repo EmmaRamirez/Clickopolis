@@ -10,7 +10,7 @@ let u = new Utils();
 let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">', function (playerCiv:Civilization) {
   playerCiv.happiness += 1;
   u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
-  notify({message:`The happiness of your Civilization grew to <img src="img/happy.png"> ${playerCiv.happiness}`});
+  notify({message:`The new hut has made your citizens gracious. (<img src="img/happy.png"> ${playerCiv.happiness})`});
   console.log(playerCiv.happiness);
 });
 let granary:Building = new Building('Granary', 0, 25, 250, 'Feeds all your cute animals.', '+200 <img src="img/food.png"> max', function (playerCiv:Civilization, resources:Collection<Resource>) {
