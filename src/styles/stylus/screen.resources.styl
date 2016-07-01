@@ -46,13 +46,25 @@
   }
   .location-panel {
     //background: $clouds;
-    background: desaturate($green, 15%);
-    border-left: 4px solid $green;
-    color: white;
-    margin: .25rem;
-    padding: .25rem;
-    text-align: center;
-    p { padding: 0; margin: 0; }
+    padding: .5rem
+    .biome {
+      background: #222;
+      border: 1px solid #111;
+      border-radius: 4px;
+      display: inline-block;
+      padding: .25rem;
+      text-align: center;
+      img {
+        height: 1.8rem;
+      }
+    }
+    .biome-lead {
+      // FIX: awkward numbers
+      color: #eee;
+      height: 2.3rem;
+      padding: .5rem;
+      vertical-align: top;
+    }
   }
   .resource {
     background: #222;
