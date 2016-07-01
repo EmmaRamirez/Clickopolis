@@ -1,8 +1,24 @@
 import Collection = require('./collection');
 
+interface Point {
+  x: number;
+  y: number;
+}
+
+enum BiomeTypes {
+  Desert,
+  Jungle,
+  Forest,
+  Island,
+  Coast,
+  Mountain,
+  Tundra,
+  Glacier
+}
+
 interface Biome {
-  name: string;
-  func: Function;
+  name: BiomeTypes;
+  description: string;
 }
 
 class Civilization {
@@ -47,6 +63,9 @@ class Civilization {
 
   techs: number;
 
+  faith: number;
+  faithPM: number;
+
   strength: number;
   defense: number;
 
@@ -90,9 +109,11 @@ class Civilization {
     this.research = 0;
     this.researchPM = 0;
     this.researchCost = 10;
-    this.researchingTechs = 'none';
     this.researchingTechsArray = [];
     this.techs = 0;
+
+    this.faith = 0;
+    this.faithPM = 0;
 
     this.strength = 10;
     this.defense = 10;

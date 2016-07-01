@@ -109,7 +109,12 @@ class Templates {
           </div>
 
           <div class='panel location-panel'>
-            <p>Biome (${playerCiv.location}) Bonus: +10% <img src='img/food.png'> PC</p>
+            <div class='biome biome-lead'>Biomes: </div>
+            <span class='biome-container'>
+              <div class='biome'><img src='img/desert.png'></div>
+              <div class='biome'><img src='img/island.png'></div>
+              <div class='biome'><img src='img/mountains.png'></div>
+            </span>
           </div>
 
 
