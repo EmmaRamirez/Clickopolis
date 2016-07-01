@@ -165,8 +165,6 @@ function startNewGame() {
   u.elt('#trait').addEventListener('change', function() {
     traitsSelection(0);
   });
-
-
 };
 
 function setPlayerCiv() {
@@ -177,7 +175,6 @@ function setPlayerCiv() {
   playerCiv.leaderName = leaderNameInput.value;
   playerCiv.location = location.value;
   savePlayer();
-
 }
 
 
@@ -377,6 +374,10 @@ function populateTechnologies() {
     for (let j = 0; j < techs.items[i].effects.length; j++) {
       effects += `<li>${techs.items[i].effects[j]}</li>`;
     }
+    let categories = '';
+    for (let j = 0; j < techs.items[i].categories.length; j++) {
+      categories += `<div class='category' title=${u.capitalize(techs.items[i].categories[j])}><img src='img/${techs.items[i].categories[j]}.png'></div>`;
+    }
     let t = techs.items[i];
     technologies.innerHTML += `
     <div class='tech' data-tech='${t.name}' data-selected=${t.selected} data-purchased=${t.purchased}>
@@ -385,6 +386,9 @@ function populateTechnologies() {
       <ul class='tech-list'>
         ${effects}
       </ul>
+      <div class='tech-categories'>
+        ${categories}
+      </div>
     </div>`;
   }
 }
