@@ -28,7 +28,7 @@ class Game {
     this.year = 0;
     this.time = 0;
     this.totalLand = 14830000;
-    this.version = '0.0.1';
+    this.version = '0.1.0';
   }
 }
 
