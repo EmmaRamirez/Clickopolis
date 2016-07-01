@@ -2,6 +2,7 @@ import Tech = require('./tech');
 import Collection = require('./collection');
 import Citizen = require('./citizen');
 import Resource = require('./resource')
+import Civilization = require('./civilization');
 import Utils = require('./utils');
 
 let u = new Utils();
@@ -30,7 +31,7 @@ let animalHusbandry:Tech = new Tech(
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
-      u.unlockResource('horse', resources);
+    u.unlockResource('horse', resources);
   }
 );
 let archery:Tech = new Tech(
@@ -42,7 +43,10 @@ let archery:Tech = new Tech(
     '<img src="img/plus.png"> Can build Barracks',
     '<img src="img/plus.png"> +5 Empire <img src="img/defense.png">'
   ],
-  ['military', 'buildings']
+  ['military', 'buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization) {
+    playerCiv.defense += 5;
+  }
 );
 let fishing:Tech = new Tech(
   'fishing',
@@ -52,7 +56,10 @@ let fishing:Tech = new Tech(
     '<img src="img/plus.png"> Unlocks <img src="img/fish.png"> resource',
     '<img src="img/plus.png"> Unlocks: Sailing'
   ],
-  ['resources']
+  ['resources'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
+    u.unlockResource('fish', resources);
+  }
 );
 let herbalMedicine:Tech = new Tech(
   'herbal medicine',
@@ -62,7 +69,10 @@ let herbalMedicine:Tech = new Tech(
     '<img src="img/plus.png"> Can build Ascelpeia',
     '<img src="img/plus.png"> +5 <img src="img/health.png"> for discovering'
   ],
-  ['buildings', 'civilization']
+  ['buildings', 'civilization'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization) {
+    playerCiv.health += 5;
+  }
 );
 let masonry:Tech = new Tech(
   'masonry',
@@ -83,7 +93,13 @@ let mining:Tech = new Tech(
     '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/gems.png"> resources',
     '<img src="img/plus.png"> Unlocks: Masonry, Pottery'
   ],
-  ['resources', 'citizens']
+  ['resources', 'citizens'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
+    citizens.get('miner').contrib1.amount += .2;
+    u.unlockResource('stone', resources);
+    u.unlockResource('gold', resources);
+    u.unlockResource('gems', resources);
+  }
 );
 let mysticism:Tech = new Tech(
   'mysticism',
