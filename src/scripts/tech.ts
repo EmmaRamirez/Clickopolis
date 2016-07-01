@@ -7,9 +7,10 @@ class Tech {
   prerequisite: Tech[];
   description: string;
   effects: string[];
+  categories: string[];
   func: Function;
 
-  constructor(name: string, era: string, description: string, effects: string[], func:Function = function(){}) {
+  constructor(name: string, era: string, description: string, effects: string[], categories: string[] = [], func:Function = function(){}) {
     this.name = name;
     this.era = era;
     //this.prerequisite = prequisite;
@@ -19,6 +20,7 @@ class Tech {
     this.available = false;
     this.purchased = false;
     this.selected = false;
+    this.categories = categories;
     this.func = func;
   }
 }
