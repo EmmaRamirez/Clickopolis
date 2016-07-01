@@ -10,7 +10,7 @@ class Collection<T> {
     this.items.splice(this.get(query, true), 1);
   }
 
-  get(query:string, returnIndex: boolean = false):any {
+  get(query:string, returnIndex: boolean = false):number | any {
     let items = this.items;
     let item:any;
     let index:number;
