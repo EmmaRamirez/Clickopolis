@@ -23,12 +23,30 @@ let quarry:Building = new Building('Quarry', 0, 30, 300, 'Your very own diamond 
   notify({message: `Your civilization now has a max <img src="img/prod.png"> capacity of ${resources.get('food').max}`});
   u.elt('.r-prod-max').textContent = u.abbrNum(resources.get('prod').max) + ' max';
 });
-let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers at the ready!', '+1 <img src="img/strength.png">');
-let temple:Building = new Building('Temple', 0, 45, 450, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM');
-let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronounce it either.', '+1 <img src="img/health.png">')
-let graveyard:Building = new Building('Graveyard', 0, 70, 700, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">');
-let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defend the state!', '+5 <img src="img/defense.png">');
-let library:Building = new Building('Library', 0, 200, 2000, 'Be learned new things.', '+1 <img src="img/research.png"> PM');
+let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers at the ready!', '+1 <img src="img/strength.png">', function (playerCiv:Civilization) {
+  playerCiv.strength += 1;
+  notify({message: `Your civilization grew stronger! (<img src='img/strength.png'> ${playerCiv.strength})`});
+});
+let temple:Building = new Building('Temple', 0, 45, 450, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM', function (playerCiv:Civilization) {
+  playerCiv.faithPM += 1;
+  notify({message: `Your temple has attracted new devotees! (<img src='img/faith.png'> ${playerCiv.faithPM} PM)`});
+});
+let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronounce it either.', '+1 <img src="img/health.png">', function (playerCiv:Civilization) {
+  playerCiv.health += 1;
+  notify({message: `Your civilization became healthier! (<img src='img/health.png'> ${playerCiv.health})`});
+})
+let graveyard:Building = new Building('Graveyard', 0, 70, 700, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">', function (playerCiv:Civilization) {
+  playerCiv.pollution -= 1;
+  notify({message: `Good idea, let's keep the dead bodies away. (<img src='img/pollution.png'> ${playerCiv.pollution})`});
+});
+let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defend the state!', '+5 <img src="img/defense.png">', function (playerCiv:Civilization) {
+  playerCiv.defense += 5;
+  notify({message: `Much better than the one made out of pillows. (<img src='img/defense.png'> ${playerCiv.defense})`})
+});
+let library:Building = new Building('Library', 0, 200, 2000, 'Be learned new things.', '+1 <img src="img/research.png"> PM', function (playerCiv:Civilization) {
+  playerCiv.researchPM += 1;
+  notify({message: `What is this useless building for again? (<img src='img/research.png'> ${playerCiv.researchPM} PM)`})
+});
 
 let buildings:Collection<Building> = new Collection('Buildings',
                                           [
