@@ -77,6 +77,7 @@
     cursor: pointer;
     margin: .25rem auto;
     padding: .5rem;
+    position: relative;
     &:hover {
       background: darken(#83D4D4, 15%);
       //@extend %transition-s;
@@ -94,11 +95,21 @@
     .tech-description {
       font-size: 0.8rem;
     }
+    .tech-categories {
+      background: #c0ffff;
+      border-radius: 0 4px 4px 0;
+      height: 100%;
+      padding: .25rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 1.8rem;
+    }
     .tech-list {
       font-size: .95rem;
       list-style-type: none;
       margin: 0;
-      margin-left: 3rem;
+      margin-left: 2rem;
       padding: 0;
     }
   }
