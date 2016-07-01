@@ -13,7 +13,7 @@ class Citizen {
   description: string;
   descriptionOverride: boolean;
 
-  contrib: Collection;
+  contrib: Collection<Contribution>;
 
   contrib1: Contribution;
   contrib2: Contribution;
