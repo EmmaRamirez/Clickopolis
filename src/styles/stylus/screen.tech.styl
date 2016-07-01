@@ -70,6 +70,42 @@
     }
   }
 
+  .tech-queue {
+    background: #222;
+    border: 1px solid #111;
+    margin: .25rem;
+    padding: .25rem;
+    &:nth-child(1) {
+      color: #eee;
+    }
+    div {
+      display: inline-block;
+      color: #eee;
+    }
+    span {
+      background: #DB9665;
+      color: #222;
+      display: inline-block;
+      font-size: .9rem;
+      margin: .25rem;
+      padding: .25rem;
+      &:hover {
+        background: darken(#DB9665, 10%);
+      }
+      img {
+        cursor: pointer;
+        height: .8rem;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .queue-item {
+    background: #DB9665;
+    margin: .25rem;
+    padding: .25rem;
+  }
+
   .tech {
     background: #83D4D4;
     border: 1px solid #111;

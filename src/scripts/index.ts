@@ -393,6 +393,13 @@ function populateTechnologies() {
   }
 }
 
+function setTechQueue() {
+  u.elt('.tech-queue').innerHTML = '<div>Queue: </div>';
+  for (let i = 0; i < playerCiv.researchingTechsArray.length; i++) {
+    u.elt('.tech-queue').innerHTML += `<span>${playerCiv.researchingTechsArray[i]} <img src='img/close.png'></span>`;
+  }
+}
+
 function populateCitizens() {
   let citizensContainer = u.elt('.citizens');
   citizensContainer.innerHTML = '';
@@ -524,6 +531,7 @@ function checkAutomaticTechPurchase() {
     if (playerCiv.researchingTechsArray.length > 0) {
       purchaseTech(playerCiv.researchingTechsArray[0], undefined);
       playerCiv.researchingTechsArray.shift();
+      setTechQueue();
     }
   }
 }
@@ -651,6 +659,7 @@ function techClick() {
               throw new Error('Invalid addition to tech array: already included.');
             } else {
               playerCiv.researchingTechsArray.push(techs.get(tech).name);
+              setTechQueue();
             }
 
             //u.elt('.researching-techs').textContent = techs.get(tech).name;
@@ -677,7 +686,7 @@ function purchaseTech(tech:string, element:HTMLElement) {
   playerCiv.research -= playerCiv.researchCost;
   playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
-  techs.get(tech).func(citizens, resources);
+  techs.get(tech).func(citizens, resources, playerCiv);
 }
 
 
