@@ -1,4 +1,5 @@
 import Collection = require('./collection');
+import Resource = require('./resource');
 
 class Utils {
   abbrNum (number:any, decPlaces:number = 2):string {
@@ -76,7 +77,7 @@ class Utils {
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
   }
 
-  unlockResource(resource:string, resources:Collection) {
+  unlockResource(resource:string, resources:Collection<Resource>):void {
     // NOTES: this needs to be streamlined~
     resources.get(resource).unlocked = true;
     let elt = this.elt('[data-resource="' + resource + '"]');

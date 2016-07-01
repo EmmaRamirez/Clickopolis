@@ -1,15 +1,17 @@
 import Tech = require('./tech');
 import Collection = require('./collection');
+import Citizen = require('./citizen');
+import Resource = require('./resource')
 import Utils = require('./utils');
 
 let u = new Utils();
 
-let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining'], function (citizens:Collection) {
+let agriculture:Tech = new Tech('agriculture', 'ancient', 'a technology', ['+.2 <img src="img/food.png"> PS per farmer', 'Unlocks: Animal Husbandry, Mining'], function (citizens:Collection<Citizen>) {
   citizens.get('farmer').contrib1.amount += .2;
 
   console.log(citizens.get('farmer').contrib1.amount);
 });
-let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'It\'s not what you think it is.', ['Unlocks <img src="img/horse.png"> resource', ''], function (citizens:Collection, resources:Collection) {
+let animalHusbandry:Tech = new Tech('animal husbandry', 'ancient', 'It\'s not what you think it is.', ['Unlocks <img src="img/horse.png"> resource', ''], function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
   u.unlockResource('horse', resources);
 });
 let archery:Tech = new Tech('archery', 'ancient', 'Bow and arrow, hitting bone and marrow', ['Can assign Soldiers as Archers.', 'Can build Barracks.']);
@@ -24,7 +26,7 @@ let woodworking:Tech = new Tech('woodworking', 'ancient', 'TIMBER!!!', ['Unlocks
 let writing:Tech = new Tech('writing', 'ancient', 'Allows poorly written fanfiction in Information era.', ['Unlocks Diplomacy.', 'Can build Library.']);
 
 
-let techs:Collection = new Collection('Techs',
+let techs:Collection<Tech> = new Collection('Techs',
     [
       agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, sailing, trading, woodworking, writing
     ]

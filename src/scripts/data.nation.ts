@@ -19,6 +19,6 @@ function createRandomName():string {
 let argaria:Nation = new Nation('Argaria', 1, '#344211', 'A tiny and impotent nation composed of villagers.', 0, 10, 10, 130, 7, false);
 
 
-let nations:Collection = new Collection('Nations', []);
+let nations:Collection<Nation> = new Collection('Nations', []);
 
 export = nations;

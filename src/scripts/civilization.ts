@@ -1,3 +1,5 @@
+import Collection = require('./collection');
+
 interface Biome {
   name: string;
   func: Function;
@@ -11,7 +13,7 @@ class Civilization {
   leaderTraitsMax: number;
 
   location: string;
-  biomes: Biome[];
+  biomes: Collection<Biome>;
 
   happiness: number;
   anger: number;

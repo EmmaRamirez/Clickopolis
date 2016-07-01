@@ -1,4 +1,4 @@
-class Collection {
+class Collection<T> {
   name:string;
   items:any[];
 

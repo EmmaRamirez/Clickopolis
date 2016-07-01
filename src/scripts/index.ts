@@ -450,7 +450,7 @@ function populateWonders():void {
 
   for (let i = 0; i < wonders.items.length; i++) {
     let w = wonders.items[i];
-    wondersContainer.innerHTML = `
+    wondersContainer.innerHTML += `
       <div class='wonder' data-id='${i}' data-wonder='${w.name}'>
         <span class='wonder-image'><img src='${w.getImg()}'></span>
         <span class='wonder-name'>${w.name}</span><br>
@@ -461,6 +461,17 @@ function populateWonders():void {
     `;
   }
 }
+
+function populate(container:HTMLElement, collection:Collection<any>, template:string) {
+  container.innerHTML = '';
+
+  for (let i = 0; i < collection.items.length; i++) {
+    let item = collection.items[i];
+    container.innerHTML += templates.createWonder(item, i);
+  }
+}
+
+//populate(u.elt('.wonders'), wonders, templates.createWonder() );
 
 function updateYear() {
   game.year += 1;
@@ -703,6 +714,8 @@ function UiSettingsButtons() {
 function checkAchievements() {
 
 }
+
+
 
 
 

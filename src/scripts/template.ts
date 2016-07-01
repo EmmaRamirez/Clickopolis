@@ -2,6 +2,7 @@ import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
+import Wonder = require('./wonder');
 import Collection = require('./collection');
 import Utils = require('./utils');
 
@@ -83,7 +84,7 @@ class Templates {
     </section>
   `;
 
-  createResourcesScreen(playerCiv:Civilization, resources:Collection) {
+  createResourcesScreen(playerCiv:Civilization, resources:Collection<Resource>) {
     let resourcesScreen = `
       <section class='screen resources-screen' id='resources'>
         <h2><img src='img/resources.png'> Resources</h2>
@@ -215,7 +216,7 @@ class Templates {
     return screenHeader;
   }
 
-  createCitizenScreen(playerCiv:Civilization, citizens:Collection):string {
+  createCitizenScreen(playerCiv:Civilization, citizens:Collection<Citizen>):string {
     let citizensScreen = `
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
@@ -372,6 +373,18 @@ class Templates {
       </section>
     `;
     return wondersScreen;
+  }
+
+  createWonder(w:Wonder, i:number):string {
+    let wonder = `
+    <div class='wonder' data-id='${i}' data-wonder='${w.name}'>
+      <span class='wonder-image'><img src='${w.getImg()}'></span>
+      <span class='wonder-name'>${w.name}</span><br>
+      <span class='wonder-description'>${w.description}</span>
+      <span class='wonder-effect'>${w.effect}</span>
+      <span class='btn btn-build-wonder'>Build (${u.time(w.buildTime)})</span>
+    </div>`;
+    return wonder;
   }
 
   createTechnologyScreen(playerCiv:Civilization) {
