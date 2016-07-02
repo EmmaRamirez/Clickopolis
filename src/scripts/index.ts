@@ -428,13 +428,19 @@ function populateCitizens() {
     if (c.descriptionOverride) {
       d = `<span>${c.description}</span>`;
     } else {
-      d = `
-        <span>+${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod}, </span>
-        <span>+${c.contrib2.amount} <img src="img/${c.contrib2.name}.png"> ${c.contrib2.mod}</span>
-      `;
+      if (typeof c.contrib2.amount === 'undefined') {
+        d = `
+          <span>${c.contrib1.amount > 0 ? '+' : ''}${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod} </span>
+        `;
+      } else {
+        d = `
+          <span>${c.contrib1.amount > 0 ? '+' : ''}${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod}, </span>
+          <span>${c.contrib2.amount > 0 ? '+' : ''}${c.contrib2.amount} <img src="img/${c.contrib2.name}.png"> ${c.contrib2.mod}</span>
+        `;
+      }
     }
     citizensContainer.innerHTML += `
-    <div class='row citizen-${c.name}' data-id='${i}'>
+    <div class='row citizen-${c.name}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
       <span class='citizen-icon'><img src='img/${c.image}.png'></span>
       <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
@@ -481,11 +487,15 @@ function populateWonders():void {
     let w = wonders.items[i];
     wondersContainer.innerHTML += `
       <div class='wonder' data-id='${i}' data-wonder='${w.name}'>
-        <span class='wonder-image'><img src='${w.getImg()}'></span>
-        <span class='wonder-name'>${w.name}</span><br>
-        <span class='wonder-description'>${w.description}</span>
-        <span class='wonder-effect'>${w.effect}</span>
-        <span class='btn btn-build-wonder'>Build (${u.time(w.buildTime)})</span>
+        <div class='wonder-image'>
+          <span class='wonder-image'><img src='${w.getImg()}'></span>
+          <span class='btn btn-build-wonder'>Build (${u.time(w.buildTime)})</span>
+        </div>
+        <div class='wonder-info'>
+          <div class='wonder-name'>${w.name}</div>
+          <div class='wonder-description'>${w.description}</div>
+          <div class='wonder-effect'>${w.effect}</div>
+        </div>
       </div>
     `;
   }
