@@ -2,6 +2,7 @@ import Tech = require('./tech');
 import Collection = require('./collection');
 import Citizen = require('./citizen');
 import Resource = require('./resource')
+import Building = require('./building');
 import Civilization = require('./civilization');
 import Utils = require('./utils');
 
@@ -70,8 +71,9 @@ let herbalMedicine:Tech = new Tech(
     '<img src="img/plus.png"> +5 <img src="img/health.png"> for discovering'
   ],
   ['buildings', 'civilization'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization) {
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     playerCiv.health += 5;
+    u.unlockBuilding('Asclepeia', buildings);
   }
 );
 let masonry:Tech = new Tech(
@@ -82,7 +84,10 @@ let masonry:Tech = new Tech(
     '<img src="img/plus.png"> Can build The Great Pyramids wonder',
     '<img src="img/plus.png"> Can build Quarry'
   ],
-  ['buildings', 'wonder']
+  ['buildings', 'wonder'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockBuilding('Quarry', buildings);
+  }
 );
 let mining:Tech = new Tech(
   'mining',
@@ -110,7 +115,10 @@ let mysticism:Tech = new Tech(
     '<img src="img/plus.png"> Can build Temples',
     '<img src="img/plus.png"> Can build the Stonehenge wonder'
   ],
-  ['faith', 'citizens', 'wonder']
+  ['faith', 'citizens', 'wonder'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockBuilding('Temple', buildings);
+  }
 );
 let pottery:Tech = new Tech(
   'pottery',
@@ -119,7 +127,10 @@ let pottery:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build Granary'
   ],
-  ['culture', 'buildings']
+  ['culture', 'buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockBuilding('Granary', buildings);
+  }
 );
 let sailing:Tech = new Tech(
   'sailing',
@@ -158,9 +169,12 @@ let writing:Tech = new Tech(
   'Allows poorly written fanfiction in Information era.',
   [
     '<img src="img/plus.png"> Unlocks Diplomacy',
-    '<img src="img/plus.png"> Can build Library'
+    '<img src="img/plus.png"> Can build Ziggurat'
   ],
-  ['buildings']
+  ['buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockBuilding('Ziggurat', buildings);
+  }
 );
 
 

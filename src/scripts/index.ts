@@ -279,6 +279,7 @@ function updatePopulation(pop:number) {
   playerCiv.pollution += pop * 1;
 
   //elt('.research-text').textContent = playerCiv.research.toString();
+  u.elt('.cash-from-citizens').textContent = playerCiv.population * 2;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
   u.elt('.civ-anger-text').textContent = playerCiv.anger;
   u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
@@ -444,7 +445,7 @@ function populateCitizens() {
       }
     }
     citizensContainer.innerHTML += `
-    <div class='row citizen-${c.name}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
+    <div class='row citizen-${c.name}' data-visible='${c.visible}' data-enabled='${c.enabled}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
       <span class='citizen-icon'><img src='img/${c.image}.png'></span>
       <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
@@ -456,6 +457,8 @@ function populateCitizens() {
   }
 }
 
+
+
 function populateBuildings() {
   let buildingsContainer = u.elt('.buildings');
   buildingsContainer.innerHTML = '';
@@ -464,7 +467,7 @@ function populateBuildings() {
     let b = buildings.items[i];
     console.log(b);
     buildingsContainer.innerHTML += `
-      <div class='building' data-id='${i}' data-building='${b.name}' data-purchaseable='false'>
+      <div class='building' data-id='${i}' data-visible='${b.visible}' data-enabled='${b.enabled}' data-building='${b.name}' data-purchaseable='false'>
         <span class='building-total' data-building='${b.name}' title='how many you own'>${b.amount}</span>
         <span class='building-cost'><span class='building-cost-text data-id='${i}'>${b.prodCost}</span> <img src='img/prod.png'></span>
         <span class='building-name'>${b.name}</span>
@@ -632,7 +635,7 @@ function addCitizen(citizen:string, amount: number, sel:string) {
   citizens.get(citizen).amount += amount;
   playerCiv.populationEmployed += amount;
   updatePopulationEmployed();
-  citizens.get(citizen).func(resources, amount);
+  citizens.get(citizen).func(amount, resources, playerCiv);
   console.log(citizens.get(citizen).func);
   u.elt(sel).textContent = citizens.get(citizen).amount;
 }
@@ -719,7 +722,7 @@ function purchaseTech(tech:string, element:HTMLElement) {
   playerCiv.research -= playerCiv.researchCost;
   playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
-  techs.get(tech).func(citizens, resources, playerCiv);
+  techs.get(tech).func(citizens, resources, playerCiv, buildings);
 }
 
 
