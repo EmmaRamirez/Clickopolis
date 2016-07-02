@@ -272,7 +272,7 @@ function updatePopulation(pop:number) {
   populationText.textContent = playerCiv.population.toString();
   popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
 
-  playerCiv.cashPM += pop * 1;
+  playerCiv.cashPM += pop * 2;
   playerCiv.researchPM += pop * 2;
   playerCiv.anger += pop * 1;
   playerCiv.pollution += pop * 1;
@@ -380,7 +380,7 @@ function populateTechnologies() {
     }
     let t = techs.items[i];
     technologies.innerHTML += `
-    <div class='tech' data-tech='${t.name}' data-selected=${t.selected} data-purchased=${t.purchased}>
+    <div class='tech' data-id='${i}' data-tech='${t.name}' data-selected=${t.selected} data-purchased=${t.purchased}>
       <span class='tech-name'>${t.name}</span>
       <span class='tech-description'>${t.description}</span>
       <ul class='tech-list'>
@@ -396,8 +396,26 @@ function populateTechnologies() {
 function setTechQueue() {
   u.elt('.tech-queue').innerHTML = '<div>Queue: </div>';
   for (let i = 0; i < playerCiv.researchingTechsArray.length; i++) {
-    u.elt('.tech-queue').innerHTML += `<span>${playerCiv.researchingTechsArray[i]} <img src='img/close.png'></span>`;
+    console.debug('Queue Item', i);
+    u.elt('.tech-queue').innerHTML += `<span data-id='${i}'>${playerCiv.researchingTechsArray[i]} <img class='queue-cancel' data-q-id='${i}' data-tech='${playerCiv.researchingTechsArray[i]}' src='img/close.png'></span>`;
   }
+  handleQueueCancelClick();
+}
+
+function handleQueueCancelClick() {
+  [].forEach.call(u.elt('.queue-cancel', true), function (item:any) {
+    item.addEventListener('click', function() {
+      let tech = item.getAttribute('data-tech');
+      let index = techs.get(tech, true);
+      let qIndex = item.getAttribute('data-q-id');
+      console.debug('Tech index', index);
+      console.debug('Q index', qIndex);
+      playerCiv.researchingTechsArray.splice(qIndex, 1);
+      u.elt('.tech[data-id="' + index + '"]').setAttribute('data-selected', false);
+      //techs.get(tech).selected = false;
+      setTechQueue();
+    });
+  });
 }
 
 function populateCitizens() {
@@ -649,6 +667,7 @@ function techClick() {
       } else {
         if (techs.get(tech).purchased === true) {
           notify({message:'You already purchased the ' + techs.get(tech).name + ' technology!'});
+          item.setAttribute('data-purchased', true);
         } else {
           techs.get(tech).selected = true;
           console.log(techs.get(tech).selected);
