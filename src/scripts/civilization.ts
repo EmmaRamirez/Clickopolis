@@ -49,6 +49,10 @@ class Civilization {
 
   cash: number;
   cashPM: number;
+  cashPMFromCitizens: number;
+  cashPMFromBuildings: number;
+  cashPMFromMilitary: number;
+  cashPMFromTradeRoutes: number;
 
   goldenAges: number;
   goldenAgeProgress: number;
@@ -105,6 +109,10 @@ class Civilization {
 
     this.cash = 0;
     this.cashPM = 0;
+    this.cashPMFromCitizens = 0;
+    this.cashPMFromBuildings = 0;
+    this.cashPMFromMilitary = 0;
+    this.cashPMFromTradeRoutes = 0;
 
     this.research = 0;
     this.researchPM = 0;
