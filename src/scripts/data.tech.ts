@@ -161,7 +161,11 @@ let woodworking:Tech = new Tech(
     '<img src="img/plus.png"> Unlocks <img src="img/spices.png"> resource',
     '<img src="img/plus.png"> Can assign Woodcutters'
   ],
-  ['resources', 'citizens']
+  ['resources', 'citizens'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockResource('spices', resources);
+    u.unlockCitizen('woodcutter', citizens);
+  }
 );
 let writing:Tech = new Tech(
   'writing',
