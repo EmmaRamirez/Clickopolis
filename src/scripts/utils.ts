@@ -1,5 +1,7 @@
 import Collection = require('./collection');
 import Resource = require('./resource');
+import Citizen = require('./citizen');
+import Building = require('./building');
 
 class Utils {
   abbrNum (number:any, decPlaces:number = 2):string {
@@ -70,11 +72,35 @@ class Utils {
     return randomColor;
   }
 
+  showBuilding(building:string, buildings:Collection<Building>):void {
+    buildings.get(building).visible = true;
+    let elt = this.elt('[data-build="' + building + '"]');
+    elt.setAttribute('data-visible', 'true');
+  }
+
+  showCitizen(citizen:string, citizens:Collection<Citizen>):void {
+    citizens.get(citizen).visible = true;
+    let elt = this.elt('.citizen-' + citizen);
+    elt.setAttribute('data-visible', 'true');
+  }
+
   time(d:number):string {
     let h = Math.floor(d / 3600);
     let m = Math.floor(d % 3600 / 60);
     let s = Math.floor(d % 3600 % 60);
     return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
+  }
+
+  unlockBuilding(building:string, buildings:Collection<Building>):void {
+    buildings.get(building).enabled = true;
+    let elt = this.elt('[data-build="' + building + '"]');
+    elt.setAttribute('data-enabled', 'true');
+  }
+
+  unlockCitizen(citizen:string, citizens:Collection<Citizen>):void {
+    citizens.get(citizen).enabled = true;
+    let elt = this.elt('.citizen-' + citizen);
+    elt.setAttribute('data-enabled', 'true');
   }
 
   unlockResource(resource:string, resources:Collection<Resource>):void {
