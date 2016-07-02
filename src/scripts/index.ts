@@ -246,6 +246,7 @@ function createGameUI() {
   populateCitizens();
   populateBuildings();
   populateWonders();
+  setTechQueue();
 
   history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
@@ -398,6 +399,9 @@ function setTechQueue() {
   for (let i = 0; i < playerCiv.researchingTechsArray.length; i++) {
     console.debug('Queue Item', i);
     u.elt('.tech-queue').innerHTML += `<span data-id='${i}'>${playerCiv.researchingTechsArray[i]} <img class='queue-cancel' data-q-id='${i}' data-tech='${playerCiv.researchingTechsArray[i]}' src='img/close.png'></span>`;
+  }
+  if (playerCiv.researchingTechsArray.length === 0) {
+    u.elt('.tech-queue').innerHTML += ' You have no techs queued.';
   }
   handleQueueCancelClick();
 }
