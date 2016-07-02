@@ -29,9 +29,13 @@ let woodcutter:Citizen = new Citizen('woodcutter', 'woodcutter', '#8C775B', 0, '
   u.elt('.r-prod-ps').textContent = resources.get('prod').perSecond.toFixed(1) + ' PS';
   console.log(resources.get('prod'));
 });
-//let soldier:Citizen = new Citizen('soldier', 'soldier-alt', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', 0, 0);
-//let cleric:Citizen = new Citizen('cleric', 'cleric', 0, 'Clerics proselytize your empire. +1 <img src="img/faith.png"> PM', 0, 0);
+let soldier:Citizen = new Citizen('soldier', 'soldier-alt', '#5B8C76', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', { name: 'coin', mod: 'PM', amount: -1 }, {}, {}, {}, function () {
 
-let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter]);
+});
+let cleric:Citizen = new Citizen('cleric', 'cleric', '#DEDED9', 0, 'Clerics proselytize your empire. +1 <img src="img/faith.png"> PM', { name: 'faith', mod: 'PM', amount: 1 }, {}, {}, {}, function () {
+
+});
+
+let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric]);
 
 export = citizens;
