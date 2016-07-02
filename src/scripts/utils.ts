@@ -74,7 +74,7 @@ class Utils {
 
   showBuilding(building:string, buildings:Collection<Building>):void {
     buildings.get(building).visible = true;
-    let elt = this.elt('[data-build="' + building + '"]');
+    let elt = this.elt('[data-building="' + building + '"]');
     elt.setAttribute('data-visible', 'true');
   }
 
@@ -93,7 +93,7 @@ class Utils {
 
   unlockBuilding(building:string, buildings:Collection<Building>):void {
     buildings.get(building).enabled = true;
-    let elt = this.elt('[data-build="' + building + '"]');
+    let elt = this.elt('[data-building="' + building + '"]');
     elt.setAttribute('data-enabled', 'true');
   }
 
