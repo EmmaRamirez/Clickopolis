@@ -9,6 +9,7 @@ interface Contribution {
 class Citizen {
   name: string;
   image: string;
+  color: string;
   amount: number;
   description: string;
   descriptionOverride: boolean;
@@ -22,9 +23,10 @@ class Citizen {
 
   func: Function;
 
-  constructor(name:string, image:string, amount: number, description: string, contrib1: Contribution, contrib2: Contribution, contrib3: Contribution, contrib4: Contribution, func:Function = function(){}) {
+  constructor(name:string, image:string, color:string, amount: number, description: string, contrib1: Contribution, contrib2: Contribution, contrib3: Contribution, contrib4: Contribution, func:Function = function(){}) {
     this.name = name;
     this.image = image;
+    this.color = color;
     this.amount = amount;
     this.description = description;
     this.contrib1 = contrib1;
