@@ -229,7 +229,7 @@ class Templates {
           <p class='center-text citizens-employed'>
             <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
           </p>
-          <p class='center-text'>Each citizen produces 1 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
+          <p class='center-text'>Each citizen produces 2 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <p class='center-text'>Each citizen also consumes 1 <img src='img/food.png'> PS</p>
           <span class='citizens'>
             <div class='row citizen-farmer'>
