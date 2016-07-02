@@ -117,7 +117,6 @@ let pottery:Tech = new Tech(
   'ancient',
   'Does not come with Pottery Barn discount.',
   [
-    '<img src="img/plus.png"> Can assign Artists',
     '<img src="img/plus.png"> Can build Granary'
   ],
   ['culture', 'buildings']
