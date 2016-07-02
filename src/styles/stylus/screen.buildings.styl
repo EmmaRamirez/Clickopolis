@@ -40,6 +40,13 @@
       cursor: not-allowed;
       transition: 500ms all;
     }
+    &[data-visible='false'] {
+      display: none;
+    }
+    &[data-enabled='false'] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 
   .building-name {

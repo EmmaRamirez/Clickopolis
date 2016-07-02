@@ -33,6 +33,13 @@
     color: #eee;
     margin-top: .25rem;
     padding: .5rem;
+    &[data-visible='false'] {
+      display: none;
+    }
+    &[data-enabled='false'] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 
   .citizen-icon img {
