@@ -351,12 +351,13 @@ class Templates {
     return economyScreen;
   }
 
-  createBuildingsScreen() {
+  createBuildingsScreen(resources:Collection<Resource>) {
     let buildingsScreen = `
       <section class='screen buildings-screen' id='buildings'>
         <h2><img src='img/buildings.png'> Buildings</h2>
         <section class='buildings-screen-inner'>
           <div class='panel buildings-mode'>
+            <span class='prod-wrapper'><span class='prod-total'>${resources.get('prod').total}</span> <img src='img/prod.png'></span>
             <button class='purchase-mode-btn hidden'>Purchase Mode</button>
           </div>
         </section>
