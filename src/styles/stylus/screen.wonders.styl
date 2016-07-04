@@ -17,6 +17,11 @@
     color: #eee;
     margin: .5rem;
     padding: .5rem;
+    &[data-visible='false']
+      display: none;
+    &[data-enabled='false']
+      pointer-events: none;
+      opacity: 0.5;
   .wonder-image img
     height: 3rem;
     margin-left: 2rem;

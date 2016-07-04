@@ -3,8 +3,11 @@ class Wonder {
   img: string;
   buildTime: number;
   remainingTime: number;
+  visible: boolean;
+  enabled: boolean;
   description: string;
   effect: string;
+  checkFunc: Function;
   func: Function;
 
   getImg():string {
@@ -15,13 +18,16 @@ class Wonder {
     return `%${(this.remainingTime / this.buildTime) * 100}`;
   }
 
-  constructor(name: string, img: string, buildTime: number, remainingTime: number, description: string, effect: string, func: Function = function () {}) {
+  constructor(name: string, img: string, buildTime: number, remainingTime: number, visible: boolean, enabled: boolean, description: string, effect: string, checkFunc: Function = function () { return false; }, func: Function = function () {}) {
     this.name = name;
     this.img = img;
     this.buildTime = buildTime;
     this.remainingTime = remainingTime;
+    this.visible = visible;
+    this.enabled = enabled;
     this.description = description;
     this.effect = effect;
+    this.checkFunc = checkFunc;
     this.func = func;
   }
 }
