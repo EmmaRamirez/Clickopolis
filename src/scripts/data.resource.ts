@@ -16,6 +16,6 @@ let horse:Resource = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies...I me
 let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'There\'s vomit on his sweater already.', false, true);
 let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark! Woof! Bark!', false, true);
 
-let resources:Collection = new Collection('Resources', [food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
+let resources:Collection<Resource> = new Collection('Resources', [food, prod, stone, fish, spices, banana, gold, gems, oil, iron, uranium, chihuahua, spaghetti, horse]);
 
 export = resources;
