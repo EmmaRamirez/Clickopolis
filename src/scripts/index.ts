@@ -109,10 +109,6 @@ function bindElement(node:string, eventType:string, callback:Function) {
   });
 }
 
-function hideElement(element:HTMLElement) {
-  element = <HTMLElement>element;
-  element.classList.add('hidden');
-}
 
 function removeElement(element:HTMLElement) {
   element = <HTMLElement>element;
@@ -268,7 +264,7 @@ function updatePopulation(pop:number) {
   let populationText = document.querySelector('.population-text');
 
   playerCiv.population += pop;
-  playerCiv.populationGrowthCost = Math.round((playerCiv.populationGrowthCost * 1.2) + playerCiv.population);
+  playerCiv.populationGrowthCost = Math.round((playerCiv.populationGrowthCost) + playerCiv.population);
 
   populationText.textContent = playerCiv.population.toString();
   popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
@@ -493,7 +489,7 @@ function populateWonders():void {
   for (let i = 0; i < wonders.items.length; i++) {
     let w = wonders.items[i];
     wondersContainer.innerHTML += `
-      <div class='wonder' data-id='${i}' data-wonder='${w.name}'>
+      <div class='wonder' data-id='${i}' data-wonder='${w.name}' data-visible='${w.visible}' data-enabled='${w.enabled}'>
         <div class='wonder-image'>
           <span class='wonder-image'><img src='${w.getImg()}'></span>
           <span class='btn btn-build-wonder'>Build (${u.time(w.buildTime)})</span>
@@ -670,6 +666,26 @@ function buildingClick() {
   });
 }
 
+function WonderClick() {
+  let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
+
+  [].forEach.call(wonderEls, function (item:any, index:number) {
+    item.addEventListener('click', function () {
+      let wonder = item.getAttribute('data-wonder');
+      let wonderCheck = wonders.get(wonder).checkFunc(resources);
+      if (wonderCheck) {
+        if (wonders.get(wonder).buildTime === wonders.get(wonder).remainingTime) {
+          notify({message: `Work has begun on the ${wonders.get(wonder).name}`});
+        } else {
+          notify({message: `You can't restart work on a wonder!`});
+        }
+      } else {
+        notify({message: `You don't have the prerequisites to build ${wonders.get(wonder).name}`});
+      }
+    });
+  });
+}
+
 function techClick() {
   let techEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.tech');
   [].forEach.call(techEls, function (item:any) {
@@ -722,7 +738,7 @@ function purchaseTech(tech:string, element:HTMLElement) {
   playerCiv.research -= playerCiv.researchCost;
   playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
-  techs.get(tech).func(citizens, resources, playerCiv, buildings);
+  techs.get(tech).func(citizens, resources, playerCiv, buildings, wonders);
 }
 
 
