@@ -3,6 +3,7 @@ import Collection = require('./collection');
 import Citizen = require('./citizen');
 import Resource = require('./resource')
 import Building = require('./building');
+import Wonder = require('./wonder');
 import Civilization = require('./civilization');
 import Utils = require('./utils');
 
@@ -33,6 +34,8 @@ let animalHusbandry:Tech = new Tech(
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
     u.unlockResource('horse', resources);
+    citizens.get('farmer').contrib1.amount *= 1.15;
+    citizens.get('farmer').contrib2.amount *= 1.15;
   }
 );
 let archery:Tech = new Tech(
@@ -45,8 +48,9 @@ let archery:Tech = new Tech(
     '<img src="img/plus.png"> +5 Empire <img src="img/defense.png">'
   ],
   ['military', 'buildings'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization) {
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     playerCiv.defense += 5;
+    u.unlockBuilding('barracks', buildings);
   }
 );
 let fishing:Tech = new Tech(
@@ -85,8 +89,9 @@ let masonry:Tech = new Tech(
     '<img src="img/plus.png"> Can build Quarry'
   ],
   ['buildings', 'wonder'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockBuilding('Quarry', buildings);
+    u.unlockWonder('The Great Pyramids', wonders);
   }
 );
 let mining:Tech = new Tech(
@@ -116,8 +121,10 @@ let mysticism:Tech = new Tech(
     '<img src="img/plus.png"> Can build the Stonehenge wonder'
   ],
   ['faith', 'citizens', 'wonder'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
+    u.unlockCitizen('cleric', citizens);
     u.unlockBuilding('Temple', buildings);
+    u.unlockWonder('Stonehenge', wonders);
   }
 );
 let pottery:Tech = new Tech(
