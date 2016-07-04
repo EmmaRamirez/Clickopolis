@@ -2,6 +2,7 @@ import Collection = require('./collection');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
 import Building = require('./building');
+import Wonder = require('./wonder');
 
 class Utils {
   abbrNum (number:any, decPlaces:number = 2):string {
@@ -47,6 +48,11 @@ class Utils {
       return <NodeListOf<HTMLElement>>document.querySelectorAll(query);
   }
 
+  hideElement(element:HTMLElement) {
+    element = <HTMLElement>element;
+    element.classList.add('hidden');
+  }
+
   once(fn: Function, context:any):Function {
     let result:Function;
     return function() {
@@ -84,6 +90,12 @@ class Utils {
     elt.setAttribute('data-visible', 'true');
   }
 
+  showWonder(wonder:string, wonders:Collection<Wonder>):void {
+    wonders.get(wonder).visible = true;
+    let elt = this.elt('[data-building="' + wonder + '"]');
+    elt.setAttribute('data-visible', 'true');
+  }
+
   time(d:number):string {
     let h = Math.floor(d / 3600);
     let m = Math.floor(d % 3600 / 60);
@@ -107,6 +119,12 @@ class Utils {
     // NOTES: this needs to be streamlined~
     resources.get(resource).unlocked = true;
     let elt = this.elt('[data-resource="' + resource + '"]');
+    elt.setAttribute('data-unlocked', true);
+  }
+
+  unlockWonder(wonder:string, wonders:Collection<Wonder>):void {
+    wonders.get(wonder).unlocked = true;
+    let elt = this.elt('[data-wonder="' + wonder + '"]');
     elt.setAttribute('data-unlocked', true);
   }
 
