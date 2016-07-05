@@ -123,9 +123,9 @@ class Utils {
   }
 
   unlockWonder(wonder:string, wonders:Collection<Wonder>):void {
-    wonders.get(wonder).unlocked = true;
+    wonders.get(wonder).enabled = true;
     let elt = this.elt('[data-wonder="' + wonder + '"]');
-    elt.setAttribute('data-unlocked', true);
+    elt.setAttribute('data-enabled', true);
   }
 
 }
