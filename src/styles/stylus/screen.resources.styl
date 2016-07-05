@@ -35,6 +35,12 @@
       background: darken($green, 10%);
       //@extend %transition-s;
     }
+    &:active {
+      background: darken($green, 20%);
+      img {
+        transform: rotate(-45deg);
+      }
+    }
   }
   .prod-btn {
     background: $yellow;
@@ -42,6 +48,12 @@
     &:hover {
       background: darken($yellow, 10%);
       //@extend %transition-s;
+    }
+    &:active {
+      background: darken($yellow, 20%);
+      img {
+        transform: rotate(45deg);
+      }
     }
   }
   .location-panel {
