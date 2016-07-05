@@ -23,6 +23,8 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 
 ### 0.9.0 &mdash; Androids Do Dream
 - Implements the Information Era
+- Implements `Cyber Warfare`
+- Introduces new Automation modes
 
 ### 0.8.0 &mdash; A-Bombs & B-planes
 - Introduces Nuclear Warfare
@@ -45,6 +47,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 
 ### 0.4.0 &mdash; A Diplomatic Entanglement
 - Implements `Diplomacy` and the `influence` mechanic
+- Introduces `Diplomat` citizen
 - Introduces new Nations
 - Implements `Trade Routes` & `Trade Deals`
 - Implements the Renaissance Era
@@ -55,6 +58,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Introduces the `Alpha` and `Omega` cults
   - New Alpha/Omega specific resources, techs, & upgrades
 - Implements the Medieval Era
+- Implements `Spies` & `Espionage`
 
 ### 0.2.0 &mdash; An Empire of the Arts
 - Implements `Culture`, `Cultural Upgrades`, and `Great Works.`
