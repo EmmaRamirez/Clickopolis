@@ -1,0 +1,35 @@
+.menu-screen {
+  background: #333;
+  padding: 1rem !important;
+  position: relative;
+  width: 300px !important;
+  h3 {
+    color: #eee;
+    text-align: center;
+  }
+  ul {
+    color: #eee;
+    font-size: 1.25rem;
+    list-style-type: none;
+    padding: 0;
+    li {
+      border-bottom: 1px solid #222;
+      padding: .5rem;
+      &:nth-of-type(1) {
+        border-top: 1px solid #222;
+      }
+      &:hover {
+        background: #111;
+        transition: 500ms all;
+      }
+      img {
+        height: 1.5rem;
+      }
+      a {
+        color: inherit;
+        display: block;
+        text-decoration: none;
+      }
+    }
+  }
+}

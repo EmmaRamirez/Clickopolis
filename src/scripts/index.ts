@@ -103,7 +103,7 @@ function append(node:any, html:string) {
 
 function bindElement(node:string, eventType:string, callback:Function) {
   let el = <HTMLElement>document.querySelector(node);
-  el.addEventListener(eventType, function( event ) {
+  el.addEventListener(eventType, function (event:Event) {
     //console.log(callback)
     return callback();
   });
@@ -115,6 +115,9 @@ function removeElement(element:HTMLElement) {
   element.remove();
 }
 
+function newEra(era:string) {
+  // Stuff goes here to introduce new era
+}
 
 
 function startGame() {
@@ -200,7 +203,7 @@ function createGameUI() {
   //append('body', templates.resourcesScreen);
 
   bindElement('.food-btn', 'click', function () {
-    event.preventDefault();
+    //event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     if (resources.get('food').total === 10) {
       notify({message: 'Yay! You have enough <img src="img/food.png"> to grow your population!'});
@@ -210,7 +213,7 @@ function createGameUI() {
   });
 
   bindElement('.prod-btn', 'click', function () {
-    event.preventDefault();
+    //event.preventDefault();
     addClickToTotal('.r-prod-total', 'prod');
 
     if (resources.get('prod').total === 15) {
@@ -222,7 +225,7 @@ function createGameUI() {
   resourceClick();
 
   bindElement('.pop-btn', 'click', function () {
-    event.preventDefault();
+    //event.preventDefault();
 
     resources.get('food').total -= playerCiv.populationGrowthCost;
     resources.get('food').perSecond -= 1;
@@ -275,7 +278,7 @@ function updatePopulation(pop:number) {
   playerCiv.pollution += pop * 1;
 
   //elt('.research-text').textContent = playerCiv.research.toString();
-  u.elt('.cash-from-citizens').textContent = playerCiv.population * 2;
+  u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
   u.elt('.civ-anger-text').textContent = playerCiv.anger;
   u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
@@ -316,6 +319,7 @@ setInterval(function() {
     checkBuildingCosts();
     renderHistory(history);
     setInfluenceImage();
+    u.elt('.research-PM').textContent = playerCiv.researchPM;
   }
 }, 1000);
 
@@ -330,6 +334,7 @@ setInterval(function() {
 
 function drawUI(el:HTMLElement) {
   el.innerHTML =  templates.createScreenHeader(playerCiv, game) +
+                  templates.createMenuScreen() +
                   templates.createResourcesScreen(playerCiv, resources) +
                   templates.createCivilizationScreen(playerCiv) +
                   templates.createCitizenScreen(playerCiv, citizens) +
@@ -474,7 +479,7 @@ function populateBuildings() {
   }
 }
 
-//name: string;
+// name: string;
 // img: string;
 // buildTime: number;
 // remainingTime: number;
@@ -532,9 +537,15 @@ function addGoldenAgePoints() {
   playerCiv.goldenAgeProgress += goldenAgePoints;
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 
-  let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
-  let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
-  goldenAgeMeter.style.background = bgString;
+  if (goldenAgePoints > 0) {
+    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
+    let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
+    goldenAgeMeter.style.background = bgString;
+  } else {
+    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
+    let bgString:string = u.progressBar(goldenAgePercent, '#CC0000', '#CC0000');
+    goldenAgeMeter.style.background = bgString;
+  }
 }
 
 function addResearchPoints() {
@@ -676,6 +687,7 @@ function WonderClick() {
       if (wonderCheck) {
         if (wonders.get(wonder).buildTime === wonders.get(wonder).remainingTime) {
           notify({message: `Work has begun on the ${wonders.get(wonder).name}`});
+
         } else {
           notify({message: `You can't restart work on a wonder!`});
         }
@@ -739,8 +751,12 @@ function purchaseTech(tech:string, element:HTMLElement) {
   playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
   techs.get(tech).func(citizens, resources, playerCiv, buildings, wonders);
+  eraCheck();
 }
 
+function eraCheck() {
+  
+}
 
 function renderHistory(history:string[]) {
   if (typeof history != 'undefined') {
@@ -767,6 +783,7 @@ function checkPopulationGrowthCost() {
     return true;
   }
 }
+
 
 function UiSettingsButtons() {
   u.elt('.grid-button').addEventListener('click', function () {

@@ -84,6 +84,32 @@ class Templates {
     </section>
   `;
 
+  createMenuScreen() {
+    let menuScreen = `
+      <section class='screen menu-screen' id='menu'>
+        <section class='menu-screen-inner'>
+          <h3>menu</h3>
+          <ul>
+            <li><a href='#resources'><img src='img/resources.png'> Resources</a></li>
+            <li><a href='#civilization'><img src='img/empire.png'> Civilization</a></li>
+            <li><a href='#citizens'><img src='img/citizens.png'> Citizens</a></li>
+            <li><a href='#economy'><img src='img/economy.png'> Economy</a></li>
+            <li><a href='#buildings'><img src='img/buildings.png'> Buildings</a></li>
+            <li><a href='#wonders'><img src='img/wonder.png'> Wonders</a></li>
+            <li><a href='#technology'><img src='img/research.png'> Technology</a></li>
+            <li><a href='#diplomacy'><img src='img/diplomacy.png'> Diplomacy</a></li>
+            <li><a href='#espionage'><img src='img/espionage.png'> Espionage</a></li>
+            <li><a href='#military'><img src='img/military.png'> Military</a></li>
+            <li><a href='#culture'><img src='img/culture.png'> Culture</a></li>
+            <li><a href='#faith'><img src='img/faith.png'> Faith</a></li>
+            <li><a href='#history'><img src='img/history.png'> History</a></li>
+          </ul>
+        </section>
+      </section>
+    `;
+    return menuScreen;
+  }
+
   createResourcesScreen(playerCiv:Civilization, resources:Collection<Resource>) {
     let resourcesScreen = `
       <section class='screen resources-screen' id='resources'>
@@ -279,6 +305,7 @@ class Templates {
           <div class='panel population-panel'>
             <button class='pop-btn'>+1 Population (<img src='img/food.png'> <span class='pop-growth-cost'>${playerCiv.populationGrowthCost}</span>)</button>
             <span class='civ-metric metric-population' title='${playerCiv.populationReal + ' people'}'>Population: <img src='img/citizen.png'> <span class='population-text'>${playerCiv.population}</span></span>
+            <span class='civ-metric metric-land'>${playerCiv.land} km <img src='img/land.png'></span>
           </div>
           <div class='panel civ-metric-panel'>
             <span class='civ-metric metric-happiness'>
@@ -398,6 +425,9 @@ class Templates {
       <section class='screen technology-screen' id='technology'>
         <h2><img src='img/research.png'> Technology</h2>
         <section class='technology-screen-inner'>
+          <div class='research-PM-wrapper' title='The amount of research points you produce per minute.'>
+            <span class='research-PM'>${playerCiv.researchPM}</span> <img src='img/research.png'> PM</span>
+          </div>
           <div class='tech-queue'>
             <div>Queue: </div>
           </div>
@@ -407,7 +437,7 @@ class Templates {
           <div class='research-progress-bar'></div>
           <span class='research-cost-text r-text'>${playerCiv.researchCost}</span>
         </section>
-        <section class='technology-screen-inner search'>
+        <section class='technology-screen-inner search hidden'>
           <input type='search' placeholder='filter...'>
           <span class='research-filters'>
             <label><input type='checkbox'>Show Unavailable Techs</label><br>
