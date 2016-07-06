@@ -78,6 +78,25 @@ class Utils {
     return randomColor;
   }
 
+  setContributions(c:Citizen):string {
+    let d:string;
+    if (c.descriptionOverride) {
+      d = `<span>${c.description}</span>`;
+    } else {
+      if (typeof c.contrib2.amount === 'undefined') {
+        d = `
+          <span>${c.contrib1.amount > 0 ? '+' : ''}${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod} </span>
+        `;
+      } else {
+        d = `
+          <span>${c.contrib1.amount > 0 ? '+' : ''}${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod}, </span>
+          <span>${c.contrib2.amount > 0 ? '+' : ''}${c.contrib2.amount} <img src="img/${c.contrib2.name}.png"> ${c.contrib2.mod}</span>
+        `;
+      }
+    }
+    return d;
+  }
+
   showBuilding(building:string, buildings:Collection<Building>):void {
     buildings.get(building).visible = true;
     let elt = this.elt('[data-building="' + building + '"]');
