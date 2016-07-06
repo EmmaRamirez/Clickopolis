@@ -10,6 +10,7 @@ import Utils = require('./utils');
 import Game = require('./game');
 import Settings = require('./settings');
 import Collection = require('./collection');
+import Era = require('./era');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
@@ -46,6 +47,7 @@ let templates:Templates = new Templates();
 
 let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
+let debugMode:boolean = false;
 
 
 window.addEventListener('focus', function () {
@@ -430,28 +432,14 @@ function populateCitizens() {
 
   for (let i = 0; i < citizens.items.length; i++) {
     let c = citizens.items[i];
-    let d:string;
-    if (c.descriptionOverride) {
-      d = `<span>${c.description}</span>`;
-    } else {
-      if (typeof c.contrib2.amount === 'undefined') {
-        d = `
-          <span>${c.contrib1.amount > 0 ? '+' : ''}${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod} </span>
-        `;
-      } else {
-        d = `
-          <span>${c.contrib1.amount > 0 ? '+' : ''}${c.contrib1.amount} <img src="img/${c.contrib1.name}.png"> ${c.contrib1.mod}, </span>
-          <span>${c.contrib2.amount > 0 ? '+' : ''}${c.contrib2.amount} <img src="img/${c.contrib2.name}.png"> ${c.contrib2.mod}</span>
-        `;
-      }
-    }
+    //let d:string;
     citizensContainer.innerHTML += `
     <div class='row citizen-${c.name}' data-visible='${c.visible}' data-enabled='${c.enabled}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
       <span class='citizen-icon'><img src='img/${c.image}.png'></span>
       <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
       <span class='citizen-info'>
-        ${u.capitalize(c.name + 's')}: <strong class='${c.name}-num-text'>${c.amount}</strong> | ${d}
+        ${u.capitalize(c.name + 's')}: <strong class='${c.name}-num-text'>${c.amount}</strong> | <span class='contrib' data-citizen='${c.name}'>${u.setContributions(c) }</span>
       </span>
     </div>
     `;
@@ -721,7 +709,7 @@ function startBuildingWonder(wonder:Wonder) {
       notify({message: `You completed the ${wonder.name}!`});
       wonder.func(playerCiv);
       btnBuildWonder.textContent = 'COMPLETE';
-      history.push(log({year: game.year, message: `${playerCiv.civName} finished work on ${wonder.name}`, categoryImage: 'wonder'}));
+      history.push(log({year: game.year, message: `${playerCiv.civName} finished work on ${wonder.name}!`, categoryImage: 'wonder'}));
       clearInterval(intervalID);
     }
   }
@@ -777,21 +765,32 @@ function purchaseTech(tech:string, element:HTMLElement) {
     u.elt('[data-tech="' + tech + '"]').setAttribute('data-purchased', 'true');
   }
   playerCiv.research -= playerCiv.researchCost;
-  playerCiv.researchCost = Math.floor(((playerCiv.population * 4) + playerCiv.researchCost * .8));
+  playerCiv.researchCost = Math.floor(((playerCiv.population * 3) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
   techs.get(tech).func(citizens, resources, playerCiv, buildings, wonders);
   eraCheck();
 }
 
 function eraCheck() {
-  if (techs.get('agriculture').purchased && techs.get('animalHusbandry').purchased && techs.get('sailing').purchased) {
-    game.era = 1;
-    triggerEra(1);
+  if (100 === 99) {
+    game.era = Era.Classical;
+    triggerEra();
   }
 }
 
-function triggerEra(era:number) {
-
+function triggerEra() {
+  u.elt('body').innerHTML += `
+    <div class='overlay overlay-era'>
+      <div class='modal modal-era era-${game.era}'>
+        <h1>Welcome to the ${game.era} Era!</h1>
+        <button class='btn-era large-btn'>Continue</button>
+      </div>
+    </div>
+  `;
+  u.elt('.btn-era').addEventListener('click', function () {
+    removeElement(u.elt('.overlay-era'));
+    //this.remove();
+  });
 }
 
 function renderHistory(history:string[]) {
