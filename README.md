@@ -63,6 +63,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 ### 0.2.0 &mdash; An Empire of the Arts
 - Implements `Faith` and `Faith Bonuses`
 - Implements `Legacy` bonuses
+- Implements (part of) `Achievements`
 - Implements the Classical Era
   - New Technologies
   - New Buildings
