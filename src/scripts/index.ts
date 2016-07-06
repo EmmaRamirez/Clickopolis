@@ -328,7 +328,6 @@ setInterval(function() {
   if (isWindowActive) {
      updateYear();
      checkUnemployed();
-     history.push(`<div class='log'><strong>${game.year} AC</strong>: The year was logged.`);
 
   }
 }, 1000 * 60);
@@ -718,11 +717,11 @@ function startBuildingWonder(wonder:Wonder) {
   }, 1000);
 
   function stopTimer() {
-    if (wonder.remainingTime <= 0) {
+    if (wonder.remainingTime <= 1) {
       notify({message: `You completed the ${wonder.name}!`});
       wonder.func(playerCiv);
       btnBuildWonder.textContent = 'COMPLETE';
-      history.push(log({year: game.year, message: `${playerCiv.leaderName} finished work on the ${wonder.name}`, categoryImage: 'wonder'}));
+      history.push(log({year: game.year, message: `${playerCiv.civName} finished work on ${wonder.name}`, categoryImage: 'wonder'}));
       clearInterval(intervalID);
     }
   }
@@ -770,7 +769,7 @@ function techClick() {
 
 function purchaseTech(tech:string, element:HTMLElement) {
   notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
-  history.push(log({year: game.year, message: playerCiv.leaderName + ' discovered the ' + techs.get(tech).name + ' technology!', categoryImage: 'research'}));
+  history.push(log({year: game.year, message: playerCiv.civName + ' discovered ' + techs.get(tech).name + '!', categoryImage: 'research'}));
   techs.get(tech).purchased = true;
   if (typeof element != 'undefined') {
     element.setAttribute('data-purchased', 'true');
