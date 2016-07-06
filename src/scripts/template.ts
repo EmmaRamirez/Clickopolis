@@ -565,6 +565,22 @@ class Templates {
     return faithScreen;
   }
 
+  createLegacyScreen(playerCiv:Civilization) {
+    let legacyScreen = `
+      <section class='screen legacy-screen' id='legacy'>
+        <h2>
+          <img src='img/legacy.png'> Legacy
+        </h2>
+        <section class='legacy-screen-inner legacy'>
+          <div class='legacy-wrapper'>
+            <img src='img/legacy.png'> <span class='legacy-points'>${playerCiv.legacy}</span> Legacy Points
+          </div>
+        </section>
+      </section>
+    `;
+    return legacyScreen;
+  }
+
   createHistoryScreen(playerCiv:Civilization) {
     let historyScreen = `
       <section class='screen history-screen' id='history'>
