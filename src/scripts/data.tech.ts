@@ -15,7 +15,7 @@ let agriculture:Tech = new Tech(
   'The one that never goes obsolete.',
   [
     '<img src="img/plus.png"> +.2 <img src="img/food.png"> PS per <img src="img/farmer.png">',
-    '<img src="img/plus.png"> Unlocks: Animal Husbandry, Archery, Fishing'
+    '<img src="img/key.png"> Leads To: Animal Husbandry, Archery, Fishing, Mysticism'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>) {
@@ -30,7 +30,8 @@ let animalHusbandry:Tech = new Tech(
   'It\'s not what you think it is.',
   [
     '<img src="img/plus.png"> Unlocks <img src="img/horse.png"> resource',
-    '<img src="img/plus.png"> Improves <img src="img/farmer.png"> output by 15%'
+    '<img src="img/plus.png"> Improves <img src="img/farmer.png"> output by 15%',
+    '<img src="img/key.png"> Leads To: Horseback Riding'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
@@ -47,7 +48,8 @@ let archery:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can assign Soldiers as Archers.',
     '<img src="img/plus.png"> Can build Barracks',
-    '<img src="img/plus.png"> +5 Empire <img src="img/defense.png">'
+    '<img src="img/plus.png"> +5 Empire <img src="img/defense.png">',
+    '<img src="img/key.png"> Leads To: War Strategy'
   ],
   ['military', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -61,7 +63,7 @@ let fishing:Tech = new Tech(
   'Just make sure to use a Super Rod.',
   [
     '<img src="img/plus.png"> Unlocks <img src="img/fish.png"> resource',
-    '<img src="img/plus.png"> Unlocks: Sailing'
+    '<img src="img/key.png"> Leads To: Herbal Medicine, Sailing'
   ],
   ['resources'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
@@ -88,7 +90,8 @@ let masonry:Tech = new Tech(
   'Illuminati-approved.',
   [
     '<img src="img/plus.png"> Can build The Great Pyramids wonder',
-    '<img src="img/plus.png"> Can build Quarry'
+    '<img src="img/plus.png"> Can build Quarry',
+    '<img src="img/key.png"> Leads To: Pottery, Construction'
   ],
   ['buildings', 'wonder'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
@@ -103,7 +106,7 @@ let mining:Tech = new Tech(
   [
     '<img src="img/plus.png"> +.2 <img src="img/prod.png"> PS per <img src="img/miner.png">',
     '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/gems.png"> resources',
-    '<img src="img/plus.png"> Unlocks: Masonry, Pottery'
+    '<img src="img/key.png"> Leads To: Construction, Iron Working'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
@@ -122,7 +125,8 @@ let mysticism:Tech = new Tech(
     '<img src="img/plus.png"> Can assign <img src="img/cleric.png"> Clerics',
     '<img src="img/plus.png"> Can build Temples',
     '<img src="img/plus.png"> Can build Graveyard',
-    '<img src="img/plus.png"> Can build the Stonehenge wonder'
+    '<img src="img/plus.png"> Can build the Stonehenge wonder',
+    '<img src="img/key.png"> Leads To: Calendar, Philosophy'
   ],
   ['faith', 'citizens', 'wonder'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
@@ -137,7 +141,8 @@ let pottery:Tech = new Tech(
   'ancient',
   'Does not come with Pottery Barn discount.',
   [
-    '<img src="img/plus.png"> Can build Granary'
+    '<img src="img/plus.png"> Can build Granary',
+    '<img src="img/key.png"> Leads To: Poetics'
   ],
   ['culture', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -150,10 +155,23 @@ let sailing:Tech = new Tech(
   'It\'s a lot harder to sail if you stay at half-mast!',
   [
     '<img src="img/plus.png"> Grants 5 free <img src="img/fish.png">',
-    '<img src="img/plus.png"> Can assign soldiers as Navy',
-    '<img src="img/plus.png"> Can meet Coastal and Oceanic Nations'
+    '<img src="img/plus.png"> Can meet Coastal and Oceanic Nations',
+    '<img src="img/key.png"> Leads To: Shipbuilding'
   ],
   ['military', 'civilization', 'diplomacy']
+);
+let theWheel:Tech = new Tech(
+  'the wheel',
+  'ancient',
+  '🚗 HONK!',
+  [
+    '<img src="img/plus.png"> +1 Trade Route <img src="img/trade.png">',
+    '<img src="img/key.png"> Leads To: Trading, Horseback Riding'
+  ],
+  ['economy'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
 );
 let trading:Tech = new Tech(
   'trading',
@@ -161,7 +179,7 @@ let trading:Tech = new Tech(
   'My six chickens for your goat?',
   [
     '<img src="img/plus.png"> Unlocks Bartering Economic System',
-    '<img src="img/plus.png"> Can assign Merchants'
+    '<img src="img/plus.png"> Can assign Merchants',
   ],
   ['economy', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -175,7 +193,8 @@ let woodworking:Tech = new Tech(
   [
     '<img src="img/plus.png"> Unlocks <img src="img/spices.png"> resource',
     '<img src="img/plus.png"> Can assign Woodcutters',
-    '<img src="img/plus.png"> Can build Fort'
+    '<img src="img/plus.png"> Can build Fort',
+    '<img src="img/key.png"> Leads To: Construction, Shipbuilding'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -190,7 +209,8 @@ let writing:Tech = new Tech(
   'Allows poorly written fanfiction in Information era.',
   [
     '<img src="img/plus.png"> Can build Ziggurat',
-    '<img src="img/plus.png"> +100 <img src="img/research.png"> for discovery'
+    '<img src="img/plus.png"> +100 <img src="img/research.png"> for discovery',
+    '<img src="img/key.png"> Leads To: Mathematics, Philosophy, Poetics, War Strategy'
   ],
   ['buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -204,7 +224,8 @@ let calendar:Tech = new Tech(
   'What time is it? Oh, just let me check my sundial.',
   [
     '<img src="img/plus.png"> Unlocks <img src="img/banana.png"> resource',
-    '<img src="img/plus.png"> Can build Plantation'
+    '<img src="img/plus.png"> Can build Plantation',
+    '<img src="img/key.png"> Leads To: Theology'
   ],
   ['buildings', 'resources'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -217,6 +238,8 @@ let construction:Tech = new Tech(
   'The wall just got ten feet higher.',
   [
     '<img src="img/plus.png"> Can build Walls',
+    '<img src="img/plus.png"> Can build Collesseum',
+    '<img src="img/key.png"> Leads To: Engineering, Machinery, Milling & Paper'
   ],
   ['buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -242,7 +265,8 @@ let ironWorking:Tech = new Tech(
   'Strike it while it\'s hot. Ouch! Too hot.',
   [
     '<img src="img/plus.png"> Unlocks <img src="img/iron.png"> resource',
-    '<img src="img/plus.png"> Can assign Soldiers as Spearmen'
+    '<img src="img/plus.png"> Can assign Soldiers as Spearmen',
+    '<img src="img/key.png"> Leads To: Machinery, Metal Casting'
   ],
   ['resources', 'military'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -254,7 +278,9 @@ let irrigation:Tech = new Tech(
   'classical',
   'Oh, great, another joke about irrigation.',
   [
-    '<img src="img/plus.png"> +2k Max <img src="img/food.png">',
+    '<img src="img/plus.png"> Granary gains x10 capacity',
+    '<img src="img/plus.png"> Improves <img src="img/farmer.png"> output by 20%',
+    '<img src="img/key.png"> Leads To: Crop Rotation'
   ],
   ['resources'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -267,8 +293,9 @@ let mathematics:Tech = new Tech(
   'I\'ve got 9.94987437^2 problems, but exponentiation ain\'t one.',
   [
     '<img src="img/plus.png"> Doubles <img src="img/defense.png"> of Fort',
+    '<img src="img/key.png"> Leads To: Engineering, Machinery, Physics'
   ],
-  ['resources'],
+  ['buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
 
   }
@@ -279,7 +306,7 @@ let philosophy:Tech = new Tech(
   'But really, what <i>is</i> a technology?',
   [
     '<img src="img/plus.png"> Can build Forum',
-    '<img src="img/plus.png"> Can assign Scientists'
+    '<img src="img/key.png"> Leads To: War Strategy, Education, Theology'
   ],
   ['research', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -291,8 +318,9 @@ let poetics:Tech = new Tech(
   'classical',
   'Poetics: lyrical pyrotechnics, lexical kinetics.',
   [
-    '<img src="img/plus.png"> Improves <img src="img/artist.png"> by 100%',
-    '<img src="img/plus.png"> Can build Ampitheatre'
+    '<img src="img/plus.png"> Can assign <img src="img/artist.png"> Artist',
+    '<img src="img/plus.png"> Can build Ampitheatre',
+    '<img src="img/key.png"> Leads To: Civility, Theology'
   ],
   ['culture', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -305,10 +333,10 @@ let shipbuilding:Tech = new Tech(
   'This tech harbors some neat bonuses.',
   [
     '<img src="img/plus.png"> Can build Harbor',
-    '<img src="img/plus.png"> +2k Max <img src="img/prod.png">',
-    '<img src="img/plus.png"> Can assign soldiers as Navy'
+    '<img src="img/plus.png"> Can assign soldiers as Navy',
+    '<img src="img/key.png"> Leads To: Optics'
   ],
-  ['buildings', 'resources', 'military'],
+  ['buildings', 'military'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
 
   }
@@ -318,7 +346,8 @@ let warStrategy:Tech = new Tech(
   'classical',
   'Ambush mofos! -- Sun Tzu',
   [
-    '<img src="img/plus.png"> +1 free General'
+    '<img src="img/plus.png"> +1 free General',
+    '<img src="img/key.png"> Leads To: Gunpowder'
   ],
   ['military'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -329,7 +358,7 @@ let warStrategy:Tech = new Tech(
 
 let techs:Collection<Tech> = new Collection('Techs',
     [
-      agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, pottery, sailing, trading, woodworking, writing,
+      agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, pottery, sailing, theWheel, trading, woodworking, writing,
       calendar, construction, horsebackRiding, ironWorking, irrigation, mathematics, philosophy, poetics, shipbuilding, warStrategy
     ]
   );
