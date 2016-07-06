@@ -242,9 +242,10 @@ let construction:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build Walls',
     '<img src="img/plus.png"> Can build Collesseum',
+    '<img src="img/plus.png"> Improves <img src="img/miner.png"> output by 100%',
     '<img src="img/key.png"> Leads To: Irrigation, Engineering, Machinery, Milling'
   ],
-  ['buildings'],
+  ['buildings', 'citizens', 'resources'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
 
   }
