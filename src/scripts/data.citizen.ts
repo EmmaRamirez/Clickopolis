@@ -48,6 +48,6 @@ let scientist:Citizen = new Citizen('scientist', 'scientist', '#83D4D4', 0, 'Sce
 
 });
 
-let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, scientist]);
+let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, merchant, scientist]);
 
 export = citizens;
