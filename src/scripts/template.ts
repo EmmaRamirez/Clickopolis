@@ -105,6 +105,7 @@ class Templates {
             <li><a href='#legacy'><img src='img/legacy.png'> Legacy</a></li>
             <li><a href='#history'><img src='img/history.png'> History</a></li>
             <li><a href='#settings'><img src='img/settings.png'> Settings</a></li>
+            <li id='clear-local-storage'><a href='#'><img src='img/trash.png'> Clear Local Storage</a></li>
           </ul>
         </section>
       </section>

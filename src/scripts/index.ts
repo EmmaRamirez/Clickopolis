@@ -241,6 +241,10 @@ function createGameUI() {
 
   });
 
+  bindElement('#clear-local-storage', 'click', function () {
+    store.clear();
+  });
+
   setInfluenceImage();
 
   populateTechnologies();
@@ -348,7 +352,7 @@ function drawUI(el:HTMLElement) {
                   //templates.createMilitaryScreen(playerCiv) +
                   //templates.createCultureScreen(playerCiv) +
                   //templates.createFaithScreen(playerCiv) +
-                  templates.createLegacyScreen(playerCiv) + 
+                  templates.createLegacyScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv);
                   //templates.createSettingsScreen(playerCiv, game);
 }
