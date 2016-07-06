@@ -15,7 +15,8 @@ let agriculture:Tech = new Tech(
   'The one that never goes obsolete.',
   [
     '<img src="img/plus.png"> +.2 <img src="img/food.png"> PS per <img src="img/farmer.png">',
-    '<img src="img/key.png"> Leads To: Animal Husbandry, Archery, Fishing, Mysticism'
+    '<img src="img/key.png"> Leads To: Animal Husbandry, Archery, Fishing',
+    '<img src="img/key.png"> Leads To: Mining, Mysticism, The Wheel'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>) {
@@ -24,6 +25,7 @@ let agriculture:Tech = new Tech(
     u.elt('.contrib[data-citizen="farmer"]').innerHTML = u.setContributions(citizens.get('farmer'));
   }
 );
+agriculture.enabled = true;
 let animalHusbandry:Tech = new Tech(
   'animal husbandry',
   'ancient',
@@ -31,7 +33,7 @@ let animalHusbandry:Tech = new Tech(
   [
     '<img src="img/plus.png"> Unlocks <img src="img/horse.png"> resource',
     '<img src="img/plus.png"> Improves <img src="img/farmer.png"> output by 15%',
-    '<img src="img/key.png"> Leads To: Horseback Riding'
+    '<img src="img/key.png"> Leads To: Woodworking, Horseback Riding'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
@@ -106,7 +108,7 @@ let mining:Tech = new Tech(
   [
     '<img src="img/plus.png"> +.2 <img src="img/prod.png"> PS per <img src="img/miner.png">',
     '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/gems.png"> resources',
-    '<img src="img/key.png"> Leads To: Construction, Iron Working'
+    '<img src="img/key.png"> Leads To: Masonry, Construction, Iron Working'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
@@ -142,7 +144,7 @@ let pottery:Tech = new Tech(
   'Does not come with Pottery Barn discount.',
   [
     '<img src="img/plus.png"> Can build Granary',
-    '<img src="img/key.png"> Leads To: Poetics'
+    '<img src="img/key.png"> Leads To: Writing, Poetics'
   ],
   ['culture', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -180,6 +182,7 @@ let trading:Tech = new Tech(
   [
     '<img src="img/plus.png"> Unlocks Bartering Economic System',
     '<img src="img/plus.png"> Can assign Merchants',
+    '<img src="img/key.png"> Leads To: Writing, Currency'
   ],
   ['economy', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -210,7 +213,7 @@ let writing:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build Ziggurat',
     '<img src="img/plus.png"> +100 <img src="img/research.png"> for discovery',
-    '<img src="img/key.png"> Leads To: Mathematics, Philosophy, Poetics, War Strategy'
+    '<img src="img/key.png"> Leads To: Mathematics, Philosophy, Poetics'
   ],
   ['buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
@@ -239,9 +242,24 @@ let construction:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build Walls',
     '<img src="img/plus.png"> Can build Collesseum',
-    '<img src="img/key.png"> Leads To: Engineering, Machinery, Milling & Paper'
+    '<img src="img/key.png"> Leads To: Irrigation, Engineering, Machinery, Milling'
   ],
   ['buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let currency:Tech = new Tech(
+  'currency',
+  'classical',
+  'Mo\' money, Mo\' techs',
+  [
+    '<img src="img/plus.png"> Can build Market',
+    '<img src="img/plus.png"> Can build Mint',
+    '<img src="img/plus.png"> Improves <img src="img/merchant.png"> output by 100%',
+    '<img src="img/key.png"> Leads To: Guilds'
+  ],
+  ['economy', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
 
   }
@@ -292,6 +310,7 @@ let mathematics:Tech = new Tech(
   'classical',
   'I\'ve got 9.94987437^2 problems, but exponentiation ain\'t one.',
   [
+    '<img src="img/plus.png"> Can build Courthouse',
     '<img src="img/plus.png"> Doubles <img src="img/defense.png"> of Fort',
     '<img src="img/key.png"> Leads To: Engineering, Machinery, Physics'
   ],
@@ -333,6 +352,7 @@ let shipbuilding:Tech = new Tech(
   'This tech harbors some neat bonuses.',
   [
     '<img src="img/plus.png"> Can build Harbor',
+    '<img src="img/plus.png"> Can build Lighthouse',
     '<img src="img/plus.png"> Can assign soldiers as Navy',
     '<img src="img/key.png"> Leads To: Optics'
   ],
@@ -359,7 +379,7 @@ let warStrategy:Tech = new Tech(
 let techs:Collection<Tech> = new Collection('Techs',
     [
       agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, pottery, sailing, theWheel, trading, woodworking, writing,
-      calendar, construction, horsebackRiding, ironWorking, irrigation, mathematics, philosophy, poetics, shipbuilding, warStrategy
+      calendar, construction, currency, horsebackRiding, ironWorking, irrigation, mathematics, philosophy, poetics, shipbuilding, warStrategy
     ]
   );
 
