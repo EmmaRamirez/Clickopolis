@@ -126,10 +126,6 @@ class Civilization {
     this.strength = 10;
     this.defense = 10;
   }
-
-
-
-
 }
 
 export = Civilization;
