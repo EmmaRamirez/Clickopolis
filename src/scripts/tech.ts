@@ -1,9 +1,10 @@
 class Tech {
   name: string;
   era: string;
-  available: boolean;
+  enabled: boolean;
   purchased: boolean;
   selected: boolean;
+  visible: boolean;
   prerequisite: Tech[];
   description: string;
   effects: string[];
@@ -17,9 +18,10 @@ class Tech {
     this.description = description;
     this.effects = effects;
 
-    this.available = false;
+    this.enabled = false;
     this.purchased = false;
     this.selected = false;
+    this.visible = true;
     this.categories = categories;
     this.func = func;
   }

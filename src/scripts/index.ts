@@ -353,7 +353,7 @@ function drawUI(el:HTMLElement) {
                   //templates.createCultureScreen(playerCiv) +
                   //templates.createFaithScreen(playerCiv) +
                   templates.createLegacyScreen(playerCiv) +
-                  templates.createAchievementsScreen(playerCiv) + 
+                  templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv);
                   //templates.createSettingsScreen(playerCiv, game);
 }
@@ -391,7 +391,7 @@ function populateTechnologies() {
     }
     let t = techs.items[i];
     technologies.innerHTML += `
-    <div class='tech' data-id='${i}' data-tech='${t.name}' data-selected=${t.selected} data-purchased=${t.purchased}>
+    <div class='tech' data-id='${i}' data-tech='${t.name}' data-enabled='${t.enabled}' data-visible='${t.visible}' data-selected=${t.selected} data-purchased=${t.purchased}>
       <span class='tech-name'>${t.name}</span>
       <span class='tech-description'>${t.description}</span>
       <ul class='tech-list'>
@@ -774,7 +774,86 @@ function purchaseTech(tech:string, element:HTMLElement) {
   playerCiv.researchCost = Math.floor(((playerCiv.population * 3) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
   techs.get(tech).func(citizens, resources, playerCiv, buildings, wonders);
+  checkEnabledTechs();
   eraCheck();
+}
+
+function checkEnabledTechs() {
+  let techEls = <NodeListOf<HTMLElement>>u.elt('.tech', true);
+  // if (techs.get('agriculture').purchased) {
+  //   techs.get('animal husbandry').enabled = true;
+  //   techs.get('archery').enabled = true;
+  //   techs.get('fishing').enabled = true;
+  //   techs.get('mysticism').enabled = true;
+  //   techs.get('the wheel').enabled = true;
+  // }
+
+  unlockTech('agriculture', ['animal husbandry', 'archery', 'fishing', 'mining', 'mysticism', 'the wheel']);
+  unlockTech(['archery', 'philosophy'], 'war strategy');
+  unlockTech('animal husbandry', 'woodworking');
+  unlockTech('fishing', ['herbal medicine', 'sailing']);
+  unlockTech('masonry', ['pottery']);
+  unlockTech('mining', ['masonry', 'iron working']);
+  unlockTech(['mining', 'masonry'], 'construction');
+  unlockTech('mysticism', 'calendar');
+  unlockTech('pottery', ['writing']);
+  unlockTech(['pottery', 'writing'], 'poetics');
+  unlockTech('the wheel', 'trading');
+  unlockTech(['sailing', 'woodworking'], 'shipbuilding');
+  unlockTech(['the wheel', 'animal husbandry'], 'horseback riding');
+  unlockTech('trading', 'currency');
+  unlockTech('writing', ['mathematics']);
+  unlockTech(['writing', 'mysticism'], 'philosophy');
+  unlockTech('construction', ['irrigation']);
+
+  [].forEach.call(techEls, function (item:any, index:number) {
+    let name = item.getAttribute('data-tech');
+    item.setAttribute('data-enabled', techs.get(name).enabled + "");
+  });
+}
+
+function unlockTech(purchased:string | string[], enabled:string | string[]):boolean {
+  function isPurchased(element:string, index:number, array:string[]) {
+    return techs.get(element).purchased;
+  }
+  function enableAll(array:string[]) {
+    for (let i = 0; i < array.length; i++) {
+      techs.get(array[i]).enabled = true;
+    }
+  }
+  if (typeof purchased === 'string') {
+    if (typeof enabled === 'string') {
+      if (techs.get(<any>purchased).purchased) {
+        techs.get(<any>enabled).enabled = true;
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (techs.get(<any>purchased).purchased) {
+        enableAll(enabled);
+        return true;
+      } else {
+        return false;
+      }
+    }
+  } else {
+    if (typeof enabled === 'string') {
+      if (purchased.every(isPurchased)) {
+        techs.get(<any>enabled).enabled = true;
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (purchased.every(isPurchased)) {
+        enableAll(enabled);
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 }
 
 function eraCheck() {

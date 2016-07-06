@@ -130,6 +130,11 @@
       background: darken(#83D4D4, 15%);
       //@extend %transition-s;
     }
+    &[data-enabled='false'] {
+      pointer-events: none;
+      opacity: 0.3;
+      -webkit-filter: grayscale(1);
+    }
     &[data-selected=true] {
       background: #DB9665;
     }
