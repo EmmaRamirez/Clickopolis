@@ -1,12 +1,4 @@
-
-//type Era = 'Ancient' | 'Classical' | 'Medieval' | 'Renaissance' | 'Enlightenment' | 'Industrial' | 'Modern' | 'Atomic' | 'Information' | 'Future';
-
-enum Era {
-  Ancient = <any>'Ancient',
-  Classical = <any>'Classical',
-  Medieval = <any>'Medieval',
-  Renaissance = <any>'Renaissance'
-}
+import Era = require('./era');
 
 class Game {
   introStep: number;
