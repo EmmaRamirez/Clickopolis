@@ -103,6 +103,7 @@ class Templates {
             <li><a href='#culture'><img src='img/culture.png'> Culture</a></li>
             <li><a href='#faith'><img src='img/faith.png'> Faith</a></li>
             <li><a href='#legacy'><img src='img/legacy.png'> Legacy</a></li>
+            <li><a href='#achievements'><img src='img/achievements.png'> Achievements</a></li>
             <li><a href='#history'><img src='img/history.png'> History</a></li>
             <li><a href='#settings'><img src='img/settings.png'> Settings</a></li>
             <li id='clear-local-storage'><a href='#'><img src='img/trash.png'> Clear Local Storage</a></li>
@@ -580,6 +581,22 @@ class Templates {
       </section>
     `;
     return legacyScreen;
+  }
+
+  createAchievementsScreen(playerCiv:Civilization) {
+    let achievementsScreen = `
+      <section class='screen achievements-screen' id='achievements'>
+        <h2>
+          <img src='img/achievements.png'> Achievements
+        </h2>
+        <section class='achievements-screen-inner legacy'>
+          <div class='achievements-wrapper'>
+            <img src='img/achievements.png'> <span class='achievements-total'>${playerCiv.achievements}</span> Achievements
+          </div>
+        </section>
+      </section>
+    `;
+    return achievementsScreen;
   }
 
   createHistoryScreen(playerCiv:Civilization) {

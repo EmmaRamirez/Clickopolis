@@ -353,6 +353,7 @@ function drawUI(el:HTMLElement) {
                   //templates.createCultureScreen(playerCiv) +
                   //templates.createFaithScreen(playerCiv) +
                   templates.createLegacyScreen(playerCiv) +
+                  templates.createAchievementsScreen(playerCiv) + 
                   templates.createHistoryScreen(playerCiv);
                   //templates.createSettingsScreen(playerCiv, game);
 }
