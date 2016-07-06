@@ -9,7 +9,7 @@ let greatPyramids = new Wonder(
   500,
   500,
   true,
-  true,
+  false,
   'No aliens required. Requires 20 <img src="img/stone.png">',
   '+25 <img src="img/legacy.png"> Points',
   function (resources:Collection<Resource>) {
