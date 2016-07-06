@@ -102,7 +102,9 @@ class Templates {
             <li><a href='#military'><img src='img/military.png'> Military</a></li>
             <li><a href='#culture'><img src='img/culture.png'> Culture</a></li>
             <li><a href='#faith'><img src='img/faith.png'> Faith</a></li>
+            <li><a href='#legacy'><img src='img/legacy.png'> Legacy</a></li>
             <li><a href='#history'><img src='img/history.png'> History</a></li>
+            <li><a href='#settings'><img src='img/settings.png'> Settings</a></li>
           </ul>
         </section>
       </section>
