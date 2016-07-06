@@ -19,8 +19,9 @@ let agriculture:Tech = new Tech(
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>) {
-    citizens.get('farmer').contrib1.amount += .2;
+    citizens.get('farmer').contrib1.amount = (citizens.get('farmer').contrib1.amount + .2).toFixed(1);
     console.log(citizens.get('farmer').contrib1.amount);
+    u.elt('.contrib[data-citizen="farmer"]').innerHTML = u.setContributions(citizens.get('farmer'));
   }
 );
 let animalHusbandry:Tech = new Tech(
@@ -34,8 +35,9 @@ let animalHusbandry:Tech = new Tech(
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
     u.unlockResource('horse', resources);
-    citizens.get('farmer').contrib1.amount *= 1.15;
-    citizens.get('farmer').contrib2.amount *= 1.15;
+    citizens.get('farmer').contrib1.amount = (citizens.get('farmer').contrib1.amount * 1.15).toFixed(2);
+    citizens.get('farmer').contrib2.amount = (citizens.get('farmer').contrib2.amount * 1.15).toFixed(2);
+    u.elt('.contrib[data-citizen="farmer"]').innerHTML = u.setContributions(citizens.get('farmer'));
   }
 );
 let archery:Tech = new Tech(
@@ -50,7 +52,7 @@ let archery:Tech = new Tech(
   ['military', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     playerCiv.defense += 5;
-    u.unlockBuilding('barracks', buildings);
+    u.unlockBuilding('Barracks', buildings);
   }
 );
 let fishing:Tech = new Tech(
@@ -105,7 +107,8 @@ let mining:Tech = new Tech(
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
-    citizens.get('miner').contrib1.amount += .2;
+    citizens.get('miner').contrib1.amount = (citizens.get('miner').contrib1.amount + .2).toFixed(1);
+    u.elt('.contrib[data-citizen="miner"]').innerHTML = u.setContributions(citizens.get('miner'));
     u.unlockResource('stone', resources);
     u.unlockResource('gold', resources);
     u.unlockResource('gems', resources);
@@ -118,12 +121,14 @@ let mysticism:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can assign <img src="img/cleric.png"> Clerics',
     '<img src="img/plus.png"> Can build Temples',
+    '<img src="img/plus.png"> Can build Graveyard',
     '<img src="img/plus.png"> Can build the Stonehenge wonder'
   ],
   ['faith', 'citizens', 'wonder'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockCitizen('cleric', citizens);
     u.unlockBuilding('Temple', buildings);
+    u.unlockBuilding('Graveyard', buildings);
     u.unlockWonder('Stonehenge', wonders);
   }
 );
@@ -158,7 +163,10 @@ let trading:Tech = new Tech(
     '<img src="img/plus.png"> Unlocks Bartering Economic System',
     '<img src="img/plus.png"> Can assign Merchants'
   ],
-  ['economy', 'citizens']
+  ['economy', 'citizens'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
 );
 let woodworking:Tech = new Tech(
   'woodworking',
@@ -166,12 +174,14 @@ let woodworking:Tech = new Tech(
   'TIMBER!!!',
   [
     '<img src="img/plus.png"> Unlocks <img src="img/spices.png"> resource',
-    '<img src="img/plus.png"> Can assign Woodcutters'
+    '<img src="img/plus.png"> Can assign Woodcutters',
+    '<img src="img/plus.png"> Can build Fort'
   ],
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     u.unlockResource('spices', resources);
     u.unlockCitizen('woodcutter', citizens);
+    u.unlockBuilding('Fort', buildings);
   }
 );
 let writing:Tech = new Tech(
