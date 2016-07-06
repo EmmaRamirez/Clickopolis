@@ -33,7 +33,7 @@ let stonehenge = new Wonder(
   true,
   false,
   'A glorified sundial...we think. Requires 5 <img src="img/stone.png">',
-  '+10 <img src="img/faith.png"> PM',
+  '+25 <img src="img/legacy.png"> Points, +10 <img src="img/faith.png"> PM',
   function (resources:Collection<Resource>) {
     if (resources.get('stone').total >= 5) {
       return true;
@@ -42,6 +42,7 @@ let stonehenge = new Wonder(
     }
   },
   function (playerCiv:Civilization) {
+    playerCiv.legacy += 25;
     playerCiv.faithPM += 10;
   }
 );
