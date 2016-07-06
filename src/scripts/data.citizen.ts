@@ -40,6 +40,10 @@ let soldier:Citizen = new Citizen('soldier', 'soldier-alt', '#5B8C76', 0, 'Soldi
 let cleric:Citizen = new Citizen('cleric', 'cleric', '#DEDED9', 0, 'Clerics proselytize your empire. +1 <img src="img/faith.png"> PM', { name: 'faith', mod: 'PM', amount: 1 }, {}, {}, {}, true, false, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
   playerCiv.faithPM += amount * this.contrib1.amount;
 });
+let merchant:Citizen = new Citizen('merchant', 'merchant', '#COLOR', 0, 'Merchants sell and trade goods.', { name: 'cash', mod: 'PM', amount: 10 }, {}, {}, {}, true, false, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
+  playerCiv.cashPM += amount * this.contrib1.amount;
+  u.elt('.cash-PM').textContent = playerCiv.cashPM;
+});
 let scientist:Citizen = new Citizen('scientist', 'scientist', '#83D4D4', 0, 'Scentists conduct research for your empire.', { name: 'research', mod: 'PM', amount: 2 }, {}, {}, {}, true, false, function () {
 
 });

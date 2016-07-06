@@ -165,7 +165,7 @@ let trading:Tech = new Tech(
   ],
   ['economy', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
-
+    u.unlockCitizen('merchant', citizens);
   }
 );
 let woodworking:Tech = new Tech(
