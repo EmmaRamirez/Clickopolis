@@ -116,7 +116,7 @@ let mysticism:Tech = new Tech(
   'ancient',
   'Mysterious gods bring riches, temples, and a couple blood sacrifices.',
   [
-    '<img src="img/plus.png"> Can assign Clerics',
+    '<img src="img/plus.png"> Can assign <img src="img/cleric.png"> Clerics',
     '<img src="img/plus.png"> Can build Temples',
     '<img src="img/plus.png"> Can build the Stonehenge wonder'
   ],
@@ -179,12 +179,13 @@ let writing:Tech = new Tech(
   'ancient',
   'Allows poorly written fanfiction in Information era.',
   [
-    '<img src="img/plus.png"> Unlocks Diplomacy',
-    '<img src="img/plus.png"> Can build Ziggurat'
+    '<img src="img/plus.png"> Can build Ziggurat',
+    '<img src="img/plus.png"> +100 <img src="img/research.png"> for discovery'
   ],
   ['buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     u.unlockBuilding('Ziggurat', buildings);
+    playerCiv.research += 100;
   }
 );
 
