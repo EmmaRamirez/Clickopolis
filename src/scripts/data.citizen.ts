@@ -30,9 +30,10 @@ let woodcutter:Citizen = new Citizen('woodcutter', 'woodcutter', '#8C775B', 0, '
   u.elt('.r-prod-ps').textContent = resources.get('prod').perSecond.toFixed(1) + ' PS';
   console.log(resources.get('prod'));
 });
-let soldier:Citizen = new Citizen('soldier', 'soldier-alt', '#5B8C76', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', { name: 'coin', mod: 'PM', amount: -2 }, {}, {}, {}, true, true, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
+let soldier:Citizen = new Citizen('soldier', 'soldier-alt', '#5B8C76', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', { name: 'coin', mod: 'PM', amount: -2 }, { name: 'strength', mod: '', amount: 2}, {}, {}, true, true, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
   playerCiv.cashPM += amount * this.contrib1.amount;
   playerCiv.cashPMFromMilitary += amount * this.contrib1.amount;
+  playerCiv.strength += amount * this.contrib2.amount;
   u.elt('.cash-from-military').textContent = playerCiv.cashPMFromMilitary;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
 });
