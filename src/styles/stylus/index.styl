@@ -29,6 +29,8 @@
 @import 'screen.settings.styl';
 @import 'notify.styl';
 
+$b = rgba(black, 0.5);
+
 body
   background: #222;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
@@ -40,7 +42,16 @@ body
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
+
+.modal-era
+  background-size: cover;
+  h1
+    color: white;
+    text-shadow: 0 0 1rem $b;
+
+.era-Classical
+  background-image: linear-gradient(to left, $b, $b), url('../img/classical.jpg') !important;
 
 section
   z-index: 2;
@@ -56,7 +67,7 @@ section
 .clickopolis-intro,
 .clickopolis-start
   background-color: #ccc;
-  //background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('~!file!../img/world.png');
+  background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('../img/world.png');
   background-position: center center;
   background-size: cover;
   border-radius: 4px;
