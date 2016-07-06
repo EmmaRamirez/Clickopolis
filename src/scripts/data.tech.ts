@@ -198,11 +198,139 @@ let writing:Tech = new Tech(
     playerCiv.research += 100;
   }
 );
+let calendar:Tech = new Tech(
+  'calendar',
+  'classical',
+  'What time is it? Oh, just let me check my sundial.',
+  [
+    '<img src="img/plus.png"> Unlocks <img src="img/banana.png"> resource',
+    '<img src="img/plus.png"> Can build Plantation'
+  ],
+  ['buildings', 'resources'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockResource('banana', resources);
+  }
+);
+let construction:Tech = new Tech(
+  'construction',
+  'classical',
+  'The wall just got ten feet higher.',
+  [
+    '<img src="img/plus.png"> Can build Walls',
+  ],
+  ['buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let horsebackRiding:Tech = new Tech(
+  'horseback riding',
+  'classical',
+  'Neeeeeeiiiiiiiighhh.',
+  [
+    '<img src="img/plus.png"> Can build Stable',
+    '<img src="img/plus.png"> Can assign Soldiers as Cavalry'
+  ],
+  ['buildings', 'military'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let ironWorking:Tech = new Tech(
+  'iron working',
+  'classical',
+  'Strike it while it\'s hot. Ouch! Too hot.',
+  [
+    '<img src="img/plus.png"> Unlocks <img src="img/iron.png"> resource',
+    '<img src="img/plus.png"> Can assign Soldiers as Spearmen'
+  ],
+  ['resources', 'military'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+    u.unlockResource('iron', resources);
+  }
+);
+let irrigation:Tech = new Tech(
+  'irrigation',
+  'classical',
+  'Oh, great, another joke about irrigation.',
+  [
+    '<img src="img/plus.png"> +2k Max <img src="img/food.png">',
+  ],
+  ['resources'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let mathematics:Tech = new Tech(
+  'mathematics',
+  'classical',
+  'I\'ve got 9.94987437^2 problems, but exponentiation ain\'t one.',
+  [
+    '<img src="img/plus.png"> Doubles <img src="img/defense.png"> of Fort',
+  ],
+  ['resources'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let philosophy:Tech = new Tech(
+  'philosophy',
+  'classical',
+  'But really, what <i>is</i> a technology?',
+  [
+    '<img src="img/plus.png"> Can build Forum',
+    '<img src="img/plus.png"> Can assign Scientists'
+  ],
+  ['research', 'buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let poetics:Tech = new Tech(
+  'poetics',
+  'classical',
+  'Poetics: lyrical pyrotechnics, lexical kinetics.',
+  [
+    '<img src="img/plus.png"> Improves <img src="img/artist.png"> by 100%',
+    '<img src="img/plus.png"> Can build Ampitheatre'
+  ],
+  ['culture', 'buildings'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let shipbuilding:Tech = new Tech(
+  'shipbuilding',
+  'classical',
+  'This tech harbors some neat bonuses.',
+  [
+    '<img src="img/plus.png"> Can build Harbor',
+    '<img src="img/plus.png"> +2k Max <img src="img/prod.png">',
+    '<img src="img/plus.png"> Can assign soldiers as Navy'
+  ],
+  ['buildings', 'resources', 'military'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
+let warStrategy:Tech = new Tech(
+  'war strategy',
+  'classical',
+  'Ambush mofos! -- Sun Tzu',
+  [
+    '<img src="img/plus.png"> +1 free General'
+  ],
+  ['military'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+
+  }
+);
 
 
 let techs:Collection<Tech> = new Collection('Techs',
     [
-      agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, pottery, sailing, trading, woodworking, writing
+      agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, pottery, sailing, trading, woodworking, writing,
+      calendar, construction, horsebackRiding, ironWorking, irrigation, mathematics, philosophy, poetics, shipbuilding, warStrategy
     ]
   );
 
