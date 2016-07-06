@@ -43,8 +43,8 @@ let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defen
   playerCiv.defense += 5;
   notify({message: `Much better than the one made out of pillows. (<img src='img/defense.png'> ${playerCiv.defense})`})
 });
-let ziggurat:Building = new Building('Ziggurat', 0, 120, 1200, 'A tiny proto-pyramid.', '+1 <img src="img/research.png"> PM', true, false, function (playerCiv:Civilization) {
-  playerCiv.researchPM += 1;
+let ziggurat:Building = new Building('Ziggurat', 0, 120, 1200, 'A tiny proto-pyramid.', '+3 <img src="img/research.png"> PM', true, false, function (playerCiv:Civilization) {
+  playerCiv.researchPM += 3;
   notify({message: `Your scholars have convened at your newest Ziggurat! (<img src='img/research.png'> ${playerCiv.researchPM} PM)`})
 });
 
