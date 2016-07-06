@@ -15,7 +15,7 @@ class Wonder {
   }
 
   getTimePercent():string {
-    return `%${(this.remainingTime / this.buildTime) * 100}`;
+    return `%${((this.buildTime - this.remainingTime) / this.buildTime) * 100}`;
   }
 
   constructor(name: string, img: string, buildTime: number, remainingTime: number, visible: boolean, enabled: boolean, description: string, effect: string, checkFunc: Function = function () { return false; }, func: Function = function () {}) {

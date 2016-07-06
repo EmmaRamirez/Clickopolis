@@ -253,6 +253,7 @@ function createGameUI() {
   citizenClick();
   techClick();
   buildingClick();
+  wonderClick();
 
   UiSettingsButtons();
 
@@ -495,9 +496,10 @@ function populateWonders():void {
     let w = wonders.items[i];
     wondersContainer.innerHTML += `
       <div class='wonder' data-id='${i}' data-wonder='${w.name}' data-visible='${w.visible}' data-enabled='${w.enabled}'>
+        <div class='wonder-progress-bar hidden' data-wonder='${w.name}'></div>
         <div class='wonder-image'>
           <span class='wonder-image'><img src='${w.getImg()}'></span>
-          <span class='btn btn-build-wonder'>Build (${u.time(w.buildTime)})</span>
+          <span class='btn btn-build-wonder' data-wonder='${w.name}' data-id='${i}'>Build (${u.time(w.buildTime)})</span>
         </div>
         <div class='wonder-info'>
           <div class='wonder-name'>${w.name}</div>
@@ -677,25 +679,53 @@ function buildingClick() {
   });
 }
 
-function WonderClick() {
+function wonderClick() {
   let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
+  console.log(wonderEls);
 
   [].forEach.call(wonderEls, function (item:any, index:number) {
     item.addEventListener('click', function () {
+      //alert('hello');
       let wonder = item.getAttribute('data-wonder');
       let wonderCheck = wonders.get(wonder).checkFunc(resources);
       if (wonderCheck) {
         if (wonders.get(wonder).buildTime === wonders.get(wonder).remainingTime) {
-          notify({message: `Work has begun on the ${wonders.get(wonder).name}`});
-
+          notify({message: `Work has begun on the ${wonders.get(wonder).name}!`});
+          startBuildingWonder(wonders.get(wonder));
         } else {
           notify({message: `You can't restart work on a wonder!`});
         }
       } else {
-        notify({message: `You don't have the prerequisites to build ${wonders.get(wonder).name}`});
+        notify({message: `You don't have the prerequisites to build ${wonders.get(wonder).name}!`});
       }
     });
   });
+}
+
+function startBuildingWonder(wonder:Wonder) {
+  let intervalID:number;
+  let bgString:string;
+  let wonderProgressBar = u.elt('.wonder-progress-bar[data-wonder="' + wonder.name + '"]');
+  //let wonderProgressBar = u.elt('.wonder', true)[0];
+  let btnBuildWonder = u.elt('.btn-build-wonder[data-wonder="' + wonder.name + '"]');
+
+  intervalID = setInterval(function() {
+    console.log(wonder.remainingTime);
+    btnBuildWonder.textContent = u.time(wonder.remainingTime);
+    wonder.remainingTime--;
+    //renderProgress(wonderProgressBar);
+    stopTimer();
+  }, 1000);
+
+  function stopTimer() {
+    if (wonder.remainingTime <= 0) {
+      notify({message: `You completed the ${wonder.name}!`});
+      wonder.func(playerCiv);
+      btnBuildWonder.textContent = 'COMPLETE';
+      history.push(log({year: game.year, message: `${playerCiv.leaderName} finished work on the ${wonder.name}`, categoryImage: 'wonder'}));
+      clearInterval(intervalID);
+    }
+  }
 }
 
 function techClick() {
@@ -755,7 +785,14 @@ function purchaseTech(tech:string, element:HTMLElement) {
 }
 
 function eraCheck() {
-  
+  if (techs.get('agriculture').purchased && techs.get('animalHusbandry').purchased && techs.get('sailing').purchased) {
+    game.era = 1;
+    triggerEra(1);
+  }
+}
+
+function triggerEra(era:number) {
+
 }
 
 function renderHistory(history:string[]) {
