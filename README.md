@@ -14,7 +14,7 @@ Then navigate to `Clickopolis` then `npm install` and run `npm webpack`, `npm st
 In order to run the next version (read: experimental) of Clickopolis, just switch to the branch `next`, or check out one of the `feature/**` branches.
 
 ## Roadmap
-*Latest*: 0.1.1
+*Latest*: 0.1.3
 
 This Roadmap is a glance at planned releases of Clickopolis. It does not include patches and other minor fixes. For a complete list of all changes made to the game, see the [changelog](https://github.com/EmmaRamirez/Clickopolis/blob/master/CHANGELOG.md).
 

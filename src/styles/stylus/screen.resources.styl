@@ -26,10 +26,11 @@
     font-size: 1.25rem;
     margin: .25rem;
     padding: .5rem;
-    width: 14rem;
+    width: 13rem;
   }
   .food-btn {
     background: $green;
+    border-bottom: 4px solid darken($green, 20%);
     //@extend %transition-s;
     &:hover {
       background: darken($green, 10%);
@@ -44,6 +45,7 @@
   }
   .prod-btn {
     background: $yellow;
+    border-bottom: 4px solid darken($yellow, 20%);
     //@extend %transition-s;
     &:hover {
       background: darken($yellow, 10%);
@@ -55,6 +57,39 @@
         transform: rotate(45deg);
       }
     }
+  }
+  .r-food,
+  .r-prod {
+    border: 1px solid #111;
+    border-radius: 4px;
+    color: #222 !important;
+    display: inline-block;
+    margin: 0 !important;
+    padding: .25rem;
+    position: relative;
+    width: 5rem;
+    &::before {
+      bottom: 100%;
+      color: #eee;
+      content: attr(data-label);
+      left: 0;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .r-food {
+    background: $green;
+  }
+  .r-prod {
+    background: $yellow;
+  }
+  .negative,
+  [data-negative='true'] {
+    background: tomato;
+  }
+  .panel {
+    padding: .25rem 0;
   }
   .location-panel {
     //background: $clouds;
