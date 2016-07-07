@@ -27,7 +27,7 @@ let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers
   playerCiv.strength += 1;
   notify({message: `Your civilization grew stronger! (<img src='img/strength.png'> ${playerCiv.strength})`});
 });
-let temple:Building = new Building('Temple', 0, 45, 450, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM', true, false, function (playerCiv:Civilization) {
+let temple:Building = new Building('Temple', 0, 70, 700, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM', true, false, function (playerCiv:Civilization) {
   playerCiv.faithPM += 1;
   notify({message: `Your temple has attracted new devotees! (<img src='img/faith.png'> ${playerCiv.faithPM} PM)`});
 });
@@ -35,7 +35,7 @@ let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronou
   playerCiv.health += 1;
   notify({message: `Your civilization became healthier! (<img src='img/health.png'> ${playerCiv.health})`});
 })
-let graveyard:Building = new Building('Graveyard', 0, 70, 700, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">', true, false, function (playerCiv:Civilization) {
+let graveyard:Building = new Building('Graveyard', 0, 30, 300, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.pollution -= 1;
   notify({message: `Good idea, let's keep the dead bodies away. (<img src='img/pollution.png'> ${playerCiv.pollution})`});
 });
@@ -47,10 +47,21 @@ let ziggurat:Building = new Building('Ziggurat', 0, 120, 1200, 'A tiny proto-pyr
   playerCiv.researchPM += 3;
   notify({message: `Your scholars have convened at your newest Ziggurat! (<img src='img/research.png'> ${playerCiv.researchPM} PM)`})
 });
+let ampitheatre:Building = new Building('Ampitheatre', 0, 800, 8000, '', '+1 <img src="img/culture.png"> PM', true, false);
+let collesseum:Building = new Building('Collosseum', 0, 700, 7000, '', '', true, false);
+let courthouse:Building = new Building('Courthouse', 0, 500, 5000, '', '', true, false);
+let forum:Building = new Building('Forum', 0, 300, 3000, '', '', true, false);
+let harbor:Building = new Building('Harbor', 0, 300, 3000, '', '', true, false);
+let lighthouse:Building = new Building('Lighthouse', 0, 500, 5000, '', '', true, false);
+let market:Building = new Building('Market', 0, 450, 4500, '', '', true, false);
+let mint:Building = new Building('Mint', 0, 550, 5500, '', '', true, false);
+let plantation:Building = new Building('Plantation', 0, 300, 3000, '', '', true, false);
+let walls:Building = new Building('Walls', 0, 300, 3000, '', '', true, false);
 
 let buildings:Collection<Building> = new Collection('Buildings',
                                           [
-                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, fort, ziggurat
+                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, fort, ziggurat,
+                                            ampitheatre, collesseum, courthouse, forum, harbor, lighthouse,  market, mint, plantation, walls
                                           ])
 
 // name:string, amount:number, prodCost:number, cashCost:number, description:string, effect:string
