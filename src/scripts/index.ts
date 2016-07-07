@@ -231,7 +231,7 @@ function createGameUI() {
 
     resources.get('food').total -= playerCiv.populationGrowthCost;
     resources.get('food').perSecond -= 1;
-    u.elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1) + ' PS';
+    u.elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1);
 
     updatePopulation(1);
 
@@ -303,20 +303,22 @@ function addClickToTotal(el:string, item:string) {
   if (resources.get(item).total >= resources.get(item).max) resources.get(item).total = resources.get(item).max;
   else resources.get(item).total += resources.get(item).perClick;
 
-  element.innerHTML = resources.get(item).total.toFixed(0).toString() + ' total';
+  element.innerHTML = resources.get(item).total.toFixed(0).toString();
 }
 
 setInterval(function() {
   if (isWindowActive) {
     if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
     else resources.get('food').total += resources.get('food').perSecond;
-    u.elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString() + ' total';
+    u.elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString();
 
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
     else resources.get('food').total += resources.get('prod').perSecond;
-    u.elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString() + ' total';
+    u.elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
 
-
+    (resources.get('food').perSecond < 0) ? u.elt('.r-food-ps').setAttribute('data-negative', 'true') : u.elt('.r-food-ps').setAttribute('data-negative', 'false');
+    (resources.get('food').perClick < 0) ? u.elt('.r-food-pc').setAttribute('data-negative', 'true') : u.elt('.r-food-pc').setAttribute('data-negative', 'false');
+    (resources.get('food').total < 0) ? u.elt('.r-food-total').setAttribute('data-negative', 'true') : u.elt('.r-food-total').setAttribute('data-negative', 'false');
 
     updateTime();
     addGoldenAgePoints();

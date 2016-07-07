@@ -122,19 +122,21 @@ class Templates {
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
 
-            <span class='resource-info r-food-pc' title='the amount of food you earn per click'>${resources.get('food').perClick} PC</span>
-            <span class='resource-info r-food-ps' title='the amount of food you earn per second'>${resources.get('food').perSecond} PS</span>
-            <span class='resource-info r-food-max'>${resources.get('food').max} max</span>
-            <span class='resource-info r-food-total'>${resources.get('food').total} total</span>
+            <span class='resource-info r-food-total r-food' data-label='total'>${resources.get('food').total}</span>
+            <span class='resource-info r-food-pc r-food' data-label='per click' title='the amount of food you earn per click'>${resources.get('food').perClick}</span>
+            <span class='resource-info r-food-ps r-food' data-label='per sec' title='the amount of food you earn per second'>${resources.get('food').perSecond}</span>
+            <span class='resource-info r-food-max r-food' data-label='max'>${resources.get('food').max}</span>
+
 
           </div>
           <div class='panel prod-panel'>
             <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
 
-            <span class='resource-info r-prod-pc' title='the amount of production you make per click'>${resources.get('prod').perClick} PC</span>
-            <span class='resource-info r-prod-ps' title='the amount of production you make per second'>${resources.get('prod').perSecond} PS</span>
-            <span class='resource-info r-prod-max'>${resources.get('prod').max} max</span>
-            <span class='resource-info r-prod-total'>${resources.get('prod').total} total</span>
+            <span class='resource-info r-prod-total r-prod' data-label='total'>${resources.get('prod').total}</span>
+            <span class='resource-info r-prod-pc r-prod' data-label='per click' title='the amount of production you make per click'>${resources.get('prod').perClick}</span>
+            <span class='resource-info r-prod-ps r-prod' data-label='per sec' title='the amount of production you make per second'>${resources.get('prod').perSecond}</span>
+            <span class='resource-info r-prod-max r-prod' data-label='max'>${resources.get('prod').max}</span>
+
 
           </div>
 
