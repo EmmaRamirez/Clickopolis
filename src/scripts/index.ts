@@ -8,6 +8,7 @@
 import _ = require('underscore');
 import Utils = require('./utils');
 import Game = require('./game');
+import Queue = require('./queue');
 import Settings = require('./settings');
 import Collection = require('./collection');
 import Era = require('./era');
