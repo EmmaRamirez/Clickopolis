@@ -154,3 +154,7 @@ src/scripts/collection.js
 old-index.js
 
 src/scripts/settings.js
+
+src/scripts/tree.js
+
+src/scripts/queue.js
