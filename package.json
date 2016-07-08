@@ -1,6 +1,6 @@
 {
   "name": "clickopolis",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "An epic clicking-based empire management game.",
   "main": "./src/index.ts",
   "scripts": {
