@@ -27,4 +27,4 @@
 [`f1b2e7c`](https://github.com/EmmaRamirez/Clickopolis/commit/f1b2e7c98149baa047b5e97e1141f6682c5c21da) Style of production-wrapper in Buildings and employed-citizens in Citizens are similar to those in technology and legacy.
 
 ### v0.1.0
-[`46b458d]`](https://github.com/EmmaRamirez/Clickopolis/commit/46b458dd2653cbc485845b072116de67d19d496b) *Base Alpha*: See the [release notes](https://github.com/EmmaRamirez/Clickopolis/releases/tag/v0.1.0-alpha).
+[`46b458d`](https://github.com/EmmaRamirez/Clickopolis/commit/46b458dd2653cbc485845b072116de67d19d496b) *Base Alpha*: See the [release notes](https://github.com/EmmaRamirez/Clickopolis/releases/tag/v0.1.0-alpha).
