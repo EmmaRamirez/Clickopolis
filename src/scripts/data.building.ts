@@ -16,12 +16,12 @@ let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be ni
 let granary:Building = new Building('Granary', 0, 25, 250, 'Feeds all your cute animals.', '+200 <img src="img/food.png"> max', true, false, function (playerCiv:Civilization, resources:Collection<Resource>) {
   resources.get('food').max += 200;
   notify({message: `Your civilization now has a max <img src="img/food.png"> storage of ${resources.get('food').max}`});
-  u.elt('.r-food-max').textContent = u.abbrNum(resources.get('food').max) + ' max';
+  u.elt('.r-food-max').textContent = u.abbrNum(resources.get('food').max);
 });
 let quarry:Building = new Building('Quarry', 0, 30, 300, 'Your very own diamond in the rough.', '+200 <img src="img/prod.png"> max', true, false, function (playerCiv:Civilization, resources:Collection<Resource>) {
   resources.get('prod').max += 200;
   notify({message: `Your civilization now has a max <img src="img/prod.png"> capacity of ${resources.get('food').max}`});
-  u.elt('.r-prod-max').textContent = u.abbrNum(resources.get('prod').max) + ' max';
+  u.elt('.r-prod-max').textContent = u.abbrNum(resources.get('prod').max);
 });
 let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers at the ready!', '+1 <img src="img/strength.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.strength += 1;
