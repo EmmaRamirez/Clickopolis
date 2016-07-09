@@ -3,126 +3,45 @@ import FaithTier = require('./faithtier');
 import FaithBonus = require('./faithbonus');
 
 
-// {
-//   name: "Goddess of the Halibut",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "Converts half your <img src='img/fish.png' /> into <img src='img/faith.png' />PM.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Spirit of the Spices",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+1% <img src='img/faith.png' /> per <img src='img/spices.png' /> (max 25%).",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Benevelont Muses",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+.5 <img src='img/faith.png' /> PM for each Artist you have.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "God of War",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+15% <img src='img/strength.png' />.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Satyr's Charm",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+1% <img src='img/happy.png' /> per <img src='img/horse.png' /> (max 25%).",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Golden Calf",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+1 <img src='img/faith.png' /> PM per <img src='img/gold.png' /> resource.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Fertility Goddess",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+5 <img src='img/food.png' /> PC.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Protective Spirits",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+30% <img src='img/defense.png' />.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Stone Circles",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+.2 <img src='img/faith.png' /> PM per Quarry.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Lord of the Flies",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+1 <img src='img/happy.png' /> per 4 <img src='img/pollution.png' />",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "The Furies",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+10 <img src='img/faith.png'/> when you declare war.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "The Fates",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "Increases chance of good events.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Doggy Cult",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "Converts all <img src='img/horse.png' /> into Chihuahuas.",
-//   unlocked: false,
-//   activated: false
-// },
-// {
-//   name: "Spaghetti Monster",
-//   level: "Pantheon",
-//   costMult: 1,
-//   effect: "+1 Spaghetti resource.",
-//   unlocked: false,
-//   activated: false
-// },
-
-let goh:FaithBonus = new FaithBonus('Goddess of the Halibut', FaithTier.Pantheon, true, true, `Converts half your <img src='img/fish.png' /> into <img src='img/faith.png' /> PM`, function () {
+let goh:FaithBonus = new FaithBonus('Goddess of the Halibut', FaithTier.Pantheon, true, false, `Converts half your <img src='img/fish.png' /> into <img src='img/faith.png' /> PM`, function () {
 
 });
-let sos:FaithBonus = new FaithBonus('Spirit of the Spices', FaithTier.Pantheon, true, true, `+1% <img src='img/faith.png' /> per <img src='img/spices.png' /> (max 25%)`, function () {
+let sos:FaithBonus = new FaithBonus('Spirit of the Spices', FaithTier.Pantheon, true, false, `+1% <img src='img/faith.png' /> per <img src='img/spices.png' /> (max 25%)`, function () {
+
+});
+let bm:FaithBonus = new FaithBonus('Benevelont Muses', FaithTier.Pantheon, true, false, `+.5 <img src='img/faith.png' /> PM for each Artist you have`, function () {
+
+});
+let gow:FaithBonus = new FaithBonus('God of War', FaithTier.Pantheon, true, false, `+15% <img src='img/strength.png' />`, function () {
+
+});
+let sc:FaithBonus = new FaithBonus('Satyr\'s Charm', FaithTier.Pantheon, true, false, `+1% <img src='img/happy.png' /> per <img src='img/horse.png' /> (max 25%)`, function () {
+
+});
+let gc:FaithBonus = new FaithBonus('Golden Calf', FaithTier.Pantheon, true, false, `+1 <img src='img/faith.png' /> PM per <img src='img/gold.png' /> resource`, function () {
+
+});
+let fg:FaithBonus = new FaithBonus('Fertility Goddess', FaithTier.Pantheon, true, false, `+20 <img src='img/food.png' /> PC`, function () {
+
+});
+let sc2:FaithBonus = new FaithBonus('Stone Circles', FaithTier.Pantheon, true, false, `+.2 <img src='img/faith.png' /> PM per Quarry`, function () {
+
+});
+let ps:FaithBonus = new FaithBonus('Protective Spirits', FaithTier.Pantheon, true, false, `+30% <img src='img/defense.png' />`, function () {
+
+});
+let lof:FaithBonus = new FaithBonus('Lord of the Flies', FaithTier.Pantheon, true, false, `+1 <img src='img/happy.png' /> per 4 <img src='img/pollution.png' />`, function () {
+
+});
+let tf:FaithBonus = new FaithBonus('The Furies', FaithTier.Pantheon, true, false, `+10 <img src='img/faith.png'/> when you declare war`, function () {
+
+});
+let tf2:FaithBonus = new FaithBonus('The Fates', FaithTier.Pantheon, true, false, `Increases chance of good events`, function () {
 
 });
 
-let faithBonuses = new Collection('faithBonuses', [goh, sos]);
+let faithBonuses = new Collection('faithBonuses', [
+                                                    goh, sos, bm, gow, sc, gc, fg, sc2, ps, lof, tf, tf2
+                                                  ]);
 
 export = faithBonuses;
