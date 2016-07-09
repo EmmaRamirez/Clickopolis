@@ -256,10 +256,12 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
+
   setTechQueue();
 
   history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
+  updateFaithElts();
 
   citizenClick();
   techClick();
@@ -329,6 +331,7 @@ setInterval(function() {
     updateTime();
     addGoldenAgePoints();
     addCash();
+    addFaith();
     addResearchPoints();
     checkPopulationGrowthCost()
     setLandPercent();
@@ -336,6 +339,7 @@ setInterval(function() {
     renderHistory(history);
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
+    updateFaithElts();
   }
 }, 1000);
 
@@ -398,6 +402,15 @@ function setLandPercent() {
   landPercentText.textContent = landPercent;
 }
 
+function addFaith() {
+  playerCiv.faith += playerCiv.faithPM / 60;
+}
+
+function updateFaithElts() {
+  u.elt('.faith-PM').textContent = playerCiv.faithPM;
+  u.elt('.faith-total').textContent = Math.floor(playerCiv.faith);
+}
+
 function populateFaithBonuses() {
   let fbContainer = u.elt('.fb-container');
   fbContainer.innerHTML = '';
@@ -405,10 +418,10 @@ function populateFaithBonuses() {
   for (let i = 0; i < faithBonuses.items.length; i++) {
     let fb = faithBonuses.items[i];
     fbContainer.innerHTML += `
-    <div class='faith-bonus' data-id='${i}' data-faith-bonus='${fb.name}'>
-      <span class='faith-bonus-cost'>${playerCiv.faithCost * fb.tier}</span>
+    <div class='faith-bonus' data-enabled='${fb.enabled}' data-purchased='${fb.purchased}' ata-id='${i}' data-faith-bonus='${fb.name}'>
+      <span class='faith-bonus-cost' title='Actual: ${playerCiv.faithCost * fb.tier}'>${u.abbrNum(playerCiv.faithCost * fb.tier)}</span>
       <span class='faith-bonus-name'>${fb.name}</span>
-      <div class='faith-bonus-effect'>${fb.effect}</div>
+      <span class='faith-bonus-effect'>${fb.effect}</span>
     </div>
     `;
   }
