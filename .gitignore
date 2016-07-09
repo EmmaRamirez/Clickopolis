@@ -158,3 +158,9 @@ src/scripts/settings.js
 src/scripts/tree.js
 
 src/scripts/queue.js
+
+src/scripts/data.faithbonus.js
+
+src/scripts/faithbonus.js
+
+src/scripts/faithtier.js
