@@ -35,7 +35,6 @@ class Civilization {
   anger: number;
   health: number;
   pollution: number;
-  influence: number;
   land: number;
   legacy: number;
 
@@ -46,6 +45,14 @@ class Civilization {
 
   achievements: number;
   wondersBuilt: number;
+
+  immigration: number;
+  emigration: number;
+  netMigration: number;
+
+  influenceDomestic: number;
+  influenceInternational: number;
+
 
   cash: number;
   cashPM: number;
@@ -92,7 +99,6 @@ class Civilization {
     this.anger = 1;
     this.health = 25;
     this.pollution = 1;
-    this.influence = 0;
     this.land = 1;
     this.legacy = 0;
 
@@ -101,6 +107,14 @@ class Civilization {
 
     this.goldenAgeProgress = 0;
     this.goldenAgeGoal = 100000;
+    this.goldenAges = 0;
+
+    this.influenceDomestic = 0;
+    this.influenceInternational = 0;
+
+    this.immigration = 0;
+    this.emigration = 0;
+    this.netMigration = this.immigration - this.emigration;
 
     this.population = 1;
     this.populationGrowthCost = 10;
