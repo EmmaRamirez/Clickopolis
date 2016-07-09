@@ -76,6 +76,7 @@ class Civilization {
 
   faith: number;
   faithPM: number;
+  faithCost: number;
 
   strength: number;
   defense: number;
@@ -136,6 +137,7 @@ class Civilization {
 
     this.faith = 0;
     this.faithPM = 0;
+    this.faithCost = 1;
 
     this.strength = 10;
     this.defense = 10;
