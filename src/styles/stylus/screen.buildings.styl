@@ -28,7 +28,7 @@
     border-radius: 4px;
     cursor: pointer;
     margin: .25rem 1rem;
-    padding: .5rem;
+    //padding: .5rem;
     position: relative;
     transition: 500ms all;
     &:hover {
@@ -36,7 +36,7 @@
       transition: 500ms all;
     }
     &[data-purchaseable='false'] {
-      background: #ddd;
+      background: #aaa;
       cursor: not-allowed;
       transition: 500ms all;
     }
@@ -60,24 +60,36 @@
     text-align: center;
     width: 15rem;
   }
-
+  .building-total {
+    background: rgba(white, 0.5);
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 3rem;
+    padding: .25rem;
+  }
+  .building-cost {
+    img {
+      vertical-align: middle;
+    }
+  }
+  .building-description {
+    display: inline-block;
+    font-size: .8rem;
+    width: 50%;
+  }
   .building-name {
+    display: inline-block;
     font-weight: bold;
+    min-width: 8rem;
     padding: .5rem;
   }
   .building-effect {
-    background: #222;
+    background: rgba(black, 0.5);
     color: #eee;
-    padding: .5rem;
-    position: absolute;
-    right: 0;
-    top: 0;
+    display: block;
+    padding: .25rem;
+    text-align: center;
   }
 
-  .building-total {
-    background: #eee;
-    color: darken(#D6CA3E, 15%);
-    padding: .5rem;
-  }
 
 }
