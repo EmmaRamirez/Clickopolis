@@ -1,6 +1,30 @@
 # Changelog
 
-## v0.1.1
+### v0.1.6
+[`bfc37f0`](https://github.com/EmmaRamirez/Clickopolis/commit/bfc37f03e271d169a66102f6e430d977f147686d) Fixes [#30](https://github.com/EmmaRamirez/Clickopolis/issues/30) and [#33](https://github.com/EmmaRamirez/Clickopolis/issues/33). `Influence` split into `Domestic & International influences`. Added `immigration`, `emigration`, and `netMigration` properties. Added displaying `landPercent`. `Golden Age Points` and `Golden Ages` are now displayed as well.
+
+[`d5b218d`](https://github.com/EmmaRamirez/Clickopolis/commit/d5b218d88782a579970ce73d2a678396d34bd55f) Fixed the `Utils.abbrNum` method to be more compliant with Typescript/ES6 standards, and to support K (thousand) through D (decillion). Also, k -> K, m -> M, etc.
+
+### v0.1.5
+[`0e639a6`](https://github.com/EmmaRamirez/Clickopolis/commit/0e639a6dcd17afbafd53303e8d06ab737d4dce3d) Changed the game version in start menu to 0.1.x, to reduce the amount of changes necessary while in alpha.
+
+### v0.1.4
+[`a4f4328`](https://github.com/EmmaRamirez/Clickopolis/commit/a4f4328a1dbb6b2820c50e8261168c134df1a2ea) Implemented a Queue data structure (not used anywhere).
+
+### v0.1.3
+[`dbb231b`](https://github.com/EmmaRamirez/Clickopolis/commit/dbb231b010038bd243bdc94373bb9800e214e77f) Edited the style of the `Resources` screen. It adds more visual cues, like red PC/PS when it's negative. It moves around some labels. And finally, adds new (unused) icons.
+
+### v0.1.2
+[`db73e7b`](https://github.com/EmmaRamirez/Clickopolis/commit/db73e7b1537e72a72facaac0ddabdb7494905292) Fixed where `The Great Pyramids` wonder was displayed as `enabled` by default.
+
+[`bfacfa3`](https://github.com/EmmaRamirez/Clickopolis/commit/bfacfa38b0fef556875f392ad32a7657f4cc1082) Added the achievement screen&mdash;does not include anything up to this point.
+
+[`776a8f3`](https://github.com/EmmaRamirez/Clickopolis/commit/776a8f32dec27db0780d7939f187807cd392d046) Added a _Clear Local Storage_ button to menu.
+
+### v0.1.1
 [`bfacfa3`](https://github.com/EmmaRamirez/Clickopolis/commit/bfacfa38b0fef556875f392ad32a7657f4cc1082) Achievements screen added with basic styling.
 
 [`f1b2e7c`](https://github.com/EmmaRamirez/Clickopolis/commit/f1b2e7c98149baa047b5e97e1141f6682c5c21da) Style of production-wrapper in Buildings and employed-citizens in Citizens are similar to those in technology and legacy.
+
+### v0.1.0
+[`46b458d]`](https://github.com/EmmaRamirez/Clickopolis/commit/46b458dd2653cbc485845b072116de67d19d496b) *Base Alpha*: See the [release notes](https://github.com/EmmaRamirez/Clickopolis/releases/tag/v0.1.0-alpha).
