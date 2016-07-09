@@ -47,16 +47,16 @@ let ziggurat:Building = new Building('Ziggurat', 0, 120, 1200, 'A tiny proto-pyr
   playerCiv.researchPM += 3;
   notify({message: `Your scholars have convened at your newest Ziggurat! (<img src='img/research.png'> ${playerCiv.researchPM} PM)`})
 });
-let ampitheatre:Building = new Building('Ampitheatre', 0, 800, 8000, '', '+1 <img src="img/culture.png"> PM', true, false);
-let collesseum:Building = new Building('Collosseum', 0, 700, 7000, '', '', true, false);
-let courthouse:Building = new Building('Courthouse', 0, 500, 5000, '', '', true, false);
-let forum:Building = new Building('Forum', 0, 300, 3000, '', '', true, false);
-let harbor:Building = new Building('Harbor', 0, 300, 3000, '', '', true, false);
-let lighthouse:Building = new Building('Lighthouse', 0, 500, 5000, '', '', true, false);
-let market:Building = new Building('Market', 0, 450, 4500, '', '', true, false);
-let mint:Building = new Building('Mint', 0, 550, 5500, '', '', true, false);
-let plantation:Building = new Building('Plantation', 0, 300, 3000, '', '', true, false);
-let walls:Building = new Building('Walls', 0, 300, 3000, '', '', true, false);
+let ampitheatre:Building = new Building('Ampitheatre', 0, 800, 8000, 'Sick of drama? Come here!', '+1 <img src="img/culture.png"> PM', true, false);
+let collesseum:Building = new Building('Collosseum', 0, 700, 7000, 'Bring out the lions!', '+10 <img src="img/happy.png">', true, false);
+let courthouse:Building = new Building('Courthouse', 0, 500, 5000, 'Bringing Law & Order to the Classical era.', '+1 <img src="img/influence-domestic.png">', true, false);
+let forum:Building = new Building('Forum', 0, 400, 4000, 'Not <em>that kind</em> of forum.', '+5 <img src="img/research.png"> PM', true, false);
+let harbor:Building = new Building('Harbor', 0, 400, 4000, 'The peer of a harbor is a dock.', 'Doubles <img src="img/health.png"> bonus of <img src="img/fish.png">', true, false);
+let lighthouse:Building = new Building('Lighthouse', 0, 500, 5000, 'We see the sea for you.', '+2 Navy <img src="img/strength.png">', true, false);
+let market:Building = new Building('Market', 0, 450, 4500, 'Ripoffs and stale meat galore!', '+20 <img src="img/coin.png">', true, false);
+let mint:Building = new Building('Mint', 0, 900, 9000, 'Keep your money mint-fresh.', '+1% <img src="img/coin.png"> per 10 <img src="img/gold.png">', true, false);
+let plantation:Building = new Building('Plantation', 0, 750, 7500, 'It\'s a plantation nation.', '+.5 <img src="img/prod.png"> PS per <img src="img/banana.png">', true, false);
+let walls:Building = new Building('Walls', 0, 400, 4000, 'B U I L D  W A L L', '+25 <img src="img/defense.png">', true, false);
 
 let buildings:Collection<Building> = new Collection('Buildings',
                                           [
