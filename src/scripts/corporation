@@ -4,7 +4,7 @@ import Collection = require('./collection');
 class Corporation {
   name: string;
   ID: string;
-  resource: string;
+  resource: Resource;
   money: number;
   influence: string;
   }
