@@ -20,8 +20,21 @@
     text-align: center;
   }
   .pop-btn {
-    background: lighten(green, 15%);
-    padding: .5rem;
+    background: #35DB6F;
+    color: #fff;
+    margin: .5rem .25rem;
+    overflow: hidden;
+    padding: 0 0 0 .75rem;
+  }
+  .pop-growth-cost {
+    background: #2FC253;
+    padding: .75rem;
+    display: inline-block;
+    text-align: center;
+  }
+  .disabled .pop-growth-cost {
+    background: #aaa;
+    -webkit-filter: grayscale(100%);
   }
   .civ-metric {
     //border: 1px solid #666;
@@ -29,38 +42,73 @@
     display: inline-block;
     margin: .5rem .25rem;
     min-width: 6rem;
-    padding: .5rem;
+    padding: .75rem;
+    position: relative;
+    text-align: left;
+  }
+  .civ-metric[data-label]::before {
+    color: #fff;
+    content: attr(data-label);
+    font-size: .8rem;
+    position: absolute;
     text-align: center;
+    bottom: 100%;
+  }
+  .civ-metric img {
+    height: 1.25rem;
+    float: right;
+  }
+  img.flip {
+    transform: rotateX(180deg);
   }
   .metric-growth-cost {
     background: $clouds;
   }
   .metric-land {
-    background: lighten(#2A5FB5, 25%);
+    background: #489CE0;
+    color: #fff;
   }
   .metric-population {
-    background: #E6DBB3;
+    background: #D6C998;
+    color: #fff;
+  }
+  .metric-migration {
+    background: #B8DFFC;
+    color: #120047;
   }
   .metric-happiness {
-    background: lighten(yellow, 20%);
+    background: #FFF15C;
   }
   .metric-anger {
-    background: lighten(red, 25%);
+    background: #DB3535;
+    color: #fff;
   }
   .metric-health {
     background: white;
   }
   .metric-pollution {
-    background: lighten(desaturate(green, 50%), 35%);
+    background: #6CC482;
+    color: #fff;
   }
-  .metric-influence {
-    background: #BAE0E8;
+  .metric-influence-text {
+    color: #fff;
+  }
+  .metric-domestic-influence {
+    background: #6DF7EC;
+  }
+  .metric-international-influence {
+    background: #84A6FA;
   }
   .metric-golden-age {
     background: #222;
-    border: 1px solid black;
-    color: #fff;
-    padding: .5rem auto;
+    padding: .75rem auto;
+    text-align: center;
     width: 20rem;
+  }
+  .metric-golden-age-points,
+  .metric-golden-ages,
+  .metric-golden-age {
+    background: #212006;
+    color: #fff;
   }
 }

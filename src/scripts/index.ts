@@ -246,7 +246,7 @@ function createGameUI() {
     store.clear();
   });
 
-  setInfluenceImage();
+  setInfluenceImages();
 
   populateTechnologies();
   populateCitizens();
@@ -271,7 +271,7 @@ function updatePopulationEmployed():void {
 }
 
 function updatePopulation(pop:number) {
-  let popGrowthCost = document.querySelector('.pop-growth-cost');
+  let popGrowthCost = document.querySelector('.pop-growth-cost-text');
   let populationText = document.querySelector('.population-text');
 
   playerCiv.population += pop;
@@ -290,6 +290,7 @@ function updatePopulation(pop:number) {
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
   u.elt('.civ-anger-text').textContent = playerCiv.anger;
   u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
+  u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
 
   addCitizen('farmer', pop, '.farmer-num-text');
 
@@ -326,9 +327,10 @@ setInterval(function() {
     addCash();
     addResearchPoints();
     checkPopulationGrowthCost()
+    setLandPercent();
     checkBuildingCosts();
     renderHistory(history);
-    setInfluenceImage();
+    setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
   }
 }, 1000);
@@ -377,6 +379,19 @@ function checkBuildingCosts() {
       item.setAttribute('data-purchaseable', false);
     }
   });
+}
+
+function setLandPercent() {
+  let landPercent:any = (playerCiv.land / game.totalLand) * 100;
+  let landPercentText = u.elt('.land-percent-text');
+
+  if (landPercent.toFixed(4) < 0.0001) {
+    landPercent = '< 0.001%';
+  } else {
+    landPercent = landPercent.toFixed(4) + '%';
+  }
+
+  landPercentText.textContent = landPercent;
 }
 
 function populateTechnologies() {
@@ -535,14 +550,21 @@ function addGoldenAgePoints() {
   playerCiv.goldenAgeProgress += goldenAgePoints;
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 
-  if (goldenAgePoints > 0) {
+  if (playerCiv.goldenAgeProgress > 0) {
     let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
     let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
     goldenAgeMeter.style.background = bgString;
   } else {
     let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
-    let bgString:string = u.progressBar(goldenAgePercent, '#CC0000', '#CC0000');
+    let bgString:string = u.progressBar(goldenAgePercent, '#DB3535', '#DB3535');
     goldenAgeMeter.style.background = bgString;
+  }
+
+
+  if (goldenAgePoints > 0) {
+    u.elt('.metric-golden-age-points').style.background = '#212006';
+  } else {
+    u.elt('.metric-golden-age-points').style.background = '#DB3535';
   }
 }
 
@@ -582,13 +604,13 @@ function addCash() {
   cashText.textContent = playerCiv.cash.toFixed(2);
 }
 
-function setInfluenceImage() {
-  if (playerCiv.influence >= 0) {
-    u.elt('.influence-img').src = 'img/influence.png';
-  } else {
-    u.elt('.influence-img').src = 'img/influence-alt.png';
-  }
-}
+// function setInfluenceImage() {
+//   if (playerCiv.influence >= 0) {
+//     u.elt('.influence-img').src = 'img/influence.png';
+//   } else {
+//     u.elt('.influence-img').src = 'img/influence-alt.png';
+//   }
+// }
 
 function resourceClick() {
   let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('.resource');
@@ -904,6 +926,22 @@ function checkPopulationGrowthCost() {
   } else {
     button.className = 'pop-btn';
     return true;
+  }
+}
+
+function setInfluenceImages() {
+  let domesticImg = u.elt('.metric-domestic-influence-img');
+  let internationalImg = u.elt('.metric-international-influence-img');
+
+  if (playerCiv.influenceDomestic < 0) {
+    domesticImg.classList.add('flip');
+  } else {
+    domesticImg.classList.remove('flip');
+  }
+  if (playerCiv.influenceInternational < 0) {
+    internationalImg.classList.add('flip');
+  } else {
+    internationalImg.classList.remove('flip');
   }
 }
 
