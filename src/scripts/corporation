@@ -5,8 +5,8 @@ class Corporation {
   name: string;
   ID: string;
   resource: string;
+  money: number;
+  influence: string;
   }
   
-export = Money;
-export = Influence;
 export = Corporation;
