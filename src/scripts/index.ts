@@ -481,10 +481,12 @@ function populateBuildings() {
     console.log(b);
     buildingsContainer.innerHTML += `
       <div class='building' data-id='${i}' data-visible='${b.visible}' data-enabled='${b.enabled}' data-building='${b.name}' data-purchaseable='false'>
-        <span class='building-total' data-building='${b.name}' title='how many you own'>${b.amount}</span>
-        <span class='building-cost'><span class='building-cost-text data-id='${i}'>${b.prodCost}</span> <img src='img/prod.png'></span>
-        <span class='building-name'>${b.name}</span>
-        <span class='building-description'>${b.description}</span>
+        <div style='text-align:center'>
+          <span class='building-total' data-building='${b.name}' title='how many you own'>${b.amount}</span>
+          <span class='building-name'>${b.name}</span>
+          <span class='building-cost'><span class='building-cost-text data-id='${i}'>${b.prodCost}</span> <img src='img/prod.png'></span>
+          <span class='building-description'>${b.description}</span>
+        </div>
         <span class='building-effect' data-building='${b.name}'>${b.effect}</span>
       </div>
     `;
