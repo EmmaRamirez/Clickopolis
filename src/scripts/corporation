@@ -9,3 +9,4 @@ class Corporation {
   
 export = Money;
 export = Influence;
+export = Corporation;
