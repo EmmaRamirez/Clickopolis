@@ -1,6 +1,8 @@
 # Clickopolis (WIP)
 A clicking-based civilization game.
 
+[![Code Climate](https://codeclimate.com/github/EmmaRamirez/Clickopolis/badges/gpa.svg)](https://codeclimate.com/github/EmmaRamirez/Clickopolis)
+
 ## Notes
 *This game is still a work in progress, and as such things are bound to wildly change.*
 
