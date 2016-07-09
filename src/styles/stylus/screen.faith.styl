@@ -1,15 +1,46 @@
-.faith-screen {
+.faith-screen
   background: #333;
   border-top: 4px solid #ddd;
-  h2 {
+  h2
     background: #ddd;
     color: #666;
     margin: .25rem .25rem 1.25rem .25rem;
     padding: 1rem;
-    img {
+    img
       background: white;
       border: 4px solid white;
       border-radius: 50%;
-    }
-  }
-}
+  .faith-wrapper
+    background: #222;
+    border: 1px solid #111;
+    border-radius: 4px;
+    color: #eee;
+    margin: .1rem auto;
+    padding: .25rem;
+    text-align: center;
+    width: 15rem;
+  .fb-container
+    margin: 1rem;
+  .faith-bonus
+    background: #eee;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: .25rem;
+    padding: .5rem;
+    &:hover, [data-purchased='true']
+      background: #FFFFE0;
+    .faith-bonus-name
+      text-align: center;
+      padding: .25rem;
+    .faith-bonus-cost
+      border-right: 1px solid #ccc;
+      display: inline-block;
+      font-weight: bold;
+      padding: .25rem;
+      text-align: center;
+      width: 3rem;
+    .faith-bonus-effect
+      font-size: .8rem;
+      img
+        height: .75rem;
+        vertical-align: baseline;

@@ -20,6 +20,7 @@ import Wonder = require('./wonder');
 import Tech = require('./tech');
 import Nation = require('./nation');
 import Templates = require('./template');
+import FaithBonus = require('./faithbonus');
 //import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
@@ -30,6 +31,7 @@ import citizenData = require('./data.citizen');
 import buildingData = require('./data.building');
 import nationData = require('./data.nation');
 import wonderData = require('./data.wonder');
+import faithBonusData = require('./data.faithbonus');
 
 let u = new Utils();
 
@@ -39,6 +41,7 @@ let citizens = citizenData;
 let buildings = buildingData;
 let nations = nationData;
 let wonders = wonderData;
+let faithBonuses = faithBonusData;
 
 let history:string[];
 
@@ -252,10 +255,13 @@ function createGameUI() {
   populateCitizens();
   populateBuildings();
   populateWonders();
+  populateFaithBonuses();
+
   setTechQueue();
 
   history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
+  updateFaithElts();
 
   citizenClick();
   techClick();
@@ -325,6 +331,7 @@ setInterval(function() {
     updateTime();
     addGoldenAgePoints();
     addCash();
+    addFaith();
     addResearchPoints();
     checkPopulationGrowthCost()
     setLandPercent();
@@ -332,6 +339,7 @@ setInterval(function() {
     renderHistory(history);
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
+    updateFaithElts();
   }
 }, 1000);
 
@@ -356,7 +364,7 @@ function drawUI(el:HTMLElement) {
                   //templates.createDiplomacyScreen(playerCiv) +
                   //templates.createMilitaryScreen(playerCiv) +
                   //templates.createCultureScreen(playerCiv) +
-                  //templates.createFaithScreen(playerCiv) +
+                  templates.createFaithScreen(playerCiv) +
                   templates.createLegacyScreen(playerCiv) +
                   templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv);
@@ -392,6 +400,31 @@ function setLandPercent() {
   }
 
   landPercentText.textContent = landPercent;
+}
+
+function addFaith() {
+  playerCiv.faith += playerCiv.faithPM / 60;
+}
+
+function updateFaithElts() {
+  u.elt('.faith-PM').textContent = playerCiv.faithPM;
+  u.elt('.faith-total').textContent = Math.floor(playerCiv.faith);
+}
+
+function populateFaithBonuses() {
+  let fbContainer = u.elt('.fb-container');
+  fbContainer.innerHTML = '';
+
+  for (let i = 0; i < faithBonuses.items.length; i++) {
+    let fb = faithBonuses.items[i];
+    fbContainer.innerHTML += `
+    <div class='faith-bonus' data-enabled='${fb.enabled}' data-purchased='${fb.purchased}' ata-id='${i}' data-faith-bonus='${fb.name}'>
+      <span class='faith-bonus-cost' title='Actual: ${playerCiv.faithCost * fb.tier}'>${u.abbrNum(playerCiv.faithCost * fb.tier)}</span>
+      <span class='faith-bonus-name'>${fb.name}</span>
+      <span class='faith-bonus-effect'>${fb.effect}</span>
+    </div>
+    `;
+  }
 }
 
 function populateTechnologies() {
