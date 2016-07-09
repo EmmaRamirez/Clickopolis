@@ -585,6 +585,11 @@ class Templates {
           <img src='img/faith-alt.png'> Faith
         </h2>
         <section class='faith-screen-inner'>
+          <div class='faith-PM-wrapper' title='The amount of faith you produce per minute.'>
+            <span class='faith-PM'>${playerCiv.faithPM}</span> <img src='img/faith.png'> PM</span>
+          </div>
+        </section>
+        <section class='faith-screen-inner fb-container'>
 
         </section>
       </section>
