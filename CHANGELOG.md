@@ -5,7 +5,7 @@
 - `FaithBonus`, a type of bonus bought with faith Points
 - A `Faith` screen, which lists these bonuses
 - `FaithTier`s which determine the level and power of a `FaithBonus`
-- New functions and styling to accomodate all of this
+- New functions and styling to accommodate all of this
 
 ### v0.1.8
 [`e285cac`](https://github.com/EmmaRamirez/Clickopolis/commit/e285cac12521e4ab478ab1a4a8270997686426b8) Changed the price of `Temple` from *45* to **70**. Changed the price of `Graveyard` from *70* to **30**.
