@@ -1,5 +1,20 @@
 # Changelog
 
+### v0.1.9
+[`548648a`](https://github.com/EmmaRamirez/Clickopolis/commit/548648a80bd5d212f6942e0853d5fd146a52882f) Added the `Faith` mechanic. This includes:
+- `FaithBonus`, a type of bonus bought with faith Points
+- A `Faith` screen, which lists these bonuses
+- `FaithTier`s which determine the level and power of a `FaithBonus`
+- New functions and styling to accomodate all of this
+
+### v0.1.8
+[`e285cac`](https://github.com/EmmaRamirez/Clickopolis/commit/e285cac12521e4ab478ab1a4a8270997686426b8) Changed the price of `Temple` from *45* to **70**. Changed the price of `Graveyard` from *70* to **30**.
+
+[`c0dff1c`](https://github.com/EmmaRamirez/Clickopolis/commit/c0dff1cf21358762753fd581de40c10b352f43c2) Updated the Building design&mdash;now much prettier!
+
+### v0.1.7
+[`f818504`](https://github.com/EmmaRamirez/Clickopolis/commit/f818504a9076e8fb815ac45a8df5c43f81837d84) Added the Classical era Techs, included a _leads to_ section for each Tech. Added `The Wheel` Ancient era Tech, and added technology unlocking.
+
 ### v0.1.6
 [`bfc37f0`](https://github.com/EmmaRamirez/Clickopolis/commit/bfc37f03e271d169a66102f6e430d977f147686d) Fixes [#30](https://github.com/EmmaRamirez/Clickopolis/issues/30) and [#33](https://github.com/EmmaRamirez/Clickopolis/issues/33). `Influence` split into `Domestic & International influences`. Added `immigration`, `emigration`, and `netMigration` properties. Added displaying `landPercent`. `Golden Age Points` and `Golden Ages` are now displayed as well.
 
