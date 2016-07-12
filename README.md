@@ -61,6 +61,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
   - New Alpha/Omega specific resources, techs, & upgrades
 - Implements the Medieval Era
 - Implements `Spies` & `Espionage`
+- Implements `Quests`
 
 ### 0.2.0 &mdash; An Empire of the Arts
 - Implements `Faith` and `Faith Bonuses`
