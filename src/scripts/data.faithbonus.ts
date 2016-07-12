@@ -15,7 +15,7 @@ let bm:FaithBonus = new FaithBonus('Benevelont Muses', FaithTier.Pantheon, true,
 let gow:FaithBonus = new FaithBonus('God of War', FaithTier.Pantheon, true, false, `+15% <img src='img/strength.png' />`, function () {
 
 });
-let sc:FaithBonus = new FaithBonus('Satyr\'s Charm', FaithTier.Pantheon, true, false, `+1% <img src='img/happy.png' /> per <img src='img/horse.png' /> (max 25%)`, function () {
+let sc:FaithBonus = new FaithBonus('Satyr Charm', FaithTier.Pantheon, true, false, `+1% <img src='img/happy.png' /> per <img src='img/horse.png' /> (max 25%)`, function () {
 
 });
 let gc:FaithBonus = new FaithBonus('Golden Calf', FaithTier.Pantheon, true, false, `+1 <img src='img/faith.png' /> PM per <img src='img/gold.png' /> resource`, function () {
@@ -36,7 +36,7 @@ let lof:FaithBonus = new FaithBonus('Lord of the Flies', FaithTier.Pantheon, tru
 let tf:FaithBonus = new FaithBonus('The Furies', FaithTier.Pantheon, true, false, `+10 <img src='img/faith.png'/> when you declare war`, function () {
 
 });
-let tf2:FaithBonus = new FaithBonus('The Fates', FaithTier.Pantheon, true, false, `Increases chance of good events`, function () {
+let tf2:FaithBonus = new FaithBonus('The Fates', FaithTier.Ultimate, true, false, `Increases chance of good events`, function () {
 
 });
 
