@@ -32,6 +32,7 @@ import buildingData = require('./data.building');
 import nationData = require('./data.nation');
 import wonderData = require('./data.wonder');
 import faithBonusData = require('./data.faithbonus');
+import achievementData = require('./data.achievement');
 
 let u = new Utils();
 
@@ -42,6 +43,7 @@ let buildings = buildingData;
 let nations = nationData;
 let wonders = wonderData;
 let faithBonuses = faithBonusData;
+let achievements = achievementData;
 
 let history:string[];
 

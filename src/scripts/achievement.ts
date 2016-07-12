@@ -9,10 +9,12 @@ class Achievement {
   checkFunc: Function;
 
 
-  constructor(name: string, checkFunc: Function, unlocked: boolean) {
+  constructor(name: string, checkFunc: Function, unlocked: boolean = false) {
     this.name = name;
     this.className = u.dasherize(name);
     this.checkFunc = Function;
     this.unlocked = unlocked
   }
 }
+
+export = Achievement;
