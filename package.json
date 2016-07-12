@@ -2,7 +2,7 @@
   "name": "clickopolis",
   "version": "0.1.9",
   "description": "An epic clicking-based empire management game.",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",

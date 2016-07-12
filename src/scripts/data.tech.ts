@@ -228,11 +228,13 @@ let calendar:Tech = new Tech(
   [
     '<img src="img/plus.png"> Unlocks <img src="img/banana.png"> resource',
     '<img src="img/plus.png"> Can build Plantation',
+    '<img src="img/plus.png"> Can build Moai Statues wonder',
     '<img src="img/key.png"> Leads To: Theology'
   ],
   ['buildings', 'resources'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockResource('banana', resources);
+    u.unlockWonder('Moai Statues', wonders);
   }
 );
 let construction:Tech = new Tech(
@@ -242,12 +244,13 @@ let construction:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build Walls',
     '<img src="img/plus.png"> Can build Collesseum',
+    '<img src="img/plus.png"> Can build The Great Colloseum wonder',
     '<img src="img/plus.png"> Improves <img src="img/miner.png"> output by 100%',
     '<img src="img/key.png"> Leads To: Irrigation, Engineering, Machinery, Milling'
   ],
   ['buildings', 'citizens', 'resources'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
-
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
+    u.unlockWonder('The Great Colloseum', wonders);
   }
 );
 let currency:Tech = new Tech(
@@ -326,11 +329,12 @@ let philosophy:Tech = new Tech(
   'But really, what <i>is</i> a technology?',
   [
     '<img src="img/plus.png"> Can build Forum',
+    '<img src="img/plus.png"> Can build Parthenon wonder',
     '<img src="img/key.png"> Leads To: War Strategy, Education, Theology'
   ],
   ['research', 'buildings'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
-
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
+    u.unlockWonder('Parthenon', wonders);
   }
 );
 let poetics:Tech = new Tech(
@@ -368,11 +372,12 @@ let warStrategy:Tech = new Tech(
   'Ambush mofos! -- Sun Tzu',
   [
     '<img src="img/plus.png"> +1 free General',
+    '<img src="img/plus.png"> Can build The Great Wall wonder',
     '<img src="img/key.png"> Leads To: Gunpowder'
   ],
   ['military'],
-  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
-
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
+    u.unlockWonder('The Great Wall', wonders);
   }
 );
 
