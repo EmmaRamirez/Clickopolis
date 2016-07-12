@@ -32,7 +32,9 @@ class Civilization {
   biomes: Collection<Biome>;
 
   happiness: number;
+  happinessMod: number;
   anger: number;
+  angerMod: number;
   health: number;
   pollution: number;
   land: number;
@@ -102,7 +104,9 @@ class Civilization {
     this.leaderTraitsMax = 3;
 
     this.happiness = 15;
+    this.happinessMod = 1;
     this.anger = 1;
+    this.angerMod = 1;
     this.health = 25;
     this.pollution = 1;
     this.land = 1;
