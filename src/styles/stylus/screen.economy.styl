@@ -33,12 +33,17 @@
   .cash-item {
     background: lighten(#222, 15%);
     color: #eee;
-    display: block;
+    display: inline-block;
+    font-size: .8reml
     margin: .25rem 0;
-    padding: .25rem;
-    text-align: right;
+    padding: .5rem;
+    text-align: center;
+    width: calc(25% - .5rem);
     &.cash-item-total {
-      color: lightgreen;
+      background: darken(#A0D190, 15%);
+      color: #222;
+      text-align: right;
+      width: 100%;
     }
     span {
       font-weight: bold;
