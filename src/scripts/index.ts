@@ -445,7 +445,7 @@ function faithBonusClick() {
           faithBonuses.get(fb).purchased = true;
           item.setAttribute('data-purchased', 'true');
           console.log(item.getAttribute('data-purchased'));
-          faithBonuses.get(fb).func;
+          faithBonuses.get(fb).func(resources, playerCiv);
           playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
           console.debug(playerCiv.faithCost.toString());
           updateFaithElts();
