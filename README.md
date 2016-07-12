@@ -56,7 +56,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Implements the Renaissance Era
 - Implements `Events`
 
-### 0.3.0 &mdash; The Faithful Many
+### 0.3.0 &mdash; An Empire of the Arts
 - Introduces the `Alpha` and `Omega` cults
 - Implements `Culture`, `Cultural Upgrades`, and `Great Works.`
   - New Alpha/Omega specific resources, techs, & upgrades
@@ -64,7 +64,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 - Implements `Spies` & `Espionage`
 - Implements `Quests`
 
-### 0.2.0 &mdash; An Empire of the Arts
+### 0.2.0 &mdash; The Faithful Many
 - Implements `Faith` and `Faith Bonuses`
 - Implements `Legacy` bonuses
 - Implements (part of) `Achievements`
