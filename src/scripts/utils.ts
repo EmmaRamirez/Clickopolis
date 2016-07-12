@@ -27,6 +27,10 @@ class Utils {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  dasherize(str:string):string {
+    return str.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase();
+  }
+
   choose(arr:any[]):any {
     return arr[Math.floor(Math.random()*arr.length)];
   }
