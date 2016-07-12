@@ -957,8 +957,21 @@ function unlockTech(purchased:string | string[], enabled:string | string[]):bool
   }
 }
 
+interface techPurchaseCheckOptions {
+  logic?: string;
+}
+
+function techPurchaseCheck(techs:string[], opts:techPurchaseCheckOptions = { logic: '&&' }) {
+  if (opts.logic === 'or' || opts.logic === '||') {
+    
+  }
+  if (opts.logic === 'and' || opts.logic === '&&') {
+
+  }
+}
+
 function eraCheck() {
-  if (100 === 99) {
+  if (techs.get('calendar').purchased || techs.get('construction').purchased || techs.get('mathematics').purchased || techs.get('poetics').purchased) {
     game.era = Era.Classical;
     triggerEra();
   }
