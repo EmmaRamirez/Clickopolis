@@ -271,6 +271,8 @@ function createGameUI() {
   wonderClick();
   faithBonusClick();
 
+  generateTooltips();
+
   //UiSettingsButtons();
 
 }
@@ -719,10 +721,11 @@ function generateCitizenPercents() {
     let c = citizens.items[i];
     if (c.amount > 0) {
       let bar = document.createElement('div');
-      bar.title = u.capitalize(c.name + 's');
+      bar.setAttribute('data-tooltip', `${u.capitalize(c.name + 's')}: ${Math.floor((c.amount / pop * 100))}%`)
       bar.style.width = `${(c.amount / pop) * 100}%`;
       bar.style.height = '1rem';
       bar.style.background = c.color;
+      updateTooltip(bar);
       citizenBar.appendChild(bar);
     }
   }
@@ -1052,6 +1055,64 @@ function setInfluenceImages() {
   } else {
     internationalImg.classList.remove('flip');
   }
+}
+
+interface TooltipOptions {
+  offsetX?: number;
+  offsetY?: number;
+  classes?: string[];
+
+}
+
+function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
+  offsetX: 10,
+  offsetY: 10
+}) {
+  let text = elt.getAttribute('data-tooltip');
+  let tooltip = document.createElement('div');
+  tooltip.className = 'tooltip';
+  tooltip.innerHTML = `${text}`;
+
+  elt.addEventListener('mouseenter', function (event:any) {
+    tooltip.style.left = event.clientX + opts.offsetX + 'px';
+    tooltip.style.top = event.clientY + opts.offsetY + 'px';
+    elt.appendChild(tooltip);
+  });
+  elt.addEventListener('mousemove', function (event:any) {
+    tooltip.style.left = event.clientX + opts.offsetX + 'px';
+    tooltip.style.top = event.clientY + opts.offsetY + 'px';
+  });
+  elt.addEventListener('mouseleave', function (event:any) {
+    elt.removeChild(tooltip);
+  });
+}
+
+function generateTooltips(opts:TooltipOptions = {
+  offsetX: 10,
+  offsetY: 10
+ }) {
+  console.log('fadsfdsalkfadsklfjasd, FUCK YOU');
+  let tooltipElts = u.elt('[data-tooltip]', true);
+  [].forEach.call(tooltipElts, function (item: any, index: number) {
+    let text = item.getAttribute('data-tooltip');
+    let tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.innerHTML = `${text}`;
+
+    item.addEventListener('mouseenter', function (event:any) {
+      tooltip.style.left = event.clientX + opts.offsetX + 'px';
+      tooltip.style.top = event.clientY + opts.offsetY + 'px';
+      item.appendChild(tooltip);
+    });
+    item.addEventListener('mousemove', function (event:any) {
+      tooltip.style.left = event.clientX + opts.offsetX + 'px';
+      tooltip.style.top = event.clientY + opts.offsetY + 'px';
+    });
+    item.addEventListener('mouseleave', function (event:any) {
+      item.removeChild(tooltip);
+    });
+
+  });
 }
 
 

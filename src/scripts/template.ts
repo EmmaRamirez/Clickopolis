@@ -117,7 +117,7 @@ class Templates {
   createResourcesScreen(playerCiv:Civilization, resources:Collection<Resource>) {
     let resourcesScreen = `
       <section class='screen resources-screen' id='resources'>
-        <h2><img src='img/resources.png'> Resources</h2>
+        <h2 data-tooltip='Resources are nice.'><img src='img/resources.png'> Resources</h2>
         <section class='resources-screen-inner'>
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
