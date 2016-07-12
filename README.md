@@ -59,7 +59,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 ### 0.3.0 &mdash; An Empire of the Arts
 - Introduces the `Alpha` and `Omega` cults
 - Implements `Culture`, `Cultural Upgrades`, and `Great Works.`
-  - New Alpha/Omega specific resources, techs, & upgrades
+- New Alpha/Omega specific resources, techs, & upgrades
 - Implements the Medieval Era
 - Implements `Spies` & `Espionage`
 - Implements `Quests`
