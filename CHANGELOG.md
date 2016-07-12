@@ -1,5 +1,26 @@
 # Changelog
 
+### v0.1.11
+[`6722242`](https://github.com/EmmaRamirez/Clickopolis/commit/6722242aee92d3219371e89387ab92b62d492f01) Change Ultimate Faith Tier cost from 1M to 100K
+
+[`a3f5a55`](https://github.com/EmmaRamirez/Clickopolis/commit/a3f5a553f437ecf0b1f01f537ac8a84b12dbbda5) Add ability to purchase Faith Bonuses
+
+[`f0e7e7f`](https://github.com/EmmaRamirez/Clickopolis/commit/f0e7e7f308d30bddcea094b43b9f3eb90be4e24e) Add functions to Faith Bonuses God of War, Fertility Goddess, and Protective Spirits
+
+[`ab3962f`](https://github.com/EmmaRamirez/Clickopolis/commit/ab3962f620b7bb6a954c4e87444a1683af004f7b) [`7b13394`](https://github.com/EmmaRamirez/Clickopolis/commit/7b133948a7ba25d7f55dfb99af22e99ad3ce97f3) Added `AngerMod`, `happinessMod`, `strengthMod`, & `defenseMod` properties to Civilization
+
+[`2763820`](https://github.com/EmmaRamirez/Clickopolis/commit/276382038b6f4c89279d01569698a5b75d659d12) Added `Artist` citizen class and `culture` + `culturePM` properties to Civilization
+
+### v0.1.10
+[`e4f4389`](https://github.com/EmmaRamirez/Clickopolis/commit/e4f4389aa8a566157c0accee25ccedf59f83d182) Adds Classical Wonders:
+- Moai Statues
+- The Great Wall
+- The Great Colloseum
+- Parthenon
+- Also implements their respective functions
+
+[`d6d3a7a`](https://github.com/EmmaRamirez/Clickopolis/commit/d6d3a7a3cfe26a641ccacef6fed2598083afbec1) **Bugfix**: `max` no longer appears inside boxes of food and prod when purchasing a Granary or Quarry.
+
 ### v0.1.9
 [`548648a`](https://github.com/EmmaRamirez/Clickopolis/commit/548648a80bd5d212f6942e0853d5fd146a52882f) Added the `Faith` mechanic. This includes:
 - `FaithBonus`, a type of bonus bought with faith Points
