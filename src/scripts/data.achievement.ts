@@ -3,9 +3,10 @@ import Achievement = require('./achievement');
 import Game = require('./game');
 import Civilization = require('./civilization');
 
-let babyClicker = new Achievement('Baby Clicker', function () {
+let babyClicker = new Achievement('Baby Clicker', 'click once.', function () {
 
 });
+
 
 let achievementData = new Collection('achievements', [
   babyClicker

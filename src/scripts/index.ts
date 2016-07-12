@@ -258,6 +258,7 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
+  populateAchievements();
 
   generateCitizenPercents();
 
@@ -603,6 +604,40 @@ function populateWonders():void {
     `;
   }
 }
+
+function populateAchievements():void {
+  let achievementsContainer = u.elt('.achievements');
+  achievementsContainer.innerHTML = '';
+
+  for (let i = 0; i < achievements.items.length; i++) {
+    let a = achievements.items[i];
+    achievementsContainer.innerHTML = `
+      <div class='achievement ${a.className}' data-unlocked='${a.unlocked}' data-tooltip='${a.name}: ${a.description}'></div>
+    `;
+    updateTooltip(u.elt(`.${a.className}`));
+  }
+}
+
+function unlockAchievement(achievementName:string | number) {
+  if (typeof achievementName === 'string') {
+    achievements.get(achievementName).unlocked = true;
+    u.elt('.${u.dasherize(achievementName)}').setAttribute('data-unlocked', 'true');
+  }
+  if (typeof achievementName === 'number') {
+    achievements.items[achievementName].unlocked = true;
+    u.elt('.achievement', true)[achievementName].setAttribute('data-unlocked', 'true');
+  }
+}
+
+function checkAchievements() {
+  for (let i = 0; i < achievements.items.length; i++) {
+    if (achievements.items[i].checkFunc(playerCiv, game)) {
+      unlockAchievement(i);
+      notify({message: `Achievement Unlocked! ${achievements.items[i].name}: ${achievements.items[i].description}`});
+    }
+  }
+}
+
 
 function populate(container:HTMLElement, collection:Collection<any>, template:string) {
   container.innerHTML = '';
@@ -1119,11 +1154,6 @@ function UiSettingsButtons() {
     u.elt('.clickopolis').style.width = '100%';
   });
   u.elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
-}
-
-
-function checkAchievements() {
-
 }
 
 

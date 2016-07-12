@@ -166,3 +166,5 @@ src/scripts/faithbonus.js
 src/scripts/faithtier.js
 
 src/scripts/achievement.js
+
+src/scripts/data.achievement.js
