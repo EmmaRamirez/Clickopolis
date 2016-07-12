@@ -44,10 +44,13 @@ let merchant:Citizen = new Citizen('merchant', 'merchant', '#COLOR', 0, 'Merchan
   playerCiv.cashPM += amount * this.contrib1.amount;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
 });
-let scientist:Citizen = new Citizen('scientist', 'scientist', '#83D4D4', 0, 'Scentists conduct research for your empire.', { name: 'research', mod: 'PM', amount: 2 }, {}, {}, {}, true, false, function () {
-
+let artist:Citizen = new Citizen('artist', 'artist', '#C41B7E', 0, 'Aritsts boost culture and create Great Works.', { name: 'culture', mod: 'PM', amount: 1}, {}, {}, {}, true, false, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
+  playerCiv.culturePM += 1;
+});
+let scientist:Citizen = new Citizen('scientist', 'scientist', '#83D4D4', 0, 'Scentists conduct research for your empire.', { name: 'research', mod: 'PM', amount: 2 }, {}, {}, {}, true, false, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
+  playerCiv.researchPM += 2;
 });
 
-let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, merchant, scientist]);
+let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, merchant, artist, scientist]);
 
 export = citizens;
