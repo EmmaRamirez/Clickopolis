@@ -591,10 +591,16 @@ class Templates {
         <h2>
           <img src='img/achievements.png'> Achievements
         </h2>
-        <section class='achievements-screen-inner legacy'>
+        <section class='achievements-screen-inner'>
           <div class='achievements-wrapper'>
             <img src='img/achievements.png'> <span class='achievements-total'>${playerCiv.achievements}</span> Achievements
           </div>
+        </section>
+        <section class='achievements-screen-inner achievements'>
+          <div class='achievement baby-clicker' data-tooltip='Click once.'></div>
+          <div class='achievement baby-clicker' data-tooltip='Click once.'></div>
+          <div class='achievement baby-clicker' data-unlocked='false' data-tooltip='Click once.'></div>
+
         </section>
       </section>
     `;
