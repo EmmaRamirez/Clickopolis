@@ -30,7 +30,7 @@ let woodcutter:Citizen = new Citizen('woodcutter', 'woodcutter', '#8C775B', 0, '
   u.elt('.r-prod-ps').textContent = resources.get('prod').perSecond.toFixed(1);
   console.log(resources.get('prod'));
 });
-let soldier:Citizen = new Citizen('soldier', 'soldier-alt', '#5B8C76', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', { name: 'coin', mod: 'PM', amount: -2 }, { name: 'strength', mod: '', amount: 2}, {}, {}, true, true, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
+let soldier:Citizen = new Citizen('soldier', 'soldier-alt', '#DB1818', 0, 'Soldiers defend and fight for your empire. -3 <img src="img/coin.png">', { name: 'coin', mod: 'PM', amount: -2 }, { name: 'strength', mod: '', amount: 2}, {}, {}, true, true, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
   playerCiv.cashPM += amount * this.contrib1.amount;
   playerCiv.cashPMFromMilitary += amount * this.contrib1.amount;
   playerCiv.strength += amount * this.contrib2.amount;
@@ -45,10 +45,10 @@ let merchant:Citizen = new Citizen('merchant', 'merchant', '#A0D190', 0, 'Mercha
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
 });
 let artist:Citizen = new Citizen('artist', 'artist', '#C41B7E', 0, 'Aritsts boost culture and create Great Works.', { name: 'culture', mod: 'PM', amount: 1}, {}, {}, {}, true, false, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
-  playerCiv.culturePM += 1;
+  playerCiv.culturePM += this.contrib1.amount;
 });
 let scientist:Citizen = new Citizen('scientist', 'scientist', '#83D4D4', 0, 'Scentists conduct research for your empire.', { name: 'research', mod: 'PM', amount: 2 }, {}, {}, {}, true, false, function (amount:number, resources:Collection<Resource>, playerCiv:Civilization) {
-  playerCiv.researchPM += 2;
+  playerCiv.researchPM += this.contrib1.amount;
 });
 
 let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, merchant, artist, scientist]);
