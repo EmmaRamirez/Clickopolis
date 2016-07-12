@@ -82,7 +82,9 @@ class Civilization {
   culturePM: number;
 
   strength: number;
+  strengthMod: number;
   defense: number;
+  defenseMod: number;
 
 
   conquestedCivs: Civilization[];
@@ -146,7 +148,9 @@ class Civilization {
     this.culturePM = 0;
 
     this.strength = 10;
+    this.strengthMod = 1;
     this.defense = 10;
+    this.defenseMod = 1;
   }
 }
 
