@@ -34,6 +34,7 @@ This Roadmap is a glance at planned releases of Clickopolis. It does not include
 
 ### 0.7.0 &mdash; Boom & Bust
 - Implements ability to trade or sell `Great Works`
+- Introduces `Corporations`
 - Implements the Modern Era
 
 ### 0.6.0 &mdash; A New World
