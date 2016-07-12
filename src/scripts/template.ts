@@ -261,42 +261,11 @@ class Templates {
           <p class='center-text citizens-employed'>
             <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
           </p>
+          <br>
+          <div class='citizen-percentages'></div>
+          <span class='citizens'></span>
           <p class='center-text'>Each citizen produces 2 <img src='img/coin.png'>, 2 <img src='img/research.png'>, 1 <img src='img/angry.png'>, and 1 <img src='img/pollution.png'></p>
           <p class='center-text'>Each citizen also consumes 1 <img src='img/food.png'> PS</p>
-          <span class='citizens'>
-            <div class='row citizen-farmer'>
-              <button data-citizen='farmer' data-citizen-amount=-1>-1</button>
-              <span class='citizen-icon'><img src='img/farmer.png'></span>
-              <button data-citizen='farmer' data-citizen-amount=1>+1</button>
-              <span class='citizen-info'>
-                Farmers: <strong class='farmer-num-text'>${citizens.get('farmer').amount}</strong> | Farmers provide +1 <img src='img/food.png'> PC and +.2 PC.
-              </span>
-            </div>
-            <div class='row citizen-miner'>
-              <button data-citizen='miner' data-citizen-amount='-1'>-1</button>
-              <span class='citizen-icon'><img src='img/miner.png'></span>
-              <button data-citizen='miner' data-citizen-amount='1'>+1</button>
-              <span class='citizen-info'>
-                Miners: <strong class='miner-num-text'>0</strong> | Miners provide +1 <img src='img/prod.png'> PC and +.2 PC.
-              </span>
-            </div>
-            <div class='row citizen-soldier'>
-              <button data-citizen='soldier' data-citizen-amount='-1'>-1</button>
-              <span class='citizen-icon'><img src='img/soldier-alt.png'></span>
-              <button data-citizen='soldier' data-citizen-amount='1'>+1</button>
-              <span class='citizen-info'>
-                Soldiers: <strong class='soldier-num-text'>0</strong> | Soldiers defend and fight for your empire. -3 <img src='img/coin.png'>
-              </span>
-            </div>
-            <div class='row citizen-cleric'>
-              <button data-citizen='cleric' data-citizen-amount='-1'>-1</button>
-              <span class='citizen-icon'><img src='img/cleric.png'></span>
-              <button data-citizen='cleric' data-citizen-amount='1'>+1</button>
-              <span class='citizen-info'>
-                Clerics: <strong class='cleric-num-text'>0</strong> | Clerics heal your empire. +1 <img src='img/health.png'>, +1 <img src='img/faith.png'> PM
-              </span>
-            </div>
-          </span>
         </section>
       </section>
     `;

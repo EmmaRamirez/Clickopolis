@@ -257,6 +257,8 @@ function createGameUI() {
   populateWonders();
   populateFaithBonuses();
 
+  generateCitizenPercents();
+
   setTechQueue();
 
   history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
@@ -709,6 +711,23 @@ function resourceClick() {
   });
 }
 
+function generateCitizenPercents() {
+  let citizenBar = u.elt('.citizen-percentages');
+  let pop = playerCiv.population;
+  citizenBar.innerHTML = '';
+  for (let i = 0; i < citizens.items.length; i++) {
+    let c = citizens.items[i];
+    if (c.amount > 0) {
+      let bar = document.createElement('div');
+      bar.title = u.capitalize(c.name + 's');
+      bar.style.width = `${(c.amount / pop) * 100}%`;
+      bar.style.height = '1rem';
+      bar.style.background = c.color;
+      citizenBar.appendChild(bar);
+    }
+  }
+}
+
 function citizenClick() {
   let citizenButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('button[data-citizen]');
   [].forEach.call(citizenButtons, function (item:any) {
@@ -741,6 +760,7 @@ function addCitizen(citizen:string, amount: number, sel:string) {
   citizens.get(citizen).func(amount, resources, playerCiv);
   console.log(citizens.get(citizen).func);
   u.elt(sel).textContent = citizens.get(citizen).amount;
+  generateCitizenPercents();
 }
 
 function buildingClick() {
@@ -963,7 +983,7 @@ interface techPurchaseCheckOptions {
 
 function techPurchaseCheck(techs:string[], opts:techPurchaseCheckOptions = { logic: '&&' }) {
   if (opts.logic === 'or' || opts.logic === '||') {
-    
+
   }
   if (opts.logic === 'and' || opts.logic === '&&') {
 
