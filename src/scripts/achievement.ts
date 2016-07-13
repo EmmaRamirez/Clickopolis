@@ -10,7 +10,7 @@ class Achievement {
   checkFunc: Function;
 
 
-  constructor(name: string, description: string, checkFunc: Function, unlocked: boolean = false) {
+  constructor(name: string, description: string, checkFunc: Function = function () { return false; }, unlocked: boolean = false) {
     this.name = name;
     this.className = u.dasherize(name);
     this.description = description;
