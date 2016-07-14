@@ -2,7 +2,7 @@ class Collection<T> {
   name:string;
   items:any[];
 
-  push(item:any):void {
+  push(item:T):void {
     this.items.push(item);
   }
 
@@ -28,7 +28,7 @@ class Collection<T> {
     }
   }
 
-  constructor(name: string = 'Collection', items: any[]) {
+  constructor(name: string = 'Collection', items: T[]) {
     this.name = name;
     this.items = items;
   }

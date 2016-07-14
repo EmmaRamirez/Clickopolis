@@ -136,7 +136,7 @@ function startGame() {
     startSavedGame();
   } else {
     startNewGame();
-    playerCiv = new Civilization('', '', new Collection('biomes', [{name: '', description: ''}]));
+    playerCiv = new Civilization('', '', new Collection('biomes', [new Biome('')]));
   }
 }
 
@@ -181,10 +181,9 @@ function setPlayerCiv() {
       biome = <HTMLSelectElement>document.querySelector('#biome');
   playerCiv.civName = civNameInput.value;
   playerCiv.leaderName = leaderNameInput.value;
-  playerCiv.biomes = new Collection<Biome>('biomes', [{
-    name: biome.value,
-    description: 'idk'
-  }]);
+  playerCiv.biomes = new Collection<Biome>('biomes', [
+    new Biome(biome.value)
+  ]);
   console.log(playerCiv);
   savePlayer();
 }
@@ -263,6 +262,7 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
+  populateBiomes();
 
   generateCitizenPercents();
 
@@ -605,6 +605,18 @@ function populateWonders():void {
           <div class='wonder-effect'>${w.effect}</div>
         </div>
       </div>
+    `;
+  }
+}
+
+function populateBiomes():void {
+  let biomeContainer = u.elt('.biome-container');
+  biomeContainer.innerHTML = '';
+
+  for (let i = 0; i < playerCiv.biomes.items.length; i++) {
+    let b = playerCiv.biomes.items[i];
+    biomeContainer.innerHTML += `
+      <div class='biome' data-tooltip='${b.name}'><img src='img/${b.name.toLowerCase()}.png'></div>
     `;
   }
 }

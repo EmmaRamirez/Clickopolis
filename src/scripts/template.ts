@@ -60,7 +60,7 @@ class Templates {
           <option value="Coast">by the Coast</option>
           <option value="Island">on an Island</option>
           <option value="Jungle">in a Jungle</option>
-          <option value="Mountain">on a Mountain</option>
+          <option value="Mountains">on the Mountains</option>
           <option value="Forest">in a Forest</option>
           <option value="Tundra">in a Tundra</option>
           <option value="Glacier">on a Glacier</option>
@@ -146,9 +146,6 @@ class Templates {
           <div class='panel location-panel'>
             <div class='biome biome-lead'>Biomes: </div>
             <span class='biome-container'>
-              <div class='biome' data-tooltip='Desert'><img src='img/desert.png'></div>
-              <div class='biome' data-tooltip='Island'><img src='img/island.png'></div>
-              <div class='biome' data-tooltip='Mountains'><img src='img/mountains.png'></div>
             </span>
           </div>
 
