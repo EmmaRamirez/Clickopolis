@@ -13,6 +13,7 @@ import Settings = require('./settings');
 import Collection = require('./collection');
 import Era = require('./era');
 import Civilization = require('./civilization');
+import Biome = require('./biome');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
 import Building = require('./building');
@@ -131,11 +132,11 @@ function newEra(era:string) {
 function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
-    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.location);
+    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.biomes);
     startSavedGame();
   } else {
     startNewGame();
-    playerCiv = new Civilization('', '', '');
+    playerCiv = new Civilization('', '', new Collection('biomes', [{name: '', description: ''}]));
   }
 }
 
@@ -177,10 +178,14 @@ function startNewGame() {
 function setPlayerCiv() {
   let civNameInput = <HTMLInputElement>document.querySelector('#civName'),
       leaderNameInput = <HTMLInputElement>document.querySelector('#leaderName'),
-      location = <HTMLSelectElement>document.querySelector('#location');
+      biome = <HTMLSelectElement>document.querySelector('#biome');
   playerCiv.civName = civNameInput.value;
   playerCiv.leaderName = leaderNameInput.value;
-  playerCiv.location = location.value;
+  playerCiv.biomes = new Collection<Biome>('biomes', [{
+    name: biome.value,
+    description: 'idk'
+  }]);
+  console.log(playerCiv);
   savePlayer();
 }
 
