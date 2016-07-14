@@ -210,6 +210,11 @@ function createGameUI() {
   document.body.appendChild(clickopolisGame);
   //append('body', templates.resourcesScreen);
 
+  bindElement('body', 'click', function () {
+    game.totalClicks++;
+    checkAchievements();
+  });
+
   bindElement('.food-btn', 'click', function () {
     //event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
@@ -218,6 +223,7 @@ function createGameUI() {
     }
 
     checkPopulationGrowthCost();
+    checkAchievements();
   });
 
   bindElement('.prod-btn', 'click', function () {
@@ -228,6 +234,7 @@ function createGameUI() {
       notify({message:'Yay! You have enough <img src="img/prod.png"> to build your first building!'});
     }
     checkPopulationGrowthCost();
+    checkAchievements();
   });
 
   resourceClick();
@@ -258,6 +265,7 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
+  populateAchievements();
 
   generateCitizenPercents();
 
@@ -603,6 +611,73 @@ function populateWonders():void {
     `;
   }
 }
+
+function populateAchievements():void {
+  let achievementsContainer = u.elt('.achievements');
+  achievementsContainer.innerHTML = '';
+
+  for (let i = 0; i < achievements.items.length; i++) {
+    let a = achievements.items[i];
+    achievementsContainer.innerHTML += `
+      <div class='achievement ${a.className}' data-unlocked='${a.unlocked}' data-tooltip='${a.name}: ${a.description}'></div>
+    `;
+    updateTooltip(u.elt(`.${a.className}`));
+  }
+}
+
+function unlockAchievement(achievementName:string | number) {
+  if (typeof achievementName === 'string') {
+    achievements.get(achievementName).unlocked = true;
+    u.elt(`.${u.dasherize(achievementName)}`).setAttribute('data-unlocked', 'true');
+
+
+    history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.get(achievementName).name} achievement!`, categoryImage: 'achievements' }));
+    notify({message: `Achievement Unlocked! ${achievements.get(achievementName).name}: ${achievements.get(achievementName).description}`});
+  }
+  if (typeof achievementName === 'number') {
+    achievements.items[achievementName].unlocked = true;
+    u.elt('.achievement', true)[achievementName].setAttribute('data-unlocked', 'true');
+    history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.items[achievementName].name} achievement!`, categoryImage: 'achievements' }));
+    notify({message: `Achievement Unlocked! ${achievements.items[0].name}: ${achievements.items[achievementName].description}`});
+  }
+
+}
+
+function checkAchievements() {
+  let a = achievements;
+
+  function check(name:string):boolean {
+    return !a.get(name).unlocked;
+  }
+
+  if (game.totalClicks >= 1 && check('Baby Clicker')) {
+    unlockAchievement('Baby Clicker');
+  }
+
+  if (game.totalClicks >= 100 && check('A Hundred Mighty Clicks')) {
+    unlockAchievement('A Hundred Mighty Clicks');
+  }
+
+  if (game.totalClicks >= 1000 && check('The Great Clicker')) {
+    unlockAchievement('The Great Clicker');
+  }
+
+  if (game.totalClicks >= 25000 && check('Royal Clicker')) {
+    unlockAchievement('Royal Clicker');
+  }
+
+  if (game.totalClicks >= 50000 && check('Empire of Clicks')) {
+    unlockAchievement('Empire of Clicks');
+  }
+
+  if (game.totalClicks >= 100000 && check('HyperClicker')) {
+    unlockAchievement('HyperClicker');
+  }
+
+}
+
+
+
 
 function populate(container:HTMLElement, collection:Collection<any>, template:string) {
   container.innerHTML = '';
@@ -1119,11 +1194,6 @@ function UiSettingsButtons() {
     u.elt('.clickopolis').style.width = '100%';
   });
   u.elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
-}
-
-
-function checkAchievements() {
-
 }
 
 
