@@ -168,3 +168,9 @@ src/scripts/faithtier.js
 src/scripts/achievement.js
 
 src/scripts/data.achievement.js
+
+src/scripts/utils.tech.js
+
+src/scripts/biome.js
+
+src/scripts/data.legacy.js
