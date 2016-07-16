@@ -10,6 +10,9 @@ let louisXIV = new Legacy('Louis XIV', 'culture', 1, function (level:number, pla
     case 1:
       playerCiv.culturePM += 3;
       break;
+    case 2:
+      playerCiv.culturePM += 10;
+      break;
     default:
       break;
   }
