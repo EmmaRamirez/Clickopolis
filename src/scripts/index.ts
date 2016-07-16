@@ -261,6 +261,7 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
+  populateLegacy();
 
   generateCitizenPercents();
 
@@ -553,7 +554,30 @@ function populateCitizens() {
   }
 }
 
+function populateLegacy() {
+  let legacyContainer = u.elt('.legacy-bonuses');
+  legacyContainer.innerHTML = '';
 
+  for (let i = 0; i < legacyBonuses.items.length; i++) {
+    let l = legacyBonuses.items[i];
+    legacyContainer.innerHTML += `
+      <div class='legacy-bonus' data-tooltip='${l.descriptions[l.level - 1]}'>
+        <span class='legacy-level'>
+          Level<br>
+          ${l.level}
+        </span>
+        <span class='legacy-category'>
+          <img src='img/${l.type}.png'>
+        </span>
+        <span class='legacy-name'>${l.name}</span>
+        <span class='legacy-cost'>
+          <img src='img/legacy.png'><br>
+          100
+        </span>
+      </div>
+    `;
+  }
+}
 
 function populateBuildings() {
   let buildingsContainer = u.elt('.buildings');
@@ -937,7 +961,7 @@ function checkEnabledTechs() {
 
   [].forEach.call(techEls, function (item:any, index:number) {
     let name = item.getAttribute('data-tech');
-    item.setAttribute('data-enabled', techs.get(name).enabled + "");
+    item.setAttribute('data-enabled', `${techs.get(name).enabled}`);
   });
 }
 

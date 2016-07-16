@@ -174,3 +174,5 @@ src/scripts/utils.tech.js
 src/scripts/biome.js
 
 src/scripts/data.legacy.js
+
+src/scripts/legacy.js
