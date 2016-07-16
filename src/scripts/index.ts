@@ -21,6 +21,7 @@ import Tech = require('./tech');
 import Nation = require('./nation');
 import Templates = require('./template');
 import FaithBonus = require('./faithbonus');
+import Legacy = require('./legacy');
 //import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
@@ -33,6 +34,7 @@ import nationData = require('./data.nation');
 import wonderData = require('./data.wonder');
 import faithBonusData = require('./data.faithbonus');
 import achievementData = require('./data.achievement');
+import legacyData = require('./data.legacy');
 
 let u = new Utils();
 
@@ -44,6 +46,7 @@ let nations = nationData;
 let wonders = wonderData;
 let faithBonuses = faithBonusData;
 let achievements = achievementData;
+let legacyBonuses = legacyData;
 
 let history:string[];
 
