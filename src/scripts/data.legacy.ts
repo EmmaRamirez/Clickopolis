@@ -1,14 +1,15 @@
 import Collection = require('./collection');
 import Civilization = require('./civilization');
 import Legacy = require('./legacy');
+import notify = require('./notify');
 import Utils = require('./utils');
 
 let louisXIV = new Legacy(
-  'Louis XIV', 'culture', 1,
+  'Louis XIV', 'culture', 1, 5,
   [
     `<h3>Culture Level 1</h3>
     <ul>
-      <li>+3 <img src="img/culture.png"> PM</li>
+      <li>+150 <img src="img/culture.png"> PM</li>
       <li>+20% <img src="img/culture.png"></li>
     </ul>`
   ],
@@ -17,7 +18,7 @@ let louisXIV = new Legacy(
 
     switch (level) {
       case 1:
-        playerCiv.culturePM += 3;
+        playerCiv.culturePM += 150;
         break;
       case 2:
         playerCiv.culturePM += 10;
@@ -29,11 +30,16 @@ let louisXIV = new Legacy(
 );
 
 let mansaMusaII = new Legacy(
-  'Mansa Musa II', 'economy', 1,
+  'Mansa Musa II', 'economy', 1, 5,
   [
-    `<h3>Economy Level 1</h3>
+    `<h3>Economy Level I</h3>
     <ul>
       <li>+100 <img src="img/coin.png"> PM</li>
+    </ul>
+    `,
+    `<h3>Economy Level II</h3>
+    <ul>
+      <li>+1K <img src="img/coin.png"> PM</li>
     </ul>
     `
   ],
@@ -42,7 +48,7 @@ let mansaMusaII = new Legacy(
   }
 );
 let gengisKhan = new Legacy(
-  'Genghis Khan', 'military', 1,
+  'Genghis Khan', 'military', 1, 5,
   [
 
   ],
@@ -51,7 +57,7 @@ let gengisKhan = new Legacy(
   }
 );
 let peterTheGreat = new Legacy(
-  'Peter the Great', 'research', 1,
+  'Peter the Great', 'research', 1, 5,
   [
 
   ],
@@ -60,7 +66,7 @@ let peterTheGreat = new Legacy(
   }
 );
 let georgeWashington = new Legacy(
-  'George Washington', 'civilization', 1,
+  'George Washington', 'civilization', 1, 5,
   [
 
   ],
@@ -69,7 +75,16 @@ let georgeWashington = new Legacy(
   }
 );
 let philipII = new Legacy(
-  'Philip II', 'faith-alt', 1,
+  'Philip II', 'faith-alt', 1, 5,
+  [
+
+  ],
+  function () {
+
+  }
+);
+let clemmensVonMetternich = new Legacy(
+  'Clemmens von Metternich', 'diplomacy', 1, 5,
   [
 
   ],
@@ -78,6 +93,6 @@ let philipII = new Legacy(
   }
 );
 
-let legacies = new Collection<Legacy>('legacies', [louisXIV, mansaMusaII, gengisKhan, peterTheGreat, georgeWashington, philipII]);
+let legacies = new Collection<Legacy>('legacies', [mansaMusaII, gengisKhan, peterTheGreat, georgeWashington, philipII, clemmensVonMetternich]);
 
 export = legacies;
