@@ -27,6 +27,11 @@
     overflow: hidden;
     padding: 1rem;
     position: relative;
+    &.maxed-out
+      background: #EDE480;
+      color: #222;
+      .legacy-level, .legacy-cost
+        background: darken(#EDE480, 20%);
   .legacy-level, .legacy-name, .legacy-cost
     display: inline-block;
   .legacy-level

@@ -71,7 +71,17 @@ document.addEventListener('keydown', function (event:any) {
   if (event.which === 17) {
     isCtrlPressed = true;
   }
-})
+});
+
+
+let nodeList = <NodeListOf<HTMLElement>>u.elt('li', true);
+
+let array:any[] = [];
+
+array.map.call(nodeList, function () {
+
+});
+
 
 function scrollHorizontally(e:any) {
   e = window.event || e;
@@ -847,7 +857,7 @@ function legacyBonusClick() {
         playerCiv.legacy -= lb.cost;
         notify({message: `You upgraded the Legacy of ${lb.name}!`});
         lb.level++;
-        lb.cost *= 2;
+        lb.cost *= 5;
         item.innerHTML = `
         <span class='legacy-level'>
           Level<br>
@@ -861,6 +871,7 @@ function legacyBonusClick() {
           <img src='img/legacy-alt.png'><br>
           ${u.abbrNum(lb.cost, 2)}
         </span>`;
+        lb.func(lb.level, playerCiv);
         item.setAttribute('data-tooltip', lb.descriptions[lb.level - 1]);
         updateTooltip(item);
       } else {
@@ -880,6 +891,24 @@ function legacyBonusCheck() {
 
     if (playerCiv.legacy < lb.cost) {
       item.style.opacity = '0.2';
+    }
+
+    if (lb.level === 6) {
+      item.innerHTML = `
+      <span class='legacy-level'>
+        Level<br>
+        MAX
+      </span>
+      <span class='legacy-category'>
+        <img src='img/${lb.type}.png'>
+      </span>
+      <span class='legacy-name'>${lb.name}</span>
+      <span class='legacy-cost'>
+        <img src='img/legacy-alt.png'><br>
+        MAX
+      </span>`;
+      item.style.pointerEvents = 'none';
+      item.className += ' maxed-out';
     }
   });
 }
