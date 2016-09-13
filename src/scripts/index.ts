@@ -269,11 +269,9 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
-<<<<<<< HEAD
   populateAchievements();
-=======
   populateBiomes();
->>>>>>> feature/biomes
+
 
   generateCitizenPercents();
 
@@ -620,7 +618,6 @@ function populateWonders():void {
   }
 }
 
-<<<<<<< HEAD
 function populateAchievements():void {
   let achievementsContainer = u.elt('.achievements');
   achievementsContainer.innerHTML = '';
@@ -687,8 +684,6 @@ function checkAchievements() {
 
 
 
-
-=======
 function populateBiomes():void {
   let biomeContainer = u.elt('.biome-container');
   biomeContainer.innerHTML = '';
@@ -701,7 +696,6 @@ function populateBiomes():void {
   }
 }
 
->>>>>>> feature/biomes
 function populate(container:HTMLElement, collection:Collection<any>, template:string) {
   container.innerHTML = '';
 

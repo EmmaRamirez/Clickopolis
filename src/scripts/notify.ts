@@ -15,8 +15,6 @@ function notify(note:note):void {
   if (typeof note.historyOnly === 'undefined') {
     note.historyOnly = false;
   }
-  // TODO: create settimeout
-
   if (!note.historyOnly) {
     console.debug('Note was created with message of: ' + note.message);
     let notification = document.createElement('div');
