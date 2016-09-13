@@ -1,24 +1,9 @@
 import Collection = require('./collection');
+import Biome = require('./biome');
 
 interface Point {
   x: number;
   y: number;
-}
-
-enum BiomeTypes {
-  Desert,
-  Jungle,
-  Forest,
-  Island,
-  Coast,
-  Mountain,
-  Tundra,
-  Glacier
-}
-
-interface Biome {
-  name: BiomeTypes;
-  description: string;
 }
 
 class Civilization {
@@ -95,10 +80,11 @@ class Civilization {
     // exhaustive method goes here
   }
 
-  constructor(civName:string, leaderName:string, location:string) {
+  constructor(civName:string, leaderName:string, biomes:Collection<Biome>) {
     this.civName = civName;
     this.leaderName = leaderName;
-    this.location = location;
+    //this.location = location;
+    this.biomes = biomes;
 
     this.leaderTraits = [];
     this.leaderTraitsMax = 3;

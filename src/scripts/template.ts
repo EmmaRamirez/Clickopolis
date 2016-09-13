@@ -54,13 +54,16 @@ class Templates {
     <section class='clickopolis-intro'>
       <img class='clickopolis-logo custom-size-img' src='img/clickopolis-logo.png'>
       <p>Starting from the flames of the ancient world, you will progress steadily towards modernity&hellip;and beyond. You, the leader of a small faction of hunter-gatherers, have decided to settle
-        <select id="location">
+        <select id="biome">
           <option value="none">select an option!</option>
-          <option value="coast">by the Coast</option>
-          <option value="oasis">in an Oasis</option>
-          <option value="forest">in a Forest</option>
-          <option value="tundra">in a Tundra</option>
-          <option value="iceberg">on an Iceberg</option>
+          <option value="Desert">in a Desert</option>
+          <option value="Coast">by the Coast</option>
+          <option value="Island">on an Island</option>
+          <option value="Jungle">in a Jungle</option>
+          <option value="Mountains">on the Mountains</option>
+          <option value="Forest">in a Forest</option>
+          <option value="Tundra">in a Tundra</option>
+          <option value="Glacier">on a Glacier</option>
         </select>
       </p>
       <p>Your name is <input type="text" id="leaderName" maxlength="10" size="10" placeholder="Jake"> of <input type="text" id="civName" placeholder="Jaketopia" maxlength="20"></p>
@@ -143,9 +146,6 @@ class Templates {
           <div class='panel location-panel'>
             <div class='biome biome-lead'>Biomes: </div>
             <span class='biome-container'>
-              <div class='biome'><img src='img/desert.png'></div>
-              <div class='biome'><img src='img/island.png'></div>
-              <div class='biome'><img src='img/mountains.png'></div>
             </span>
           </div>
 

@@ -13,6 +13,7 @@ import Settings = require('./settings');
 import Collection = require('./collection');
 import Era = require('./era');
 import Civilization = require('./civilization');
+import Biome = require('./biome');
 import Resource = require('./resource');
 import Citizen = require('./citizen');
 import Building = require('./building');
@@ -131,11 +132,11 @@ function newEra(era:string) {
 function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
-    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.location);
+    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.biomes);
     startSavedGame();
   } else {
     startNewGame();
-    playerCiv = new Civilization('', '', '');
+    playerCiv = new Civilization('', '', new Collection('biomes', [new Biome('')]));
   }
 }
 
@@ -177,10 +178,13 @@ function startNewGame() {
 function setPlayerCiv() {
   let civNameInput = <HTMLInputElement>document.querySelector('#civName'),
       leaderNameInput = <HTMLInputElement>document.querySelector('#leaderName'),
-      location = <HTMLSelectElement>document.querySelector('#location');
+      biome = <HTMLSelectElement>document.querySelector('#biome');
   playerCiv.civName = civNameInput.value;
   playerCiv.leaderName = leaderNameInput.value;
-  playerCiv.location = location.value;
+  playerCiv.biomes = new Collection<Biome>('biomes', [
+    new Biome(biome.value)
+  ]);
+  console.log(playerCiv);
   savePlayer();
 }
 
@@ -265,7 +269,11 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses();
+<<<<<<< HEAD
   populateAchievements();
+=======
+  populateBiomes();
+>>>>>>> feature/biomes
 
   generateCitizenPercents();
 
@@ -612,6 +620,7 @@ function populateWonders():void {
   }
 }
 
+<<<<<<< HEAD
 function populateAchievements():void {
   let achievementsContainer = u.elt('.achievements');
   achievementsContainer.innerHTML = '';
@@ -679,6 +688,20 @@ function checkAchievements() {
 
 
 
+=======
+function populateBiomes():void {
+  let biomeContainer = u.elt('.biome-container');
+  biomeContainer.innerHTML = '';
+
+  for (let i = 0; i < playerCiv.biomes.items.length; i++) {
+    let b = playerCiv.biomes.items[i];
+    biomeContainer.innerHTML += `
+      <div class='biome' data-tooltip='${b.name}'><img src='img/${b.name.toLowerCase()}.png'></div>
+    `;
+  }
+}
+
+>>>>>>> feature/biomes
 function populate(container:HTMLElement, collection:Collection<any>, template:string) {
   container.innerHTML = '';
 
