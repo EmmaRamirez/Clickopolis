@@ -1,14 +1,15 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,
-        "removeComments": false,
-        "preserveConstEnums": true,
-        "sourceMap": true,
-        "module": "commonjs"
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "jsx": "react"
     },
     "exclude": [
-        "node_modules",
-        "wwwroot"
+      "node_modules"
     ],
-    "compileOnSave": "false"
+    "compileOnSave": false
 }
