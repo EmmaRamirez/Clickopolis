@@ -25,6 +25,7 @@ import FaithBonus = require('./faithbonus');
 //import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
+import store = require('store');
 
 import techData = require('./data.tech');
 import resourceData = require('./data.resource');
@@ -1176,8 +1177,6 @@ function UiSettingsButtons() {
   });
   u.elt('body').removeEventListener('mousewheel', scrollHorizontally, false);
 }
-
-
 
 
 
