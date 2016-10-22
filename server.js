@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
-app.use(express.static('public'));
+app.use(express.static('dist'));
 
 
 app.get('/', function (req, res) {
@@ -12,4 +12,4 @@ app.get('/', function (req, res) {
 
 
 app.listen(port);
-console.log(`Server starting on port${process.env.PORT}`);
+console.log('Server starting on port ' + process.env.PORT);

@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './public/index.tsx',
+  entry: './src/scripts/index.ts',
   output: {
-    filename: './public/bundle.js'
+    filename: './dist/scripts/bundle.js'
   },
   devtool: 'source-map',
   resolve: {
@@ -14,7 +14,7 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.ts?x$/, loader: 'ts-loader' },
+      { test: /\.ts$/, loader: 'ts-loader' },
       { test: /\.styl$/, loaders: ['style', 'css', 'stylus']},
     ]
   },
