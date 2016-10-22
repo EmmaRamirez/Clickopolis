@@ -645,7 +645,6 @@ function checkAchievements() {
 }
 
 
-<<<<<<< HEAD
 
 function populateBiomes():void {
   let biomeContainer = u.elt('.biome-container');
@@ -659,8 +658,8 @@ function populateBiomes():void {
   }
 }
 
-=======
->>>>>>> parent of 34b39bb... add: Click achievements; simplify data
+
+
 function populate(container:HTMLElement, collection:Collection<any>, template:string) {
   container.innerHTML = '';
 
