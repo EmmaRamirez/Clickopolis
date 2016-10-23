@@ -4,8 +4,8 @@ import Legacy = require('./legacy');
 import notify = require('./notify');
 import Utils = require('./utils');
 
-let louisXIV = new Legacy(
-  'Louis XIV', 'culture', 1, 5,
+let empireOfTheArts = new Legacy(
+  'Empire of the Arts', 'culture', 1, 5,
   [
     `<h3>Culture Level I</h3>
     <ul>
@@ -50,8 +50,8 @@ let louisXIV = new Legacy(
   }
 );
 
-let mansaMusaII = new Legacy(
-  'Mansa Musa II', 'economy', 1, 5,
+let economicSuperpower = new Legacy(
+  'Economic Superpower', 'economy', 1, 5,
   [
     `<h3>Economy Level I</h3>
     <ul>
@@ -100,8 +100,8 @@ let mansaMusaII = new Legacy(
     }
   }
 );
-let gengisKhan = new Legacy(
-  'Genghis Khan', 'military', 1, 5,
+let neverSettingSun = new Legacy(
+  'Never Setting Sun', 'military', 1, 5,
   [
 
   ],
@@ -109,8 +109,8 @@ let gengisKhan = new Legacy(
 
   }
 );
-let peterTheGreat = new Legacy(
-  'Peter the Great', 'research', 1, 5,
+let revolutionOfLetters = new Legacy(
+  'Revolution of Letters', 'research', 1, 5,
   [
     ``,
     ``,
@@ -127,17 +127,21 @@ let peterTheGreat = new Legacy(
     }
   }
 );
-let georgeWashington = new Legacy(
-  'George Washington', 'civilization', 1, 5,
+let trueEmpire = new Legacy(
+  'True Empire', 'civilization', 1, 5,
   [
-
+    ``,
+    ``,
+    ``,
+    ``,
+    ``
   ],
   function () {
 
   }
 );
-let philipII = new Legacy(
-  'Philip II', 'faith-alt', 1, 5,
+let divineKingdom = new Legacy(
+  'Divine Kingdom', 'faith-alt', 1, 5,
   [
     `<h3>Faith Level I</h3>
     <ul>
@@ -155,8 +159,8 @@ let philipII = new Legacy(
 
   }
 );
-let clemmensVonMetternich = new Legacy(
-  'Clemmens von Metternich', 'diplomacy', 1, 5,
+let worldStagePlayer = new Legacy(
+  'World Stage Player', 'diplomacy', 1, 5,
   [
 
   ],
@@ -165,6 +169,14 @@ let clemmensVonMetternich = new Legacy(
   }
 );
 
-let legacies = new Collection<Legacy>('legacies', [mansaMusaII, peterTheGreat, georgeWashington, philipII]);
+let legacies = new Collection<Legacy>('legacies', [
+  empireOfTheArts,
+  economicSuperpower,
+  neverSettingSun,
+  revolutionOfLetters,
+  trueEmpire,
+  divineKingdom,
+  worldStagePlayer
+]);
 
 export = legacies;

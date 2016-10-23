@@ -263,7 +263,10 @@ function createGameUI() {
   });
 
   bindElement('#clear-local-storage', 'click', function () {
-    store.clear();
+    let prompt = confirm('Clearing local storage means you will lose all your data and progress are you sure you want to do this?')
+    if (prompt === true) {
+      store.clear();
+    }
   });
 
   setInfluenceImages();
@@ -657,7 +660,7 @@ function populateAchievements():void {
 
   for (let i = 0; i < achievements.items.length; i++) {
     let a = achievements.items[i];
-    achievementsContainer.innerHTML = `
+    achievementsContainer.innerHTML += `
       <div class='achievement ${a.className}' data-unlocked='${a.unlocked}' data-tooltip='${a.name}: ${a.description}'></div>
     `;
     updateTooltip(u.elt(`.${a.className}`));

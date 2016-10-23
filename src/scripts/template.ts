@@ -154,23 +154,23 @@ class Templates {
         <section class='menu-screen-inner'>
           <h3>menu</h3>
           <ul>
-            <li><a href='#resources'><img src='img/resources.png'> Resources</a></li>
-            <li><a href='#civilization'><img src='img/empire.png'> Civilization</a></li>
-            <li><a href='#citizens'><img src='img/citizens.png'> Citizens</a></li>
-            <li><a href='#economy'><img src='img/economy.png'> Economy</a></li>
-            <li><a href='#buildings'><img src='img/buildings.png'> Buildings</a></li>
-            <li><a href='#wonders'><img src='img/wonder.png'> Wonders</a></li>
-            <li><a href='#technology'><img src='img/research.png'> Technology</a></li>
-            <li><a href='#diplomacy'><img src='img/diplomacy.png'> Diplomacy</a></li>
-            <li><a href='#espionage'><img src='img/espionage.png'> Espionage</a></li>
-            <li><a href='#military'><img src='img/military.png'> Military</a></li>
-            <li><a href='#culture'><img src='img/culture.png'> Culture</a></li>
-            <li><a href='#faith'><img src='img/faith.png'> Faith</a></li>
-            <li><a href='#legacy'><img src='img/legacy.png'> Legacy</a></li>
-            <li><a href='#achievements'><img src='img/achievements.png'> Achievements</a></li>
-            <li><a href='#history'><img src='img/history.png'> History</a></li>
-            <li><a href='#settings'><img src='img/settings.png'> Settings</a></li>
-            <li id='clear-local-storage'><a href='#'><img src='img/trash.png'> Clear Local Storage</a></li>
+            <li><a href='#resources'><img src='img/resources.png'></a></li>
+            <li><a href='#civilization'><img src='img/empire.png'></a></li>
+            <li><a href='#citizens'><img src='img/citizens.png'></a></li>
+            <li><a href='#economy'><img src='img/economy.png'></a></li>
+            <li><a href='#buildings'><img src='img/buildings.png'></a></li>
+            <li><a href='#wonders'><img src='img/wonder.png'></a></li>
+            <li><a href='#technology'><img src='img/research.png'></a></li>
+            <li><a href='#diplomacy'><img src='img/diplomacy.png'></a></li>
+            <li><a href='#espionage'><img src='img/espionage.png'></a></li>
+            <li><a href='#military'><img src='img/military.png'></a></li>
+            <li><a href='#culture'><img src='img/culture.png'></a></li>
+            <li><a href='#faith'><img src='img/faith.png'></a></li>
+            <li><a href='#legacy'><img src='img/legacy.png'></a></li>
+            <li><a href='#achievements'><img src='img/achievements.png'></a></li>
+            <li><a href='#history'><img src='img/history.png'></a></li>
+            <li><a href='#settings'><img src='img/settings.png'></a></li>
+            <li id='clear-local-storage'><a href='#'><img src='img/trash.png'></a></li>
           </ul>
         </section>
       </section>
@@ -642,7 +642,7 @@ class Templates {
           </div>
         </section>
         <section class='legacy-screen-inner legacy-bonuses'>
-          
+
         </section>
       </section>
     `;

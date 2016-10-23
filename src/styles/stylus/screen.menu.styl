@@ -1,37 +1,36 @@
-.menu-screen {
+.menu-screen
   background: #333;
   font-size: .9rem;
   padding: 1rem !important;
   padding-top: 0 !important;
   position: relative;
-  width: 260px !important;
-  h3 {
+  width: 140px !important;
+  h3
     color: #eee;
     text-align: center;
-  }
-  ul {
+  ul
     color: #eee;
     font-size: 1.25rem;
     list-style-type: none;
     padding: 0;
-    li {
+    li
       border-bottom: 1px solid #222;
       padding: .5rem;
-      &:nth-of-type(1) {
+      &:nth-of-type(1)
         border-top: 1px solid #222;
-      }
-      &:hover {
-        background: #111;
-        transition: 500ms all;
-      }
-      img {
+      img
         height: 1.25rem;
-      }
-      a {
+      a
+        background: #222;
+        border: 1px solid transparent;
+        border-radius: 50%;
         color: inherit;
         display: block;
+        margin-left: calc(50% - 1.25rem);
+        height: 2.5rem;
+        padding: .5rem;
         text-decoration: none;
-      }
-    }
-  }
-}
+        width: 2.5rem;
+        &:hover
+          border: 1px dashed grey;
+          transition: 250ms all;
