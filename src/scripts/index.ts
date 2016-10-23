@@ -213,7 +213,7 @@ function setPlayerCiv() {
 
 function createGameUI() {
 
-  bindElement('window', 'click', () => {
+  window.addEventListener('click', () => {
     game.totalClicks += 1;
     checkAchievements();
   });
