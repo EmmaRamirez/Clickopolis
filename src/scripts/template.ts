@@ -349,15 +349,15 @@ class Templates {
             <span class='civ-metric metric-population' title='${playerCiv.populationReal + ' people'}'>
               Population: <img src='img/citizen.png'> <span class='population-text'>${playerCiv.population}</span>
             </span>
-            <span class='civ-metric metric-migration'>
+            <span data-tooltip='Your net migration per minute' class='civ-metric metric-migration'>
               ${playerCiv.netMigration} PM <img src='img/passport.png'>
             </span>
           </div>
           <div class='panel civ-metric-panel'>
-            <span class='civ-metric metric-land'>
+            <span data-tooltip='Your total land' class='civ-metric metric-land'>
               ${playerCiv.land} km <img src='img/land.png'>
             </span>
-            <span class='civ-metric metric-land'>
+            <span data-tooltip-'The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>
             </span>
             <br>
@@ -374,18 +374,18 @@ class Templates {
               <span class='civ-pollution-text'>${playerCiv.pollution}</span> <img src='img/pollution.png'>
             </span>
             <br>
-            <span class='civ-metric metric-golden-age-points'>${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'></span>
-            <span class='civ-metric metric-golden-age' title='Golden age points trigger Golden Ages. Points are earned by your happiness, minus anger.'>
+            <span data-tooltip='Golden Age points are your happiness minus anger' class='civ-metric metric-golden-age-points'>${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'></span>
+            <span data-tooltip='When you max out your progress bar, you reach a Golden Age!' class='civ-metric metric-golden-age' title='Golden age points trigger Golden Ages. Points are earned by your happiness, minus anger.'>
               <img src='img/golden-age.png'> Golden Age Points <span class='golden-age-progress'>${playerCiv.goldenAgeProgress}</span> / <span class='golden-age-goal'>${u.abbrNum(playerCiv.goldenAgeGoal, 2)}</span>
             </span>
-            <span class='civ-metric metric-golden-ages'>${playerCiv.goldenAges} GAs</span>
+            <span data-tooltip='Your total number of Golden Ages' class='civ-metric metric-golden-ages'>${playerCiv.goldenAges} GAs</span>
             <br>
             <br>
             <span class='civ-metric metric-influence-text'>Influence</span>
-            <span class='civ-metric metric-domestic-influence' data-label='domestic'>
+            <span data-tooltip='Your influence on the domestic front' class='civ-metric metric-domestic-influence' data-label='domestic'>
               ${playerCiv.influenceDomestic} <img class='metric-domestic-influence-img' src='img/influence-domestic.png'>
             </span>
-            <span class='civ-metric metric-international-influence' data-label='international'>
+            <span data-tooltip='Your influence on the international stage' class='civ-metric metric-international-influence' data-label='international'>
               ${playerCiv.influenceInternational} <img class='metric-international-influence-img' src='img/influence-international.png'>
             </span>
           </div>
