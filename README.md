@@ -5,9 +5,14 @@ A clicking-based civilization game.
 
 ## Notes
 
-The `master` branch is now completely different from the others. Check out either one of the feature branches or the `old-master` branch for a snapshot of this project.
+Installation instructions:
+1. `git clone https://github.com/EmmaRamirez/Clickopolis.git`
+2. `npm install`
+3. `npm run stylus`
+4. `npm run webpack`
+5. `node server.js`
 
-This rewrite is fixing some of the issues and transitions to a component-based architecture. Maybe. We'll see.
+If you have any errors installing, feel free to post about it in the issues.
 
 
 ## Closing Notes
