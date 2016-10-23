@@ -198,7 +198,7 @@ function traitsSelection(index:number) {
 
 function createGameUI() {
 
-  let intro = <HTMLElement>document.querySelector('.clickopolis-new-game');
+  let intro = <HTMLElement>document.querySelector('.clickopolis-open');
   let clickopolisGame = document.createElement('section');
   clickopolisGame.innerHTML = '';
 

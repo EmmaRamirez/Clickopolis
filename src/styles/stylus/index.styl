@@ -85,8 +85,8 @@ section
 .modal,
 .clickopolis-intro,
 .clickopolis-start
-  background-color: #ccc;
-  background-image: linear-gradient(to bottom, rgba(white, 0.5), rgba(white, 0.5)), url('../img/world.png');
+  background-color: #222;
+  background-image: linear-gradient(to bottom, rgba(black, 0.5), rgba(black, 0.5)), url('../img/world-map.svg');
   background-position: center center;
   background-size: cover;
   border-radius: 4px;
@@ -167,11 +167,26 @@ section
     position: relative;
     width: 128px;
   .begin-btn
+    border-radius: 0;
     display: block;
     font-size: 2rem;
     margin: 1rem auto;
     padding: .3em;
-
+  #color
+    display: inline-block;
+    vertical-align: top;
+  .color-field
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    height: 46px;
+    width: 46px;
+  .color-field-inner
+    background: #5fe49b;
+    margin: 8px;
+    height: 30px;
+    width: 30px;
 
 
 

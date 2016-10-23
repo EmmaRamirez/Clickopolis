@@ -13,7 +13,7 @@ class Templates {
   createStartScreen(playerCiv:Civilization, game:Game) {
 
     let startScreen = `
-      <section class='clickopolis-intro'>
+      <section class='clickopolis-intro clickopolis-open'>
         <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
         <div class="start-options">
           <button class="large-btn start-btn load-btn">Load Game...</button>
@@ -51,7 +51,7 @@ class Templates {
   };
 
   settingsScreen:string = `
-    <section class='clickopolis-new-game'>
+    <section class='clickopolis-new-game clickopolis-open'>
       <h2 class='clickopolis-new-game-header'>New Game</h2>
       <hr>
       <section class='clickopolis-new-game-inner'>
@@ -81,8 +81,11 @@ class Templates {
             <option value="Glacier">on a Glacier</option>
           </select>
 
-          <label for='color'>Color</label>
-          <input type='text' value='#e45fda' />
+          <label for='color'>Color</label><br/>
+          <input type='text' name='color' id='color' value='#5fe49b' />
+          <div class='color-field' data-color=''>
+            <div class='color-field-inner'></div>
+          </div>
 
 
         </form>
@@ -304,8 +307,8 @@ class Templates {
   createScreenHeader(playerCiv:Civilization, game:Game):string {
     let screenHeader = `
       <header class='screen-header'>
-        <h1>Clickopolis</h1>
-        <h2>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h2>
+        <h2>Clickopolis</h2>
+        <h3>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h3>
       </header>
     `;
     return screenHeader;
