@@ -35,6 +35,8 @@ $b = rgba(black, 0.5);
 
 body
   background: #222;
+  background-size: cover;
+  background-image: url('../img/world-map.svg');
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
 
 [data-tooltip]
@@ -99,21 +101,94 @@ section
   text-align: center;
   top: calc(50% - 15rem);
 
+.clickopolis-new-game
+  background-color: #262626;
+  border-radius: 4px;
+  color: #eee;
+  left: calc(50% - 30rem);
+  height: 50rem;
+  margin: 0 auto;
+  max-width: 60rem;
+  min-width: 60rem;
+  padding: 2rem;
+  position: absolute;
+  top: calc(50% - 25rem);
+  .clickopolis-new-game-inner
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  .half-section
+    flex: 1;
+    padding: 1rem;
+  hr
+    border: 1px solid #333;
+  input, select
+    border: 1px solid #111;
+    border-radius: 4px;
+    color: #222;
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: .5rem;
+    padding: .5em;
+    width: 260px;
+  label
+    color: #666;
+    font-size: .9em;
+    text-align: right;
+  input[type='color']
+    padding: 0;
+    width: 2rem;
+  .leader-display
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin: 0 2rem;
+    padding: 1rem;
+    h3
+      color: #666;
+      text-align: center;
+  .trait-info
+    background: #333;
+    border-radius: 4px;
+    color: #eee;
+    font-size: 1.25rem;
+    margin: .25rem;
+    padding: .5em;
+    img
+      height: 1.75rem;
+    span
+      margin-left: .5rem;
+      vertical-align: middle;
+  .leader-image
+    height: 128px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-left: calc(50% - 64px);
+    position: relative;
+    width: 128px;
+  .begin-btn
+    display: block;
+    font-size: 2rem;
+    margin: 1rem auto;
+    padding: .3em;
+
+
+
+
 .clickopolis
-  height: 80%;
+  height: 90%;
   //left: 20%;
   position: absolute;
-  top: 15%;
+  top: 0%;
   width: 8000px;
 
 .screen-header
   background: $gold;
   background: linear-gradient(to top, rgba(black, 0.7), rgba(black, 0.8)), url('../img/ancient.jpg');
   color: $clouds;
-  height: 15%;
+  height: 10%;
   left: 0;
   padding: 1rem 1rem;
-  position: fixed;
   text-shadow: 0 0 2px rgba(black, 0.5);
   top: 0;
   width: 100%;

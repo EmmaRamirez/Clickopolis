@@ -2,7 +2,6 @@
 /// <reference path="store.d.ts" />
 /// <reference path="underscore.d.ts" />
 
-//require('../styles/sass/index.scss');
 //require('../styles/stylus/index.styl');
 
 import _ = require('underscore');
@@ -25,7 +24,8 @@ import FaithBonus = require('./faithbonus');
 //import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
-import store = require('store');
+
+
 
 import techData = require('./data.tech');
 import resourceData = require('./data.resource');
@@ -58,6 +58,7 @@ let isCtrlPressed:boolean = false;
 let debugMode:boolean = false;
 
 
+
 window.addEventListener('focus', function () {
   isWindowActive = true;
 });
@@ -75,7 +76,7 @@ document.addEventListener('keydown', function (event:any) {
 function scrollHorizontally(e:any) {
   e = window.event || e;
   var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-  document.querySelector('body').scrollLeft -= (delta*-30); // Multiplied by 40
+  document.querySelector('body').scrollLeft -= (delta*-30);
   e.preventDefault();
 }
 
@@ -138,6 +139,7 @@ function startGame() {
   } else {
     startNewGame();
     playerCiv = new Civilization('', '', new Collection('biomes', [new Biome('')]));
+    console.log(playerCiv);
   }
 }
 
@@ -161,9 +163,6 @@ function startNewGame() {
 
   append('body', templates.settingsScreen);
 
-  // bindElement('.new-btn', 'click', function () {
-  //   console.log('Hey...is this thing working??');
-  // });
 
   bindElement('.begin-btn', 'click', function() {
     //console.log('hi');
@@ -171,15 +170,13 @@ function startNewGame() {
     createGameUI();
   });
 
-  u.elt('#trait').addEventListener('change', function() {
-    traitsSelection(0);
-  });
+
 };
 
 function setPlayerCiv() {
-  let civNameInput = <HTMLInputElement>document.querySelector('#civName'),
-      leaderNameInput = <HTMLInputElement>document.querySelector('#leaderName'),
-      biome = <HTMLSelectElement>document.querySelector('#biome');
+  let civNameInput = <HTMLInputElement>document.querySelector('#civName');
+  let leaderNameInput = <HTMLInputElement>document.querySelector('#leaderName');
+  let biome = <HTMLSelectElement>document.querySelector('#biome');
   playerCiv.civName = civNameInput.value;
   playerCiv.leaderName = leaderNameInput.value;
   playerCiv.biomes = new Collection<Biome>('biomes', [
@@ -201,7 +198,7 @@ function traitsSelection(index:number) {
 
 function createGameUI() {
 
-  let intro = <HTMLElement>document.querySelector('.clickopolis-intro');
+  let intro = <HTMLElement>document.querySelector('.clickopolis-new-game');
   let clickopolisGame = document.createElement('section');
   clickopolisGame.innerHTML = '';
 

@@ -51,41 +51,99 @@ class Templates {
   };
 
   settingsScreen:string = `
-    <section class='clickopolis-intro'>
-      <img class='clickopolis-logo custom-size-img' src='img/clickopolis-logo.png'>
-      <p>Starting from the flames of the ancient world, you will progress steadily towards modernity&hellip;and beyond. You, the leader of a small faction of hunter-gatherers, have decided to settle
-        <select id="biome">
-          <option value="none">select an option!</option>
-          <option value="Desert">in a Desert</option>
-          <option value="Coast">by the Coast</option>
-          <option value="Island">on an Island</option>
-          <option value="Jungle">in a Jungle</option>
-          <option value="Mountains">on the Mountains</option>
-          <option value="Forest">in a Forest</option>
-          <option value="Tundra">in a Tundra</option>
-          <option value="Glacier">on a Glacier</option>
-        </select>
-      </p>
-      <p>Your name is <input type="text" id="leaderName" maxlength="10" size="10" placeholder="Jake"> of <input type="text" id="civName" placeholder="Jaketopia" maxlength="20"></p>
-      <p>You are a(n)
-        <select id="trait">
-          <option value="aggressive">aggressive</option>
-          <option value="cosmpolitan">cosmpolitan</option>
-          <option value="daring">daring</option>
-          <option value="expansionist">expansionist</option>
-          <option value="haughty">haughty</option>
-          <option value="flirtatious">flirtatious</option>
-          <option value="industrious">industrious</option>
-          <option value="isolationist">isolationist</option>
-          <option value="pacifistic">pacifistic</option>
-          <option value="persuasive">persuasive</option>
-        </select>
-       leader.</p>
+    <section class='clickopolis-new-game'>
+      <h2 class='clickopolis-new-game-header'>New Game</h2>
+      <hr>
+      <section class='clickopolis-new-game-inner'>
+      <section class='half-section'>
+        <form class='new-game-settings'>
+          <label for='leader'>Leader</label>
+          <select name='leader'>
+            <option value='abraham-lincoln'>Abraham Lincoln</option>
+          </select>
 
-       <button class='begin-btn'>Begin Game!</button>
+          <label for='name'>Name</label>
+          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='12' value='' />
+
+          <label for='civilizationName'>Civilization</label>
+          <input type='text' id="civName"  placeholder='Jaketopia' maxlength='20' value='' />
+
+          <label for='biome'>Location</label>
+          <select id='biome' name='biome'>
+            <option value="none">select an option!</option>
+            <option value="Desert">in a Desert</option>
+            <option value="Coast">by the Coast</option>
+            <option value="Island">on an Island</option>
+            <option value="Jungle">in a Jungle</option>
+            <option value="Mountains">on the Mountains</option>
+            <option value="Forest">in a Forest</option>
+            <option value="Tundra">in a Tundra</option>
+            <option value="Glacier">on a Glacier</option>
+          </select>
+
+          <label for='color'>Color</label>
+          <input type='text' value='#e45fda' />
+
+
+        </form>
+      </section>
+
+      <section class='half-section'>
+        <div class='leader-display'>
+          <img class='leader-image' src='../img/abraham-lincoln.jpg' />
+          <h3>Traits</h3>
+          <div class='traits-list'>
+            <div class='trait-info'>
+              <img src='../img/tactical.png' /><span>Tactical</span>
+            </div>
+            <div class='trait-info'>
+              <img src='../img/charismatic.png' /><span>Charismatic</span>
+            </div>
+            <div class='trait-info'>
+              <img src='../img/lock.png'><span>Locked Trait</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      </section>
+
+      <button class='begin-btn'>Begin Game!</button>
 
     </section>
   `;
+
+  // <img class='clickopolis-logo custom-size-img' src='img/clickopolis-logo.png'>
+  // <p>Starting from the flames of the ancient world, you will progress steadily towards modernity&hellip;and beyond. You, the leader of a small faction of hunter-gatherers, have decided to settle
+  //   <select id="biome">
+  //     <option value="none">select an option!</option>
+  //     <option value="Desert">in a Desert</option>
+  //     <option value="Coast">by the Coast</option>
+  //     <option value="Island">on an Island</option>
+  //     <option value="Jungle">in a Jungle</option>
+  //     <option value="Mountains">on the Mountains</option>
+  //     <option value="Forest">in a Forest</option>
+  //     <option value="Tundra">in a Tundra</option>
+  //     <option value="Glacier">on a Glacier</option>
+  //   </select>
+  // </p>
+  // <p>Your name is <input type="text" id="leaderName" maxlength="10" size="10" placeholder="Jake"> of <input type="text" id="civName" placeholder="Jaketopia" maxlength="20"></p>
+  // <p>You are a(n)
+  //   <select id="trait">
+  //     <option value="aggressive">aggressive</option>
+  //     <option value="cosmpolitan">cosmpolitan</option>
+  //     <option value="daring">daring</option>
+  //     <option value="expansionist">expansionist</option>
+  //     <option value="haughty">haughty</option>
+  //     <option value="flirtatious">flirtatious</option>
+  //     <option value="industrious">industrious</option>
+  //     <option value="isolationist">isolationist</option>
+  //     <option value="pacifistic">pacifistic</option>
+  //     <option value="persuasive">persuasive</option>
+  //   </select>
+  //  leader.</p>
+  //
+  //  <button class='begin-btn'>Begin Game!</button>
 
   createMenuScreen() {
     let menuScreen = `

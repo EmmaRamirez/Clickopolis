@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/scripts/index.ts',
@@ -11,6 +12,11 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
+    new CopyWebpackPlugin([
+      { from: './src/img', to: './dist/img' },
+      { from: './src/index.html', to: './dist/index.html' },
+      { from: './node_modules/store/store.js', to: './dist/scripts/store.js' }
+    ])
   ],
   module: {
     loaders: [
