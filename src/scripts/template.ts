@@ -618,11 +618,11 @@ class Templates {
         <h2>
           <img src='img/faith-alt.png'> Faith
         </h2>
-        <section class='faith-screen-inner'>
-          <div class='faith-wrapper' title='The amount of faith you produce per minute.'>
+        <section class='faith-screen-inner faith-metrics'>
+          <div class='faith-wrapper' data-tooltip='The amount of faith you produce per minute.'>
             <span class='faith-PM'>${playerCiv.faithPM}</span> <img src='img/faith.png'> PM</span>
           </div>
-          <div class='faith-wrapper' title='Your total faith amount.'>
+          <div class='faith-wrapper' data-tooltip='Your total faith amount.'>
             <span class='faith-total'>${playerCiv.faith}</span> <img src='img/faith.png'> total</span>
           </div>
         </section>
