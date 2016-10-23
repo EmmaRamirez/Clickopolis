@@ -30,11 +30,16 @@
       margin-top: 4px;
     }
   }
+  .cash-breakdown {
+    display: flex;
+  }
   .cash-item {
     background: lighten(#222, 15%);
+    border-left: 1px solid black;
     color: #eee;
     display: inline-block;
-    font-size: .8reml
+    flex: 1;
+    font-size: .8rem;
     margin: .25rem 0;
     padding: .5rem;
     text-align: center;
@@ -44,6 +49,9 @@
       color: #222;
       text-align: right;
       width: 100%;
+    }
+    &:first-of-type {
+      border-left: none;
     }
     span {
       font-weight: bold;

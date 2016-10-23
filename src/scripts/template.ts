@@ -408,6 +408,8 @@ class Templates {
             <span class='cash-item'>from <img src="img/trade-deal.png"> <span class='cash-from-routes'>${playerCiv.cashPMFromTradeRoutes}</span></span>
             <span class='cash-item'>from <img src="img/buildings.png"> <span class='cash-from-buildings'>${playerCiv.cashPMFromBuildings}</span></span>
             <span class='cash-item'>from <img src="img/military.png"> <span class='cash-from-military'>${playerCiv.cashPMFromMilitary}</span></span>
+          </span>
+          <span class='cash-breakdown'>
             <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>${playerCiv.cashPM}</span></span>
           </span>
           <div class='trade-deal-history hidden'>
