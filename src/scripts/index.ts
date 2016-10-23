@@ -96,8 +96,8 @@ array.map.call(nodeList, function () {
 
 function scrollHorizontally(e:any) {
   e = window.event || e;
-  var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-  document.querySelector('body').scrollLeft -= (delta*-30);
+  let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+  document.querySelector('body').scrollLeft -= (delta * -30);
   e.preventDefault();
 }
 
@@ -114,13 +114,13 @@ function savePlayer():void {
 }
 
 function removeItem(arr:any[], item:any) {
-  for (var i = arr.length - 1; i--;) {
+  for (let i = arr.length - 1; i-- ; ) {
     if (arr[i] === item) arr.splice(i, 1);
   }
 }
 
 function choose(arr:any[]):any {
-  return arr[Math.floor(Math.random()*arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 function prepend(node:any, html:string) {
@@ -165,7 +165,7 @@ function startGame() {
 }
 
 function startSavedGame() {
-  console.debug("Loading Saved Game...");
+  console.debug('Loading Saved Game...');
   append('body', templates.createStartScreen(playerCiv, game));
   //store.clear();
 
@@ -180,7 +180,7 @@ function startSavedGame() {
 
 
 function startNewGame() {
-  console.debug("Starting New Game...");
+  console.debug('Starting New Game...');
 
   append('body', templates.settingsScreen);
 
@@ -247,7 +247,7 @@ function createGameUI() {
     addClickToTotal('.r-prod-total', 'prod');
 
     if (resources.get('prod').total === 15) {
-      notify({message:'Yay! You have enough Production to build your first building!'});
+      notify({message: 'Yay! You have enough Production to build your first building!'});
     }
     checkPopulationGrowthCost();
   });
@@ -776,13 +776,13 @@ function resourceClick() {
   let resourceButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('.resource');
   [].forEach.call(resourceButtons, function (item:any) {
     item.addEventListener('click', function () {
-      [].forEach.call(resourceButtons, function (item:any) { item.className = "resource"; });
+      [].forEach.call(resourceButtons, function (item:any) { item.className = 'resource' });
       let name = this.getAttribute('data-resource');
       let r = resources.get(name);
-      if (this.className === "resource active") {
-        this.className = "resource";
+      if (this.className === 'resource active') {
+        this.className = 'resource';
       } else {
-        this.className += " active";
+        this.className += ' active';
         u.elt('.resource-info-screen').innerHTML = `
           <h3><img src='img/${r.image}.png'> ${r.name}<br></h3>
           <p>${r.description}</p>
@@ -1038,7 +1038,7 @@ function purchaseTech(tech:string, element:HTMLElement) {
   notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
   history.push(log({year: game.year, message: playerCiv.civName + ' discovered ' + techs.get(tech).name + '!', categoryImage: 'research'}));
   techs.get(tech).purchased = true;
-  if (typeof element != 'undefined') {
+  if (typeof element !== 'undefined') {
     element.setAttribute('data-purchased', 'true');
   } else {
     u.elt('[data-tech="' + tech + '"]').setAttribute('data-purchased', 'true');
@@ -1129,11 +1129,11 @@ function unlockTech(purchased:string | string[], enabled:string | string[]):bool
   }
 }
 
-interface techPurchaseCheckOptions {
+interface TechPurchaseCheckOptions {
   logic?: string;
 }
 
-function techPurchaseCheck(techs:string[], opts:techPurchaseCheckOptions = { logic: '&&' }) {
+function techPurchaseCheck(techs: string[], opts:TechPurchaseCheckOptions = { logic: '&&' }) {
   if (opts.logic === 'or' || opts.logic === '||') {
 
   }
@@ -1165,7 +1165,7 @@ function triggerEra() {
 }
 
 function renderHistory(history:string[]) {
-  if (typeof history != 'undefined') {
+  if (typeof history !== 'undefined') {
     let historyLog = u.elt('.history');
     historyLog.innerHTML = '';
     for (let i = history.length - 1; i >= 0; --i) {
