@@ -211,6 +211,11 @@ function traitsSelection(index:number) {
 
 function createGameUI() {
 
+  bindElement('body', 'click', () => {
+    game.totalClicks += 1;
+    checkAchievements();
+  });
+
   let intro = <HTMLElement>document.querySelector('.clickopolis-open');
   let clickopolisGame = document.createElement('section');
   clickopolisGame.innerHTML = '';
@@ -341,6 +346,7 @@ function addClickToTotal(el:string, item:string) {
   else resources.get(item).total += resources.get(item).perClick;
 
   element.innerHTML = resources.get(item).total.toFixed(0).toString();
+  checkAchievements();
 }
 
 setInterval(function() {
@@ -370,6 +376,7 @@ setInterval(function() {
     u.elt('.research-PM').textContent = playerCiv.researchPM;
     updateFaithElts();
     legacyBonusCheck();
+    checkAchievements();
   }
 }, 1000);
 
@@ -391,14 +398,14 @@ function drawUI(el:HTMLElement) {
                   templates.createBuildingsScreen(resources) +
                   templates.createWondersScreen() +
                   templates.createTechnologyScreen(playerCiv) +
-                  //templates.createDiplomacyScreen(playerCiv) +
-                  //templates.createMilitaryScreen(playerCiv) +
-                  //templates.createCultureScreen(playerCiv) +
+                  templates.createDiplomacyScreen(playerCiv) +
+                  templates.createMilitaryScreen(playerCiv) +
+                  templates.createCultureScreen(playerCiv) +
                   templates.createFaithScreen(playerCiv) +
                   templates.createLegacyScreen(playerCiv) +
                   templates.createAchievementsScreen(playerCiv) +
-                  templates.createHistoryScreen(playerCiv);
-                  //templates.createSettingsScreen(playerCiv, game);
+                  templates.createHistoryScreen(playerCiv) +
+                  templates.createSettingsScreen(playerCiv, game);
 }
 
 function checkUnemployed() {
@@ -670,20 +677,51 @@ function populateAchievements():void {
 function unlockAchievement(achievementName:string | number) {
   if (typeof achievementName === 'string') {
     achievements.get(achievementName).unlocked = true;
-    u.elt('.${u.dasherize(achievementName)}').setAttribute('data-unlocked', 'true');
+    u.elt(`.${u.dasherize(achievementName)}`).setAttribute('data-unlocked', 'true');
+
+
+    history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.get(achievementName).name} achievement!`, categoryImage: 'achievements' }));
+    notify({message: `Achievement Unlocked! ${achievements.get(achievementName).name}: ${achievements.get(achievementName).description}`});
   }
   if (typeof achievementName === 'number') {
     achievements.items[achievementName].unlocked = true;
     u.elt('.achievement', true)[achievementName].setAttribute('data-unlocked', 'true');
+    history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.items[achievementName].name} achievement!`, categoryImage: 'achievements' }));
+    notify({message: `Achievement Unlocked! ${achievements.items[0].name}: ${achievements.items[achievementName].description}`});
   }
+
 }
 
+
 function checkAchievements() {
-  for (let i = 0; i < achievements.items.length; i++) {
-    if (achievements.items[i].checkFunc(playerCiv, game)) {
-      unlockAchievement(i);
-      notify({message: `Achievement Unlocked! ${achievements.items[i].name}: ${achievements.items[i].description}`});
-    }
+  let a = achievements;
+
+  function check(name:string):boolean {
+    return !a.get(name).unlocked;
+  }
+
+  if (game.totalClicks >= 1 && check('Baby Clicker')) {
+    unlockAchievement('Baby Clicker');
+  }
+
+  if (game.totalClicks >= 100 && check('A Hundred Mighty Clicks')) {
+    unlockAchievement('A Hundred Mighty Clicks');
+  }
+
+  if (game.totalClicks >= 1000 && check('The Great Clicker')) {
+    unlockAchievement('The Great Clicker');
+  }
+
+  if (game.totalClicks >= 25000 && check('Royal Clicker')) {
+    unlockAchievement('Royal Clicker');
+  }
+
+  if (game.totalClicks >= 50000 && check('Empire of Clicks')) {
+    unlockAchievement('Empire of Clicks');
+  }
+
+  if (game.totalClicks >= 100000 && check('HyperClicker')) {
+    unlockAchievement('HyperClicker');
   }
 }
 
@@ -869,10 +907,8 @@ function addCitizen(citizen:string, amount: number, sel:string) {
 
 function buildingClick() {
   let buildingEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.building');
-  console.debug('buildingEls', buildingEls);
 
   [].forEach.call(buildingEls, function (item:any, index:number) {
-    console.log(item);
 
     item.addEventListener('click', function () {
 
@@ -885,7 +921,6 @@ function buildingClick() {
         resources.get('prod').total -= buildings.get(building).prodCost;
         u.elt(totalSelt).textContent = buildings.get(building).amount;
         buildings.get(building).prodCost = Math.floor(Math.sqrt(buildings.get(building).prodCost) + (buildings.get(building).prodCost * 1.25));
-        console.log(buildings.get(building).prodCost);
         u.elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
         console.table(buildings.get(building));
         buildings.get(building).func(playerCiv, resources);
@@ -901,7 +936,6 @@ function buildingClick() {
 
 function legacyBonusClick() {
   playerCiv.legacy += 10000;
-  console.log('legacyBonusClick called');
   let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
 
   [].forEach.call(legacyBonusEls, function (item:any, index:number) {

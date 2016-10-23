@@ -153,23 +153,23 @@ class Templates {
       <section class='screen menu-screen' id='menu'>
         <section class='menu-screen-inner'>
           <h3>menu</h3>
-          <ul>
-            <li><a href='#resources'><img src='img/resources.png'></a></li>
-            <li><a href='#civilization'><img src='img/empire.png'></a></li>
-            <li><a href='#citizens'><img src='img/citizens.png'></a></li>
-            <li><a href='#economy'><img src='img/economy.png'></a></li>
-            <li><a href='#buildings'><img src='img/buildings.png'></a></li>
-            <li><a href='#wonders'><img src='img/wonder.png'></a></li>
-            <li><a href='#technology'><img src='img/research.png'></a></li>
-            <li><a href='#diplomacy'><img src='img/diplomacy.png'></a></li>
-            <li><a href='#espionage'><img src='img/espionage.png'></a></li>
-            <li><a href='#military'><img src='img/military.png'></a></li>
-            <li><a href='#culture'><img src='img/culture.png'></a></li>
-            <li><a href='#faith'><img src='img/faith.png'></a></li>
-            <li><a href='#legacy'><img src='img/legacy.png'></a></li>
-            <li><a href='#achievements'><img src='img/achievements.png'></a></li>
-            <li><a href='#history'><img src='img/history.png'></a></li>
-            <li><a href='#settings'><img src='img/settings.png'></a></li>
+          <ul class='menu links'>
+            <li><a data-tooltip='Resources' href='#resources'><img src='img/resources.png'></a></li>
+            <li><a data-tooltip='Civilization' href='#civilization'><img src='img/empire.png'></a></li>
+            <li><a data-tooltip='Citizens' href='#citizens'><img src='img/citizens.png'></a></li>
+            <li><a data-tooltip='Economy' href='#economy'><img src='img/economy.png'></a></li>
+            <li><a data-tooltip='Buildings' href='#buildings'><img src='img/buildings.png'></a></li>
+            <li><a data-tooltip='Wonders' href='#wonders'><img src='img/wonder.png'></a></li>
+            <li><a data-tooltip='Technology' href='#technology'><img src='img/research.png'></a></li>
+            <li><a data-tooltip='Diplomacy' href='#diplomacy'><img src='img/diplomacy.png'></a></li>
+            <li><a data-tooltip='Espionage' href='#espionage'><img src='img/espionage.png'></a></li>
+            <li><a data-tooltip='Military' href='#military'><img src='img/military.png'></a></li>
+            <li><a data-tooltip='Culture' href='#culture'><img src='img/culture.png'></a></li>
+            <li><a data-tooltip='Faith' href='#faith'><img src='img/faith.png'></a></li>
+            <li><a data-tooltip='Legacy' href='#legacy'><img src='img/legacy.png'></a></li>
+            <li><a data-tooltip='Achievements' href='#achievements'><img src='img/achievements.png'></a></li>
+            <li><a data-tooltip='History' href='#history'><img src='img/history.png'></a></li>
+            <li><a data-tooltip='Settings' href='#settings'><img src='img/settings.png'></a></li>
             <li id='clear-local-storage'><a href='#'><img src='img/trash.png'></a></li>
           </ul>
         </section>
