@@ -6,6 +6,7 @@ A clicking-based civilization game.
 ## Notes
 
 Installation instructions:
+
 1. `git clone https://github.com/EmmaRamirez/Clickopolis.git`
 2. `npm install`
 3. `npm run stylus`
