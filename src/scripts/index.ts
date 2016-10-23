@@ -4,6 +4,8 @@
 
 //require('../styles/stylus/index.styl');
 
+declare var Notification: any;
+
 import _ = require('underscore');
 import Utils = require('./utils');
 import Game = require('./game');
@@ -209,6 +211,8 @@ function traitsSelection(index:number) {
   savePlayer();
 }
 
+
+
 function createGameUI() {
 
   bindElement('body', 'click', () => {
@@ -234,7 +238,7 @@ function createGameUI() {
     //event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     if (resources.get('food').total === 10) {
-      notify({message: 'Yay! You have enough <img src="img/food.png"> to grow your population!'});
+      notify({message: 'Yay! You have enough Food to grow your population!'});
     }
 
     checkPopulationGrowthCost();
@@ -245,7 +249,7 @@ function createGameUI() {
     addClickToTotal('.r-prod-total', 'prod');
 
     if (resources.get('prod').total === 15) {
-      notify({message:'Yay! You have enough <img src="img/prod.png"> to build your first building!'});
+      notify({message:'Yay! You have enough Production to build your first building!'});
     }
     checkPopulationGrowthCost();
   });
@@ -925,7 +929,7 @@ function buildingClick() {
         console.table(buildings.get(building));
         buildings.get(building).func(playerCiv, resources);
       } else {
-        notify({message:`You don't have the <img src="img/prod.png"> to purchase a ${buildings.get(building).name}`});
+        notify({message:`You don't have the Production to purchase a ${buildings.get(building).name}`});
       }
     });
 
