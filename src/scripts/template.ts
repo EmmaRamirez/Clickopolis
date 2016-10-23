@@ -16,8 +16,10 @@ class Templates {
       <section class='clickopolis-intro clickopolis-open'>
         <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
         <div class="start-options">
+          <!--
           <button class="large-btn start-btn load-btn">Load Game...</button>
           <button class="large-btn start-btn new-btn">New Game</button>
+          -->
           <button class="large-btn start-btn current-btn">
             <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
             <p class='center-text'>${game.era} era</p>
@@ -162,7 +164,7 @@ class Templates {
             <li><a data-tooltip='Wonders' href='#wonders'><img src='img/wonder.png'></a></li>
             <li><a data-tooltip='Technology' href='#technology'><img src='img/research.png'></a></li>
             <li><a data-tooltip='Diplomacy' href='#diplomacy'><img src='img/diplomacy.png'></a></li>
-            <li><a data-tooltip='Espionage' href='#espionage'><img src='img/espionage.png'></a></li>
+            <!--<li><a data-tooltip='Espionage' href='#espionage'><img src='img/espionage.png'></a></li>-->
             <li><a data-tooltip='Military' href='#military'><img src='img/military.png'></a></li>
             <li><a data-tooltip='Culture' href='#culture'><img src='img/culture.png'></a></li>
             <li><a data-tooltip='Faith' href='#faith'><img src='img/faith.png'></a></li>
@@ -357,7 +359,7 @@ class Templates {
             <span data-tooltip='Your total land' class='civ-metric metric-land'>
               ${playerCiv.land} km <img src='img/land.png'>
             </span>
-            <span data-tooltip-'The percentage of the world you control' class='civ-metric metric-land'>
+            <span data-tooltip='The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>
             </span>
             <br>
@@ -603,7 +605,7 @@ class Templates {
           <img src='img/culture.png'> Culture
         </h2>
         <section class='culture-screen-inner'>
-
+          <p>There is nothing here yet.</p>
         </section>
       </section>
     `;

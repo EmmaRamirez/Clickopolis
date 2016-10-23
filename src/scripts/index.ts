@@ -161,9 +161,9 @@ function startSavedGame() {
   append('body', templates.createStartScreen(playerCiv, game));
   //store.clear();
 
-  bindElement('.load-btn', 'click', function() {
-    createGameUI();
-  });
+  // bindElement('.load-btn', 'click', function() {
+  //   createGameUI();
+  // });
 
   bindElement('.current-btn', 'click', function() {
     createGameUI();
