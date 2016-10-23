@@ -62,7 +62,13 @@ let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
 let debugMode:boolean = false;
 
-
+import {
+  addFaith,
+  updateFaithElts,
+  populateFaithBonuses,
+  faithBonusClick,
+  updateFaithBonuses,
+} from './utils.faith';
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
@@ -154,7 +160,7 @@ function startGame() {
   } else {
     startNewGame();
     playerCiv = new Civilization('', '', new Collection('biomes', [new Biome('')]));
-    console.log(playerCiv);
+    //console.log(playerCiv);
   }
 }
 
@@ -203,14 +209,6 @@ function setPlayerCiv() {
 
 
 
-function traitsSelection(index:number) {
-  let traitSelect = <HTMLSelectElement>document.querySelector('#trait');
-  let trait = traitSelect.value;
-  playerCiv.leaderTraits[index] = trait;
-  console.log(traitSelect.value, playerCiv.leaderTraits);
-  savePlayer();
-}
-
 
 
 function createGameUI() {
@@ -229,7 +227,7 @@ function createGameUI() {
 
   drawUI(clickopolisGame);
 
-  intro != undefined ? intro.remove() : console.log('intro not defined');
+  intro !== undefined ? intro.remove() : console.log('intro not defined');
 
   document.body.appendChild(clickopolisGame);
   //append('body', templates.resourcesScreen);
@@ -267,7 +265,7 @@ function createGameUI() {
 
     checkPopulationGrowthCost();
 
-    notify({message:'Your population just grew! Your citizen was automatically assigned as a farmer.'});
+    //notify({message:'Your population just grew! Your citizen was automatically assigned as a farmer.'});
 
   });
 
@@ -284,7 +282,7 @@ function createGameUI() {
   populateCitizens();
   populateBuildings();
   populateWonders();
-  populateFaithBonuses();
+  populateFaithBonuses(playerCiv);
   populateAchievements();
   populateBiomes();
   populateLegacy();
@@ -295,13 +293,13 @@ function createGameUI() {
 
   history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
-  updateFaithElts();
+  updateFaithElts(playerCiv);
 
   citizenClick();
   techClick();
   buildingClick();
   wonderClick();
-  faithBonusClick();
+  faithBonusClick(playerCiv);
   legacyBonusClick();
 
   generateTooltips();
@@ -362,6 +360,7 @@ setInterval(function() {
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
     else resources.get('food').total += resources.get('prod').perSecond;
     u.elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
+    u.elt('.prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
 
     (resources.get('food').perSecond < 0) ? u.elt('.r-food-ps').setAttribute('data-negative', 'true') : u.elt('.r-food-ps').setAttribute('data-negative', 'false');
     (resources.get('food').perClick < 0) ? u.elt('.r-food-pc').setAttribute('data-negative', 'true') : u.elt('.r-food-pc').setAttribute('data-negative', 'false');
@@ -370,7 +369,7 @@ setInterval(function() {
     updateTime();
     addGoldenAgePoints();
     addCash();
-    addFaith();
+    addFaith(playerCiv);
     addResearchPoints();
     checkPopulationGrowthCost()
     setLandPercent();
@@ -378,7 +377,7 @@ setInterval(function() {
     renderHistory(history);
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
-    updateFaithElts();
+    updateFaithElts(playerCiv);
     legacyBonusCheck();
     checkAchievements();
   }
@@ -443,74 +442,12 @@ function setLandPercent() {
   landPercentText.textContent = landPercent;
 }
 
-function addFaith() {
-  playerCiv.faith += playerCiv.faithPM / 60;
-}
 
-function updateFaithElts() {
-  u.elt('.faith-PM').textContent = playerCiv.faithPM;
-  u.elt('.faith-total').textContent = Math.floor(playerCiv.faith);
-}
 
 function updateLegacyElts() {
   u.elt('.legacy-points').textContent = playerCiv.legacy;
 }
 
-function populateFaithBonuses() {
-  let fbContainer = u.elt('.fb-container');
-  fbContainer.innerHTML = '';
-
-  for (let i = 0; i < faithBonuses.items.length; i++) {
-    let fb = faithBonuses.items[i];
-    fbContainer.innerHTML += `
-    <div class='faith-bonus' data-enabled='${fb.enabled}' data-purchased='${fb.purchased}' data-id='${i}' data-faith-bonus='${fb.name}'>
-      <span class='faith-bonus-cost' title='Actual: ${playerCiv.faithCost * fb.tier}'>${u.abbrNum(playerCiv.faithCost * fb.tier)}</span>
-      <span class='faith-bonus-name'>${fb.name}</span>
-      <span class='faith-bonus-effect'>${fb.effect}</span>
-    </div>
-    `;
-  }
-}
-
-function faithBonusClick() {
-  //playerCiv.faithPM += 30;
-  //updateFaithElts();
-  let fbs = document.querySelectorAll('.faith-bonus');
-  [].forEach.call(fbs, function (item:any) {
-    item.addEventListener('click', function () {
-      console.log('This works.');
-      let fb = item.getAttribute('data-faith-bonus');
-      let faithCost = playerCiv.faithCost * faithBonuses.get(fb).tier
-      if (playerCiv.faith > faithCost) {
-        if (faithBonuses.get(fb).purchased) {
-          notify({message: `You already purchased ${faithBonuses.get(fb).name}!`});
-        } else {
-          playerCiv.faith -= faithCost;
-          faithBonuses.get(fb).purchased = true;
-          item.setAttribute('data-purchased', 'true');
-          console.log(item.getAttribute('data-purchased'));
-          faithBonuses.get(fb).func(resources, playerCiv);
-          playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
-          console.debug(playerCiv.faithCost.toString());
-          updateFaithElts();
-          updateFaithBonuses();
-        }
-      } else {
-        notify({message: `You don't have enough faith to purchase this bonus!`});
-      }
-    });
-  });
-}
-
-function updateFaithBonuses() {
-  let fbCosts = u.elt('.faith-bonus-cost', true);
-  let fbs = u.elt('.faith-bonus', true);
-  // TODO: Fix calculation
-  [].forEach.call(fbCosts, function (item:any, index:number) {
-    let fb = fbs[index].getAttribute('data-faith-bonus');
-    item.innerHTML = u.abbrNum(playerCiv.faithCost * faithBonuses.get(fb).tier);
-  });
-}
 
 function populateTechnologies() {
   let technologies = document.querySelector('.technologies');
@@ -543,7 +480,7 @@ function populateTechnologies() {
 function setTechQueue() {
   u.elt('.tech-queue').innerHTML = '<div>Queue: </div>';
   for (let i = 0; i < playerCiv.researchingTechsArray.length; i++) {
-    console.debug('Queue Item', i);
+    //console.debug('Queue Item', i);
     u.elt('.tech-queue').innerHTML += `<span data-id='${i}'>${playerCiv.researchingTechsArray[i]} <img class='queue-cancel' data-q-id='${i}' data-tech='${playerCiv.researchingTechsArray[i]}' src='img/close.png'></span>`;
   }
   if (playerCiv.researchingTechsArray.length === 0) {
@@ -558,8 +495,8 @@ function handleQueueCancelClick() {
       let tech = item.getAttribute('data-tech');
       let index = techs.get(tech, true);
       let qIndex = item.getAttribute('data-q-id');
-      console.debug('Tech index', index);
-      console.debug('Q index', qIndex);
+      //console.debug('Tech index', index);
+      //console.debug('Q index', qIndex);
       playerCiv.researchingTechsArray.splice(qIndex, 1);
       u.elt('.tech[data-id="' + index + '"]').setAttribute('data-selected', false);
       //techs.get(tech).selected = false;
@@ -619,7 +556,7 @@ function populateBuildings() {
 
   for (let i = 0; i < buildings.items.length; i++) {
     let b = buildings.items[i];
-    console.log(b);
+    //console.log(b);
     buildingsContainer.innerHTML += `
       <div class='building' data-id='${i}' data-visible='${b.visible}' data-enabled='${b.enabled}' data-building='${b.name}' data-purchaseable='false'>
         <div style='text-align:center'>
@@ -904,7 +841,7 @@ function addCitizen(citizen:string, amount: number, sel:string) {
   playerCiv.populationEmployed += amount;
   updatePopulationEmployed();
   citizens.get(citizen).func(amount, resources, playerCiv);
-  console.log(citizens.get(citizen).func);
+  //console.log(citizens.get(citizen).func);
   u.elt(sel).textContent = citizens.get(citizen).amount;
   generateCitizenPercents();
 }
@@ -920,13 +857,14 @@ function buildingClick() {
       let totalSelt = '.building-total[data-building="' + buildings.get(building).name + '"]';
       let costSelt = '.building-cost-text';
       if (resources.get('prod').total >= buildings.get(building).prodCost) {
-        notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
+        //notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
         buildings.get(building).amount += 1;
         resources.get('prod').total -= buildings.get(building).prodCost;
+        u.elt('.prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
         u.elt(totalSelt).textContent = buildings.get(building).amount;
         buildings.get(building).prodCost = Math.floor(Math.sqrt(buildings.get(building).prodCost) + (buildings.get(building).prodCost * 1.25));
         u.elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
-        console.table(buildings.get(building));
+        //console.table(buildings.get(building));
         buildings.get(building).func(playerCiv, resources);
       } else {
         notify({message:`You don't have the Production to purchase a ${buildings.get(building).name}`});
@@ -1009,7 +947,7 @@ function legacyBonusCheck() {
 
 function wonderClick() {
   let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
-  console.log(wonderEls);
+  //console.log(wonderEls);
 
   [].forEach.call(wonderEls, function (item:any, index:number) {
     item.addEventListener('click', function () {
@@ -1038,7 +976,7 @@ function startBuildingWonder(wonder:Wonder) {
   let btnBuildWonder = u.elt('.btn-build-wonder[data-wonder="' + wonder.name + '"]');
 
   intervalID = setInterval(function() {
-    console.log(wonder.remainingTime);
+    //console.log(wonder.remainingTime);
     btnBuildWonder.textContent = u.time(wonder.remainingTime);
     wonder.remainingTime--;
     //renderProgress(wonderProgressBar);
@@ -1073,7 +1011,7 @@ function techClick() {
           item.setAttribute('data-purchased', true);
         } else {
           techs.get(tech).selected = true;
-          console.log(techs.get(tech).selected);
+          //console.log(techs.get(tech).selected);
           item.setAttribute('data-selected', true);
           if (techs.get(tech).selected) {
             // TODO: fix this mess
@@ -1238,7 +1176,7 @@ function renderHistory(history:string[]) {
 }
 
 function showResourceInfo(name:string) {
-  console.log(name);
+  //console.log(name);
 }
 
 function checkPopulationGrowthCost() {
