@@ -21,6 +21,7 @@ import Tech = require('./tech');
 import Nation = require('./nation');
 import Templates = require('./template');
 import FaithBonus = require('./faithbonus');
+import Legacy = require('./legacy');
 //import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
@@ -35,6 +36,7 @@ import nationData = require('./data.nation');
 import wonderData = require('./data.wonder');
 import faithBonusData = require('./data.faithbonus');
 import achievementData = require('./data.achievement');
+import legacyData = require('./data.legacy');
 
 let u = new Utils();
 
@@ -46,6 +48,7 @@ let nations = nationData;
 let wonders = wonderData;
 let faithBonuses = faithBonusData;
 let achievements = achievementData;
+let legacyBonuses = legacyData;
 
 let history:string[];
 
@@ -71,7 +74,17 @@ document.addEventListener('keydown', function (event:any) {
   if (event.which === 17) {
     isCtrlPressed = true;
   }
-})
+});
+
+
+let nodeList = <NodeListOf<HTMLElement>>u.elt('li', true);
+
+let array:any[] = [];
+
+array.map.call(nodeList, function () {
+
+});
+
 
 function scrollHorizontally(e:any) {
   e = window.event || e;
@@ -262,7 +275,7 @@ function createGameUI() {
   populateFaithBonuses();
   populateAchievements();
   populateBiomes();
-
+  populateLegacy();
 
   generateCitizenPercents();
 
@@ -277,6 +290,7 @@ function createGameUI() {
   buildingClick();
   wonderClick();
   faithBonusClick();
+  legacyBonusClick();
 
   generateTooltips();
 
@@ -352,6 +366,7 @@ setInterval(function() {
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
     updateFaithElts();
+    legacyBonusCheck();
   }
 }, 1000);
 
@@ -421,6 +436,10 @@ function addFaith() {
 function updateFaithElts() {
   u.elt('.faith-PM').textContent = playerCiv.faithPM;
   u.elt('.faith-total').textContent = Math.floor(playerCiv.faith);
+}
+
+function updateLegacyElts() {
+  u.elt('.legacy-points').textContent = playerCiv.legacy;
 }
 
 function populateFaithBonuses() {
@@ -555,7 +574,30 @@ function populateCitizens() {
   }
 }
 
+function populateLegacy() {
+  let legacyContainer = u.elt('.legacy-bonuses');
+  legacyContainer.innerHTML = '';
 
+  for (let i = 0; i < legacyBonuses.items.length; i++) {
+    let l = legacyBonuses.items[i];
+    legacyContainer.innerHTML += `
+      <div class='legacy-bonus' data-tooltip='${l.descriptions[l.level - 1]}' data-legacy='${l.name}'>
+        <span class='legacy-level'>
+          Level<br>
+          ${l.level}
+        </span>
+        <span class='legacy-category'>
+          <img src='img/${l.type}.png'>
+        </span>
+        <span class='legacy-name'>${l.name}</span>
+        <span class='legacy-cost'>
+          <img src='img/legacy-alt.png'><br>
+          ${l.cost}
+        </span>
+      </div>
+    `;
+  }
+}
 
 function populateBuildings() {
   let buildingsContainer = u.elt('.buildings');
@@ -852,6 +894,78 @@ function buildingClick() {
   });
 }
 
+
+
+function legacyBonusClick() {
+  playerCiv.legacy += 10000;
+  console.log('legacyBonusClick called');
+  let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
+
+  [].forEach.call(legacyBonusEls, function (item:any, index:number) {
+    item.addEventListener('click', function () {
+      let legacyBonus = item.getAttribute('data-legacy');
+      let lb = legacyBonuses.get(legacyBonus);
+
+      if (playerCiv.legacy >= lb.cost) {
+        playerCiv.legacy -= lb.cost;
+        notify({message: `You upgraded the Legacy of ${lb.name}!`});
+        lb.level++;
+        lb.cost *= 5;
+        item.innerHTML = `
+        <span class='legacy-level'>
+          Level<br>
+          ${lb.level}
+        </span>
+        <span class='legacy-category'>
+          <img src='img/${lb.type}.png'>
+        </span>
+        <span class='legacy-name'>${lb.name}</span>
+        <span class='legacy-cost'>
+          <img src='img/legacy-alt.png'><br>
+          ${u.abbrNum(lb.cost, 2)}
+        </span>`;
+        lb.func(lb.level, playerCiv);
+        item.setAttribute('data-tooltip', lb.descriptions[lb.level - 1]);
+        updateTooltip(item);
+      } else {
+        notify({message: `You don't have enough legacy points to purchase this upgrade!`})
+      }
+      updateLegacyElts();
+    });
+  });
+}
+
+function legacyBonusCheck() {
+  let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
+
+  [].forEach.call(legacyBonusEls, function (item:any, index:number) {
+    let legacyBonus = item.getAttribute('data-legacy');
+    let lb = legacyBonuses.get(legacyBonus);
+
+    if (playerCiv.legacy < lb.cost) {
+      item.style.opacity = '0.2';
+    }
+
+    if (lb.level === 6) {
+      item.innerHTML = `
+      <span class='legacy-level'>
+        Level<br>
+        MAX
+      </span>
+      <span class='legacy-category'>
+        <img src='img/${lb.type}.png'>
+      </span>
+      <span class='legacy-name'>${lb.name}</span>
+      <span class='legacy-cost'>
+        <img src='img/legacy-alt.png'><br>
+        MAX
+      </span>`;
+      item.style.pointerEvents = 'none';
+      item.className += ' maxed-out';
+    }
+  });
+}
+
 function wonderClick() {
   let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
   console.log(wonderEls);
@@ -988,7 +1102,7 @@ function checkEnabledTechs() {
 
   [].forEach.call(techEls, function (item:any, index:number) {
     let name = item.getAttribute('data-tech');
-    item.setAttribute('data-enabled', techs.get(name).enabled + "");
+    item.setAttribute('data-enabled', `${techs.get(name).enabled}`);
   });
 }
 

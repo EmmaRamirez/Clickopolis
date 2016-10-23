@@ -19,3 +19,50 @@
     padding: .25rem;
     text-align: center;
     width: 15rem;
+  .legacy-bonus
+    background: #F23535;
+    border-radius: 4px;
+    color: #eee;
+    margin: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+    &.maxed-out
+      background: #EDE480;
+      color: #222;
+      .legacy-level, .legacy-cost
+        background: darken(#EDE480, 20%);
+  .legacy-level, .legacy-name, .legacy-cost
+    display: inline-block;
+  .legacy-level
+    background: darken(#F23535, 20%);
+    color: white;
+    left: 0;
+    padding: .5rem;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 3.5rem;
+  .legacy-category
+    background: white;
+    border-radius: 50%;
+    height: 2rem;
+    left: 4.5rem;
+    padding: .5rem;
+    position: absolute;
+    top: calc(50% - 1rem);
+    width: 2rem;
+  .legacy-name
+    font-size: 1.2rem;
+    margin-left: 3.5rem;
+    width: calc(100% - 8rem);
+    text-align: center;
+  .legacy-cost
+    background: darken(#F23535, 20%);
+    color: white;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    padding: .5rem;
+    width: 3.5rem;

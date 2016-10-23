@@ -7,7 +7,13 @@ let techs = techData;
 
 class techUtils {
 
+  encodeToString() {
+    
+  }
 
+  decodeFromString() {
+
+  }
 
   renderTechnologies(techSelector:HTMLElement, techs:Collection<Tech>):void {
 
@@ -22,7 +28,7 @@ class techUtils {
     }
   }
 
-  unlockTechs(techs:string):boolean {
+  unlockTechs(techs:string[]):boolean {
     return false;
   }
 

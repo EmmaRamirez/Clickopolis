@@ -636,10 +636,13 @@ class Templates {
         <h2>
           <img src='img/legacy.png'> Legacy
         </h2>
-        <section class='legacy-screen-inner legacy'>
+        <section class='legacy-screen-inner'>
           <div class='legacy-wrapper'>
             <img src='img/legacy.png'> <span class='legacy-points'>${playerCiv.legacy}</span> Legacy Points
           </div>
+        </section>
+        <section class='legacy-screen-inner legacy-bonuses'>
+          
         </section>
       </section>
     `;
