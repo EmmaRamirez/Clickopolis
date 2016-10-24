@@ -11,7 +11,6 @@ let legacyBonuses = legacyData;
 
 
 export function legacyBonusClick(playerCiv) {
-  playerCiv.legacy += 10000;
   let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
 
   [].forEach.call(legacyBonusEls, function (item:any, index:number) {
