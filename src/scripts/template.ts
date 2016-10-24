@@ -52,7 +52,8 @@ class Templates {
     return startScreen;
   };
 
-  settingsScreen:string = `
+
+  Screen:string = `
     <section class='clickopolis-new-game clickopolis-open'>
       <h2 class='clickopolis-new-game-header'>New Game</h2>
       <hr>
@@ -698,15 +699,22 @@ class Templates {
           <img src='img/gear.png'> Settings
         </h2>
         <section class='settings-screen-inner'>
-          <p><span class='settings-label'>Game Skin:</span>
-            <span class='ui-button ancient era-skin'>Ancient</span>
-            <span class='ui-button classical era-skin'>Classical</span>
-            <span class='ui-button medieval era-skin'>Medieval</span>
+          <span class='settings-label'>Notifications</span>
+          <p>
+            <label class='ui-button'>
+              <input type='checkbox' id='checkAllNotifications' />All Notifications
+            </label>
+            <label class='ui-button'>
+              <input type='checkbox' id='checkEvents' />Events
+            </label>
+            <label class='ui-button'>
+              <input type='checkbox' id='checkAchievements' />Achievements
+            </label>
+            <label class='ui-button'>
+              <input type='checkbox' id='checkWonderCompletion' />Wonder Completion
+            </label>
           </p>
-          <p><span class='settings-label'>UI:</span>
-            <span class='ui-button vertical-button'><img src='img/vertical.png' title='vertical'></span>
-            <span class='ui-button grid-button'><img src='img/grid.png' title='grid'></span>
-          </p>
+
         </section>
       </section>
     `;
