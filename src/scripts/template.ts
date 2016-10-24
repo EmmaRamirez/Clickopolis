@@ -190,8 +190,8 @@ class Templates {
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
 
             <span class='resource-info r-food-total r-food' data-label='total'>${resources.get('food').total}</span>
-            <span class='resource-info r-food-pc r-food' data-label='per click' title='the amount of food you earn per click'>${resources.get('food').perClick}</span>
-            <span class='resource-info r-food-ps r-food' data-label='per sec' title='the amount of food you earn per second'>${resources.get('food').perSecond}</span>
+            <span class='resource-info r-food-pc r-food' data-label='per click' data-toolitp='the amount of food you earn per click'>${resources.get('food').perClick}</span>
+            <span class='resource-info r-food-ps r-food' data-label='per sec' data-toolitp='the amount of food you earn per second'>${resources.get('food').perSecond}</span>
             <span class='resource-info r-food-max r-food' data-label='max'>${resources.get('food').max}</span>
 
 
@@ -200,8 +200,8 @@ class Templates {
             <button class='prod-btn'><img src='img/prod.png'> Create Production</button>
 
             <span class='resource-info r-prod-total r-prod' data-label='total'>${resources.get('prod').total}</span>
-            <span class='resource-info r-prod-pc r-prod' data-label='per click' title='the amount of production you make per click'>${resources.get('prod').perClick}</span>
-            <span class='resource-info r-prod-ps r-prod' data-label='per sec' title='the amount of production you make per second'>${resources.get('prod').perSecond}</span>
+            <span class='resource-info r-prod-pc r-prod' data-label='per click' data-toolitp='the amount of production you make per click'>${resources.get('prod').perClick}</span>
+            <span class='resource-info r-prod-ps r-prod' data-label='per sec' data-toolitp='the amount of production you make per second'>${resources.get('prod').perSecond}</span>
             <span class='resource-info r-prod-max r-prod' data-label='max'>${resources.get('prod').max}</span>
 
 
@@ -352,7 +352,7 @@ class Templates {
                 <img src='img/food.png'>
               </span>
             </button>
-            <span class='civ-metric metric-population' title='${playerCiv.populationReal + ' people'}'>
+            <span class='civ-metric metric-population' data-toolitp='${playerCiv.populationReal + ' people'}'>
               Population: <img src='img/citizen.png'> <span class='population-text'>${playerCiv.population}</span>
             </span>
             <span data-tooltip='Your net migration per minute' class='civ-metric metric-migration'>
@@ -381,7 +381,7 @@ class Templates {
             </span>
             <br>
             <span data-tooltip='Golden Age points are your happiness minus anger' class='civ-metric metric-golden-age-points'>${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'></span>
-            <span data-tooltip='When you max out your progress bar, you reach a Golden Age!' class='civ-metric metric-golden-age' title='Golden age points trigger Golden Ages. Points are earned by your happiness, minus anger.'>
+            <span data-tooltip='When you max out your progress bar, you reach a Golden Age!' class='civ-metric metric-golden-age' data-toolitp='Golden age points trigger Golden Ages. Points are earned by your happiness, minus anger.'>
               <img src='img/golden-age.png'> Golden Age Points <span class='golden-age-progress'>${playerCiv.goldenAgeProgress}</span> / <span class='golden-age-goal'>${u.abbrNum(playerCiv.goldenAgeGoal, 2)}</span>
             </span>
             <span data-tooltip='Your total number of Golden Ages' class='civ-metric metric-golden-ages'>${playerCiv.goldenAges} GAs</span>
@@ -492,7 +492,7 @@ class Templates {
       <section class='screen technology-screen' id='technology'>
         <h2><img src='img/research.png'> Technology</h2>
         <section class='technology-screen-inner'>
-          <div class='research-PM-wrapper' title='The amount of research points you produce per minute.'>
+          <div class='research-PM-wrapper' data-tooltip='The amount of research points you produce per minute.'>
             <span class='research-PM'>${playerCiv.researchPM}</span> <img src='img/research.png'> PM</span>
           </div>
           <div class='tech-queue'>

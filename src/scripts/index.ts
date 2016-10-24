@@ -704,11 +704,11 @@ function addGoldenAgePoints() {
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 
   if (playerCiv.goldenAgeProgress > 0) {
-    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
+    let goldenAgePercent:string = ((goldenAgePoints / playerCiv.goldenAgeGoal) * 100) + '%';
     let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
     goldenAgeMeter.style.background = bgString;
   } else {
-    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / goldenAgePoints) / 100) + '%';
+    let goldenAgePercent:string = ((goldenAgePoints / playerCiv.goldenAgeGoal) * 100) + '%';
     let bgString:string = u.progressBar(goldenAgePercent, '#DB3535', '#DB3535');
     goldenAgeMeter.style.background = bgString;
   }
@@ -964,11 +964,20 @@ function purchaseTech(tech:string, element:HTMLElement) {
   notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
   history.push(log({year: game.year, message: playerCiv.civName + ' discovered ' + techs.get(tech).name + '!', categoryImage: 'research'}));
   techs.get(tech).purchased = true;
+
   if (typeof element !== 'undefined') {
-    element.setAttribute('data-purchased', 'true');
+    element.setAttribute('data-purchased', true); //NOTE: ignore this for now.
   } else {
-    u.elt('[data-tech="' + tech + '"]').setAttribute('data-purchased', 'true');
+    u.elt('[data-tech="' + tech + '"]').setAttribute('data-purchased', true);
   }
+
+  playerCiv.researchingTechsArray = playerCiv.researchingTechsArray.filter((value) => {
+    return !techs.get(value).purchased;
+  });
+  setTechQueue();
+
+  console.log(techs.get(tech).purchased, playerCiv.researchingTechsArray);
+
   playerCiv.research -= playerCiv.researchCost;
   playerCiv.researchCost = Math.floor(((playerCiv.population * 3) + playerCiv.researchCost * .8));
   u.elt('.research-cost-text').textContent = playerCiv.researchCost;
