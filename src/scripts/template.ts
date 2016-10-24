@@ -608,8 +608,16 @@ class Templates {
         <h2>
           <img src='img/culture.png'> Culture
         </h2>
+        <section class='culture-screen-inner culture-metrics'>
+          <div class='culture-wrapper' data-tooltip='The amount of culture you produce per minute.'>
+            <span class='culture-PM'>${playerCiv.culturePM}</span> <img src='img/culture.png'> PM
+          </div>
+          <div class='culture-wrapper' data-tooltip='The amount of culture you have in total.'>
+            <span class='culture-PM'>${playerCiv.culture}</span> <img src='img/culture.png'> total
+          </div>
+        </section>
         <section class='culture-screen-inner'>
-          <p>There is nothing here yet.</p>
+
         </section>
       </section>
     `;
