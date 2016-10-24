@@ -160,7 +160,7 @@ let divineKingdom = new Legacy(
   }
 );
 let worldStagePlayer = new Legacy(
-  'World Stage Player', 'diplomacy', 1, 5,
+  'World Stage Playa', 'diplomacy', 1, 5,
   [
 
   ],

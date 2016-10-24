@@ -1,17 +1,14 @@
-enum Detail {
-  minimal,
-  medium,
-  maxiumum
-}
-
 class Settings {
-  difficultyMode: string;
-  detailLevel: Detail;
-  skin: string;
+  notifications: {
+    allNotifications: boolean;
+    events: boolean;
+    achievements: boolean;
+    wonderCompletion: boolean;
+  }
 
-  constructor(difficultyMode:string, skin:string) {
-    this.difficultyMode = difficultyMode;
-    this.skin = skin;
+  pinMenu: boolean;
+
+  constructor() {
   }
 }
 
