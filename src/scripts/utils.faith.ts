@@ -62,7 +62,7 @@ export function faithBonusClick(playerCiv) {
           updateFaithBonuses(playerCiv);
         }
       } else {
-        notify({message: `You don't have enough faith to purchase this bonus!`});
+        //notify({message: `You don't have enough faith to purchase this bonus!`});
       }
     });
   });
