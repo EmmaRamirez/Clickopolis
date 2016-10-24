@@ -53,7 +53,7 @@ class Templates {
   };
 
 
-  Screen:string = `
+  startScreen:string = `
     <section class='clickopolis-new-game clickopolis-open'>
       <h2 class='clickopolis-new-game-header'>New Game</h2>
       <hr>
@@ -61,8 +61,9 @@ class Templates {
       <section class='half-section'>
         <form class='new-game-settings'>
           <label for='leader'>Leader</label>
-          <select name='leader'>
+          <select name='leader' id='civ-leader-select'>
             <option value='abraham-lincoln'>Abraham Lincoln</option>
+            <option value='margaret-thatcher'>Margaret Thatcher</option>
           </select>
 
           <label for='name'>Name</label>

@@ -132,7 +132,7 @@ function bindElement(node:string, eventType:string, callback:Function) {
   let el = <HTMLElement>document.querySelector(node);
   el.addEventListener(eventType, function (event:Event) {
     //console.log(callback)
-    return callback();
+    return callback(event);
   });
 }
 
@@ -177,7 +177,11 @@ function startSavedGame() {
 function startNewGame() {
   console.debug('Starting New Game...');
 
-  append('body', templates.createSettingsScreen(playerCiv, game));
+  append('body', templates.startScreen);
+
+  u.elt('.civ-leader-select', 'change', function () {
+    console.log(this.value);
+  });
 
 
   bindElement('.begin-btn', 'click', function() {
@@ -933,7 +937,7 @@ function techClick() {
         }
       } else {
         if (techs.get(tech).purchased === true) {
-          notify({message:'You already purchased the ' + techs.get(tech).name + ' technology!'});
+          //notify({message:'You already purchased the ' + techs.get(tech).name + ' technology!'});
           item.setAttribute('data-purchased', true);
         } else {
           techs.get(tech).selected = true;
