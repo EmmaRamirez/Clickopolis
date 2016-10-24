@@ -704,11 +704,11 @@ function addGoldenAgePoints() {
   goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 
   if (playerCiv.goldenAgeProgress > 0) {
-    let goldenAgePercent:string = ((goldenAgePoints / playerCiv.goldenAgeGoal) * 100) + '%';
+    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / playerCiv.goldenAgeGoal) * 100) + '%';
     let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
     goldenAgeMeter.style.background = bgString;
   } else {
-    let goldenAgePercent:string = ((goldenAgePoints / playerCiv.goldenAgeGoal) * 100) + '%';
+    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / playerCiv.goldenAgeGoal) * 100) + '%';
     let bgString:string = u.progressBar(goldenAgePercent, '#DB3535', '#DB3535');
     goldenAgeMeter.style.background = bgString;
   }
