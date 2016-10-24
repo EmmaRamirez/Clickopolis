@@ -7,7 +7,7 @@
     "test": "",
     "webpack": "webpack --watch",
     "stylus": "stylus -w ./src/styles/stylus/index.styl -o ./dist/styles/index.css",
-    "start": "http-server"
+    "start": "node server.js"
   },
   "author": "Emma Ramirez",
   "license": "MIT",

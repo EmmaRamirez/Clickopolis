@@ -179,10 +179,6 @@ function startNewGame() {
 
   append('body', templates.startScreen);
 
-  u.elt('.civ-leader-select', 'change', function () {
-    console.log(this.value);
-  });
-
 
   bindElement('.begin-btn', 'click', function() {
     //console.log('hi');

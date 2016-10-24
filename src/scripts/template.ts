@@ -242,6 +242,10 @@ class Templates {
               <img src='img/iron.png'> <span>${resources.get('iron').total}</span>
             </span>
 
+            <span class='resource' data-unlocked='${resources.get('steel').unlocked}' data-resource='steel'>
+              <img src='img/steel.png'> <span>${resources.get('steel').total}</span>
+            </span>
+
 
 
             <br>
@@ -313,6 +317,14 @@ class Templates {
       <header class='screen-header'>
         <h2>Clickopolis</h2>
         <h3>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h3>
+        <div class='civilization-metrics'>
+          <div class='food-metric'>
+            <img src='img/food.png'><span class='m-food-total'>0</span>
+          </div>
+          <div class='prod-metric'>
+            <img src='img/prod.png'><span class='m-prod-total'>0</span>
+          </div>
+        </div>
         <div class='notification-center'>
           <img src='img/notification.png'>
         </div>
