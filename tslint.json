@@ -25,7 +25,7 @@
             "check-decl",
             "check-operator",
             "check-separator",
-            "check-module",
+            "check-module"
         ]
     }
 }
