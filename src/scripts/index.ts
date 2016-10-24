@@ -27,7 +27,7 @@ import Legacy = require('./legacy');
 //import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
-
+import { generateTooltips, updateTooltip } from './tooltips';
 
 
 import techData = require('./data.tech');
@@ -62,13 +62,9 @@ let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
 let debugMode:boolean = false;
 
-import {
-  addFaith,
-  updateFaithElts,
-  populateFaithBonuses,
-  faithBonusClick,
-  updateFaithBonuses,
-} from './utils.faith';
+import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils.faith';
+import { legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils.legacy';
+
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
@@ -182,7 +178,7 @@ function startSavedGame() {
 function startNewGame() {
   console.debug('Starting New Game...');
 
-  append('body', templates.settingsScreen);
+  append('body', templates.createSettingsScreen(playerCiv, game));
 
 
   bindElement('.begin-btn', 'click', function() {
@@ -236,7 +232,7 @@ function createGameUI() {
     //event.preventDefault();
     addClickToTotal('.r-food-total', 'food');
     if (resources.get('food').total === 10) {
-      notify({message: 'Yay! You have enough Food to grow your population!'});
+      //notify({message: 'Yay! You have enough Food to grow your population!'});
     }
 
     checkPopulationGrowthCost();
@@ -247,7 +243,7 @@ function createGameUI() {
     addClickToTotal('.r-prod-total', 'prod');
 
     if (resources.get('prod').total === 15) {
-      notify({message: 'Yay! You have enough Production to build your first building!'});
+      //notify({message: 'Yay! You have enough Production to build your first building!'});
     }
     checkPopulationGrowthCost();
   });
@@ -300,7 +296,7 @@ function createGameUI() {
   buildingClick();
   wonderClick();
   faithBonusClick(playerCiv);
-  legacyBonusClick();
+  legacyBonusClick(playerCiv);
 
   generateTooltips();
 
@@ -378,7 +374,7 @@ setInterval(function() {
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
     updateFaithElts(playerCiv);
-    legacyBonusCheck();
+    legacyBonusCheck(playerCiv);
     checkAchievements();
   }
 }, 1000);
@@ -444,9 +440,7 @@ function setLandPercent() {
 
 
 
-function updateLegacyElts() {
-  u.elt('.legacy-points').textContent = playerCiv.legacy;
-}
+
 
 
 function populateTechnologies() {
@@ -822,10 +816,10 @@ function citizenClick() {
         notify({message:'You can\'t have more than one ruler!'});
       } else {
         if (citizens.get(citizen).amount === 0 && amount < 0) {
-          notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'});
+          //notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'});
         } else {
           if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
-            notify({message:'All of your population is already employed!'});
+            //notify({message:'All of your population is already employed!'});
           } else {
             addCitizen(citizen, amount, sel);
           }
@@ -876,74 +870,7 @@ function buildingClick() {
 
 
 
-function legacyBonusClick() {
-  playerCiv.legacy += 10000;
-  let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
 
-  [].forEach.call(legacyBonusEls, function (item:any, index:number) {
-    item.addEventListener('click', function () {
-      let legacyBonus = item.getAttribute('data-legacy');
-      let lb = legacyBonuses.get(legacyBonus);
-
-      if (playerCiv.legacy >= lb.cost) {
-        playerCiv.legacy -= lb.cost;
-        notify({message: `You upgraded the Legacy of ${lb.name}!`});
-        lb.level++;
-        lb.cost *= 5;
-        item.innerHTML = `
-        <span class='legacy-level'>
-          Level<br>
-          ${lb.level}
-        </span>
-        <span class='legacy-category'>
-          <img src='img/${lb.type}.png'>
-        </span>
-        <span class='legacy-name'>${lb.name}</span>
-        <span class='legacy-cost'>
-          <img src='img/legacy-alt.png'><br>
-          ${u.abbrNum(lb.cost, 2)}
-        </span>`;
-        lb.func(lb.level, playerCiv);
-        item.setAttribute('data-tooltip', lb.descriptions[lb.level - 1]);
-        updateTooltip(item);
-      } else {
-        notify({message: `You don't have enough legacy points to purchase this upgrade!`})
-      }
-      updateLegacyElts();
-    });
-  });
-}
-
-function legacyBonusCheck() {
-  let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
-
-  [].forEach.call(legacyBonusEls, function (item:any, index:number) {
-    let legacyBonus = item.getAttribute('data-legacy');
-    let lb = legacyBonuses.get(legacyBonus);
-
-    if (playerCiv.legacy < lb.cost) {
-      item.style.opacity = '0.2';
-    }
-
-    if (lb.level === 6) {
-      item.innerHTML = `
-      <span class='legacy-level'>
-        Level<br>
-        MAX
-      </span>
-      <span class='legacy-category'>
-        <img src='img/${lb.type}.png'>
-      </span>
-      <span class='legacy-name'>${lb.name}</span>
-      <span class='legacy-cost'>
-        <img src='img/legacy-alt.png'><br>
-        MAX
-      </span>`;
-      item.style.pointerEvents = 'none';
-      item.className += ' maxed-out';
-    }
-  });
-}
 
 function wonderClick() {
   let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
@@ -1206,59 +1133,6 @@ function setInfluenceImages() {
   }
 }
 
-interface TooltipOptions {
-  offsetX?: number;
-  offsetY?: number;
-  followCursor?: boolean;
-  classes?: string[];
-}
-
-function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
-  offsetX: 10,
-  offsetY: 10
-}) {
-  let text = elt.getAttribute('data-tooltip');
-  let tooltip = document.createElement('div');
-  tooltip.className = 'tooltip';
-  tooltip.innerHTML = `${text}`;
-  elt.addEventListener('mouseenter', function (event:any) {
-    tooltip.style.left = event.clientX + opts.offsetX + 'px';
-    tooltip.style.top = event.clientY + opts.offsetY + 'px';
-    elt.appendChild(tooltip);
-  });
-  elt.addEventListener('mousemove', function (event:any) {
-    tooltip.style.left = event.clientX + opts.offsetX + 'px';
-    tooltip.style.top = event.clientY + opts.offsetY + 'px';
-  });
-  elt.addEventListener('mouseleave', function (event:any) {
-    elt.removeChild(tooltip);
-  });
-}
-
-function generateTooltips(opts:TooltipOptions = {
-  offsetX: 10,
-  offsetY: 10
- }) {
-  let tooltipElts = u.elt('[data-tooltip]', true);
-  [].forEach.call(tooltipElts, function (item: any, index: number) {
-    let text = item.getAttribute('data-tooltip');
-    let tooltip = document.createElement('div');
-    tooltip.className = 'tooltip';
-    tooltip.innerHTML = `${text}`;
-    item.addEventListener('mouseenter', function (event:any) {
-      tooltip.style.left = event.clientX + opts.offsetX + 'px';
-      tooltip.style.top = event.clientY + opts.offsetY + 'px';
-      item.appendChild(tooltip);
-    });
-    item.addEventListener('mousemove', function (event:any) {
-      tooltip.style.left = event.clientX + opts.offsetX + 'px';
-      tooltip.style.top = event.clientY + opts.offsetY + 'px';
-    });
-    item.addEventListener('mouseleave', function (event:any) {
-      item.removeChild(tooltip);
-    });
-  });
-}
 
 
 function UiSettingsButtons() {

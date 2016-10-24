@@ -312,6 +312,9 @@ class Templates {
       <header class='screen-header'>
         <h2>Clickopolis</h2>
         <h3>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h3>
+        <div class='notification-center'>
+          <img src='img/notification.png'>
+        </div>
       </header>
     `;
     return screenHeader;
@@ -712,6 +715,12 @@ class Templates {
             </label>
             <label class='ui-button'>
               <input type='checkbox' id='checkWonderCompletion' />Wonder Completion
+            </label>
+          </p>
+          <span class='settings-label'>User Interface</span>
+          <p>
+            <label class='ui-button'>
+              <input type='checkbox' id='pinMenu' checked>Pin Menu
             </label>
           </p>
 
