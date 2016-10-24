@@ -24,7 +24,6 @@ import Nation = require('./nation');
 import Templates = require('./template');
 import FaithBonus = require('./faithbonus');
 import Legacy = require('./legacy');
-//import Flags = require('./flags');
 import notify = require('./notify');
 import log = require('./log');
 import { generateTooltips, updateTooltip } from './tooltips';
@@ -266,7 +265,7 @@ function createGameUI() {
   });
 
   bindElement('#clear-local-storage', 'click', function () {
-    let prompt = confirm('Clearing local storage means you will lose all your data and progress are you sure you want to do this?')
+    let prompt = confirm('Clearing local storage means you will lose all your data and progress.\nAre you sure you want to do this?')
     if (prompt === true) {
       store.clear();
     }
