@@ -4,6 +4,7 @@
   "description": "An epic clicking-based empire management game.",
   "main": "server.js",
   "scripts": {
+    "preinstall": "node preinstall.js",
     "test": "",
     "webpack": "webpack --watch",
     "stylus": "stylus -w ./src/styles/stylus/index.styl -o ./dist/styles/index.css",
@@ -14,6 +15,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "immutable": "^3.8.1",
+    "raw-loader": "^0.5.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "redux": "^3.6.0",

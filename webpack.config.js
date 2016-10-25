@@ -1,7 +1,8 @@
 var webpack = require('webpack');
+var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = {
+const webpackConfig = {
   entry: './src/scripts/index.ts',
   output: {
     filename: './dist/scripts/bundle.js'
@@ -20,9 +21,20 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts-loader' },
-      { test: /\.styl$/, loaders: ['style', 'css', 'stylus']},
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader'
+      },
+      // {
+      //   test: /\.styl$/,
+      //   include: [
+      //     path.resolve(__dirname, 'stylus')
+      //   ],
+      //   loaders: ['style', 'css', 'stylus']
+      // },
     ]
   },
   watch: true
 }
+
+module.exports = webpackConfig;

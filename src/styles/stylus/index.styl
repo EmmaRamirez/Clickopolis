@@ -22,6 +22,7 @@
 @import 'screen.settings.styl';
 @import 'notify.styl';
 
+
 $b = rgba(black, 0.5);
 
 html
@@ -68,7 +69,7 @@ body
   background-size: cover;
   h1
     color: white;
-    text-shadow: 0 0 1rem $b;
+    text-shadow: 0 0 1rem b;
 
 .era-Classical
   background-image: linear-gradient(to left, $b, $b), url('../img/classical.jpg') !important;
@@ -87,7 +88,7 @@ section
 .clickopolis-intro,
 .clickopolis-start
   background-color: #222;
-  background-image: linear-gradient(to bottom, rgba(black, 0.5), rgba(black, 0.5)), url('../img/world-map.svg');
+  background-image: linear-gradient(to bottom, $b, $b), url('../img/world-map.svg');
   background-position: center center;
   background-size: cover;
   border-radius: 4px;
@@ -207,7 +208,7 @@ section
   height: 10%;
   left: 0;
   padding: 1rem 1rem;
-  text-shadow: 0 0 2px rgba(black, 0.5);
+  text-shadow: 0 0 2px $b;
   top: 0;
   width: 100%;
   *

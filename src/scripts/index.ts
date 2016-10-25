@@ -1,8 +1,6 @@
-/// <reference path="./require.d.ts" />
+/// <reference path="../../typings/index.d.ts" />
 /// <reference path="store.d.ts" />
 /// <reference path="underscore.d.ts" />
-
-//require('../styles/stylus/index.styl');
 
 declare var Notification: any;
 
@@ -39,7 +37,9 @@ import faithBonusData = require('./data.faithbonus');
 import achievementData = require('./data.achievement');
 import legacyData = require('./data.legacy');
 
-let u = new Utils();
+const css = require('!raw!stylus!../styles/stylus/index.styl');
+
+const u = new Utils();
 
 let techs = techData;
 let resources = resourceData;
@@ -63,7 +63,6 @@ let debugMode:boolean = false;
 
 import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils.faith';
 import { legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils.legacy';
-
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
