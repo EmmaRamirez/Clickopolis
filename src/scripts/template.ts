@@ -152,6 +152,21 @@ class Templates {
   //
   //  <button class='begin-btn'>Begin Game!</button>
 
+  createDebugPanel(debugMode:boolean) {
+    let debugPanel = `
+      <div class='debug-panel'>
+        <div class='debug-lead debug-item'>
+          Debug
+        </div>
+        <button class='fast-forward' data-tooltip='Fast Foward 1 Year'>
+          &#9658;&#9658;
+        </button>
+      </div>
+    `;
+
+    return debugMode ? debugPanel : '';
+  }
+
   createMenuScreen() {
     let menuScreen = `
       <section class='screen menu-screen' id='menu'>

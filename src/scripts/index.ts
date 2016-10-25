@@ -59,10 +59,11 @@ let templates:Templates = new Templates();
 
 let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
-let debugMode:boolean = false;
+let debugMode:boolean = true;
 
 import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils.faith';
 import { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils.legacy';
+import { rollEvent } from './utils.events';
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
@@ -270,6 +271,13 @@ function createGameUI() {
     }
   });
 
+  bindElement('.fast-forward', 'click', function () {
+    for (let i = 0; i <= 60; ++i) {
+      secondUpdates();
+    }
+    minuteUpdates();
+  });
+
   setInfluenceImages();
 
   populateTechnologies();
@@ -346,7 +354,7 @@ function addClickToTotal(el:string, item:string) {
   checkAchievements();
 }
 
-setInterval(function() {
+function secondUpdates() {
   if (isWindowActive) {
     if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
     else resources.get('food').total += resources.get('food').perSecond;
@@ -372,21 +380,29 @@ setInterval(function() {
     renderHistory(history);
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
+    updateResources();
     updateFaithElts(playerCiv);
     legacyBonusCheck(playerCiv);
     calculateHappiness(playerCiv);
     calculateAnger(playerCiv);
     checkAchievements();
   }
-}, 1000);
+}
 
-setInterval(function() {
+setInterval(() => secondUpdates(), 1000);
+
+function minuteUpdates() {
   if (isWindowActive) {
      updateYear();
+     rollEvent({
+       playerCiv: playerCiv,
+       resources: resources,
+     });
      checkUnemployed();
-
   }
-}, 1000 * 60);
+}
+
+setInterval(() => minuteUpdates(), 1000 * 60);
 
 function drawUI(el:HTMLElement) {
   el.innerHTML =  templates.createScreenHeader(playerCiv, game) +
@@ -405,7 +421,8 @@ function drawUI(el:HTMLElement) {
                   templates.createLegacyScreen(playerCiv) +
                   templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv) +
-                  templates.createSettingsScreen(playerCiv, game);
+                  templates.createSettingsScreen(playerCiv, game) +
+                  templates.createDebugPanel(debugMode);
 }
 
 function checkUnemployed() {
@@ -443,7 +460,7 @@ function generateHappinessTooltip(playerCiv) {
   let happinessElement = u.elt('.metric-happiness');
   let happinessBreakdown = `
     <ul>
-      <li>Base Happiness: ${playerCiv.happiness}</li>
+      <li>Base Happiness: ${playerCiv.happinessBase}</li>
       <li>Happiness from Buildings: ${playerCiv.happinessFromBuildings}</li>
       <li>Happiness from Wonders: ${playerCiv.happinessFromWonders}</li>
       <li>Happiness from Citizens: ${playerCiv.happinessFromCitizens}</li>
@@ -497,7 +514,21 @@ function calculateAnger(playerCiv) {
   prevAnger === playerCiv.anger ? undefined : updateAngerMetric(playerCiv);
 }
 
+function updateResources() {
+  let r;
+  let elt;
 
+
+  for (let i = 0; i < resources.items.length; i++) {
+    r = resources.items[i];
+
+    if (r.name === 'food' || r.name === 'prod') {
+    } else {
+      elt = u.elt(`[data-resource=${r.name}]`);
+      elt.innerHTML = `<img src='img/${r.image}.png'> <span>${r.total}</span>`;
+    }
+  }
+}
 
 function populateTechnologies() {
   let technologies = document.querySelector('.technologies');

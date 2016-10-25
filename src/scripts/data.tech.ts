@@ -31,6 +31,7 @@ let animalHusbandry:Tech = new Tech(
   'ancient',
   'It\'s not what you think it is.',
   [
+    '<img src="img/plus.png"> Unlocks <img src="img/cattle.png"> resoruce',
     '<img src="img/plus.png"> Unlocks <img src="img/horse.png"> resource',
     '<img src="img/plus.png"> Improves <img src="img/farmer.png"> output by 15%',
     '<img src="img/key.png"> Leads To: Woodworking, Horseback Riding'
@@ -38,6 +39,7 @@ let animalHusbandry:Tech = new Tech(
   ['resources', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>) {
     u.unlockResource('horse', resources);
+    u.unlockResource('cattle', resources);
     citizens.get('farmer').contrib1.amount = (citizens.get('farmer').contrib1.amount * 1.15).toFixed(2);
     citizens.get('farmer').contrib2.amount = (citizens.get('farmer').contrib2.amount * 1.15).toFixed(2);
     u.elt('.contrib[data-citizen="farmer"]').innerHTML = u.setContributions(citizens.get('farmer'));
