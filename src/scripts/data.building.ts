@@ -8,8 +8,8 @@ import notify = require('./notify');
 let u = new Utils();
 
 let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">', true, true, function (playerCiv:Civilization) {
-  playerCiv.happiness += 1;
-  u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
+  playerCiv.happinessFromBuildings += 1;
+  //u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
   //notify({message:`The new hut has made your citizens gracious. (<img src="img/happy.png"> ${playerCiv.happiness})`});
   console.log(playerCiv.happiness);
 });

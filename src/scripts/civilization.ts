@@ -17,9 +17,19 @@ class Civilization {
   biomes: Collection<Biome>;
 
   happiness: number;
+  happinessBase: number;
+  happinessFromBuildings: number;
+  happinessFromWonders: number;
+  happinessFromCitizens: number;
+  happinessFromResources: number;
+  happinessFromCultureBonuses: number;
+  happinessFromFaithBonuses: number;
   happinessMod: number;
+
   anger: number;
+  angerFromPopulation: number;
   angerMod: number;
+
   health: number;
   pollution: number;
   land: number;
@@ -89,10 +99,20 @@ class Civilization {
     this.leaderTraits = [];
     this.leaderTraitsMax = 3;
 
-    this.happiness = 15;
+    this.happiness = 0;
     this.happinessMod = 1;
-    this.anger = 1;
+    this.happinessBase = 15;
+    this.happinessFromBuildings = 0;
+    this.happinessFromWonders = 0;
+    this.happinessFromCitizens = 0;
+    this.happinessFromResources = 0;
+    this.happinessFromCultureBonuses = 0;
+    this.happinessFromFaithBonuses = 0;
+
+    this.anger = 0;
     this.angerMod = 1;
+    this.angerFromPopulation = 0;
+
     this.health = 25;
     this.pollution = 1;
     this.land = 1;

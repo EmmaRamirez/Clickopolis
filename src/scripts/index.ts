@@ -62,7 +62,7 @@ let isCtrlPressed:boolean = false;
 let debugMode:boolean = false;
 
 import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils.faith';
-import { legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils.legacy';
+import { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils.legacy';
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
@@ -297,7 +297,8 @@ function createGameUI() {
   legacyBonusClick(playerCiv);
 
   generateTooltips();
-
+  generateHappinessTooltip(playerCiv);
+  generateAngerTooltip(playerCiv);
   //UiSettingsButtons();
 
 }
@@ -318,7 +319,7 @@ function updatePopulation(pop:number) {
 
   playerCiv.cashPM += pop * 2;
   playerCiv.researchPM += pop * 2;
-  playerCiv.anger += pop * 1;
+  playerCiv.angerFromPopulation += pop * 1;
   playerCiv.pollution += pop * 1;
 
   //elt('.research-text').textContent = playerCiv.research.toString();
@@ -373,6 +374,8 @@ setInterval(function() {
     u.elt('.research-PM').textContent = playerCiv.researchPM;
     updateFaithElts(playerCiv);
     legacyBonusCheck(playerCiv);
+    calculateHappiness(playerCiv);
+    calculateAnger(playerCiv);
     checkAchievements();
   }
 }, 1000);
@@ -436,8 +439,63 @@ function setLandPercent() {
   landPercentText.textContent = landPercent;
 }
 
+function generateHappinessTooltip(playerCiv) {
+  let happinessElement = u.elt('.metric-happiness');
+  let happinessBreakdown = `
+    <ul>
+      <li>Base Happiness: ${playerCiv.happiness}</li>
+      <li>Happiness from Buildings: ${playerCiv.happinessFromBuildings}</li>
+      <li>Happiness from Wonders: ${playerCiv.happinessFromWonders}</li>
+      <li>Happiness from Citizens: ${playerCiv.happinessFromCitizens}</li>
+      <li>Happiness from Resources: ${playerCiv.happinessFromResources}</li>
+      <li>Happiness from Culture: ${playerCiv.happinessFromCultureBonuses}</li>
+      <li>Happiness from Faith: ${playerCiv.happinessFromFaithBonuses}</li>
+      <li>Happiness Modifier: ${playerCiv.happinessMod}</li>
+      <li>Total: ${playerCiv.happiness}</li>
+    </ul>
+  `;
+  happinessElement.setAttribute('data-tooltip', happinessBreakdown);
+  updateTooltip(happinessElement);
+}
 
+function updateHappinessMetric(playerCiv) {
+  u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
+  generateHappinessTooltip(playerCiv);
+}
 
+function calculateHappiness(playerCiv) {
+  let prevHappiness = playerCiv.happiness;
+  let happiness = playerCiv.happinessBase + playerCiv.happinessFromBuildings + playerCiv.happinessFromWonders + playerCiv.happinessFromCitizens + playerCiv.happinessFromResources + playerCiv.happinessFromResources;
+  happiness = playerCiv.happinessMod * happiness;
+  playerCiv.happiness = happiness;
+  prevHappiness === playerCiv.happiness ? undefined : updateHappinessMetric(playerCiv);
+}
+
+function generateAngerTooltip(playerCiv) {
+  let angerElement = u.elt('.metric-anger');
+  let angerBreakdown = `
+    <ul>
+      <li>Anger from Population: ${playerCiv.angerFromPopulation}</li>
+      <li>Anger Modifier: ${playerCiv.angerMod}</li>
+      <li>Total: ${playerCiv.anger}</li>
+    </ul>
+  `;
+  angerElement.setAttribute('data-tooltip', angerBreakdown);
+  updateTooltip(angerElement);
+}
+
+function updateAngerMetric(playerCiv) {
+  u.elt('.civ-metric.metric-anger').innerHTML = `<img src="img/angry.png"> ${playerCiv.anger}`;
+  generateAngerTooltip(playerCiv);
+}
+
+function calculateAnger(playerCiv) {
+  let prevAnger = playerCiv.anger;
+  let anger = playerCiv.angerFromPopulation;
+  anger = playerCiv.angerMod * anger;
+  playerCiv.anger = anger;
+  prevAnger === playerCiv.anger ? undefined : updateAngerMetric(playerCiv);
+}
 
 
 
@@ -517,30 +575,7 @@ function populateCitizens() {
   }
 }
 
-function populateLegacy() {
-  let legacyContainer = u.elt('.legacy-bonuses');
-  legacyContainer.innerHTML = '';
 
-  for (let i = 0; i < legacyBonuses.items.length; i++) {
-    let l = legacyBonuses.items[i];
-    legacyContainer.innerHTML += `
-      <div class='legacy-bonus' data-tooltip='${l.descriptions[l.level - 1]}' data-legacy='${l.name}'>
-        <span class='legacy-level'>
-          Level<br>
-          ${l.level}
-        </span>
-        <span class='legacy-category'>
-          <img src='img/${l.type}.png'>
-        </span>
-        <span class='legacy-name'>${l.name}</span>
-        <span class='legacy-cost'>
-          <img src='img/legacy-alt.png'><br>
-          ${l.cost}
-        </span>
-      </div>
-    `;
-  }
-}
 
 function populateBuildings() {
   let buildingsContainer = u.elt('.buildings');

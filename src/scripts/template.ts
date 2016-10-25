@@ -318,12 +318,24 @@ class Templates {
         <h2>Clickopolis</h2>
         <h3>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h3>
         <div class='civilization-metrics'>
+          <p>This space will hold metrics you can view at a glance.</p>
+          <!--
           <div class='food-metric'>
             <img src='img/food.png'><span class='m-food-total'>0</span>
           </div>
           <div class='prod-metric'>
             <img src='img/prod.png'><span class='m-prod-total'>0</span>
           </div>
+          <div class='happiness-metric'>
+            <img src='img/happy.png'><span class='m-happiness-total'>0</span>
+          </div>
+          <div class='anger-metric'>
+            <img src='img/angry.png'><span class='m-anger-total'>0</span>
+          </div>
+          <div class='health-metric'>
+            <img src='img/health.png'><span class='m-health-total'>0</span>
+          </div>
+          -->
         </div>
         <div class='notification-center'>
           <img src='img/notification.png'>
