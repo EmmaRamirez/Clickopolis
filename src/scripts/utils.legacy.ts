@@ -9,6 +9,30 @@ let u = new Utils();
 
 let legacyBonuses = legacyData;
 
+export function populateLegacy() {
+  let legacyContainer = u.elt('.legacy-bonuses');
+  legacyContainer.innerHTML = '';
+
+  for (let i = 0; i < legacyBonuses.items.length; i++) {
+    let l = legacyBonuses.items[i];
+    legacyContainer.innerHTML += `
+      <div class='legacy-bonus' data-tooltip='${l.descriptions[l.level - 1]}' data-legacy='${l.name}'>
+        <span class='legacy-level'>
+          Level<br>
+          ${l.level}
+        </span>
+        <span class='legacy-category'>
+          <img src='img/${l.type}.png'>
+        </span>
+        <span class='legacy-name'>${l.name}</span>
+        <span class='legacy-cost'>
+          <img src='img/legacy-alt.png'><br>
+          ${l.cost}
+        </span>
+      </div>
+    `;
+  }
+}
 
 export function legacyBonusClick(playerCiv) {
   let legacyBonusEls = <NodeListOf<HTMLElement>>u.elt('.legacy-bonus', true);
