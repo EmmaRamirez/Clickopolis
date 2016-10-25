@@ -271,6 +271,14 @@ function createGameUI() {
     }
   });
 
+  bindElement('.debug-lead', 'click', function () {
+    if (u.elt('.debug-panel').classList.contains('minimized')) {
+      u.elt('.debug-panel').classList.remove('minimized');
+    } else {
+      u.elt('.debug-panel').classList.add('minimized');
+    }
+  })
+
   bindElement('.fast-forward', 'click', function () {
     for (let i = 0; i <= 60; ++i) {
       secondUpdates();
@@ -307,6 +315,7 @@ function createGameUI() {
   generateTooltips();
   generateHappinessTooltip(playerCiv);
   generateAngerTooltip(playerCiv);
+  generateHealthTooltip(playerCiv);
   //UiSettingsButtons();
 
 }
@@ -385,6 +394,7 @@ function secondUpdates() {
     legacyBonusCheck(playerCiv);
     calculateHappiness(playerCiv);
     calculateAnger(playerCiv);
+    calculateHealth(playerCiv);
     checkAchievements();
   }
 }
@@ -427,7 +437,7 @@ function drawUI(el:HTMLElement) {
 
 function checkUnemployed() {
   if (playerCiv.population !== playerCiv.populationEmployed) {
-    notify({message: 'You have unemployed citizens! <img src="img/citizen.png"> Employ them in the citizens panel!'});
+    notify({message: 'You have unemployed citizens! <img src="img/citizen.png"> Employ them in the citizens panel!'}, isWindowActive);
   }
 }
 
@@ -512,6 +522,37 @@ function calculateAnger(playerCiv) {
   anger = playerCiv.angerMod * anger;
   playerCiv.anger = anger;
   prevAnger === playerCiv.anger ? undefined : updateAngerMetric(playerCiv);
+}
+
+function generateHealthTooltip(playerCiv) {
+  let healthElement = u.elt('.metric-health');
+  let healthBreakdown = `
+    <ul>
+      <li>Base Health: ${playerCiv.healthBase}</li>
+      <li>Health from Resources: ${playerCiv.healthFromResources}</li>
+      <li>Health from Buildings: ${playerCiv.healthFromBuildings}</li>
+    </ul>
+  `;
+  healthElement.setAttribute('data-tooltip', healthBreakdown);
+  updateTooltip(healthElement);
+}
+
+function updateHealthMetric(playerCiv) {
+  u.elt('.civ-metric.metric-health').innerHTML = `<img src="img/health.png"> ${playerCiv.health}`;
+  generateHealthTooltip(playerCiv);
+}
+
+function calculateHealth(playerCiv) {
+  let prevHealth = playerCiv.health;
+  let healthFromResources = function () {
+    let cattle = resources.get('cattle').total * resources.get('cattle').healthBonus;
+    let fish = resources.get('fish').total * resources.get('fish').healthBonus;
+    return cattle + fish;
+  };
+  playerCiv.healthFromResources = healthFromResources();
+  let health = playerCiv.healthBase + playerCiv.healthFromResources + playerCiv.healthFromBuildings;
+  playerCiv.health = health;
+  prevHealth === playerCiv.health ? undefined : updateHealthMetric(playerCiv);
 }
 
 function updateResources() {
@@ -680,13 +721,13 @@ function unlockAchievement(achievementName:string | number) {
 
 
     history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.get(achievementName).name} achievement!`, categoryImage: 'achievements' }));
-    notify({message: `Achievement Unlocked! ${achievements.get(achievementName).name}: ${achievements.get(achievementName).description}`});
+    notify({message: `Achievement Unlocked! ${achievements.get(achievementName).name}: ${achievements.get(achievementName).description}`}, isWindowActive);
   }
   if (typeof achievementName === 'number') {
     achievements.items[achievementName].unlocked = true;
     u.elt('.achievement', true)[achievementName].setAttribute('data-unlocked', 'true');
     history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.items[achievementName].name} achievement!`, categoryImage: 'achievements' }));
-    notify({message: `Achievement Unlocked! ${achievements.items[0].name}: ${achievements.items[achievementName].description}`});
+    notify({message: `Achievement Unlocked! ${achievements.items[0].name}: ${achievements.items[achievementName].description}`}, isWindowActive);
   }
 
 }
@@ -877,7 +918,7 @@ function citizenClick() {
       let sel:string = '.' + citizen + '-num-text';
       let amount:number = parseInt(this.getAttribute('data-citizen-amount'));
       if (citizens.get(citizen).name === 'ruler') {
-        notify({message:'You can\'t have more than one ruler!'});
+        notify({message:'You can\'t have more than one ruler!'}, isWindowActive);
       } else {
         if (citizens.get(citizen).amount === 0 && amount < 0) {
           //notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'});
@@ -947,7 +988,7 @@ function wonderClick() {
       let wonderCheck = wonders.get(wonder).checkFunc(resources);
       if (wonderCheck) {
         if (wonders.get(wonder).buildTime === wonders.get(wonder).remainingTime) {
-          notify({message: `Work has begun on the ${wonders.get(wonder).name}!`});
+          notify({message: `Work has begun on the ${wonders.get(wonder).name}!`}, isWindowActive);
           startBuildingWonder(wonders.get(wonder));
         } else {
           //notify({message: `You can't restart work on a wonder!`});
@@ -976,7 +1017,7 @@ function startBuildingWonder(wonder:Wonder) {
 
   function stopTimer() {
     if (wonder.remainingTime <= 1) {
-      notify({message: `You completed the ${wonder.name}!`});
+      notify({message: `You completed the ${wonder.name}!`}, isWindowActive);
       wonder.func(playerCiv);
       btnBuildWonder.textContent = 'COMPLETE';
       history.push(log({year: game.year, message: `${playerCiv.civName} finished work on ${wonder.name}!`, categoryImage: 'wonder'}));
@@ -1026,7 +1067,7 @@ function techClick() {
 }
 
 function purchaseTech(tech:string, element:HTMLElement) {
-  notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'});
+  notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'}, isWindowActive);
   history.push(log({year: game.year, message: playerCiv.civName + ' discovered ' + techs.get(tech).name + '!', categoryImage: 'research'}));
   techs.get(tech).purchased = true;
 

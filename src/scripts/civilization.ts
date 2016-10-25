@@ -31,6 +31,10 @@ class Civilization {
   angerMod: number;
 
   health: number;
+  healthBase: number;
+  healthFromResources: number;
+  healthFromBuildings: number;
+
   pollution: number;
   land: number;
   legacy: number;
@@ -113,7 +117,11 @@ class Civilization {
     this.angerMod = 1;
     this.angerFromPopulation = 0;
 
-    this.health = 25;
+    this.health = 0;
+    this.healthBase = 25;
+    this.healthFromResources = 0;
+    this.healthFromBuildings = 0;
+
     this.pollution = 1;
     this.land = 1;
     this.legacy = 0;

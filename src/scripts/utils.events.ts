@@ -21,13 +21,16 @@ interface ClickopolisEvent {
 const Events:ClickopolisEvent[] = [
   {
     func: function(options) {
-      console.log('Happening!');
+      let banana = options.resources.get('banana');
+      if (banana.unlocked) {
+        banana.total += 1;
+      }
     },
     rarity: 'rare'
   },
   {
     func: function (options) {
-      let horse = options.resource.get('horse');
+      let horse = options.resources.get('horse');
       if (horse.unlocked) {
         horse.total += 1;
       }

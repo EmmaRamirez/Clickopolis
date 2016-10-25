@@ -11,35 +11,8 @@ interface Note {
 
 declare var Notification: any;
 
-let isWindowActive:boolean;
-
-window.addEventListener('focus', function () {
-  isWindowActive = true;
-});
-
-window.addEventListener('blur', function () {
-  isWindowActive = false;
-});
-
-
-
-function notify(note:Note):void {
-  if (!isWindowActive) {
-    let options = {
-      body: note.message,
-      icon: typeof note.icon !== 'undefined' ? note.icon : '../img/civilization.png',
-    }
-    if (!('Notification' in window)) {
-    } else if (Notification.permission === 'granted') {
-      let notification = new Notification('Clickopolis', options)
-    } else if (Notification.permission !== 'denied') {
-      Notification.requestPermission(function (permission) {
-        if (permission === 'granted') {
-          let notification = new Notification('Clickopolis', options);
-        }
-      })
-    }
-  } else {
+function notify(note:Note, isWindowActive):void {
+  if (isWindowActive) {
     if (typeof note.time === 'undefined') {
       note.time = 2500;
     }
@@ -62,6 +35,21 @@ function notify(note:Note):void {
       note.history.push(`<strong>${note.year}:</strong> note.message`);
     }
     console.log(note);
+  } else {
+    let options = {
+      body: note.message,
+      icon: typeof note.icon !== 'undefined' ? note.icon : '../img/civilization.png',
+    }
+    if (!('Notification' in window)) {
+    } else if (Notification.permission === 'granted') {
+      let notification = new Notification('Clickopolis', options)
+    } else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        if (permission === 'granted') {
+          let notification = new Notification('Clickopolis', options);
+        }
+      })
+    }
   }
 }
 
