@@ -155,7 +155,7 @@ class Templates {
   createDebugPanel(debugMode:boolean) {
     let debugPanel = `
       <div class='debug-panel'>
-        <div class='debug-lead debug-item'>
+        <div class='debug-lead debug-item' data-tooltip='Toggle debug panel'>
           Debug
         </div>
         <button class='fast-forward' data-tooltip='Fast Foward 1 Year'>

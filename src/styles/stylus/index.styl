@@ -202,9 +202,15 @@ section
   left: 25%;
   overflow: hidden;
   position: fixed;
+  transition: 300ms all;
   width: 50%;
+  &.minimized
+    left: calc(50% - 2.25rem);
+    transition: 300ms all;
+    width: 4.5rem;
   .debug-lead
     background: #ddd;
+    cursor: pointer;
     font-weight: bold;
     height: 100%;
     padding: .9rem;
