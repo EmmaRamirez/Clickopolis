@@ -1,5 +1,5 @@
 const fs = require('fs');
-const dir = './dist';
+const dir = './dist/styles';
 
 function preInstallProcess() {
   fs.mkdirSync(dir);

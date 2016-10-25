@@ -6,17 +6,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // returns a Compiler instance
-const compiler = webpack({
-  webpackConfig
-});
-
-compiler.watch({
-  aggregateTimeout: 300,
-  poll: true
-}, function (err, stats) {
-  if (err) console.log(err);
-  else console.log(stats.toJson('normal'));
-})
+// const compiler = webpack(webpackConfig);
+//
+// compiler.watch({
+//   aggregateTimeout: 300,
+//   poll: true
+// }, function (err, stats) {
+//   if (err) console.lfog(err);
+//   else console.log(stats.toJson('normal'));
+// })
 
 
 // webpack({

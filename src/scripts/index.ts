@@ -37,7 +37,7 @@ import faithBonusData = require('./data.faithbonus');
 import achievementData = require('./data.achievement');
 import legacyData = require('./data.legacy');
 
-const css = require('!raw!stylus!../styles/stylus/index.styl');
+//require('!raw!stylus!../styles/stylus/index.styl');
 
 const u = new Utils();
 

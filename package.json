@@ -6,9 +6,11 @@
   "scripts": {
     "preinstall": "node preinstall.js",
     "test": "",
+    "build": "webpack --watch --colors --progress",
     "webpack": "webpack --watch",
     "stylus": "stylus -w ./src/styles/stylus/index.styl -o ./dist/styles/index.css",
-    "start": "node server.js"
+    "serve": "node server.js",
+    "start": "concurrently \"npm run build\" \"npm run serve\" \"npm run stylus\""
   },
   "author": "Emma Ramirez",
   "license": "MIT",

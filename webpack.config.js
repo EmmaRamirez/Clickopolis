@@ -24,7 +24,7 @@ const webpackConfig = {
       {
         test: /\.ts$/,
         loader: 'ts-loader'
-      },
+      }
       // {
       //   test: /\.styl$/,
       //   include: [
