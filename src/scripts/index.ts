@@ -22,8 +22,8 @@ import Nation = require('./nation');
 import Templates = require('./template');
 import FaithBonus = require('./faithbonus');
 import Legacy = require('./legacy');
-import notify = require('./notify');
 import log = require('./log');
+import { notify } from './notify';
 import { generateTooltips, updateTooltip } from './tooltips';
 
 
@@ -141,6 +141,15 @@ function removeElement(element:HTMLElement) {
   element = <HTMLElement>element;
   element.remove();
 }
+
+const iterateOverNodelist = function (array:NodeListOf<any>, callback:Function, scope:any) {
+  for (let i = 0; i < array.length; i++) {
+    callback.call(scope, array[i], i);
+  }
+};
+
+
+
 
 function newEra(era:string) {
   // Stuff goes here to introduce new era
@@ -407,6 +416,7 @@ function minuteUpdates() {
      rollEvent({
        playerCiv: playerCiv,
        resources: resources,
+       citizens: citizens,
      });
      checkUnemployed();
   }

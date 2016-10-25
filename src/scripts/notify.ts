@@ -11,7 +11,7 @@ interface Note {
 
 declare var Notification: any;
 
-function notify(note:Note, isWindowActive):void {
+export function notify(note:Note, isWindowActive):void {
   if (isWindowActive) {
     if (typeof note.time === 'undefined') {
       note.time = 2500;
@@ -52,5 +52,3 @@ function notify(note:Note, isWindowActive):void {
     }
   }
 }
-
-export = notify;

@@ -6,8 +6,10 @@ import Utils = require('./utils');
 import Resource = require('./resource');
 import resourceData = require('./data.resource')
 
+import Citizen = require('./citizen');
+import citizenData = require('./data.citizen');
+
 let u = new Utils();
-let resources = resourceData;
 
 function choose(arr:any[]):any {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -38,10 +40,20 @@ const Events:ClickopolisEvent[] = [
     rarity: 'uncommon'
   },
   {
-    func: function (options) {
+    func: (options) => {
       let cattle = options.resources.get('cattle');
       if (cattle.unlocked) {
         cattle.total += 1;
+      }
+    },
+    rarity: 'common'
+  },
+  {
+    func: (options) => {
+      let stone = options.resources.get('stone');
+      let miners = options.citizens.get('miner');
+      if (stone.unlocked) {
+        stone.total += miners.amount;
       }
     },
     rarity: 'common'
@@ -57,6 +69,7 @@ const filterEvents = function(rarity:string) {
 interface RollEventOptions {
   playerCiv: Civilization;
   resources: Collection<Resource>;
+  citizens: Collection<Citizen>;
 }
 
 export function rollEvent(options:RollEventOptions) {

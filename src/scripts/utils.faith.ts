@@ -8,8 +8,7 @@ import resourceData = require('./data.resource');
 let faithBonuses = faithBonusData;
 let resources = resourceData;
 
-
-import notify = require('./notify');
+import { notify } from './notify';
 
 let u = new Utils();
 
@@ -49,7 +48,7 @@ export function faithBonusClick(playerCiv) {
       let faithCost = playerCiv.faithCost * faithBonuses.get(fb).tier
       if (playerCiv.faith > faithCost) {
         if (faithBonuses.get(fb).purchased) {
-          notify({message: `You already purchased ${faithBonuses.get(fb).name}!`});
+          notify({message: `You already purchased ${faithBonuses.get(fb).name}!`}, true);
         } else {
           playerCiv.faith -= faithCost;
           faithBonuses.get(fb).purchased = true;

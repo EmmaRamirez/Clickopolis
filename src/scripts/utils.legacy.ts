@@ -1,8 +1,8 @@
 import Civilization = require('./civilization');
 import Legacy = require('./legacy');
 import legacyData = require('./data.legacy');
-import notify = require('./notify');
 import Utils = require('./utils');
+import { notify } from './notify';
 import { generateTooltips, updateTooltip } from './tooltips';
 
 let u = new Utils();
@@ -44,7 +44,7 @@ export function legacyBonusClick(playerCiv) {
 
       if (playerCiv.legacy >= lb.cost) {
         playerCiv.legacy -= lb.cost;
-        notify({message: `You upgraded the Legacy of ${lb.name}!`});
+        notify({message: `You upgraded the Legacy of ${lb.name}!`}, true);
         lb.level++;
         lb.cost *= 5;
         item.innerHTML = `
@@ -64,7 +64,7 @@ export function legacyBonusClick(playerCiv) {
         item.setAttribute('data-tooltip', lb.descriptions[lb.level - 1]);
         updateTooltip(item);
       } else {
-        notify({message: `You don't have enough legacy points to purchase this upgrade!`})
+        notify({message: `You don't have enough legacy points to purchase this upgrade!`}, TextTrackCue)
       }
       updateLegacyElts(playerCiv);
     });
