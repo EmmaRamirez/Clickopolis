@@ -220,6 +220,10 @@ class Templates {
               <img src='img/health.png'> Health
             </span>
 
+            <span class='resource' data-resource='cattle' data-unlocked='${resources.get('cattle').unlocked}'>
+              <img src='img/cattle.png'> <span>${resources.get('cattle').total}</span>
+            </span>
+
             <span class='resource' data-resource='fish' data-unlocked='${resources.get('fish').unlocked}'>
               <img src='img/fish.png'> <span>${resources.get('fish').total}</span>
             </span>

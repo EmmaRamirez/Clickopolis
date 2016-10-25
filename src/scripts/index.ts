@@ -325,7 +325,7 @@ function updatePopulation(pop:number) {
   //elt('.research-text').textContent = playerCiv.research.toString();
   u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
-  u.elt('.civ-anger-text').textContent = playerCiv.anger;
+  //u.elt('.civ-anger-text').textContent = playerCiv.anger;
   u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
   u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
 
