@@ -161,6 +161,9 @@ class Templates {
         <button class='fast-forward' data-tooltip='Fast Foward 1 Year'>
           &#9658;&#9658;
         </button>
+        <button class='outline-page' data-tooltip='outline page'>
+          &boxplus;
+        </button>
       </div>
     `;
 
