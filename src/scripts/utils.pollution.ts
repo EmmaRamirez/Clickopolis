@@ -31,6 +31,6 @@ export function calculatePollution(playerCiv, resources) {
   playerCiv.pollutionFromResources = pollutionFromResources();
   let pollution = playerCiv.pollutionFromResources + playerCiv.pollutionFromBuildings + playerCiv.pollutionFromPopulation;
   pollution *= playerCiv.pollutionMod;
-  playerCiv.health = pollution;
+  playerCiv.pollution = pollution;
   prevPollution === playerCiv.pollution ? undefined : updatePollutionMetric(playerCiv);
 }

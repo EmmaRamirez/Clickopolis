@@ -121,7 +121,7 @@ class Civilization {
 
     this.anger = 0;
     this.angerMod = 1;
-    this.angerFromPopulation = 0;
+    this.angerFromPopulation = 1;
 
     this.health = 0;
     this.healthBase = 25;
