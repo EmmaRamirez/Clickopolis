@@ -30,10 +30,13 @@ let temple:Building = new Building('Temple', 0, 70, 700, 'Cultivate your empire\
   playerCiv.faithPM += 1;
   //notify({message: `Your temple has attracted new devotees! (<img src='img/faith.png'> ${playerCiv.faithPM} PM)`});
 });
+let ancientCourt:Building = new Building('Ancient Court', 0, 65, 650, 'A gathering place, currently Judge Judy-less', '+5 <img src="img/culture.png"> (Onetime bonus)', true, false, function (playerCiv:Civilization) {
+  playerCiv.culture += 5;
+});
 let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronounce it either.', '+1 <img src="img/health.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.health += 1;
   //notify({message: `Your civilization became healthier! (<img src='img/health.png'> ${playerCiv.health})`});
-})
+});
 let graveyard:Building = new Building('Graveyard', 0, 30, 300, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.pollutionFromBuildings -= 1;
   //notify({message: `Good idea, let's keep the dead bodies away. (<img src='img/pollution.png'> ${playerCiv.pollution})`});
@@ -62,7 +65,7 @@ let walls:Building = new Building('Walls', 0, 400, 4000, 'B U I L D  W A L L', '
 
 let buildings:Collection<Building> = new Collection('Buildings',
                                           [
-                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, igloo, fort, ziggurat,
+                                            hut, granary, quarry, barracks, temple, ancientCourt, asclepeia, graveyard, igloo, fort, ziggurat,
                                             ampitheatre, collesseum, courthouse, forum, harbor, lighthouse,  market, mint, plantation, walls
                                           ])
 
