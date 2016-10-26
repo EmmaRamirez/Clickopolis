@@ -757,16 +757,26 @@ class Templates {
           <span class='settings-label'>Notifications</span>
           <p>
             <label class='ui-button'>
-              <input type='checkbox' id='checkAllNotifications' />All Notifications
+              <input type='checkbox' id='checkAllNotifications' >All Notifications
             </label>
             <label class='ui-button'>
-              <input type='checkbox' id='checkEvents' />Events
+              <input type='checkbox' id='checkEvents' >Events
             </label>
             <label class='ui-button'>
-              <input type='checkbox' id='checkAchievements' />Achievements
+              <input type='checkbox' id='checkAchievements' >Achievements
             </label>
             <label class='ui-button'>
-              <input type='checkbox' id='checkWonderCompletion' />Wonder Completion
+              <input type='checkbox' id='checkWonderCompletion' >Wonder Completion
+            </label>
+          </p>
+          <span class='settings-label'>Citizens</span>
+          <p>
+            <label class='ui-button'>
+              <input type='checkbox' id='automaticallyAssignCitizens' checked>
+              Automatically Assign Citizens as
+              <select style='color:#222'>
+                <option value='farmers' selected>farmers</option>
+              </select>
             </label>
           </p>
           <span class='settings-label'>User Interface</span>
