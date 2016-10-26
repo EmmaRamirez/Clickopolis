@@ -22,10 +22,20 @@ interface ClickopolisEvent {
 
 const Events:ClickopolisEvent[] = [
   {
-    func: function(options) {
+    func: (options) => {
       let banana = options.resources.get('banana');
       if (banana.unlocked) {
         banana.total += 1;
+      }
+    },
+    rarity: 'rare'
+  },
+  {
+    func: (options) => {
+      let mienrs = options.citizens.get('miner');
+      let gems = options.resources.get('gems');
+      if (gems.unlocked) {
+        gems.total += 1;
       }
     },
     rarity: 'rare'

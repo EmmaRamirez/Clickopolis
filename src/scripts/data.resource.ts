@@ -11,11 +11,15 @@ let cattle:Resource = new Resource('cattle', 0, 0, -1, 0, 'cattle', 'Cattle are 
 cattle.healthBonus = .25;
 cattle.foodBonusPS = .1;
 let spices:Resource = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices are a luxury resource your woodcutters provide for you. They are useful for religious civilizations.', false, true);
-let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold is a luxury resource that can be traded or sold, and makes your empire pretty happy. They are sometimes found by miners.', false, true);
-let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gems glisten with the sparkle of a luxurious life. Very rarely, they can be discoverd by miners.', false, true);
-let silver:Resource = new Resource('silver', 0, 0, -1, 0, 'silver', 'A luxury that can be traded or sold and makes your empire happy. They are sometimes found by miners.', false, true);
+let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold is a luxury resource that can be traded or sold, and makes your empire happier (+1 <img src="img/happy.png">). They are sometimes found by miners.', false, true);
+gold.happinessBonus = 1;
+let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gems glisten with the sparkle of a luxurious life. Very rarely, they can be discoverd by miners. +3 <img src="img/happy.png">', false, true);
+gold.happinessBonus = 3;
+let silver:Resource = new Resource('silver', 0, 0, -1, 0, 'silver', 'A luxury that can be traded or sold and makes your empire happier (+1 <img src="img/happy.png">). They are sometimes found by miners.', false, true);
+gold.happinessBonus = 1;
 let pearls:Resource = new Resource('pearls', 0, 0, -1, 0, 'pearls', 'Pearls make a popular accessory amongst your empire\'s wealthiest. They provide extra <img src="img/happy.png"> based on your economy\'s vibrancy. They are once in a seldom while found by citizens after you discover the Diving technology.', false, true);
 let whale:Resource = new Resource('whale', 0, 0, -1, 0, 'whale', 'Whale provides meat, oil, and blubber as well as 4 <img src="img/happy.png"> per whale. Can, after intense struggle, be caught by citizens after unlocking the Flensing technology.', false, true);
+whale.happinessBonus = 4;
 let oil:Resource = new Resource('oil', 0, 0, -1, 0, 'oil', 'Oil powers the infrastructure of an Industrial and Modern world. Use it wisely though, as it can harm your environment.', false, true);
 let uranium:Resource = new Resource('uranium', 0, 0, -1, 0, 'uranium', 'Uranium can be used to power modern buildings...and bring doom to entire cities.', false, true);
 let plutonium:Resource = new Resource('plutonium', 0, 0, -1, 0, 'plutonium', 'Plutonium is even deadlier than Uranium. Be careful.', false, true);

@@ -202,6 +202,7 @@ let woodworking:Tech = new Tech(
     '<img src="img/plus.png"> Unlocks <img src="img/spices.png"> resource',
     '<img src="img/plus.png"> Can assign Woodcutters',
     '<img src="img/plus.png"> Can build Fort',
+    '<img src="img/plus.png"> Reduces <img src="img/prod.png"> cost of Hut by 50%',
     '<img src="img/key.png"> Leads To: Construction, Shipbuilding'
   ],
   ['resources', 'citizens'],
@@ -209,6 +210,7 @@ let woodworking:Tech = new Tech(
     u.unlockResource('spices', resources);
     u.unlockCitizen('woodcutter', citizens);
     u.unlockBuilding('Fort', buildings);
+    buildings.get('Hut').prodCost = Math.floor(buildings.get('Hut').prodCost / 2);
   }
 );
 let writing:Tech = new Tech(

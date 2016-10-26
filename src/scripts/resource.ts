@@ -14,6 +14,7 @@ class Resource {
   prodBonus: number;
   foodBonusPS: number;
   prodBonusPS: number;
+  happinessBonus: number;
   healthBonus: number;
   pollutionBonus: number;
   influenceBonus: number;
