@@ -4,8 +4,6 @@ interface Log {
   categoryImage: string;
 }
 
-function log(log:Log):string {
+export function log(log:Log):string {
   return `<span class='log'><strong>${log.year} AC</strong>: <img src="img/${log.categoryImage}.png"> ${log.message}</span>`;
 }
-
-export = log;

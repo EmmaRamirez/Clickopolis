@@ -22,14 +22,15 @@ import Nation = require('./nation');
 import Templates = require('./template');
 import FaithBonus = require('./faithbonus');
 import Legacy = require('./legacy');
-import log = require('./log');
 
+import { populateAchievements } from './utils.achievements';
 import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './utils.happiness';
 import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils.anger';
 import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils.health';
 import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
 
 import { notify } from './notify';
+import { log } from './log';
 import { generateTooltips, updateTooltip } from './tooltips';
 
 
@@ -85,14 +86,6 @@ document.addEventListener('keydown', function (event:any) {
   }
 });
 
-
-let nodeList = <NodeListOf<HTMLElement>>u.elt('li', true);
-
-let array:any[] = [];
-
-array.map.call(nodeList, function () {
-
-});
 
 
 function scrollHorizontally(e:any) {
@@ -225,7 +218,7 @@ function createGameUI() {
 
   window.addEventListener('click', () => {
     game.totalClicks += 1;
-    checkAchievements();
+    checkAchievements(achievements, game);
   });
 
   let intro = <HTMLElement>document.querySelector('.clickopolis-open');
@@ -308,7 +301,7 @@ function createGameUI() {
   populateBuildings();
   populateWonders();
   populateFaithBonuses(playerCiv);
-  populateAchievements();
+  populateAchievements(achievements);
   populateBiomes();
   populateLegacy();
 
@@ -376,7 +369,7 @@ function addClickToTotal(el:string, item:string) {
   else resources.get(item).total += resources.get(item).perClick;
 
   element.innerHTML = resources.get(item).total.toFixed(0).toString();
-  checkAchievements();
+  checkAchievements(achievements, game);
 }
 
 function secondUpdates() {
@@ -412,7 +405,7 @@ function secondUpdates() {
     calculateAnger(playerCiv);
     calculateHealth(playerCiv, resources);
     calculatePollution(playerCiv, resources);
-    checkAchievements();
+    checkAchievements(achievements, game);
   }
 }
 
@@ -634,25 +627,10 @@ function populateWonders():void {
   }
 }
 
-function populateAchievements():void {
-  let achievementsContainer = u.elt('.achievements');
-  achievementsContainer.innerHTML = '';
-
-  for (let i = 0; i < achievements.items.length; i++) {
-    let a = achievements.items[i];
-    achievementsContainer.innerHTML += `
-      <div class='achievement ${a.className}' data-unlocked='${a.unlocked}' data-tooltip='${a.name}: ${a.description}'></div>
-    `;
-    updateTooltip(u.elt(`.${a.className}`));
-  }
-}
-
 function unlockAchievement(achievementName:string | number) {
   if (typeof achievementName === 'string') {
     achievements.get(achievementName).unlocked = true;
     u.elt(`.${u.dasherize(achievementName)}`).setAttribute('data-unlocked', 'true');
-
-
     history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.get(achievementName).name} achievement!`, categoryImage: 'achievements' }));
     notify({message: `Achievement Unlocked! ${achievements.get(achievementName).name}: ${achievements.get(achievementName).description}`}, isWindowActive);
   }
@@ -662,11 +640,10 @@ function unlockAchievement(achievementName:string | number) {
     history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.items[achievementName].name} achievement!`, categoryImage: 'achievements' }));
     notify({message: `Achievement Unlocked! ${achievements.items[0].name}: ${achievements.items[achievementName].description}`}, isWindowActive);
   }
-
 }
 
 
-function checkAchievements() {
+function checkAchievements(achievements, game) {
   let a = achievements;
 
   function check(name:string):boolean {
