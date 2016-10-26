@@ -16,7 +16,7 @@ let farmer:Citizen = new Citizen('farmer', 'farmer', '#94C484', 0, 'Farmers prov
   u.elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1);
   console.log(resources.get('food'));
 });
-let miner:Citizen = new Citizen('miner', 'miner', '#CCBE93', 0, 'Miners provide +.2 <img src="img/prod.png"> PC and +.2 PS.', { name: 'prod', mod: 'PC', amount: .2 }, { name: 'prod', mod: 'PS', amount: .2 }, {}, {}, true, true, function (amount:number, resources:Collection<Resource>) {
+let miner:Citizen = new Citizen('miner', 'miner', '#CCBE93', 0, 'Miners provide +.2 <img src="img/prod.png"> PC and +.2 PS.', { name: 'prod', mod: 'PC', amount: .5 }, { name: 'prod', mod: 'PS', amount: .5 }, {}, {}, true, true, function (amount:number, resources:Collection<Resource>) {
   resources.get('prod').perClick += amount * this.contrib1.amount;
   resources.get('prod').perSecond += amount * this.contrib2.amount;
   u.elt('.r-prod-pc').textContent = resources.get('prod').perClick.toFixed(1);
