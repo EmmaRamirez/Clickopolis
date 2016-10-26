@@ -109,7 +109,7 @@ let mining:Tech = new Tech(
   'Not safe for minors.',
   [
     '<img src="img/plus.png"> +.2 <img src="img/prod.png"> PS per <img src="img/miner.png">',
-    '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/gems.png"> resources',
+    '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/silver.png">, <img src="img/gems.png"> resources',
     '<img src="img/key.png"> Leads To: Masonry, Construction, Iron Working'
   ],
   ['resources', 'citizens'],
@@ -118,6 +118,7 @@ let mining:Tech = new Tech(
     u.elt('.contrib[data-citizen="miner"]').innerHTML = u.setContributions(citizens.get('miner'));
     u.unlockResource('stone', resources);
     u.unlockResource('gold', resources);
+    u.unlockResource('silver', resources);
     u.unlockResource('gems', resources);
   }
 );
@@ -182,6 +183,7 @@ let trading:Tech = new Tech(
   'ancient',
   'My six chickens for your goat?',
   [
+    '<img src="img/plus.png"> Can build Ancient Court',
     '<img src="img/plus.png"> Unlocks Bartering Economic System',
     '<img src="img/plus.png"> Can assign Merchants',
     '<img src="img/key.png"> Leads To: Writing, Currency'
@@ -189,6 +191,7 @@ let trading:Tech = new Tech(
   ['economy', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     u.unlockCitizen('merchant', citizens);
+    u.unlockBuilding('Ancient Court', buildings);
   }
 );
 let woodworking:Tech = new Tech(
