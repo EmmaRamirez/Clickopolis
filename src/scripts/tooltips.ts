@@ -52,6 +52,6 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
     tooltip.style.top = event.clientY + opts.offsetY + 'px';
   });
   elt.addEventListener('mouseleave', function (event:any) {
-    elt.removeChild(tooltip);
+    if (tooltip.parentNode === elt) elt.removeChild(tooltip);
   });
 }

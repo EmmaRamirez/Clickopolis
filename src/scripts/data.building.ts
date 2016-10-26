@@ -11,7 +11,6 @@ let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be ni
   playerCiv.happinessFromBuildings += 1;
   //u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
   //notify({message:`The new hut has made your citizens gracious. (<img src="img/happy.png"> ${playerCiv.happiness})`});
-  console.log(playerCiv.happiness);
 });
 let granary:Building = new Building('Granary', 0, 25, 250, 'Feeds all your cute animals.', '+200 <img src="img/food.png"> max', true, false, function (playerCiv:Civilization, resources:Collection<Resource>) {
   resources.get('food').max += 200;
@@ -36,8 +35,11 @@ let asclepeia:Building = new Building('Asclepeia', 0, 50, 500, 'We can\'t pronou
   //notify({message: `Your civilization became healthier! (<img src='img/health.png'> ${playerCiv.health})`});
 })
 let graveyard:Building = new Building('Graveyard', 0, 30, 300, 'Here, your (dead) citizens gather.', '-1 <img src="img/pollution.png">', true, false, function (playerCiv:Civilization) {
-  playerCiv.pollution -= 1;
+  playerCiv.pollutionFromBuildings -= 1;
   //notify({message: `Good idea, let's keep the dead bodies away. (<img src='img/pollution.png'> ${playerCiv.pollution})`});
+});
+let igloo:Building = new Building('Igloo', 0, 25, 250, 'Oh, baby it\'s cold outside...', 'Requires Tundra Biome. +2 <img src="img/happy.png">', true, false, function (playerCiv:Civilization) {
+  playerCiv.happinessFromBuildings += 2;
 });
 let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defend the state!', '+5 <img src="img/defense.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.defense += 5;
@@ -60,7 +62,7 @@ let walls:Building = new Building('Walls', 0, 400, 4000, 'B U I L D  W A L L', '
 
 let buildings:Collection<Building> = new Collection('Buildings',
                                           [
-                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, fort, ziggurat,
+                                            hut, granary, quarry, barracks, temple, asclepeia, graveyard, igloo, fort, ziggurat,
                                             ampitheatre, collesseum, courthouse, forum, harbor, lighthouse,  market, mint, plantation, walls
                                           ])
 

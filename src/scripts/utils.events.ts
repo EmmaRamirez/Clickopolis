@@ -57,6 +57,15 @@ const Events:ClickopolisEvent[] = [
       }
     },
     rarity: 'common'
+  },
+  {
+    func: (options) => {
+      let spices = options.resources.get('spices');
+      let woodcutters = options.citizens.get('woodcutter');
+      if (spices.unlocked) {
+        spices.total += woodcutters.amount;
+      }
+    }
   }
 ];
 
