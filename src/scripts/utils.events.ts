@@ -17,7 +17,7 @@ function choose(arr:any[]):any {
 
 interface ClickopolisEvent {
   func: Function;
-  rarity: string;
+  rarity: 'rare' | 'uncommon' | 'common';
 }
 
 const Events:ClickopolisEvent[] = [
@@ -31,10 +31,40 @@ const Events:ClickopolisEvent[] = [
     rarity: 'rare'
   },
   {
+    func: (options) => {
+      let miners = options.citizens.get('miner');
+      let gold = options.resources.get('gold');
+      if (gold.unlocked) {
+        gold.total += miners.amount;
+      }
+    },
+    rarity: 'rare'
+  },
+  {
+    func: (options) => {
+      let miners = options.citizens.get('miner');
+      let silver = options.resources.get('silver');
+      if (silver.unlocked) {
+        silver.total += miners.amount;
+      }
+    },
+    rarity: 'rare'
+  },
+  {
     func: function (options) {
       let horse = options.resources.get('horse');
       if (horse.unlocked) {
         horse.total += 1;
+      }
+    },
+    rarity: 'uncommon'
+  },
+  {
+    func: (options) => {
+      let spices = options.resources.get('spices');
+      let wooductters = options.citizens.get('woodcutter');
+      if (spices.unlocked) {
+        spices.total += wooductters.amount;
       }
     },
     rarity: 'uncommon'
@@ -58,15 +88,6 @@ const Events:ClickopolisEvent[] = [
     },
     rarity: 'common'
   },
-  {
-    func: (options) => {
-      let spices = options.resources.get('spices');
-      let woodcutters = options.citizens.get('woodcutter');
-      if (spices.unlocked) {
-        spices.total += woodcutters.amount;
-      }
-    }
-  }
 ];
 
 const filterEvents = function(rarity:string) {
