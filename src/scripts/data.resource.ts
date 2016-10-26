@@ -7,8 +7,9 @@ let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are imp
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.', false, true);
 fish.healthBonus = .5;
 let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Bananas are harvested by farmers periodically. Each banana provides +.5 <img src="img/health.png"> Bananas are a popular trade item with Tundra nations.', false, true);
-let cattle:Resource = new Resource('cattle', 0, 0, -1, 0, 'cattle', 'Cattle are raised by your farmers and provide +.1 <img src="img/food.png"> PC. Each cattle provides +.25 <img src="img/health.png">', false, true);
+let cattle:Resource = new Resource('cattle', 0, 0, -1, 0, 'cattle', 'Cattle are raised by your farmers and provide +.1 <img src="img/food.png"> PS. Each cattle provides +.25 <img src="img/health.png">', false, true);
 cattle.healthBonus = .25;
+cattle.foodBonusPS = .1;
 let spices:Resource = new Resource('spices', 0, 0, -1, 0, 'spices', 'Spices are a luxury resource your woodcutters provide for you. They are useful for religious civilizations.', false, true);
 let gold:Resource = new Resource('gold', 0, 0, -1, 0, 'gold', 'Gold is a luxury resource that can be traded or sold, and makes your empire pretty happy. They are sometimes found by miners.', false, true);
 let gems:Resource = new Resource('gems', 0, 0, -1, 0, 'gems', 'Gems glisten with the sparkle of a luxurious life. Very rarely, they can be discoverd by miners.', false, true);

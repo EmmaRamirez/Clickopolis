@@ -379,7 +379,7 @@ function addClickToTotal(el:string, item:string) {
 function secondUpdates() {
   if (isWindowActive) {
     if (resources.get('food').total >= resources.get('food').max) resources.get('food').total = resources.get('food').max;
-    else resources.get('food').total += resources.get('food').perSecond;
+    else resources.get('food').total += resources.get('food').perSecond + (resources.get('cattle').total * resources.get('cattle').foodBonusPS);
     u.elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString();
 
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
