@@ -905,10 +905,10 @@ function wonderClick() {
           notify({message: `Work has begun on the ${wonders.get(wonder).name}!`}, isWindowActive);
           startBuildingWonder(wonders.get(wonder));
         } else {
-          //notify({message: `You can't restart work on a wonder!`});
+          notify({message: `You can't restart work on a wonder!`}, true);
         }
       } else {
-        //notify({message: `You don't have the prerequisites to build ${wonders.get(wonder).name}!`});
+        notify({message: `You don't have the prerequisites to build ${wonders.get(wonder).name}!`}, true);
       }
     });
   });
