@@ -3,7 +3,8 @@ enum Era {
   Classical = <any>'Classical',
   Medieval = <any>'Medieval',
   Renaissance = <any>'Renaissance',
-  Enlightenment = <any>'Enlightenment'
+  Enlightenment = <any>'Enlightenment',
+  Industrial = <any>'Industrial'
 }
 
 export = Era;

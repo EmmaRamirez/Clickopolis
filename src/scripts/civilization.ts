@@ -36,6 +36,12 @@ class Civilization {
   healthFromBuildings: number;
 
   pollution: number;
+  pollutionFromPopulation: number;
+  pollutionFromResources: number;
+  pollutionFromBuildings: number;
+  pollutionFromCorporations: number;
+  pollutionMod: number;
+
   land: number;
   legacy: number;
 
@@ -122,7 +128,13 @@ class Civilization {
     this.healthFromResources = 0;
     this.healthFromBuildings = 0;
 
-    this.pollution = 1;
+    this.pollution = 0;
+    this.pollutionFromPopulation = 0;
+    this.pollutionFromBuildings = 0;
+    this.pollutionFromCorporations = 0;
+    this.pollutionFromResources = 0;
+    this.pollutionMod = 1;
+
     this.land = 1;
     this.legacy = 0;
 

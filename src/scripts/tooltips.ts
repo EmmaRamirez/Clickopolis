@@ -29,7 +29,7 @@ export function generateTooltips(opts:TooltipOptions = {
       tooltip.style.top = event.clientY + opts.offsetY + 'px';
     });
     item.addEventListener('mouseleave', function (event:any) {
-      item.removeChild(tooltip);
+      if (tooltip.parentNode === item) item.removeChild(tooltip);
     });
   });
 }

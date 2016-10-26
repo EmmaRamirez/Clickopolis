@@ -25,6 +25,9 @@ import Legacy = require('./legacy');
 import log = require('./log');
 
 import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './utils.happiness';
+import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils.anger';
+import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils.health';
+import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
 
 import { notify } from './notify';
 import { generateTooltips, updateTooltip } from './tooltips';
@@ -328,6 +331,7 @@ function createGameUI() {
   generateHappinessTooltip(playerCiv);
   generateAngerTooltip(playerCiv);
   generateHealthTooltip(playerCiv);
+  generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
 
 }
@@ -349,13 +353,13 @@ function updatePopulation(pop:number) {
   playerCiv.cashPM += pop * 2;
   playerCiv.researchPM += pop * 2;
   playerCiv.angerFromPopulation += pop * 1;
-  playerCiv.pollution += pop * 1;
+  playerCiv.pollutionFromPopulation += pop * 1;
 
   //elt('.research-text').textContent = playerCiv.research.toString();
   u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
   //u.elt('.civ-anger-text').textContent = playerCiv.anger;
-  u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
+  //u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
   u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
 
   addCitizen('farmer', pop, '.farmer-num-text');
@@ -406,7 +410,8 @@ function secondUpdates() {
     legacyBonusCheck(playerCiv);
     calculateHappiness(playerCiv);
     calculateAnger(playerCiv);
-    calculateHealth(playerCiv);
+    calculateHealth(playerCiv, resources);
+    calculatePollution(playerCiv, resources);
     checkAchievements();
   }
 }
@@ -481,62 +486,7 @@ function setLandPercent() {
 
 
 
-function generateAngerTooltip(playerCiv) {
-  let angerElement = u.elt('.metric-anger');
-  let angerBreakdown = `
-    <ul>
-      <li>Anger from Population: ${playerCiv.angerFromPopulation}</li>
-      <li>Anger Modifier: ${playerCiv.angerMod}</li>
-      <li>Total: ${playerCiv.anger}</li>
-    </ul>
-  `;
-  angerElement.setAttribute('data-tooltip', angerBreakdown);
-  updateTooltip(angerElement);
-}
 
-function updateAngerMetric(playerCiv) {
-  u.elt('.civ-metric.metric-anger').innerHTML = `<img src="img/angry.png"> ${playerCiv.anger}`;
-  generateAngerTooltip(playerCiv);
-}
-
-function calculateAnger(playerCiv) {
-  let prevAnger = playerCiv.anger;
-  let anger = playerCiv.angerFromPopulation;
-  anger = playerCiv.angerMod * anger;
-  playerCiv.anger = anger;
-  prevAnger === playerCiv.anger ? undefined : updateAngerMetric(playerCiv);
-}
-
-function generateHealthTooltip(playerCiv) {
-  let healthElement = u.elt('.metric-health');
-  let healthBreakdown = `
-    <ul>
-      <li>Base Health: ${playerCiv.healthBase}</li>
-      <li>Health from Resources: ${playerCiv.healthFromResources}</li>
-      <li>Health from Buildings: ${playerCiv.healthFromBuildings}</li>
-    </ul>
-  `;
-  healthElement.setAttribute('data-tooltip', healthBreakdown);
-  updateTooltip(healthElement);
-}
-
-function updateHealthMetric(playerCiv) {
-  u.elt('.civ-metric.metric-health').innerHTML = `<img src="img/health.png"> ${playerCiv.health}`;
-  generateHealthTooltip(playerCiv);
-}
-
-function calculateHealth(playerCiv) {
-  let prevHealth = playerCiv.health;
-  let healthFromResources = function () {
-    let cattle = resources.get('cattle').total * resources.get('cattle').healthBonus;
-    let fish = resources.get('fish').total * resources.get('fish').healthBonus;
-    return cattle + fish;
-  };
-  playerCiv.healthFromResources = healthFromResources();
-  let health = playerCiv.healthBase + playerCiv.healthFromResources + playerCiv.healthFromBuildings;
-  playerCiv.health = health;
-  prevHealth === playerCiv.health ? undefined : updateHealthMetric(playerCiv);
-}
 
 function updateResources(resources) {
   let r;
