@@ -298,6 +298,10 @@ function createGameUI() {
     [].forEach.call(document.querySelectorAll("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
   });
 
+  bindElement('.debug-add-science', 'click', function () {
+    playerCiv.research += 10000;
+  });
+
   setInfluenceImages();
 
   populateTechnologies();
@@ -447,6 +451,7 @@ function drawUI(el:HTMLElement) {
                   templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game) +
+                  templates.createEraOverlay(game) + 
                   templates.createDebugPanel(debugMode);
 }
 
@@ -1098,24 +1103,21 @@ function techPurchaseCheck(techs: string[], opts:TechPurchaseCheckOptions = { lo
 }
 
 function eraCheck() {
-  if (techs.get('calendar').purchased || techs.get('construction').purchased || techs.get('mathematics').purchased || techs.get('poetics').purchased) {
+  if ((techs.get('calendar').purchased) && game.era !== Era.Classical) {
+    console.log(game.era);
     game.era = Era.Classical;
-    triggerEra();
+    console.log(game.era);
+    triggerEra(game);
   }
 }
 
-function triggerEra() {
-  u.elt('body').innerHTML += `
-    <div class='overlay overlay-era'>
-      <div class='modal modal-era era-${game.era}'>
-        <h1>Welcome to the ${game.era} Era!</h1>
-        <button class='btn-era large-btn'>Continue</button>
-      </div>
-    </div>
-  `;
-  u.elt('.btn-era').addEventListener('click', function () {
-    removeElement(u.elt('.overlay-era'));
-    //this.remove();
+function triggerEra(game) {
+  u.elt('.overlay-era').outerHTML = templates.createEraOverlay(game);
+  u.elt('.overlay-era').style.display = 'block';
+
+  bindElement('#remove-overlay', 'click', function () {
+    console.log('event fired');
+    u.elt('.overlay-era').style.display = 'none';
   });
 }
 
@@ -1126,7 +1128,6 @@ function renderHistory(history:string[]) {
     for (let i = history.length - 1; i >= 0; --i) {
       historyLog.innerHTML += history[i] + '<br>';
     }
-    //console.log(history);
   }
 }
 

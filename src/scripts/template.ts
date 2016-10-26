@@ -164,6 +164,9 @@ class Templates {
         <button class='outline-page' data-tooltip='outline page'>
           &boxplus;
         </button>
+        <button class='debug-add-science' data-tooltip='adds 10K research'>
+          <img src='img/research.png'>
+        </button>
       </div>
     `;
 
@@ -807,7 +810,15 @@ class Templates {
     return settingsScreen;
   }
 
-
+  createEraOverlay(game) {
+    let era = `<div class='overlay overlay-era' style='display:none'>
+      <div class='modal modal-era era-${game.era}'>
+        <h1>Welcome to the ${game.era} Era!</h1>
+        <button id='remove-overlay' class='btn-era large-btn'>Continue</button>
+      </div>
+    </div>`;
+    return era;
+  }
 
 
 
