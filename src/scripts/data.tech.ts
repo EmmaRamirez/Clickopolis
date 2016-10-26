@@ -5,7 +5,7 @@ import Resource = require('./resource')
 import Building = require('./building');
 import Wonder = require('./wonder');
 import Civilization = require('./civilization');
-import Utils = require('./utils');
+import { Utils } from './utils';
 
 let u = new Utils();
 

@@ -4,7 +4,7 @@ import Resource = require('./resource');
 import Citizen = require('./citizen');
 import Wonder = require('./wonder');
 import Collection = require('./collection');
-import Utils = require('./utils');
+import { Utils } from './utils';
 
 let u = new Utils();
 

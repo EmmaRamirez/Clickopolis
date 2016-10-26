@@ -1,4 +1,4 @@
-import Utils = require('./utils');
+import { Utils } from './utils';
 import FaithBonus = require('./faithbonus');
 import Civilization = require('./civilization');
 import faithBonusData = require('./data.faithbonus');
@@ -10,7 +10,7 @@ let resources = resourceData;
 
 import { notify } from './notify';
 
-let u = new Utils();
+const u = new Utils();
 
 export function addFaith(playerCiv) {
   playerCiv.faith += playerCiv.faithPM / 60;

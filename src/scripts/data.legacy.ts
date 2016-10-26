@@ -1,8 +1,8 @@
 import Collection = require('./collection');
 import Civilization = require('./civilization');
 import Legacy = require('./legacy');
-import notify = require('./notify');
-import Utils = require('./utils');
+import { notify } from './notify';
+import { Utils } from './utils';
 
 let empireOfTheArts = new Legacy(
   'Empire of the Arts', 'culture', 1, 5,
@@ -36,7 +36,7 @@ let empireOfTheArts = new Legacy(
     switch (level) {
       case 1:
         playerCiv.culturePM += 150;
-        notify({message: `Your culture PM increased to <img src="img/culture.png"> ${playerCiv.culturePM}!`});
+        notify({message: `Your culture PM increased to <img src="img/culture.png"> ${playerCiv.culturePM}!`}, true);
         break;
       case 2:
         playerCiv.culturePM += 1000;
@@ -81,7 +81,7 @@ let economicSuperpower = new Legacy(
     switch (level) {
       case 1:
         playerCiv.cashPM += 100;
-        notify({message: `Your culture PM increased to <img src="img/coin.png"> ${playerCiv.cashPM}!`})
+        notify({message: `Your culture PM increased to <img src="img/coin.png"> ${playerCiv.cashPM}!`}, true)
         break;
       case 2:
         playerCiv.cashPM += 1000;

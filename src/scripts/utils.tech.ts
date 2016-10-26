@@ -5,10 +5,10 @@ import techData = require('./data.tech');
 let techs = techData;
 
 
-class techUtils {
+export class TechUtils {
 
   encodeToString() {
-    
+
   }
 
   decodeFromString() {
@@ -33,5 +33,3 @@ class techUtils {
   }
 
 }
-
-export = techUtils;

@@ -1,6 +1,6 @@
 import Citizen = require('./citizen');
 import Collection = require('./collection');
-import Utils = require('./utils');
+import { Utils } from './utils';
 import Resource = require('./resource');
 import Civilization = require('./civilization');
 import notify = require('./notify');

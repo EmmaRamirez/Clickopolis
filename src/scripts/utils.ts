@@ -4,23 +4,23 @@ import Citizen = require('./citizen');
 import Building = require('./building');
 import Wonder = require('./wonder');
 
-class Utils {
-  abbrNum (number:any, decPlaces:number = 2):string {
-    decPlaces = Math.pow(10,decPlaces);
+export class Utils {
+  abbrNum (num:any, decPlaces:number = 2):string {
+    decPlaces = Math.pow(10, decPlaces);
     let abbrev = [ 'K', 'M', 'B', 'T', 'Q', 'Qt', 'S', 'St', 'O', 'N', 'D' ];
     for (let i = abbrev.length - 1; i >= 0; i--) {
-      let size = Math.pow(10,(i+1)*3);
-      if (size <= number) {
-         number = Math.round(number * decPlaces/size) / decPlaces;
-         if((number == 1000) && (i < abbrev.length - 1)) {
-             number = 1;
+      let size = Math.pow(10, (i + 1) * 3);
+      if (size <= num) {
+         num = Math.round(num * decPlaces / size) / decPlaces;
+         if ((num === 1000) && (i < abbrev.length - 1)) {
+             num = 1;
              i++;
          }
-         number += abbrev[i];
+         num += abbrev[i];
          break;
       }
     }
-    return number;
+    return num;
   }
 
   capitalize(str:string):string {
@@ -32,7 +32,7 @@ class Utils {
   }
 
   choose(arr:any[]):any {
-    return arr[Math.floor(Math.random()*arr.length)];
+    return arr[Math.floor(Math.random() * arr.length)];
   }
 
   elt(query:string, all:boolean = false):any {
@@ -113,7 +113,7 @@ class Utils {
     let h = Math.floor(d / 3600);
     let m = Math.floor(d % 3600 / 60);
     let s = Math.floor(d % 3600 % 60);
-    return ((h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s);
+    return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
   }
 
   unlockBuilding(building:string, buildings:Collection<Building>):void {
@@ -142,5 +142,3 @@ class Utils {
   }
 
 }
-
-export = Utils;

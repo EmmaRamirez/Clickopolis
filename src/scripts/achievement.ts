@@ -1,4 +1,4 @@
-import Utils = require('./utils');
+import { Utils } from './utils';
 
 let u = new Utils();
 

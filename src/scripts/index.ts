@@ -5,7 +5,7 @@
 declare var Notification: any;
 
 import _ = require('underscore');
-import Utils = require('./utils');
+import { Utils } from './utils';
 import Game = require('./game');
 import Queue = require('./queue');
 import Settings = require('./settings');
@@ -23,6 +23,9 @@ import Templates = require('./template');
 import FaithBonus = require('./faithbonus');
 import Legacy = require('./legacy');
 import log = require('./log');
+
+import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './utils.happiness';
+
 import { notify } from './notify';
 import { generateTooltips, updateTooltip } from './tooltips';
 
@@ -476,37 +479,7 @@ function setLandPercent() {
   landPercentText.textContent = landPercent;
 }
 
-function generateHappinessTooltip(playerCiv) {
-  let happinessElement = u.elt('.metric-happiness');
-  let happinessBreakdown = `
-    <ul>
-      <li>Base Happiness: ${playerCiv.happinessBase}</li>
-      <li>Happiness from Buildings: ${playerCiv.happinessFromBuildings}</li>
-      <li>Happiness from Wonders: ${playerCiv.happinessFromWonders}</li>
-      <li>Happiness from Citizens: ${playerCiv.happinessFromCitizens}</li>
-      <li>Happiness from Resources: ${playerCiv.happinessFromResources}</li>
-      <li>Happiness from Culture: ${playerCiv.happinessFromCultureBonuses}</li>
-      <li>Happiness from Faith: ${playerCiv.happinessFromFaithBonuses}</li>
-      <li>Happiness Modifier: ${playerCiv.happinessMod}</li>
-      <li>Total: ${playerCiv.happiness}</li>
-    </ul>
-  `;
-  happinessElement.setAttribute('data-tooltip', happinessBreakdown);
-  updateTooltip(happinessElement);
-}
 
-function updateHappinessMetric(playerCiv) {
-  u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
-  generateHappinessTooltip(playerCiv);
-}
-
-function calculateHappiness(playerCiv) {
-  let prevHappiness = playerCiv.happiness;
-  let happiness = playerCiv.happinessBase + playerCiv.happinessFromBuildings + playerCiv.happinessFromWonders + playerCiv.happinessFromCitizens + playerCiv.happinessFromResources + playerCiv.happinessFromResources;
-  happiness = playerCiv.happinessMod * happiness;
-  playerCiv.happiness = happiness;
-  prevHappiness === playerCiv.happiness ? undefined : updateHappinessMetric(playerCiv);
-}
 
 function generateAngerTooltip(playerCiv) {
   let angerElement = u.elt('.metric-anger');

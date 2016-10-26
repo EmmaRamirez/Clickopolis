@@ -2,7 +2,7 @@ import Building = require('./building');
 import Collection = require('./collection');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
-import Utils = require('./utils');
+import { Utils } from './utils';
 import notify = require('./notify');
 
 let u = new Utils();

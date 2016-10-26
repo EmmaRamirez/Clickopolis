@@ -1,7 +1,7 @@
 import Civilization = require('./civilization');
 import Legacy = require('./legacy');
 import legacyData = require('./data.legacy');
-import Utils = require('./utils');
+import { Utils } from './utils';
 import { notify } from './notify';
 import { generateTooltips, updateTooltip } from './tooltips';
 

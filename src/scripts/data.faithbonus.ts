@@ -3,7 +3,7 @@ import FaithTier = require('./faithtier');
 import FaithBonus = require('./faithbonus');
 import Resource = require('./resource');
 import Civilization = require('./civilization');
-import Utils = require('./utils');
+import { Utils } from './utils';
 
 let u = new Utils();
 

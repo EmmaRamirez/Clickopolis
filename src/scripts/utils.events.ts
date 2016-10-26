@@ -1,7 +1,7 @@
 import Civilization = require('./civilization');
 import notify = require('./notify');
 import Collection = require('./collection');
-import Utils = require('./utils');
+import { Utils } from './utils';
 
 import Resource = require('./resource');
 import resourceData = require('./data.resource')
