@@ -287,7 +287,7 @@ class Templates {
 
             <br>
 
-            <span class='resource luxury-resources'>
+            <span class='resource luxury-resources' data-tall='true'>
               <img src='img/crown.png'> Luxury
             </span>
 
@@ -299,8 +299,20 @@ class Templates {
               <img src='img/gold.png'> <span>${resources.get('gold').total}</span>
             </span>
 
+            <span class='resource' data-resource='silver' data-unlocked='${resources.get('silver').unlocked}'>
+              <img src='img/silver.png'> <span>${resources.get('silver').total}</span>
+            </span>
+
             <span class='resource' data-resource='gems' data-unlocked='${resources.get('gems').unlocked}'>
               <img src='img/gems.png'> <span>${resources.get('gems').total}</span>
+            </span>
+
+            <span class='resource' data-resource='pearls' data-unlocked='${resources.get('pearls').unlocked}'>
+              <img src='img/pearls.png'> <span>${resources.get('pearls').total}</span>
+            </span>
+
+            <span class='resource' data-resource='whale' data-unlocked='${resources.get('whale').unlocked}'>
+              <img src='img/whale.png'> <span>${resources.get('whale').total}</span>
             </span>
 
             <br>

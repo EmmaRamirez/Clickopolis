@@ -401,7 +401,7 @@ function secondUpdates() {
     renderHistory(history);
     setInfluenceImages();
     u.elt('.research-PM').textContent = playerCiv.researchPM;
-    updateResources();
+    updateResources(resources);
     updateFaithElts(playerCiv);
     legacyBonusCheck(playerCiv);
     calculateHappiness(playerCiv);
@@ -538,7 +538,7 @@ function calculateHealth(playerCiv) {
   prevHealth === playerCiv.health ? undefined : updateHealthMetric(playerCiv);
 }
 
-function updateResources() {
+function updateResources(resources) {
   let r;
   let elt;
 
