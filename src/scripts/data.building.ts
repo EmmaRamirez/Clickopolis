@@ -26,8 +26,12 @@ let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers
   playerCiv.strength += 1;
   //notify({message: `Your civilization grew stronger! (<img src='img/strength.png'> ${playerCiv.strength})`});
 });
-let temple:Building = new Building('Temple', 0, 70, 700, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM', true, false, function (playerCiv:Civilization) {
-  playerCiv.faithPM += 1;
+let temple:Building = new Building('Temple', 0, 70, 700, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM (+2 <img src="img/faith.png"> PM if you have any <img src="img/spices.png">)', true, false, function (playerCiv:Civilization, resources:Collection<Resource>) {
+  if (resources.get('spices').total > 0) {
+    playerCiv.faithPM += 1;
+  } else {
+    playerCiv.faithPM += 2;
+  }
   //notify({message: `Your temple has attracted new devotees! (<img src='img/faith.png'> ${playerCiv.faithPM} PM)`});
 });
 let ancientCourt:Building = new Building('Ancient Court', 0, 65, 650, 'A gathering place, currently Judge Judy-less', '+5 <img src="img/culture.png"> (Onetime bonus)', true, false, function (playerCiv:Civilization) {
