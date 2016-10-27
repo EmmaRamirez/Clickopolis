@@ -422,6 +422,10 @@ function createGameUI() {
     playerCiv.research += 10000;
   });
 
+  bindElement('.debug-production', 'click', function () {
+    resources.get('prod').total += 500;
+  });
+
   setInfluenceImages();
 
   populateTechnologies();
@@ -1022,15 +1026,25 @@ function addCitizen(citizen:string, amount: number, sel:string) {
 }
 
 function buildingClick() {
-  let buildingEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.building');
+  let buildingsArgs = {
+    playerCiv: playerCiv,
+    resources: resources,
+    hutHappiness: 1,
+  }
+  let buildingEls = <NodeListOf<HTMLElement>>u.elt('.building', true);
 
   [].forEach.call(buildingEls, function (item:any, index:number) {
 
     item.addEventListener('click', function () {
-
+      
       let building = item.getAttribute('data-building');
       let totalSelt = '.building-total[data-building="' + buildings.get(building).name + '"]';
       let costSelt = '.building-cost-text';
+
+      if (buildings.get('Hut').amount >= 10) {
+        buildingsArgs.hutHappiness = 3;
+      }
+
       if (resources.get('prod').total >= buildings.get(building).prodCost) {
         //notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
         buildings.get(building).amount += 1;
@@ -1040,11 +1054,15 @@ function buildingClick() {
         buildings.get(building).prodCost = Math.floor(Math.sqrt(buildings.get(building).prodCost) + (buildings.get(building).prodCost * 1.25));
         u.elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
         //console.table(buildings.get(building));
-        buildings.get(building).func(playerCiv, resources);
+        console.log(buildingsArgs);
+        buildings.get(building).func(buildingsArgs);
       } else {
         //notify({message:`You don't have the Production to purchase a ${buildings.get(building).name}`});
       }
+
     });
+
+
 
   });
 }

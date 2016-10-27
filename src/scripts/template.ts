@@ -173,6 +173,9 @@ class Templates {
         <button class='debug-add-science' data-tooltip='adds 10K research'>
           <img src='img/research.png'>
         </button>
+        <button class='debug-production' data-tooltip='adds 500 production'>
+          <img src='img/prod.png'>
+        </button>
       </div>
     `;
 
@@ -468,9 +471,14 @@ class Templates {
           </div>
         </section>
         <section class='civilization-screen-inner civilization-overview'>
-          <div style='text-align:center'>Civilization Overview</div>
+          <div style='text-align:center;color:#eee'>Civilization Overview</div>
           <div class='overview-item'>
-
+            <div class='overview-item-name'>Economy</div>
+            <img src='img/coin.png'> ${playerCiv.cash} <sup>${playerCiv.cashPM}</sup>
+          </div>
+          <div class='overview-item'>
+            <div class='overview-item-name'>Technology</div>
+            <img src='img/research.png'> ${playerCiv.research} <sup>${playerCiv.researchPM}</sup>
           </div>
         </section>
       </section>

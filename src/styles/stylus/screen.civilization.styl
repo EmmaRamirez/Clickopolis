@@ -1,42 +1,36 @@
 @import 'variables.styl';
 
-.civilization-screen {
+.civilization-screen
   //background: linear-gradient(to bottom, white, #B3BEE6) !important;
   background: #333;
   border-top: 4px solid darken(#B845E6, 15%);
-  h2 {
+  h2 
     background: #B845E6;
     color: #eee;
     margin: .25rem .25rem 1.25rem .25rem;
     padding: 1rem;
-    img {
+    img 
       background: white;
       border: 4px solid white;
       border-radius: 50%;
-    }
-  }
-  h3 {
+  h3 
     color: #eee;
     text-align: center;
-  }
-  .pop-btn {
+  .pop-btn 
     background: #35DB6F;
     color: #fff;
     margin: .5rem .25rem;
     overflow: hidden;
     padding: 0 0 0 .75rem;
-  }
-  .pop-growth-cost {
+  .pop-growth-cost 
     background: #2FC253;
     padding: .75rem;
     display: inline-block;
     text-align: center;
-  }
-  .disabled .pop-growth-cost {
+  .disabled .pop-growth-cost 
     background: #aaa;
     -webkit-filter: grayscale(100%);
-  }
-  .civ-metric {
+  .civ-metric 
     //border: 1px solid #666;
     border-radius: 4px;
     display: inline-block;
@@ -45,70 +39,52 @@
     padding: .75rem;
     position: relative;
     text-align: left;
-  }
-  .civ-metric[data-label]::before {
+  .civ-metric[data-label]::before 
     color: #fff;
     content: attr(data-label);
     font-size: .8rem;
     position: absolute;
     text-align: center;
     bottom: 100%;
-  }
-  .civ-metric img {
+  .civ-metric img 
     height: 1.25rem;
     float: right;
-  }
-  img.flip {
+  img.flip 
     transform: rotateX(180deg);
-  }
-  .metric-growth-cost {
+  .metric-growth-cost 
     background: $clouds;
-  }
-  .metric-land {
+  .metric-land 
     background: #489CE0;
     color: #fff;
-  }
-  .metric-population {
+  .metric-population 
     background: #D6C998;
     color: #fff;
-  }
-  .metric-migration {
+  .metric-migration 
     background: #B8DFFC;
     color: #120047;
-  }
-  .metric-happiness {
+  .metric-happiness 
     background: #FFF15C;
-  }
-  .metric-anger {
+  .metric-anger 
     background: #DB3535;
     color: #fff;
-  }
-  .metric-health {
+  .metric-health 
     background: white;
-  }
-  .metric-pollution {
+  .metric-pollution 
     background: #6CC482;
     color: #fff;
-  }
-  .metric-influence-text {
+  .metric-influence-text 
     color: #fff;
-  }
-  .metric-domestic-influence {
+  .metric-domestic-influence 
     background: #6DF7EC;
-  }
-  .metric-international-influence {
+  .metric-international-influence 
     background: #84A6FA;
-  }
-  .metric-golden-age {
+  .metric-golden-age 
     background: #222;
     padding: .75rem auto;
     text-align: center;
     width: 20rem;
-  }
   .metric-golden-age-points,
   .metric-golden-ages,
-  .metric-golden-age {
+  .metric-golden-age 
     background: #212006;
     color: #fff;
-  }
-}
