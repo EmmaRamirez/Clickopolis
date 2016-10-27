@@ -472,14 +472,38 @@ class Templates {
         </section>
         <section class='civilization-screen-inner civilization-overview'>
           <div style='text-align:center;color:#eee'>Civilization Overview</div>
-          <div class='overview-item'>
+          <a href='#economy'>
+          <div class='overview-item overview-economy'>
             <div class='overview-item-name'>Economy</div>
-            <img src='img/coin.png'> ${playerCiv.cash} <sup>${playerCiv.cashPM}</sup>
+            <div class='overview-item-inner'>
+              <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span> <sup>${playerCiv.cashPM}</sup>
+            </div>
           </div>
+          </a>
+          <a href='#technology'>
           <div class='overview-item'>
             <div class='overview-item-name'>Technology</div>
-            <img src='img/research.png'> ${playerCiv.research} <sup>${playerCiv.researchPM}</sup>
+            <div class='overview-item-inner'>
+              <img src='img/research.png'> ${playerCiv.research} <sup>${playerCiv.researchPM}</sup>
+            </div>
           </div>
+          </a>
+          <a href='#faith'>
+          <div class='overview-item'>
+            <div class='overview-item-name'>Faith</div>
+            <div class='overview-item-inner'>
+              <img src='img/faith.png'> ${playerCiv.faith} <sup>${playerCiv.faithPM}</sup>
+            </div>
+          </div>
+          </a>
+          <a href='#culture'>
+          <div class='overview-item'>
+            <div class='overview-item-name'>Culture</div>
+            <div class='overview-item-inner'>
+              <img src='img/culture.png'> ${playerCiv.culture} <sup>${playerCiv.culturePM}</sup>
+            </div>
+          </div>
+          </a>
         </section>
       </section>
     `;

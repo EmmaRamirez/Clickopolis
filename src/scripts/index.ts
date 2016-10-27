@@ -939,8 +939,11 @@ function checkAutomaticTechPurchase() {
 
 function addCash() {
   playerCiv.cash += playerCiv.cashPM / 60;
-  let cashText = u.elt('.cash-text');
-  cashText.textContent = playerCiv.cash.toFixed(2);
+  let cashText = u.elt('.cash-text', true);
+  iterateOverNodelist(cashText, (item, index) => {
+    item.textContent = playerCiv.cash.toFixed(2);
+  }, this);
+
 }
 
 // function setInfluenceImage() {

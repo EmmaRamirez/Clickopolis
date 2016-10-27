@@ -6,7 +6,8 @@ let prod:Resource = new Resource('prod', 1, 0, 500, 0, 'prod', 'Prod.', true, tr
 let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings. They are often found by your miners.', false, true);
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.', false, true);
 fish.healthBonus = .5;
-let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Bananas are harvested by farmers periodically. Each banana provides +.5 <img src="img/health.png"> Bananas are a popular trade item with Tundra nations.', false, true);
+let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Bananas are harvested by farmers periodically. Each banana provides +1 <img src="img/health.png"> Bananas are a popular trade item with Tundra nations.', false, true);
+banana.healthBonus = 1;
 let cattle:Resource = new Resource('cattle', 0, 0, -1, 0, 'cattle', 'Cattle are raised by your farmers and provide +.1 <img src="img/food.png"> PS. Each cattle provides +.25 <img src="img/health.png">', false, true);
 cattle.healthBonus = .25;
 cattle.foodBonusPS = .1;
