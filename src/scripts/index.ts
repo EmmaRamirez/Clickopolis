@@ -5,7 +5,7 @@
 declare var Notification: any;
 
 import _ = require('underscore');
-import { Utils } from './utils';
+import { Utils, iterateOverNodelist } from './utils';
 import Game = require('./game');
 import Queue = require('./queue');
 import Settings = require('./settings');
@@ -29,6 +29,7 @@ import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } f
 import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils.anger';
 import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils.health';
 import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
+import { setLandAmount, setLandPercent } from './utils.land';
 
 import { notify } from './notify';
 import { log } from './log';
@@ -143,11 +144,7 @@ function removeElement(element:HTMLElement) {
   element.remove();
 }
 
-const iterateOverNodelist = function (array:NodeListOf<any>, callback:Function, scope:any) {
-  for (let i = 0; i < array.length; i++) {
-    callback.call(scope, array[i], i);
-  }
-};
+
 
 
 
@@ -498,12 +495,17 @@ function updatePopulation(pop:number) {
   };
   playerCiv.populationReal = Math.floor((1000  * eraPop() * playerCiv.population) + (Math.random() * 100));
   playerCiv.land += pop * 40 + (Math.random() * 15);
-  setLandAmount();
-  setLandPercent();
+  setLandAmount(playerCiv);
+  setLandPercent(playerCiv, game);
 
   //elt('.research-text').textContent = playerCiv.research.toString();
   u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
-  u.elt('.cash-PM').textContent = playerCiv.cashPM;
+
+  iterateOverNodelist(u.elt('.cash-PM', true), (item) => {
+    item.textContent = playerCiv.cashPM;
+  }, this);
+
+    
   //u.elt('.civ-anger-text').textContent = playerCiv.anger;
   //u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
   u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
@@ -549,11 +551,15 @@ function secondUpdates() {
     addFaith(playerCiv);
     addResearchPoints();
     checkPopulationGrowthCost()
-    setLandPercent();
+    setLandPercent(playerCiv, game);
     checkBuildingCosts();
     renderHistory(history);
     setInfluenceImages();
-    u.elt('.research-PM').textContent = playerCiv.researchPM;
+    
+    iterateOverNodelist(u.elt('.research-PM', true), (item) => {
+       item.textContent = playerCiv.researchPM;
+    }, this);
+
     updateResources(resources);
     updateFaithElts(playerCiv);
     legacyBonusCheck(playerCiv);
@@ -620,30 +626,7 @@ function checkBuildingCosts() {
   });
 }
 
-function setLandAmount() {
-  let land = playerCiv.land;
-  let landElement = u.elt('.metric-land');
 
-  let populationDensity = Math.floor(playerCiv.populationReal / playerCiv.land);
-
-  landElement.setAttribute('data-tooltip', `Population Density: ${populationDensity} / km<sup>2</sup>`);
-  updateTooltip(landElement);
-
-  landElement.innerHTML = `${u.abbrNum(Math.floor(playerCiv.land))} km<sup>2</sup>&nbsp;  <img src='img/land.png'>`;
-}
-
-function setLandPercent() {
-  let landPercent:any = (playerCiv.land / game.totalLand) * 100;
-  let landPercentText = u.elt('.land-percent-text');
-
-  if (landPercent.toFixed(4) < 0.0001) {
-    landPercent = '< 0.001%';
-  } else {
-    landPercent = landPercent.toFixed(4) + '%';
-  }
-
-  landPercentText.textContent = landPercent;
-}
 
 
 
@@ -910,13 +893,19 @@ function addGoldenAgePoints() {
 function addResearchPoints() {
   playerCiv.research += playerCiv.researchPM / 60;
 
-  u.elt('.research-text').textContent = u.abbrNum(playerCiv.research.toFixed(1), 2);
+  iterateOverNodelist(u.elt('.research-text', true), (item) => {
+    item.textContent = u.abbrNum(playerCiv.research.toFixed(1), 2);
+  }, this);
 
   let researchPercent:string = ((playerCiv.research / playerCiv.researchCost) * 100) + '%';
 
   let bgString:string = u.progressBar(researchPercent, '#83D4D4', '#444');
 
-  u.elt('.research-progress-bar').style.background = bgString;
+  iterateOverNodelist(u.elt('.research-progress-bar', true), (item) => {
+    item.style.background = bgString;
+  }, this);
+
+  //u.elt('.research-progress-bar').style.background = bgString;
 
   if (playerCiv.research > playerCiv.researchCost) {
     u.elt('.research-exceeding').textContent = 'You are currently exceeding your current tech goal.';
@@ -1187,7 +1176,11 @@ function purchaseTech(tech:string, element:HTMLElement) {
 
   playerCiv.research -= playerCiv.researchCost;
   playerCiv.researchCost = Math.floor(((playerCiv.population * 3) + playerCiv.researchCost * .8));
-  u.elt('.research-cost-text').textContent = playerCiv.researchCost;
+  
+  iterateOverNodelist(u.elt('.research-cost-text', true), (item) => {
+    item.textContent = playerCiv.researchCost;
+  }, this);
+
   techs.get(tech).func(citizens, resources, playerCiv, buildings, wonders);
   checkEnabledTechs();
   eraCheck();

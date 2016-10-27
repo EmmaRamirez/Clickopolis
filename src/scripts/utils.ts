@@ -4,6 +4,12 @@ import Citizen = require('./citizen');
 import Building = require('./building');
 import Wonder = require('./wonder');
 
+export const iterateOverNodelist = function (array:NodeListOf<any>, callback:Function, scope:any) {
+  for (let i = 0; i < array.length; i++) {
+    callback.call(scope, array[i], i);
+  }
+};
+
 export class Utils {
   abbrNum (num:any, decPlaces:number = 2):string {
     decPlaces = Math.pow(10, decPlaces);

@@ -1,4 +1,4 @@
-import { Utils } from './utils';
+import { Utils, iterateOverNodelist } from './utils';
 import FaithBonus = require('./faithbonus');
 import Civilization = require('./civilization');
 import faithBonusData = require('./data.faithbonus');
@@ -13,12 +13,24 @@ import { notify } from './notify';
 const u = new Utils();
 
 export function addFaith(playerCiv) {
+  let faithUpgrades = u.elt('.can-purchase-faith-upgrades');
   playerCiv.faith += playerCiv.faithPM / 60;
+
+  if (playerCiv.faith > playerCiv.faithCost) {
+    faithUpgrades.style.display = 'inline-block';
+  } else {
+    faithUpgrades.style.display = 'none';
+  }
 }
 
 export function updateFaithElts(playerCiv) {
-  u.elt('.faith-PM').textContent = playerCiv.faithPM;
-  u.elt('.faith-total').textContent = Math.floor(playerCiv.faith);
+  iterateOverNodelist(u.elt('.faith-PM', true), (item) => {
+    item.textContent = playerCiv.faithPM;
+  }, this);
+
+  iterateOverNodelist(u.elt('.faith-total', true), (item) => {
+    item.textContent = Math.floor(playerCiv.faith);
+  }, this);
 }
 
 export function populateFaithBonuses(playerCiv:Civilization, ) {

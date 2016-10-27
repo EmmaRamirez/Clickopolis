@@ -476,31 +476,34 @@ class Templates {
           <div class='overview-item overview-economy'>
             <div class='overview-item-name'>Economy</div>
             <div class='overview-item-inner'>
-              <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span> <sup>${playerCiv.cashPM}</sup>
+              <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span> <sup class='cash-PM'>${playerCiv.cashPM}</sup>
             </div>
           </div>
           </a>
           <a href='#technology'>
-          <div class='overview-item'>
+          <div class='overview-item overview-technology'>
             <div class='overview-item-name'>Technology</div>
             <div class='overview-item-inner'>
-              <img src='img/research.png'> ${playerCiv.research} <sup>${playerCiv.researchPM}</sup>
+              <img src='img/research.png'> <span class='research-text'>${playerCiv.research}</span> <sup class='research-PM'>${playerCiv.researchPM}</sup>
+              <div class='research-progress-bar'></div>
+              <span class='research-cost-text'>10</span>
             </div>
           </div>
           </a>
           <a href='#faith'>
-          <div class='overview-item'>
+          <div class='overview-item overview-faith'>
             <div class='overview-item-name'>Faith</div>
             <div class='overview-item-inner'>
-              <img src='img/faith.png'> ${playerCiv.faith} <sup>${playerCiv.faithPM}</sup>
+              <img src='img/faith.png'> <span class='faith-total'>${playerCiv.faith}</span> <sup class='faith-PM'>${playerCiv.faithPM}</sup>
+              <span class='can-purchase-faith-upgrades'>You Can Purchase Faith Upgrades</span>
             </div>
           </div>
           </a>
           <a href='#culture'>
-          <div class='overview-item'>
+          <div class='overview-item overview-culture'>
             <div class='overview-item-name'>Culture</div>
             <div class='overview-item-inner'>
-              <img src='img/culture.png'> ${playerCiv.culture} <sup>${playerCiv.culturePM}</sup>
+              <img src='img/culture.png'> <span class='culture-total'>${playerCiv.culture}</span> <sup class='culture-PM'>${playerCiv.culturePM}</sup>
             </div>
           </div>
           </a>
