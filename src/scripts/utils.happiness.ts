@@ -19,6 +19,7 @@ export function generateHappinessTooltip(playerCiv) {
     </ul>
   `;
   happinessElement.setAttribute('data-tooltip', happinessBreakdown);
+
   updateTooltip(happinessElement);
 }
 

@@ -13,6 +13,8 @@ class Civilization {
   leaderTraits: string[];
   leaderTraitsMax: number;
 
+  color: string;
+
   location: string;
   biomes: Collection<Biome>;
 
@@ -109,6 +111,8 @@ class Civilization {
 
     this.leaderTraits = [];
     this.leaderTraitsMax = 3;
+
+    this.color = '#5fe49b';
 
     this.happiness = 0;
     this.happinessMod = 1;

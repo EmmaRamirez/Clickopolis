@@ -29,7 +29,7 @@ export function generateTooltips(opts:TooltipOptions = {
       tooltip.style.top = event.clientY + opts.offsetY + 'px';
     });
     item.addEventListener('mouseleave', function (event:any) {
-      if (tooltip.parentNode === item) item.removeChild(tooltip);
+      tooltip.remove();
     });
   });
 }
@@ -40,10 +40,16 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
 }) {
   let text = elt.getAttribute('data-tooltip');
 
-  let tooltip = document.createElement('div');
+  let tooltip;
+
+  //tooltip = elt.querySelector('.tooltip');
+ 
+  tooltip = document.createElement('div');
+
   tooltip.className = 'tooltip';
 
   tooltip.innerHTML = `${text}`;
+
   elt.addEventListener('mouseenter', function (event:any) {
     tooltip.style.left = event.clientX + opts.offsetX + 'px';
     tooltip.style.top = event.clientY + opts.offsetY + 'px';
@@ -56,4 +62,5 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
   elt.addEventListener('mouseleave', function (event:any) {
     tooltip.remove();
   });
+  
 }

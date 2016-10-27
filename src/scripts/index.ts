@@ -734,13 +734,15 @@ function populateBiomes():void {
 
 
 
-function populate(container:HTMLElement, collection:Collection<any>, template:string) {
+function populate(container:HTMLElement, collection:Collection<any>, template:string, cb:Function) {
   container.innerHTML = '';
 
   for (let i = 0; i < collection.items.length; i++) {
     let item = collection.items[i];
     container.innerHTML += templates.createWonder(item, i);
   }
+
+  cb();
 }
 
 //populate(u.elt('.wonders'), wonders, templates.createWonder() );

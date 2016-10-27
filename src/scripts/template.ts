@@ -97,6 +97,7 @@ class Templates {
 
       <section class='half-section'>
         <div class='leader-display'>
+          <header class='leader-header'>Abraham Lincoln</header>
           <img class='leader-image' src='../img/abraham-lincoln.jpg' />
           <h3>Traits</h3>
           <div class='traits-list'>
@@ -422,23 +423,23 @@ class Templates {
             </span>
           </div>
           <div class='panel civ-metric-panel'>
-            <span data-tooltip='Your total land' class='civ-metric metric-land'>
+            <span data-tooltip='Your total land' class='civ-metric metric-land' data-tooltip=''>
               ${playerCiv.land} km<sup>2</sup> <img src='img/land.png'>
             </span>
             <span data-tooltip='The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>
             </span>
             <br>
-            <span class='civ-metric metric-happiness'>
+            <span class='civ-metric metric-happiness' data-tooltip=''>
               ${playerCiv.happiness} <img src='img/happy.png'>
             </span>
-            <span class='civ-metric metric-anger'>
+            <span class='civ-metric metric-anger' data-tooltip=''>
               <span class='civ-anger-text'>${playerCiv.anger}</span> <img src='img/angry.png'>
             </span>
-            <span class='civ-metric metric-health'>
+            <span class='civ-metric metric-health' data-tooltip=''>
               ${playerCiv.health} <img src='img/health.png'>
             </span>
-            <span class='civ-metric metric-pollution'>
+            <span class='civ-metric metric-pollution' data-tooltip=''>
               <span class='civ-pollution-text'>${playerCiv.pollution}</span> <img src='img/pollution.png'>
             </span>
             <br>
