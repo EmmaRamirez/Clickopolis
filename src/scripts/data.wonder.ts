@@ -1,7 +1,15 @@
 import Wonder = require('./wonder');
 import Collection = require('./collection');
 import Resource = require('./resource');
+import Building = require('./building');
 import Civilization = require('./civilization');
+
+interface WonderArgs {
+  resources: Collection<Resource>,
+  buildings: Collection<Building>,
+  playerciv: Civilization,
+  
+}
 
 let greatPyramids = new Wonder(
   'The Great Pyramids',
@@ -12,8 +20,8 @@ let greatPyramids = new Wonder(
   false,
   'No aliens required. Requires 20 <img src="img/stone.png">',
   '+5 <img src="img/legacy.png"> Points',
-  function (resources:Collection<Resource>) {
-    if (resources.get('stone').total >= 20) {
+  function (args) {
+    if (args.resources.get('stone').total >= 20) {
       console.log('You can build it.');
       return true;
     } else {
@@ -21,8 +29,8 @@ let greatPyramids = new Wonder(
       return false;
     }
   },
-  function (playerCiv:Civilization) {
-    playerCiv.legacy += 5;
+  function (args) {
+    args.playerCiv.legacy += 5;
   }
 );
 let stonehenge = new Wonder(
@@ -34,16 +42,16 @@ let stonehenge = new Wonder(
   false,
   'A glorified sundial...we think. Requires 5 <img src="img/stone.png">',
   '+5 <img src="img/legacy.png"> Points, +10 <img src="img/faith.png"> PM',
-  function (resources:Collection<Resource>) {
-    if (resources.get('stone').total >= 5) {
+  function (args) {
+    if (args.resources.get('stone').total >= 5) {
       return true;
     } else {
       return false;
     }
   },
-  function (playerCiv:Civilization) {
-    playerCiv.legacy += 5;
-    playerCiv.faithPM += 10;
+  function (args) {
+    args.playerCiv.legacy += 5;
+    args.playerCiv.faithPM += 10;
   }
 );
 let moaiStatues = new Wonder(
@@ -55,11 +63,11 @@ let moaiStatues = new Wonder(
   false,
   'If only nose jobs existed back then. Requires 50 <img src="img/stone.png"> and Coastal or Island Biome',
   '+5 <img src="img/legacy.png"> Points',
-  function (resources:Collection<Resource>) {
-    (resources.get('stone').total >= 50) ? true :  false;
+  function (args) {
+    (args.resources.get('stone').total >= 50) ? true :  false;
   },
-  function (playerCiv:Civilization) {
-    playerCiv.legacy += 5;
+  function (args) {
+    args.playerCiv.legacy += 5;
   }
 );
 let parthenon = new Wonder(
@@ -71,12 +79,12 @@ let parthenon = new Wonder(
   false,
   'A gathering of the gods.',
   '+5 <img src="img/legacy.png"> Points, +20% <img src="img/culture.png"> PM',
-  function () {
+  function (args) {
     return true;
   },
-  function (playerCiv:Civilization) {
-    playerCiv.legacy += 5;
-    playerCiv.culturePMMod *= 1.2;
+  function (args) {
+    args.playerCiv.legacy += 5;
+    args.playerCiv.culturePMMod *= 1.2;
   }
 );
 let greatWall = new Wonder(
@@ -88,12 +96,12 @@ let greatWall = new Wonder(
   false,
   'Requires 10 Walls',
   '+5 <img src="img/legacy.png"> Points, +100 <img src="img/defense.png">',
-  function () {
+  function (args) {
 
   },
-  function (playerCiv:Civilization) {
-    playerCiv.legacy += 5;
-    playerCiv.defense += 100;
+  function (args) {
+    args.playerCiv.legacy += 5;
+    args.playerCiv.defense += 100;
   }
 );
 let greatCollosseum = new Wonder(
@@ -105,12 +113,12 @@ let greatCollosseum = new Wonder(
   false,
   'Requires 10 Colloseums',
   '+5 <img src="img/legacy.png"> Points, +25 <img src="img/happy.png">',
-  function () {
-
+  function (args) {
+    args.buildings.get('Collosseum').total >= 10 ? true : false;
   },
-  function (playerCiv:Civilization) {
-    playerCiv.legacy += 5;
-    playerCiv.happiness += 25;
+  function (args) {
+    args.playerCiv.legacy += 5;
+    args.playerCiv.happiness += 25;
   }
 );
 

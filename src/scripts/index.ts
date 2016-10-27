@@ -531,7 +531,7 @@ function secondUpdates() {
     u.elt('.r-food-total').textContent = resources.get('food').total.toFixed(0).toString();
 
     if (resources.get('prod').total >= resources.get('prod').max) resources.get('prod').total = resources.get('prod').max;
-    else resources.get('food').total += resources.get('prod').perSecond;
+    else resources.get('prod').total += resources.get('prod').perSecond;
     u.elt('.r-prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
     u.elt('.prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
 
@@ -1051,7 +1051,11 @@ function buildingClick() {
 
 
 
-
+const wonderArgs = {
+  resources: resources,
+  playerCiv: playerCiv,
+  buildings: buildings,
+}
 
 function wonderClick() {
   let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
@@ -1061,7 +1065,7 @@ function wonderClick() {
     item.addEventListener('click', function () {
       //alert('hello');
       let wonder = item.getAttribute('data-wonder');
-      let wonderCheck = wonders.get(wonder).checkFunc(resources);
+      let wonderCheck = wonders.get(wonder).checkFunc(wonderArgs);
       if (wonderCheck) {
         if (wonders.get(wonder).buildTime === wonders.get(wonder).remainingTime) {
           notify({message: `Work has begun on the ${wonders.get(wonder).name}!`}, isWindowActive);
@@ -1094,7 +1098,7 @@ function startBuildingWonder(wonder:Wonder) {
   function stopTimer() {
     if (wonder.remainingTime <= 1) {
       notify({message: `You completed the ${wonder.name}!`}, isWindowActive);
-      wonder.func(playerCiv);
+      wonder.func(wonderArgs);
       btnBuildWonder.textContent = 'COMPLETE';
       history.push(log({year: game.year, message: `${playerCiv.civName} finished work on ${wonder.name}!`, categoryImage: 'wonder'}));
       clearInterval(intervalID);

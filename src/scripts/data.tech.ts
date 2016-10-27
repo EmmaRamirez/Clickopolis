@@ -147,11 +147,13 @@ let pottery:Tech = new Tech(
   'Does not come with Pottery Barn discount.',
   [
     '<img src="img/plus.png"> Can build Granary',
+    '<img src="img/plus.png"> Can build Ancient Court',
     '<img src="img/key.png"> Leads To: Writing, Poetics'
   ],
   ['culture', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     u.unlockBuilding('Granary', buildings);
+    u.unlockBuilding('Ancient Court', buildings);
   }
 );
 let sailing:Tech = new Tech(
@@ -259,6 +261,7 @@ let construction:Tech = new Tech(
   ['buildings', 'citizens', 'resources'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockWonder('The Great Colloseum', wonders);
+    u.unlockBuilding('Collosseum', buildings);
   }
 );
 let currency:Tech = new Tech(

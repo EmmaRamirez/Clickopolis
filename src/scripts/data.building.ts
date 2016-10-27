@@ -7,8 +7,12 @@ import notify = require('./notify');
 
 let u = new Utils();
 
-let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">', true, true, function (playerCiv:Civilization) {
-  playerCiv.happinessFromBuildings += 1;
+let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">, +3 <img src="img/happy.png"> after you build 10', true, true, function (playerCiv:Civilization) {
+  if (this.total > 10) {
+    playerCiv.happinessFromBuildings += 1;
+  } else {
+    playerCiv.happinessFromBuildings += 3;
+  }
   //u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
   //notify({message:`The new hut has made your citizens gracious. (<img src="img/happy.png"> ${playerCiv.happiness})`});
 });
