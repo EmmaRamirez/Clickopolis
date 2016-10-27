@@ -12,7 +12,8 @@ import Settings = require('./settings');
 import Collection = require('./collection');
 import Era = require('./era');
 import Civilization = require('./civilization');
-import Biome = require('./biome');
+import { BiomeType, Biome } from './biome';
+import { Trait, Leader } from './leader';
 import Resource = require('./resource');
 import Citizen = require('./citizen');
 import Building = require('./building');
@@ -43,6 +44,7 @@ import wonderData = require('./data.wonder');
 import faithBonusData = require('./data.faithbonus');
 import achievementData = require('./data.achievement');
 import legacyData = require('./data.legacy');
+import { leaders } from './data.leader';
 
 //require('!raw!stylus!../styles/stylus/index.styl');
 
@@ -131,7 +133,7 @@ function bindElement(node:string, eventType:string, callback:Function) {
   let el = <HTMLElement>document.querySelector(node);
   el.addEventListener(eventType, function (event:Event) {
     //console.log(callback)
-    return callback(event);
+    callback.call(this, event);
   });
 }
 
@@ -158,11 +160,11 @@ function newEra(era:string) {
 function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
-    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.biomes);
+    playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.leader, loadCiv.biomes);
     startSavedGame();
   } else {
     startNewGame();
-    playerCiv = new Civilization('', '', new Collection('biomes', [new Biome('')]));
+    playerCiv = new Civilization('', '', new Leader('', []), new Collection('biomes', [new Biome('')]));
     //console.log(playerCiv);
   }
 }
@@ -170,11 +172,6 @@ function startGame() {
 function startSavedGame() {
   console.debug('Loading Saved Game...');
   append('body', templates.createStartScreen(playerCiv, game));
-  //store.clear();
-
-  // bindElement('.load-btn', 'click', function() {
-  //   createGameUI();
-  // });
 
   bindElement('.current-btn', 'click', function() {
     createGameUI();
@@ -185,7 +182,121 @@ function startSavedGame() {
 function startNewGame() {
   console.debug('Starting New Game...');
 
+  document.body.classList.add('new-game');
   append('body', templates.startScreen);
+
+  generateTooltips();
+
+  let biomeInput = u.elt('#biome-input');
+  let biomeClose = u.elt('.close-biome');
+  let biomeSelectDropdown = u.elt('.biome-select-dropdown');
+  let bsdInner = u.elt('.biome-select-dropdown-inner');
+
+  function resetBiomeSelected() {
+    iterateOverNodelist(u.elt('.biome-select li', true), (item) => {
+      item.setAttribute('data-selected', 'false');
+    }, true);
+  }
+
+  function openBiomeSelect(value:boolean) {
+    let status:string;
+    value ? status = 'true' : status = 'false';
+    u.elt('.biome-select').setAttribute('data-open', status);
+    biomeSelectDropdown.setAttribute('data-open', status);
+  }
+
+  function toggleBiomeSelectDropdown () {
+    let open = u.elt('.biome-select').getAttribute('data-open');
+    open === true ? openBiomeSelect(false) : openBiomeSelect(true);
+  }
+
+  bindElement('.biome-select-dropdown', 'click', () => { toggleBiomeSelectDropdown() });
+
+  let selectedItemIndex = 0;
+  u.elt('.biome-select-dropdown').addEventListener('keydown', (event) => {
+    let items = u.elt('.biome-select li', true);
+    let val;
+    if (event.which === 13) {
+      toggleBiomeSelectDropdown();
+    }
+    if (event.which === 40) {
+      resetBiomeSelected();
+      items[selectedItemIndex].setAttribute('data-selected', 'true');
+      val = items[selectedItemIndex].getAttribute('data-value');
+      if (selectedItemIndex === items.length - 1) {
+        selectedItemIndex = 0;
+      } else {
+        selectedItemIndex += 1;
+      }
+    }
+    if (event.which === 38) {
+      selectedItemIndex -= 1;
+      if (selectedItemIndex === -1) {
+        selectedItemIndex = 4;
+      }
+      resetBiomeSelected();
+      items[selectedItemIndex].setAttribute('data-selected', 'true');
+      val = items[selectedItemIndex].getAttribute('data-value');
+    }
+    if (event.which === 38 || event.which === 40) {
+      biomeInput.value = val;
+      bsdInner.innerHTML = `<img src='img/${val.toLowerCase()}.png'> ${val}`;
+    }
+  });
+
+
+  let toggleValue = 1;
+  iterateOverNodelist(u.elt('.biome-select li', true), (item, index) => {
+    item.addEventListener('click', function () {
+      let selected = item.getAttribute('data-selected');
+      let val = item.getAttribute('data-value');
+      biomeInput.value = val;
+      console.log(biomeInput.value);
+      openBiomeSelect(true);
+      resetBiomeSelected();
+      item.setAttribute('data-selected', 'true');
+      bsdInner.innerHTML = `<img src='img/${val.toLowerCase()}.png'> ${val}`;
+      openBiomeSelect(false);
+    });
+  }, this);
+
+  function displayTraits(traits) {
+    console.log(traits);
+
+    // <div class='trait-info' data-tooltip=''>
+    //           <img src='../img/tactical.png' /><span>Tactical</span>
+    //         </div>
+
+    let generateTraits = function(traits) {
+      return traits.map((item, index) => {
+        let description = item.unlocked ? item.description : '<ul>This trait is locked until you pass on your Legacy.</ul>';
+        let name = item.unlocked ? u.dasherize(item.name) : 'lock';
+        let displayName = item.unlocked ? u.titlecase(item.name) : 'Locked Trait';
+        return `<div class='trait-info' data-tooltip="${description}">
+                  <img src='../img/${name}.png'><span>${displayName}</span>
+                  ${description}
+                </div>`;
+      });
+    }
+    u.elt('.traits-list').innerHTML = generateTraits(traits).join('');
+    iterateOverNodelist(u.elt('.trait-info', true), (item, index) => {
+      updateTooltip(item);
+    }, this);
+  }
+
+  u.elt('#civ-leader-select').addEventListener('change', function() {
+    let leaderName = this.value;
+    console.log(leaderName);
+
+    let leaderImage = u.elt('.leader-image');
+    let leaderHeader = u.elt('.leader-header');
+
+    leaderHeader.textContent = leaderName;
+    leaderImage.src = `img/${u.dasherize(leaderName)}.jpg`;
+
+    displayTraits(leaders.get(leaderName).traits);
+  });
+
 
 
   bindElement('.begin-btn', 'click', function() {
@@ -198,13 +309,20 @@ function startNewGame() {
 };
 
 function setPlayerCiv() {
-  let civNameInput = <HTMLInputElement>document.querySelector('#civName');
-  let leaderNameInput = <HTMLInputElement>document.querySelector('#leaderName');
-  let biome = <HTMLSelectElement>document.querySelector('#biome');
+  let civNameInput = <HTMLInputElement>u.elt('#civName');
+  let leader = <HTMLSelectElement>u.elt('#civ-leader-select');
+  let leaderNameInput = <HTMLInputElement>u.elt('#leaderName');
+  let biome = <HTMLInputElement>u.elt('#biome-input');
+
+  let chosenLeader = leaders.get(leader.value);
+
+
+
   playerCiv.civName = civNameInput.value;
+  playerCiv.leader = chosenLeader;
   playerCiv.leaderName = leaderNameInput.value;
   playerCiv.biomes = new Collection<Biome>('biomes', [
-    new Biome(biome.value)
+    new Biome(<BiomeType>biome.value)
   ]);
   console.log(playerCiv);
   savePlayer();
@@ -220,6 +338,8 @@ function createGameUI() {
     game.totalClicks += 1;
     checkAchievements(achievements, game);
   });
+
+  document.body.classList.remove('new-game');
 
   let intro = <HTMLElement>document.querySelector('.clickopolis-open');
   let clickopolisGame = document.createElement('section');
@@ -335,6 +455,8 @@ function createGameUI() {
   generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
 
+  setInterval(() => secondUpdates(), 1000);
+  setInterval(() => minuteUpdates(), 1000 * 60);
 }
 
 function updatePopulationEmployed():void {
@@ -439,7 +561,7 @@ function secondUpdates() {
   }
 }
 
-setInterval(() => secondUpdates(), 1000);
+
 
 function minuteUpdates() {
   if (isWindowActive) {
@@ -453,7 +575,6 @@ function minuteUpdates() {
   }
 }
 
-setInterval(() => minuteUpdates(), 1000 * 60);
 
 function drawUI(el:HTMLElement) {
   el.innerHTML =  templates.createScreenHeader(playerCiv, game) +

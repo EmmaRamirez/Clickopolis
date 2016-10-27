@@ -61,32 +61,48 @@ class Templates {
       <section class='half-section'>
         <form class='new-game-settings'>
           <label for='leader'>Leader</label>
-          <select name='leader' id='civ-leader-select'>
-            <option value='abraham-lincoln'>Abraham Lincoln</option>
-            <option value='margaret-thatcher'>Margaret Thatcher</option>
+          <select name='leader' id='civ-leader-select' tabindex='1'>
+            <option>Select a Leader!</option>
+            <option value='Abraham Lincoln'>Abraham Lincoln</option>
+            <option value='Margaret Thatcher'>Margaret Thatcher</option>
+            <option value='Nelson Mandela'>Nelson Mandela</option>
+            <option value='John F Kennedy'>John F Kennedy</option>
+            <option value='Vladimir Lenin'>Vladimir Lenin</option>
+            <option value='Mao Zedong'>Mao Zedong</option>
           </select>
 
           <label for='name'>Name</label>
-          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='12' value='' />
+          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='12' value='' tabindex='2' />
 
           <label for='civilizationName'>Civilization</label>
-          <input type='text' id="civName"  placeholder='Jaketopia' maxlength='20' value='' />
+          <input type='text' id="civName"  placeholder='Jaketopia' maxlength='20' value='' tabindex='3' />
 
           <label for='biome'>Location</label>
-          <select id='biome' name='biome'>
-            <option value="none">select an option!</option>
-            <option value="Desert">in a Desert</option>
-            <option value="Coast">by the Coast</option>
-            <option value="Island">on an Island</option>
-            <option value="Jungle">in a Jungle</option>
-            <option value="Mountains">on the Mountains</option>
-            <option value="Forest">in a Forest</option>
-            <option value="Tundra">in a Tundra</option>
-            <option value="Glacier">on a Glacier</option>
-          </select>
+          <div class='new-game-select-dropdown biome-select-dropdown' data-open='false' tabindex='4'>
+            <div class='new-game-select-dropdown-inner biome-select-dropdown-inner'>Select a Biome &#9660;</div>
+          </div>
+          <ul class='new-game-select biome-select' data-open='false'>
+            <li data-value='Desert'>
+              <img src='img/desert.png'> Desert
+            </li>
+            <li data-value='Mountains'>
+              <img src='img/mountains.png'> Mountains
+            </li>
+            <li data-value='Island'>
+              <img src='img/island.png'> Island
+            </li>
+            <li data-value='Forest'>
+              <img src='img/forest.png'> Forest
+            </li>
+            <li data-value='Plains'>
+              <img src='img/plains.png'> Plains
+            </li>
+          </ul>
+          <input type='hidden' name='biome' id='biome-input'>
 
+          <br>
           <label for='color'>Color</label><br/>
-          <input type='text' name='color' id='color' value='#5fe49b' />
+          <input type='text' name='color' id='color' value='#5fe49b' tabindex='5' />
           <div class='color-field' data-color=''>
             <div class='color-field-inner'></div>
           </div>
@@ -97,26 +113,15 @@ class Templates {
 
       <section class='half-section'>
         <div class='leader-display'>
-          <header class='leader-header'>Abraham Lincoln</header>
-          <img class='leader-image' src='../img/abraham-lincoln.jpg' />
-          <h3>Traits</h3>
+          <header class='leader-header'></header>
+          <img class='leader-image' src='../img/question.png' />
           <div class='traits-list'>
-            <div class='trait-info'>
-              <img src='../img/tactical.png' /><span>Tactical</span>
-            </div>
-            <div class='trait-info'>
-              <img src='../img/charismatic.png' /><span>Charismatic</span>
-            </div>
-            <div class='trait-info'>
-              <img src='../img/lock.png'><span>Locked Trait</span>
-            </div>
           </div>
-        </div>
         </div>
       </section>
       </section>
 
-      <button class='begin-btn'>Begin Game!</button>
+      <button class='begin-btn' tabindex='6'>Begin Game!</button>
 
     </section>
   `;
@@ -353,8 +358,11 @@ class Templates {
   createScreenHeader(playerCiv:Civilization, game:Game):string {
     let screenHeader = `
       <header class='screen-header'>
-        <h2>Clickopolis</h2>
-        <h3>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h3>
+        <div class='player-info'>
+          <img src='img/${u.dasherize(playerCiv.leader.name)}.jpg'>
+          <div><strong>${playerCiv.leaderName}</strong> of <em>${playerCiv.civName}</em></div>
+          <div>${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</div>
+        </div>
         <div class='civilization-metrics'>
           <p>This space will hold metrics you can view at a glance.</p>
           <!--
@@ -457,6 +465,12 @@ class Templates {
             <span data-tooltip='Your influence on the international stage' class='civ-metric metric-international-influence' data-label='international'>
               ${playerCiv.influenceInternational} <img class='metric-international-influence-img' src='img/influence-international.png'>
             </span>
+          </div>
+        </section>
+        <section class='civilization-screen-inner civilization-overview'>
+          <div style='text-align:center'>Civilization Overview</div>
+          <div class='overview-item'>
+
           </div>
         </section>
       </section>

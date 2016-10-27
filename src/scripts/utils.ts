@@ -116,6 +116,12 @@ export class Utils {
     return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
   }
 
+  titlecase(str:string) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
   unlockBuilding(building:string, buildings:Collection<Building>):void {
     buildings.get(building).enabled = true;
     let elt = this.elt('[data-building="' + building + '"]');

@@ -18,7 +18,7 @@ export function generatePollutionTooltip(playerCiv) {
 }
 
 export function updatePollutionMetric(playerCiv) {
-  u.elt('.civ-metric.metric-pollution').innerHTML = `<img src="img/pollution.png"> ${playerCiv.health}`;
+  u.elt('.civ-metric.metric-pollution').innerHTML = `<img src="img/pollution.png"> ${playerCiv.pollution}`;
   generatePollutionTooltip(playerCiv);
 }
 

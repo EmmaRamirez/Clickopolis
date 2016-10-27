@@ -1,5 +1,6 @@
 import Collection = require('./collection');
-import Biome = require('./biome');
+import { Biome } from './biome';
+import { Leader } from './leader';
 
 interface Point {
   x: number;
@@ -9,9 +10,9 @@ interface Point {
 class Civilization {
   civName: string;
 
+  leader: Leader;
   leaderName: string;
-  leaderTraits: string[];
-  leaderTraitsMax: number;
+  
 
   color: string;
 
@@ -103,14 +104,12 @@ class Civilization {
     // exhaustive method goes here
   }
 
-  constructor(civName:string, leaderName:string, biomes:Collection<Biome>) {
+  constructor(civName:string, leaderName:string, leader:Leader, biomes:Collection<Biome>) {
     this.civName = civName;
     this.leaderName = leaderName;
     //this.location = location;
     this.biomes = biomes;
-
-    this.leaderTraits = [];
-    this.leaderTraitsMax = 3;
+    this.leader = leader;
 
     this.color = '#5fe49b';
 

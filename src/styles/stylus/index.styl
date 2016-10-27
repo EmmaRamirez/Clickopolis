@@ -32,8 +32,20 @@ html
 body
   background: #222;
   background-size: cover;
-  background-image: url('../img/world-map.svg');
+  background-image: url('../img/world-map.svg')
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  &.new-game
+    background: url('../img/world-map.svg'), linear-gradient(174deg, #373c3a, #1e3270, #39c39f, #dfdd76);
+    background-size: cover, 800% 800%;
+    animation: AnimationName 40s ease infinite;
+
+@keyframes AnimationName
+    0%
+      background-position: 0% 0%, 50% 0%;
+    50%
+      background-position: 0% 0%, 50% 100%;
+    100%
+      background-position: 0% 0%, 50% 0%;
 
 [data-tooltip]
   cursor: default;
@@ -142,6 +154,36 @@ section
   input[type='color']
     padding: 0;
     width: 2rem;
+  .new-game-select
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    &[data-open='false']
+      display: none;
+  .new-game-select-dropdown
+    height: 46px;
+  .new-game-select li,
+  .new-game-select-dropdown
+    background: white;
+    border-radius: 4px;
+    color: #222;
+    cursor: pointer;
+    list-style-type: none;
+    padding: 1rem;
+    transition: 300ms all;
+    width: 260px;
+    border-radius: 0;
+    &:last-of-type
+      border-radius: 0 0 4px 4px;
+    &:hover,
+    &[data-selected='true']
+      background: #eee;
+      transition: 300ms all;
+  .new-game-select-dropdown
+    border-radius: 4px;
+    &[data-open='true']
+      border-radius: 0;
   .leader-header
     background: #222;
     font-weight: bold;
@@ -152,10 +194,13 @@ section
   .leader-display
     border: 1px solid #333;
     border-radius: 4px;
+    font-size: 1.5rem;
     margin: 0 2rem;
     padding: 1rem;
     h3
       color: #666;
+      font-weight: 200;
+      margin: .25rem;
       text-align: center;
   .trait-info
     background: #333;
@@ -164,11 +209,14 @@ section
     font-size: 1.25rem;
     margin: .25rem;
     padding: .5em;
-    img
+    > img
       height: 1.75rem;
     span
       margin-left: .5rem;
       vertical-align: middle;
+    p, ul
+      font-size: .85rem;
+      margin: 0;
   .leader-image
     height: 128px;
     border-radius: 50%;
@@ -181,6 +229,7 @@ section
     display: block;
     font-size: 2rem;
     margin: 1rem auto;
+    margin-top: 2.5rem;
     padding: .3em;
   #color
     display: inline-block;
@@ -281,6 +330,17 @@ section
     span
       margin: 0 4px;
 
+.player-info
+  background: #222;
+  border: 1px solid #111;
+  border-radius: 4px;
+  padding: .25rem;
+  width: 220px;
+  img
+    float: left;
+    height: 2rem;
+    margin-right: .5rem;
+    border-radius: 50%;
 
 .screen
   //background: #fff;

@@ -7,7 +7,7 @@ import notify = require('./notify');
 
 let u = new Utils();
 
-let ruler:Citizen = new Citizen('ruler', 'CEO', '#96D0E3', 1, 'This is you, their greatest citizen.', {}, {}, {}, {});
+let ruler:Citizen = new Citizen('ruler', 'ruler', '#96D0E3', 1, 'This is you, their greatest citizen.', {}, {}, {}, {});
 ruler.descriptionOverride = true;
 let farmer:Citizen = new Citizen('farmer', 'farmer', '#94C484', 0, 'Farmers provide +.2 <img src="img/food.png"> PC and +1.2 PS.', {name: 'food', mod: 'PC', amount: .2 }, { name: 'food', mod: 'PS', amount: 1.2 }, {}, {}, true, true, function (amount:number, resources:Collection<Resource>) {
   resources.get('food').perClick += amount * this.contrib1.amount;
