@@ -87,6 +87,7 @@ class Civilization {
 
   culture: number;
   culturePM: number;
+  culturePMMod: number;
 
   strength: number;
   strengthMod: number;
@@ -135,7 +136,7 @@ class Civilization {
     this.pollutionFromResources = 0;
     this.pollutionMod = 1;
 
-    this.land = 1;
+    this.land = 40;
     this.legacy = 0;
 
     this.achievements = 0;
@@ -176,6 +177,7 @@ class Civilization {
 
     this.culture = 0;
     this.culturePM = 0;
+    this.culturePMMod = 1;
 
     this.strength = 10;
     this.strengthMod = 1;

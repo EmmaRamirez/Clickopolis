@@ -342,8 +342,9 @@ function updatePopulationEmployed():void {
 }
 
 function updatePopulation(pop:number) {
-  let popGrowthCost = document.querySelector('.pop-growth-cost-text');
-  let populationText = document.querySelector('.population-text');
+  let popGrowthCost = u.elt('.pop-growth-cost-text');
+  let populationText = u.elt('.population-text');
+  let popMetric = u.elt('.metric-population');
 
   playerCiv.population += pop;
   playerCiv.populationGrowthCost = Math.round((playerCiv.populationGrowthCost) + playerCiv.population);
@@ -355,6 +356,24 @@ function updatePopulation(pop:number) {
   playerCiv.researchPM += pop * 2;
   playerCiv.angerFromPopulation += pop * 1;
   playerCiv.pollutionFromPopulation += pop * 1;
+  let eraPop = () => {
+      switch(game.era) {
+      case Era.Ancient:
+        return 1;
+      case Era.Classical:
+        return 1.5;
+      case Era.Medieval:
+        return 1.55;
+      case Era.Renaissance:
+        return 2;
+      default:
+        return 1;
+    }
+  };
+  playerCiv.populationReal = Math.floor((1000  * eraPop() * playerCiv.population) + (Math.random() * 100));
+  playerCiv.land += pop * 40 + (Math.random() * 15);
+  setLandAmount();
+  setLandPercent();
 
   //elt('.research-text').textContent = playerCiv.research.toString();
   u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
@@ -364,6 +383,9 @@ function updatePopulation(pop:number) {
   u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
 
   addCitizen('farmer', pop, '.farmer-num-text');
+
+  popMetric.setAttribute('data-tooltip', `${u.abbrNum(playerCiv.populationReal) + ' people'}`);
+  updateTooltip(popMetric);
 
   updatePopulationEmployed();
 
@@ -471,6 +493,18 @@ function checkBuildingCosts() {
       item.setAttribute('data-purchaseable', false);
     }
   });
+}
+
+function setLandAmount() {
+  let land = playerCiv.land;
+  let landElement = u.elt('.metric-land');
+
+  let populationDensity = Math.floor(playerCiv.populationReal / playerCiv.land);
+
+  landElement.setAttribute('data-tooltip', `Population Density: ${populationDensity} / km<sup>2</sup>`);
+  updateTooltip(landElement);
+
+  landElement.innerHTML = `${u.abbrNum(Math.floor(playerCiv.land))} km<sup>2</sup>&nbsp;  <img src='img/land.png'>`;
 }
 
 function setLandPercent() {
@@ -596,7 +630,7 @@ function populateBuildings() {
         <div style='text-align:center'>
           <span class='building-total' data-building='${b.name}' title='how many you own'>${b.amount}</span>
           <span class='building-name'>${b.name}</span>
-          <span class='building-cost'><span class='building-cost-text data-id='${i}'>${b.prodCost}</span> <img src='img/prod.png'></span>
+          <span class='building-cost'><span class='building-cost-text' data-id='${i}'>${b.prodCost}</span> <img src='img/prod.png'></span>
           <span class='building-description'>${b.description}</span>
         </div>
         <span class='building-effect' data-building='${b.name}'>${b.effect}</span>

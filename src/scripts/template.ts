@@ -414,7 +414,7 @@ class Templates {
                 <img src='img/food.png'>
               </span>
             </button>
-            <span class='civ-metric metric-population' data-toolitp='${playerCiv.populationReal + ' people'}'>
+            <span class='civ-metric metric-population' data-tooltip='${u.abbrNum(playerCiv.populationReal) + ' people'}'>
               Population: <img src='img/citizen.png'> <span class='population-text'>${playerCiv.population}</span>
             </span>
             <span data-tooltip='Your net migration per minute' class='civ-metric metric-migration'>
@@ -423,7 +423,7 @@ class Templates {
           </div>
           <div class='panel civ-metric-panel'>
             <span data-tooltip='Your total land' class='civ-metric metric-land'>
-              ${playerCiv.land} km <img src='img/land.png'>
+              ${playerCiv.land} km<sup>2</sup> <img src='img/land.png'>
             </span>
             <span data-tooltip='The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>

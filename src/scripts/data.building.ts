@@ -48,6 +48,12 @@ let graveyard:Building = new Building('Graveyard', 0, 30, 300, 'Here, your (dead
 let igloo:Building = new Building('Igloo', 0, 25, 250, 'Oh, baby it\'s cold outside...', 'Requires Tundra Biome. +2 <img src="img/happy.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.happinessFromBuildings += 2;
 });
+let sphinx:Building = new Building('Sphinx', 0, 115, 1150, 'A triumphant declaration of your love for cats.', '+2 <img src="img/culture.png"> Requires <img src="img/desert.png" title="desert"> biome', true, false, function (playerCiv:Civilization) {
+  playerCiv.culturePM += 2;
+})
+let defenseTower:Building = new Building('Defense Tower', 0, 312, 3120, 'Perfect for stalkers who want a bit of privacy.', '+10% <img src="img/defense.png"> (Max: 1)', true, false, function (playerCiv:Civilization) {
+  playerCiv.defenseMod *= 1.1;
+});
 let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defend the state!', '+5 <img src="img/defense.png">', true, false, function (playerCiv:Civilization) {
   playerCiv.defense += 5;
   //notify({message: `Much better than the one made out of pillows. (<img src='img/defense.png'> ${playerCiv.defense})`})
@@ -69,7 +75,7 @@ let walls:Building = new Building('Walls', 0, 400, 4000, 'B U I L D  W A L L', '
 
 let buildings:Collection<Building> = new Collection('Buildings',
                                           [
-                                            hut, granary, quarry, barracks, temple, ancientCourt, asclepeia, graveyard, igloo, fort, ziggurat,
+                                            hut, granary, quarry, barracks, temple, ancientCourt, asclepeia, graveyard, igloo, fort, sphinx, defenseTower, ziggurat,
                                             ampitheatre, collesseum, courthouse, forum, harbor, lighthouse,  market, mint, plantation, walls
                                           ])
 

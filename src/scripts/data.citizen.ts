@@ -23,7 +23,7 @@ let miner:Citizen = new Citizen('miner', 'miner', '#CCBE93', 0, 'Miners provide 
   u.elt('.r-prod-ps').textContent = resources.get('prod').perSecond.toFixed(1);
   console.log(resources.get('prod'));
 });
-let woodcutter:Citizen = new Citizen('woodcutter', 'woodcutter', '#8C775B', 0, 'Woodcutters provide +.2 <img src="img/prod.png"> PC and +.2 PS', { name: 'prod', mod: 'PC', amount: .2 }, { name: 'prod', mod: 'PS', amount: .2 }, {}, {}, true, false, function (amount:number, resources:Collection<Resource>) {
+let woodcutter:Citizen = new Citizen('woodcutter', 'woodcutter', '#8C775B', 0, 'Woodcutters provide +.2 <img src="img/prod.png"> PC and +.2 PS', { name: 'prod', mod: 'PC', amount: .4 }, { name: 'prod', mod: 'PS', amount: .4 }, {}, {}, true, false, function (amount:number, resources:Collection<Resource>) {
   resources.get('prod').perClick += amount * this.contrib1.amount;
   resources.get('prod').perSecond += amount * this.contrib2.amount;
   u.elt('.r-prod-pc').textContent = resources.get('prod').perClick.toFixed(1);

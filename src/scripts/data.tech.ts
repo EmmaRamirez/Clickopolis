@@ -211,6 +211,7 @@ let woodworking:Tech = new Tech(
     u.unlockCitizen('woodcutter', citizens);
     u.unlockBuilding('Fort', buildings);
     buildings.get('Hut').prodCost = Math.floor(buildings.get('Hut').prodCost / 2);
+    u.elt('.building-cost-text[data-id="0"]').textContent = buildings.get('Hut').prodCost;
   }
 );
 let writing:Tech = new Tech(

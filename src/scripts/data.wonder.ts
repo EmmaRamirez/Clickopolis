@@ -76,6 +76,7 @@ let parthenon = new Wonder(
   },
   function (playerCiv:Civilization) {
     playerCiv.legacy += 5;
+    playerCiv.culturePMMod *= 1.2;
   }
 );
 let greatWall = new Wonder(

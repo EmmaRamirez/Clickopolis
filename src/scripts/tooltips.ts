@@ -39,8 +39,10 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
   offsetY: 10
 }) {
   let text = elt.getAttribute('data-tooltip');
+
   let tooltip = document.createElement('div');
   tooltip.className = 'tooltip';
+
   tooltip.innerHTML = `${text}`;
   elt.addEventListener('mouseenter', function (event:any) {
     tooltip.style.left = event.clientX + opts.offsetX + 'px';
@@ -52,6 +54,6 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
     tooltip.style.top = event.clientY + opts.offsetY + 'px';
   });
   elt.addEventListener('mouseleave', function (event:any) {
-    if (tooltip.parentNode === elt) elt.removeChild(tooltip);
+    tooltip.remove();
   });
 }
