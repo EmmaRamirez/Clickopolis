@@ -69,6 +69,7 @@ class Templates {
             <option value='John F Kennedy'>John F Kennedy</option>
             <option value='Vladimir Lenin'>Vladimir Lenin</option>
             <option value='Mao Zedong'>Mao Zedong</option>
+            <option value='Montezuma II'>Montezuma II</option>
           </select>
 
           <label for='name'>Name</label>
@@ -96,6 +97,9 @@ class Templates {
             </li>
             <li data-value='Plains'>
               <img src='img/plains.png'> Plains
+            </li>
+            <li data-value='Tundra'>
+              <img src='img/tundra.png'> Tundra
             </li>
           </ul>
           <input type='hidden' name='biome' id='biome-input'>
@@ -399,9 +403,14 @@ class Templates {
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
-          <p class='center-text citizens-employed'>
-            <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
-          </p>
+          <div class='citizens-screen-items'>
+            <p class='center-text citizens-employed citizens-screen-item'>
+              <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
+            </p>
+            <div class='citizen-amount-setter-wrapper citizens-screen-item'>
+              Amount: <input type='number' min='1' class='citizen-amount-setter' value='1'>
+            </div>
+          </div>
           <br>
           <div class='citizen-percentages'></div>
           <span class='citizens'></span>
@@ -482,7 +491,12 @@ class Templates {
           </a>
           <a href='#technology'>
           <div class='overview-item overview-technology'>
-            <div class='overview-item-name'>Technology</div>
+            <div class='overview-item-name'>
+              Technology
+              <span class='can-purchase-tech'>
+                You Can Research a New Technology
+              </span>
+            </div>
             <div class='overview-item-inner'>
               <img src='img/research.png'> <span class='research-text'>${playerCiv.research.toFixed(1)}</span> <sup class='research-PM'>${playerCiv.researchPM}</sup>
               <div class='research-progress-bar'></div>
@@ -730,13 +744,44 @@ class Templates {
             <span class='culture-PM'>${playerCiv.culture}</span> <img src='img/culture.png'> total
           </div>
         </section>
-        <section class='culture-screen-inner'>
-
+        <section class='culture-screen-inner selected-culture-cards'>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+        </section>
+        <section class='culture-screen-inner culture-cards'>
+          <div class='culture-card' draggable='true' data-type='military'>
+            <span class='culture-card-name'>Code of Honor</span>
+            <span class='culture-card-description'>+3 Soldier <img src='img/strength.png'></span>
+          </div>
+          <div class='culture-card' draggable='true' data-type='diplomatic'>
+            <span class='culture-card-name'>Noble Statesmen</span>
+            <span class='culture-card-description'>+5 International Influence <img src='img/influence-international.png'></span>
+          </div>
+          <div class='culture-card' draggable='true' data-type='faith'>
+            <span class='culture-card-name'>Visiting Shaman</span>
+            <span class='culture-card-description'>Provides 1 Free Cleric</span>
+          </div>
         </section>
       </section>
     `;
     return cultureScreen;
   }
+
+  // Pantheon
+  // Belief
+  // Dogma
+  // Holy
+  // Ultimate
 
   createFaithScreen(playerCiv:Civilization) {
     let faithScreen = `
@@ -750,6 +795,11 @@ class Templates {
           </div>
           <div class='faith-wrapper' data-tooltip='Your total faith amount.'>
             <span class='faith-total'>${playerCiv.faith}</span> <img src='img/faith.png'> total</span>
+          </div>
+        </section>
+        <section class='faith-screen-inner faith-bonuse-info'>
+          <div class='faith-info center-text white'>
+            You may have a max of 7 Pantheons
           </div>
         </section>
         <section class='faith-screen-inner fb-container'>
@@ -769,6 +819,15 @@ class Templates {
         <section class='legacy-screen-inner'>
           <div class='legacy-wrapper'>
             <img src='img/legacy.png'> <span class='legacy-points'>${playerCiv.legacy}</span> Legacy Points
+          </div>
+        </section>
+        <section class='legacy-screen-inner'>
+          <div class='pass-on-legacy'>
+            <img src='img/legacy-pass.png'>
+            <span>PASS ON YOUR LEGACY</span>
+            <span class='legacy-points-gain'>
+              <img src='img/legacy.png'> 1.25K
+            </span>
           </div>
         </section>
         <section class='legacy-screen-inner legacy-bonuses'>

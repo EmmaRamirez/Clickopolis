@@ -22,3 +22,78 @@
   padding: .25rem;
   text-align: center;
   width: 15rem;
+  
+.culture-cards,
+.selected-culture-cards
+  padding: .5rem;
+.selected-culture-cards
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  .culture-card
+    margin: .25rem;
+.culture-cards
+  height: 60%;
+  padding: 0;
+  overflow-y: auto;
+  &::-webkit-scrollbar
+    width: 4px;
+    height: 4px;
+  &::-webkit-scrollbar-button
+    width: 0px;
+    height: 0px;
+  &::-webkit-scrollbar-thumb
+    background: #525252;
+    border: 0px none #ffffff;
+.culture-card
+  align-items: center;
+  align-content: center;
+  background: #C41B7E;
+  border: 6px solid rgba(black, 0.4);
+  background: linear-gradient(to bottom, white, #ddd, white);
+  border-radius: 4px;
+  color: #333;
+  display: inline-flex;
+  flex-flow: column;
+  height: 11rem;
+  justify-content: flex-start;
+  margin: .25rem;
+  padding: .5rem;
+  position: relative;
+  transition: 500ms all;
+  width: 7.85rem;    
+  &[data-type='military']
+    border-color: rgba(#DB1818, 0.7);
+  &[data-type='diplomacy']
+    border-color: rgba(#F57F2C, 0.7);
+  &[data-type='faith']
+    border-color: #fff;
+  &[data-unlocked='false']
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 500ms all;
+  &[data-unlocked='true']
+    cursor: -webkit-grab;
+    transition: 500ms all;
+  &[data-active='true']
+    border-style: dashed;
+  .culture-card-name
+    border-bottom: 1px dashed #333;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  .culture-card-description
+    font-size: .8rem;
+  .culture-card-cost
+    background: #C41B7E;
+    border-radius: 4px;
+    bottom: .25rem;
+    align-self: stretch;
+    color: #eee;
+    padding: .25rem;
+    position: absolute;
+    text-align: center;
+  &.empty
+    background: #262626;
+    border: 1px dashed #666;
+    color: white;
+    justify-content: center;

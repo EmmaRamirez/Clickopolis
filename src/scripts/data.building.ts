@@ -50,10 +50,10 @@ let graveyard:Building = new Building('Graveyard', 0, 30, 300, 'Here, your (dead
   args.playerCiv.pollutionFromBuildings -= 1;
   //notify({message: `Good idea, let's keep the dead bodies away. (<img src='img/pollution.png'> ${playerCiv.pollution})`});
 });
-let igloo:Building = new Building('Igloo', 0, 25, 250, 'Oh, baby it\'s cold outside...', 'Requires Tundra Biome. +2 <img src="img/happy.png">', true, true, function (args) {
+let igloo:Building = new Building('Igloo', 0, 25, 250, 'Oh, baby it\'s cold outside...', 'Requires Tundra <img src="img/tundra.png"> Biome. +2 <img src="img/happy.png">', true, true, function (args) {
   args.playerCiv.happinessFromBuildings += 2;
 });
-let sphinx:Building = new Building('Sphinx', 0, 115, 1150, 'A triumphant declaration of your love for cats.', '+2 <img src="img/culture.png"> Requires <img src="img/desert.png" title="desert"> biome', true, false, function (args) {
+let sphinx:Building = new Building('Sphinx', 0, 115, 1150, 'A triumphant declaration of your love for cats.', '+2 <img src="img/culture.png"> Requires Desert <img src="img/desert.png" title="desert"> biome', true, false, function (args) {
   args.playerCiv.culturePM += 2;
 })
 let defenseTower:Building = new Building('Defense Tower', 0, 312, 3120, 'Perfect for stalkers who want a bit of privacy.', '+10% <img src="img/defense.png"> (Max: 1)', true, false, function (args) {
@@ -71,7 +71,7 @@ let ampitheatre:Building = new Building('Ampitheatre', 0, 800, 8000, 'Sick of dr
 let collesseum:Building = new Building('Collosseum', 0, 700, 7000, 'Bring out the lions!', '+10 <img src="img/happy.png">', true, false);
 let courthouse:Building = new Building('Courthouse', 0, 500, 5000, 'Bringing Law & Order to the Classical era.', '+1 <img src="img/influence-domestic.png">', true, false);
 let forum:Building = new Building('Forum', 0, 400, 4000, 'Not <em>that kind</em> of forum.', '+5 <img src="img/research.png"> PM', true, false);
-let harbor:Building = new Building('Harbor', 0, 400, 4000, 'The peer of a harbor is a dock.', 'Doubles <img src="img/health.png"> bonus of <img src="img/fish.png">', true, false);
+let harbor:Building = new Building('Harbor', 0, 400, 4000, 'The peer of a harbor is a dock.', 'Requires Coast <img src="img/coast.png"> or Island <img src="img/island.png"> biome. Doubles <img src="img/health.png"> bonus of <img src="img/fish.png">', true, false);
 let lighthouse:Building = new Building('Lighthouse', 0, 500, 5000, 'We see the sea for you.', '+2 Navy <img src="img/strength.png">', true, false);
 let market:Building = new Building('Market', 0, 450, 4500, 'Ripoffs and stale meat galore!', '+20 <img src="img/coin.png">', true, false);
 let mint:Building = new Building('Mint', 0, 900, 9000, 'Keep your money mint-fresh.', '+1% <img src="img/coin.png"> per 10 <img src="img/gold.png">', true, false);

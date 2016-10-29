@@ -4,7 +4,7 @@ import Collection = require('./collection');
 
 let tactical:Trait = {
 	name: 'tactical',
-	description: `<ul>Description about tactical.</ul>`,
+	description: `<ul><li>Intelligence on rivals increased for each General in your army.</li><li>Can trigger Turning Point Battle against foes of similar strength.</li></ul>`,
 	unlocked: true
 }
 
@@ -79,13 +79,19 @@ let vladimirLenin = new Leader(
 		[]
 	);
 
+let montezumaII = new Leader(
+		'Montezuam II',
+		[]
+	);
+
 export const leaders = new Collection<Leader>('leaders', [
 		abrahamLincoln,
 		magaretThatcher,
 		nelsonMandela,
 		maoZedong,
 		jfk,
-		vladimirLenin
+		vladimirLenin,
+		montezumaII
 
 	]);
 

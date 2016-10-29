@@ -94,6 +94,9 @@ class Civilization {
   culturePM: number;
   culturePMMod: number;
 
+  socialPolicySlots: number;
+  socialPolicies: any[];
+
   strength: number;
   strengthMod: number;
   defense: number;
@@ -185,6 +188,9 @@ class Civilization {
     this.culture = 0;
     this.culturePM = 0;
     this.culturePMMod = 1;
+
+    this.socialPolicySlots = 3;
+    this.socialPolicies = [];
 
     this.strength = 10;
     this.strengthMod = 1;

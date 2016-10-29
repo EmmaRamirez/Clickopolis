@@ -1,5 +1,6 @@
 import { Utils, iterateOverNodelist } from './utils';
 import FaithBonus = require('./faithbonus');
+import FaithTier = require('./faithtier');
 import Civilization = require('./civilization');
 import faithBonusData = require('./data.faithbonus');
 import resourceData = require('./data.resource');
@@ -33,7 +34,7 @@ export function updateFaithElts(playerCiv) {
   }, this);
 }
 
-export function populateFaithBonuses(playerCiv:Civilization, ) {
+export function populateFaithBonuses(playerCiv:Civilization) {
   let fbContainer = u.elt('.fb-container');
   fbContainer.innerHTML = '';
 
@@ -83,8 +84,8 @@ export function updateFaithBonuses(playerCiv) {
   let fbCosts = u.elt('.faith-bonus-cost', true);
   let fbs = u.elt('.faith-bonus', true);
   // TODO: Fix calculation
-  [].forEach.call(fbCosts, function (item:any, index:number) {
+  iterateOverNodelist(fbCosts, (item, index) => {
     let fb = fbs[index].getAttribute('data-faith-bonus');
     item.innerHTML = u.abbrNum(playerCiv.faithCost * faithBonuses.get(fb).tier);
-  });
+  }, this);
 }

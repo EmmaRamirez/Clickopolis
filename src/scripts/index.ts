@@ -33,6 +33,7 @@ import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './ut
 import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
 import { setLandAmount, setLandPercent } from './utils.land';
 import { addCash, updateCashPM } from './utils.economy';
+import { populateCultureCards, createCultureCardSlots, cultureCardEvents } from './utils.culture';
 
 import { notify } from './notify';
 import { log } from './log';
@@ -49,6 +50,7 @@ import faithBonusData = require('./data.faithbonus');
 import achievementData = require('./data.achievement');
 import legacyData = require('./data.legacy');
 import { leaders } from './data.leader';
+import { socialPolicies } from './data.socialpolicy';
 
 //require('!raw!stylus!../styles/stylus/index.styl');
 
@@ -66,7 +68,7 @@ let legacyBonuses = legacyData;
 
 let history:string[];
 
-let game:Game = new Game(0);
+let game:Game = new Game();
 let playerCiv:Civilization;
 let templates:Templates = new Templates();
 
@@ -105,11 +107,14 @@ function scrollHorizontally(e:any) {
 
 function saveGame():void {
   store.set('game', game);
-  store.get('game');
 }
 
 function savePlayer():void {
   store.set('playerCiv', playerCiv);
+}
+
+function saveHistory() {
+  store.set('history', history);
 }
 
 
@@ -131,8 +136,8 @@ function saveData():void {
   store.set('wonders', wonders);
   store.set('faithBonuses', faithBonuses);
   store.set('achievements', achievements);
-
-  console.log(store.get('resources'));
+  saveGame();
+  saveHistory();
 }
 
 
@@ -185,16 +190,22 @@ function startGame() {
     let loadWonders = store.get('wonders');
     let loadFaithBonuses = store.get('faithBonuses');
     let loadAchievements = store.get('achievements');
+    let loadGame = store.get('game');
+    let loadHistory = store.get('history');
 
     resources.items = loadResources.items;
     achievements.items = loadAchievements.items;
     citizens.items = loadCitizens.items;
+
+    game = loadGame;
+    history = loadHistory;
 
 
     startSavedGame();
   } else {
     startNewGame();
     playerCiv = new Civilization('', '', new Leader('', []), new Collection('biomes', [new Biome('')]));
+    history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
     //console.log(playerCiv);
   }
 }
@@ -312,9 +323,6 @@ function startNewGame() {
       });
     }
     u.elt('.traits-list').innerHTML = generateTraits(traits).join('');
-    iterateOverNodelist(u.elt('.trait-info', true), (item, index) => {
-      updateTooltip(item);
-    }, this);
   }
 
   u.elt('#civ-leader-select').addEventListener('change', function() {
@@ -469,12 +477,14 @@ function createGameUI() {
   populateAchievements(achievements);
   populateBiomes();
   populateLegacy();
+  populateCultureCards(socialPolicies);
+
+  createCultureCardSlots(playerCiv);
 
   generateCitizenPercents();
 
   setTechQueue();
 
-  history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
   renderHistory(history);
   updateFaithElts(playerCiv);
 
@@ -484,6 +494,9 @@ function createGameUI() {
   wonderClick();
   faithBonusClick(playerCiv);
   legacyBonusClick(playerCiv);
+  cultureCardEvents(socialPolicies);
+
+  citizenAmountHandler();
 
   generateTooltips();
   generateHappinessTooltip(playerCiv);
@@ -751,11 +764,12 @@ function populateCitizens() {
     //let d:string;
     citizensContainer.innerHTML += `
     <div class='row citizen-${c.name}' data-visible='${c.visible}' data-enabled='${c.enabled}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
+      <strong style='display: inline-block; text-align: center; width: 3rem;' class='${c.name}-num-text'>${c.amount}</strong> 
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
       <span class='citizen-icon'><img src='img/${c.image}.png'></span>
       <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
       <span class='citizen-info'>
-        ${u.capitalize(c.name + 's')}: <strong class='${c.name}-num-text'>${c.amount}</strong> | <span class='contrib' data-citizen='${c.name}'>${u.setContributions(c) }</span>
+        ${u.capitalize(c.name + 's')}: <span class='contrib' data-citizen='${c.name}'>${u.setContributions(c) }</span>
       </span>
     </div>
     `;
@@ -947,8 +961,10 @@ function addResearchPoints() {
 
   if (playerCiv.research > playerCiv.researchCost) {
     u.elt('.research-exceeding').textContent = 'You are currently exceeding your current tech goal.';
+    u.elt('.can-purchase-tech').style.display = 'inline-block';
   } else {
     u.elt('.research-exceeding').textContent = '';
+    u.elt('.can-purchase-tech').style.display = 'none';
   }
 
   checkAutomaticTechPurchase();
@@ -1023,18 +1039,35 @@ function citizenClick() {
       if (citizens.get(citizen).name === 'ruler') {
         notify({message:'You can\'t have more than one ruler!'}, isWindowActive);
       } else {
-        if (citizens.get(citizen).amount === 0 && amount < 0) {
-          //notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'});
+        if (citizens.get(citizen).amount === 0 && amount < 0 || (citizens.get(citizen).amount + amount) < 0) {
+          notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'}, true);
         } else {
           if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
-            //notify({message:'All of your population is already employed!'});
+            notify({message:'All of your population is already employed!'}, true);
           } else {
-            addCitizen(citizen, amount, sel);
+            if (amount > (playerCiv.population - playerCiv.populationEmployed)) {
+              notify({ message: 'You cannot assign more ' + citizens.get(citizen).name+ 's than you have unemployed citizens!'}, true);
+            } else {
+              addCitizen(citizen, amount, sel);
+            }
           }
         }
       }
     });
   });
+}
+
+function citizenAmountHandler() {
+  let setterInput = u.elt('.citizen-amount-setter');
+
+  setterInput.addEventListener('change', () => {
+    iterateOverNodelist(u.elt('[data-citizen-amount]', true), (item, index) => {
+      let amount = Number(item.getAttribute('data-citizen-amount'));
+      amount > 0 ? amount = setterInput.value : amount = -1 * setterInput.value;
+      item.setAttribute('data-citizen-amount', amount);
+      item.textContent = amount;
+    }, this);
+  })
 }
 
 function addCitizen(citizen:string, amount: number, sel:string) {
@@ -1074,6 +1107,11 @@ function buildingClick() {
 
       if (buildings.get('Hut').amount >= 10) {
         playerCiv.hutHappiness = 3;
+      }
+
+      if (building.name === 'Igloo' && playerCiv.biomes.contains('Tundra')) {
+        notify({ message: 'Igloo requires that you have the Tundra biome in your nation!' }, true);
+        return;
       }
 
       if (resources.get('prod').total >= buildings.get(building).prodCost) {

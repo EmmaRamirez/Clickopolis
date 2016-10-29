@@ -11,8 +11,8 @@ class Game {
   totalLand: number;
   version: string;
 
-  constructor(introStep: number) {
-    this.introStep = introStep;
+  constructor() {
+    this.introStep = 0;
     this.era = Era.Ancient;
     this.year = 0;
     this.time = 0;
