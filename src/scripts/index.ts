@@ -17,6 +17,7 @@ import { BiomeType, Biome } from './biome';
 import { Trait, Leader } from './leader';
 import Resource = require('./resource');
 import Citizen = require('./citizen');
+import { citizenFunction, citizenFunctionOptions } from './data.citizenfunctions';
 import Building = require('./building');
 import Wonder = require('./wonder');
 import Tech = require('./tech');
@@ -35,7 +36,7 @@ import { addCash, updateCashPM } from './utils.economy';
 
 import { notify } from './notify';
 import { log } from './log';
-import { generateTooltips, updateTooltip } from './tooltips';
+import { generateTooltips, updateTooltip, betterUpdateTooltip } from './tooltips';
 
 
 import techData = require('./data.tech');
@@ -187,6 +188,7 @@ function startGame() {
 
     resources.items = loadResources.items;
     achievements.items = loadAchievements.items;
+    citizens.items = loadCitizens.items;
 
 
     startSavedGame();
@@ -490,6 +492,7 @@ function createGameUI() {
   generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
 
+  
   setInterval(() => secondUpdates(), 1000);
   setInterval(() => minuteUpdates(), 1000 * 60);
 }
@@ -1029,17 +1032,26 @@ function citizenClick() {
             addCitizen(citizen, amount, sel);
           }
         }
-
       }
     });
   });
 }
 
 function addCitizen(citizen:string, amount: number, sel:string) {
+  let options:citizenFunctionOptions = {
+    citizens: citizens,
+    playerCiv: playerCiv,
+    resources: resources,
+    amount: amount,
+  };
   citizens.get(citizen).amount += amount;
   playerCiv.populationEmployed += amount;
   updatePopulationEmployed();
-  citizens.get(citizen).func(amount, resources, playerCiv);
+
+  //citizens.get(citizen).func(amount, resources, playerCiv);
+
+  citizenFunction(citizen, options);
+
   //console.log(citizens.get(citizen).func);
   u.elt(sel).textContent = citizens.get(citizen).amount;
   generateCitizenPercents();
