@@ -1,6 +1,6 @@
 import Collection = require('./collection');
 import Resource = require('./resource');
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import Building = require('./building');
 import Wonder = require('./wonder');
 
@@ -8,6 +8,14 @@ export const iterateOverNodelist = function (array:NodeListOf<any>, callback:Fun
   for (let i = 0; i < array.length; i++) {
     callback.call(scope, array[i], i);
   }
+};
+
+export function bindElement(node:string, eventType:string, callback:Function) {
+  let el = <HTMLElement>document.querySelector(node);
+  el.addEventListener(eventType, function (event:Event) {
+    //console.log(callback)
+    callback.call(this, event);
+  });
 };
 
 export class Utils {

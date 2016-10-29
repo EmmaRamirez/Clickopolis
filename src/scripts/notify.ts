@@ -31,9 +31,6 @@ export function notify(note:Note, isWindowActive):void {
         notification.className = 'notification hidden';
       }, note.time);
     }
-    if (typeof note.history !== 'undefined' && typeof note.year !== 'undefined') {
-      note.history.push(`<strong>${note.year}:</strong> note.message`);
-    }
     console.log(note);
   } else {
     let options = {
@@ -50,5 +47,8 @@ export function notify(note:Note, isWindowActive):void {
         }
       })
     }
+  }
+  if (typeof note.history !== 'undefined' && typeof note.year !== 'undefined') {
+    note.history.push(`<strong>${note.year}:</strong> note.message`);
   }
 }

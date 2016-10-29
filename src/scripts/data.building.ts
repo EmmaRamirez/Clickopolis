@@ -10,11 +10,10 @@ let u = new Utils();
 interface BuildingArgs {
   playerCiv: Civilization,
   resources: Collection<Resource>,
-  hutHappiness: number,
 }
 
 let hut:Building = new Building('Hut', 0, 15, 150, 'Air conditioning would be nice though.', '+1 <img src="img/happy.png">, +3 <img src="img/happy.png"> after you build 10', true, true, function (args:BuildingArgs) {
-  args.playerCiv.happinessFromBuildings += args.hutHappiness;
+  args.playerCiv.happinessFromBuildings += args.playerCiv.hutHappiness;
   //u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
   //notify({message:`The new hut has made your citizens gracious. (<img src="img/happy.png"> ${playerCiv.happiness})`});
 });

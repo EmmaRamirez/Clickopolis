@@ -1,7 +1,7 @@
 import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import Wonder = require('./wonder');
 import Collection = require('./collection');
 import { Utils } from './utils';
@@ -37,7 +37,7 @@ class Templates {
                 <img src="img/legacy.png"> ${playerCiv.legacy}
               </span>
               <span>
-                <img src="img/coin.png"> ${playerCiv.cash}
+                <img src="img/coin.png"> ${u.abbrNum(playerCiv.cash.toFixed(2))}
               </span>
               <span>
                 <img src="img/wonder.png"> ${playerCiv.wondersBuilt}
@@ -72,7 +72,7 @@ class Templates {
           </select>
 
           <label for='name'>Name</label>
-          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='12' value='' tabindex='2' />
+          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='20' value='' tabindex='2' />
 
           <label for='civilizationName'>Civilization</label>
           <input type='text' id="civName"  placeholder='Jaketopia' maxlength='20' value='' tabindex='3' />
@@ -220,10 +220,10 @@ class Templates {
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
 
-            <span class='resource-info r-food-total r-food' data-label='total'>${resources.get('food').total}</span>
-            <span class='resource-info r-food-pc r-food' data-label='per click' data-toolitp='the amount of food you earn per click'>${resources.get('food').perClick}</span>
-            <span class='resource-info r-food-ps r-food' data-label='per sec' data-toolitp='the amount of food you earn per second'>${resources.get('food').perSecond}</span>
-            <span class='resource-info r-food-max r-food' data-label='max'>${resources.get('food').max}</span>
+            <span class='resource-info r-food-total r-food' data-label='total'>${resources.get('food').total.toFixed(0)}</span>
+            <span class='resource-info r-food-pc r-food' data-label='per click' data-toolitp='the amount of food you earn per click'>${resources.get('food').perClick.toFixed(1)}</span>
+            <span class='resource-info r-food-ps r-food' data-label='per sec' data-toolitp='the amount of food you earn per second'>${resources.get('food').perSecond.toFixed(1)}</span>
+            <span class='resource-info r-food-max r-food' data-label='max'>${resources.get('food').max.toFixed(0)}</span>
 
 
           </div>
@@ -435,7 +435,7 @@ class Templates {
           </div>
           <div class='panel civ-metric-panel'>
             <span data-tooltip='Your total land' class='civ-metric metric-land' data-tooltip=''>
-              ${playerCiv.land} km<sup>2</sup> <img src='img/land.png'>
+              ${playerCiv.land.toFixed(0)} km<sup>2</sup> <img src='img/land.png'>
             </span>
             <span data-tooltip='The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>
@@ -476,7 +476,7 @@ class Templates {
           <div class='overview-item overview-economy'>
             <div class='overview-item-name'>Economy</div>
             <div class='overview-item-inner'>
-              <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span> <sup class='cash-PM'>${playerCiv.cashPM}</sup>
+              <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash.toFixed(2)}</span> <sup class='cash-PM'>${playerCiv.cashPM}</sup>
             </div>
           </div>
           </a>
@@ -484,7 +484,7 @@ class Templates {
           <div class='overview-item overview-technology'>
             <div class='overview-item-name'>Technology</div>
             <div class='overview-item-inner'>
-              <img src='img/research.png'> <span class='research-text'>${playerCiv.research}</span> <sup class='research-PM'>${playerCiv.researchPM}</sup>
+              <img src='img/research.png'> <span class='research-text'>${playerCiv.research.toFixed(1)}</span> <sup class='research-PM'>${playerCiv.researchPM}</sup>
               <div class='research-progress-bar'></div>
               <span class='research-cost-text'>10</span>
             </div>
@@ -492,10 +492,9 @@ class Templates {
           </a>
           <a href='#faith'>
           <div class='overview-item overview-faith'>
-            <div class='overview-item-name'>Faith</div>
+            <div class='overview-item-name'>Faith <span class='can-purchase-faith-upgrades'>You Can Purchase Faith Upgrades</span></div>
             <div class='overview-item-inner'>
               <img src='img/faith.png'> <span class='faith-total'>${playerCiv.faith}</span> <sup class='faith-PM'>${playerCiv.faithPM}</sup>
-              <span class='can-purchase-faith-upgrades'>You Can Purchase Faith Upgrades</span>
             </div>
           </div>
           </a>
@@ -565,6 +564,9 @@ class Templates {
           <div class='panel buildings-mode'>
             <span class='prod-wrapper'><span class='prod-total'>${resources.get('prod').total}</span> <img src='img/prod.png'></span>
             <button class='purchase-mode-btn hidden'>Purchase Mode</button>
+            <br>
+            <div class='center-text white'>Each building has a maintenance cost of <img src='img/cash.png'> 1.
+            </div>
           </div>
         </section>
         <section class='buildings-screen-inner buildings'>

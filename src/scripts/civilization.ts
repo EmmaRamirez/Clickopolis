@@ -29,6 +29,8 @@ class Civilization {
   happinessFromFaithBonuses: number;
   happinessMod: number;
 
+  hutHappiness: number;
+
   anger: number;
   angerFromPopulation: number;
   angerMod: number;
@@ -122,6 +124,8 @@ class Civilization {
     this.happinessFromResources = 0;
     this.happinessFromCultureBonuses = 0;
     this.happinessFromFaithBonuses = 0;
+
+    this.hutHappiness = 1;
 
     this.anger = 0;
     this.angerMod = 1;

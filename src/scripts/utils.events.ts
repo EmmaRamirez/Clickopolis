@@ -1,12 +1,12 @@
 import Civilization = require('./civilization');
-import notify = require('./notify');
 import Collection = require('./collection');
 import { Utils } from './utils';
+import { notify } from './notify';
 
 import Resource = require('./resource');
 import resourceData = require('./data.resource')
 
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import citizenData = require('./data.citizen');
 
 let u = new Utils();
@@ -110,6 +110,7 @@ interface RollEventOptions {
   playerCiv: Civilization;
   resources: Collection<Resource>;
   citizens: Collection<Citizen>;
+  isWindowActive: boolean; 
 }
 
 export function rollEvent(options:RollEventOptions) {

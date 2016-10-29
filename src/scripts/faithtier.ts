@@ -1,4 +1,4 @@
-enum Tier {
+enum FaithTier {
   Pantheon = 1,
   Belief = 10,
   Dogma = 100,
@@ -6,4 +6,4 @@ enum Tier {
   Ultimate = 100000
 }
 
-export = Tier;
+export = FaithTier;

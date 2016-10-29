@@ -1,12 +1,12 @@
 import Collection = require('./collection');
 
-interface Contribution {
+export interface Contribution {
   name?: string;
   mod?: string;
   amount?: number;
 }
 
-class Citizen {
+export class Citizen {
   name: string;
   image: string;
   color: string;
@@ -41,4 +41,3 @@ class Citizen {
   }
 }
 
-export = Citizen;

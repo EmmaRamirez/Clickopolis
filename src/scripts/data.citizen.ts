@@ -1,4 +1,4 @@
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import Collection = require('./collection');
 import { Utils } from './utils';
 import Resource = require('./resource');

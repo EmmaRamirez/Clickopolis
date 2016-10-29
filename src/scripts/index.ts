@@ -5,7 +5,7 @@
 declare var Notification: any;
 
 import _ = require('underscore');
-import { Utils, iterateOverNodelist } from './utils';
+import { Utils, iterateOverNodelist, bindElement } from './utils';
 import Game = require('./game');
 import Queue = require('./queue');
 import Settings = require('./settings');
@@ -13,6 +13,7 @@ import Collection = require('./collection');
 import Era = require('./era');
 import Civilization = require('./civilization');
 import { BiomeType, Biome } from './biome';
+//import { biomeSelection } from './utils.biome';
 import { Trait, Leader } from './leader';
 import Resource = require('./resource');
 import Citizen = require('./citizen');
@@ -30,6 +31,7 @@ import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils
 import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils.health';
 import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
 import { setLandAmount, setLandPercent } from './utils.land';
+import { addCash, updateCashPM } from './utils.economy';
 
 import { notify } from './notify';
 import { log } from './log';
@@ -107,8 +109,31 @@ function saveGame():void {
 
 function savePlayer():void {
   store.set('playerCiv', playerCiv);
-  console.log(store.get('playerCiv'));
 }
+
+
+// let techs = techData;
+// let resources = resourceData;
+// let citizens = citizenData;
+// let buildings = buildingData;
+// let nations = nationData;
+// let wonders = wonderData;
+// let faithBonuses = faithBonusData;
+// let achievements = achievementData;
+// let legacyBonuses = legacyData;
+
+function saveData():void {
+  store.set('resources', resources);
+  store.set('techs', techs);
+  store.set('citizens', citizens);
+  store.set('buildings', buildings);
+  store.set('wonders', wonders);
+  store.set('faithBonuses', faithBonuses);
+  store.set('achievements', achievements);
+
+  console.log(store.get('resources'));
+}
+
 
 function removeItem(arr:any[], item:any) {
   for (let i = arr.length - 1; i-- ; ) {
@@ -130,13 +155,7 @@ function append(node:any, html:string) {
   el.insertAdjacentHTML('afterend', html);
 }
 
-function bindElement(node:string, eventType:string, callback:Function) {
-  let el = <HTMLElement>document.querySelector(node);
-  el.addEventListener(eventType, function (event:Event) {
-    //console.log(callback)
-    callback.call(this, event);
-  });
-}
+
 
 
 function removeElement(element:HTMLElement) {
@@ -147,17 +166,29 @@ function removeElement(element:HTMLElement) {
 
 
 
-
-
-function newEra(era:string) {
-  // Stuff goes here to introduce new era
-}
-
-
 function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
     playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.leader, loadCiv.biomes);
+    
+    for (let i in loadCiv) {
+       if (playerCiv.hasOwnProperty(i)) {
+          playerCiv[i] = loadCiv[i];
+       }
+    }
+
+    let loadResources = store.get('resources');
+    let loadTechs = store.get('techs');
+    let loadCitizens = store.get('citizens');
+    let loadBuildings = store.get('buildings');
+    let loadWonders = store.get('wonders');
+    let loadFaithBonuses = store.get('faithBonuses');
+    let loadAchievements = store.get('achievements');
+
+    resources.items = loadResources.items;
+    achievements.items = loadAchievements.items;
+
+
     startSavedGame();
   } else {
     startNewGame();
@@ -173,6 +204,8 @@ function startSavedGame() {
   bindElement('.current-btn', 'click', function() {
     createGameUI();
   });
+
+  saveData();
 };
 
 
@@ -183,6 +216,8 @@ function startNewGame() {
   append('body', templates.startScreen);
 
   generateTooltips();
+
+
 
   let biomeInput = u.elt('#biome-input');
   let biomeClose = u.elt('.close-biome');
@@ -241,7 +276,6 @@ function startNewGame() {
     }
   });
 
-
   let toggleValue = 1;
   iterateOverNodelist(u.elt('.biome-select li', true), (item, index) => {
     item.addEventListener('click', function () {
@@ -269,7 +303,7 @@ function startNewGame() {
         let description = item.unlocked ? item.description : '<ul>This trait is locked until you pass on your Legacy.</ul>';
         let name = item.unlocked ? u.dasherize(item.name) : 'lock';
         let displayName = item.unlocked ? u.titlecase(item.name) : 'Locked Trait';
-        return `<div class='trait-info' data-tooltip="${description}">
+        return `<div class='trait-info'>
                   <img src='../img/${name}.png'><span>${displayName}</span>
                   ${description}
                 </div>`;
@@ -501,9 +535,7 @@ function updatePopulation(pop:number) {
   //elt('.research-text').textContent = playerCiv.research.toString();
   u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
 
-  iterateOverNodelist(u.elt('.cash-PM', true), (item) => {
-    item.textContent = playerCiv.cashPM;
-  }, this);
+  updateCashPM(playerCiv);
 
     
   //u.elt('.civ-anger-text').textContent = playerCiv.anger;
@@ -547,7 +579,7 @@ function secondUpdates() {
 
     updateTime();
     addGoldenAgePoints();
-    addCash();
+    addCash(playerCiv);
     addFaith(playerCiv);
     addResearchPoints();
     checkPopulationGrowthCost()
@@ -580,8 +612,11 @@ function minuteUpdates() {
        playerCiv: playerCiv,
        resources: resources,
        citizens: citizens,
+       isWindowActive: isWindowActive,
      });
      checkUnemployed();
+     savePlayer();
+     saveData();
   }
 }
 
@@ -791,14 +826,14 @@ function unlockAchievement(achievementName:string | number) {
     history.push(log({year: game.year, message: `The Empire of ${playerCiv.civName} unlocked the ${achievements.items[achievementName].name} achievement!`, categoryImage: 'achievements' }));
     notify({message: `Achievement Unlocked! ${achievements.items[0].name}: ${achievements.items[achievementName].description}`}, isWindowActive);
   }
+  playerCiv.achievements += 1;
 }
 
 
 function checkAchievements(achievements, game) {
-  let a = achievements;
 
   function check(name:string):boolean {
-    return !a.get(name).unlocked;
+    return !achievements.get(name).unlocked;
   }
 
   if (game.totalClicks >= 1 && check('Baby Clicker')) {
@@ -926,14 +961,7 @@ function checkAutomaticTechPurchase() {
   }
 }
 
-function addCash() {
-  playerCiv.cash += playerCiv.cashPM / 60;
-  let cashText = u.elt('.cash-text', true);
-  iterateOverNodelist(cashText, (item, index) => {
-    item.textContent = playerCiv.cash.toFixed(2);
-  }, this);
 
-}
 
 // function setInfluenceImage() {
 //   if (playerCiv.influence >= 0) {
@@ -1021,7 +1049,6 @@ function buildingClick() {
   let buildingsArgs = {
     playerCiv: playerCiv,
     resources: resources,
-    hutHappiness: 1,
   }
   let buildingEls = <NodeListOf<HTMLElement>>u.elt('.building', true);
 
@@ -1034,7 +1061,7 @@ function buildingClick() {
       let costSelt = '.building-cost-text';
 
       if (buildings.get('Hut').amount >= 10) {
-        buildingsArgs.hutHappiness = 3;
+        playerCiv.hutHappiness = 3;
       }
 
       if (resources.get('prod').total >= buildings.get(building).prodCost) {
