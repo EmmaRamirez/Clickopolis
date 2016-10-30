@@ -84,7 +84,7 @@ body
     text-shadow: 0 0 1rem b;
 
 .era-Classical
-  background-image: linear-gradient(to left, $b, $b), url('../img/classical.jpg') !important;
+  //background-image: linear-gradient(to left, $b, $b), url('../img/classical.jpg') !important;
 
 section
   z-index: 2;
@@ -287,8 +287,8 @@ section
   width: 10000px;
 
 .screen-header
-  background: $gold;
-  background: linear-gradient(to top, rgba(black, 0.7), rgba(black, 0.8)), url('../img/ancient.jpg');
+  //background: $gold;
+  //background: linear-gradient(to top, rgba(black, 0.7), rgba(black, 0.8)), url('../img/ancient.jpg');
   background-attachment: fixed;
   color: $clouds;
   height: 10%;
@@ -311,19 +311,31 @@ section
     align-content: space-between;
     border: 1px solid #111;
     border-top: 0 solid transparent;
-    background: rgba(white, 0.4);
+    background: #efefef;
     border-radius: 0 0 4px 4px;
-    display: flex;
+    color: #444;
+    //display: flex;
     height: 2.5rem;
     left: 20%;
     padding: .5rem;
     position: fixed;
+    text-align: center;
     top: 0;
     width: 60%;
+    .add-metric
+      background: #efefef;
+      border: 1px dashed #555;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: .125rem;
     div
       background: #666;
       border-radius: 2px;
-      flex: 1;
+      //flex: 1;
       margin: 2px;
       padding: .25rem;
       text-align: center;
