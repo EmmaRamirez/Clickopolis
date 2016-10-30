@@ -645,10 +645,12 @@ function secondUpdates() {
 }
 
 function tenSecondUpdates() {
-  savePlayer();
-  saveData();
-  console.debug('Game Saved!');
-  u.elt('.game-save-status').textContent = 'Game Saved';
+  if (isWindowActive) {
+    savePlayer();
+    saveData();
+    console.debug('Game Saved!');
+    u.elt('.game-save-status').textContent = 'Game Saved';
+  }
 }
 
 function minuteUpdates() {
