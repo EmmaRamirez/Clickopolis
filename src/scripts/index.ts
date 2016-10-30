@@ -335,6 +335,9 @@ function startNewGame() {
     leaderHeader.textContent = leaderName;
     leaderImage.src = `img/${u.dasherize(leaderName)}.jpg`;
 
+    u.elt('#leaderName').value = leaderName;
+    u.elt('#civName').value = leaders.get(leaderName).defaultCivName;
+
     displayTraits(leaders.get(leaderName).traits);
   });
 

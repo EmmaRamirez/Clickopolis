@@ -53,7 +53,7 @@ let graveyard:Building = new Building('Graveyard', 0, 30, 300, 'Here, your (dead
 let igloo:Building = new Building('Igloo', 0, 25, 250, 'Oh, baby it\'s cold outside...', 'Requires Tundra <img src="img/tundra.png"> Biome. +2 <img src="img/happy.png">', true, true, function (args) {
   args.playerCiv.happinessFromBuildings += 2;
 });
-let sphinx:Building = new Building('Sphinx', 0, 115, 1150, 'A triumphant declaration of your love for cats.', '+2 <img src="img/culture.png"> Requires Desert <img src="img/desert.png" title="desert"> biome', true, false, function (args) {
+let sphinx:Building = new Building('Sphinx', 0, 115, 1150, 'A triumphant declaration of your love for cats.', '+1 <img src="img/culture.png"> PM. Requires Desert <img src="img/desert.png" title="desert"> biome', true, false, function (args) {
   args.playerCiv.culturePM += 2;
 })
 let defenseTower:Building = new Building('Defense Tower', 0, 312, 3120, 'Perfect for stalkers who want a bit of privacy.', '+10% <img src="img/defense.png"> (Max: 1)', true, false, function (args) {

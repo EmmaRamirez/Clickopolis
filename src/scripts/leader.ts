@@ -8,10 +8,12 @@ export interface Trait {
 
 export class Leader {
 	name: string;
+	defaultCivName: string;
 	traits: Trait[];
 
-	constructor(name:string, traits:Trait[]) {
+	constructor(name:string, defaultCivName:string, traits:Trait[]) {
 		this.name = name;
+		this.defaultCivName = defaultCivName;
 		this.traits = traits;
 	}
 }

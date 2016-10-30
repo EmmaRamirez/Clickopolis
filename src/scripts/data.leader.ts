@@ -51,37 +51,44 @@ let peaceful:Trait = {
 
 let abrahamLincoln = new Leader(
 		'Abraham Lincoln',
+		'United States of America',
 		[tactical, charismatic, cannotTellALie]
 	);
 
 let magaretThatcher = new Leader(
 		'Margaret Thatcher',
+		'England',
 		[fiscal, industrious, theIronLady]
 	);
 
 let nelsonMandela = new Leader(
 		'Nelson Mandela',
+		'South Africa',
 		[peaceful]
 	);
 
 let maoZedong = new Leader(
 		'Mao Zedong',
-		[]
+		'China',
+		[peaceful]
 	);
 
 let jfk = new Leader(
 		'John F Kennedy',
-		[]
+		'United States of America',
+		[peaceful]
 	);
 
 let vladimirLenin = new Leader(
 		'Vladimir Lenin',
-		[]
+		'Russia',
+		[peaceful]
 	);
 
 let montezumaII = new Leader(
-		'Montezuam II',
-		[]
+		'Montezuma II',
+		'Aztec',
+		[peaceful]
 	);
 
 export const leaders = new Collection<Leader>('leaders', [
