@@ -102,6 +102,11 @@ class Civilization {
   defense: number;
   defenseMod: number;
 
+  canMeetNations: boolean;
+  canMeetCoastalNations: boolean;
+  canMeetOceanicNations: boolean;
+
+
 
   conquestedCivs: Civilization[];
 
@@ -196,6 +201,10 @@ class Civilization {
     this.strengthMod = 1;
     this.defense = 10;
     this.defenseMod = 1;
+
+    this.canMeetNations = false;
+    this.canMeetCoastalNations = false;
+    this.canMeetOceanicNations = false;
   }
 }
 

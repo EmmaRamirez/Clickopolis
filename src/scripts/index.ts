@@ -524,6 +524,7 @@ function createGameUI() {
   //UiSettingsButtons();
 
   setInterval(() => secondUpdates(), 1000);
+  setInterval(() => tenSecondUpdates(), 1000 * 10);
   setInterval(() => minuteUpdates(), 1000 * 60);
 }
 
@@ -626,10 +627,14 @@ function secondUpdates() {
        item.textContent = playerCiv.researchPM;
     }, this);
 
+    u.elt('.game-save-status').addEventListener('click', () => {
+      tenSecondUpdates();
+    });
+
     updateResources(resources);
     updateFaithElts(playerCiv);
     legacyBonusCheck(playerCiv);
-    calculateHappiness(playerCiv);
+    calculateHappiness(playerCiv, resources);
     calculateAnger(playerCiv);
     calculateHealth(playerCiv, resources);
     calculatePollution(playerCiv, resources);
@@ -639,7 +644,12 @@ function secondUpdates() {
   }
 }
 
-
+function tenSecondUpdates() {
+  savePlayer();
+  saveData();
+  console.debug('Game Saved!');
+  u.elt('.game-save-status').textContent = 'Game Saved';
+}
 
 function minuteUpdates() {
   if (isWindowActive) {
@@ -649,10 +659,9 @@ function minuteUpdates() {
        resources: resources,
        citizens: citizens,
        isWindowActive: isWindowActive,
+       buildings: buildings,
      });
      checkUnemployed();
-     savePlayer();
-     saveData();
   }
 }
 
@@ -1110,6 +1119,10 @@ function addCitizen(citizen:string, amount: number, sel:string) {
   generateCitizenPercents();
 }
 
+function hasBiome(biome:string) {
+  return playerCiv.biomes.items.includes(new Biome(<BiomeType>biome));
+}
+
 function buildingClick() {
   let buildingsArgs = {
     playerCiv: playerCiv,
@@ -1131,8 +1144,10 @@ function buildingClick() {
 
       if (resources.get('prod').total >= buildings.get(building).prodCost) {
         //notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
-        if (buildings.get(building).name === 'Igloo' && !playerCiv.biomes.items.includes(new Biome('Tundra'))) {
+        if (buildings.get(building).name === 'Igloo' && !hasBiome('Tundra')) {
           notify({ message: 'Igloo requires that you have the Tundra biome in your nation!' }, true);
+        } else if (buildings.get(building).name === 'Harbor' && (!hasBiome('Coast') || !hasBiome('Island'))) {
+          notify({ message: 'Harbor requires that you have a Coast or Island biome in your nation!' });
         } else {
           buildingPurchase(building, totalSelt, costSelt, buildingsArgs);
         }

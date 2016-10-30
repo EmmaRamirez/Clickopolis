@@ -95,12 +95,14 @@ let masonry:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build The Great Pyramids wonder',
     '<img src="img/plus.png"> Can build Quarry',
+    '<img src="img/plus.png"> Unlocks <img src="img/marble.png"> resource',
     '<img src="img/key.png"> Leads To: Pottery, Construction'
   ],
   ['buildings', 'wonder'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockBuilding('Quarry', buildings);
     u.unlockWonder('The Great Pyramids', wonders);
+    u.unlockResource('marble', resources);
   }
 );
 let mining:Tech = new Tech(
@@ -165,7 +167,12 @@ let sailing:Tech = new Tech(
     '<img src="img/plus.png"> Can meet Coastal and Oceanic Nations',
     '<img src="img/key.png"> Leads To: Shipbuilding'
   ],
-  ['military', 'civilization', 'diplomacy']
+  ['military', 'civilization', 'diplomacy'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization) {
+    playerCiv.canMeetOceanicNations = true;
+    playerCiv.canMeetCoastalNations = true;
+    resources.get('fish').total += 5;
+  }
 );
 let theWheel:Tech = new Tech(
   'the wheel',

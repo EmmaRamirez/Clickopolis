@@ -268,12 +268,16 @@ class Templates {
 
             <br>
 
-            <span class='resource building-resources'>
+            <span class='resource building-resources' data-tall='true'>
               <img src='img/buildings.png'> Building
             </span>
 
             <span class='resource' data-resource='stone' data-unlocked='${resources.get('stone').unlocked}'>
               <img src='img/stone.png'> <span>${resources.get('stone').total}</span>
+            </span>
+
+            <span class='resource' data-unlocked='${resources.get('marble').unlocked}' data-resource='marble'>
+              <img src='img/marble.png'> <span>${resources.get('marble').total}</span>
             </span>
 
             <span class='resource' data-unlocked='${resources.get('iron').unlocked}' data-resource='iron'>
@@ -282,6 +286,10 @@ class Templates {
 
             <span class='resource' data-unlocked='${resources.get('steel').unlocked}' data-resource='steel'>
               <img src='img/steel.png'> <span>${resources.get('steel').total}</span>
+            </span>
+
+            <span class='resource' data-unlocked='${resources.get('aluminum').unlocked}' data-resource='aluminum'>
+              <img src='img/aluminum.png'> <span>${resources.get('aluminum').total}</span>
             </span>
 
 
@@ -371,6 +379,9 @@ class Templates {
           <div>${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</div>
         </div>
         <div class='civilization-metrics'>
+          <div class='game-save-status save-game'>
+            Save Game
+          </div>
           <!--
           <div class='food-metric'>
             <img src='img/food.png'><span class='m-food-total'>0</span>

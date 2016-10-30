@@ -1,5 +1,6 @@
 import Civilization = require('./civilization');
 import Collection = require('./collection');
+import Building = require('./building');
 import { Utils } from './utils';
 import { notify } from './notify';
 
@@ -81,6 +82,16 @@ const Events:ClickopolisEvent[] = [
   },
   {
     func: (options) => {
+      let marble = options.resources.get('marble');
+      let quarries = options.buildings.get('Quarry').amount;
+      if (marble.unlocked) {
+        marble.total += quarries;
+      }
+    },
+    rarity: 'uncommon'
+  },
+  {
+    func: (options) => {
       let cattle = options.resources.get('cattle');
       if (cattle.unlocked) {
         cattle.total += 1;
@@ -110,6 +121,7 @@ interface RollEventOptions {
   playerCiv: Civilization;
   resources: Collection<Resource>;
   citizens: Collection<Citizen>;
+  buildings: Collection<Building>;
   isWindowActive: boolean; 
 }
 

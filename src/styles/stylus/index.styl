@@ -315,11 +315,13 @@ section
     border-radius: 0 0 4px 4px;
     color: #444;
     //display: flex;
+    font-weight: normal;
     height: 2.5rem;
     left: 20%;
     padding: .5rem;
     position: fixed;
     text-align: center;
+    text-shadow:none;
     top: 0;
     width: 60%;
     .add-metric
@@ -332,12 +334,20 @@ section
       width: 1.5rem;
       height: 1.5rem;
       padding: .125rem;
+    .game-save-status
+      background: $green;
+      cursor: pointer;
+      float: left;
+      max-width: 6rem;
+      &:hover
+        background: darken($green, 5%);
     div
       background: #666;
       border-radius: 2px;
+      display: inline-block;
       //flex: 1;
-      margin: 2px;
-      padding: .25rem;
+      //margin: 2px;
+      padding: .125rem;
       text-align: center;
     span
       margin: 0 4px;
