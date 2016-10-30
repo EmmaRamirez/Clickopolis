@@ -96,6 +96,9 @@ class Civilization {
   faithPM: number;
   faithCost: number;
 
+  faithBonusPantheonLimit: number;
+  faithBonusPantheonTotal: number;
+
   culture: number;
   culturePM: number;
   culturePMMod: number;
@@ -195,6 +198,9 @@ class Civilization {
     this.faith = 0;
     this.faithPM = 0;
     this.faithCost = 1;
+
+    this.faithBonusPantheonLimit = 7;
+    this.faithBonusPantheonTotal = 0;
 
     this.culture = 0;
     this.culturePM = 0;

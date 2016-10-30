@@ -379,9 +379,7 @@ class Templates {
           <div>${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</div>
         </div>
         <div class='civilization-metrics'>
-          <div class='game-save-status save-game'>
-            Save Game
-          </div>
+          
           <!--
           <div class='food-metric'>
             <img src='img/food.png'><span class='m-food-total'>0</span>
@@ -814,8 +812,8 @@ class Templates {
           </div>
         </section>
         <section class='faith-screen-inner faith-bonuse-info'>
-          <div class='faith-info center-text white'>
-            You may have a max of 7 Pantheons
+          <div class='faith-info center-text white faith-maximum'>
+            You may have a max of <strong>${playerCiv.faithBonusPantheonLimit}</strong> Pantheons
           </div>
         </section>
         <section class='faith-screen-inner fb-container'>

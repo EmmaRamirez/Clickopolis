@@ -50,7 +50,7 @@ export function populateFaithBonuses(playerCiv:Civilization) {
   }
 }
 
-export function faithBonusClick(playerCiv) {
+export function faithBonusClick(playerCiv:Civilization) {
   //playerCiv.faithPM += 30;
   //updateFaithElts();
   let fbs = document.querySelectorAll('.faith-bonus');
@@ -71,6 +71,13 @@ export function faithBonusClick(playerCiv) {
             faithBonuses.get(fb).func(resources, playerCiv);
             playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
             console.debug(playerCiv.faithCost.toString());
+            if (faithBonuses.get(fb).faithTier === FaithTier.Pantheon) {
+              playerCiv.faithBonusPantheonTotal += 1;
+              if (playerCiv.faithBonusPantheonTotal >= playerCiv.faithBonusPantheonLimit) {
+                disableBonuses(FaithTier.Pantheon);
+                enableBonuses(FaithTier.Organized);
+              }
+            }
             updateFaithElts(playerCiv);
             updateFaithBonuses(playerCiv);
           } else {
@@ -82,6 +89,26 @@ export function faithBonusClick(playerCiv) {
       }
     });
   });
+}
+
+export function disableBonuses(tier:FaithTier) {
+  for (let i = 0; faithBonuses.items.length; i++) {
+    let fb = faithBonuses.items[i];
+    if (fb.faithTier === tier && fb.purchased === false) {
+      fb.enabled = false;
+      u.elt('.faith-bonus', true)[i].setAttribute('data-enabled', false);
+    }
+  }
+}
+
+export function enableBonuses(tier:FaithTier) {
+  for (let i = 0; faithBonuses.items.length; i++) {
+    let fb = faithBonuses.items[i];
+    if (fb.faithTier === tier) {
+      fb.enabled = true;
+      u.elt('.faith-bonus', true)[i].setAttribute('data-enabled', true);
+    }
+  }
 }
 
 export function updateFaithBonuses(playerCiv) {

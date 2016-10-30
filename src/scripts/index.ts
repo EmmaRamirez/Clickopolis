@@ -627,9 +627,9 @@ function secondUpdates() {
        item.textContent = playerCiv.researchPM;
     }, this);
 
-    u.elt('.game-save-status').addEventListener('click', () => {
-      tenSecondUpdates();
-    });
+    // u.elt('.game-save-status').addEventListener('click', () => {
+    //   tenSecondUpdates();
+    // });
 
     updateResources(resources);
     updateFaithElts(playerCiv);
@@ -649,7 +649,7 @@ function tenSecondUpdates() {
     savePlayer();
     saveData();
     console.debug('Game Saved!');
-    u.elt('.game-save-status').textContent = 'Game Saved';
+    //u.elt('.game-save-status').textContent = 'Game Saved';
   }
 }
 

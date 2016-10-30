@@ -53,9 +53,17 @@ let reincarnation:FaithBonus = new FaithBonus('Reincarnation', FaithTier.Organiz
 
 });
 
+let priesthood:FaithBonus = new FaithBonus('Priesthood', FaithTier.Organized, false, false, `Increase <img src='img/faith.png'> output for Cleric by 100%`, function () {
+
+});
+
+let mission:FaithBonus = new FaithBonus('Mission', FaithTier.Organized, false, false, `Can spread religion to other Nations with Cleric`, function () {
+
+});
+
 let faithBonuses = new Collection('faithBonuses', [
                                                     goh, sos, bm, gow, sc, gc, fg, sc2, ps, lof, tf, tf2,
-                                                    animism, reincarnation
+                                                    animism, reincarnation, priesthood, mission
                                                   ]);
 
 export = faithBonuses;
