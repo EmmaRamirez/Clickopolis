@@ -63,15 +63,19 @@ export function faithBonusClick(playerCiv) {
         if (faithBonuses.get(fb).purchased) {
           notify({message: `You already purchased ${faithBonuses.get(fb).name}!`}, true);
         } else {
-          playerCiv.faith -= faithCost;
-          faithBonuses.get(fb).purchased = true;
-          item.setAttribute('data-purchased', 'true');
-          console.log(item.getAttribute('data-purchased'));
-          faithBonuses.get(fb).func(resources, playerCiv);
-          playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
-          console.debug(playerCiv.faithCost.toString());
-          updateFaithElts(playerCiv);
-          updateFaithBonuses(playerCiv);
+          if (faithBonuses.get(fb).enabled) {
+            playerCiv.faith -= faithCost;
+            faithBonuses.get(fb).purchased = true;
+            item.setAttribute('data-purchased', 'true');
+            console.log(item.getAttribute('data-purchased'));
+            faithBonuses.get(fb).func(resources, playerCiv);
+            playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
+            console.debug(playerCiv.faithCost.toString());
+            updateFaithElts(playerCiv);
+            updateFaithBonuses(playerCiv);
+          } else {
+            notify({ message: 'You cannot yet purhcase this Faith Bonus. Consider increasing your faith and purchasing other Faith Bonuses.' });
+          }
         }
       } else {
         notify({message: `You don't have enough faith to purchase this bonus!`}, true);

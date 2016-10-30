@@ -29,6 +29,9 @@
     cursor: pointer;
     margin: .25rem;
     padding: .5rem;
+    &[data-enabled='false']
+      pointer-events: none;
+      opacity: 0.5;
     &:hover, &[data-purchased='true']
       background: #FFFFE0;
     .faith-bonus-name

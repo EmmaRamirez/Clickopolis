@@ -87,6 +87,12 @@ class Civilization {
   techs: number;
 
   faith: number;
+  faithGameTotal: number;
+  faithPMFromBuildings: number;
+  faithPMFromSocialPolicies: number;
+  faithPMFromResources: number;
+  faithPMFromLegacy: number;
+  faithPMFromWonders: number;
   faithPM: number;
   faithCost: number;
 
