@@ -33,7 +33,7 @@ import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './ut
 import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
 import { setLandAmount, setLandPercent } from './utils.land';
 import { addCash, updateCashPM } from './utils.economy';
-import { populateCultureCards, createCultureCardSlots, cultureCardEvents } from './utils.culture';
+import { populateCultureCards, createCultureCardSlots, cultureCardEvents, addCulture } from './utils.culture';
 
 import { notify } from './notify';
 import { log } from './log';
@@ -467,6 +467,21 @@ function createGameUI() {
     resources.get('prod').total += 500;
   });
 
+  bindElement('.culture-expand', 'click', function () {
+    let overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    let screen = this.parentNode;
+    if (screen.classList.contains('expanded')) {
+      screen.classList.remove('expanded');
+      iterateOverNodelist(u.elt('.overlay', true), (item, index) => {
+        item.style.display = 'none';
+      }, this);
+    } else {
+      screen.classList.add('expanded');
+      u.elt('.clickopolis').appendChild(overlay)
+    }
+  });
+
   setInfluenceImages();
 
   populateTechnologies();
@@ -494,7 +509,7 @@ function createGameUI() {
   wonderClick();
   faithBonusClick(playerCiv);
   legacyBonusClick(playerCiv);
-  cultureCardEvents(socialPolicies);
+  cultureCardEvents(socialPolicies, playerCiv);
 
   citizenAmountHandler();
 
@@ -505,7 +520,6 @@ function createGameUI() {
   generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
 
-  
   setInterval(() => secondUpdates(), 1000);
   setInterval(() => minuteUpdates(), 1000 * 60);
 }
@@ -597,6 +611,7 @@ function secondUpdates() {
     addGoldenAgePoints();
     addCash(playerCiv);
     addFaith(playerCiv);
+    addCulture(playerCiv);
     addResearchPoints();
     checkPopulationGrowthCost()
     setLandPercent(playerCiv, game);
@@ -616,6 +631,8 @@ function secondUpdates() {
     calculateHealth(playerCiv, resources);
     calculatePollution(playerCiv, resources);
     checkAchievements(achievements, game);
+
+    playerCiv.culturePM = 4000;
   }
 }
 
@@ -1109,31 +1126,31 @@ function buildingClick() {
         playerCiv.hutHappiness = 3;
       }
 
-      if (building.name === 'Igloo' && playerCiv.biomes.contains('Tundra')) {
-        notify({ message: 'Igloo requires that you have the Tundra biome in your nation!' }, true);
-        return;
-      }
-
       if (resources.get('prod').total >= buildings.get(building).prodCost) {
         //notify({message:`Your citizens built a ${buildings.get(building).name} for <img src="img/prod.png"> ${buildings.get(building).prodCost}`});
-        buildings.get(building).amount += 1;
-        resources.get('prod').total -= buildings.get(building).prodCost;
-        u.elt('.prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
-        u.elt(totalSelt).textContent = buildings.get(building).amount;
-        buildings.get(building).prodCost = Math.floor(Math.sqrt(buildings.get(building).prodCost) + (buildings.get(building).prodCost * 1.25));
-        u.elt(costSelt, true)[index].textContent = buildings.get(building).prodCost.toString();
-        //console.table(buildings.get(building));
-        console.log(buildingsArgs);
-        buildings.get(building).func(buildingsArgs);
+        if (buildings.get(building).name === 'Igloo' && !playerCiv.biomes.items.includes(new Biome('Tundra'))) {
+          notify({ message: 'Igloo requires that you have the Tundra biome in your nation!' }, true);
+        } else {
+          buildingPurchase(building, totalSelt, costSelt, buildingsArgs);
+        }
+        
       } else {
-        //notify({message:`You don't have the Production to purchase a ${buildings.get(building).name}`});
+        //notify({message:`You don't have the Production to purchase a ${buildings.get(building).name}`}, true);
       }
-
     });
-
-
-
   });
+}
+
+function buildingPurchase(building, totalSelt, costSelt, buildingsArgs) {
+  buildings.get(building).amount += 1;
+  resources.get('prod').total -= buildings.get(building).prodCost;
+  u.elt('.prod-total').textContent = resources.get('prod').total.toFixed(0).toString();
+  u.elt(totalSelt).textContent = buildings.get(building).amount;
+  buildings.get(building).prodCost = Math.floor(Math.sqrt(buildings.get(building).prodCost) + (buildings.get(building).prodCost * 1.25));
+  u.elt(costSelt, true)[buildings.get(building, true)].textContent = buildings.get(building).prodCost.toString();
+  //console.table(buildings.get(building));
+  console.log(buildingsArgs);
+  buildings.get(building).func(buildingsArgs);
 }
 
 

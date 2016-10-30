@@ -29,11 +29,7 @@ class Collection<T> {
   }
 
   contains(query:string) {
-    if (typeof this.get(query) === 'undefined') {
-      return false;
-    } else {
-      return true;
-    }
+    return this.items.contains(this.get(query));
   }
 
   constructor(name: string = 'Collection', items: T[]) {

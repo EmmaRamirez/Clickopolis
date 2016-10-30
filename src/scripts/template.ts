@@ -499,7 +499,7 @@ class Templates {
             </div>
             <div class='overview-item-inner'>
               <img src='img/research.png'> <span class='research-text'>${playerCiv.research.toFixed(1)}</span> <sup class='research-PM'>${playerCiv.researchPM}</sup>
-              <div class='research-progress-bar'></div>
+              <div class='research-progress-bar' data-tooltip='Your progress towards the next Technology.'></div>
               <span class='research-cost-text'>10</span>
             </div>
           </div>
@@ -733,6 +733,9 @@ class Templates {
   createCultureScreen(playerCiv:Civilization) {
     let cultureScreen = `
       <section class='screen culture-screen' id='culture'>
+        <div class='expand culture-expand' title='Expand the screen size.'>
+          <img src='img/expand.png'>
+        </div>
         <h2>
           <img src='img/culture.png'> Culture
         </h2>
@@ -741,7 +744,7 @@ class Templates {
             <span class='culture-PM'>${playerCiv.culturePM}</span> <img src='img/culture.png'> PM
           </div>
           <div class='culture-wrapper' data-tooltip='The amount of culture you have in total.'>
-            <span class='culture-PM'>${playerCiv.culture}</span> <img src='img/culture.png'> total
+            <span class='culture-total'>${playerCiv.culture}</span> <img src='img/culture.png'> total
           </div>
         </section>
         <section class='culture-screen-inner selected-culture-cards'>

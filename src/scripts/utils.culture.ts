@@ -1,13 +1,22 @@
 import { Utils, iterateOverNodelist } from './utils';
 import { SocialPolicy } from './socialpolicy';
 import Collection = require('./collection');
+import Civilization = require('./civilization');
 import { notify } from './notify';
 
 const u = new Utils();
 
-export function addCulture(playerCiv) {
+export function addCulture(playerCiv:Civilization) {
 	let cultureUpgrades = u.elt('.can-purchase-culture-upgrades');
+	playerCiv.culture += playerCiv.culturePM / 60;
 
+	iterateOverNodelist(u.elt('.culture-PM', true), (item) => {
+		item.textContent = u.abbrNum(playerCiv.culturePM.toFixed(0));
+	}, this);
+
+	iterateOverNodelist(u.elt('.culture-total', true), (item) => {
+		item.textContent = u.abbrNum(playerCiv.culture.toFixed(0));
+	}, this);
 }
 
 export function createCultureCardSlots (playerCiv) {
@@ -46,7 +55,7 @@ export function populateCultureCards (socialPolicies:Collection<SocialPolicy>) {
 
 let dragged;
 
-export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>) {
+export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playerCiv) {
 	let cc = u.elt('.culture-card', true);
 	iterateOverNodelist(cc, (item, index) => {
 		let cardName = item.getAttribute('data-name');
@@ -55,8 +64,14 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>) {
 		
 		item.addEventListener('click', () => {
 			if (!card.unlocked) {
-				card.unlocked = true;
-				item.setAttribute('data-unlocked', 'true');
+				if (playerCiv.culture >= card.cost) {
+					playerCiv.culture -= card.cost;
+					card.unlocked = true;
+					item.setAttribute('data-unlocked', 'true');
+				} else {
+					notify({ message: `You don't have enough culture <img src='img/culture.png'> to purchase that policy!` }, true);
+				}
+				
 			} else {
 				console.log('Card is already unlocked');
 			}
@@ -67,7 +82,9 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>) {
 			let cardName = item.getAttribute('data-name');
 			console.log(isSlotted, cardName);
 			if (isSlotted) {
+				item.className = 'culture-card empty card-drop';
 				item.innerHTML = '<span>Empty</span>';
+				socialPolicies.get(cardName).active = false;
 			}
 		});
 
@@ -115,35 +132,31 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>) {
 				
 				//event.target.innerHTML = '';
 
-				if (dragged === null) return;
+				if (dragged !== null) {
+					event.target.innerHTML = '';
+					event.target.innerHTML = `
+					
+			      <span class='culture-card-name'>
+			      	${dragged.name}
+			      </span>
+			      <span class='culture-card-description'>
+			      	${dragged.description}
+			      </span>
+			      <span class='culture-card-cost'>
+			      	<img src='img/culture.png'> ${dragged.cost}
+			      </span>
+			    `;
 
-				event.target.innerHTML = '';
-				event.target.innerHTML = `
-				
-		      <span class='culture-card-name'>
-		      	${dragged.name}
-		      </span>
-		      <span class='culture-card-description'>
-		      	${dragged.description}
-		      </span>
-		      <span class='culture-card-cost'>
-		      	<img src='img/culture.png'> ${dragged.cost}
-		      </span>
-		    
-		    `;
-
-		    event.target.classList.remove('empty');
-		    event.target.setAttribute('data-name', dragged.name);
-		    event.target.setAttribute('data-type', dragged.category);
-		    event.target.setAttribute('data-unlocked', dragged.unlocked);
-		   	event.target.setAttribute('data-active', 'true');
-		   	event.target.setAttribute('data-in-slot', 'true');
-
-		    
-
-		    dragged.active = true;
-
-		    dragged = null;
+			    event.target.classList.remove('empty');
+			    event.target.setAttribute('data-name', dragged.name);
+			    event.target.setAttribute('data-type', dragged.category);
+			    event.target.setAttribute('data-unlocked', dragged.unlocked);
+			   	event.target.setAttribute('data-active', 'true');
+			   	event.target.setAttribute('data-in-slot', 'true');
+			   	event.target.setAttribute('title', 'Double click to remove');
+			    dragged.active = true;
+			    dragged = null;
+		  	}
 		  }
 				
 
