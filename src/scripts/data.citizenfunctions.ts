@@ -51,16 +51,16 @@ function clericFunction (playerCiv, amount, cleric) {
 }
 
 function merchantFunction (playerCiv, amount, merchant) {
-	playerCiv.cashPM += amount * this.contrib1.amount;
+	playerCiv.cashPMFromCitizens += amount * merchant.contrib1.amount;
   u.elt('.cash-PM').textContent = playerCiv.cashPM;
 }
 
 function artistFunction (playerCiv, artist, amount) {
-	playerCiv.culturePM += this.contrib1.amount;
+	playerCiv.culturePM += artist.contrib1.amount;
 }
 
 function scientistFunction (playerCiv, scientist, amount) {
-	playerCiv.researchPM += this.contrib1.amount;
+	playerCiv.researchPM += scientist.contrib1.amount;
 }
 
 

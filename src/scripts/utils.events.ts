@@ -101,6 +101,14 @@ const Events:ClickopolisEvent[] = [
   },
   {
     func: (options) => {
+      let wood = options.resources.get('wood');
+      let woodcutters = options.citizens.get('woodcutter');
+      wood += woodcutters * 10;
+    },
+    rarity: 'common'
+  },
+  {
+    func: (options) => {
       let stone = options.resources.get('stone');
       let miners = options.citizens.get('miner');
       if (stone.unlocked) {

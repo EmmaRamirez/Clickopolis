@@ -31,6 +31,7 @@ import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } f
 import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils.anger';
 import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils.health';
 import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
+import { addGoldenAgePoints, updateGoldenAgePoints } from './utils.goldenage';
 import { setLandAmount, setLandPercent } from './utils.land';
 import { addCash, updateCashPM } from './utils.economy';
 import { populateCultureCards, createCultureCardSlots, cultureCardEvents, addCulture } from './utils.culture';
@@ -523,6 +524,8 @@ function createGameUI() {
   generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
 
+  notify({ message: `Hello, ${playerCiv.civName}`, icon: 'research' });
+
   setInterval(() => secondUpdates(), 1000);
   setInterval(() => tenSecondUpdates(), 1000 * 10);
   setInterval(() => minuteUpdates(), 1000 * 60);
@@ -543,7 +546,7 @@ function updatePopulation(pop:number) {
   populationText.textContent = playerCiv.population.toString();
   popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
 
-  playerCiv.cashPM += pop * 2;
+  playerCiv.cashPMFromCitizens += pop * 2;
   playerCiv.researchPM += pop * 2;
   playerCiv.angerFromPopulation += pop * 1;
   playerCiv.pollutionFromPopulation += pop * 1;
@@ -557,6 +560,18 @@ function updatePopulation(pop:number) {
         return 1.55;
       case Era.Renaissance:
         return 2;
+      case Era.Enlightenment:
+        return 2.25;
+      case Era.Industrial:
+        return 3.5;
+      case Era.Modern:
+        return 4;
+      case Era.Atomic:
+        return 6;
+      case Era.Information:
+        return 8;
+      case Era.Future:
+        return 10;
       default:
         return 1;
     }
@@ -574,8 +589,6 @@ function updatePopulation(pop:number) {
     
   //u.elt('.civ-anger-text').textContent = playerCiv.anger;
   //u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
-  u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
-
   addCitizen('farmer', pop, '.farmer-num-text');
 
   popMetric.setAttribute('data-tooltip', `${u.abbrNum(playerCiv.populationReal) + ' people'}`);
@@ -612,7 +625,7 @@ function secondUpdates() {
     (resources.get('food').total < 0) ? u.elt('.r-food-total').setAttribute('data-negative', 'true') : u.elt('.r-food-total').setAttribute('data-negative', 'false');
 
     updateTime();
-    addGoldenAgePoints();
+    addGoldenAgePoints(playerCiv);
     addCash(playerCiv);
     addFaith(playerCiv);
     addCulture(playerCiv);
@@ -955,30 +968,7 @@ function updateTime() {
   u.elt('.game-year-text').title = u.time(game.time);
 }
 
-function addGoldenAgePoints() {
-  let goldenAgeProgress = u.elt('.golden-age-progress');
-  let goldenAgeMeter = u.elt('.metric-golden-age');
-  let goldenAgePoints = playerCiv.happiness - playerCiv.anger;
-  playerCiv.goldenAgeProgress += goldenAgePoints;
-  goldenAgeProgress.textContent = u.abbrNum(playerCiv.goldenAgeProgress);
 
-  if (playerCiv.goldenAgeProgress > 0) {
-    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / playerCiv.goldenAgeGoal) * 100) + '%';
-    let bgString:string = u.progressBar(goldenAgePercent, '#BDBD6C', '#222');
-    goldenAgeMeter.style.background = bgString;
-  } else {
-    let goldenAgePercent:string = ((playerCiv.goldenAgeProgress / playerCiv.goldenAgeGoal) * 100) + '%';
-    let bgString:string = u.progressBar(goldenAgePercent, '#DB3535', '#DB3535');
-    goldenAgeMeter.style.background = bgString;
-  }
-
-
-  if (goldenAgePoints > 0) {
-    u.elt('.metric-golden-age-points').style.background = '#212006';
-  } else {
-    u.elt('.metric-golden-age-points').style.background = '#DB3535';
-  }
-}
 
 function addResearchPoints() {
   playerCiv.research += playerCiv.researchPM / 60;
@@ -1011,7 +1001,7 @@ function addResearchPoints() {
 function checkAutomaticTechPurchase() {
   if (playerCiv.research >= playerCiv.researchCost) {
     if (playerCiv.researchingTechsArray.length > 0) {
-      purchaseTech(playerCiv.researchingTechsArray[0], undefined);
+      purchaseTech(playerCiv.researchingTechsArray[0], undefined, 'automatic');
       playerCiv.researchingTechsArray.shift();
       setTechQueue();
     }
@@ -1273,7 +1263,7 @@ function techClick() {
             //u.elt('.researching-techs').textContent = techs.get(tech).name;
           }
           if (playerCiv.research >= playerCiv.researchCost) {
-            purchaseTech(tech, item);
+            purchaseTech(tech, item, 'manual');
           }
         }
       }
@@ -1282,8 +1272,10 @@ function techClick() {
   });
 }
 
-function purchaseTech(tech:string, element:HTMLElement) {
-  notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'}, isWindowActive);
+function purchaseTech(tech:string, element:HTMLElement, triggerType: 'automatic' | 'manual') {
+  if (triggerType === 'automatic') {
+    notify({message: 'You discovered the ' + techs.get(tech).name + ' technology!'}, isWindowActive);
+  }
   history.push(log({year: game.year, message: playerCiv.civName + ' discovered ' + techs.get(tech).name + '!', categoryImage: 'research'}));
   techs.get(tech).purchased = true;
 

@@ -1,11 +1,13 @@
 import { updateTooltip } from './tooltips';
 import { Utils } from './utils';
 import Collection = require('./collection');
+import Civilization = require('./civilization');
 import Resource = require('./resource');
+import { updateGoldenAgePoints } from './utils.goldenage';
 
 const u = new Utils();
 
-export function generateHappinessTooltip(playerCiv) {
+export function generateHappinessTooltip(playerCiv:Civilization) {
   let happinessElement = u.elt('.metric-happiness');
   let happinessBreakdown = `
     <ul>
@@ -16,6 +18,7 @@ export function generateHappinessTooltip(playerCiv) {
       <li>Happiness from Resources: ${playerCiv.happinessFromResources}</li>
       <li>Happiness from Culture: ${playerCiv.happinessFromCultureBonuses}</li>
       <li>Happiness from Faith: ${playerCiv.happinessFromFaithBonuses}</li>
+      <li>Happiness from Events: ${playerCiv.happinessFromEvents}</li>
       <li>Happiness Modifier: ${playerCiv.happinessMod}</li>
       <li>Total: ${playerCiv.happiness}</li>
     </ul>
@@ -27,6 +30,7 @@ export function generateHappinessTooltip(playerCiv) {
 
 export function updateHappinessMetric(playerCiv) {
   u.elt('.civ-metric.metric-happiness').innerHTML = `<img src="img/happy.png"> ${playerCiv.happiness}`;
+  updateGoldenAgePoints(playerCiv);
   generateHappinessTooltip(playerCiv);
 }
 

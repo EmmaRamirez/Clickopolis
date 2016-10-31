@@ -24,12 +24,22 @@ export function notify(note:Note, isWindowActive:boolean = true):void {
       let notification = document.createElement('div');
       notification.className = 'notification';
       notification.innerHTML = note.message;
+      if (typeof note.icon !== 'undefined') {
+        notification.innerHTML += `<div class='notification-image'><img src='img/${note.icon}.png'></div>`;
+      }
+      notification.innerHTML += '<br><span class="dismiss">Click to Dimiss</span>';
       notification.style.backgroundColor = note.color;
       notification.setAttribute('style', note.css);
       document.body.appendChild(notification);
-      setTimeout(function () {
-        notification.className = 'notification hidden';
-      }, note.time);
+      // setTimeout(function () {
+      //   notification.className = 'notification hidden';
+      // }, note.time);
+      notification.addEventListener('click', () => {
+        notification.className = 'notification dismissal-animation';
+        setTimeout(function () {
+          notification.remove();
+        }, 500);
+      });
     }
     console.log(note);
   } else {

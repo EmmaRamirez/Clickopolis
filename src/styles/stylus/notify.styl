@@ -1,15 +1,33 @@
-.notification {
-  background: #222;
-  box-shadow: 0 0 1rem rgba(black, 0.2);
-  bottom: 10%;
-  color: $clouds;
-  font-size: 1.25rem;
-
+.notification
+  background: #eee;
+  box-shadow: 0 0 1rem rgba(black, 0.8);
+  border: 1px solid grey;
+  border-radius: 2px;
+  top: 10%;
+  color: #444;
+  cursor: pointer;
+  font-size: .95rem;
   left: 35%;
   padding: 2rem;
   position: fixed;
   text-align: center;
-
   width: 30%;
   z-index: 100;
-}
+  &.dismissal-animation
+    opacity: 0;
+    transition: 500ms all;
+  .notification-image
+    border: 1px solid #d2d0d0;
+    background: #efefef;
+    border-radius: 50%;
+    float: left;
+    padding: 1rem
+    width: 4rem;
+    height: 4rem;
+    img
+      height: 2rem;
+  .dismiss
+    color: #565656;
+    display: block;
+    margin-top: .5rem;
+    font-size: .85rem;

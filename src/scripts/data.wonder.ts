@@ -19,10 +19,11 @@ let greatPyramids = new Wonder(
   true,
   false,
   'No aliens required. Requires 20 <img src="img/stone.png">',
-  '+5 <img src="img/legacy.png"> Points',
+  '+5 <img src="img/legacy.png"> Points, +20 <img src="img/prod.png"> PC with <img src="img/desert.png">',
   function (args) {
     if (args.resources.get('stone').total >= 20) {
       console.log('You can build it.');
+      args.resources.get('stone').total -= 20;
       return true;
     } else {
       console.log('You cannot build it.');
@@ -44,6 +45,7 @@ let stonehenge = new Wonder(
   '+5 <img src="img/legacy.png"> Points, +10 <img src="img/faith.png"> PM',
   function (args) {
     if (args.resources.get('stone').total >= 5) {
+      args.resources.get('stone').total -= 5;
       return true;
     } else {
       return false;
@@ -64,7 +66,10 @@ let moaiStatues = new Wonder(
   'If only nose jobs existed back then. Requires 50 <img src="img/stone.png"> and Coastal or Island Biome',
   '+5 <img src="img/legacy.png"> Points',
   function (args) {
-    (args.resources.get('stone').total >= 50) ? true :  false;
+    (args.resources.get('stone').total >= 50)  &&
+    (args.playerCiv.biomes.items.includes('Coast') || args.playerCiv.biomes.items.includes('Island'))
+    ? true 
+    :  false;
   },
   function (args) {
     args.playerCiv.legacy += 5;
@@ -95,7 +100,7 @@ let greatWall = new Wonder(
   true,
   false,
   'Requires 10 Walls',
-  '+5 <img src="img/legacy.png"> Points, +100 <img src="img/defense.png">',
+  '+5 <img src="img/legacy.png"> Points, +100% <img src="img/defense.png">, No Barbarian invasions',
   function (args) {
 
   },
@@ -107,8 +112,8 @@ let greatWall = new Wonder(
 let greatCollosseum = new Wonder(
   'The Great Colloseum',
   'great-colloseum',
-  1050,
-  1050,
+  2500,
+  2500,
   true,
   false,
   'Requires 10 Colloseums',

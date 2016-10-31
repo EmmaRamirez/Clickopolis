@@ -1,11 +1,13 @@
 import { Utils, iterateOverNodelist } from './utils';
+import Civilization = require('./civilization');
 
 const u = new Utils();
 
-export function addCash(playerCiv) {
+export function addCash(playerCiv:Civilization) {
 	let prevCash = playerCiv.cashPM;
 
-	
+	playerCiv.cashPM = playerCiv.cashPMFromCitizens + playerCiv.cashPMFromBuildings + playerCiv.cashPMFromBuildingMaintenance;
+
 
 
   playerCiv.cash += playerCiv.cashPM / 60;
@@ -13,6 +15,10 @@ export function addCash(playerCiv) {
   iterateOverNodelist(cashText, (item, index) => {
     item.textContent = playerCiv.cash.toFixed(2);
   }, this);
+}
+
+export function getEconomyStatus(playerCiv:Civilization) {
+	
 }
 
 export function updateCashPM(playerCiv) {

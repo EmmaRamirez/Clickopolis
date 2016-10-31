@@ -4,6 +4,7 @@ import Collection = require('./collection');
 let food:Resource = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.', true, true);
 let prod:Resource = new Resource('prod', 1, 0, 500, 0, 'prod', 'Prod.', true, true);
 let stone:Resource = new Resource('stone', 0, 0, -1, 0, 'stone', 'Stones are important as a building block for buildings. They are often found by your miners.', false, true);
+let wood:Resource = new Resource('wood', 0, 0, -1, 20, 'wood', 'Wood is important for early buildings. Your civilization starts with 20 and can gain more through woodcutters.', true, true);
 let fish:Resource = new Resource('fish', 0, 0, -1, 0, 'fish', 'Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.', false, true);
 fish.healthBonus = .5;
 let banana:Resource = new Resource('banana', 0, 0, -1, 0, 'banana', 'Bananas are harvested by farmers periodically. Each banana provides +1 <img src="img/health.png"> Bananas are a popular trade item with Tundra nations.', false, true);
@@ -32,6 +33,6 @@ let horse:Resource = new Resource('horse', 0, 0, -1, 0, 'horse', 'Horsies...I me
 let spaghetti:Resource = new Resource('spaghetti', 0, 0, -1, 0, 'spaghetti', 'There\'s vomit on his sweater already.', false, true);
 let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark! Woof! Bark!', false, true);
 
-let resources:Collection<Resource> = new Collection('Resources', [food, prod, stone, fish, cattle, spices, banana, gold, gems, oil, iron, steel, uranium, chihuahua, spaghetti, horse, silver, pearls, whale, aluminum, marble]);
+let resources:Collection<Resource> = new Collection('Resources', [food, prod, stone, wood, fish, cattle, spices, banana, gold, gems, oil, iron, steel, uranium, chihuahua, spaghetti, horse, silver, pearls, whale, aluminum, marble]);
 
 export = resources;

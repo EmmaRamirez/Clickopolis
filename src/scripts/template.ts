@@ -272,6 +272,10 @@ class Templates {
               <img src='img/buildings.png'> Building
             </span>
 
+            <span class='resource' data-resource='wood' data-unlocked='${resources.get('wood').unlocked}'>
+              <img src='img/wood.png'> <span>${resources.get('wood').total}</span>
+            </span>
+
             <span class='resource' data-resource='stone' data-unlocked='${resources.get('stone').unlocked}'>
               <img src='img/stone.png'> <span>${resources.get('stone').total}</span>
             </span>
