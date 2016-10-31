@@ -204,7 +204,7 @@ function startGame() {
     startSavedGame();
   } else {
     startNewGame();
-    playerCiv = new Civilization('', '', new Leader('', []), new Collection('biomes', [new Biome('')]));
+    playerCiv = new Civilization('', '', new Leader('', '', []), new Collection('biomes', [new Biome('')]));
     history = [`<span class='log'><strong>0 AC</strong>: The Civilization of ${playerCiv.civName} was founded by ${playerCiv.leaderName}!`];
     //console.log(playerCiv);
   }
@@ -711,7 +711,14 @@ function checkBuildingCosts() {
 
 
 
-
+function getGlobalArgs () {
+  return {
+    playerCiv,
+    resources,
+    buildings,
+    citizens
+  }
+};
 
 
 function updateResources(resources) {
@@ -1171,19 +1178,22 @@ function buildingPurchase(building, totalSelt, costSelt, buildingsArgs) {
   //console.table(buildings.get(building));
   console.log(buildingsArgs);
   buildings.get(building).func(buildingsArgs);
+  playerCiv.cashPMFromBuildingMaintenance -= 1;
 }
 
-
-
-const wonderArgs = {
-  resources: resources,
-  playerCiv: playerCiv,
-  buildings: buildings,
+function getWonderArgs() {
+  return {
+    resources: resources,
+    playerCiv: playerCiv,
+    buildings: buildings,
+  }
 }
+
 
 function wonderClick() {
   let wonderEls = <NodeListOf<HTMLElement>>u.elt('.wonder', true);
   //console.log(wonderEls);
+  let wonderArgs = getWonderArgs();
 
   [].forEach.call(wonderEls, function (item:any, index:number) {
     item.addEventListener('click', function () {
@@ -1205,6 +1215,8 @@ function wonderClick() {
 }
 
 function startBuildingWonder(wonder:Wonder) {
+  let wonderArgs = getWonderArgs();
+
   let intervalID:number;
   let bgString:string;
   let wonderProgressBar = u.elt('.wonder-progress-bar[data-wonder="' + wonder.name + '"]');

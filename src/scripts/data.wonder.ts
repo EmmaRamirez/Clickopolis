@@ -112,13 +112,13 @@ let greatCollosseum = new Wonder(
   true,
   false,
   'Requires 10 Colloseums',
-  '+5 <img src="img/legacy.png"> Points, +25 <img src="img/happy.png">',
+  '+5 <img src="img/legacy.png"> Points, +30% <img src="img/happy.png">',
   function (args) {
     args.buildings.get('Collosseum').total >= 10 ? true : false;
   },
   function (args) {
     args.playerCiv.legacy += 5;
-    args.playerCiv.happiness += 25;
+    args.playerCiv.happinessMod *= 1.3;
   }
 );
 

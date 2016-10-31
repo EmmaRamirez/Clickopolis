@@ -3,6 +3,11 @@ import { Utils, iterateOverNodelist } from './utils';
 const u = new Utils();
 
 export function addCash(playerCiv) {
+	let prevCash = playerCiv.cashPM;
+
+	
+
+
   playerCiv.cash += playerCiv.cashPM / 60;
   let cashText = u.elt('.cash-text', true);
   iterateOverNodelist(cashText, (item, index) => {
