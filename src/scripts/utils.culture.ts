@@ -143,9 +143,9 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 			      <span class='culture-card-description'>
 			      	${dragged.description}
 			      </span>
-			      <span class='culture-card-cost'>
+			      <!--<span class='culture-card-cost'>
 			      	<img src='img/culture.png'> ${dragged.cost}
-			      </span>
+			      </span>-->
 			    `;
 
 			    event.target.classList.remove('empty');
