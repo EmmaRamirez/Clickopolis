@@ -68,8 +68,9 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 					playerCiv.culture -= card.cost;
 					card.unlocked = true;
 					item.setAttribute('data-unlocked', 'true');
+					notify({ message: `You purchased the ${card.name} Social Policy!`, icon: 'culture' });
 				} else {
-					notify({ message: `You don't have enough culture <img src='img/culture.png'> to purchase that policy!` }, true);
+					notify({ message: `You don't have enough culture <img src='img/culture.png'> to purchase that policy!` });
 				}
 				
 			} else {

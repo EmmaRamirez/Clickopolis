@@ -19,6 +19,9 @@
     z-index: 200;
     .culture-expand
       right: 3rem;
+    .culture-card
+      height: 16rem;
+      width: 10.75rem;
   h2
     background: #C41B7E;
     color: #eee;
@@ -74,7 +77,7 @@
   align-items: center;
   align-content: center;
   background: #C41B7E;
-  border: 6px solid rgba(black, 0.4);
+  border: 2px solid rgba(black, 0.4);
   background: linear-gradient(to bottom, white, #ddd, white);
   border-radius: 4px;
   color: #333;
@@ -91,6 +94,8 @@
     border-color: rgba(#DB1818, 0.7);
   &[data-type='diplomacy']
     border-color: rgba(#F57F2C, 0.7);
+  &[data-type='economy']
+    border-color: rgba(#A0D190, 0.7);
   &[data-type='faith']
     border-color: #fff;
   &[data-unlocked='false']
@@ -109,11 +114,12 @@
   .culture-card-description
     font-size: .8rem;
   .culture-card-cost
-    background: #C41B7E;
+    //background: #C41B7E;
+    border: inherit;
     border-radius: 4px;
     bottom: .25rem;
     align-self: stretch;
-    color: #eee;
+    color: #222;
     padding: .25rem;
     position: absolute;
     text-align: center;

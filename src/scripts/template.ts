@@ -916,6 +916,9 @@ class Templates {
             <label class='ui-button'>
               <input type='checkbox' id='checkWonderCompletion' >Wonder Completion
             </label>
+            <label class='ui-button'>
+              <input type='checkbox' id='removeNotificationsAutomatically'>Automatically remove notifications after 10 seconds
+            </label>
           </p>
           <span class='settings-label'>Citizens</span>
           <p>

@@ -70,10 +70,12 @@ export function faithBonusClick(playerCiv:Civilization) {
             console.log(item.getAttribute('data-purchased'));
             faithBonuses.get(fb).func(resources, playerCiv);
             playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
-            console.debug(playerCiv.faithCost.toString());
-            if (faithBonuses.get(fb).faithTier === FaithTier.Pantheon) {
+            console.log(faithBonuses.get(fb).tier);
+            if (faithBonuses.get(fb).tier === FaithTier.Pantheon) {
               playerCiv.faithBonusPantheonTotal += 1;
+              console.debug('Pantehon faith tier detected', playerCiv.faithBonusPantheonTotal, playerCiv.faithBonusPantheonLimit);
               if (playerCiv.faithBonusPantheonTotal >= playerCiv.faithBonusPantheonLimit) {
+                console.log('disability/ability check for religion');
                 disableBonuses(FaithTier.Pantheon);
                 enableBonuses(FaithTier.Organized);
               }
@@ -92,9 +94,10 @@ export function faithBonusClick(playerCiv:Civilization) {
 }
 
 export function disableBonuses(tier:FaithTier) {
-  for (let i = 0; faithBonuses.items.length; i++) {
+  console.debug('Faith bonuses', faithBonuses);
+  for (let i = 0; i < faithBonuses.items.length; i++) {
     let fb = faithBonuses.items[i];
-    if (fb.faithTier === tier && fb.purchased === false) {
+    if (fb.tier === tier && fb.purchased === false) {
       fb.enabled = false;
       u.elt('.faith-bonus', true)[i].setAttribute('data-enabled', false);
     }
@@ -102,9 +105,9 @@ export function disableBonuses(tier:FaithTier) {
 }
 
 export function enableBonuses(tier:FaithTier) {
-  for (let i = 0; faithBonuses.items.length; i++) {
+  for (let i = 0; i < faithBonuses.items.length; i++) {
     let fb = faithBonuses.items[i];
-    if (fb.faithTier === tier) {
+    if (fb.tier === tier) {
       fb.enabled = true;
       u.elt('.faith-bonus', true)[i].setAttribute('data-enabled', true);
     }

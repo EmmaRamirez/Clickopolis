@@ -79,6 +79,28 @@ let nobleStatesmen = {
 	active: false,
 };
 
+
+
+let buildingPatronage = {
+	name: 'Building Patronage',
+	category: 'economy',
+	description: '-25% Building Maintenace cost',
+	cost: 35,
+	visibile: true,
+	unlocked: false,
+	active: false,
+}
+
+let devotedFollowers = {
+	name: 'Devoted Followers',
+	category: 'faith',
+	description: '-10% Pantheon cost',
+	cost: 5,
+	visible: true,
+	unlocked: false,
+	active: false,
+}
+
 export let socialPolicies:Collection<SocialPolicy> = new Collection('Social Policies', [
 		codeOfHonor,
 		brutishBounty,
@@ -86,5 +108,10 @@ export let socialPolicies:Collection<SocialPolicy> = new Collection('Social Poli
 		tacticalExpertise,
 		artOfWar,
 		odysseanLegacy,
+
 		nobleStatesmen,
+
+		buildingPatronage,
+
+		devotedFollowers,
 	]);
