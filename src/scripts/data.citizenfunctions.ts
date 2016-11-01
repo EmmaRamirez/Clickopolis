@@ -3,6 +3,8 @@ import Collection = require('./collection');
 import { Utils, iterateOverNodelist } from './utils';
 import Resource = require('./resource');
 import Civilization = require('./civilization');
+import { populateMilitary } from './utils.military';
+import { Soldier } from './soldier';
 import { notify } from './notify';
 
 const u = new Utils();
@@ -11,6 +13,7 @@ export interface citizenFunctionOptions {
 	citizens: Collection<Citizen>;
 	playerCiv: Civilization;
 	resources: Collection<Resource>;
+	military: Collection<Soldier>;
 	amount: number;
 }
 
@@ -38,12 +41,27 @@ function woodcutterFunction (resources, amount, woodcutter) {
   console.log(resources.get('prod'));
 }
 
-function soldierFunction (playerCiv, amount, soldier) {
-	playerCiv.cashPM += amount * soldier.contrib1.amount;
-  playerCiv.cashPMFromMilitary += amount * soldier.contrib1.amount;
-  playerCiv.strength += amount * soldier.contrib2.amount;
-  u.elt('.cash-from-military').textContent = playerCiv.cashPMFromMilitary;
-  u.elt('.cash-PM').textContent = playerCiv.cashPM;
+function removeSoldiersFromMilitary(military, amountToRemove) {
+	let amountRemoved = 0;
+	military.get('Foot Soldier').amount -= amountToRemove;
+	
+}
+
+function soldierFunction (playerCiv, amount, soldier, military) {
+	//playerCiv.cashPM += amount * soldier.contrib1.amount;
+  //playerCiv.cashPMFromMilitary += amount * soldier.contrib1.amount;
+  //playerCiv.strength += amount * soldier.contrib2.amount;
+
+
+  if (amount > 0) {
+  	military.get('Foot Soldier').amount += amount;
+  	populateMilitary(military, soldier, playerCiv);
+  	notify({ message: `Your soldier(s) were automatically assigned as Foot Soldiers!`, icon: 'military' });
+  } else {
+  	removeSoldiersFromMilitary(military, Math.abs(amount));
+  	populateMilitary(military, soldier, playerCiv);
+  }
+
 }
 
 function clericFunction (playerCiv, amount, cleric) {
@@ -77,7 +95,7 @@ export function citizenFunction (citizenName:string, options:citizenFunctionOpti
 			woodcutterFunction(options.resources, options.amount, options.citizens.get('woodcutter'));
 			break;
 		case 'soldier':
-			soldierFunction(options.playerCiv, options.amount, options.citizens.get('soldier'));
+			soldierFunction(options.playerCiv, options.amount, options.citizens.get('soldier'), options.military);
 			break;
 		case 'cleric':
 			clericFunction(options.playerCiv, options.amount, options.citizens.get('cleric'));

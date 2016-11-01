@@ -22,7 +22,45 @@
     margin-right: .5rem;
     padding: .5rem;
   h3
+    font-weight: light;
     color: #eee;
   &.disabled
     opacity: 0.3;
     pointer-events: none;
+  .soldier-assignment
+    border: 1px solid #111;
+    border-radius: 2px;
+    background: #222;
+    color: #eee;
+    margin-bottom: .25rem;
+    padding-left: .5rem;
+    &.assignment-total
+      background: #efefef;
+      color: #444;
+      input
+        background: #fff;
+      .cummulative-stats
+        background: #eee;
+        color: #222;
+    .unit-name
+      display: inline-block;
+      width: 6rem;
+    .base-stats,
+    .cummulative-stats
+      display: inline-block;
+      padding: .25rem 1.5rem;
+      text-align: center;
+      width: 8rem;   
+    .cummulative-stats
+      background: #666;
+      width: 10rem;
+    .unit-upkeep
+      font-size: .7rem;
+      padding-left: .5rem;
+    input
+      background: #555;
+      border: 1px solid #333;
+      width: 4rem;
+      text-align: center;
+    img
+      vertical-align: baseline;

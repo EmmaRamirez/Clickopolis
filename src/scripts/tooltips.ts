@@ -26,7 +26,7 @@ export function generateTooltips(opts:TooltipOptions = {
       tooltip.style.display = 'block';
       tooltip.style.left = event.clientX + opts.offsetX + 'px';
       tooltip.style.top = event.clientY + opts.offsetY + 'px';
-      item.appendChild(tooltip);
+      u.elt('.clickopolis').appendChild(tooltip);
     });
     item.addEventListener('mousemove', function (event:any) {
       tooltip.style.left = event.clientX + opts.offsetX + 'px';
@@ -63,7 +63,7 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
   elt.addEventListener('mouseenter', function (event:any) {
     tooltip.style.left = event.clientX + opts.offsetX + 'px';
     tooltip.style.top = event.clientY + opts.offsetY + 'px';
-    elt.appendChild(tooltip);
+    u.elt('.clickopolis').appendChild(tooltip);
   });
   elt.addEventListener('mousemove', function (event:any) {
     tooltip.style.left = event.clientX + opts.offsetX + 'px';

@@ -64,7 +64,7 @@ export function legacyBonusClick(playerCiv) {
         item.setAttribute('data-tooltip', lb.descriptions[lb.level - 1]);
         updateTooltip(item);
       } else {
-        notify({message: `You don't have enough legacy points to purchase this upgrade!`}, TextTrackCue)
+        notify({message: `You don't have enough legacy points to purchase this upgrade!`});
       }
       updateLegacyElts(playerCiv);
     });

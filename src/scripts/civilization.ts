@@ -114,8 +114,15 @@ class Civilization {
   socialPolicies: any[];
 
   strength: number;
+  strengthBase: number;
+  strengthFromMilitary: number;
+  strengthFromBuildings: number;
   strengthMod: number;
+
   defense: number;
+  defenseBase: number;
+  defenseFromMilitary: number;
+  defenseFromBuildings: number;
   defenseMod: number;
 
   canMeetNations: boolean;
@@ -219,8 +226,15 @@ class Civilization {
     this.socialPolicies = [];
 
     this.strength = 10;
+    this.strengthBase = 10;
+    this.strengthFromBuildings = 0;
+    this.strengthFromMilitary = 0;
     this.strengthMod = 1;
+
     this.defense = 10;
+    this.defenseBase = 10;
+    this.defenseFromBuildings = 0;
+    this.defenseFromMilitary = 0;
     this.defenseMod = 1;
 
     this.canMeetNations = false;

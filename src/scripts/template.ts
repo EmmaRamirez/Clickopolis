@@ -728,12 +728,15 @@ class Templates {
           <img src='img/military.png'> Military
         </h2>
         <section class='military-screen-inner military-metrics'>
-          <span class='military-strength military-metric'><img src='img/strength.png'> Strength: <span class='military-strenght-text'>${playerCiv.strength}</span></span>
+          <span class='military-strength military-metric'><img src='img/strength.png'> Strength: <span class='military-strength-text'>${playerCiv.strength}</span></span>
           <span class='military-defense military-metric'><img src='img/defense.png'> Defense: <span class='military-defense-text'>${playerCiv.defense}</span></span>
           <span class='military-soldiers military-metric'><img src='img/soldier.png'> Soldiers: <span class='military-soldiers-text'>0</span></span>
         </section>
-        <section class='military-screen-inner'>
-          <h3>Soldier Assignments</h3>
+        <section class='military-screen-inner military-soldier-assignments'>
+          <h3>Soldier Assignments <span class='soldiers-assigned'></span></h3>
+          <span class='military-assignments'>
+            
+          </span>
         </section>
         <section class='military-screen-inner'>
           <h3>Military Bases</h3>

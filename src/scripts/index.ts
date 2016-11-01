@@ -35,6 +35,7 @@ import { addGoldenAgePoints, updateGoldenAgePoints } from './utils.goldenage';
 import { setLandAmount, setLandPercent } from './utils.land';
 import { addCash, updateCashPM } from './utils.economy';
 import { populateCultureCards, createCultureCardSlots, cultureCardEvents, addCulture } from './utils.culture';
+import { populateMilitary, militaryUnitChange } from './utils.military';
 
 import { notify } from './notify';
 import { log } from './log';
@@ -52,6 +53,7 @@ import achievementData = require('./data.achievement');
 import legacyData = require('./data.legacy');
 import { leaders } from './data.leader';
 import { socialPolicies } from './data.socialpolicy';
+import { military } from './data.soldier';
 
 //require('!raw!stylus!../styles/stylus/index.styl');
 
@@ -496,6 +498,8 @@ function createGameUI() {
   populateAchievements(achievements);
   populateBiomes();
   populateLegacy();
+  console.log(citizens.get('soldier'));
+  populateMilitary(military, citizens.get('soldier'), playerCiv);
   populateCultureCards(socialPolicies);
 
   createCultureCardSlots(playerCiv);
@@ -514,6 +518,7 @@ function createGameUI() {
   faithBonusClick(playerCiv);
   legacyBonusClick(playerCiv);
   cultureCardEvents(socialPolicies, playerCiv);
+  militaryUnitChange(military, citizens.get('soldier'), playerCiv);
 
   citizenAmountHandler();
 
@@ -523,8 +528,6 @@ function createGameUI() {
   generateHealthTooltip(playerCiv);
   generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
-
-  notify({ message: `Hello, ${playerCiv.civName}`, icon: 'research' });
 
   setInterval(() => secondUpdates(), 1000);
   setInterval(() => tenSecondUpdates(), 1000 * 10);
@@ -1103,6 +1106,7 @@ function addCitizen(citizen:string, amount: number, sel:string) {
     citizens: citizens,
     playerCiv: playerCiv,
     resources: resources,
+    military: military,
     amount: amount,
   };
   citizens.get(citizen).amount += amount;

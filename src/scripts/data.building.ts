@@ -28,7 +28,7 @@ let quarry:Building = new Building('Quarry', 0, 30, 300, 'Your very own diamond 
   u.elt('.r-prod-max').textContent = u.abbrNum(args.resources.get('prod').max);
 });
 let barracks:Building = new Building('Barracks', 0, 35, 350, 'Keep your soldiers at the ready!', '+1 <img src="img/strength.png">', true, false, function (args) {
-  args.playerCiv.strength += 1;
+  args.playerCiv.strengthFromBuildings += 1;
   //notify({message: `Your civilization grew stronger! (<img src='img/strength.png'> ${playerCiv.strength})`});
 });
 let temple:Building = new Building('Temple', 0, 70, 700, 'Cultivate your empire\'s faith.', '+1 <img src="img/faith.png"> PM (+2 <img src="img/faith.png"> PM if you have any <img src="img/spices.png">)', true, false, function (args) {
@@ -60,7 +60,7 @@ let defenseTower:Building = new Building('Defense Tower', 0, 312, 3120, 'Perfect
   args.playerCiv.defenseMod *= 1.1;
 });
 let fort:Building = new Building('Fort', 0, 100, 1000, 'Defend the nation! Defend the state!', '+5 <img src="img/defense.png">', true, false, function (args) {
-  args.playerCiv.defense += 5;
+  args.playerCiv.defenseFromBuildings += 5;
   //notify({message: `Much better than the one made out of pillows. (<img src='img/defense.png'> ${playerCiv.defense})`})
 });
 let ziggurat:Building = new Building('Ziggurat', 0, 120, 1200, 'A tiny proto-pyramid.', '+3 <img src="img/research.png"> PM', true, false, function (args) {
