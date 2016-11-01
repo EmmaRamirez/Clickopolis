@@ -43,7 +43,53 @@ let galley = {
 	baseDefense: 2,
 	unitType: 'navy',
 	upkeep: 5,
-}
+};
+
+let cavalry = {
+	name: 'Cavalry',
+	plural: 'Cavalry',
+	amount: 0,
+	enabled: true,
+	baseStrength: 35,
+	baseDefense: 20,
+	unitType: 'land',
+	upkeep: 10,
+};
+
+let cannon = {
+	name: 'Cannon',
+	plural: 'Cannons',
+	amount: 0,
+	enabled: true,
+	baseStrength: 27,
+	baseDefense: 55,
+	unitType: 'land',
+	upkeep: 12
+};
+
+let infantry = {
+	name: 'Infantry',
+	plural: 'Infantry',
+	amount: 0,
+	enabled: true,
+	baseStrength: 49,
+	baseDefense: 15,
+	unitType: 'land',
+	upkeep: 10,
+};
+
+let tank = {
+	name: 'Tank',
+	plural: 'Tanks',
+	amount: 0,
+	enabled: true,
+	baseStrength: 80,
+	baseDefense: 50,
+	unitType: 'land',
+	upkeep: 20,
+};
+
+
 
 export const military:Collection<Soldier> = new Collection(
    		'Military',
@@ -52,5 +98,9 @@ export const military:Collection<Soldier> = new Collection(
    			archer,
    			spearman,
    			galley,
+   			cavalry,
+   			cannon,
+   			infantry,
+   			tank
    		]
 	);

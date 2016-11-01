@@ -497,7 +497,7 @@ function createGameUI() {
   populateFaithBonuses(playerCiv);
   populateAchievements(achievements);
   populateBiomes();
-  populateLegacy();
+  populateLegacy(playerCiv);
   console.log(citizens.get('soldier'));
   populateMilitary(military, citizens.get('soldier'), playerCiv);
   populateCultureCards(socialPolicies);
@@ -528,6 +528,8 @@ function createGameUI() {
   generateHealthTooltip(playerCiv);
   generatePollutionTooltip(playerCiv);
   //UiSettingsButtons();
+
+  playerCiv.legacy = 100000;
 
   setInterval(() => secondUpdates(), 1000);
   setInterval(() => tenSecondUpdates(), 1000 * 10);

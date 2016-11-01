@@ -851,6 +851,7 @@ class Templates {
               <img src='img/legacy.png'> 1.25K
             </span>
           </div>
+          <div class='center-text white' style='font-size: .8rem'>updates every minute</div>
         </section>
         <section class='legacy-screen-inner legacy-bonuses'>
 
