@@ -604,7 +604,7 @@ function secondUpdates() {
     calculatePollution(playerCiv, resources);
     checkAchievements(achievements, game);
 
-    playerCiv.culturePM = 4000;
+    
   }
 }
 
@@ -624,6 +624,8 @@ function minuteUpdates() {
        playerCiv: playerCiv,
        resources: resources,
        citizens: citizens,
+       game: game,
+       military: military,
        isWindowActive: isWindowActive,
        buildings: buildings,
      });

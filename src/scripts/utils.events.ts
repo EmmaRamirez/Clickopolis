@@ -5,8 +5,10 @@ import { Utils } from './utils';
 import { notify } from './notify';
 
 import Resource = require('./resource');
-import resourceData = require('./data.resource')
+import resourceData = require('./data.resource');
 
+import { updatePopulation } from './utils.population';
+import { Soldier } from './soldier';
 import { Citizen } from './citizen';
 import citizenData = require('./data.citizen');
 
@@ -102,7 +104,7 @@ const Events:ClickopolisEvent[] = [
   {
     func: (options) => {
       if (options.playerCiv.pollution > options.playerCiv.health) {
-        options.playerCiv.population -= 1;
+        updatePopulation(-1, options.playerCiv, options.game, options.citizens, options);
       }
       notify({ message: `Due to the pollution of your Empire, several citizens died! -1 Pop.`, icon: 'pollution' });
     },
@@ -139,6 +141,8 @@ interface RollEventOptions {
   resources: Collection<Resource>;
   citizens: Collection<Citizen>;
   buildings: Collection<Building>;
+  game: any;
+  military: Collection<Soldier>;
   isWindowActive: boolean; 
 }
 

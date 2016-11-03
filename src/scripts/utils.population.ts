@@ -42,7 +42,7 @@ export function updatePopulation(pop:number, playerCiv:Civilization, game:Game, 
   playerCiv.populationGrowthCost = Math.round((playerCiv.populationGrowthCost) + playerCiv.population);
 
   populationText.textContent = playerCiv.population.toString();
-  popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
+  popGrowthCost.textContent = u.abbrNum(playerCiv.populationGrowthCost, 2);
 
   playerCiv.cashPMFromCitizens += pop * 2;
   playerCiv.researchPM += pop * 2;

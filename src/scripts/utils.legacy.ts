@@ -18,6 +18,10 @@ export function updateLegacy(playerCiv, amount) {
   legacyBonusCheck(playerCiv);
 }
 
+export function calculateLegacy(playerCiv) {
+  
+}
+
 function renderLegacyData(lb, playerCiv) {
   let lbPercent:string = ((lb.level / lb.maxLevel) * 100) + '%';
   let bgString:string = u.progressBar(lbPercent, 'red', 'white');
