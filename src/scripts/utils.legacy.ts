@@ -96,7 +96,7 @@ function legacyBonusClickEvent(item, playerCiv) {
         playerCiv.cashPMMod += .05;
       }
 
-      notify({message: `You upgraded the Legacy of ${lb.name}!`}, true);
+      //notify({message: `You upgraded the Legacy of ${lb.name}!`}, true);
 
     } else {
       //notify({message: `You don't have enough legacy points to purchase this upgrade!`});

@@ -29,7 +29,7 @@ export function renderUnit(unit:Soldier) {
       	${ renderUnitStats(unit) }
       </span>
       <span class='unit-upkeep'>
-      	${ unit.upkeep } PM <img src='img/coin.png'>
+      	<span style='display: inline-block; width: 4rem; text-align: right;'>${ unit.upkeep }</span> <img style='height: .8rem' src='img/coin.png'> /s
       </span>
     </div>
 	`;

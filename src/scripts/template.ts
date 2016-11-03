@@ -464,6 +464,9 @@ class Templates {
             <span data-tooltip='The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>
             </span>
+            <a href='#exploration' class='civ-metric metric-exploration open-exploration-panel'>
+              <img src='img/exploration.png'> <span>Go To Exploration Panel</span>
+            </a>
             <br>
             <span class='civ-metric metric-happiness' data-tooltip=''>
               ${playerCiv.happiness} <img src='img/happy.png'>
@@ -532,6 +535,7 @@ class Templates {
             <div class='overview-item-name'>Culture</div>
             <div class='overview-item-inner'>
               <img src='img/culture.png'> <span class='culture-total'>${playerCiv.culture}</span> <sup class='culture-PM'>${playerCiv.culturePM}</sup>
+              <span class='total-social-policy-slots'>${playerCiv.socialPolicies.length + '/' +  playerCiv.socialPolicySlots} Social Policy Slots</span>
             </div>
           </div>
           </a>

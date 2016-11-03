@@ -56,6 +56,17 @@ let cavalry = {
 	upkeep: 10,
 };
 
+let frigate = {
+	name: 'Frigate',
+	plural: 'Frigates',
+	amount: 0,
+	enabled: true,
+	baseStrength: 25,
+	baseDefense: 25,
+	unitType: 'navy',
+	upkeep: 8,
+};
+
 let cannon = {
 	name: 'Cannon',
 	plural: 'Cannons',
@@ -78,6 +89,50 @@ let infantry = {
 	upkeep: 10,
 };
 
+let helicopter = {
+	name: 'Helicopter',
+	plural: 'Helicopters',
+	amount: 0,
+	enabled: true,
+	baseStrength: 55,
+	baseDefense: 0,
+	unitType: 'air',
+	upkeep: 8,
+}
+
+let destroyer = {
+	name: 'Destroyer',
+	plural: 'Destroyers',
+	amount: 0,
+	enabled: true,
+	baseStrength: 80,
+	baseDefense: 45,
+	unitType: 'navy',
+	upkeep: 20,
+}
+
+let submarine = {
+	name: 'Submarine',
+	plural: 'Submarines',
+	amount: 0,
+	enabled: true,
+	baseStrength: 70,
+	baseDefense: 95,
+	unitType: 'navy',
+	upkeep: 15,
+}
+
+let fighterJet = {
+	name: 'Fighter Jet',
+	plural: 'Fighter Jets',
+	amount: 0,
+	enabled: true,
+	baseStrength: 66,
+	baseDefense: 66,
+	unitType: 'air',
+	upkeep: 18
+};
+
 let tank = {
 	name: 'Tank',
 	plural: 'Tanks',
@@ -89,6 +144,17 @@ let tank = {
 	upkeep: 20,
 };
 
+let stealthBomber = {
+	name: 'Stealth Bomber',
+	plural: 'Stealth Bombers',
+	amount: 0,
+	enabled: true,
+	baseStrength: 90,
+	baseDefense: 120,
+	unitType: 'air',
+	upkeep: 28,
+}
+
 
 
 export const military:Collection<Soldier> = new Collection(
@@ -99,8 +165,14 @@ export const military:Collection<Soldier> = new Collection(
    			spearman,
    			galley,
    			cavalry,
+   			frigate,
    			cannon,
    			infantry,
-   			tank
+   			helicopter,
+   			destroyer,
+   			submarine,
+   			fighterJet,
+   			tank,
+   			stealthBomber
    		]
 	);

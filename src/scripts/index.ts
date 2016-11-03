@@ -517,6 +517,7 @@ function createGameUI() {
   wonderClick();
   faithBonusClick(playerCiv);
   legacyBonusClick(playerCiv);
+  explorationClick();
   cultureCardEvents(socialPolicies, playerCiv);
   militaryUnitChange(military, citizens.get('soldier'), playerCiv);
 
@@ -738,6 +739,25 @@ function getGlobalArgs () {
   }
 };
 
+function explorationClick() {
+  u.elt('.open-exploration-panel').addEventListener('click', (event) => {
+    let parent = u.elt('.clickopolis');
+
+    let template = `
+      <section class='screen exploration-screen' id='exploration'>
+        <h2 class='exploration-header'>
+          <img src='img/exploration.png'> Exploration
+        </h2>
+        <div class='exploration-screen-inner'>
+
+        </div>
+      </section>
+    `;
+
+    parent.innerHTML += template;
+
+  });
+}
 
 function updateResources(resources) {
   let r;
