@@ -612,7 +612,7 @@ class Templates {
             <span class='prod-wrapper'><span class='prod-total'>${resources.get('prod').total}</span> <img src='img/prod.png'></span>
             <button class='purchase-mode-btn hidden'>Purchase Mode</button>
             <br>
-            <div class='center-text white'>Each building has a maintenance cost of <img src='img/cash.png'> 1.
+            <div class='center-text white'>Each building has a maintenance cost of 1 <img src='img/cash.png'>/m.
             </div>
           </div>
         </section>
