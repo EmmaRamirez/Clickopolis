@@ -590,6 +590,19 @@ class Templates {
     return economyScreen;
   }
 
+  createExplorationScreen(playerCiv) {
+    let explorationScreen = `<section class='screen exploration-screen' id='exploration'>
+        <h2 class='exploration-header'>
+          <img src='img/exploration.png'> Exploration
+          <div class='exploration-close' title='Close this panel'><img src='img/close.png'></div>
+        </h2>
+        <div class='exploration-screen-inner'>
+
+        </div>
+      </section>`;
+    return explorationScreen;
+  }
+
   createBuildingsScreen(resources:Collection<Resource>) {
     let buildingsScreen = `
       <section class='screen buildings-screen' id='buildings'>

@@ -101,6 +101,15 @@ const Events:ClickopolisEvent[] = [
   },
   {
     func: (options) => {
+      if (options.playerCiv.pollution > options.playerCiv.health) {
+        options.playerCiv.population -= 1;
+      }
+      notify({ message: `Due to the pollution of your Empire, several citizens died! -1 Pop.`, icon: 'pollution' });
+    },
+    rarity: 'common'
+  },
+  {
+    func: (options) => {
       let wood = options.resources.get('wood');
       let woodcutters = options.citizens.get('woodcutter');
       wood += woodcutters * 10;

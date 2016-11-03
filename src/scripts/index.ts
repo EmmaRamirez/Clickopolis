@@ -36,6 +36,8 @@ import { setLandAmount, setLandPercent } from './utils.land';
 import { addCash, updateCashPM } from './utils.economy';
 import { populateCultureCards, createCultureCardSlots, cultureCardEvents, addCulture } from './utils.culture';
 import { populateMilitary, militaryUnitChange } from './utils.military';
+import { checkUnemployed, updatePopulationEmployed, updatePopulation, checkPopulationGrowthCost } from './utils.population';
+import { populateCitizens, generateCitizenPercents, citizenClick, citizenAmountHandler, addCitizen } from './utils.citizens';
 
 import { notify } from './notify';
 import { log } from './log';
@@ -409,7 +411,7 @@ function createGameUI() {
       //notify({message: 'Yay! You have enough Food to grow your population!'});
     }
 
-    checkPopulationGrowthCost();
+    checkPopulationGrowthCost(playerCiv, resources);
   });
 
   bindElement('.prod-btn', 'click', function () {
@@ -419,7 +421,7 @@ function createGameUI() {
     if (resources.get('prod').total === 15) {
       //notify({message: 'Yay! You have enough Production to build your first building!'});
     }
-    checkPopulationGrowthCost();
+    checkPopulationGrowthCost(playerCiv, resources);
   });
 
   resourceClick();
@@ -431,9 +433,13 @@ function createGameUI() {
     resources.get('food').perSecond -= 1;
     u.elt('.r-food-ps').textContent = resources.get('food').perSecond.toFixed(1);
 
-    updatePopulation(1);
+    updatePopulation(1, playerCiv, game, citizens, { citizens: citizens,
+      playerCiv: playerCiv,
+      resources: resources,
+      military: military,
+    });
 
-    checkPopulationGrowthCost();
+    checkPopulationGrowthCost(playerCiv, resources);
 
     //notify({message:'Your population just grew! Your citizen was automatically assigned as a farmer.'});
 
@@ -491,7 +497,7 @@ function createGameUI() {
   setInfluenceImages();
 
   populateTechnologies();
-  populateCitizens();
+  populateCitizens(citizens);
   populateBuildings();
   populateWonders();
   populateFaithBonuses(playerCiv);
@@ -504,14 +510,19 @@ function createGameUI() {
 
   createCultureCardSlots(playerCiv);
 
-  generateCitizenPercents();
+  generateCitizenPercents(citizens, playerCiv);
 
   setTechQueue();
 
   renderHistory(history);
   updateFaithElts(playerCiv);
 
-  citizenClick();
+  citizenClick(citizens, playerCiv, {
+    citizens: citizens,
+    playerCiv: playerCiv,
+    resources: resources,
+    military: military,
+  });
   techClick();
   buildingClick();
   wonderClick();
@@ -537,72 +548,6 @@ function createGameUI() {
   setInterval(() => minuteUpdates(), 1000 * 60);
 }
 
-function updatePopulationEmployed():void {
-  u.elt('.citizens-population-text').textContent = playerCiv.populationEmployed.toString() + '/' + playerCiv.population.toString();
-}
-
-function updatePopulation(pop:number) {
-  let popGrowthCost = u.elt('.pop-growth-cost-text');
-  let populationText = u.elt('.population-text');
-  let popMetric = u.elt('.metric-population');
-
-  playerCiv.population += pop;
-  playerCiv.populationGrowthCost = Math.round((playerCiv.populationGrowthCost) + playerCiv.population);
-
-  populationText.textContent = playerCiv.population.toString();
-  popGrowthCost.textContent = playerCiv.populationGrowthCost.toString();
-
-  playerCiv.cashPMFromCitizens += pop * 2;
-  playerCiv.researchPM += pop * 2;
-  playerCiv.angerFromPopulation += pop * 1;
-  playerCiv.pollutionFromPopulation += pop * 1;
-  let eraPop = () => {
-      switch(game.era) {
-      case Era.Ancient:
-        return 1;
-      case Era.Classical:
-        return 1.5;
-      case Era.Medieval:
-        return 1.55;
-      case Era.Renaissance:
-        return 2;
-      case Era.Enlightenment:
-        return 2.25;
-      case Era.Industrial:
-        return 3.5;
-      case Era.Modern:
-        return 4;
-      case Era.Atomic:
-        return 6;
-      case Era.Information:
-        return 8;
-      case Era.Future:
-        return 10;
-      default:
-        return 1;
-    }
-  };
-  playerCiv.populationReal = Math.floor((1000  * eraPop() * playerCiv.population) + (Math.random() * 100));
-  playerCiv.land += pop * 40 + (Math.random() * 15);
-  setLandAmount(playerCiv);
-  setLandPercent(playerCiv, game);
-
-  //elt('.research-text').textContent = playerCiv.research.toString();
-  u.elt('.cash-from-citizens').textContent = (playerCiv.population - 1) * 2;
-
-  updateCashPM(playerCiv);
-
-    
-  //u.elt('.civ-anger-text').textContent = playerCiv.anger;
-  //u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
-  addCitizen('farmer', pop, '.farmer-num-text');
-
-  popMetric.setAttribute('data-tooltip', `${u.abbrNum(playerCiv.populationReal) + ' people'}`);
-  updateTooltip(popMetric);
-
-  updatePopulationEmployed();
-
-}
 
 
 
@@ -636,7 +581,7 @@ function secondUpdates() {
     addFaith(playerCiv);
     addCulture(playerCiv);
     addResearchPoints();
-    checkPopulationGrowthCost()
+    checkPopulationGrowthCost(playerCiv, resources)
     setLandPercent(playerCiv, game);
     checkBuildingCosts();
     renderHistory(history);
@@ -682,7 +627,7 @@ function minuteUpdates() {
        isWindowActive: isWindowActive,
        buildings: buildings,
      });
-     checkUnemployed();
+     checkUnemployed(playerCiv, isWindowActive);
   }
 }
 
@@ -705,15 +650,12 @@ function drawUI(el:HTMLElement) {
                   templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game) +
+                  templates.createExplorationScreen(playerCiv) + 
                   templates.createEraOverlay(game) + 
                   templates.createDebugPanel(debugMode);
 }
 
-function checkUnemployed() {
-  if (playerCiv.population !== playerCiv.populationEmployed) {
-    notify({message: 'You have unemployed citizens! <img src="img/citizen.png"> Employ them in the citizens panel!'}, isWindowActive);
-  }
-}
+
 
 function checkBuildingCosts() {
   let buildingEls = <NodeListOf<HTMLElement>>document.querySelectorAll('.building');
@@ -741,20 +683,13 @@ function getGlobalArgs () {
 
 function explorationClick() {
   u.elt('.open-exploration-panel').addEventListener('click', (event) => {
-    let parent = u.elt('.clickopolis');
+    u.elt('.exploration-screen').style.display = 'block';
 
-    let template = `
-      <section class='screen exploration-screen' id='exploration'>
-        <h2 class='exploration-header'>
-          <img src='img/exploration.png'> Exploration
-        </h2>
-        <div class='exploration-screen-inner'>
+    
 
-        </div>
-      </section>
-    `;
-
-    parent.innerHTML += template;
+    u.elt('.exploration-close').addEventListener('click', (event) => {
+      u.elt('.exploration-screen').style.display = 'none';
+    })
 
   });
 }
@@ -831,26 +766,7 @@ function handleQueueCancelClick() {
   });
 }
 
-function populateCitizens() {
-  let citizensContainer = u.elt('.citizens');
-  citizensContainer.innerHTML = '';
 
-  for (let i = 0; i < citizens.items.length; i++) {
-    let c = citizens.items[i];
-    //let d:string;
-    citizensContainer.innerHTML += `
-    <div class='row citizen-${c.name}' data-visible='${c.visible}' data-enabled='${c.enabled}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
-      <strong style='display: inline-block; text-align: center; width: 3rem;' class='${c.name}-num-text'>${c.amount}</strong> 
-      <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
-      <span class='citizen-icon'><img src='img/${c.image}.png'></span>
-      <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
-      <span class='citizen-info'>
-        ${u.capitalize(c.name + 's')}: <span class='contrib' data-citizen='${c.name}'>${u.setContributions(c) }</span>
-      </span>
-    </div>
-    `;
-  }
-}
 
 
 
@@ -1064,85 +980,7 @@ function resourceClick() {
   });
 }
 
-function generateCitizenPercents() {
-  let citizenBar = u.elt('.citizen-percentages');
-  let pop = playerCiv.population;
-  citizenBar.innerHTML = '';
-  for (let i = 0; i < citizens.items.length; i++) {
-    let c = citizens.items[i];
-    if (c.amount > 0) {
-      let bar = document.createElement('div');
-      bar.setAttribute('data-tooltip', `${u.capitalize(c.name + 's')}: ${Math.floor((c.amount / pop * 100))}%`)
-      bar.style.width = `${(c.amount / pop) * 100}%`;
-      bar.style.height = '1rem';
-      bar.style.background = c.color;
-      updateTooltip(bar);
-      citizenBar.appendChild(bar);
-    }
-  }
-}
 
-function citizenClick() {
-  let citizenButtons = <NodeListOf<HTMLElement>>document.querySelectorAll('button[data-citizen]');
-  [].forEach.call(citizenButtons, function (item:any) {
-    item.addEventListener('click', function () {
-      let citizen:string = this.getAttribute('data-citizen');
-      let sel:string = '.' + citizen + '-num-text';
-      let amount:number = parseInt(this.getAttribute('data-citizen-amount'));
-      if (citizens.get(citizen).name === 'ruler') {
-        notify({message:'You can\'t have more than one ruler!'}, isWindowActive);
-      } else {
-        if (citizens.get(citizen).amount === 0 && amount < 0 || (citizens.get(citizen).amount + amount) < 0) {
-          notify({message:'You can\'t go below zero ' + citizens.get(citizen).name + 's!'}, true);
-        } else {
-          if ((playerCiv.population - playerCiv.populationEmployed) === 0 && amount > 0) {
-            notify({message:'All of your population is already employed!'}, true);
-          } else {
-            if (amount > (playerCiv.population - playerCiv.populationEmployed)) {
-              notify({ message: 'You cannot assign more ' + citizens.get(citizen).name+ 's than you have unemployed citizens!'}, true);
-            } else {
-              addCitizen(citizen, amount, sel);
-            }
-          }
-        }
-      }
-    });
-  });
-}
-
-function citizenAmountHandler() {
-  let setterInput = u.elt('.citizen-amount-setter');
-
-  setterInput.addEventListener('change', () => {
-    iterateOverNodelist(u.elt('[data-citizen-amount]', true), (item, index) => {
-      let amount = Number(item.getAttribute('data-citizen-amount'));
-      amount > 0 ? amount = setterInput.value : amount = -1 * setterInput.value;
-      item.setAttribute('data-citizen-amount', amount);
-      item.textContent = amount;
-    }, this);
-  })
-}
-
-function addCitizen(citizen:string, amount: number, sel:string) {
-  let options:citizenFunctionOptions = {
-    citizens: citizens,
-    playerCiv: playerCiv,
-    resources: resources,
-    military: military,
-    amount: amount,
-  };
-  citizens.get(citizen).amount += amount;
-  playerCiv.populationEmployed += amount;
-  updatePopulationEmployed();
-
-  //citizens.get(citizen).func(amount, resources, playerCiv);
-
-  citizenFunction(citizen, options);
-
-  //console.log(citizens.get(citizen).func);
-  u.elt(sel).textContent = citizens.get(citizen).amount;
-  generateCitizenPercents();
-}
 
 function hasBiome(biome:string) {
   return playerCiv.biomes.items.includes(new Biome(<BiomeType>biome));
@@ -1454,16 +1292,7 @@ function showResourceInfo(name:string) {
   //console.log(name);
 }
 
-function checkPopulationGrowthCost() {
-  let button = document.querySelector('.pop-btn');
-  if (playerCiv.populationGrowthCost > resources.get('food').total) {
-    button.className = 'disabled pop-btn';
-    return false;
-  } else {
-    button.className = 'pop-btn';
-    return true;
-  }
-}
+
 
 function setInfluenceImages() {
   let domesticImg = u.elt('.metric-domestic-influence-img');
