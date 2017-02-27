@@ -24,7 +24,7 @@ const webpackConfig = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
-      }
+      },
       {
         test: /\.styl$/,
         loaders: ['style-loader', 'css-loader', 'stylus-loader']

@@ -7,13 +7,13 @@ interface ResourcesProps {
   resources:any;
 }
 
-export class Resources extends Screen<> {
+export class Resources extends Screen<ResourcesProps, {}> {
   subject = 'resources';
 
 
   private renderResourceBlocks(resources) {
     return resources.map((item, index) => {
-      return <ResourceBlock name={item.name} />
+      return <ResourceBlock name={item.name} key={index} />
     });
   }
 
