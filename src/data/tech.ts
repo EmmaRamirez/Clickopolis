@@ -400,11 +400,9 @@ let warStrategy:Tech = new Tech(
 );
 
 
-let techs:Collection<Tech> = new Collection('Techs',
+export let techs:Collection<Tech> = new Collection('Techs',
     [
       agriculture, animalHusbandry, archery, fishing, herbalMedicine, masonry, mining, mysticism, pottery, sailing, theWheel, trading, woodworking, writing,
       calendar, construction, currency, horsebackRiding, ironWorking, irrigation, mathematics, philosophy, poetics, shipbuilding, warStrategy
     ]
   );
-
-export = techs;

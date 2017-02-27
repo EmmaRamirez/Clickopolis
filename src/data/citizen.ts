@@ -19,6 +19,4 @@ let merchant:Citizen = new Citizen('merchant', 'merchant', '#A0D190', 0, 'Mercha
 let artist:Citizen = new Citizen('artist', 'artist', '#C41B7E', 0, 'Aritsts boost culture and create Great Works.', { name: 'culture', mod: 'PM', amount: 1}, {}, {}, {}, true, false);
 let scientist:Citizen = new Citizen('scientist', 'scientist', '#83D4D4', 0, 'Scentists conduct research for your empire.', { name: 'research', mod: 'PM', amount: 2 }, {}, {}, {}, true, false);
 
-let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, merchant, artist, scientist]);
-
-export = citizens;
+export let citizens:Collection<Citizen> = new Collection('Citizens', [ruler, farmer, miner, woodcutter, soldier, cleric, merchant, artist, scientist]);

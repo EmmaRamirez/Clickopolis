@@ -31,7 +31,7 @@ let divineKingdom = new Legacy(
     '+5% <img src="img/faith.png">'
   );
 
-let legacies = new Collection<Legacy>('legacies', [
+export let legacies = new Collection<Legacy>('legacies', [
   empireOfTheArts,
   economicSuperpower,
   // neverSettingSun,
@@ -40,5 +40,3 @@ let legacies = new Collection<Legacy>('legacies', [
   divineKingdom,
   // worldStagePlayer
 ]);
-
-export = legacies;

@@ -61,9 +61,7 @@ let mission:FaithBonus = new FaithBonus('Mission', FaithTier.Organized, false, f
 
 });
 
-let faithBonuses = new Collection('faithBonuses', [
+export let faithBonuses = new Collection('faithBonuses', [
                                                     goh, sos, bm, gow, sc, gc, fg, sc2, ps, lof, tf, tf2,
                                                     animism, reincarnation, priesthood, mission
                                                   ]);
-
-export = faithBonuses;

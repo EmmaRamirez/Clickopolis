@@ -17,7 +17,7 @@ export const WonderFunction = {
 	},
 	finished: (wonder, args) => {
 		if (wonder === 'The Great Pyramids') {
-			
+
 		}
 	}
 }

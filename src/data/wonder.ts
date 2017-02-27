@@ -8,7 +8,7 @@ interface WonderArgs {
   resources: Collection<Resource>,
   buildings: Collection<Building>,
   playerciv: Civilization,
-  
+
 }
 
 let greatPyramids = new Wonder(
@@ -68,7 +68,7 @@ let moaiStatues = new Wonder(
   function (args) {
     (args.resources.get('stone').total >= 50)  &&
     (args.playerCiv.biomes.items.includes('Coast') || args.playerCiv.biomes.items.includes('Island'))
-    ? true 
+    ? true
     :  false;
   },
   function (args) {
@@ -127,6 +127,4 @@ let greatCollosseum = new Wonder(
   }
 );
 
-let wonders:Collection<Wonder> = new Collection('wonders', [greatPyramids, stonehenge, moaiStatues, parthenon, greatWall, greatCollosseum]);
-
-export = wonders;
+export let wonders:Collection<Wonder> = new Collection('wonders', [greatPyramids, stonehenge, moaiStatues, parthenon, greatWall, greatCollosseum]);
