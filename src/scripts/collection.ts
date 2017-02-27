@@ -29,7 +29,7 @@ class Collection<T> {
   }
 
   contains(query:string) {
-    return this.items.contains(this.get(query));
+    return this.items.indexOf(this.get(query)) > -1;
   }
 
   constructor(name: string = 'Collection', items: T[]) {

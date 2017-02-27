@@ -141,6 +141,7 @@ function saveData():void {
   store.set('wonders', wonders);
   store.set('faithBonuses', faithBonuses);
   store.set('achievements', achievements);
+  store.set('military', military);
   saveGame();
   saveHistory();
 }
@@ -181,7 +182,7 @@ function startGame() {
   if (store.get('playerCiv') !== undefined) {
     let loadCiv = store.get('playerCiv');
     playerCiv = new Civilization(loadCiv.civName, loadCiv.leaderName, loadCiv.leader, loadCiv.biomes);
-    
+
     for (let i in loadCiv) {
        if (playerCiv.hasOwnProperty(i)) {
           playerCiv[i] = loadCiv[i];
@@ -195,12 +196,15 @@ function startGame() {
     let loadWonders = store.get('wonders');
     let loadFaithBonuses = store.get('faithBonuses');
     let loadAchievements = store.get('achievements');
+    let loadMilitary = store.get('military');
     let loadGame = store.get('game');
     let loadHistory = store.get('history');
 
     resources.items = loadResources.items;
     achievements.items = loadAchievements.items;
     citizens.items = loadCitizens.items;
+    // TODO: Fix soliders error
+    //military.items = loadMilitary.items;
 
     game = loadGame;
     history = loadHistory;
@@ -468,7 +472,7 @@ function createGameUI() {
   });
 
   bindElement('.outline-page', 'click', function () {
-    [].forEach.call(document.querySelectorAll("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
+    [].forEach.call(document.querySelectorAll('*'),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
   });
 
   bindElement('.debug-add-science', 'click', function () {
@@ -586,7 +590,7 @@ function secondUpdates() {
     checkBuildingCosts();
     renderHistory(history);
     setInfluenceImages();
-    
+
     iterateOverNodelist(u.elt('.research-PM', true), (item) => {
        item.textContent = playerCiv.researchPM;
     }, this);
@@ -604,7 +608,7 @@ function secondUpdates() {
     calculatePollution(playerCiv, resources);
     checkAchievements(achievements, game);
 
-    
+
   }
 }
 
@@ -652,8 +656,8 @@ function drawUI(el:HTMLElement) {
                   templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game) +
-                  templates.createExplorationScreen(playerCiv) + 
-                  templates.createEraOverlay(game) + 
+                  templates.createExplorationScreen(playerCiv) +
+                  templates.createEraOverlay(game) +
                   templates.createDebugPanel(debugMode);
 }
 
@@ -687,7 +691,7 @@ function explorationClick() {
   u.elt('.open-exploration-panel').addEventListener('click', (event) => {
     u.elt('.exploration-screen').style.display = 'block';
 
-    
+
 
     u.elt('.exploration-close').addEventListener('click', (event) => {
       u.elt('.exploration-screen').style.display = 'none';
@@ -984,8 +988,9 @@ function resourceClick() {
 
 
 
-function hasBiome(biome:string) {
-  return playerCiv.biomes.items.includes(new Biome(<BiomeType>biome));
+function hasBiome(biome:string):boolean {
+  return true;
+  //return playerCiv.biomes.items.includes(new Biome(<BiomeType>biome));
 }
 
 function buildingClick() {
@@ -998,7 +1003,7 @@ function buildingClick() {
   [].forEach.call(buildingEls, function (item:any, index:number) {
 
     item.addEventListener('click', function () {
-      
+
       let building = item.getAttribute('data-building');
       let totalSelt = '.building-total[data-building="' + buildings.get(building).name + '"]';
       let costSelt = '.building-cost-text';
@@ -1016,7 +1021,7 @@ function buildingClick() {
         } else {
           buildingPurchase(building, totalSelt, costSelt, buildingsArgs);
         }
-        
+
       } else {
         //notify({message:`You don't have the Production to purchase a ${buildings.get(building).name}`}, true);
       }
@@ -1160,7 +1165,7 @@ function purchaseTech(tech:string, element:HTMLElement, triggerType: 'automatic'
 
   playerCiv.research -= playerCiv.researchCost;
   playerCiv.researchCost = Math.floor(((playerCiv.population * 3) + playerCiv.researchCost * .8));
-  
+
   iterateOverNodelist(u.elt('.research-cost-text', true), (item) => {
     item.textContent = playerCiv.researchCost;
   }, this);

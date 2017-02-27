@@ -64,6 +64,15 @@ const Events:ClickopolisEvent[] = [
     rarity: 'rare'
   },
   {
+    func: (options) => {
+      if (options.playerCiv.population > 10 && (options.playerCiv.pollution / 2 > options.playerCiv.health)) {
+        updatePopulation(-1, options.playerCiv, options.game, options.citizens, options);
+      }
+      notify({ message: `The pollution in your Empire is overwhelming! The flue has decimated your population. -5 Pop.`, icon: 'pollution' });
+    },
+    rarity: 'rare'
+  },
+  {
     func: function (options) {
       let horse = options.resources.get('horse');
       if (horse.unlocked) {
@@ -143,7 +152,7 @@ interface RollEventOptions {
   buildings: Collection<Building>;
   game: any;
   military: Collection<Soldier>;
-  isWindowActive: boolean; 
+  isWindowActive: boolean;
 }
 
 export function rollEvent(options:RollEventOptions) {

@@ -14,36 +14,15 @@ class Templates {
 
     let startScreen = `
       <section class='clickopolis-intro clickopolis-open'>
-        <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
+        <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'><br>Continue Game</h1>
         <div class="start-options">
-          <!--
-          <button class="large-btn start-btn load-btn">Load Game...</button>
-          <button class="large-btn start-btn new-btn">New Game</button>
-          -->
-          <button class="large-btn start-btn current-btn">
-            <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
-            <p class='center-text'>${game.era} era</p>
-            <p>
-              <span>
-                <img src="img/achievements.png"> ${playerCiv.achievements}
-              </span>
-              <span>
-                <img src="img/strength.png"> ${playerCiv.strength}
-              </span>
-              <span>
-                <img src="img/defense.png"> ${playerCiv.defense}
-              </span>
-              <span>
-                <img src="img/legacy.png"> ${playerCiv.legacy}
-              </span>
-              <span>
-                <img src="img/coin.png"> ${u.abbrNum(playerCiv.cash.toFixed(2))}
-              </span>
-              <span>
-                <img src="img/wonder.png"> ${playerCiv.wondersBuilt}
-              </span>
-            </p>
-          </button>
+          
+          <div class='leader-portrait'><img src='img/${u.dasherize(playerCiv.leaderName)}.jpg'/></div>
+          <div class='leader-data'><strong>${playerCiv.leaderName}</strong> of <strong>${playerCiv.civName}</strong></div>
+          
+        
+          <button class="large-btn start-btn current-btn">Continue Game</button>
+
         </div>
         <!-- <button class='next-btn'>Next &rarr;</button> -->
         <p class='center-text'>version ${game.version}</p>

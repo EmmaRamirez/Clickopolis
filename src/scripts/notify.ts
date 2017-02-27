@@ -26,7 +26,8 @@ export function notify(note:Note, isWindowActive:boolean = true):void {
         console.debug('Note was created with message of: ' + note.message);
         let notification = document.createElement('div');
         notification.className = 'notification';
-        notification.innerHTML = note.message;
+
+        notification.innerHTML = `<div class='notification-message'>${note.message}</div>`;
         if (typeof note.icon !== 'undefined') {
           notification.innerHTML += `<div class='notification-image'><img src='img/${note.icon}.png'></div>`;
         }
