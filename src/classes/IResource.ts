@@ -1,5 +1,6 @@
 export interface IResource {
   name: string;
+  plural: string;
   perClick: number;
   perSecond: number;
   max: number;

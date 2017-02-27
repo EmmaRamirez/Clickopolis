@@ -33,11 +33,62 @@
 // let chihuahua:Resource = new Resource('chihuahua', 0, 0, -1, 0, 'chihuahua', 'Bark! Woof! Bark!', false, true);
 //
 // export let resources:Collection<Resource> = new Collection('Resources', [food, prod, stone, wood, fish, cattle, spices, banana, gold, gems, oil, iron, steel, uranium, chihuahua, spaghetti, horse, silver, pearls, whale, aluminum, marble]);
+import { IResource } from '../classes/IResource';
+
+// name: string;
+// perClick: number;
+// perSecond: number;
+// max: number;
+// total: number;
+// image: string;
+// description: string;
+//
+// unlocked: boolean;
+// visible: boolean;
+const base = {
+  perClick: 0,
+  perSecond: 0,
+  max: -1,
+  total: 0,
+  unlocked: true,
+  visible: true
+};
+
+const stone = {
+  name: 'stone',
+  plural: 'stones',
+  perClick: 0,
+  perSecond: 0,
+  max: -1,
+  total: 0,
+  image: 'stone.png',
+  description: 'Stones are important as building blocks. They are often found by your miners.',
+  unlocked: true,
+  visible: true
+};
+
+const wood = {
+  name: 'wood',
+  plural: 'wood',
+  perClick: 0,
+  perSecond: 0,
+  max: -1,
+  total: 20,
+  image: 'wood.png',
+  description: 'Wood, the main ingredient of log cabins.',
+  unlocked: true,
+  visible: true
+};
+
+const fish = {
+  // ...base,
+  name: 'fish',
+  plural: 'fish',
+  description: 'Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.',
+};
 
 export const resources = [
-  {
-    name: 'stone',
-    plural: 'stones',
-    description: 'Stones are important as building blocks. They are often found by your miners.'
-  }
+  stone,
+  wood,
+  fish
 ];

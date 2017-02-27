@@ -3,6 +3,7 @@ import * as React from 'react';
 interface ButtonProps {
   subject?: string;
   styles?: object;
+  enableEnterActivation?: boolean;
   clickEvent?: () => void;
 }
 
