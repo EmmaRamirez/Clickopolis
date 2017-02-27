@@ -1,7 +1,7 @@
-import Nation = require('./nation');
-import Resource = require('./resource');
+import { Nation } from '../nation';
+import { Resource } from '../resource';
 
-class TradeRoute {
+export class TradeRoute {
   tradeRouteTo: Nation;
   tradingDistance: number;
   tradingTime: number;
@@ -17,5 +17,3 @@ class TradeRoute {
     this.tradingTime = tradingTime;
   }
 }
-
-export = TradeRoute;

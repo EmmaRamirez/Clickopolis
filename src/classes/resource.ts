@@ -1,4 +1,4 @@
-class Resource {
+export class Resource {
   name: string;
   perClick: number;
   perSecond: number;
@@ -35,5 +35,3 @@ class Resource {
   }
 
 }
-
-export = Resource;

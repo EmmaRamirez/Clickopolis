@@ -4,60 +4,15 @@
 
 declare var Notification: any;
 
-import _ = require('underscore');
-import { Utils, iterateOverNodelist, bindElement } from './utils';
-import Game = require('./game');
-import Queue = require('./queue');
-import Settings = require('./settings');
-import Collection = require('./collection');
-import Era = require('./era');
-import Civilization = require('./civilization');
-import { BiomeType, Biome } from './biome';
-//import { biomeSelection } from './utils.biome';
-import { Trait, Leader } from './leader';
-import Resource = require('./resource');
-import Citizen = require('./citizen');
-import { citizenFunction, citizenFunctionOptions } from './data.citizenfunctions';
-import Building = require('./building');
-import Wonder = require('./wonder');
-import Tech = require('./tech');
-import Nation = require('./nation');
-import Templates = require('./template');
-import FaithBonus = require('./faithbonus');
-import Legacy = require('./legacy');
-
-import { populateAchievements } from './utils.achievements';
-import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './utils.happiness';
-import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils.anger';
-import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils.health';
-import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils.pollution';
-import { addGoldenAgePoints, updateGoldenAgePoints } from './utils.goldenage';
-import { setLandAmount, setLandPercent } from './utils.land';
-import { addCash, updateCashPM } from './utils.economy';
-import { populateCultureCards, createCultureCardSlots, cultureCardEvents, addCulture } from './utils.culture';
-import { populateMilitary, militaryUnitChange } from './utils.military';
-import { checkUnemployed, updatePopulationEmployed, updatePopulation, checkPopulationGrowthCost } from './utils.population';
-import { populateCitizens, generateCitizenPercents, citizenClick, citizenAmountHandler, addCitizen } from './utils.citizens';
-
-import { notify } from './notify';
-import { log } from './log';
-import { generateTooltips, updateTooltip, betterUpdateTooltip } from './tooltips';
+import { Achievement, Biome, BiomeType, Building, Citizen, Civilization,
+         Collection, Economy, Era, FaithBonus, FaithTier, Leader, Legacy,
+         log, Nation, notify, Queue, Resource, Robot, Settings, SocialPolicy,
+         Soldier, Tech, generateTooltips, updateTooltip, betterUpdateTooltip,
+         Trait, Wonder } from './classes';
 
 
-import techData = require('./data.tech');
-import resourceData = require('./data.resource');
-import citizenData = require('./data.citizen');
-import buildingData = require('./data.building');
-import nationData = require('./data.nation');
-import wonderData = require('./data.wonder');
-import faithBonusData = require('./data.faithbonus');
-import achievementData = require('./data.achievement');
-import legacyData = require('./data.legacy');
-import { leaders } from './data.leader';
-import { socialPolicies } from './data.socialpolicy';
-import { military } from './data.soldier';
 
-//require('!raw!stylus!../styles/stylus/index.styl');
+
 
 const u = new Utils();
 

@@ -1,4 +1,4 @@
-class Queue<T> {
+export class Queue<T> {
   oldestIndex:number = 1;
   newestIndex:number = 1;
   storage:T[];
@@ -29,5 +29,3 @@ class Queue<T> {
     this.storage = storage;
   }
 }
-
-export = Queue;

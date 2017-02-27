@@ -1,4 +1,4 @@
-class Settings {
+export class Settings {
   notifications: {
     allNotifications: boolean;
     events: boolean;
@@ -11,5 +11,3 @@ class Settings {
   constructor() {
   }
 }
-
-export = Settings;

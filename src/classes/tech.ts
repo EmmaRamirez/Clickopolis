@@ -1,4 +1,4 @@
-class Tech {
+export class Tech {
   name: string;
   era: string;
   enabled: boolean;
@@ -26,5 +26,3 @@ class Tech {
     this.func = func;
   }
 }
-
-export = Tech;

@@ -1,5 +1,4 @@
-import tradeRoute = require('./trade-route');
-import tradeDeal = require('./trade-deal');
+import { tradeRoute, tradeDeal } from './trade';
 
 enum EconomySystem {
   traditional,

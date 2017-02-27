@@ -1,4 +1,4 @@
-interface Log {
+export interface Log {
   year: number;
   message: string;
   categoryImage: string;

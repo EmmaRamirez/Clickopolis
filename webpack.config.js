@@ -3,9 +3,9 @@ var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const webpackConfig = {
-  entry: './src/scripts/index.ts',
+  entry: './src/index.ts',
   output: {
-    filename: './dist/scripts/bundle.js'
+    filename: './dist/bundle.js'
   },
   devtool: 'source-map',
   resolve: {
