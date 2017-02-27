@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 interface ButtonProps {
-  subject: string;
-  css: object;
-  clickEvent: () => void;
+  subject?: string;
+  css?: object;
+  clickEvent?: () => void;
 }
 
 export class Button extends React.Component<ButtonProps, {}> {
@@ -12,9 +12,10 @@ export class Button extends React.Component<ButtonProps, {}> {
   }
 
   render() {
+    const { children } = this.props;
     return (
       <div className='button' aria-role='button'>
-
+        { children }
       </div>
     )
   }
