@@ -101,4 +101,3 @@ export const leaders = new Collection<Leader>('leaders', [
 		montezumaII
 
 	]);
-

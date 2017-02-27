@@ -78,12 +78,10 @@ let mint:Building = new Building('Mint', 0, 900, 9000, 'Keep your money mint-fre
 let plantation:Building = new Building('Plantation', 0, 750, 7500, 'It\'s a plantation nation.', '+.5 <img src="img/prod.png"> PS per <img src="img/banana.png">', true, false);
 let walls:Building = new Building('Walls', 0, 400, 4000, 'B U I L D  W A L L', '+25 <img src="img/defense.png">', true, false);
 
-let buildings:Collection<Building> = new Collection('Buildings',
+export let buildings:Collection<Building> = new Collection('Buildings',
                                           [
                                             hut, igloo, granary, quarry, barracks, temple, ancientCourt, asclepeia, graveyard, fort, sphinx, defenseTower, ziggurat,
                                             ampitheatre, collesseum, courthouse, forum, harbor, lighthouse,  market, mint, plantation, walls
                                           ])
 
 // name:string, amount:number, prodCost:number, cashCost:number, description:string, effect:string
-
-export = buildings;
