@@ -4,7 +4,7 @@ interface ButtonProps {
   subject?: string;
   styles?: object;
   enableEnterActivation?: boolean;
-  clickEvent?: () => void;
+  onClick?: () => void;
 }
 
 const baseButtonStyles = {
@@ -18,10 +18,10 @@ export class Button extends React.Component<ButtonProps, {}> {
     super(props);
   }
 
-  render() {
+  public render() {
     const { children } = this.props;
     return (
-      <div style={baseButtonStyles} className='button' aria-role='button'>
+      <div onClick={this.props.onClick} style={baseButtonStyles} className='button' aria-role='button'>
         { children }
       </div>
     )
