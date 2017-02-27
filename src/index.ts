@@ -54,18 +54,6 @@ import {
 
 const u = new Utils();
 
-// let achievements = achievements;
-// let buildings = buildings;
-// let citizens = citizens;
-// let leaders = leaders;
-// let nations = nations;
-// let socialPolicies = socialPolicies;
-// let military = military;
-// let techs = techs;
-// let FaithBonuses = faithBonuses;
-// let wonders = wonders;
-// let resources = resources;
-
 let legacyBonuses = legacies;
 
 let history:string[];
@@ -116,16 +104,6 @@ function saveHistory() {
   store.set('history', history);
 }
 
-
-// let techs = techData;
-// let resources = resourceData;
-// let citizens = citizenData;
-// let buildings = buildingData;
-// let nations = nationData;
-// let wonders = wonderData;
-// let faithBonuses = faithBonusData;
-// let achievements = achievementData;
-// let legacyBonuses = legacyData;
 
 function saveData():void {
   store.set('resources', resources);
@@ -647,7 +625,7 @@ function drawUI(el:HTMLElement) {
                   templates.createCultureScreen(playerCiv) +
                   templates.createFaithScreen(playerCiv) +
                   templates.createLegacyScreen(playerCiv) +
-                  templates.createAchievementsScreen(playerCiv) +
+                  // templates.createAchievementsScreen(playerCiv) +
                   templates.createHistoryScreen(playerCiv) +
                   templates.createSettingsScreen(playerCiv, game) +
                   templates.createExplorationScreen(playerCiv) +
