@@ -4,6 +4,12 @@ interface ScreenProps {
   isFocused?: boolean;
 }
 
+const screenStyles = {
+  border: '1px solid #333',
+  borderRadius: '4px',
+  padding: '1rem',
+};
+
 export class Screen<P, S> extends React.PureComponent<P, S> {
   protected subject: string;
 
@@ -17,7 +23,10 @@ export class Screen<P, S> extends React.PureComponent<P, S> {
 
   public render() {
     return (
-      <section className={`section ${this.subject}`}>
+      <section style={screenStyles} className={`section ${this.subject}`}>
+        <div className='screen-header'>
+          <h3>{ this.subject }</h3>
+        </div>
         { this.renderScreen() }
       </section>
     )
