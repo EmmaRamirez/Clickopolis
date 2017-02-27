@@ -4,6 +4,8 @@ import { MainButtons } from './MainButtons';
 import { ResourceBlock } from './ResourceBlock';
 import { IResource } from '../../classes';
 
+//require('css-loader!stylus-loader!./styles/resources.styl');
+
 interface ResourcesProps {
   resources: IResource[];
 }
