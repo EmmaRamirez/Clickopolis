@@ -1,3 +1,3 @@
 export type Partial<T> = {
-  [p in keyof T]?: T[P];
+  [P in keyof T]?: T[P];
 };
