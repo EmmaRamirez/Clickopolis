@@ -1,5 +1,33 @@
 # Changelog
 
+
+### v0.2.1
+- Add ancient court
+- Mining now also unlocks silver
+- Notify when you can't purchase faith amounts
+- Change miner prod to +.5/+.5
+- Add +.1 PS per Cattle
+- Fix overlay/eventListener bug
+- Added exploration panel -- preliminary
+- Fix plauge
+
+### v0.2.0
+- Add biome selection to start screen
+- Added legacy bonuses
+- Revised dasherize function
+- Fixed build process
+- Added steel, wood, and other new resources
+- Added igloo Building
+- Added outline debug option
+
+### v0.1.13
+- Added achievement class
+- Added cursor image
+
+### v0.1.12
+- Merchants get actual colors
+- Added citizen percentage generation
+
 ### v0.1.11
 [`6722242`](https://github.com/EmmaRamirez/Clickopolis/commit/6722242aee92d3219371e89387ab92b62d492f01) Change Ultimate Faith Tier cost from 1M to 100K
 
