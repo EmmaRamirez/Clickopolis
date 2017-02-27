@@ -1,6 +1,6 @@
 import { Utils } from './utils';
-import { updateTooltip } from './tooltips';
-import { updateGoldenAgePoints } from './utils.goldenage';
+import { updateTooltip } from '../classes';
+import { updateGoldenAgePoints } from './goldenage';
 
 
 const u = new Utils();

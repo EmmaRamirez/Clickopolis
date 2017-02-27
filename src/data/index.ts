@@ -10,5 +10,5 @@ export { resources } from './resource';
 export { socialPolicies } from './social-policy';
 export { military } from './soldier';
 export { techs } from './tech';
-export { wonderFunction } from './wonder-function';
+export { wonderFunction } from './wonder-functions';
 export { wonders } from './wonder';

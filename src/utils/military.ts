@@ -1,4 +1,5 @@
 import { Soldier, Citizen, notify, Civilization, Collection } from '../classes';
+import { Utils, iterateOverNodelist } from './utils';
 const u = new Utils();
 
 function renderUnitStats(unit:Soldier) {

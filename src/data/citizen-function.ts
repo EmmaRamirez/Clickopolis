@@ -1,4 +1,4 @@
-import { Utils, iterateOverNodelist } from '../utils';
+import { Utils, iterateOverNodelist, populateMilitary } from '../utils';
 import { Citizen, Collection, Resource, Civilization, Soldier, notify } from '../classes';
 
 const u = new Utils();
