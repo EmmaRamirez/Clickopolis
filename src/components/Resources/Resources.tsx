@@ -18,7 +18,7 @@ export class Resources extends Screen<ResourcesProps, {}> {
     });
   }
 
-  public renderScreen() {
+  public renderScreen():JSX.Element {
     return (
       <div className='screen-inner'>
         <MainButtons />

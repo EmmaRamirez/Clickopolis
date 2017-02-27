@@ -10,7 +10,7 @@ export class MainButtons extends React.Component<{}, {}> {
     return (
       <div className='main-button-wrappers'>
         <Button subject='resources'>
-          Food
+          <img src='../../assets/images/food.png' /> Grow Food
         </Button>
         <Button subject='resources'>
           Prod
