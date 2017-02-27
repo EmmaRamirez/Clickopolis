@@ -1,16 +1,15 @@
-import Civilization = require('./civilization');
-import Collection = require('./collection');
-import Building = require('./building');
-import { Utils } from './utils';
-import { notify } from './notify';
-
-import Resource = require('./resource');
-import resourceData = require('./data.resource');
-
-import { updatePopulation } from './utils.population';
-import { Soldier } from './soldier';
-import { Citizen } from './citizen';
-import citizenData = require('./data.citizen');
+import { resourceData } from '../data';
+import { updatePopulation } from './population';
+import { citizenData } from '../data';
+import {
+  Civilization,
+  Collection,
+  Building,
+  notify,
+  Resource,
+  Soldier,
+  Citizen
+} from '../classes';
 
 let u = new Utils();
 

@@ -5,14 +5,15 @@
 declare var Notification: any;
 
 import { Achievement, Biome, BiomeType, Building, Citizen, Civilization,
-         Collection, Economy, Era, FaithBonus, FaithTier, Leader, Legacy,
+         Collection, Economy, Era, FaithBonus, FaithTier, Game, Leader, Legacy,
          log, Nation, notify, Queue, Resource, Robot, Settings, SocialPolicy,
          Soldier, Tech, generateTooltips, updateTooltip, betterUpdateTooltip,
-         Trait, Wonder } from './classes';
+         Trait, Wonder
+       } from './classes';
 
+import { Templates } from '../components';
 
-
-
+import * from './utils';
 
 const u = new Utils();
 
