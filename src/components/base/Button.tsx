@@ -13,7 +13,7 @@ export class Button extends React.Component<ButtonProps, {}> {
 
   render() {
     return (
-      <div class='button' aria-role='button'>
+      <div className='button' aria-role='button'>
 
       </div>
     )

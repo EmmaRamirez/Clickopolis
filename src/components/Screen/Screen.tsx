@@ -13,7 +13,7 @@ export class Screen<S> extends React.PureComponent<P, S> {
 
   public render() {
     return (
-      <section className={`section ${subject}`}>
+      <section className={`section ${this.subject}`}>
         { this.renderScreen() }
       </section>
     )
