@@ -1,9 +1,5 @@
-import Collection = require('./collection');
-import FaithTier = require('./faithtier');
-import FaithBonus = require('./faithbonus');
-import Resource = require('./resource');
-import Civilization = require('./civilization');
-import { Utils } from './utils';
+import { Utils } from '../utils';
+import { Collection, FaithTier, FaithBonus, Resource, Civilization } from '../classes';
 
 let u = new Utils();
 

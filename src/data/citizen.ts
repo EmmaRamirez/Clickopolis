@@ -1,9 +1,5 @@
-import { Citizen } from './citizen';
-import Collection = require('./collection');
-import { Utils } from './utils';
-import Resource = require('./resource');
-import Civilization = require('./civilization');
-import { notify } from './notify';
+import { Utils } from '../utils';
+import { Citizen, Collection, Resource, Civilization, notify } from '../classes';
 
 const u = new Utils();
 

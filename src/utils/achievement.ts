@@ -1,6 +1,6 @@
 import { Utils } from './utils';
-import { updateTooltip } from './tooltips';
-import { log } from './log';
+import { updateTooltip } from '../classes';
+import { log } from '../log';
 
 const u = new Utils();
 
@@ -16,5 +16,3 @@ export function populateAchievements(achievements):void {
     updateTooltip(u.elt(`.${a.className}`));
   }
 }
-
-

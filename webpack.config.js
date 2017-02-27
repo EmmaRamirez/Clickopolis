@@ -9,21 +9,21 @@ const webpackConfig = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['', '.ts', '.tsx', '.js', '.jsx']
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
     new CopyWebpackPlugin([
-      { from: './src/img', to: './dist/img' },
+      { from: './src/assets/img', to: './dist/img' },
       { from: './src/index.html', to: './dist/index.html' },
-      { from: './node_modules/store/store.js', to: './dist/scripts/store.js' }
+      { from: './node_modules/store/store.js', to: './dist/store.js' }
     ])
   ],
   module: {
     loaders: [
       {
-        test: /\.ts$/,
-        loader: 'ts-loader'
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
       }
       // {
       //   test: /\.styl$/,

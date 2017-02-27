@@ -1,9 +1,5 @@
-import Building = require('./building');
-import Collection = require('./collection');
-import Civilization = require('./civilization');
-import Resource = require('./resource');
-import { Utils } from './utils';
-import notify = require('./notify');
+import { Building, Collection, Civilization, Resource, notify } from '../classes';
+import { Utils } from '../utils';
 
 let u = new Utils();
 
