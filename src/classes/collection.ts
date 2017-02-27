@@ -1,4 +1,4 @@
-class Collection<T> {
+export class Collection<T> {
   name:string;
   items:any[];
 
@@ -38,5 +38,3 @@ class Collection<T> {
   }
 
 }
-
-export = Collection;

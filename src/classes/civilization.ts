@@ -1,4 +1,4 @@
-import Collection = require('./collection');
+import { Collection } from './Collection';
 import { Biome } from './biome';
 import { Leader } from './leader';
 
@@ -7,12 +7,12 @@ interface Point {
   y: number;
 }
 
-class Civilization {
+export class Civilization {
   civName: string;
 
   leader: Leader;
   leaderName: string;
-  
+
 
   color: string;
 
@@ -242,5 +242,3 @@ class Civilization {
     this.canMeetOceanicNations = false;
   }
 }
-
-export = Civilization;

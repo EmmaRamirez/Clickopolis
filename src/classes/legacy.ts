@@ -1,4 +1,4 @@
-class Legacy {
+export class Legacy {
   name: string;
   type: string;
   level: number;
@@ -15,5 +15,3 @@ class Legacy {
     this.description = description;
   }
 }
-
-export = Legacy;

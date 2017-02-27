@@ -2,7 +2,7 @@ import { Utils } from './utils';
 
 let u = new Utils();
 
-class Achievement {
+export class Achievement {
   name: string;
   className: string;
   description: string;
@@ -18,5 +18,3 @@ class Achievement {
     this.unlocked = unlocked
   }
 }
-
-export = Achievement;

@@ -1,4 +1,4 @@
-enum Era {
+export enum Era {
   Ancient = <any>'Ancient',
   Classical = <any>'Classical',
   Medieval = <any>'Medieval',
@@ -10,5 +10,3 @@ enum Era {
   Information = <any>'Information',
   Future = <any>'Future'
 }
-
-export = Era;

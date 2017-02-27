@@ -1,4 +1,4 @@
-class Wonder {
+export class Wonder {
   name: string;
   img: string;
   buildTime: number;
@@ -31,5 +31,3 @@ class Wonder {
     this.func = func;
   }
 }
-
-export = Wonder;

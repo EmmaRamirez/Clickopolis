@@ -1,6 +1,6 @@
 import Era = require('./era');
 
-class Game {
+export class Game {
   introStep: number;
   restarts: number;
   legacyPoints: number;
@@ -21,5 +21,3 @@ class Game {
     this.version = '0.1.x';
   }
 }
-
-export = Game;

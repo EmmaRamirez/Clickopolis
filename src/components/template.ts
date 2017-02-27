@@ -1,10 +1,4 @@
-import Game = require('./game');
-import Civilization = require('./civilization');
-import Resource = require('./resource');
-import { Citizen } from './citizen';
-import Wonder = require('./wonder');
-import Collection = require('./collection');
-import { Utils } from './utils';
+
 
 let u = new Utils();
 
@@ -16,11 +10,11 @@ class Templates {
       <section class='clickopolis-intro clickopolis-open'>
         <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'><br>Continue Game</h1>
         <div class="start-options">
-          
+
           <div class='leader-portrait'><img src='img/${u.dasherize(playerCiv.leaderName)}.jpg'/></div>
           <div class='leader-data'><strong>${playerCiv.leaderName}</strong> of <strong>${playerCiv.civName}</strong></div>
-          
-        
+
+
           <button class="large-btn start-btn current-btn">Continue Game</button>
 
         </div>
@@ -362,7 +356,7 @@ class Templates {
           <div>${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</div>
         </div>
         <div class='civilization-metrics'>
-          
+
           <!--
           <div class='food-metric'>
             <img src='img/food.png'><span class='m-food-total'>0</span>
@@ -541,7 +535,7 @@ class Templates {
             <span class='cash-item'>from <img src="img/buildings.png"> <span class='cash-from-buildings'>${playerCiv.cashPMFromBuildings}</span></span>
             <span class='cash-item'>from <img src="img/military.png"> <span class='cash-from-military'>${playerCiv.cashPMFromMilitary}</span></span>
           </span>
-          
+
           <div class='trade-deal-history hidden'>
             <table>
               <tr>
@@ -731,7 +725,7 @@ class Templates {
         <section class='military-screen-inner military-soldier-assignments'>
           <h3>Soldier Assignments <span class='soldiers-assigned'></span></h3>
           <span class='military-assignments'>
-            
+
           </span>
         </section>
         <section class='military-screen-inner'>

@@ -1,4 +1,4 @@
-class Building {
+export class Building {
   name: string;
   amount: number;
   prodCost: number;
@@ -21,5 +21,3 @@ class Building {
     this.func = func;
   }
 }
-
-export = Building;

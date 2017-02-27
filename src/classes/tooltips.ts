@@ -1,4 +1,4 @@
-import { Utils } from './utils';
+import { base } from '../utils';
 
 let u = new Utils();
 
@@ -53,7 +53,7 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
   let tooltip;
 
   //tooltip = elt.querySelector('.tooltip');
- 
+
   tooltip = document.createElement('div');
 
   tooltip.className = 'tooltip';
@@ -72,5 +72,5 @@ export function updateTooltip(elt: HTMLElement, opts:TooltipOptions = {
   elt.addEventListener('mouseleave', function (event:any) {
     tooltip.remove();
   });
-  
+
 }

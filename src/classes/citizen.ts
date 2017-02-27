@@ -1,4 +1,4 @@
-import Collection = require('./collection');
+import { Collection } from './Collection';
 
 export interface Contribution {
   name?: string;
@@ -37,4 +37,3 @@ export class Citizen {
     this.enabled = enabled;
   }
 }
-

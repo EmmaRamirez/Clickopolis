@@ -1,10 +1,5 @@
 import { Utils } from './utils';
-
-export interface Trait {
-	name: string;
-	description: string;
-	unlocked: boolean;
-}
+import { Trait } from '../trait';
 
 export class Leader {
 	name: string;

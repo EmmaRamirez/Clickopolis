@@ -1,8 +1,4 @@
-import Collection = require('./collection');
-import Resource = require('./resource');
-import { Citizen } from './citizen';
-import Building = require('./building');
-import Wonder = require('./wonder');
+import { Collection, Resource, Citizen, Building, Wonder } from '../classes';
 
 export const iterateOverNodelist = function (array:NodeListOf<any>, callback:Function, scope:any) {
   for (let i = 0; i < array.length; i++) {

@@ -1,6 +1,6 @@
-import FaithTier = require('./faithtier');
+import { FaithTier } from './faith-tier';
 
-class FaithBonus {
+export class FaithBonus {
   name: string;
   tier: FaithTier;
   enabled: boolean;
@@ -17,5 +17,3 @@ class FaithBonus {
     this.func = func;
   }
 }
-
-export = FaithBonus;

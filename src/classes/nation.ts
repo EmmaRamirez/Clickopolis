@@ -1,4 +1,4 @@
-class Nation {
+export class Nation {
   name: string;
   image: number;
   color: string;
@@ -26,5 +26,3 @@ class Nation {
   }
 
 }
-
-export = Nation;
