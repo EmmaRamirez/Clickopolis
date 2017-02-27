@@ -17,3 +17,5 @@ export { generatePollutionTooltip, updatePollutionMetric, calculatePollution } f
 export { checkUnemployed, updatePopulationEmployed, checkPopulationGrowthCost, updatePopulation } from './population';
 export { unlockTech, unlockTechs } from './tech';
 export { iterateOverNodelist, bindElement, Utils } from './utils';
+
+export { Partial } from './Partial';

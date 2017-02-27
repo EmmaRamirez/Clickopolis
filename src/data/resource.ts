@@ -54,7 +54,7 @@ const base = {
   visible: true
 };
 
-const stone = {
+const stone:IResource = {
   name: 'stone',
   plural: 'stones',
   perClick: 0,
@@ -67,7 +67,7 @@ const stone = {
   visible: true
 };
 
-const wood = {
+const wood:IResource = {
   name: 'wood',
   plural: 'wood',
   perClick: 0,
@@ -80,14 +80,19 @@ const wood = {
   visible: true
 };
 
-const fish = {
-  // ...base,
+const fish:IResource = {
+  perClick: 0,
+  perSecond: 0,
+  max: -1,
+  total: 0,
+  unlocked: true,
+  visible: true,
   name: 'fish',
   plural: 'fish',
   description: 'Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.',
 };
 
-export const resources = [
+export const resources:IResource[] = [
   stone,
   wood,
   fish
