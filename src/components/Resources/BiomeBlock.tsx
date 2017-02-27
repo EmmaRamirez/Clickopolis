@@ -1,0 +1,20 @@
+import * as React from 'react';
+import { IBiome } from '../../classes';
+import { Partial } from '../../utils';
+
+type BiomeBlockProps = Partial<IBiome>;
+
+export class BiomeBlock extends React.Component<{}, {}> {
+  constructor(props) {
+    super(props);
+  }
+
+  public render() {
+    const { name, description } = this.props;
+    return (
+      <div className='biome-block'>
+        { name }
+      </div>
+    )
+  }
+}

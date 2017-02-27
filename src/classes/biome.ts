@@ -9,3 +9,8 @@ export class Biome {
     this.name = name;
   }
 }
+
+export class IBiome {
+  name: BiomeType;
+  description: string;
+}
