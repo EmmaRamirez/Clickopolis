@@ -1,4 +1,4 @@
-# Clickopolis (WIP)
+# Clickopolis :factory:
 A clicking-based civilization game.
 
 [![Code Climate](https://codeclimate.com/github/EmmaRamirez/Clickopolis/badges/gpa.svg)](https://codeclimate.com/github/EmmaRamirez/Clickopolis) [![npm version](https://badge.fury.io/js/clickopolis.svg)](https://badge.fury.io/js/clickopolis)
