@@ -1,4 +1,4 @@
-import { Utils, iterateOverNodelist } from './utils';
+import { Utils, iterateOverNodelist } from '../utils';
 
 const u = new Utils;
 

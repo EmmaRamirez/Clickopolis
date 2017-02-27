@@ -1,5 +1,4 @@
-import Resource = require('./resource');
-import Collection = require('./collection');
+import { Resource, Collection } from '../classes';
 
 let food:Resource = new Resource('food', 1, 0, 1000, 0, 'food', 'Food.', true, true);
 let prod:Resource = new Resource('prod', 1, 0, 500, 0, 'prod', 'Prod.', true, true);

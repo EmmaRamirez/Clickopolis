@@ -1,11 +1,5 @@
-import Tech = require('./tech');
-import Collection = require('./collection');
-import { Citizen } from './citizen';
-import Resource = require('./resource')
-import Building = require('./building');
-import Wonder = require('./wonder');
-import Civilization = require('./civilization');
-import { Utils } from './utils';
+import { Utils } from '../utils';
+import { Tech, Collection, Resource, Building, Wonder, Civilization, Citizen } from '../classes';
 
 let u = new Utils();
 

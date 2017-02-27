@@ -1,5 +1,4 @@
-import { Soldier } from './soldier';
-import Collection = require('./collection');
+import { Soldier, Collection } from './classes';
 
 let footSoldier = {
 	name: 'Foot Soldier',

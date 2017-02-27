@@ -1,8 +1,5 @@
-import Collection = require('./collection');
-import Civilization = require('./civilization');
-import Legacy = require('./legacy');
-import { notify } from './notify';
-import { Utils } from './utils';
+import { Civilization, Collection, Legacy, notify } from '../classes';
+import { Utils } from '../utils';
 
 let empireOfTheArts = new Legacy(
     'Empire of the Arts',

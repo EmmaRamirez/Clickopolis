@@ -1,6 +1,5 @@
-import { Utils } from './utils';
-import { Trait, Leader } from './leader';
-import Collection = require('./collection');
+import { Utils } from '../utils';
+import { Trait, Leader, Collection } from '../classes';
 
 let tactical:Trait = {
 	name: 'tactical',
