@@ -1,5 +1,5 @@
 import { Utils } from '../utils';
-import { Trait } from '../trait';
+import { Trait } from './trait';
 
 export class Leader {
 	name: string;

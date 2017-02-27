@@ -1,6 +1,5 @@
 import { Utils, iterateOverNodelist } from './utils';
-import Civilization = require('./civilization');
-
+import { Civilization } from '../classes';
 const u = new Utils();
 
 export function addGoldenAgePoints(playerCiv:Civilization) {

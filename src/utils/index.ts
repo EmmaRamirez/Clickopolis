@@ -1,7 +1,7 @@
 export { populateAchievements } from './achievement';
 export { generateAngerTooltip, updateAngerMetric, calculateAnger } from './anger';
 export { resetBiomeSelected, openBiomeSelect, toggleBiomeSelectDropdown, biomeSelection } from './biome';
-export { populateCitizens, generateCitizenPercents, citizenClick, citizenAmountHandler, addCitizen } from './citizen';
+export { populateCitizens, generateCitizenPercents, citizenClick, citizenAmountHandler, addCitizen } from './citizens';
 export { addCulture, createCultureCardSlots, populateCultureCards, cultureCardEvents } from './culture';
 export { debugHandlers } from './debug';
 export { addCash, getEconomyStatus, updateCashPM } from './economy';
