@@ -1,6 +1,6 @@
 import Tech = require('./tech');
 import Collection = require('./collection');
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import Resource = require('./resource')
 import Building = require('./building');
 import Wonder = require('./wonder');
@@ -95,12 +95,14 @@ let masonry:Tech = new Tech(
   [
     '<img src="img/plus.png"> Can build The Great Pyramids wonder',
     '<img src="img/plus.png"> Can build Quarry',
+    '<img src="img/plus.png"> Unlocks <img src="img/marble.png"> resource',
     '<img src="img/key.png"> Leads To: Pottery, Construction'
   ],
   ['buildings', 'wonder'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockBuilding('Quarry', buildings);
     u.unlockWonder('The Great Pyramids', wonders);
+    u.unlockResource('marble', resources);
   }
 );
 let mining:Tech = new Tech(
@@ -109,7 +111,7 @@ let mining:Tech = new Tech(
   'Not safe for minors.',
   [
     '<img src="img/plus.png"> +.2 <img src="img/prod.png"> PS per <img src="img/miner.png">',
-    '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/gems.png"> resources',
+    '<img src="img/plus.png"> Unlocks <img src="img/stone.png">, <img src="img/gold.png">, <img src="img/silver.png">, <img src="img/gems.png"> resources',
     '<img src="img/key.png"> Leads To: Masonry, Construction, Iron Working'
   ],
   ['resources', 'citizens'],
@@ -118,6 +120,7 @@ let mining:Tech = new Tech(
     u.elt('.contrib[data-citizen="miner"]').innerHTML = u.setContributions(citizens.get('miner'));
     u.unlockResource('stone', resources);
     u.unlockResource('gold', resources);
+    u.unlockResource('silver', resources);
     u.unlockResource('gems', resources);
   }
 );
@@ -146,11 +149,13 @@ let pottery:Tech = new Tech(
   'Does not come with Pottery Barn discount.',
   [
     '<img src="img/plus.png"> Can build Granary',
+    '<img src="img/plus.png"> Can build Ancient Court',
     '<img src="img/key.png"> Leads To: Writing, Poetics'
   ],
   ['culture', 'buildings'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     u.unlockBuilding('Granary', buildings);
+    u.unlockBuilding('Ancient Court', buildings);
   }
 );
 let sailing:Tech = new Tech(
@@ -162,7 +167,12 @@ let sailing:Tech = new Tech(
     '<img src="img/plus.png"> Can meet Coastal and Oceanic Nations',
     '<img src="img/key.png"> Leads To: Shipbuilding'
   ],
-  ['military', 'civilization', 'diplomacy']
+  ['military', 'civilization', 'diplomacy'],
+  function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization) {
+    playerCiv.canMeetOceanicNations = true;
+    playerCiv.canMeetCoastalNations = true;
+    resources.get('fish').total += 5;
+  }
 );
 let theWheel:Tech = new Tech(
   'the wheel',
@@ -182,6 +192,7 @@ let trading:Tech = new Tech(
   'ancient',
   'My six chickens for your goat?',
   [
+    '<img src="img/plus.png"> Can build Ancient Court',
     '<img src="img/plus.png"> Unlocks Bartering Economic System',
     '<img src="img/plus.png"> Can assign Merchants',
     '<img src="img/key.png"> Leads To: Writing, Currency'
@@ -189,6 +200,7 @@ let trading:Tech = new Tech(
   ['economy', 'citizens'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>) {
     u.unlockCitizen('merchant', citizens);
+    u.unlockBuilding('Ancient Court', buildings);
   }
 );
 let woodworking:Tech = new Tech(
@@ -199,6 +211,7 @@ let woodworking:Tech = new Tech(
     '<img src="img/plus.png"> Unlocks <img src="img/spices.png"> resource',
     '<img src="img/plus.png"> Can assign Woodcutters',
     '<img src="img/plus.png"> Can build Fort',
+    '<img src="img/plus.png"> Reduces <img src="img/prod.png"> cost of Hut by 50%',
     '<img src="img/key.png"> Leads To: Construction, Shipbuilding'
   ],
   ['resources', 'citizens'],
@@ -206,6 +219,8 @@ let woodworking:Tech = new Tech(
     u.unlockResource('spices', resources);
     u.unlockCitizen('woodcutter', citizens);
     u.unlockBuilding('Fort', buildings);
+    buildings.get('Hut').prodCost = Math.floor(buildings.get('Hut').prodCost / 2);
+    u.elt('.building-cost-text[data-id="0"]').textContent = buildings.get('Hut').prodCost;
   }
 );
 let writing:Tech = new Tech(
@@ -253,6 +268,7 @@ let construction:Tech = new Tech(
   ['buildings', 'citizens', 'resources'],
   function (citizens:Collection<Citizen>, resources:Collection<Resource>, playerCiv:Civilization, buildings:Collection<Building>, wonders:Collection<Wonder>) {
     u.unlockWonder('The Great Colloseum', wonders);
+    u.unlockBuilding('Collosseum', buildings);
   }
 );
 let currency:Tech = new Tech(

@@ -1,5 +1,6 @@
-import { Utils } from './utils';
+import { Utils, iterateOverNodelist } from './utils';
 import FaithBonus = require('./faithbonus');
+import FaithTier = require('./faithtier');
 import Civilization = require('./civilization');
 import faithBonusData = require('./data.faithbonus');
 import resourceData = require('./data.resource');
@@ -13,15 +14,27 @@ import { notify } from './notify';
 const u = new Utils();
 
 export function addFaith(playerCiv) {
+  let faithUpgrades = u.elt('.can-purchase-faith-upgrades');
   playerCiv.faith += playerCiv.faithPM / 60;
+
+  if (playerCiv.faith > playerCiv.faithCost) {
+    faithUpgrades.style.display = 'inline-block';
+  } else {
+    faithUpgrades.style.display = 'none';
+  }
 }
 
 export function updateFaithElts(playerCiv) {
-  u.elt('.faith-PM').textContent = playerCiv.faithPM;
-  u.elt('.faith-total').textContent = Math.floor(playerCiv.faith);
+  iterateOverNodelist(u.elt('.faith-PM', true), (item) => {
+    item.textContent = playerCiv.faithPM;
+  }, this);
+
+  iterateOverNodelist(u.elt('.faith-total', true), (item) => {
+    item.textContent = Math.floor(playerCiv.faith);
+  }, this);
 }
 
-export function populateFaithBonuses(playerCiv:Civilization, ) {
+export function populateFaithBonuses(playerCiv:Civilization) {
   let fbContainer = u.elt('.fb-container');
   fbContainer.innerHTML = '';
 
@@ -37,7 +50,7 @@ export function populateFaithBonuses(playerCiv:Civilization, ) {
   }
 }
 
-export function faithBonusClick(playerCiv) {
+export function faithBonusClick(playerCiv:Civilization) {
   //playerCiv.faithPM += 30;
   //updateFaithElts();
   let fbs = document.querySelectorAll('.faith-bonus');
@@ -50,29 +63,63 @@ export function faithBonusClick(playerCiv) {
         if (faithBonuses.get(fb).purchased) {
           notify({message: `You already purchased ${faithBonuses.get(fb).name}!`}, true);
         } else {
-          playerCiv.faith -= faithCost;
-          faithBonuses.get(fb).purchased = true;
-          item.setAttribute('data-purchased', 'true');
-          console.log(item.getAttribute('data-purchased'));
-          faithBonuses.get(fb).func(resources, playerCiv);
-          playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
-          console.debug(playerCiv.faithCost.toString());
-          updateFaithElts(playerCiv);
-          updateFaithBonuses(playerCiv);
+          if (faithBonuses.get(fb).enabled) {
+            playerCiv.faith -= faithCost;
+            faithBonuses.get(fb).purchased = true;
+            item.setAttribute('data-purchased', 'true');
+            console.log(item.getAttribute('data-purchased'));
+            faithBonuses.get(fb).func(resources, playerCiv);
+            playerCiv.faithCost = Math.floor((playerCiv.faithCost + (playerCiv.population * .05) + 5));
+            console.log(faithBonuses.get(fb).tier);
+            if (faithBonuses.get(fb).tier === FaithTier.Pantheon) {
+              playerCiv.faithBonusPantheonTotal += 1;
+              console.debug('Pantehon faith tier detected', playerCiv.faithBonusPantheonTotal, playerCiv.faithBonusPantheonLimit);
+              if (playerCiv.faithBonusPantheonTotal >= playerCiv.faithBonusPantheonLimit) {
+                console.log('disability/ability check for religion');
+                disableBonuses(FaithTier.Pantheon);
+                enableBonuses(FaithTier.Organized);
+              }
+            }
+            updateFaithElts(playerCiv);
+            updateFaithBonuses(playerCiv);
+          } else {
+            notify({ message: 'You cannot yet purhcase this Faith Bonus. Consider increasing your faith and purchasing other Faith Bonuses.' });
+          }
         }
       } else {
-        //notify({message: `You don't have enough faith to purchase this bonus!`});
+        notify({message: `You don't have enough faith to purchase this bonus!`}, true);
       }
     });
   });
+}
+
+export function disableBonuses(tier:FaithTier) {
+  console.debug('Faith bonuses', faithBonuses);
+  for (let i = 0; i < faithBonuses.items.length; i++) {
+    let fb = faithBonuses.items[i];
+    if (fb.tier === tier && fb.purchased === false) {
+      fb.enabled = false;
+      u.elt('.faith-bonus', true)[i].setAttribute('data-enabled', false);
+    }
+  }
+}
+
+export function enableBonuses(tier:FaithTier) {
+  for (let i = 0; i < faithBonuses.items.length; i++) {
+    let fb = faithBonuses.items[i];
+    if (fb.tier === tier) {
+      fb.enabled = true;
+      u.elt('.faith-bonus', true)[i].setAttribute('data-enabled', true);
+    }
+  }
 }
 
 export function updateFaithBonuses(playerCiv) {
   let fbCosts = u.elt('.faith-bonus-cost', true);
   let fbs = u.elt('.faith-bonus', true);
   // TODO: Fix calculation
-  [].forEach.call(fbCosts, function (item:any, index:number) {
+  iterateOverNodelist(fbCosts, (item, index) => {
     let fb = fbs[index].getAttribute('data-faith-bonus');
     item.innerHTML = u.abbrNum(playerCiv.faithCost * faithBonuses.get(fb).tier);
-  });
+  }, this);
 }

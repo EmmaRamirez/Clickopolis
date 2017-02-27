@@ -18,7 +18,7 @@ export function generatePollutionTooltip(playerCiv) {
 }
 
 export function updatePollutionMetric(playerCiv) {
-  u.elt('.civ-metric.metric-pollution').innerHTML = `<img src="img/pollution.png"> ${playerCiv.health}`;
+  u.elt('.civ-metric.metric-pollution').innerHTML = `<img src="img/pollution.png"> ${playerCiv.pollution}`;
   generatePollutionTooltip(playerCiv);
 }
 
@@ -31,6 +31,6 @@ export function calculatePollution(playerCiv, resources) {
   playerCiv.pollutionFromResources = pollutionFromResources();
   let pollution = playerCiv.pollutionFromResources + playerCiv.pollutionFromBuildings + playerCiv.pollutionFromPopulation;
   pollution *= playerCiv.pollutionMod;
-  playerCiv.health = pollution;
+  playerCiv.pollution = pollution;
   prevPollution === playerCiv.pollution ? undefined : updatePollutionMetric(playerCiv);
 }

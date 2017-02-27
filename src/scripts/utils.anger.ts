@@ -1,5 +1,7 @@
 import { Utils } from './utils';
 import { updateTooltip } from './tooltips';
+import { updateGoldenAgePoints } from './utils.goldenage';
+
 
 const u = new Utils();
 
@@ -18,6 +20,7 @@ export function generateAngerTooltip(playerCiv) {
 
 export function updateAngerMetric(playerCiv) {
   u.elt('.civ-metric.metric-anger').innerHTML = `<img src="img/angry.png"> ${playerCiv.anger}`;
+  updateGoldenAgePoints(playerCiv);
   generateAngerTooltip(playerCiv);
 }
 

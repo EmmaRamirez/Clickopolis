@@ -21,6 +21,13 @@
     padding: .25rem;
     text-align: center;
     width: 15rem;
+  .faith-maximum
+    border: 1px solid #222;
+    background: #333;
+    border-radius: 4px;
+    margin: .25rem .5rem;
+    padding: .25rem;
+    text-align: center;
   .fb-container
     margin: 1rem;
   .faith-bonus
@@ -29,6 +36,9 @@
     cursor: pointer;
     margin: .25rem;
     padding: .5rem;
+    &[data-enabled='false']
+      pointer-events: none;
+      opacity: 0.5;
     &:hover, &[data-purchased='true']
       background: #FFFFE0;
     .faith-bonus-name
@@ -40,7 +50,7 @@
       font-weight: bold;
       padding: .25rem;
       text-align: center;
-      width: 3rem;
+      width: 4rem;
     .faith-bonus-effect
       font-size: .8rem;
       img

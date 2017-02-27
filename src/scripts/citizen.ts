@@ -1,12 +1,12 @@
 import Collection = require('./collection');
 
-interface Contribution {
+export interface Contribution {
   name?: string;
   mod?: string;
   amount?: number;
 }
 
-class Citizen {
+export class Citizen {
   name: string;
   image: string;
   color: string;
@@ -23,9 +23,7 @@ class Citizen {
   contrib3: Contribution;
   contrib4: Contribution;
 
-  func: Function;
-
-  constructor(name:string, image:string, color:string, amount: number, description: string, contrib1: Contribution, contrib2: Contribution, contrib3: Contribution, contrib4: Contribution, visible: boolean = true, enabled: boolean = false, func:Function = function(){}) {
+  constructor(name:string, image:string, color:string, amount: number, description: string, contrib1: Contribution, contrib2: Contribution, contrib3: Contribution, contrib4: Contribution, visible: boolean = true, enabled: boolean = false) {
     this.name = name;
     this.image = image;
     this.color = color;
@@ -37,8 +35,6 @@ class Citizen {
     this.contrib4 = contrib4;
     this.visible = visible;
     this.enabled = enabled;
-    this.func = func;
   }
 }
 
-export = Citizen;

@@ -10,6 +10,7 @@ export function generateHealthTooltip(playerCiv) {
       <li>Base Health: ${playerCiv.healthBase}</li>
       <li>Health from Resources: ${playerCiv.healthFromResources}</li>
       <li>Health from Buildings: ${playerCiv.healthFromBuildings}</li>
+      <li>Total: ${playerCiv.health}</li>
     </ul>
   `;
   healthElement.setAttribute('data-tooltip', healthBreakdown);

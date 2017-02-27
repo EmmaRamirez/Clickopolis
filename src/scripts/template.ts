@@ -1,7 +1,7 @@
 import Game = require('./game');
 import Civilization = require('./civilization');
 import Resource = require('./resource');
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import Wonder = require('./wonder');
 import Collection = require('./collection');
 import { Utils } from './utils';
@@ -14,36 +14,15 @@ class Templates {
 
     let startScreen = `
       <section class='clickopolis-intro clickopolis-open'>
-        <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'></h1>
+        <h1><img class='clickopolis-logo custom-size-img' alt='Clickopolis' src='img/clickopolis-logo.png'><br>Continue Game</h1>
         <div class="start-options">
-          <!--
-          <button class="large-btn start-btn load-btn">Load Game...</button>
-          <button class="large-btn start-btn new-btn">New Game</button>
-          -->
-          <button class="large-btn start-btn current-btn">
-            <p class="current-game-heading">Current Game: ${playerCiv.leaderName} of ${playerCiv.civName}</p>
-            <p class='center-text'>${game.era} era</p>
-            <p>
-              <span>
-                <img src="img/achievements.png"> ${playerCiv.achievements}
-              </span>
-              <span>
-                <img src="img/strength.png"> ${playerCiv.strength}
-              </span>
-              <span>
-                <img src="img/defense.png"> ${playerCiv.defense}
-              </span>
-              <span>
-                <img src="img/legacy.png"> ${playerCiv.legacy}
-              </span>
-              <span>
-                <img src="img/coin.png"> ${playerCiv.cash}
-              </span>
-              <span>
-                <img src="img/wonder.png"> ${playerCiv.wondersBuilt}
-              </span>
-            </p>
-          </button>
+          
+          <div class='leader-portrait'><img src='img/${u.dasherize(playerCiv.leaderName)}.jpg'/></div>
+          <div class='leader-data'><strong>${playerCiv.leaderName}</strong> of <strong>${playerCiv.civName}</strong></div>
+          
+        
+          <button class="large-btn start-btn current-btn">Continue Game</button>
+
         </div>
         <!-- <button class='next-btn'>Next &rarr;</button> -->
         <p class='center-text'>version ${game.version}</p>
@@ -61,32 +40,52 @@ class Templates {
       <section class='half-section'>
         <form class='new-game-settings'>
           <label for='leader'>Leader</label>
-          <select name='leader' id='civ-leader-select'>
-            <option value='abraham-lincoln'>Abraham Lincoln</option>
-            <option value='margaret-thatcher'>Margaret Thatcher</option>
+          <select name='leader' id='civ-leader-select' tabindex='1'>
+            <option>Select a Leader!</option>
+            <option value='Abraham Lincoln'>Abraham Lincoln</option>
+            <option value='Margaret Thatcher'>Margaret Thatcher</option>
+            <option value='Nelson Mandela'>Nelson Mandela</option>
+            <option value='John F Kennedy'>John F Kennedy</option>
+            <option value='Vladimir Lenin'>Vladimir Lenin</option>
+            <option value='Mao Zedong'>Mao Zedong</option>
+            <option value='Montezuma II'>Montezuma II</option>
           </select>
 
           <label for='name'>Name</label>
-          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='12' value='' />
+          <input type='text' id='leaderName' name='name' placeholder='Jake' maxlength='20' value='' tabindex='2' />
 
           <label for='civilizationName'>Civilization</label>
-          <input type='text' id="civName"  placeholder='Jaketopia' maxlength='20' value='' />
+          <input type='text' id="civName"  placeholder='Jaketopia' maxlength='20' value='' tabindex='3' />
 
           <label for='biome'>Location</label>
-          <select id='biome' name='biome'>
-            <option value="none">select an option!</option>
-            <option value="Desert">in a Desert</option>
-            <option value="Coast">by the Coast</option>
-            <option value="Island">on an Island</option>
-            <option value="Jungle">in a Jungle</option>
-            <option value="Mountains">on the Mountains</option>
-            <option value="Forest">in a Forest</option>
-            <option value="Tundra">in a Tundra</option>
-            <option value="Glacier">on a Glacier</option>
-          </select>
+          <div class='new-game-select-dropdown biome-select-dropdown' data-open='false' tabindex='4'>
+            <div class='new-game-select-dropdown-inner biome-select-dropdown-inner'>Select a Biome &#9660;</div>
+          </div>
+          <ul class='new-game-select biome-select' data-open='false'>
+            <li data-value='Desert'>
+              <img src='img/desert.png'> Desert
+            </li>
+            <li data-value='Mountains'>
+              <img src='img/mountains.png'> Mountains
+            </li>
+            <li data-value='Island'>
+              <img src='img/island.png'> Island
+            </li>
+            <li data-value='Forest'>
+              <img src='img/forest.png'> Forest
+            </li>
+            <li data-value='Plains'>
+              <img src='img/plains.png'> Plains
+            </li>
+            <li data-value='Tundra'>
+              <img src='img/tundra.png'> Tundra
+            </li>
+          </ul>
+          <input type='hidden' name='biome' id='biome-input'>
 
+          <br>
           <label for='color'>Color</label><br/>
-          <input type='text' name='color' id='color' value='#5fe49b' />
+          <input type='text' name='color' id='color' value='#5fe49b' tabindex='5' />
           <div class='color-field' data-color=''>
             <div class='color-field-inner'></div>
           </div>
@@ -97,25 +96,15 @@ class Templates {
 
       <section class='half-section'>
         <div class='leader-display'>
-          <img class='leader-image' src='../img/abraham-lincoln.jpg' />
-          <h3>Traits</h3>
+          <header class='leader-header'></header>
+          <img class='leader-image' src='../img/question.png' />
           <div class='traits-list'>
-            <div class='trait-info'>
-              <img src='../img/tactical.png' /><span>Tactical</span>
-            </div>
-            <div class='trait-info'>
-              <img src='../img/charismatic.png' /><span>Charismatic</span>
-            </div>
-            <div class='trait-info'>
-              <img src='../img/lock.png'><span>Locked Trait</span>
-            </div>
           </div>
-        </div>
         </div>
       </section>
       </section>
 
-      <button class='begin-btn'>Begin Game!</button>
+      <button class='begin-btn' tabindex='6'>Begin Game!</button>
 
     </section>
   `;
@@ -164,6 +153,12 @@ class Templates {
         <button class='outline-page' data-tooltip='outline page'>
           &boxplus;
         </button>
+        <button class='debug-add-science' data-tooltip='adds 10K research'>
+          <img src='img/research.png'>
+        </button>
+        <button class='debug-production' data-tooltip='adds 500 production'>
+          <img src='img/prod.png'>
+        </button>
       </div>
     `;
 
@@ -208,10 +203,10 @@ class Templates {
           <div class='panel food-panel'>
             <button class='food-btn'><img src='img/food-alt.png'> Grow Food</button>
 
-            <span class='resource-info r-food-total r-food' data-label='total'>${resources.get('food').total}</span>
-            <span class='resource-info r-food-pc r-food' data-label='per click' data-toolitp='the amount of food you earn per click'>${resources.get('food').perClick}</span>
-            <span class='resource-info r-food-ps r-food' data-label='per sec' data-toolitp='the amount of food you earn per second'>${resources.get('food').perSecond}</span>
-            <span class='resource-info r-food-max r-food' data-label='max'>${resources.get('food').max}</span>
+            <span class='resource-info r-food-total r-food' data-label='total'>${resources.get('food').total.toFixed(0)}</span>
+            <span class='resource-info r-food-pc r-food' data-label='per click' data-toolitp='the amount of food you earn per click'>${resources.get('food').perClick.toFixed(1)}</span>
+            <span class='resource-info r-food-ps r-food' data-label='per sec' data-toolitp='the amount of food you earn per second'>${resources.get('food').perSecond.toFixed(1)}</span>
+            <span class='resource-info r-food-max r-food' data-label='max'>${resources.get('food').max.toFixed(0)}</span>
 
 
           </div>
@@ -252,12 +247,20 @@ class Templates {
 
             <br>
 
-            <span class='resource building-resources'>
+            <span class='resource building-resources' data-tall='true'>
               <img src='img/buildings.png'> Building
+            </span>
+
+            <span class='resource' data-resource='wood' data-unlocked='${resources.get('wood').unlocked}'>
+              <img src='img/wood.png'> <span>${resources.get('wood').total}</span>
             </span>
 
             <span class='resource' data-resource='stone' data-unlocked='${resources.get('stone').unlocked}'>
               <img src='img/stone.png'> <span>${resources.get('stone').total}</span>
+            </span>
+
+            <span class='resource' data-unlocked='${resources.get('marble').unlocked}' data-resource='marble'>
+              <img src='img/marble.png'> <span>${resources.get('marble').total}</span>
             </span>
 
             <span class='resource' data-unlocked='${resources.get('iron').unlocked}' data-resource='iron'>
@@ -266,6 +269,10 @@ class Templates {
 
             <span class='resource' data-unlocked='${resources.get('steel').unlocked}' data-resource='steel'>
               <img src='img/steel.png'> <span>${resources.get('steel').total}</span>
+            </span>
+
+            <span class='resource' data-unlocked='${resources.get('aluminum').unlocked}' data-resource='aluminum'>
+              <img src='img/aluminum.png'> <span>${resources.get('aluminum').total}</span>
             </span>
 
 
@@ -349,10 +356,13 @@ class Templates {
   createScreenHeader(playerCiv:Civilization, game:Game):string {
     let screenHeader = `
       <header class='screen-header'>
-        <h2>Clickopolis</h2>
-        <h3>${playerCiv.leaderName} of ${playerCiv.civName} &mdash; ${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</h3>
+        <div class='player-info'>
+          <img src='img/${u.dasherize(playerCiv.leader.name)}.jpg'>
+          <div><strong>${playerCiv.leaderName}</strong> of <em>${playerCiv.civName}</em></div>
+          <div>${game.era} era &mdash; <span class='game-year-text'>${game.year}</span> AC</div>
+        </div>
         <div class='civilization-metrics'>
-          <p>This space will hold metrics you can view at a glance.</p>
+          
           <!--
           <div class='food-metric'>
             <img src='img/food.png'><span class='m-food-total'>0</span>
@@ -370,6 +380,9 @@ class Templates {
             <img src='img/health.png'><span class='m-health-total'>0</span>
           </div>
           -->
+          <div class='add-metric'>
+            <img src='img/plus.png'>
+          </div>
         </div>
         <div class='notification-center'>
           <img src='img/notification.png'>
@@ -384,9 +397,14 @@ class Templates {
       <section class='screen citizens-screen' id='citizens'>
         <h2><img src='img/citizens.png'> Citizens</h2>
         <section class='citizens-screen-inner'>
-          <p class='center-text citizens-employed'>
-            <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
-          </p>
+          <div class='citizens-screen-items'>
+            <p class='center-text citizens-employed citizens-screen-item'>
+              <span><img src='img/citizen.png'> <span class='citizens-population-text'>${playerCiv.populationEmployed} / ${playerCiv.population}</span>
+            </p>
+            <div class='citizen-amount-setter-wrapper citizens-screen-item'>
+              Amount: <input type='number' min='1' class='citizen-amount-setter' value='1'>
+            </div>
+          </div>
           <br>
           <div class='citizen-percentages'></div>
           <span class='citizens'></span>
@@ -411,7 +429,7 @@ class Templates {
                 <img src='img/food.png'>
               </span>
             </button>
-            <span class='civ-metric metric-population' data-toolitp='${playerCiv.populationReal + ' people'}'>
+            <span class='civ-metric metric-population' data-tooltip='${u.abbrNum(playerCiv.populationReal) + ' people'}'>
               Population: <img src='img/citizen.png'> <span class='population-text'>${playerCiv.population}</span>
             </span>
             <span data-tooltip='Your net migration per minute' class='civ-metric metric-migration'>
@@ -419,23 +437,26 @@ class Templates {
             </span>
           </div>
           <div class='panel civ-metric-panel'>
-            <span data-tooltip='Your total land' class='civ-metric metric-land'>
-              ${playerCiv.land} km <img src='img/land.png'>
+            <span data-tooltip='Your total land' class='civ-metric metric-land' data-tooltip=''>
+              ${playerCiv.land.toFixed(0)} km<sup>2</sup> <img src='img/land.png'>
             </span>
             <span data-tooltip='The percentage of the world you control' class='civ-metric metric-land'>
               <span class='land-percent-text'>0%</span>&nbsp;&nbsp;<img src='img/land-possession.png'>
             </span>
+            <a href='#exploration' class='civ-metric metric-exploration open-exploration-panel'>
+              <img src='img/exploration.png'> <span>Go To Exploration Panel</span>
+            </a>
             <br>
-            <span class='civ-metric metric-happiness'>
+            <span class='civ-metric metric-happiness' data-tooltip=''>
               ${playerCiv.happiness} <img src='img/happy.png'>
             </span>
-            <span class='civ-metric metric-anger'>
+            <span class='civ-metric metric-anger' data-tooltip=''>
               <span class='civ-anger-text'>${playerCiv.anger}</span> <img src='img/angry.png'>
             </span>
-            <span class='civ-metric metric-health'>
+            <span class='civ-metric metric-health' data-tooltip=''>
               ${playerCiv.health} <img src='img/health.png'>
             </span>
-            <span class='civ-metric metric-pollution'>
+            <span class='civ-metric metric-pollution' data-tooltip=''>
               <span class='civ-pollution-text'>${playerCiv.pollution}</span> <img src='img/pollution.png'>
             </span>
             <br>
@@ -455,6 +476,49 @@ class Templates {
             </span>
           </div>
         </section>
+        <section class='civilization-screen-inner civilization-overview'>
+          <div style='text-align:center;color:#eee'>Civilization Overview</div>
+          <a href='#economy'>
+          <div class='overview-item overview-economy'>
+            <div class='overview-item-name'>Economy</div>
+            <div class='overview-item-inner'>
+              <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash.toFixed(2)}</span> <sup class='cash-PM'>${playerCiv.cashPM}</sup>
+            </div>
+          </div>
+          </a>
+          <a href='#technology'>
+          <div class='overview-item overview-technology'>
+            <div class='overview-item-name'>
+              Technology
+              <span class='can-purchase-tech'>
+                You Can Research a New Technology
+              </span>
+            </div>
+            <div class='overview-item-inner'>
+              <img src='img/research.png'> <span class='research-text'>${playerCiv.research.toFixed(1)}</span> <sup class='research-PM'>${playerCiv.researchPM}</sup>
+              <div class='research-progress-bar' data-tooltip='Your progress towards the next Technology.'></div>
+              <span class='research-cost-text'>10</span>
+            </div>
+          </div>
+          </a>
+          <a href='#faith'>
+          <div class='overview-item overview-faith'>
+            <div class='overview-item-name'>Faith <span class='can-purchase-faith-upgrades'>You Can Purchase Faith Upgrades</span></div>
+            <div class='overview-item-inner'>
+              <img src='img/faith.png'> <span class='faith-total'>${playerCiv.faith}</span> <sup class='faith-PM'>${playerCiv.faithPM}</sup>
+            </div>
+          </div>
+          </a>
+          <a href='#culture'>
+          <div class='overview-item overview-culture'>
+            <div class='overview-item-name'>Culture</div>
+            <div class='overview-item-inner'>
+              <img src='img/culture.png'> <span class='culture-total'>${playerCiv.culture}</span> <sup class='culture-PM'>${playerCiv.culturePM}</sup>
+              <span class='total-social-policy-slots'>${playerCiv.socialPolicies.length + '/' +  playerCiv.socialPolicySlots} Social Policy Slots</span>
+            </div>
+          </div>
+          </a>
+        </section>
       </section>
     `;
     return civilizationScreen;
@@ -469,14 +533,15 @@ class Templates {
             <img src='img/coin.png'> <span class='cash-text'>${playerCiv.cash}</span>
           </div>
           <span class='cash-breakdown'>
+            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>${playerCiv.cashPM}</span></span>
+          </span>
+          <span class='cash-breakdown'>
             <span class='cash-item'>from <img src="img/citizens.png"> <span class='cash-from-citizens'>${playerCiv.cashPMFromCitizens}</span></span>
             <span class='cash-item'>from <img src="img/trade-deal.png"> <span class='cash-from-routes'>${playerCiv.cashPMFromTradeRoutes}</span></span>
             <span class='cash-item'>from <img src="img/buildings.png"> <span class='cash-from-buildings'>${playerCiv.cashPMFromBuildings}</span></span>
             <span class='cash-item'>from <img src="img/military.png"> <span class='cash-from-military'>${playerCiv.cashPMFromMilitary}</span></span>
           </span>
-          <span class='cash-breakdown'>
-            <span class='cash-item cash-item-total'>Per Minute: <span class='cash-PM'>${playerCiv.cashPM}</span></span>
-          </span>
+          
           <div class='trade-deal-history hidden'>
             <table>
               <tr>
@@ -504,6 +569,19 @@ class Templates {
     return economyScreen;
   }
 
+  createExplorationScreen(playerCiv) {
+    let explorationScreen = `<section class='screen exploration-screen' id='exploration'>
+        <h2 class='exploration-header'>
+          <img src='img/exploration.png'> Exploration
+          <div class='exploration-close' title='Close this panel'><img src='img/close.png'></div>
+        </h2>
+        <div class='exploration-screen-inner'>
+
+        </div>
+      </section>`;
+    return explorationScreen;
+  }
+
   createBuildingsScreen(resources:Collection<Resource>) {
     let buildingsScreen = `
       <section class='screen buildings-screen' id='buildings'>
@@ -512,6 +590,9 @@ class Templates {
           <div class='panel buildings-mode'>
             <span class='prod-wrapper'><span class='prod-total'>${resources.get('prod').total}</span> <img src='img/prod.png'></span>
             <button class='purchase-mode-btn hidden'>Purchase Mode</button>
+            <br>
+            <div class='center-text white'>Each building has a maintenance cost of 1 <img src='img/cash.png'>/m.
+            </div>
           </div>
         </section>
         <section class='buildings-screen-inner buildings'>
@@ -642,13 +723,16 @@ class Templates {
         <h2>
           <img src='img/military.png'> Military
         </h2>
-        <section class='military-screen-inner'>
-          <span class='military-strength military-metric'><img src='img/strength.png'> Strength: <span class='military-strenght-text'>${playerCiv.strength}</span></span>
+        <section class='military-screen-inner military-metrics'>
+          <span class='military-strength military-metric'><img src='img/strength.png'> Strength: <span class='military-strength-text'>${playerCiv.strength}</span></span>
           <span class='military-defense military-metric'><img src='img/defense.png'> Defense: <span class='military-defense-text'>${playerCiv.defense}</span></span>
           <span class='military-soldiers military-metric'><img src='img/soldier.png'> Soldiers: <span class='military-soldiers-text'>0</span></span>
         </section>
-        <section class='military-screen-inner'>
-          <h3>Soldier Assignments</h3>
+        <section class='military-screen-inner military-soldier-assignments'>
+          <h3>Soldier Assignments <span class='soldiers-assigned'></span></h3>
+          <span class='military-assignments'>
+            
+          </span>
         </section>
         <section class='military-screen-inner'>
           <h3>Military Bases</h3>
@@ -664,6 +748,9 @@ class Templates {
   createCultureScreen(playerCiv:Civilization) {
     let cultureScreen = `
       <section class='screen culture-screen' id='culture'>
+        <div class='expand culture-expand' title='Expand the screen size.'>
+          <img src='img/expand.png'>
+        </div>
         <h2>
           <img src='img/culture.png'> Culture
         </h2>
@@ -672,16 +759,47 @@ class Templates {
             <span class='culture-PM'>${playerCiv.culturePM}</span> <img src='img/culture.png'> PM
           </div>
           <div class='culture-wrapper' data-tooltip='The amount of culture you have in total.'>
-            <span class='culture-PM'>${playerCiv.culture}</span> <img src='img/culture.png'> total
+            <span class='culture-total'>${playerCiv.culture}</span> <img src='img/culture.png'> total
           </div>
         </section>
-        <section class='culture-screen-inner'>
-
+        <section class='culture-screen-inner selected-culture-cards'>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+          <div class='culture-card empty card-drop'>
+            <span>Empty</span>
+          </div>
+        </section>
+        <section class='culture-screen-inner culture-cards'>
+          <div class='culture-card' draggable='true' data-type='military'>
+            <span class='culture-card-name'>Code of Honor</span>
+            <span class='culture-card-description'>+3 Soldier <img src='img/strength.png'></span>
+          </div>
+          <div class='culture-card' draggable='true' data-type='diplomatic'>
+            <span class='culture-card-name'>Noble Statesmen</span>
+            <span class='culture-card-description'>+5 International Influence <img src='img/influence-international.png'></span>
+          </div>
+          <div class='culture-card' draggable='true' data-type='faith'>
+            <span class='culture-card-name'>Visiting Shaman</span>
+            <span class='culture-card-description'>Provides 1 Free Cleric</span>
+          </div>
         </section>
       </section>
     `;
     return cultureScreen;
   }
+
+  // Pantheon
+  // Belief
+  // Dogma
+  // Holy
+  // Ultimate
 
   createFaithScreen(playerCiv:Civilization) {
     let faithScreen = `
@@ -695,6 +813,11 @@ class Templates {
           </div>
           <div class='faith-wrapper' data-tooltip='Your total faith amount.'>
             <span class='faith-total'>${playerCiv.faith}</span> <img src='img/faith.png'> total</span>
+          </div>
+        </section>
+        <section class='faith-screen-inner faith-bonuse-info'>
+          <div class='faith-info center-text white faith-maximum'>
+            You may have a max of <strong>${playerCiv.faithBonusPantheonLimit}</strong> Pantheons
           </div>
         </section>
         <section class='faith-screen-inner fb-container'>
@@ -715,6 +838,16 @@ class Templates {
           <div class='legacy-wrapper'>
             <img src='img/legacy.png'> <span class='legacy-points'>${playerCiv.legacy}</span> Legacy Points
           </div>
+        </section>
+        <section class='legacy-screen-inner'>
+          <div class='pass-on-legacy'>
+            <img src='img/legacy-pass.png'>
+            <span>PASS ON YOUR LEGACY</span>
+            <span class='legacy-points-gain'>
+              <img src='img/legacy.png'> 1.25K
+            </span>
+          </div>
+          <div class='center-text white' style='font-size: .8rem'>updates every minute</div>
         </section>
         <section class='legacy-screen-inner legacy-bonuses'>
 
@@ -783,6 +916,9 @@ class Templates {
             <label class='ui-button'>
               <input type='checkbox' id='checkWonderCompletion' >Wonder Completion
             </label>
+            <label class='ui-button'>
+              <input type='checkbox' id='removeNotificationsAutomatically'>Automatically remove notifications after 10 seconds
+            </label>
           </p>
           <span class='settings-label'>Citizens</span>
           <p>
@@ -807,7 +943,15 @@ class Templates {
     return settingsScreen;
   }
 
-
+  createEraOverlay(game) {
+    let era = `<div class='overlay overlay-era' style='display:none'>
+      <div class='modal modal-era era-${game.era}'>
+        <h1>Welcome to the ${game.era} Era!</h1>
+        <button id='remove-overlay' class='btn-era large-btn'>Continue</button>
+      </div>
+    </div>`;
+    return era;
+  }
 
 
 

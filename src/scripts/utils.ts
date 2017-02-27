@@ -1,8 +1,22 @@
 import Collection = require('./collection');
 import Resource = require('./resource');
-import Citizen = require('./citizen');
+import { Citizen } from './citizen';
 import Building = require('./building');
 import Wonder = require('./wonder');
+
+export const iterateOverNodelist = function (array:NodeListOf<any>, callback:Function, scope:any) {
+  for (let i = 0; i < array.length; i++) {
+    callback.call(scope, array[i], i);
+  }
+};
+
+export function bindElement(node:string, eventType:string, callback:Function) {
+  let el = <HTMLElement>document.querySelector(node);
+  el.addEventListener(eventType, function (event:Event) {
+    //console.log(callback)
+    callback.call(this, event);
+  });
+};
 
 export class Utils {
   abbrNum (num:any, decPlaces:number = 2):string {
@@ -114,6 +128,12 @@ export class Utils {
     let m = Math.floor(d % 3600 / 60);
     let s = Math.floor(d % 3600 % 60);
     return ((h > 0 ? h + ':' + (m < 10 ? '0' : '') : '') + m + ':' + (s < 10 ? '0' : '') + s);
+  }
+
+  titlecase(str:string) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   }
 
   unlockBuilding(building:string, buildings:Collection<Building>):void {

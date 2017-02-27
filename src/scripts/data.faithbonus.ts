@@ -45,8 +45,25 @@ let tf2:FaithBonus = new FaithBonus('The Fates', FaithTier.Pantheon, true, false
 
 });
 
+let animism:FaithBonus = new FaithBonus('Animism', FaithTier.Organized, false, false, `+3 <img src='img/faith.png'> for each Stable, Pasture, and Zoo`, function () {
+
+});
+
+let reincarnation:FaithBonus = new FaithBonus('Reincarnation', FaithTier.Organized, false, false, `+20 <img src='img/faith.png'> when you pass on your legacy`, function () {
+
+});
+
+let priesthood:FaithBonus = new FaithBonus('Priesthood', FaithTier.Organized, false, false, `Increase <img src='img/faith.png'> output for Cleric by 100%`, function () {
+
+});
+
+let mission:FaithBonus = new FaithBonus('Mission', FaithTier.Organized, false, false, `Can spread religion to other Nations with Cleric`, function () {
+
+});
+
 let faithBonuses = new Collection('faithBonuses', [
-                                                    goh, sos, bm, gow, sc, gc, fg, sc2, ps, lof, tf, tf2
+                                                    goh, sos, bm, gow, sc, gc, fg, sc2, ps, lof, tf, tf2,
+                                                    animism, reincarnation, priesthood, mission
                                                   ]);
 
 export = faithBonuses;

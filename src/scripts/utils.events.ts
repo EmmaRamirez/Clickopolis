@@ -1,12 +1,15 @@
 import Civilization = require('./civilization');
-import notify = require('./notify');
 import Collection = require('./collection');
+import Building = require('./building');
 import { Utils } from './utils';
+import { notify } from './notify';
 
 import Resource = require('./resource');
-import resourceData = require('./data.resource')
+import resourceData = require('./data.resource');
 
-import Citizen = require('./citizen');
+import { updatePopulation } from './utils.population';
+import { Soldier } from './soldier';
+import { Citizen } from './citizen';
 import citizenData = require('./data.citizen');
 
 let u = new Utils();
@@ -17,12 +20,12 @@ function choose(arr:any[]):any {
 
 interface ClickopolisEvent {
   func: Function;
-  rarity: string;
+  rarity: 'rare' | 'uncommon' | 'common';
 }
 
 const Events:ClickopolisEvent[] = [
   {
-    func: function(options) {
+    func: (options) => {
       let banana = options.resources.get('banana');
       if (banana.unlocked) {
         banana.total += 1;
@@ -31,10 +34,69 @@ const Events:ClickopolisEvent[] = [
     rarity: 'rare'
   },
   {
+    func: (options) => {
+      let mienrs = options.citizens.get('miner');
+      let gems = options.resources.get('gems');
+      if (gems.unlocked) {
+        gems.total += 1;
+      }
+    },
+    rarity: 'rare'
+  },
+  {
+    func: (options) => {
+      let miners = options.citizens.get('miner');
+      let gold = options.resources.get('gold');
+      if (gold.unlocked) {
+        gold.total += miners.amount;
+      }
+    },
+    rarity: 'rare'
+  },
+  {
+    func: (options) => {
+      let miners = options.citizens.get('miner');
+      let silver = options.resources.get('silver');
+      if (silver.unlocked) {
+        silver.total += miners.amount;
+      }
+    },
+    rarity: 'rare'
+  },
+  {
+    func: (options) => {
+      if (options.playerCiv.population > 10 && (options.playerCiv.pollution / 2 > options.playerCiv.health)) {
+        updatePopulation(-1, options.playerCiv, options.game, options.citizens, options);
+      }
+      notify({ message: `The pollution in your Empire is overwhelming! The flue has decimated your population. -5 Pop.`, icon: 'pollution' });
+    },
+    rarity: 'rare'
+  },
+  {
     func: function (options) {
       let horse = options.resources.get('horse');
       if (horse.unlocked) {
         horse.total += 1;
+      }
+    },
+    rarity: 'uncommon'
+  },
+  {
+    func: (options) => {
+      let spices = options.resources.get('spices');
+      let wooductters = options.citizens.get('woodcutter');
+      if (spices.unlocked) {
+        spices.total += wooductters.amount;
+      }
+    },
+    rarity: 'uncommon'
+  },
+  {
+    func: (options) => {
+      let marble = options.resources.get('marble');
+      let quarries = options.buildings.get('Quarry').amount;
+      if (marble.unlocked) {
+        marble.total += quarries;
       }
     },
     rarity: 'uncommon'
@@ -50,6 +112,23 @@ const Events:ClickopolisEvent[] = [
   },
   {
     func: (options) => {
+      if (options.playerCiv.pollution > options.playerCiv.health) {
+        updatePopulation(-1, options.playerCiv, options.game, options.citizens, options);
+      }
+      notify({ message: `Due to the pollution of your Empire, several citizens died! -1 Pop.`, icon: 'pollution' });
+    },
+    rarity: 'common'
+  },
+  {
+    func: (options) => {
+      let wood = options.resources.get('wood');
+      let woodcutters = options.citizens.get('woodcutter');
+      wood += woodcutters * 10;
+    },
+    rarity: 'common'
+  },
+  {
+    func: (options) => {
       let stone = options.resources.get('stone');
       let miners = options.citizens.get('miner');
       if (stone.unlocked) {
@@ -58,15 +137,6 @@ const Events:ClickopolisEvent[] = [
     },
     rarity: 'common'
   },
-  {
-    func: (options) => {
-      let spices = options.resources.get('spices');
-      let woodcutters = options.citizens.get('woodcutter');
-      if (spices.unlocked) {
-        spices.total += woodcutters.amount;
-      }
-    }
-  }
 ];
 
 const filterEvents = function(rarity:string) {
@@ -79,6 +149,10 @@ interface RollEventOptions {
   playerCiv: Civilization;
   resources: Collection<Resource>;
   citizens: Collection<Citizen>;
+  buildings: Collection<Building>;
+  game: any;
+  military: Collection<Soldier>;
+  isWindowActive: boolean;
 }
 
 export function rollEvent(options:RollEventOptions) {

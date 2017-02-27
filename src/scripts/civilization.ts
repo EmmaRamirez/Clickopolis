@@ -1,5 +1,6 @@
 import Collection = require('./collection');
-import Biome = require('./biome');
+import { Biome } from './biome';
+import { Leader } from './leader';
 
 interface Point {
   x: number;
@@ -9,9 +10,11 @@ interface Point {
 class Civilization {
   civName: string;
 
+  leader: Leader;
   leaderName: string;
-  leaderTraits: string[];
-  leaderTraitsMax: number;
+  
+
+  color: string;
 
   location: string;
   biomes: Collection<Biome>;
@@ -24,7 +27,10 @@ class Civilization {
   happinessFromResources: number;
   happinessFromCultureBonuses: number;
   happinessFromFaithBonuses: number;
+  happinessFromEvents: number;
   happinessMod: number;
+
+  hutHappiness: number;
 
   anger: number;
   angerFromPopulation: number;
@@ -65,8 +71,14 @@ class Civilization {
   cashPM: number;
   cashPMFromCitizens: number;
   cashPMFromBuildings: number;
+  cashPMFromBuildingMaintenance: number;
   cashPMFromMilitary: number;
   cashPMFromTradeRoutes: number;
+  cashPMFromTradeDeals: number;
+  cashPMFromSocialPolicies: number;
+  cashPMFromFaith: number;
+  cashPMFromLegacy: number;
+  cashPMFromWonders: number;
 
   goldenAges: number;
   goldenAgeProgress: number;
@@ -82,16 +94,41 @@ class Civilization {
   techs: number;
 
   faith: number;
+  faithGameTotal: number;
+  faithPMFromBuildings: number;
+  faithPMFromSocialPolicies: number;
+  faithPMFromResources: number;
+  faithPMFromLegacy: number;
+  faithPMFromWonders: number;
   faithPM: number;
   faithCost: number;
 
+  faithBonusPantheonLimit: number;
+  faithBonusPantheonTotal: number;
+
   culture: number;
   culturePM: number;
+  culturePMMod: number;
+
+  socialPolicySlots: number;
+  socialPolicies: any[];
 
   strength: number;
+  strengthBase: number;
+  strengthFromMilitary: number;
+  strengthFromBuildings: number;
   strengthMod: number;
+
   defense: number;
+  defenseBase: number;
+  defenseFromMilitary: number;
+  defenseFromBuildings: number;
   defenseMod: number;
+
+  canMeetNations: boolean;
+  canMeetCoastalNations: boolean;
+  canMeetOceanicNations: boolean;
+
 
 
   conquestedCivs: Civilization[];
@@ -100,14 +137,14 @@ class Civilization {
     // exhaustive method goes here
   }
 
-  constructor(civName:string, leaderName:string, biomes:Collection<Biome>) {
+  constructor(civName:string, leaderName:string, leader:Leader, biomes:Collection<Biome>) {
     this.civName = civName;
     this.leaderName = leaderName;
     //this.location = location;
     this.biomes = biomes;
+    this.leader = leader;
 
-    this.leaderTraits = [];
-    this.leaderTraitsMax = 3;
+    this.color = '#5fe49b';
 
     this.happiness = 0;
     this.happinessMod = 1;
@@ -118,10 +155,13 @@ class Civilization {
     this.happinessFromResources = 0;
     this.happinessFromCultureBonuses = 0;
     this.happinessFromFaithBonuses = 0;
+    this.happinessFromEvents = 0;
+
+    this.hutHappiness = 1;
 
     this.anger = 0;
     this.angerMod = 1;
-    this.angerFromPopulation = 0;
+    this.angerFromPopulation = 1;
 
     this.health = 0;
     this.healthBase = 25;
@@ -135,7 +175,7 @@ class Civilization {
     this.pollutionFromResources = 0;
     this.pollutionMod = 1;
 
-    this.land = 1;
+    this.land = 40;
     this.legacy = 0;
 
     this.achievements = 0;
@@ -161,6 +201,7 @@ class Civilization {
     this.cashPM = 0;
     this.cashPMFromCitizens = 0;
     this.cashPMFromBuildings = 0;
+    this.cashPMFromBuildingMaintenance = 0;
     this.cashPMFromMilitary = 0;
     this.cashPMFromTradeRoutes = 0;
 
@@ -174,13 +215,31 @@ class Civilization {
     this.faithPM = 0;
     this.faithCost = 1;
 
+    this.faithBonusPantheonLimit = 7;
+    this.faithBonusPantheonTotal = 0;
+
     this.culture = 0;
     this.culturePM = 0;
+    this.culturePMMod = 1;
+
+    this.socialPolicySlots = 3;
+    this.socialPolicies = [];
 
     this.strength = 10;
+    this.strengthBase = 10;
+    this.strengthFromBuildings = 0;
+    this.strengthFromMilitary = 0;
     this.strengthMod = 1;
+
     this.defense = 10;
+    this.defenseBase = 10;
+    this.defenseFromBuildings = 0;
+    this.defenseFromMilitary = 0;
     this.defenseMod = 1;
+
+    this.canMeetNations = false;
+    this.canMeetCoastalNations = false;
+    this.canMeetOceanicNations = false;
   }
 }
 

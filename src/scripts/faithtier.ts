@@ -1,9 +1,9 @@
-enum Tier {
+enum FaithTier {
   Pantheon = 1,
-  Belief = 10,
-  Dogma = 100,
+  Organized = 10,
+  Dogmatic = 100,
   Holy = 1000,
   Ultimate = 100000
 }
 
-export = Tier;
+export = FaithTier;
