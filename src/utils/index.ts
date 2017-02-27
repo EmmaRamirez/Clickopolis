@@ -9,6 +9,7 @@ export { rollEvent } from './events';
 export { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './faith';
 export { addGoldenAgePoints, updateGoldenAgePoints } from './goldenage';
 export { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './happiness';
+export { generateHealthTooltip, updateHealthMetric, calculateHealth } from './health';
 export { setLandAmount, setLandPercent } from './land';
 export { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './legacy';
 export { populateMilitary, militaryUnitChange } from './military';

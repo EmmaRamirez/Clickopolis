@@ -1,15 +1,6 @@
 import { Utils, iterateOverNodelist } from './utils';
-import FaithBonus = require('./faithbonus');
-import FaithTier = require('./faithtier');
-import Civilization = require('./civilization');
-import faithBonusData = require('./data.faithbonus');
-import resourceData = require('./data.resource');
-
-
-let faithBonuses = faithBonusData;
-let resources = resourceData;
-
-import { notify } from './notify';
+import { FaithBonus, FaithTier, Civilization, notify } from '../classes';
+import { faithBonuses, resources } from '../data';
 
 const u = new Utils();
 

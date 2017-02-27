@@ -1,4 +1,4 @@
-import { base } from '../utils';
+import { Utils } from '../utils';
 
 let u = new Utils();
 

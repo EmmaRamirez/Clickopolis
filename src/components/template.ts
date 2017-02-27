@@ -958,5 +958,3 @@ export class Templates {
 
 
 }
-
-export = Templates;

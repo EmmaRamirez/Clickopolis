@@ -1,2 +1,2 @@
-export { tradeDeal } from './trade-deal';
-export { tradeRoute } from './trade-route';
+export { TradeDeal } from './trade-deal';
+export { TradeRoute } from './trade-route';

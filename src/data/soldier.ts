@@ -1,4 +1,4 @@
-import { Soldier, Collection } from './classes';
+import { Soldier, Collection } from '../classes';
 
 let footSoldier = {
 	name: 'Foot Soldier',

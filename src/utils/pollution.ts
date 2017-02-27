@@ -1,4 +1,4 @@
-import { updateTooltip } from './tooltips';
+import { updateTooltip } from '../classes';
 import { Utils } from './utils';
 
 const u = new Utils();

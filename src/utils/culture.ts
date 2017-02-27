@@ -1,8 +1,5 @@
 import { Utils, iterateOverNodelist } from './utils';
-import { SocialPolicy } from './socialpolicy';
-import Collection = require('./collection');
-import Civilization = require('./civilization');
-import { notify } from './notify';
+import { SocialPolicy, Collection, Civilization, notify } from '../classes';
 
 const u = new Utils();
 
@@ -61,7 +58,7 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 		let cardName = item.getAttribute('data-name');
 		let card = socialPolicies.get(cardName);
 
-		
+
 		item.addEventListener('click', () => {
 			if (!card.unlocked) {
 				if (playerCiv.culture >= card.cost) {
@@ -72,7 +69,7 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 				} else {
 					notify({ message: `You don't have enough culture <img src='img/culture.png'> to purchase that policy!` });
 				}
-				
+
 			} else {
 				console.log('Card is already unlocked');
 			}
@@ -100,9 +97,9 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 				} else {
 					notify({ message: `You do not have that Social Policy yet!`}, true);
 				}
-				
+
 			}
-			
+
 		});
 
 		item.addEventListener('drag', (event) => {
@@ -130,13 +127,13 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 			//if (event.target.classList.contains('drop-card')) {
 			if (event.target.className === 'culture-card empty card-drop') {
 				event.preventDefault();
-				
+
 				//event.target.innerHTML = '';
 
 				if (dragged !== null) {
 					event.target.innerHTML = '';
 					event.target.innerHTML = `
-					
+
 			      <span class='culture-card-name'>
 			      	${dragged.name}
 			      </span>
@@ -159,15 +156,15 @@ export function cultureCardEvents(socialPolicies:Collection<SocialPolicy>, playe
 			    dragged = null;
 		  	}
 		  }
-				
+
 
 			//}
-			
+
 		})
 
-		
 
-		
+
+
 
 	}, this);
 

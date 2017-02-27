@@ -1,4 +1,4 @@
-import { Utils } from './utils';
+import { Utils } from '../utils';
 import { Trait } from '../trait';
 
 export class Leader {
