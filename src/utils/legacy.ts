@@ -1,13 +1,10 @@
-import Civilization = require('./civilization');
-import Legacy = require('./legacy');
-import legacyData = require('./data.legacy');
+import { legacies } from '../data';
 import { Utils } from './utils';
-import { notify } from './notify';
-import { generateTooltips, updateTooltip } from './tooltips';
+import { Civilization, Legacy, generateTooltips, updateTooltip } from '../classes';
 
 let u = new Utils();
 
-let legacyBonuses = legacyData;
+let legacyBonuses = legacies;
 
 function renderLegacyLevel(lb) {
   return `Level ${lb.level}`;
@@ -19,7 +16,7 @@ export function updateLegacy(playerCiv, amount) {
 }
 
 export function calculateLegacy(playerCiv) {
-  
+
 }
 
 function renderLegacyData(lb, playerCiv) {

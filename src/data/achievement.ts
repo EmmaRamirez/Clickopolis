@@ -26,6 +26,6 @@ let hyperClicker = new Achievement('HyperClicker', 'click 100K times.', function
 
 
 
-export let achievementData = new Collection('achievements', [
+export let achievements = new Collection('achievements', [
   babyClicker, aHundredMightyClicks, theGreatClicker, royalClicker, empireOfClicks, hyperClicker
 ]);

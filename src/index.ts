@@ -4,28 +4,68 @@
 
 declare var Notification: any;
 
-import { Achievement, Biome, BiomeType, Building, Citizen, Civilization,
-         Collection, Economy, Era, FaithBonus, FaithTier, Game, Leader, Legacy,
-         log, Nation, notify, Queue, Resource, Robot, Settings, SocialPolicy,
-         Soldier, Tech, generateTooltips, updateTooltip, betterUpdateTooltip,
-         Trait, Wonder
-       } from './classes';
+import {
+  Achievement, Biome, BiomeType, Building, Citizen, Civilization,
+  Collection, Economy, Era, FaithBonus, FaithTier, Game, Leader, Legacy,
+  log, Nation, notify, Queue, Resource, Robot, Settings, SocialPolicy,
+  Soldier, Tech, generateTooltips, updateTooltip, betterUpdateTooltip,
+  Trait, Wonder
+} from './classes';
 
-import { Templates } from '../components';
+import { Templates } from './components';
 
-import * from './utils';
+import { populateAchievements } from './utils/achievement';
+import { generateAngerTooltip, updateAngerMetric, calculateAnger } from './utils/anger';
+import { resetBiomeSelected, openBiomeSelect, toggleBiomeSelectDropdown, biomeSelection } from './utils/biome';
+import { populateCitizens, generateCitizenPercents, citizenClick, citizenAmountHandler, addCitizen } from './utils/citizens';
+import { addCulture, createCultureCardSlots, populateCultureCards, cultureCardEvents } from './utils/culture';
+import { debugHandlers } from './utils/debug';
+import { addCash, getEconomyStatus, updateCashPM } from './utils/economy';
+import { rollEvent } from './utils/events';
+import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils/faith';
+import { addGoldenAgePoints, updateGoldenAgePoints } from './utils/goldenage';
+import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './utils/happiness';
+import { setLandAmount, setLandPercent } from './utils/land';
+import { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils/legacy';
+import { populateMilitary, militaryUnitChange } from './utils/military';
+import { generatePollutionTooltip, updatePollutionMetric, calculatePollution } from './utils/pollution';
+import { checkUnemployed, updatePopulationEmployed, checkPopulationGrowthCost, updatePopulation } from './utils/population';
+import { unlockTech, unlockTechs } from './utils/tech';
+import { iterateOverNodelist, bindElement, Utils } from './utils';
+
+import {
+  achievements,
+  buildings,
+  citizenFunction,
+  citizens,
+  leaders,
+  legacies,
+  nations,
+  resources,
+  socialPolicies,
+  military,
+  techs,
+  faithBonuses,
+  wonderFunction,
+  wonders
+} from './data';
+
 
 const u = new Utils();
 
-let techs = techData;
-let resources = resourceData;
-let citizens = citizenData;
-let buildings = buildingData;
-let nations = nationData;
-let wonders = wonderData;
-let faithBonuses = faithBonusData;
-let achievements = achievementData;
-let legacyBonuses = legacyData;
+// let achievements = achievements;
+// let buildings = buildings;
+// let citizens = citizens;
+// let leaders = leaders;
+// let nations = nations;
+// let socialPolicies = socialPolicies;
+// let military = military;
+// let techs = techs;
+// let FaithBonuses = faithBonuses;
+// let wonders = wonders;
+// let resources = resources;
+
+let legacyBonuses = legacies;
 
 let history:string[];
 

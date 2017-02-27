@@ -1,10 +1,11 @@
-export { achievementData } from './achievement';
+export { achievements } from './achievement';
 export { buildings } from './building';
 export { citizenFunction } from './citizen-function';
 export { citizens } from './citizen';
-export { leaders } from './leaders';
-export { legacies } from './legacies';
-export { nations } from './nations';
+export { leaders } from './leader';
+export { legacies } from './legacy';
+export { nations } from './nation';
+export { faithBonuses } from './faith-bonus';
 export { resources } from './resource';
 export { socialPolicies } from './social-policy';
 export { military } from './soldier';

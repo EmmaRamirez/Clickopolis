@@ -1,6 +1,5 @@
-import { resourceData } from '../data';
 import { updatePopulation } from './population';
-import { citizenData } from '../data';
+import { citizens, resources } from '../data';
 import {
   Civilization,
   Collection,
@@ -10,6 +9,7 @@ import {
   Soldier,
   Citizen
 } from '../classes';
+import { Utils } from './utils';
 
 let u = new Utils();
 

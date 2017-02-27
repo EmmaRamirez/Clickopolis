@@ -1,9 +1,6 @@
-import { updateTooltip } from './tooltips';
 import { Utils } from './utils';
-import Collection = require('./collection');
-import Civilization = require('./civilization');
-import Resource = require('./resource');
-import { updateGoldenAgePoints } from './utils.goldenage';
+import { updateGoldenAgePoints } from './goldenage';
+import { updateTooltip, Collection, Civilization, Resource } from '../classes';
 
 const u = new Utils();
 

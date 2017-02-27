@@ -1,5 +1,5 @@
 import { Utils } from './utils';
-import { updateTooltip } from './tooltips';
+import { updateTooltip } from '../classes';
 
 const u = new Utils();
 
