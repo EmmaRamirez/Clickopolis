@@ -25,8 +25,8 @@ export function updatePollutionMetric(playerCiv) {
 export function calculatePollution(playerCiv, resources) {
   let prevPollution = playerCiv.pollution;
   let pollutionFromResources = () => {
-  	let oil = resources.get('oil').total;
-  	return oil;
+    let oil = resources.get('oil').total;
+    return oil;
   };
   playerCiv.pollutionFromResources = pollutionFromResources();
   let pollution = playerCiv.pollutionFromResources + playerCiv.pollutionFromBuildings + playerCiv.pollutionFromPopulation;

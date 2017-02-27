@@ -1,14 +1,10 @@
-import { notify } from './notify';
 import { Utils, iterateOverNodelist } from './utils';
-import Civilization = require('./civilization');
-import { Citizen } from './citizen';
-import Game = require('./game');
-import { setLandPercent, setLandAmount } from './utils.land';
-import { updateCashPM } from './utils.economy';
-import { updateTooltip } from './tooltips';
-import { citizenFunction } from './data.citizenfunctions';
-import { updatePopulationEmployed } from './utils.population';
-import Collection = require('./collection');
+import { setLandPercent, setLandAmount } from './land';
+import { updateCashPM } from './economy';
+import { citizenFunction } from '../data';
+import { updatePopulationEmployed } from './population';
+
+import { notify, Civilization, Game, Citizen, Collection, updateTooltip } from '../classes';
 
 const u = new Utils();
 

@@ -1,7 +1,7 @@
-import Resource = require('./resource');
-import Nation = require('./nation');
+import { Resource } from '../resource';
+import { Nation } from '../nation';
 
-class TradeDeal {
+export class TradeDeal {
   tradingNation: Nation;
   gaveResource: Resource;
   gaveAmount: number;
@@ -18,5 +18,3 @@ class TradeDeal {
     this.year = year;
   }
 }
-
-export = TradeDeal;
