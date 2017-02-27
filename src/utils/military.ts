@@ -1,10 +1,4 @@
-import { Utils, iterateOverNodelist } from './utils';
-import { Soldier } from './soldier';
-import { Citizen } from './citizen';
-import { notify } from './notify';
-import Civilization = require('./civilization');
-import Collection = require('./collection');
-
+import { Soldier, Citizen, notify, Civilization, Collection } from '../classes';
 const u = new Utils();
 
 function renderUnitStats(unit:Soldier) {
@@ -116,7 +110,7 @@ export function populateMilitary(military:Collection<Soldier>, soldier:Citizen, 
 
 	let container = u.elt('.military-assignments');
 	let assignmentsHTML = '';
-	
+
 
 	for (let i = 0; i < military.items.length; i++) {
 		let unit:Soldier = military.items[i];

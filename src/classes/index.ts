@@ -8,6 +8,7 @@ export { Economy, EconomySystem } from './economy';
 export { Era } from './era';
 export { FaithBonus } from './faith-bonus';
 export { FaithTier } from './faith-tier';
+export { Game } from './game';
 export { Leader } from './leader';
 export { Legacy } from './legacy';
 export { log } from './log';

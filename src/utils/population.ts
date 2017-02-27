@@ -1,14 +1,8 @@
-import { notify } from './notify';
 import { Utils, iterateOverNodelist } from './utils';
-import Civilization = require('./civilization');
-import { Citizen } from './citizen';
-import Game = require('./game');
-import { setLandPercent, setLandAmount } from './utils.land';
-import { updateCashPM } from './utils.economy';
-import { updateTooltip } from './tooltips';
-import { addCitizen } from './utils.citizens';
-import Era = require('./era');
-import Collection = require('./collection');
+import { setLandPercent, setLandAmount } from './land';
+import { updateCashPM } from './economy';
+import { addCitizen } from './citizens';
+import { notify, Civilization, Citizen, Game, Era, Collection, updateTooltip } from '../classes';
 
 const u = new Utils();
 
@@ -84,7 +78,7 @@ export function updatePopulation(pop:number, playerCiv:Civilization, game:Game, 
 
   updateCashPM(playerCiv);
 
-    
+
   //u.elt('.civ-anger-text').textContent = playerCiv.anger;
   //u.elt('.civ-pollution-text').textContent = playerCiv.pollution;
   addCitizen('farmer', pop, '.farmer-num-text', citizens, playerCiv, options);

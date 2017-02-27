@@ -1,10 +1,5 @@
-import Collection = require('./collection');
-import Tech = require('./tech');
-import techData = require('./data.tech');
-
-let techs = techData;
-
-
+import { Collection, Tech } from '../classes';
+import { techs } from '../data';
 
 export function unlockTech(tech:string):boolean {
   if (!techs.get(tech).enabled) {
@@ -18,4 +13,3 @@ export function unlockTech(tech:string):boolean {
 export function unlockTechs(techs:string[]):boolean {
   return false;
 }
-

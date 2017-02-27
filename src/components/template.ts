@@ -1,8 +1,15 @@
+import { Achievement, Biome, BiomeType, Building, Citizen, Civilization,
+         Collection, Economy, Era, FaithBonus, FaithTier, Game, Leader, Legacy,
+         log, Nation, notify, Queue, Resource, Robot, Settings, SocialPolicy,
+         Soldier, Tech, generateTooltips, updateTooltip, betterUpdateTooltip,
+         Trait, Wonder
+       } from '../classes';
 
+import { Utils } from '../utils';
 
 let u = new Utils();
 
-class Templates {
+export class Templates {
 
   createStartScreen(playerCiv:Civilization, game:Game) {
 
