@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Resources } from './Resources';
+import { Resources } from '../Resources';
 
 
 
@@ -10,7 +10,7 @@ export class Root extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div class='clickopolis'>
+      <div className='clickopolis'>
         <Resources />
       </div>
     );
