@@ -1,9 +1,8 @@
 import * as React from 'react';
+import { Partial } from '../../utils';
+import { IResource } from '../../classes';
 
-
-interface ResourceBlockProps {
-  name?: string;
-}
+type ResourceBlockProps = Partial<IResource>;
 
 export class ResourceBlock extends React.Component<ResourceBlockProps, {}> {
   constructor(props) {
