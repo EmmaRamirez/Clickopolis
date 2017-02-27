@@ -21,7 +21,7 @@ export function populateCitizens(citizens:Collection<Citizen>) {
     //let d:string;
     citizensContainer.innerHTML += `
     <div class='row citizen-${c.name}' data-visible='${c.visible}' data-enabled='${c.enabled}' data-id='${i}' style='border-right: 4px solid ${c.color}'>
-      <strong style='display: inline-block; text-align: center; width: 3rem;' class='${c.name}-num-text'>${c.amount}</strong> 
+      <strong style='display: inline-block; text-align: center; width: 3rem;' class='${c.name}-num-text'>${c.amount}</strong>
       <button data-citizen='${c.name}' data-citizen-amount='-1'>-1</button>
       <span class='citizen-icon'><img src='img/${c.image}.png'></span>
       <button data-citizen='${c.name}' data-citizen-amount='1'>+1</button>
@@ -68,7 +68,7 @@ export function citizenClick(citizens:Collection<Citizen>, playerCiv:Civilizatio
             notify({message:'All of your population is already employed!'}, true);
           } else {
             if (amount > (playerCiv.population - playerCiv.populationEmployed)) {
-              notify({ message: 'You cannot assign more ' + citizens.get(citizen).name+ 's than you have unemployed citizens!'}, true);
+              notify({ message: 'You cannot assign more ' + citizens.get(citizen).name + 's than you have unemployed citizens!'}, true);
             } else {
               addCitizen(citizen, amount, sel, citizens, playerCiv, options);
             }
