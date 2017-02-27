@@ -3,7 +3,7 @@ var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const webpackConfig = {
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   output: {
     filename: './dist/bundle.js'
   },
@@ -25,13 +25,10 @@ const webpackConfig = {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
       }
-      // {
-      //   test: /\.styl$/,
-      //   include: [
-      //     path.resolve(__dirname, 'stylus')
-      //   ],
-      //   loaders: ['style', 'css', 'stylus']
-      // },
+      {
+        test: /\.styl$/,
+        loaders: ['style-loader', 'css-loader', 'stylus-loader']
+      },
     ]
   },
   watch: true
