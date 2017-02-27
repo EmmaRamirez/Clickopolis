@@ -1,4 +1,4 @@
-/// <reference path="../../typings/index.d.ts" />
+/// <reference path="../typings/index.d.ts" />
 /// <reference path="store.d.ts" />
 /// <reference path="underscore.d.ts" />
 
@@ -25,7 +25,7 @@ import { rollEvent } from './utils/events';
 import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils/faith';
 import { addGoldenAgePoints, updateGoldenAgePoints } from './utils/goldenage';
 import { generateHappinessTooltip, updateHappinessMetric, calculateHappiness } from './utils/happiness';
-export { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils/health';
+import { generateHealthTooltip, updateHealthMetric, calculateHealth } from './utils/health';
 import { setLandAmount, setLandPercent } from './utils/land';
 import { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils/legacy';
 import { populateMilitary, militaryUnitChange } from './utils/military';
@@ -47,7 +47,7 @@ import {
   military,
   techs,
   faithBonuses,
-  wonderFunction,
+  WonderFunction,
   wonders
 } from './data';
 

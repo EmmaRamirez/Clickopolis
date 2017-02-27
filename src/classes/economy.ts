@@ -1,4 +1,4 @@
-import { tradeRoute, tradeDeal } from './trade';
+import { TradeRoute, TradeDeal } from './trade';
 
 export enum EconomySystem {
   traditional,
@@ -12,8 +12,8 @@ export class Economy {
   cash: number;
   system: EconomySystem;
 
-  tradeDeals: tradeDeal[];
-  tradeRoutes: tradeRoute[];
+  tradeDeals: TradeDeal[];
+  tradeRoutes: TradeRoute[];
 
   constructor() {
 
