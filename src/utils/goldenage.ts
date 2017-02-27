@@ -28,5 +28,5 @@ export function addGoldenAgePoints(playerCiv:Civilization) {
 }
 
 export function updateGoldenAgePoints(playerCiv:Civilization) {
-	u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
+  u.elt('.metric-golden-age-points').innerHTML = `${playerCiv.happiness - playerCiv.anger} <img src='img/golden-age.png'>`;
 }
