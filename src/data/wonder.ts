@@ -1,8 +1,5 @@
-import Wonder = require('./wonder');
-import Collection = require('./collection');
-import Resource = require('./resource');
-import Building = require('./building');
-import Civilization = require('./civilization');
+import { Utils } from '../utils';
+import { Wonder, Collection, Resource, Building, Civilization } from '../classes';
 
 interface WonderArgs {
   resources: Collection<Resource>,

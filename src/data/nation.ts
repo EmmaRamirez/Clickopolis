@@ -1,6 +1,5 @@
-import Nation = require('./nation');
-import Collection = require('./collection');
-import { Utils } from './utils';
+import { Nation, Collection } from '../classes';
+import { Utils } from '../utils';
 
 let u = new Utils();
 

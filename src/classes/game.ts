@@ -1,4 +1,4 @@
-import Era = require('./era');
+import { Era } from './era';
 
 export class Game {
   introStep: number;

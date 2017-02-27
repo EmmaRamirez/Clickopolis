@@ -1,6 +1,6 @@
 import { tradeRoute, tradeDeal } from './trade';
 
-enum EconomySystem {
+export enum EconomySystem {
   traditional,
   mixed,
   freeMarket,
@@ -8,7 +8,7 @@ enum EconomySystem {
   communism
 }
 
-class Economy {
+export class Economy {
   cash: number;
   system: EconomySystem;
 
@@ -20,5 +20,3 @@ class Economy {
   }
 
 }
-
-export = Economy;

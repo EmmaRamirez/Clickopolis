@@ -1,5 +1,4 @@
-import Collection = require('./collection');
-import { SocialPolicy, createSocialPolicy } from './socialpolicy';
+import { SocialPolicy, createSocialPolicy, Collection } from '../classes';
 
 // name: string;
 // category: string;
