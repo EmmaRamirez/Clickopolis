@@ -1,11 +1,5 @@
-import { Citizen } from './citizen';
-import Collection = require('./collection');
-import { Utils, iterateOverNodelist } from './utils';
-import Resource = require('./resource');
-import Civilization = require('./civilization');
-import { populateMilitary } from './utils.military';
-import { Soldier } from './soldier';
-import { notify } from './notify';
+import { Utils, iterateOverNodelist } from '../utils';
+import { Citizen, Collection, Resource, Civilization, Soldier, notify } from '../classes';
 
 const u = new Utils();
 
@@ -44,7 +38,7 @@ function woodcutterFunction (resources, amount, woodcutter) {
 function removeSoldiersFromMilitary(military, amountToRemove) {
 	let amountRemoved = 0;
 	military.get('Foot Soldier').amount -= amountToRemove;
-	
+
 }
 
 function soldierFunction (playerCiv, amount, soldier, military) {

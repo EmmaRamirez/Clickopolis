@@ -1,7 +1,4 @@
-import Collection = require('./collection');
-import Achievement = require('./achievement');
-import Game = require('./game');
-import Civilization = require('./civilization');
+import { Collection, Achievement, Game, Civilization } from '../classes';
 
 let babyClicker = new Achievement('Baby Clicker', 'click once.', function (playerCiv:Civilization, game:Game) {
   if (game.totalClicks > 0) {

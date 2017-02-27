@@ -36,9 +36,9 @@ let isWindowActive:boolean = true;
 let isCtrlPressed:boolean = false;
 let debugMode:boolean = true;
 
-import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils.faith';
-import { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils.legacy';
-import { rollEvent } from './utils.events';
+import { addFaith, updateFaithElts, populateFaithBonuses, faithBonusClick, updateFaithBonuses } from './utils/faith';
+import { populateLegacy, legacyBonusClick, legacyBonusCheck, updateLegacyElts } from './utils/legacy';
+import { rollEvent } from './utils/events';
 
 window.addEventListener('focus', function () {
   isWindowActive = true;
