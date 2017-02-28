@@ -9,7 +9,7 @@ const webpackConfig = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx']
+    extensions: ['', '.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
