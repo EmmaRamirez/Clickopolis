@@ -9,6 +9,7 @@
         "jsx": "react",
         "allowJs": true,
         "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
         "typeRoots": ["./typings"]
     },
     "exclude": [
