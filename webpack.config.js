@@ -29,9 +29,45 @@ const webpackConfig = {
         test: /\.styl$/,
         loaders: ['style-loader', 'css-loader', 'stylus-loader']
       },
+      {
+        test: /\.styl$/,
+        loader: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          name: 'fonts/[hash].[ext]',
+          limit: 5000,
+          mimetype: 'application/font-woff',
+        }
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[hash].[ext]',
+        }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[hash].[ext]'
+        }
+      }
     ]
   },
-  watch: true
-}
+  externals: {
+    'cheerio': 'window',
+    'react/addons': 'react',
+    'react/lib/ExecutionEnvironment': 'react',
+    'react/lib/ReactContext': 'react',
+  },
+};
 
 module.exports = webpackConfig;
