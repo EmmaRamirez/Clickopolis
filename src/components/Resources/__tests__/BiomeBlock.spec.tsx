@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
 
-import { BiomeBlock } from '../src/components/Resources/BiomeBlock';
+import { BiomeBlock } from '../BiomeBlock';
 
 describe('Biome Block', () => {
   it('should render', () => {
