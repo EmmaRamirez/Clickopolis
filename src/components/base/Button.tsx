@@ -21,7 +21,7 @@ export class Button extends React.Component<ButtonProps, {}> {
   public render() {
     const { children } = this.props;
     return (
-      <div onClick={this.props.onClick} style={baseButtonStyles} className='button' aria-role='button'>
+      <div onClick={this.props.onClick} style={baseButtonStyles} className='button'>
         { children }
       </div>
     )

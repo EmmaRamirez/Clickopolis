@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1488265640071" clover="3.2.0">
-  <project timestamp="1488265640071" name="All files">
-    <metrics statements="27" coveredstatements="25" conditionals="13" coveredconditionals="7" methods="10" coveredmethods="8" elements="50" coveredelements="40" complexity="0" loc="27" ncloc="27" packages="2" files="2" classes="2">
-      <package name="__tests__">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <file name="BiomeBlock.spec.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\__tests__\BiomeBlock.spec.tsx">
-          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="2" count="1" type="stmt"/>
-          <line num="3" count="1" type="stmt"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="5" count="1" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="7" count="1" type="stmt"/>
-          <line num="8" count="1" type="stmt"/>
-        </file>
-      </package>
-      <package name="src.components.Resources">
+<coverage generated="1488266777363" clover="3.2.0">
+  <project timestamp="1488266777364" name="All files">
+    <metrics statements="55" coveredstatements="51" conditionals="26" coveredconditionals="14" methods="20" coveredmethods="16" elements="101" coveredelements="81" complexity="0" loc="55" ncloc="55" packages="4" files="4" classes="4">
+      <package name="Resources">
         <metrics statements="19" coveredstatements="17" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6"/>
         <file name="BiomeBlock.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\src\components\Resources\BiomeBlock.tsx">
           <metrics statements="19" coveredstatements="17" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6"/>
@@ -39,6 +25,60 @@
           <line num="21" count="1" type="stmt"/>
           <line num="24" count="1" type="stmt"/>
           <line num="26" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="Resources.__tests__">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="BiomeBlock.spec.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\src\components\Resources\__tests__\BiomeBlock.spec.tsx">
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="base">
+        <metrics statements="20" coveredstatements="18" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6"/>
+        <file name="Button.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\src\components\base\Button.tsx">
+          <metrics statements="20" coveredstatements="18" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="base.__tests__">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="Button.spec.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\src\components\base\__tests__\Button.spec.tsx">
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>
