@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1488265052945" clover="3.2.0">
+  <project timestamp="1488265052945" name="All files">
+    <metrics statements="27" coveredstatements="25" conditionals="13" coveredconditionals="7" methods="10" coveredmethods="8" elements="50" coveredelements="40" complexity="0" loc="27" ncloc="27" packages="2" files="2" classes="2">
+      <package name="__tests__">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="BiomeBlock.spec.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\__tests__\BiomeBlock.spec.tsx">
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Resources">
+        <metrics statements="19" coveredstatements="17" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6"/>
+        <file name="BiomeBlock.tsx" path="C:\Users\Emma Ramirez\Code\Clickopolis\src\components\Resources\BiomeBlock.tsx">
+          <metrics statements="19" coveredstatements="17" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
