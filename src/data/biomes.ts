@@ -5,6 +5,6 @@ const desert:IBiome = {
   description: 'dry land'
 };
 
-const biomes:IBiome[] = [
+export const biomes:IBiome[] = [
   desert
 ];
