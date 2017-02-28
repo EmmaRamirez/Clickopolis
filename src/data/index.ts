@@ -1,5 +1,6 @@
 export { achievements } from './achievement';
 export { buildings } from './building';
+export { biomes } from './biomes';
 export { citizenFunction } from './citizen-function';
 export { citizens } from './citizen';
 export { leaders } from './leader';
