@@ -25,6 +25,9 @@ game/dist
 npm-deub.log
 /dist/
 dist
+coverage
+./coverage
+coverage/*
 
 Prepros Build/
 
