@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { clickFoodButton } from 'actions/clickFoodButton';
+import { clickFoodButton } from '../../actions/clickFoodButton';
 import { MainButtons } from './MainButtons';
 
 const mapStateToProps = (state) => {

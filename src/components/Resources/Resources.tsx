@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Screen } from '../Screen';
-import { MainButtons } from './MainButtons';
+import { MainButtonsContainer } from './MainButtonsContainer';
 import { ResourceBlock } from './ResourceBlock';
 import { IResource } from '../../classes';
 import { BiomeBlock } from './BiomeBlock';
@@ -32,7 +32,7 @@ export class Resources extends Screen<ResourcesProps, {}> {
   public renderScreen():JSX.Element {
     return (
       <div className='screen-inner'>
-        <MainButtons />
+        <MainButtonsContainer />
         { this.renderBiomeBlocks(this.props.biomes) }
         { this.renderResourceBlocks(this.props.resources) }
       </div>
