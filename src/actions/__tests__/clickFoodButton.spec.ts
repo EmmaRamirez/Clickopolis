@@ -1,4 +1,4 @@
-import { clickFoodButton } from 'actions/clickFoodButton';
+import { clickFoodButton } from '../clickFoodButton';
 
 describe('clickFoodButton action', () => {
   it('should return an amount', () => {
@@ -8,5 +8,5 @@ describe('clickFoodButton action', () => {
       amount
     };
     expect(clickFoodButton(amount)).toEqual(expectedAction);
-  })
-})
+  });
+});
