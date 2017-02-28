@@ -1,5 +1,5 @@
 export { Achievement } from './achievement';
-export { Biome, BiomeType } from './biome';
+export { Biome, BiomeType, IBiome } from './biome';
 export { Building } from './building';
 export { Citizen } from './citizen';
 export { Civilization } from './civilization';

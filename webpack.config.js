@@ -3,7 +3,7 @@ var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const webpackConfig = {
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   output: {
     filename: './dist/bundle.js'
   },
@@ -24,17 +24,50 @@ const webpackConfig = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
+      },
+      {
+        test: /\.styl$/,
+        loaders: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.styl$/,
+        loader: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          name: 'fonts/[hash].[ext]',
+          limit: 5000,
+          mimetype: 'application/font-woff',
+        }
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[hash].[ext]',
+        }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[hash].[ext]'
+        }
       }
-      // {
-      //   test: /\.styl$/,
-      //   include: [
-      //     path.resolve(__dirname, 'stylus')
-      //   ],
-      //   loaders: ['style', 'css', 'stylus']
-      // },
     ]
   },
-  watch: true
-}
+  externals: {
+    'cheerio': 'window',
+    'react/addons': 'react',
+    'react/lib/ExecutionEnvironment': 'react',
+    'react/lib/ReactContext': 'react',
+  },
+};
 
 module.exports = webpackConfig;
