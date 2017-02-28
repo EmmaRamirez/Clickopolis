@@ -10,6 +10,7 @@
     "webpack": "webpack --watch",
     "stylus": "stylus -w ./src/styles/stylus/index.styl -o ./dist/styles/index.css",
     "serve": "node server.js",
+    "prepublish": "npm test",
     "start": "concurrently \"npm run build\" \"npm run serve\" \"npm run stylus\""
   },
   "author": "Emma Ramirez",
