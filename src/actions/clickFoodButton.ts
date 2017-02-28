@@ -1,4 +1,4 @@
-import { action } from './action';
+import { Action } from './action';
 
 export const clickFoodButton = (amount):Action<number> => {
   return {
