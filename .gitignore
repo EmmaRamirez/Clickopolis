@@ -11,6 +11,9 @@ clickopolis-beta
 ./clickopolis-alpha
 ./clickopolis-beta
 ./game/dist
+/coverage
+/coverage/**
+/coverage/
 
 # Node
 clickopolis-delta/node_modules
