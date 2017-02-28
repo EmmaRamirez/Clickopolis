@@ -13,7 +13,7 @@ export class BiomeBlock extends React.Component<{}, {}> {
     const { name, description } = this.props;
     return (
       <div className='biome-block'>
-        { name }
+        <div className='biome-name'>{ name }</div>
       </div>
     )
   }
