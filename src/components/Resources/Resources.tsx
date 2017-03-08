@@ -4,7 +4,6 @@ import { ResourceBlock } from './ResourceBlock';
 import { IResource } from '../../classes';
 import { BiomeBlock } from './BiomeBlock';
 import { MainButtons } from './MainButtons';
-import { MainButtonsWrapper } from './MainButtonsWrapper';
 import { IBiome } from '../../classes';
 
 //require('css-loader!stylus-loader!./styles/resources.styl');
@@ -33,9 +32,6 @@ export class Resources extends Screen<ResourcesProps, {}> {
   public renderScreen():JSX.Element {
     return (
       <div className='screen-inner'>
-        <MainButtonsWrapper
-          amount={1}
-        />
         { this.renderBiomeBlocks(this.props.biomes) }
         { this.renderResourceBlocks(this.props.resources) }
       </div>

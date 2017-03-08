@@ -9,7 +9,7 @@ export class ResourceBlock extends React.Component<ResourceBlockProps, {}> {
     super(props);
   }
 
-  public render() {
+  public render():JSX.Element {
     const { name } = this.props;
     return (
       <div className='resource-block'>
