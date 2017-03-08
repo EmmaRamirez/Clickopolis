@@ -8,7 +8,6 @@
         "noLib": false,
         "jsx": "react",
         "declaration": false,
-        "declarationDir": "./@types",
         "allowJs": true,
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
