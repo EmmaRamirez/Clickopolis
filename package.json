@@ -39,7 +39,7 @@
     "awesome-typescript-loader": "^3.0.8",
     "concurrently": "^3.3.0",
     "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.26.2",
+    "css-loader": "^0.27.0",
     "file-loader": "^0.10.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
