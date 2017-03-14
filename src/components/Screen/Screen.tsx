@@ -6,10 +6,17 @@ interface ScreenProps {
   isFocused?: boolean;
 }
 
-const screenStyles = {
-  border: '1px solid #333',
-  borderRadius: '4px',
-  padding: '1rem',
+const styles = {
+  screen: {
+    border: '1px solid #333',
+    borderRadius: '4px',
+    padding: '1rem',
+  },
+  header: {},
+  heading: {
+    fontSize: '1.3rem',
+    textAlign: 'center',
+  }
 };
 
 interface ScreenContext {
@@ -40,9 +47,9 @@ export class Screen<P, S> extends React.Component<P, S> {
 
   public render() {
     return (
-      <section style={screenStyles} className={`section ${this.subject}`}>
+      <section style={styles.screen} className={`section ${this.subject}`}>
         <div className='screen-header'>
-          <h3>{ this.subject }</h3>
+          <h3 style={styles.heading}>{ this.subject.toUpperCase() }</h3>
         </div>
         { this.renderScreen() }
       </section>
