@@ -6,7 +6,7 @@ import { BiomeBlock } from './BiomeBlock';
 import { MainButtons } from './MainButtons';
 import { IBiome } from '../../classes';
 import { styles } from '../base/styles';
-import { clickFoodButton } from '../../actions';
+import { clickFoodButton, clickProdButton } from '../../actions';
 
 interface ResourcesProps {
   biomes: IBiome[];
@@ -45,6 +45,7 @@ export class Resources extends Screen<ResourcesProps, ResourcesState> {
       <div className='screen-inner'>
         <MainButtons
           onFoodButtonClick={ () => this.context.store.dispatch(clickFoodButton(1))}
+          onProdButtonClick={ () => this.context.store.dispatch(clickProdButton(1))}
         />
         { this.renderBiomeBlocks(this.props.biomes) }
         { this.renderResourceBlocks(this.props.resources) }

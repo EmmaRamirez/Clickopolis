@@ -3,6 +3,7 @@ import { Button } from '../base';
 
 interface MainButtonsProps {
   onFoodButtonClick: (amount:number) => any;
+  onProdButtonClick: (amount:number) => any;
 }
 
 const styles = {
@@ -39,10 +40,10 @@ export class MainButtons extends React.Component<MainButtonProps, {}> {
   public render():JSX.Element {
     return (
       <div className='main-button-wrapper'>
-        <Button subject='resources' style={styles.button} onClick={ this.props.onFoodButtonClick }>
+        <Button subject='resources' style={styles.button} className='food-button' onClick={ this.props.onFoodButtonClick }>
           <img style={styles.buttonImage} src='img/food.png' /> Grow Food
         </Button>
-        <Button subject='resources' style={styles.button} className='prod-button'>
+        <Button subject='resources' style={styles.button} className='prod-button' onClick={ this.props.onProdButtonClick }>
           <img src='img/prod.png' style={styles.buttonImage} /> Create Production
         </Button>
       </div>
