@@ -1,0 +1,12 @@
+import Resource = require('./resource');
+import Collection = require('./collection');
+
+class Corporation {
+  name: string;
+  ID: string;
+  resource: Resource;
+  money: number;
+  influence: string;
+  }
+  
+export = Corporation;
