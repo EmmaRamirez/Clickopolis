@@ -11,12 +11,16 @@ const styles = StyleSheet.create({
   },
 
   resourceBlock: {
+    alignItems: 'center',
     background: '#333',
     border: '1px solid #333',
     color: '#eee',
+    display: 'flex',
+    justifyContent: 'space-between',
     margin: '.25rem 0',
     padding: '.25rem',
     transition: '500ms all',
+    width: '10rem',
   },
 
   resourceBlockHover: {
@@ -29,6 +33,13 @@ const styles = StyleSheet.create({
 
   resourceBlockImage: {
     height: '1rem',
+  },
+
+  totalIndicator: {
+    background: '#555',
+    padding: '.25rem',
+    textAlign: 'right',
+    width: '25%'
   }
 });
 
@@ -42,10 +53,11 @@ export class ResourceBlock extends React.Component<ResourceBlockProps & Resource
   }
 
   public render():JSX.Element {
-    const { name, onClick } = this.props;
+    const { name, onClick, total } = this.props;
     return (
       <div onClick={ onClick } className={css(styles.resourceBlock, styles.resourceBlockHover, styles.roundedCorners)}>
         <div><img className={css(styles.resourceBlockImage)} src={`img/${name}.png`} /> { name }</div>
+        <div className={css(styles.totalIndicator)}>{ total }</div>
       </div>
     )
   }

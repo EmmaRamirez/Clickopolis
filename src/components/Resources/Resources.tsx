@@ -34,7 +34,7 @@ export class Resources extends Screen<ResourcesProps, ResourcesState> {
 
   private renderResourceBlocks(resources):JSX.Element[] {
     return resources.map((item, index) => {
-      return <ResourceBlock name={item.name} key={index} onClick={ () => this.setState({
+      return <ResourceBlock name={item.name} total={item.total} key={index} onClick={ () => this.setState({
         selectedResourceDescription: item.description,
       })} />
     });
