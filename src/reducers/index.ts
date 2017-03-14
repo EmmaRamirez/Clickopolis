@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { foodButton } from './foodButton';
+import { foodTotal } from './foodTotal';
 
 export const appReducers = combineReducers({
-  foodButton
+  foodTotal
 });
 
 export default appReducers;
