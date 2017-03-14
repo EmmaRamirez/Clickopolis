@@ -6,7 +6,7 @@ export interface IResource {
   max: number;
   total: number;
   image: string;
-  description: string;
+  description: () => JSX.Element | string;
 
   unlocked: boolean;
   visible: boolean;

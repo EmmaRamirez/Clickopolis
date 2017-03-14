@@ -8,22 +8,20 @@ import { IBiome } from '../../classes';
 import { styles } from '../base/styles';
 import { clickFoodButton } from '../../actions';
 
-//require('./styles/resources.styl');
-
 interface ResourcesProps {
   biomes: IBiome[];
   resources: IResource[];
 }
 
 interface ResourcesState {
-  selectedResource: string;
+  selectedResourceDescription: string;
 }
 
 export class Resources extends Screen<ResourcesProps, ResourcesState> {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      selectedResources: 'stone',
+      selectedResourceDescription: '',
     };
   }
   subject = 'resources';
@@ -37,7 +35,7 @@ export class Resources extends Screen<ResourcesProps, ResourcesState> {
   private renderResourceBlocks(resources):JSX.Element[] {
     return resources.map((item, index) => {
       return <ResourceBlock name={item.name} key={index} onClick={ () => this.setState({
-        selectedResource: item.name,
+        selectedResourceDescription: item.description,
       })} />
     });
   }
@@ -50,7 +48,9 @@ export class Resources extends Screen<ResourcesProps, ResourcesState> {
         />
         { this.renderBiomeBlocks(this.props.biomes) }
         { this.renderResourceBlocks(this.props.resources) }
-        { this.state.selectedResource }
+        <div className='selected-resource'>
+          { this.state.selectedResourceDescription }
+        </div>
       </div>
     )
   }

@@ -89,7 +89,7 @@ const fish:IResource = {
   visible: true,
   name: 'fish',
   plural: 'fish',
-  description: 'Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.',
+  description: `Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.`,
 };
 
 export const resources:IResource[] = [
