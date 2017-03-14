@@ -5,6 +5,12 @@ const desert:IBiome = {
   description: 'dry land'
 };
 
+const plains:IBiome = {
+  name: 'plains',
+  description: 'temperate, flat land'
+}
+
 export const biomes:IBiome[] = [
-  desert
+  desert,
+  plains,
 ];

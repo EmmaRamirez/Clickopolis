@@ -4,6 +4,8 @@ import { Partial } from '../../utils';
 
 type BiomeBlockProps = Partial<IBiome>;
 
+const imgHeight = { height: '1rem' };
+
 export class BiomeBlock extends React.Component<BiomeBlockProps, {}> {
   constructor(props) {
     super(props);
@@ -13,7 +15,10 @@ export class BiomeBlock extends React.Component<BiomeBlockProps, {}> {
     const { name, description } = this.props;
     return (
       <div className='biome-block'>
-        <div className='biome-name'>{ name }</div>
+        <div className='biome-name'>
+          <img style={imgHeight} src={`img/${name}.png`} />
+          { name }
+        </div>
       </div>
     )
   }
