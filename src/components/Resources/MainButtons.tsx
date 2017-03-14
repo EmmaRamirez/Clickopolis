@@ -1,6 +1,16 @@
 import * as React from 'react';
 import { Button } from '../base';
 
+
+const styles = {
+  button: {
+    background: 'white',
+  },
+  buttonImage: {
+    height: '1rem',
+  }
+};
+
 export class MainButtons extends React.Component<{}, {}> {
   constructor(props) {
     super(props);
@@ -9,10 +19,10 @@ export class MainButtons extends React.Component<{}, {}> {
   public render() {
     return (
       <div className='main-button-wrappers'>
-        <Button subject='resources'>
-          <img src='assets/images/food.png' /> Grow Food
+        <Button subject='resources' className='food-button'>
+          <img src='img/food.png' style={styles.buttonImage} /> Grow Food
         </Button>
-        <Button subject='resources'>
+        <Button subject='resources' className='prod-button'>
           Prod
         </Button>
       </div>

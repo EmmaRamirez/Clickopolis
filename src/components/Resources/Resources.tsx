@@ -6,7 +6,7 @@ import { IResource } from '../../classes';
 import { BiomeBlock } from './BiomeBlock';
 import { IBiome } from '../../classes';
 
-//require('css-loader!stylus-loader!./styles/resources.styl');
+//require('./styles/resources.styl');
 
 interface ResourcesProps {
   biomes: IBiome[];

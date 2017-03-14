@@ -34,10 +34,6 @@ const webpackConfig = {
         loaders: ['style-loader', 'css-loader', 'stylus-loader']
       },
       {
-        test: /\.styl$/,
-        loader: ['style-loader', 'css-loader', 'stylus-loader']
-      },
-      {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader']
       },
