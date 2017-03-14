@@ -6,8 +6,10 @@
         "removeComments": true,
         "noLib": false,
         "jsx": "react",
+        "declaration": false,
         "allowJs": true,
         "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
         "typeRoots": ["./typings"]
     },
     "exclude": [

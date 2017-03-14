@@ -12,11 +12,9 @@
         "src": "https://raw.githubusercontent.com/cantide5ga/typed-react/42692d400db3c333394ec75bce9f6d09b5a0a769/typings.json",
         "raw": "github:cantide5ga/typed-react#42692d400db3c333394ec75bce9f6d09b5a0a769",
         "main": "react.d.ts",
-        "name": "react",
-        "type": "typings"
+        "name": "react"
       }
     },
-    "name": "react-dom",
-    "type": "typings"
+    "name": "react-dom"
   }
 }

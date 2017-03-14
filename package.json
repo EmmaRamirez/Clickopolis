@@ -8,9 +8,9 @@
     "test": "jest --coverage",
     "build": "webpack --watch --colors --progress",
     "webpack": "webpack --watch",
-    "stylus": "stylus -w ./src/styles/stylus/index.styl -o ./dist/styles/index.css",
     "serve": "node server.js",
-    "start": "concurrently \"npm run build\" \"npm run serve\" \"npm run stylus\""
+    "prepublish": "npm test",
+    "start": "concurrently \"npm run build\" \"npm run serve\""
   },
   "author": "Emma Ramirez",
   "license": "MIT",
@@ -28,10 +28,14 @@
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.2",
-    "store": "^2.0.3",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "redux-devtools": "^3.3.2",
+    "redux-saga": "^0.14.3",
+    "redux-thunk": "^2.2.0",
+    "store": "^1.3.20",
     "stylus": "^0.54.5",
     "ts-jest": "^19.0.0",
-    "ts-loader": "^2.0.1",
     "typescript": "^2.2.0",
     "underscore": "^1.8.3",
     "webpack": "^2.2.1"

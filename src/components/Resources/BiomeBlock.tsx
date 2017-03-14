@@ -4,7 +4,7 @@ import { Partial } from '../../utils';
 
 type BiomeBlockProps = Partial<IBiome>;
 
-export class BiomeBlock extends React.Component<{}, {}> {
+export class BiomeBlock extends React.Component<BiomeBlockProps, {}> {
   constructor(props) {
     super(props);
   }

@@ -24,3 +24,4 @@ export { Tech } from './tech';
 export { generateTooltips, updateTooltip, betterUpdateTooltip } from './tooltip';
 export { Trait } from './trait';
 export { Wonder } from './wonder';
+export { IResource } from './IResource';

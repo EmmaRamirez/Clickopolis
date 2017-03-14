@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { Button } from '../base';
 
+interface MainButtonsProps {
+  amount?: number;
+  onFoodButtonClick: (amount:number) => any;
+}
+
 
 const styles = {
   button: {
@@ -17,11 +22,12 @@ export class MainButtons extends React.Component<{}, {}> {
     super(props);
   }
 
-  public render() {
+  public render():JSX.Element {
     return (
-      <div className='main-button-wrappers'>
-        <Button subject='resources' className='food-button'>
-          <img src='img/food.png' style={styles.buttonImage} /> Grow Food
+      <div className='main-button-wrapper'>
+        <Button subject='resources'>
+          <img src='assets/images/food.png' /> Grow Food
+          { this.props.amount }
         </Button>
         <Button subject='resources' className='prod-button'>
           <img src='img/prod.png' style={styles.buttonImage} /> Create Production

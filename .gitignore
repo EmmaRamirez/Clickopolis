@@ -14,7 +14,7 @@ clickopolis-beta
 coverage
 /coverage
 coverage/**
-src/_deprecated
+_deprecated
 
 # Node
 clickopolis-delta/node_modules
