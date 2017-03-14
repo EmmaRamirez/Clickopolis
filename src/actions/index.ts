@@ -1,0 +1,1 @@
+export { clickFoodButton } from './clickFoodButton';

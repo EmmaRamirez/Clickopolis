@@ -24,7 +24,7 @@ export class MainButtons extends React.Component<MainButtonProps, {}> {
   public render():JSX.Element {
     return (
       <div className='main-button-wrapper'>
-        <Button subject='resources'>
+        <Button subject='resources' onClick={ this.props.onFoodButtonClick }>
           <img style={styles.buttonImage} src='img/food.png' /> Grow Food
         </Button>
         <div>{ this.props.amount }</div>

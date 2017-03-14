@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PureRender from 'pure-render-decorator';
+import { Store } from 'redux';
 
 interface ScreenProps {
   isFocused?: boolean;
@@ -11,8 +12,22 @@ const screenStyles = {
   padding: '1rem',
 };
 
-@PureRender
+interface ScreenContext {
+  store: Store<any>;
+}
+
+function StoreContext (target: any) {
+  target.contextTypes = target.contextTypes || {};
+  target.contextTypes.store = React.PropTypes.object.isRequired;
+}
+
+@StoreContext
 export class Screen<P, S> extends React.Component<P, S> {
+  constructor(P, context) {
+    super(P, context);
+  }
+
+  protected context: ScreenContext;
   protected subject: string;
 
   protected componentWillReceiveProps() {
