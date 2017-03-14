@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important';
 import { Partial } from '../../utils';
 import { IResource } from '../../classes';
+import { styles as globalStyles } from '../base/styles';
 
 type ResourceBlockProps = Partial<IResource>;
 
@@ -12,6 +13,8 @@ const styles = StyleSheet.create({
 
   resourceBlock: {
     border: '1px solid #eee',
+    margin: '.25rem 0',
+    padding: '.25rem',
   },
 
   resourceBlockImage: {
