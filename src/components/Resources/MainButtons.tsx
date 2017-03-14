@@ -23,7 +23,7 @@ export class MainButtons extends React.Component<{}, {}> {
           <img src='img/food.png' style={styles.buttonImage} /> Grow Food
         </Button>
         <Button subject='resources' className='prod-button'>
-          Prod
+          <img src='img/prod.png' style={styles.buttonImage} /> Create Production
         </Button>
       </div>
     );
