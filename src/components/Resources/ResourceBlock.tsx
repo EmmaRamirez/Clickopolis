@@ -21,15 +21,19 @@ const styles = StyleSheet.create({
   }
 });
 
-export class ResourceBlock extends React.Component<ResourceBlockProps, {}> {
+interface ResourceBlockInteractions {
+  onClick: (type: string) => void;
+}
+
+export class ResourceBlock extends React.Component<ResourceBlockProps & ResourceBlockInteractions, {}> {
   constructor(props) {
     super(props);
   }
 
   public render():JSX.Element {
-    const { name } = this.props;
+    const { name, onClick } = this.props;
     return (
-      <div className={css(styles.resourceBlock, styles.roundedCorners)}>
+      <div onClick={ onClick } className={css(styles.resourceBlock, styles.roundedCorners)}>
         <div><img className={css(styles.resourceBlockImage)} src={`img/${name}.png`} /> { name }</div>
       </div>
     )

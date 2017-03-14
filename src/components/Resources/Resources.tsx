@@ -15,9 +15,18 @@ interface ResourcesProps {
   resources: IResource[];
 }
 
-export class Resources extends Screen<ResourcesProps, {}> {
-  subject = 'resources';
+interface ResourcesState {
+  selectedResource: string;
+}
 
+export class Resources extends Screen<ResourcesProps, ResourcesState> {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      selectedResources: 'stone',
+    };
+  }
+  subject = 'resources';
 
   private renderBiomeBlocks(biomes:IBiome[]):JSX.Element[] {
     return biomes.map((item, index) => {
@@ -27,7 +36,9 @@ export class Resources extends Screen<ResourcesProps, {}> {
 
   private renderResourceBlocks(resources):JSX.Element[] {
     return resources.map((item, index) => {
-      return <ResourceBlock name={item.name} key={index} />
+      return <ResourceBlock name={item.name} key={index} onClick={ () => this.setState({
+        selectedResource: item.name,
+      })} />
     });
   }
 
@@ -39,6 +50,7 @@ export class Resources extends Screen<ResourcesProps, {}> {
         />
         { this.renderBiomeBlocks(this.props.biomes) }
         { this.renderResourceBlocks(this.props.resources) }
+        { this.state.selectedResource }
       </div>
     )
   }
