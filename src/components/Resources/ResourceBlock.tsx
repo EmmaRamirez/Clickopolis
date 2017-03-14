@@ -11,12 +11,21 @@ const styles = StyleSheet.create({
   },
 
   resourceBlock: {
-    background: '#444',
+    background: '#333',
     border: '1px solid #333',
     color: '#eee',
     margin: '.25rem 0',
     padding: '.25rem',
+    transition: '500ms all',
   },
+
+  resourceBlockHover: {
+    ':hover': {
+      background: '#222',
+      cursor: 'pointer',
+      transition: '500ms all',
+    }
+  }
 
   resourceBlockImage: {
     height: '1rem',
@@ -35,7 +44,7 @@ export class ResourceBlock extends React.Component<ResourceBlockProps & Resource
   public render():JSX.Element {
     const { name, onClick } = this.props;
     return (
-      <div onClick={ onClick } className={css(styles.resourceBlock, styles.roundedCorners)}>
+      <div onClick={ onClick } className={css(styles.resourceBlock, styles.resourceBlockHover, styles.roundedCorners)}>
         <div><img className={css(styles.resourceBlockImage)} src={`img/${name}.png`} /> { name }</div>
       </div>
     )
