@@ -9,6 +9,7 @@ interface ButtonProps {
 }
 
 const baseButtonStyles = {
+  background: 'white',
   border: '1px solid #eee',
   borderRadius: '4px',
   padding: '.5rem',
@@ -22,9 +23,9 @@ export class Button extends React.Component<ButtonProps, {}> {
   public render() {
     const { children, onClick, className, styles } = this.props;
     return (
-      <div onClick={onClick} style={{...baseButtonStyles, ...styles}} className={`button ${className || ''}`}>
+      <button onClick={onClick} style={{...baseButtonStyles, ...styles}} className={`button ${className || ''}`}>
         { children }
-      </div>
+      </button>
     )
   }
 }

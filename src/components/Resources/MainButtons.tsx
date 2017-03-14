@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Button } from '../base';
 
 interface MainButtonsProps {
-  amount?: number;
   onFoodButtonClick: (amount:number) => any;
 }
 
@@ -16,9 +15,25 @@ const styles = {
   }
 };
 
+interface ComponentContext {
+  store: Store<any>;
+}
+
+function StoreContext (target: any) {
+  target.contextTypes = target.contextTypes || {};
+  target.contextTypes.store = React.PropTypes.object.isRequired;
+}
+
+@StoreContext
 export class MainButtons extends React.Component<MainButtonProps, {}> {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  context: ComponentContext;
+
+  private componentWillReceiveProps() {
+    this.forceUpdate();
   }
 
   public render():JSX.Element {
@@ -27,7 +42,7 @@ export class MainButtons extends React.Component<MainButtonProps, {}> {
         <Button subject='resources' onClick={ this.props.onFoodButtonClick }>
           <img style={styles.buttonImage} src='img/food.png' /> Grow Food
         </Button>
-        <div>{ this.props.amount }</div>
+        <div></div>
         <Button subject='resources' className='prod-button'>
           <img src='img/prod.png' style={styles.buttonImage} /> Create Production
         </Button>
