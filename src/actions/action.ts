@@ -3,8 +3,8 @@ function pluck<T, K extends keyof T>(o: T, names: K[]): T[K][] {
 }
 
 export interface Action<T> {
-  type: string;
-  amount?: T;
+  type: T;
+  [payload: string]: any;
   error?: boolean;
   meta?: any;
 }
