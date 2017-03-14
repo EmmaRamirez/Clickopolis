@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@blueprintjs/core": "^1.10.0",
+    "aphrodite": "^1.2.0",
     "cheerio": "^0.22.0",
     "enzyme": "^2.7.1",
     "express": "^4.14.0",
@@ -37,15 +38,14 @@
     "ts-jest": "^19.0.0",
     "typescript": "^2.2.0",
     "underscore": "^1.8.3",
-    "webpack": "^1.13.1"
+    "webpack": "^2.2.1"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.0.8",
-    "concurrently": "^2.0.0",
-    "copy-webpack-plugin": "^3.0.0",
-    "css-loader": "^0.23.1",
+    "concurrently": "^3.3.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.27.0",
     "file-loader": "^0.10.1",
-    "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
   },

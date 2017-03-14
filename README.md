@@ -1,4 +1,6 @@
 # Clickopolis :factory:
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/EmmaRamirez/Clickopolis.svg)](https://greenkeeper.io/)
 A clicking-based civilization game.
 
 [![Code Climate](https://codeclimate.com/github/EmmaRamirez/Clickopolis/badges/gpa.svg)](https://codeclimate.com/github/EmmaRamirez/Clickopolis)

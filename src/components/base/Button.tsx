@@ -5,6 +5,7 @@ interface ButtonProps {
   styles?: object;
   enableEnterActivation?: boolean;
   onClick?: () => void;
+  className?: string;
 }
 
 const baseButtonStyles = {
@@ -19,9 +20,9 @@ export class Button extends React.Component<ButtonProps, {}> {
   }
 
   public render() {
-    const { children } = this.props;
+    const { children, onClick, className, styles } = this.props;
     return (
-      <div onClick={this.props.onClick} style={baseButtonStyles} className='button'>
+      <div onClick={onClick} style={{...baseButtonStyles, ...styles}} className={`button ${className || ''}`}>
         { children }
       </div>
     )

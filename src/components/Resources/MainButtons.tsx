@@ -6,7 +6,18 @@ interface MainButtonsProps {
   onFoodButtonClick: (amount:number) => any;
 }
 
-export class MainButtons extends React.Component<MainButtonsProps, {}> {
+
+const styles = {
+  button: {
+    background: 'white',
+    margin: '.25rem',
+  },
+  buttonImage: {
+    height: '1rem',
+  }
+};
+
+export class MainButtons extends React.Component<{}, {}> {
   constructor(props) {
     super(props);
   }
@@ -18,8 +29,8 @@ export class MainButtons extends React.Component<MainButtonsProps, {}> {
           <img src='assets/images/food.png' /> Grow Food
           { this.props.amount }
         </Button>
-        <Button subject='resources'>
-          Prod
+        <Button subject='resources' className='prod-button'>
+          <img src='img/prod.png' style={styles.buttonImage} /> Create Production
         </Button>
       </div>
     );

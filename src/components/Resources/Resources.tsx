@@ -5,8 +5,9 @@ import { IResource } from '../../classes';
 import { BiomeBlock } from './BiomeBlock';
 import { MainButtons } from './MainButtons';
 import { IBiome } from '../../classes';
+import { styles } from '../base/styles';
 
-//require('css-loader!stylus-loader!./styles/resources.styl');
+//require('./styles/resources.styl');
 
 interface ResourcesProps {
   biomes: IBiome[];

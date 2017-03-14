@@ -23,15 +23,15 @@ const webpackConfig = {
     loaders: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        exclude: [
+          "typings",
+          "src/_deprecated/index.ts"
+        ]
       },
       {
         test: /\.styl$/,
         loaders: ['style-loader', 'css-loader', 'stylus-loader']
-      },
-      {
-        test: /\.styl$/,
-        loader: ['style-loader', 'css-loader', 'stylus-loader']
       },
       {
         test: /\.css$/,
