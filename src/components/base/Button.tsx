@@ -13,6 +13,7 @@ const baseButtonStyles = {
   border: '1px solid #eee',
   borderRadius: '4px',
   padding: '.5rem',
+  margin: '.25rem',
 };
 
 export class Button extends React.Component<ButtonProps, {}> {
