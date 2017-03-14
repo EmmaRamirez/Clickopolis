@@ -5,6 +5,7 @@ import { Button } from '../base';
 const styles = {
   button: {
     background: 'white',
+    margin: '.25rem',
   },
   buttonImage: {
     height: '1rem',

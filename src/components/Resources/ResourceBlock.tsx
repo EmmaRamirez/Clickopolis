@@ -2,7 +2,6 @@ import * as React from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important';
 import { Partial } from '../../utils';
 import { IResource } from '../../classes';
-import { styles as globalStyles } from '../base/styles';
 
 type ResourceBlockProps = Partial<IResource>;
 

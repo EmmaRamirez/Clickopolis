@@ -5,6 +5,7 @@ import { ResourceBlock } from './ResourceBlock';
 import { IResource } from '../../classes';
 import { BiomeBlock } from './BiomeBlock';
 import { IBiome } from '../../classes';
+import { styles } from '../base/styles';
 
 //require('./styles/resources.styl');
 
