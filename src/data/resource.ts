@@ -92,8 +92,21 @@ const fish:IResource = {
   description: `Fish are caught in nets by citizens periodically, if you live in a Coastal or Island biome, or have discovered a river. Each fish provides +.5 <img src="img/health.png"> Fish are a popular trade item with Desert nations.`,
 };
 
+const banana:IResource = {
+  perClick: 0,
+  perSecond: 0,
+  max: -1,
+  total: 0,
+  unlocked: false,
+  visible: true,
+  name: 'banana',
+  plural: 'banana',
+  description: 'Bananas are harvested by farmers periodically. Each banana provides +1 <img src="img/health.png"> Bananas are a popular trade item with Tundra nations.'
+};
+
 export const resources:IResource[] = [
   stone,
   wood,
-  fish
+  fish,
+  banana,
 ];
