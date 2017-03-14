@@ -16,6 +16,10 @@ const styles = {
   heading: {
     fontSize: '1.3rem',
     textAlign: 'center',
+  },
+  headingImage: {
+    height: '1rem',
+    marginRight: '.25rem',
   }
 };
 
@@ -49,7 +53,10 @@ export class Screen<P, S> extends React.Component<P, S> {
     return (
       <section style={styles.screen} className={`section ${this.subject}`}>
         <div className='screen-header'>
-          <h3 style={styles.heading}>{ this.subject.toUpperCase() }</h3>
+          <h3 style={styles.heading}>
+            <img style={styles.headingImage} src={`img/${this.subject}.png`} />
+            { this.subject.toUpperCase() }
+          </h3>
         </div>
         { this.renderScreen() }
       </section>
