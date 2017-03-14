@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
   },
 
   resourceBlock: {
-    border: '1px solid #eee',
+    background: '#444',
+    border: '1px solid #333',
+    color: '#eee',
     margin: '.25rem 0',
     padding: '.25rem',
   },
