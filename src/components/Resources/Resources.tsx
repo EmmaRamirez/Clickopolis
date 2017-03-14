@@ -33,6 +33,7 @@ export class Resources extends Screen<ResourcesProps, {}> {
   public renderScreen():JSX.Element {
     return (
       <div className='screen-inner'>
+        <MainButtons amount={0} onFoodButtonClick={ () => store.dispatch(clickFoodButton(1))}/>
         { this.renderBiomeBlocks(this.props.biomes) }
         { this.renderResourceBlocks(this.props.resources) }
       </div>

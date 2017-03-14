@@ -4,8 +4,15 @@ import { Root } from './components/Root';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { appReducers } from './reducers';
+import * as createLogger from 'redux-logger';
 
-let store = createStore(appReducers);
+const logger = createLogger();
+
+const store = createStore(
+  appReducers,
+  applyMiddleware(logger)
+);
+
 const mountNode = document.getElementById('app');
 
 ReactDOM.render(

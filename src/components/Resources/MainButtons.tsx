@@ -6,7 +6,6 @@ interface MainButtonsProps {
   onFoodButtonClick: (amount:number) => any;
 }
 
-
 const styles = {
   button: {
     background: 'white',
@@ -17,7 +16,7 @@ const styles = {
   }
 };
 
-export class MainButtons extends React.Component<{}, {}> {
+export class MainButtons extends React.Component<MainButtonProps, {}> {
   constructor(props) {
     super(props);
   }
@@ -26,9 +25,9 @@ export class MainButtons extends React.Component<{}, {}> {
     return (
       <div className='main-button-wrapper'>
         <Button subject='resources'>
-          <img src='assets/images/food.png' /> Grow Food
-          { this.props.amount }
+          <img style={styles.buttonImage} src='img/food.png' /> Grow Food
         </Button>
+        <div>{ this.props.amount }</div>
         <Button subject='resources' className='prod-button'>
           <img src='img/prod.png' style={styles.buttonImage} /> Create Production
         </Button>

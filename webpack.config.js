@@ -17,7 +17,10 @@ const webpackConfig = {
       { from: './src/assets/img', to: './dist/img' },
       { from: './src/index.html', to: './dist/index.html' },
       { from: './node_modules/store/store.js', to: './dist/store.js' }
-    ])
+    ]),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
   ],
   module: {
     loaders: [
